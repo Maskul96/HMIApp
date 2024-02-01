@@ -18,6 +18,7 @@ namespace HMIApp
         public int Port { get; private set; }
         public int Timeout_ms { get; private set; }
 
+
         //zmienne
         private const int kMaxErrorsToReset = 10000;
         private bool connected_;

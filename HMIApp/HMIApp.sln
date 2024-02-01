@@ -5,6 +5,8 @@ VisualStudioVersion = 17.7.34202.233
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HMIApp", "HMIApp\HMIApp.csproj", "{086C7591-4660-46B2-8966-D4AEE41E5BCF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HMIApp.Tests", "HMIApp.Tests\HMIApp.Tests.csproj", "{2648E205-96CB-4723-BF4E-23FA1C8CB7F7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{086C7591-4660-46B2-8966-D4AEE41E5BCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{086C7591-4660-46B2-8966-D4AEE41E5BCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{086C7591-4660-46B2-8966-D4AEE41E5BCF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2648E205-96CB-4723-BF4E-23FA1C8CB7F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2648E205-96CB-4723-BF4E-23FA1C8CB7F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2648E205-96CB-4723-BF4E-23FA1C8CB7F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2648E205-96CB-4723-BF4E-23FA1C8CB7F7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

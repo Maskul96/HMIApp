@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,9 +12,11 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace HMIApp
 {
-    public partial class Form1 : Form
+    public partial class Form1 : Form 
     {
+        //Stworzenie obiektu z konfiguracja sterownika
         SiemensPLC PLC = new SiemensPLC("192.168.2.1", 102, 0, 1, 1000000);
+        //Teraz zrobic odczytywanie danych z excela na wzor DBkow Siemens
         byte[] result = new byte[7];
         public Form1()
         {
@@ -43,13 +46,13 @@ namespace HMIApp
             //float fltValue = (float)Convert.ToDouble(temp2);
            // var i = libnodave.daveToPLCfloat(fltValue);
            // byte[] intBytes1 = BitConverter.GetBytes(i);
-           /// PLC.Write(666, 2, 4, intBytes1);
+           // PLC.Write(666, 2, 4, intBytes1);
             //write INT
             //string temp3 = textBox3.Text;
            // short intValue = Convert.ToInt16(temp3);
             //byte[] intBytes = BitConverter.GetBytes(intValue);
            //Array.Reverse(intBytes);
-//PLC.Write(666, 0, 2, intBytes);
+            //PLC.Write(666, 0, 2, intBytes);
             //Write BOOL
             //string temp4 = textBox4.Text;
            // bool boolValue = Convert.ToBoolean(temp4);
