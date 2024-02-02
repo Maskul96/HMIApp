@@ -1,4 +1,7 @@
-﻿using System;
+﻿using HMIApp.Components.CSVReader;
+using HMIApp.Components;
+using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,10 +21,23 @@ namespace HMIApp
         SiemensPLC PLC = new SiemensPLC("192.168.2.1", 102, 0, 1, 1000000);
         //Teraz zrobic odczytywanie danych z excela na wzor DBkow Siemens
         byte[] result = new byte[7];
+
+
+
         public Form1()
         {
             InitializeComponent();
-            PLC.Init();
+            //Services do dependency injection
+            var services = new ServiceCollection();
+            services.AddSingleton<iApp, App>();
+            services.AddSingleton<iCSVReader, CSVReader>();
+            //Na podstawie service providera wyciagamy sobie implementacje Interfejsu
+            var serviceProvider = services.BuildServiceProvider();
+            var app = serviceProvider.GetService<iApp>();
+            app.Run();
+
+            // PLC.Init();
+
         }
 
         //metody read i write
