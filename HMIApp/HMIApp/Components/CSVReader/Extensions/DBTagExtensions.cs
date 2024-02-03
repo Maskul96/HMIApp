@@ -10,7 +10,7 @@ namespace HMIApp.Components.CSVReader.Extensions
 {
     public static class DBTagExtensions
     {
-        //metoda pozwala uzyskac DBTagi bezposrednio wypelnione z pliku z ominietymi przecinkami
+        //metoda pozwala uzyskac DBTagi bezposrednio wypelnione z pliku z ominietymi przecinkami w postaci stringow
         public static IEnumerable<DBTag> ToDBTag(this IEnumerable<string> source)
         {
             foreach (var item in source)

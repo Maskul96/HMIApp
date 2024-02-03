@@ -1,7 +1,7 @@
 Name,Type,Byte,Bit,Length
-DB666.Tag0,Bool,0,0,0
-DB666.Tag0,Bool,0,0,0
-DB666.Tag5,Byte,0,5,1
+DB6666.Tag0,Bool,0,0,0
+DB6666.Tag0,Bool,0,0,0
+DB66.Tag5,Byte,0,5,1
 DB666.Tag5,Byte,0,5,1
 DB666.Tag10,Int,3,0,2
 DB666.Tag10,Int,3,0,2

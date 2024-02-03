@@ -39,6 +39,9 @@ namespace HMIApp
             // PLC.Init();
 
         }
+        //OBCZAIC DELEGATY I ZDARZENIA NJAPIERW!
+        //Odczytywanie z pliku mamy - teraz rekordy w pliku powrzucac do metody PLC.Read i przetestować odczyt
+        //I te same rekordy uzyć do wskazan miejsc do zapisu
 
         //metody read i write
         private void button1_Click(object sender, EventArgs e)

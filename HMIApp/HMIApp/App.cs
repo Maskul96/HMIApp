@@ -24,6 +24,10 @@ namespace HMIApp
 
             foreach (var dbTag in dbtags)
             {
+                //Wyciagniecie z nazyw DBka jego numer
+                int position = dbTag.TagName.IndexOf('.')-2;
+                dbTag.TagName = dbTag.TagName.Substring(2, position);
+                
                 MessageBox.Show($"Nazwa Taga z DB: {dbTag.TagName}, Typ danych z DB: {dbTag.DataTypeOfTag}, Numer byte z DB: {dbTag.NumberOfByteInDB}" +
                     $"Numer byte z DB: {dbTag.NumberOfBitInByte}, Dlugosc danej z DB: {dbTag.LengthDataType}");
 
