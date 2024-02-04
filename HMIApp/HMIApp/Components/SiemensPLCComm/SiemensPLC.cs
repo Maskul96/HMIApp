@@ -116,6 +116,7 @@ namespace HMIApp
             }
         }
 
+        //Mozna zrobic tutaj delegaty do Read i Write?
         //Odczyt z DB
         public bool Read(int db, int start, int len, byte[] bytes)
         {
