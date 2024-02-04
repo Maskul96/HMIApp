@@ -1,9 +1,9 @@
 Name,Type,Byte,Bit,Length
-DB6666.Tag0,Bool,0,0,0
-DB6666.Tag0,Bool,0,0,0
-DB66.Tag5,Byte,0,5,1
-DB666.Tag5,Byte,0,5,1
-DB666.Tag10,Int,3,0,2
-DB666.Tag10,Int,3,0,2
-DB666.Tag18,Real,27,0,4
-DB666.Tag18,Real,27,0,4
+DB666.Tag0,Bool,0,0,0
+DB666.Tag1,Bool,0,0,0
+DB666.Tag2,Byte,1,5,1
+DB666.Tag3,Byte,2,5,1
+DB666.Tag4,Int,4,0,2
+DB666.Tag5,Int,6,0,2
+DB666.Tag6,Real,8,0,4
+DB666.Tag7,Real,12,0,4

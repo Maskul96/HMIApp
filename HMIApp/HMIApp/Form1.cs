@@ -15,7 +15,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace HMIApp
 {
-    public partial class Form1 : Form 
+    public partial class Form1 : Form
     {
         //Stworzenie obiektu z konfiguracja sterownika
         SiemensPLC PLC = new SiemensPLC("192.168.2.1", 102, 0, 1, 1000000);
@@ -36,16 +36,15 @@ namespace HMIApp
             var app = serviceProvider.GetService<iApp>();
             app.Run();
 
-            // PLC.Init();
-
+            PLC.Init();
+            
         }
-        //OBCZAIC DELEGATY I ZDARZENIA NJAPIERW!
-        //Odczytywanie z pliku mamy - teraz rekordy w pliku powrzucac do metody PLC.Read i przetestować odczyt
-        //I te same rekordy uzyć do wskazan miejsc do zapisu
+        //OBCZAIC DELEGATY I ZDARZENIA 
 
         //metody read i write
         private void button1_Click(object sender, EventArgs e)
         {
+            
             //Read DB
             PLC.Read(666, 0, 7, result);
             //Read INT16
@@ -60,23 +59,23 @@ namespace HMIApp
         private void button2_Click(object sender, EventArgs e)
         {
             //Write DB
-           // string temp2 = textBox2.Text;
+            // string temp2 = textBox2.Text;
             //Write Float
             //float fltValue = (float)Convert.ToDouble(temp2);
-           // var i = libnodave.daveToPLCfloat(fltValue);
-           // byte[] intBytes1 = BitConverter.GetBytes(i);
-           // PLC.Write(666, 2, 4, intBytes1);
+            // var i = libnodave.daveToPLCfloat(fltValue);
+            // byte[] intBytes1 = BitConverter.GetBytes(i);
+            // PLC.Write(666, 2, 4, intBytes1);
             //write INT
             //string temp3 = textBox3.Text;
-           // short intValue = Convert.ToInt16(temp3);
+            // short intValue = Convert.ToInt16(temp3);
             //byte[] intBytes = BitConverter.GetBytes(intValue);
-           //Array.Reverse(intBytes);
+            //Array.Reverse(intBytes);
             //PLC.Write(666, 0, 2, intBytes);
             //Write BOOL
             //string temp4 = textBox4.Text;
-           // bool boolValue = Convert.ToBoolean(temp4);
-           // byte[] intBytes2 = BitConverter.GetBytes(boolValue);
-           // PLC.Write(666, 6, 1, intBytes2);
+            // bool boolValue = Convert.ToBoolean(temp4);
+            // byte[] intBytes2 = BitConverter.GetBytes(boolValue);
+            // PLC.Write(666, 6, 1, intBytes2);
         }
     }
 }
