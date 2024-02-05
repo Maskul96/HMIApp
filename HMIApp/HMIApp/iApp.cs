@@ -12,6 +12,7 @@ namespace HMIApp
         void RunReadFromCSVFileandReadFromDB();
 
         void WriteToDB(string DataTypeofTag, int NrOfByteinDB, int LengthofDataType);
+        void WriteToDB(string DataTypeofTag, int NrOfByteinDB, int LengthofDataType, int NrOfBitinByte);
 
     }
 }

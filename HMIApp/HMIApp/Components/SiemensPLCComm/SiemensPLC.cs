@@ -168,6 +168,7 @@ namespace HMIApp
             }
             catch (Exception ex)
             {
+                MessageBox.Show("Blad tutaj");
                 AddContinuousWritingErrors();
                 MessageBox.Show($"{ex.ToString()}");
                 return false;
