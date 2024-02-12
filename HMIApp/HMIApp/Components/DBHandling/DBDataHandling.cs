@@ -1,10 +1,12 @@
 ﻿using HMIApp.Components.CSVReader.Models;
 using HMIApp.Components.CSVReader;
 using HMIApp.Components;
+using HMIApp;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Microsoft.Extensions.DependencyInjection;
 using System.Threading.Tasks;
 
 
@@ -30,6 +32,8 @@ namespace HMIApp.Components.DBHandling
             this.EndDB = endDB;
 
         }
+
+        
 
         //Stworzenie obiektu z konfiguracja sterownika
         SiemensPLC PLC = new SiemensPLC("192.168.2.1", 102, 0, 1, 1000000);

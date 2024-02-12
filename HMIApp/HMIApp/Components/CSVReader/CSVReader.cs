@@ -11,6 +11,10 @@ namespace HMIApp.Components.CSVReader
 {
     public class CSVReader : iCSVReader
     {
+        public CSVReader()
+        {
+            
+        }
         public List<DBTag> DBStructure(string filePath)
         {
             if(!File.Exists(filePath))

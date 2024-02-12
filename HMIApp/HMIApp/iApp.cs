@@ -9,10 +9,8 @@ namespace HMIApp
     public interface iApp
     {
         void RunInitPLC();
-        void RunReadFromCSVFileandReadFromDB();
-
-        void WriteToDB(string DataTypeofTag, int NrOfByteinDB, int LengthofDataType);
-        void WriteToDB(string DataTypeofTag, int NrOfByteinDB, int LengthofDataType, int NrOfBitinByte);
+        void ReadFromDB();
+        void WriteToDB(string DataTypeofTag);
 
     }
 }

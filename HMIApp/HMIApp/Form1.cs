@@ -19,8 +19,9 @@ namespace HMIApp
     {
         //Konstruktor bezparametrowy do wywolywania funkcji z klasy App do Zapisu danych
         //Nie dziala prawidlowo - zapis dziala tylko dla konstruktora wywolanego w Form1
-        //App App = new App();
         //Zapis i odczyt trzeba bedzie przerzucic raczej tutaj
+
+        App App = new App();
         public Form1()
         {
             InitializeComponent();
@@ -31,11 +32,18 @@ namespace HMIApp
             //Na podstawie service providera wyciagamy sobie implementacje Interfejsu
             var serviceProvider = services.BuildServiceProvider();
             var app = serviceProvider.GetService<iApp>();
-            app.RunInitPLC();
-            app.RunReadFromCSVFileandReadFromDB();
-            app.WriteToDB("Bool", 0, 1,7);
+            // app.RunInitPLC();
+            App.RunInitPLC();
+            App.ReadFromDB();
 
         }
+
+        //Zapis 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            App.WriteToDB("DB666.Tag2");
+        }
+
 
         //OBCZAIC DELEGATY I ZDARZENIA 
     }

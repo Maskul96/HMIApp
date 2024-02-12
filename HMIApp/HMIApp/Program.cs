@@ -22,14 +22,6 @@ namespace HMIApp
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
-            //Ponizszy kod przerzucomy do Form1.cs
-                ////Services do dependency injection
-                //var services = new ServiceCollection();
-                //services.AddSingleton<iApp,App>();
-                //services.AddSingleton<iCSVReader, CSVReader>();
-                ////Na podstawie service providera wyciagamy sobie implementacje Interfejsu
-                //var serviceProvider = services.BuildServiceProvider();
-                //var app = serviceProvider.GetService<iApp>();
             
         }
     }
