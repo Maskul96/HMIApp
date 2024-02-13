@@ -17,9 +17,9 @@ namespace HMIApp
 {
     public partial class Form1 : Form
     {
-        //Konstruktor bezparametrowy do wywolywania funkcji z klasy App do Zapisu danych
-        //Nie dziala prawidlowo - zapis dziala tylko dla konstruktora wywolanego w Form1
-        //Zapis i odczyt trzeba bedzie przerzucic raczej tutaj
+        //Referencje przechowywane w PLC - w pozniejszym etapie zrobic przechowywanie w bazie danych
+        //Obiekty z Form1 Design ustawione z dostepem jako public zeby mozna bylo miec do nich dostep z innej klasy poprzez konstruktor
+        //Ogarniete odczytywanie/zapisywanie z PLC - teraz je przetestowac i potem ogarnac wlasne ikony
 
         App App = new App();
         public Form1()
@@ -41,8 +41,10 @@ namespace HMIApp
         //Zapis 
         private void button1_Click(object sender, EventArgs e)
         {
-            App.WriteToDB("DB666.Tag2");
+            App.WriteToDB(textBox1.Text);
         }
+
+
 
 
         //OBCZAIC DELEGATY I ZDARZENIA 

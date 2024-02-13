@@ -69,7 +69,6 @@
     <Compile Include="Components\CSVReader\Extensions\DBTagExtensions.cs" />
     <Compile Include="Components\CSVReader\Models\DBTag.cs" />
     <Compile Include="Components\CSVReader\iCSVReader.cs" />
-    <Compile Include="Components\DBHandling\DBDataHandling.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,6 +103,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <None Include="Resources\Files\tags_zone_0.csv" />
+    <None Include="Resources\Files\tags_zone_1.csv" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -23,6 +23,8 @@ namespace HMIApp
         public string DBRead_NumberOfDB;
         public int DBRead_StartDB;
         public int DBRead_EndDB;
+        public int DBRead_NrOfByteinDB;
+        public Form1 obj = null;
 
         //Zmienne do DBka do zapisywania
         public int DBWrite_position;
@@ -31,7 +33,7 @@ namespace HMIApp
         public int DBWrite_LengthofDataType;
         public int DBWrite_NrOfByteinDB;
         public int DBWrite_NrOfBitinByte;
-        //ponizej dwa konstruktory pierwszy parametryzowany drugi bez parametrow
+
         public App(iCSVReader csvReader)
         {
             _csvReader = csvReader;
@@ -39,6 +41,11 @@ namespace HMIApp
         public App()
         {
 
+        }
+        //Ponizej konstruktor z parametrem obj do przekazywania obiektow z Form1 do wnętrza klasy
+        public App(Form1 obj)
+        {
+            this.obj = obj;
         }
 
         //Stworzenie obiektu z konfiguracja sterownika
@@ -50,7 +57,6 @@ namespace HMIApp
         }
 
         //Odczyt z pliku CSV i od razu odczyt danych z DBka
-        //Tutaj metoda powinna zwracać w postaci listy odczytane dane i udostępniac żeby móc je użyć w Form1 i podpisac pod obiekty
         public void ReadFromDB()
         {
             var dbtags = CSVReader.DBStructure("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_0.csv");
@@ -60,7 +66,7 @@ namespace HMIApp
                 //Wyciagniecie z nazwy DBka jego numer
                 DBRead_position = dbTag.TagName.IndexOf('.') - 2;
                 DBRead_NumberOfDB = dbTag.TagName.Substring(2, DBRead_position);
-
+                DBRead_NrOfByteinDB = dbTag.NumberOfByteInDB;
                 //Wyciagniecie startowej pozycji i końcowej pozycji DBka - ustalamy dlugosc danych
                 if (dbtags.First() == dbTag)
                 {
@@ -81,32 +87,43 @@ namespace HMIApp
                 switch (dbTag.DataTypeOfTag.ToUpper())
                 {
                     case "BOOL":
-                        //Read BOOL
+                        //Read BOOL               
                         var value = DB[0];
                         var values = new bool[8];
+                        //To ponizej trzeba bedzie przerobic pozniej na cos mądrzejszego
                         values[0] = (value & 1) == 0 ? false : true;
+                        obj.textBox2.Text = values[0].ToString();
                         values[1] = (value & 2) == 0 ? false : true;
+                        obj.textBox3.Text = values[1].ToString();
                         values[2] = (value & 4) == 0 ? false : true;
+                        obj.textBox4.Text = values[2].ToString();
                         values[3] = (value & 8) == 0 ? false : true;
+                        obj.textBox5.Text = values[3].ToString();
                         values[4] = (value & 16) == 0 ? false : true;
+                        obj.textBox6.Text = values[4].ToString();
                         values[5] = (value & 32) == 0 ? false : true;
+                        obj.textBox7.Text = values[5].ToString();
                         values[6] = (value & 64) == 0 ? false : true;
+                        obj.textBox8.Text = values[6].ToString();
                         values[7] = (value & 128) == 0 ? false : true;
+                        obj.textBox9.Text = values[7].ToString();
                         break;
                     case "BYTE":
-                        var l = DB[2];
+                        obj.textBox10.Text = Convert.ToString(DB[1]);
+                        obj.textBox11.Text = Convert.ToString(DB[2]);
                         break;
                     case "INT":
                         //Read INT16
-                        var j = libnodave.getS16from(DB, 4);
+                        obj.textBox12.Text = Convert.ToString(libnodave.getS16from(DB, 4));
+                        obj.textBox13.Text = Convert.ToString(libnodave.getS16from(DB, 6));
                         break;
                     case "REAL":
                         //Read FLOAT
-                        var k = libnodave.getFloatfrom(DB, 8);
+                        obj.textBox14.Text = Convert.ToString(libnodave.getFloatfrom(DB, 8));
                         break;
                     case "DINT":
                         //Read DINT
-                        var m = libnodave.getS32from(DB, 12);
+                        obj.textBox15.Text = Convert.ToString(libnodave.getS32from(DB, 12));
                         break;
                     default:
                         break;
