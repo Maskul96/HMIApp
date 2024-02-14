@@ -10,7 +10,7 @@ namespace HMIApp
     {
         void RunInitPLC();
         void ReadFromDB();
-        void WriteToDB(string DataTypeofTag);
+        void WriteToDB(string valuetoWrite, string DataTypeofTag);
 
     }
 }

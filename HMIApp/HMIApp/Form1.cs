@@ -25,6 +25,7 @@ namespace HMIApp
         public Form1()
         {
             InitializeComponent();
+            _Form1 = this;
             //Services do dependency injection
             var services = new ServiceCollection();
             services.AddSingleton<iApp, App>();
@@ -35,18 +36,26 @@ namespace HMIApp
             // app.RunInitPLC();
             App.RunInitPLC();
             App.ReadFromDB();
-
+            
         }
-
+        //statyczna zmienna typu Form1 zeby dostac sie z poziomu innej klasy do obiektow wewnatrz Form1
+        public static Form1 _Form1;
+        //Metoda do update'u obiektow z poziomu innej klasy np. label5
+        public void update(string message)
+        {
+            label5.Text = message;
+        }
         //Zapis 
         private void button1_Click(object sender, EventArgs e)
         {
-            App.WriteToDB(textBox1.Text);
+            App.WriteToDB(textBox1.Text, "DB667.Tag12");
+            App.WriteToDB(textBox1.Text, "DB667.Tag13");
         }
 
 
 
 
         //OBCZAIC DELEGATY I ZDARZENIA 
+        //Na samym koncu zajac sie swoimi kontrolkami jak juz bede wiedzial jak stricte maja wygladac i co od nich oczekuje
     }
 }
