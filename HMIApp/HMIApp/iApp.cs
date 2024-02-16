@@ -10,6 +10,7 @@ namespace HMIApp
     {
         void RunInitPLC();
         void ReadFromDB();
+        bool GetBit(byte b, int bitNumber);
         void WriteToDB(string valuetoWrite, string DataTypeofTag);
 
     }

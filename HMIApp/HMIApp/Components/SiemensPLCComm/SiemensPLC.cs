@@ -147,7 +147,9 @@ namespace HMIApp
             }
         }
 
-        //Zapis do DB
+
+
+        //Zapis do DB Byte'ow
         public bool Write(int db, int start, int len, byte[] bytes)
         {
             try
@@ -174,8 +176,6 @@ namespace HMIApp
                 return false;
             }
         }
-
-
 
         public int continuous_reading_errors()
         {

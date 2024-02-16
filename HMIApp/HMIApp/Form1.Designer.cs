@@ -64,6 +64,8 @@
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
+            this.textBox17 = new System.Windows.Forms.TextBox();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -353,11 +355,30 @@
             this.label18.TabIndex = 34;
             this.label18.Text = "label18";
             // 
+            // textBox17
+            // 
+            this.textBox17.Location = new System.Drawing.Point(367, 221);
+            this.textBox17.Name = "textBox17";
+            this.textBox17.Size = new System.Drawing.Size(100, 20);
+            this.textBox17.TabIndex = 37;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(367, 166);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 43;
+            this.button2.Text = "Zapisz";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.textBox17);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.label16);
@@ -438,6 +459,8 @@
         public System.Windows.Forms.Label label16;
         public System.Windows.Forms.Label label17;
         public System.Windows.Forms.Label label18;
+        public System.Windows.Forms.TextBox textBox17;
+        private System.Windows.Forms.Button button2;
     }
 }
 

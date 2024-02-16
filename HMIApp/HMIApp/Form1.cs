@@ -48,9 +48,19 @@ namespace HMIApp
         //Zapis 
         private void button1_Click(object sender, EventArgs e)
         {
-            App.WriteToDB(textBox1.Text, "DB667.Tag12");
-            App.WriteToDB(textBox1.Text, "DB667.Tag13");
+            App.WriteToDB(textBox1.Text, "DB667.Tag0");
+
+
+
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            App.WriteToDB(textBox17.Text, "DB667.Tag8");
+
+        }
+
+
 
 
 
