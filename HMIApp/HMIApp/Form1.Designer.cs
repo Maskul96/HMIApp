@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.Tag000 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -48,17 +48,19 @@
             this.Tag5 = new System.Windows.Forms.TextBox();
             this.Tag6 = new System.Windows.Forms.TextBox();
             this.Tag7 = new System.Windows.Forms.TextBox();
-            this.textBox17 = new System.Windows.Forms.TextBox();
+            this.Tag111 = new System.Windows.Forms.TextBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.textBox16 = new System.Windows.Forms.TextBox();
-            this.textBox18 = new System.Windows.Forms.TextBox();
-            this.textBox19 = new System.Windows.Forms.TextBox();
-            this.textBox20 = new System.Windows.Forms.TextBox();
-            this.textBox21 = new System.Windows.Forms.TextBox();
-            this.textBox22 = new System.Windows.Forms.TextBox();
-            this.textBox23 = new System.Windows.Forms.TextBox();
-            this.textBox24 = new System.Windows.Forms.TextBox();
-            this.textBox25 = new System.Windows.Forms.TextBox();
+            this.Tag888 = new System.Windows.Forms.TextBox();
+            this.Tag999 = new System.Windows.Forms.TextBox();
+            this.Tag100 = new System.Windows.Forms.TextBox();
+            this.Tag1111 = new System.Windows.Forms.TextBox();
+            this.Tag122 = new System.Windows.Forms.TextBox();
+            this.Tag133 = new System.Windows.Forms.TextBox();
+            this.Tag222 = new System.Windows.Forms.TextBox();
+            this.Tag444 = new System.Windows.Forms.TextBox();
+            this.Tag666 = new System.Windows.Forms.TextBox();
+            this.Tag14 = new System.Windows.Forms.TextBox();
+            this.Tag15 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // button1
@@ -72,13 +74,13 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // textBox1
+            // Tag000
             // 
-            this.textBox1.Location = new System.Drawing.Point(367, 117);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 1;
-            this.textBox1.Tag = "DB667.Tag0";
+            this.Tag000.Location = new System.Drawing.Point(367, 117);
+            this.Tag000.Name = "Tag000";
+            this.Tag000.Size = new System.Drawing.Size(100, 20);
+            this.Tag000.TabIndex = 1;
+            this.Tag000.Tag = "DB667.Tag000";
             // 
             // label1
             // 
@@ -200,110 +202,126 @@
             // 
             // Tag7
             // 
-            this.Tag7.Location = new System.Drawing.Point(39, 377);
+            this.Tag7.Location = new System.Drawing.Point(39, 397);
             this.Tag7.Name = "Tag7";
             this.Tag7.Size = new System.Drawing.Size(100, 20);
             this.Tag7.TabIndex = 18;
             // 
-            // textBox17
+            // Tag111
             // 
-            this.textBox17.Location = new System.Drawing.Point(367, 140);
-            this.textBox17.Name = "textBox17";
-            this.textBox17.Size = new System.Drawing.Size(100, 20);
-            this.textBox17.TabIndex = 37;
-            this.textBox17.Tag = "DB667.Tag1";
+            this.Tag111.Location = new System.Drawing.Point(367, 140);
+            this.Tag111.Name = "Tag111";
+            this.Tag111.Size = new System.Drawing.Size(100, 20);
+            this.Tag111.TabIndex = 37;
+            this.Tag111.Tag = "DB667.Tag111";
             // 
             // timer1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // textBox16
+            // Tag888
             // 
-            this.textBox16.Location = new System.Drawing.Point(367, 166);
-            this.textBox16.Name = "textBox16";
-            this.textBox16.Size = new System.Drawing.Size(100, 20);
-            this.textBox16.TabIndex = 50;
-            this.textBox16.Tag = "DB667.Tag8";
+            this.Tag888.Location = new System.Drawing.Point(367, 166);
+            this.Tag888.Name = "Tag888";
+            this.Tag888.Size = new System.Drawing.Size(100, 20);
+            this.Tag888.TabIndex = 50;
+            this.Tag888.Tag = "DB667.Tag888";
             // 
-            // textBox18
+            // Tag999
             // 
-            this.textBox18.Location = new System.Drawing.Point(367, 192);
-            this.textBox18.Name = "textBox18";
-            this.textBox18.Size = new System.Drawing.Size(100, 20);
-            this.textBox18.TabIndex = 51;
-            this.textBox18.Tag = "DB667.Tag9";
+            this.Tag999.Location = new System.Drawing.Point(367, 192);
+            this.Tag999.Name = "Tag999";
+            this.Tag999.Size = new System.Drawing.Size(100, 20);
+            this.Tag999.TabIndex = 51;
+            this.Tag999.Tag = "DB667.Tag999";
             // 
-            // textBox19
+            // Tag100
             // 
-            this.textBox19.Location = new System.Drawing.Point(367, 218);
-            this.textBox19.Name = "textBox19";
-            this.textBox19.Size = new System.Drawing.Size(100, 20);
-            this.textBox19.TabIndex = 52;
-            this.textBox19.Tag = "DB667.Tag10";
+            this.Tag100.Location = new System.Drawing.Point(367, 218);
+            this.Tag100.Name = "Tag100";
+            this.Tag100.Size = new System.Drawing.Size(100, 20);
+            this.Tag100.TabIndex = 52;
+            this.Tag100.Tag = "DB667.Tag100";
             // 
-            // textBox20
+            // Tag1111
             // 
-            this.textBox20.Location = new System.Drawing.Point(367, 244);
-            this.textBox20.Name = "textBox20";
-            this.textBox20.Size = new System.Drawing.Size(100, 20);
-            this.textBox20.TabIndex = 53;
-            this.textBox20.Tag = "DB667.Tag11";
+            this.Tag1111.Location = new System.Drawing.Point(367, 244);
+            this.Tag1111.Name = "Tag1111";
+            this.Tag1111.Size = new System.Drawing.Size(100, 20);
+            this.Tag1111.TabIndex = 53;
+            this.Tag1111.Tag = "DB667.Tag1111";
             // 
-            // textBox21
+            // Tag122
             // 
-            this.textBox21.Location = new System.Drawing.Point(367, 270);
-            this.textBox21.Name = "textBox21";
-            this.textBox21.Size = new System.Drawing.Size(100, 20);
-            this.textBox21.TabIndex = 54;
-            this.textBox21.Tag = "DB667.Tag12";
+            this.Tag122.Location = new System.Drawing.Point(367, 270);
+            this.Tag122.Name = "Tag122";
+            this.Tag122.Size = new System.Drawing.Size(100, 20);
+            this.Tag122.TabIndex = 54;
+            this.Tag122.Tag = "DB667.Tag122";
             // 
-            // textBox22
+            // Tag133
             // 
-            this.textBox22.Location = new System.Drawing.Point(367, 296);
-            this.textBox22.Name = "textBox22";
-            this.textBox22.Size = new System.Drawing.Size(100, 20);
-            this.textBox22.TabIndex = 55;
-            this.textBox22.Tag = "DB667.Tag13";
+            this.Tag133.Location = new System.Drawing.Point(367, 296);
+            this.Tag133.Name = "Tag133";
+            this.Tag133.Size = new System.Drawing.Size(100, 20);
+            this.Tag133.TabIndex = 55;
+            this.Tag133.Tag = "DB667.Tag133";
             // 
-            // textBox23
+            // Tag222
             // 
-            this.textBox23.Location = new System.Drawing.Point(367, 322);
-            this.textBox23.Name = "textBox23";
-            this.textBox23.Size = new System.Drawing.Size(100, 20);
-            this.textBox23.TabIndex = 56;
-            this.textBox23.Tag = "DB667.Tag2";
+            this.Tag222.Location = new System.Drawing.Point(367, 322);
+            this.Tag222.Name = "Tag222";
+            this.Tag222.Size = new System.Drawing.Size(100, 20);
+            this.Tag222.TabIndex = 56;
+            this.Tag222.Tag = "DB667.Tag222";
             // 
-            // textBox24
+            // Tag444
             // 
-            this.textBox24.Location = new System.Drawing.Point(367, 348);
-            this.textBox24.Name = "textBox24";
-            this.textBox24.Size = new System.Drawing.Size(100, 20);
-            this.textBox24.TabIndex = 57;
-            this.textBox24.Tag = "DB667.Tag4";
+            this.Tag444.Location = new System.Drawing.Point(367, 348);
+            this.Tag444.Name = "Tag444";
+            this.Tag444.Size = new System.Drawing.Size(100, 20);
+            this.Tag444.TabIndex = 57;
+            this.Tag444.Tag = "DB667.Tag444";
             // 
-            // textBox25
+            // Tag666
             // 
-            this.textBox25.Location = new System.Drawing.Point(367, 374);
-            this.textBox25.Name = "textBox25";
-            this.textBox25.Size = new System.Drawing.Size(100, 20);
-            this.textBox25.TabIndex = 58;
-            this.textBox25.Tag = "DB667.Tag6";
+            this.Tag666.Location = new System.Drawing.Point(367, 374);
+            this.Tag666.Name = "Tag666";
+            this.Tag666.Size = new System.Drawing.Size(100, 20);
+            this.Tag666.TabIndex = 58;
+            this.Tag666.Tag = "DB667.Tag666";
+            // 
+            // Tag14
+            // 
+            this.Tag14.Location = new System.Drawing.Point(39, 423);
+            this.Tag14.Name = "Tag14";
+            this.Tag14.Size = new System.Drawing.Size(100, 20);
+            this.Tag14.TabIndex = 59;
+            // 
+            // Tag15
+            // 
+            this.Tag15.Location = new System.Drawing.Point(39, 374);
+            this.Tag15.Name = "Tag15";
+            this.Tag15.Size = new System.Drawing.Size(100, 20);
+            this.Tag15.TabIndex = 60;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.textBox25);
-            this.Controls.Add(this.textBox24);
-            this.Controls.Add(this.textBox23);
-            this.Controls.Add(this.textBox22);
-            this.Controls.Add(this.textBox21);
-            this.Controls.Add(this.textBox20);
-            this.Controls.Add(this.textBox19);
-            this.Controls.Add(this.textBox18);
-            this.Controls.Add(this.textBox16);
-            this.Controls.Add(this.textBox17);
+            this.Controls.Add(this.Tag15);
+            this.Controls.Add(this.Tag14);
+            this.Controls.Add(this.Tag666);
+            this.Controls.Add(this.Tag444);
+            this.Controls.Add(this.Tag222);
+            this.Controls.Add(this.Tag133);
+            this.Controls.Add(this.Tag122);
+            this.Controls.Add(this.Tag1111);
+            this.Controls.Add(this.Tag100);
+            this.Controls.Add(this.Tag999);
+            this.Controls.Add(this.Tag888);
+            this.Controls.Add(this.Tag111);
             this.Controls.Add(this.Tag7);
             this.Controls.Add(this.Tag6);
             this.Controls.Add(this.Tag5);
@@ -321,7 +339,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.Tag000);
             this.Controls.Add(this.button1);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -333,7 +351,7 @@
         #endregion
 
         private System.Windows.Forms.Button button1;
-        public System.Windows.Forms.TextBox textBox1;
+        public System.Windows.Forms.TextBox Tag000;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -351,17 +369,19 @@
         public System.Windows.Forms.TextBox Tag5;
         public System.Windows.Forms.TextBox Tag6;
         public System.Windows.Forms.TextBox Tag7;
-        public System.Windows.Forms.TextBox textBox17;
+        public System.Windows.Forms.TextBox Tag111;
         private System.Windows.Forms.Timer timer1;
-        public System.Windows.Forms.TextBox textBox16;
-        public System.Windows.Forms.TextBox textBox18;
-        public System.Windows.Forms.TextBox textBox19;
-        public System.Windows.Forms.TextBox textBox20;
-        public System.Windows.Forms.TextBox textBox21;
-        public System.Windows.Forms.TextBox textBox22;
-        public System.Windows.Forms.TextBox textBox23;
-        public System.Windows.Forms.TextBox textBox24;
-        public System.Windows.Forms.TextBox textBox25;
+        public System.Windows.Forms.TextBox Tag888;
+        public System.Windows.Forms.TextBox Tag999;
+        public System.Windows.Forms.TextBox Tag100;
+        public System.Windows.Forms.TextBox Tag1111;
+        public System.Windows.Forms.TextBox Tag122;
+        public System.Windows.Forms.TextBox Tag133;
+        public System.Windows.Forms.TextBox Tag222;
+        public System.Windows.Forms.TextBox Tag444;
+        public System.Windows.Forms.TextBox Tag666;
+        public System.Windows.Forms.TextBox Tag14;
+        public System.Windows.Forms.TextBox Tag15;
     }
 }
 

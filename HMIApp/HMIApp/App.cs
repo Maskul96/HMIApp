@@ -29,6 +29,7 @@ namespace HMIApp
         public int DBRead_EndDB;
         public int DBRead_NrOfByteinDB;
         public int DBRead_NrOfBitinByte;
+        public int DBRead_LengthOfDataType;
         public string DBRead_TagName;
         public Form1 obj;
 
@@ -73,24 +74,37 @@ namespace HMIApp
         //Teraz ogarnac to tak zeby nie trzeba bylo recznie wpisywac gdzie maja dane sie zapisywac czyli zeby nie bylo 
         //tak jak: Form1._Form1.textBox2.Text = values[0].ToString(); - ze textobxa trzeba wpisac recznie
                                 
-        public void ReadActualValueFromDB()
+        public void ReadActualValueFromDB(string filepath)
         {
-            var dbtags = CSVReader.DBStructure("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_0.csv");
+            var dbtags = CSVReader.DBStructure(filepath);
 
             foreach (var dbTag in dbtags)
             {
                 //Wyciagniecie z nazwy DBka jego numer
                 DBRead_position = dbTag.TagName.IndexOf('.') - 2;
                 DBRead_NumberOfDB = dbTag.TagName.Substring(2, DBRead_position);
-                //  DBRead_NrOfByteinDB = dbTag.NumberOfByteInDB;
-                //Wyciagniecie startowej pozycji i końcowej pozycji DBka - ustalamy dlugosc danych
+                //Wyciagniecie startowej pozycji i końcowej pozycji DBka - ustalamy dlugosc danych + ustalenie dlugosci tablicy
                 if (dbtags.First() == dbTag)
                 {
                     DBRead_StartDB = dbTag.NumberOfByteInDB;
                 }
                 if (dbtags.Last() == dbTag)
                 {
-                    DBRead_EndDB = dbTag.NumberOfByteInDB;
+                    switch(dbTag.DataTypeOfTag.ToUpper())
+                    {
+                        case "BOOL":
+                            DBRead_EndDB = dbTag.NumberOfByteInDB;
+                            break;
+                        case "BYTE":
+                            DBRead_EndDB = dbTag.NumberOfByteInDB + 1;
+                            break;
+                        case "INT":
+                            DBRead_EndDB = dbTag.NumberOfByteInDB + 2;
+                            break;
+                        default:
+                            DBRead_EndDB = dbTag.NumberOfByteInDB + 4;
+                            break;
+                    }
                 }
             }
 
@@ -100,6 +114,7 @@ namespace HMIApp
 
             foreach (var dbTag in dbtags)
             {
+
                 switch (dbTag.DataTypeOfTag.ToUpper())
                 {
                     case "BOOL":
@@ -112,63 +127,91 @@ namespace HMIApp
                         DBRead_position1 = dbTag.TagName.IndexOf(".") +1;
                         DBRead_NameofTagWithoutNumberofDB = dbTag.TagName.Substring(DBRead_position1);
                         DBRead_TagName = dbTag.TagName;
-
+                        TextBox txt;
                         switch (DBRead_NrOfBitinByte)
                         {
                             case 0:
                                 values[0] = GetBit(DB[DBRead_NrOfByteinDB], 0);
                                 //Wyszukanie TextBoxa po jego nazwie
-                                TextBox txt = Form1._Form1.Controls.Find($"{DBRead_NameofTagWithoutNumberofDB}", true).FirstOrDefault() as TextBox;
+                                txt = Form1._Form1.Controls.Find($"{DBRead_NameofTagWithoutNumberofDB}", true).FirstOrDefault() as TextBox;
                                 txt.Text = values[0].ToString();
                                 break;
                             case 1:
                                 values[1] = GetBit(DB[DBRead_NrOfByteinDB], 1);
-                                Form1._Form1.Tag1.Text = values[1].ToString();
+                                txt = Form1._Form1.Controls.Find($"{DBRead_NameofTagWithoutNumberofDB}", true).FirstOrDefault() as TextBox;
+                                txt.Text = values[1].ToString();
                                 break;
                             case 2:
                                 values[2] = GetBit(DB[DBRead_NrOfByteinDB], 2);
-                                Form1._Form1.Tag8.Text = values[2].ToString();
+                                txt = Form1._Form1.Controls.Find($"{DBRead_NameofTagWithoutNumberofDB}", true).FirstOrDefault() as TextBox;
+                                txt.Text = values[2].ToString();
                                 break;
                             case 3:
                                 values[3] = GetBit(DB[DBRead_NrOfByteinDB], 3);
-                                Form1._Form1.Tag9.Text = values[3].ToString();
+                                txt = Form1._Form1.Controls.Find($"{DBRead_NameofTagWithoutNumberofDB}", true).FirstOrDefault() as TextBox;
+                                txt.Text = values[3].ToString();
                                 break;
                             case 4:
                                 values[4] = GetBit(DB[DBRead_NrOfByteinDB], 4);
-                                Form1._Form1.Tag10.Text = values[4].ToString();
+                                txt = Form1._Form1.Controls.Find($"{DBRead_NameofTagWithoutNumberofDB}", true).FirstOrDefault() as TextBox;
+                                txt.Text = values[4].ToString();
                                 break;
                             case 5:
                                 values[5] = GetBit(DB[DBRead_NrOfByteinDB], 5);
-                                Form1._Form1.Tag11.Text = values[5].ToString();
+                                txt = Form1._Form1.Controls.Find($"{DBRead_NameofTagWithoutNumberofDB}", true).FirstOrDefault() as TextBox;
+                                txt.Text = values[5].ToString();
                                 break;
                             case 6:
                                 values[6] = GetBit(DB[DBRead_NrOfByteinDB], 6);
-                                Form1._Form1.Tag12.Text = values[6].ToString();
+                                txt = Form1._Form1.Controls.Find($"{DBRead_NameofTagWithoutNumberofDB}", true).FirstOrDefault() as TextBox;
+                                txt.Text = values[6].ToString();
                                 break;
                             case 7:
                                 values[7] = GetBit(DB[DBRead_NrOfByteinDB], 7);
-                                Form1._Form1.Tag13.Text = values[7].ToString();
+                                txt = Form1._Form1.Controls.Find($"{DBRead_NameofTagWithoutNumberofDB}", true).FirstOrDefault() as TextBox;
+                                txt.Text = values[7].ToString();
                                 break;
                         }
                         break;
                     case "BYTE":
+                        //Wyszukanie samej nazwy Taga, która odpowiada 1:1 nazwie TextBoxa
+                        DBRead_position1 = dbTag.TagName.IndexOf(".") + 1;
+                        DBRead_NameofTagWithoutNumberofDB = dbTag.TagName.Substring(DBRead_position1);
+                        DBRead_TagName = dbTag.TagName;
                         DBRead_NrOfByteinDB = dbTag.NumberOfByteInDB;
-                        Form1._Form1.Tag2.Text = Convert.ToString(DB[DBRead_NrOfByteinDB]);
-                        Form1._Form1.Tag2.Text = Convert.ToString(DB[DBRead_NrOfByteinDB]);
-                        Form1._Form1.Tag3.Text = Convert.ToString(DB[DBRead_NrOfByteinDB]);
+
+                        txt = Form1._Form1.Controls.Find($"{DBRead_NameofTagWithoutNumberofDB}", true).FirstOrDefault() as TextBox;
+                        txt.Text = Convert.ToString(DB[DBRead_NrOfByteinDB]);
                         break;
                     case "INT":
-                        //Read INT16
-                        Form1._Form1.Tag4.Text = Convert.ToString(libnodave.getS16from(DB, 4));
-                        Form1._Form1.Tag5.Text = Convert.ToString(libnodave.getS16from(DB, 6));
+                        //Wyszukanie samej nazwy Taga, która odpowiada 1:1 nazwie TextBoxa
+                        DBRead_position1 = dbTag.TagName.IndexOf(".") + 1;
+                        DBRead_NameofTagWithoutNumberofDB = dbTag.TagName.Substring(DBRead_position1);
+                        DBRead_TagName = dbTag.TagName;
+                        DBRead_NrOfByteinDB = dbTag.NumberOfByteInDB;
+
+                        txt = Form1._Form1.Controls.Find($"{DBRead_NameofTagWithoutNumberofDB}", true).FirstOrDefault() as TextBox;
+                        txt.Text = Convert.ToString(libnodave.getS16from(DB, DBRead_NrOfByteinDB));
                         break;
                     case "REAL":
-                        //Read FLOAT
-                        Form1._Form1.Tag6.Text = Convert.ToString(libnodave.getFloatfrom(DB, 8));
+                        //Wyszukanie samej nazwy Taga, która odpowiada 1:1 nazwie TextBoxa
+                        DBRead_position1 = dbTag.TagName.IndexOf(".") + 1;
+                        DBRead_NameofTagWithoutNumberofDB = dbTag.TagName.Substring(DBRead_position1);
+                        DBRead_TagName = dbTag.TagName;
+                        DBRead_NrOfByteinDB = dbTag.NumberOfByteInDB;
+
+                        txt = Form1._Form1.Controls.Find($"{DBRead_NameofTagWithoutNumberofDB}", true).FirstOrDefault() as TextBox;
+                        txt.Text = Convert.ToString(libnodave.getFloatfrom(DB, DBRead_NrOfByteinDB));
                         break;
                     case "DINT":
-                        //Read DINT
-                        Form1._Form1.Tag7.Text = Convert.ToString(libnodave.getS32from(DB, 12));
+                        //Wyszukanie samej nazwy Taga, która odpowiada 1:1 nazwie TextBoxa
+                        DBRead_position1 = dbTag.TagName.IndexOf(".") + 1;
+                        DBRead_NameofTagWithoutNumberofDB = dbTag.TagName.Substring(DBRead_position1);
+                        DBRead_TagName = dbTag.TagName;
+                        DBRead_NrOfByteinDB = dbTag.NumberOfByteInDB;
+
+                        txt = Form1._Form1.Controls.Find($"{DBRead_NameofTagWithoutNumberofDB}", true).FirstOrDefault() as TextBox;
+                        txt.Text = Convert.ToString(libnodave.getS32from(DB, DBRead_NrOfByteinDB));
                         break;
                     default:
                         break;
@@ -178,6 +221,7 @@ namespace HMIApp
         }
 
         //Zapis danych do DB
+        //DOROBIC TUTAJ ODCZYT DANYCH Z  DBKA DO ZAPISU
         public void WriteToDB(string valuetoWrite, string NameofTaginDB)
         {
             //Odczyt listy z tagami do zapisu

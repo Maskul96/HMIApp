@@ -36,7 +36,7 @@ namespace HMIApp
             var app = serviceProvider.GetService<iApp>();
             // app.RunInitPLC();
             App.RunInitPLC();
-            App.ReadActualValueFromDB();
+            App.ReadActualValueFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_0.csv");
             timer1.Enabled = true;
 
         }
@@ -50,24 +50,24 @@ namespace HMIApp
         //Zapis 
         private void button1_Click(object sender, EventArgs e)
         {
-            App.WriteToDB(textBox1.Text, textBox1.Tag.ToString());
-            App.WriteToDB(textBox17.Text, textBox17.Tag.ToString());
-            App.WriteToDB(textBox16.Text, textBox16.Tag.ToString());
-            App.WriteToDB(textBox18.Text, textBox18.Tag.ToString());
-            App.WriteToDB(textBox19.Text, textBox19.Tag.ToString());
-            App.WriteToDB(textBox20.Text, textBox20.Tag.ToString());
-            App.WriteToDB(textBox21.Text, textBox21.Tag.ToString());
-            App.WriteToDB(textBox22.Text, textBox22.Tag.ToString());
-            App.WriteToDB(textBox23.Text, textBox23.Tag.ToString());
-            App.WriteToDB(textBox24.Text, textBox24.Tag.ToString());
-            App.WriteToDB(textBox25.Text, textBox25.Tag.ToString());
+            App.WriteToDB(Tag000.Text, Tag000.Tag.ToString());
+            App.WriteToDB(Tag111.Text, Tag111.Tag.ToString());
+            App.WriteToDB(Tag888.Text, Tag888.Tag.ToString());
+            App.WriteToDB(Tag999.Text, Tag999.Tag.ToString());
+            App.WriteToDB(Tag100.Text, Tag100.Tag.ToString());
+            App.WriteToDB(Tag1111.Text, Tag1111.Tag.ToString());
+            App.WriteToDB(Tag122.Text, Tag122.Tag.ToString());
+            App.WriteToDB(Tag133.Text, Tag133.Tag.ToString());
+            App.WriteToDB(Tag222.Text, Tag222.Tag.ToString());
+            App.WriteToDB(Tag444.Text, Tag444.Tag.ToString());
+            App.WriteToDB(Tag666.Text, Tag666.Tag.ToString());
 
         }
 
         //Timer co 100ms do oczytywania DBka
         private void timer1_Tick(object sender, EventArgs e)
         {
-            App.ReadActualValueFromDB();
+            App.ReadActualValueFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_0.csv");
         }
 
         //OBCZAIC DELEGATY I ZDARZENIA 
