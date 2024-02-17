@@ -21,6 +21,7 @@ namespace HMIApp
         //Obiekty z Form1 Design ustawione z dostepem jako public zeby mozna bylo miec do nich dostep z innej klasy poprzez konstruktor
         //Ogarniete odczytywanie/zapisywanie z PLC - teraz je przetestowac i potem ogarnac wlasne ikony
         //WSZYSTKIE TEXTBOXY NAZYWAMY NAZWA TAGA NP. JESLI DB666.TAG0 TO TEXTBOX DO KTOREGO PRZYPISUJEMY WARTOSC MA NAZWAE TAG0
+        //NAZWY TAGOW NIE MOGA SIE POWTARZAC!
         App App = new App();
        
         public Form1()
@@ -37,6 +38,7 @@ namespace HMIApp
             // app.RunInitPLC();
             App.RunInitPLC();
             App.ReadActualValueFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_0.csv");
+            App.ReadActualValueFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_1.csv");
             timer1.Enabled = true;
 
         }

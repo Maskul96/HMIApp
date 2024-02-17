@@ -7,8 +7,8 @@ DB666.Tag10,Bool,0,4,0
 DB666.Tag11,Bool,0,5,0
 DB666.Tag12,Bool,0,6,0
 DB666.Tag13,Bool,0,7,0
-DB666.Tag2,Byte,1,5,1
-DB666.Tag3,Byte,2,5,1
+DB666.Tag2,Byte,1,0,1
+DB666.Tag3,Byte,2,0,1
 DB666.Tag4,Int,4,0,2
 DB666.Tag5,Int,6,0,2
 DB666.Tag6,Real,8,0,4

@@ -59,21 +59,22 @@ namespace HMIApp
 
         //Stworzenie obiektu z konfiguracja sterownika
         SiemensPLC PLC = new SiemensPLC("192.168.2.1", 102, 0, 1, 1000000);
+        //Stworzenie obiektu CSVReader do odczytu z pliku
         CSVReader CSVReader = new CSVReader();
+
+        //Metoda uruchamiająca komunikacje z PLC
         public void RunInitPLC()
         {
             PLC.Init();
         }
 
+        //Metoda wyciagająca dany bit z całego Byte'a
         public bool GetBit(byte b, int bitNumber)
         {
             return (b & (1 << bitNumber)) != 0;
         }
 
-        //Odczyt z pliku CSV i od razu odczyt danych z DBka
-        //Teraz ogarnac to tak zeby nie trzeba bylo recznie wpisywac gdzie maja dane sie zapisywac czyli zeby nie bylo 
-        //tak jak: Form1._Form1.textBox2.Text = values[0].ToString(); - ze textobxa trzeba wpisac recznie
-                                
+        //Odczyt z pliku CSV i od razu odczyt danych z DBka                               
         public void ReadActualValueFromDB(string filepath)
         {
             var dbtags = CSVReader.DBStructure(filepath);
@@ -220,8 +221,7 @@ namespace HMIApp
             }
         }
 
-        //Zapis danych do DB
-        //DOROBIC TUTAJ ODCZYT DANYCH Z  DBKA DO ZAPISU
+        //Zapis danych do DB i odczyt pliku z zapisywaniem
         public void WriteToDB(string valuetoWrite, string NameofTaginDB)
         {
             //Odczyt listy z tagami do zapisu
