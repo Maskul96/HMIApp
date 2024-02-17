@@ -183,7 +183,7 @@ namespace HMIApp
 
             switch (DBWrite_DataTypeofTag.ToUpper())
             {
-                //ZAPISYWANIE BOOLI - dodac 
+                //ZAPISYWANIE BOOLI 
                 case "BOOL":
                     byte[] DB = new byte[DBWrite_LengthofDataType];
                     bool values = false;

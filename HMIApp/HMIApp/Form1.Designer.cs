@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -66,6 +67,19 @@
             this.label18 = new System.Windows.Forms.Label();
             this.textBox17 = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
+            this.textBox16 = new System.Windows.Forms.TextBox();
+            this.textBox18 = new System.Windows.Forms.TextBox();
+            this.textBox19 = new System.Windows.Forms.TextBox();
+            this.textBox20 = new System.Windows.Forms.TextBox();
+            this.textBox21 = new System.Windows.Forms.TextBox();
+            this.textBox22 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -75,7 +89,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 0;
-            this.button1.Text = "Zapisz";
+            this.button1.Text = "ZapiszTag0";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -368,15 +382,133 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 43;
-            this.button2.Text = "Zapisz";
+            this.button2.Text = "ZapiszTag1";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(630, 50);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 44;
+            this.button3.Text = "ZapiszTag8";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(630, 140);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.TabIndex = 45;
+            this.button4.Text = "ZapiszTag9";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(630, 218);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(116, 23);
+            this.button5.TabIndex = 46;
+            this.button5.Text = "ZapiszTag10";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(520, 296);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(111, 23);
+            this.button6.TabIndex = 47;
+            this.button6.Text = "ZapiszTag11";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(630, 375);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(96, 23);
+            this.button7.TabIndex = 48;
+            this.button7.Text = "ZapiszTag12";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
+            // button8
+            // 
+            this.button8.Location = new System.Drawing.Point(329, 358);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(96, 23);
+            this.button8.TabIndex = 49;
+            this.button8.Text = "ZapiszTag13";
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
+            // 
+            // textBox16
+            // 
+            this.textBox16.Location = new System.Drawing.Point(630, 78);
+            this.textBox16.Name = "textBox16";
+            this.textBox16.Size = new System.Drawing.Size(100, 20);
+            this.textBox16.TabIndex = 50;
+            // 
+            // textBox18
+            // 
+            this.textBox18.Location = new System.Drawing.Point(616, 172);
+            this.textBox18.Name = "textBox18";
+            this.textBox18.Size = new System.Drawing.Size(100, 20);
+            this.textBox18.TabIndex = 51;
+            // 
+            // textBox19
+            // 
+            this.textBox19.Location = new System.Drawing.Point(630, 247);
+            this.textBox19.Name = "textBox19";
+            this.textBox19.Size = new System.Drawing.Size(100, 20);
+            this.textBox19.TabIndex = 52;
+            // 
+            // textBox20
+            // 
+            this.textBox20.Location = new System.Drawing.Point(502, 332);
+            this.textBox20.Name = "textBox20";
+            this.textBox20.Size = new System.Drawing.Size(100, 20);
+            this.textBox20.TabIndex = 53;
+            // 
+            // textBox21
+            // 
+            this.textBox21.Location = new System.Drawing.Point(616, 418);
+            this.textBox21.Name = "textBox21";
+            this.textBox21.Size = new System.Drawing.Size(100, 20);
+            this.textBox21.TabIndex = 54;
+            // 
+            // textBox22
+            // 
+            this.textBox22.Location = new System.Drawing.Point(325, 387);
+            this.textBox22.Name = "textBox22";
+            this.textBox22.Size = new System.Drawing.Size(100, 20);
+            this.textBox22.TabIndex = 55;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.textBox22);
+            this.Controls.Add(this.textBox21);
+            this.Controls.Add(this.textBox20);
+            this.Controls.Add(this.textBox19);
+            this.Controls.Add(this.textBox18);
+            this.Controls.Add(this.textBox16);
+            this.Controls.Add(this.button8);
+            this.Controls.Add(this.button7);
+            this.Controls.Add(this.button6);
+            this.Controls.Add(this.button5);
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.textBox17);
             this.Controls.Add(this.label18);
@@ -461,6 +593,19 @@
         public System.Windows.Forms.Label label18;
         public System.Windows.Forms.TextBox textBox17;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button button8;
+        public System.Windows.Forms.TextBox textBox16;
+        public System.Windows.Forms.TextBox textBox18;
+        public System.Windows.Forms.TextBox textBox19;
+        public System.Windows.Forms.TextBox textBox20;
+        public System.Windows.Forms.TextBox textBox21;
+        public System.Windows.Forms.TextBox textBox22;
     }
 }
 

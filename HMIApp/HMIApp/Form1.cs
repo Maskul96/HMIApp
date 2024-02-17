@@ -22,6 +22,7 @@ namespace HMIApp
         //Ogarniete odczytywanie/zapisywanie z PLC - teraz je przetestowac i potem ogarnac wlasne ikony
 
         App App = new App();
+       
         public Form1()
         {
             InitializeComponent();
@@ -36,7 +37,8 @@ namespace HMIApp
             // app.RunInitPLC();
             App.RunInitPLC();
             App.ReadFromDB();
-            
+            timer1.Enabled = true;
+
         }
         //statyczna zmienna typu Form1 zeby dostac sie z poziomu innej klasy do obiektow wewnatrz Form1
         public static Form1 _Form1;
@@ -56,8 +58,44 @@ namespace HMIApp
 
         private void button2_Click(object sender, EventArgs e)
         {
-            App.WriteToDB(textBox17.Text, "DB667.Tag8");
+            App.WriteToDB(textBox17.Text, "DB667.Tag1");
 
+        }
+
+        //Timer co 100ms do oczytywania DBka
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            App.ReadFromDB();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            App.WriteToDB(textBox16.Text, "DB667.Tag8");
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            App.WriteToDB(textBox18.Text, "DB667.Tag9");
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            App.WriteToDB(textBox19.Text, "DB667.Tag10");
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            App.WriteToDB(textBox20.Text, "DB667.Tag11");
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            App.WriteToDB(textBox22.Text, "DB667.Tag13");
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            App.WriteToDB(textBox21.Text, "DB667.Tag12");
         }
 
 
