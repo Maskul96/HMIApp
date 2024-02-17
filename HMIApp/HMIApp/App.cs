@@ -104,54 +104,54 @@ namespace HMIApp
                         {
                             case 0:
                                 values[0] = GetBit(DB[0], 0);
-                                Form1._Form1.label5.Text = values[0].ToString();
+                                Form1._Form1.textBox2.Text = values[0].ToString();
                                 break;
                             case 1:
                                 values[1] = GetBit(DB[0], 1);
-                                Form1._Form1.label6.Text = values[1].ToString();
+                                Form1._Form1.textBox3.Text = values[1].ToString();
                                 break;
                             case 2:
                                 values[2] = GetBit(DB[0], 2);
-                                Form1._Form1.label7.Text = values[2].ToString();
+                                Form1._Form1.textBox4.Text = values[2].ToString();
                                 break;
                             case 3:
                                 values[3] = GetBit(DB[0], 3);
-                                Form1._Form1.label8.Text = values[3].ToString();
+                                Form1._Form1.textBox5.Text = values[3].ToString();
                                 break;
                             case 4:
                                 values[4] = GetBit(DB[0], 4);
-                                Form1._Form1.label9.Text = values[4].ToString();
+                                Form1._Form1.textBox6.Text = values[4].ToString();
                                 break;
                             case 5:
                                 values[5] = GetBit(DB[0], 5);
-                                Form1._Form1.label10.Text = values[5].ToString();
+                                Form1._Form1.textBox7.Text = values[5].ToString();
                                 break;
                             case 6:
                                 values[6] = GetBit(DB[0], 6);
-                                Form1._Form1.label11.Text = values[6].ToString();
+                                Form1._Form1.textBox8.Text = values[6].ToString();
                                 break;
                             case 7:
                                 values[7] = GetBit(DB[0], 7);
-                                Form1._Form1.label12.Text = values[7].ToString();
+                                Form1._Form1.textBox9.Text = values[7].ToString();
                                 break;
                         }
                         break;
                     case "BYTE":
-                        Form1._Form1.label13.Text = Convert.ToString(DB[1]);
-                        Form1._Form1.label14.Text = Convert.ToString(DB[2]);
+                        Form1._Form1.textBox10.Text = Convert.ToString(DB[1]);
+                        Form1._Form1.textBox11.Text = Convert.ToString(DB[2]);
                         break;
                     case "INT":
                         //Read INT16
-                        Form1._Form1.label15.Text = Convert.ToString(libnodave.getS16from(DB, 4));
-                        Form1._Form1.label16.Text = Convert.ToString(libnodave.getS16from(DB, 6));
+                        Form1._Form1.textBox12.Text = Convert.ToString(libnodave.getS16from(DB, 4));
+                        Form1._Form1.textBox13.Text = Convert.ToString(libnodave.getS16from(DB, 6));
                         break;
                     case "REAL":
                         //Read FLOAT
-                        Form1._Form1.label17.Text = Convert.ToString(libnodave.getFloatfrom(DB, 8));
+                        Form1._Form1.textBox14.Text = Convert.ToString(libnodave.getFloatfrom(DB, 8));
                         break;
                     case "DINT":
                         //Read DINT
-                        Form1._Form1.label18.Text = Convert.ToString(libnodave.getS32from(DB, 12));
+                        Form1._Form1.textBox15.Text = Convert.ToString(libnodave.getS32from(DB, 12));
                         break;
                     default:
                         break;
@@ -180,7 +180,7 @@ namespace HMIApp
                     DBWrite_NrOfBitinByte = dbTag.NumberOfBitInByte;
                 }
             }
-
+            byte[] IntBytes = new byte[0];
             switch (DBWrite_DataTypeofTag.ToUpper())
             {
                 //ZAPISYWANIE BOOLI 
@@ -283,30 +283,42 @@ namespace HMIApp
                     break;
                 case "BYTE":
                     //Write BYTE
-                    short ByteValue = Convert.ToByte(valuetoWrite);
-                    byte[] IntBytes = BitConverter.GetBytes(ByteValue);
-                    PLC.Write(int.Parse(DBWrite_NumberOfDB), DBWrite_NrOfByteinDB, DBWrite_LengthofDataType, IntBytes);
+                    if (valuetoWrite != "")
+                    {
+                        short ByteValue = Convert.ToByte(valuetoWrite);
+                        IntBytes = BitConverter.GetBytes(ByteValue);
+                        PLC.Write(int.Parse(DBWrite_NumberOfDB), DBWrite_NrOfByteinDB, DBWrite_LengthofDataType, IntBytes);
+                    }
                     break;
                 case "INT":
                     //write INT
-                    short intValue = Convert.ToInt16(valuetoWrite);
-                    byte[] intBytes1 = BitConverter.GetBytes(intValue);
-                    Array.Reverse(intBytes1);
-                    PLC.Write(int.Parse(DBWrite_NumberOfDB), DBWrite_NrOfByteinDB, DBWrite_LengthofDataType, intBytes1);
+                    if (valuetoWrite != "")
+                    {
+                        short intValue = Convert.ToInt16(valuetoWrite);
+                        IntBytes = BitConverter.GetBytes(intValue);
+                        Array.Reverse(IntBytes);
+                        PLC.Write(int.Parse(DBWrite_NumberOfDB), DBWrite_NrOfByteinDB, DBWrite_LengthofDataType, IntBytes);
+                    }
                     break;
                 case "REAL":
                     //Write Float
-                    float fltValue = (float)Convert.ToDouble(valuetoWrite);
-                    var i = libnodave.daveToPLCfloat(fltValue);
-                    byte[] intBytes2 = BitConverter.GetBytes(i);
-                    PLC.Write(int.Parse(DBWrite_NumberOfDB), DBWrite_NrOfByteinDB, DBWrite_LengthofDataType, intBytes2);
+                    if (valuetoWrite != "")
+                    {
+                        float fltValue = (float)Convert.ToDouble(valuetoWrite);
+                        var i = libnodave.daveToPLCfloat(fltValue);
+                        IntBytes = BitConverter.GetBytes(i);
+                        PLC.Write(int.Parse(DBWrite_NumberOfDB), DBWrite_NrOfByteinDB, DBWrite_LengthofDataType, IntBytes);
+                    }
                     break;
                 case "DINT":
                     //Write DINT
-                    int intValue1 = Convert.ToInt32(valuetoWrite);
-                    byte[] intBytes3 = BitConverter.GetBytes(intValue1);
-                    Array.Reverse(intBytes3);
-                    PLC.Write(int.Parse(DBWrite_NumberOfDB), DBWrite_NrOfByteinDB, DBWrite_LengthofDataType, intBytes3);
+                    if (valuetoWrite != "")
+                    {
+                        int dintValue = Convert.ToInt32(valuetoWrite);
+                        IntBytes = BitConverter.GetBytes(dintValue);
+                        Array.Reverse(IntBytes);
+                        PLC.Write(int.Parse(DBWrite_NumberOfDB), DBWrite_NrOfByteinDB, DBWrite_LengthofDataType, IntBytes);
+                    }
                     break;
                 default:
                     break;

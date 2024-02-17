@@ -50,15 +50,17 @@ namespace HMIApp
         //Zapis 
         private void button1_Click(object sender, EventArgs e)
         {
-            App.WriteToDB(textBox1.Text, "DB667.Tag0");
-
-
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            App.WriteToDB(textBox17.Text, "DB667.Tag1");
+            App.WriteToDB(textBox1.Text, textBox1.Tag.ToString());
+            App.WriteToDB(textBox17.Text, textBox17.Tag.ToString());
+            App.WriteToDB(textBox16.Text, textBox16.Tag.ToString());
+            App.WriteToDB(textBox18.Text, textBox18.Tag.ToString());
+            App.WriteToDB(textBox19.Text, textBox19.Tag.ToString());
+            App.WriteToDB(textBox20.Text, textBox20.Tag.ToString());
+            App.WriteToDB(textBox21.Text, textBox21.Tag.ToString());
+            App.WriteToDB(textBox22.Text, textBox22.Tag.ToString());
+            App.WriteToDB(textBox23.Text, textBox23.Tag.ToString());
+            App.WriteToDB(textBox24.Text, textBox24.Tag.ToString());
+            App.WriteToDB(textBox25.Text, textBox25.Tag.ToString());
 
         }
 
@@ -67,41 +69,6 @@ namespace HMIApp
         {
             App.ReadFromDB();
         }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            App.WriteToDB(textBox16.Text, "DB667.Tag8");
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            App.WriteToDB(textBox18.Text, "DB667.Tag9");
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-            App.WriteToDB(textBox19.Text, "DB667.Tag10");
-        }
-
-        private void button6_Click(object sender, EventArgs e)
-        {
-            App.WriteToDB(textBox20.Text, "DB667.Tag11");
-        }
-
-        private void button8_Click(object sender, EventArgs e)
-        {
-            App.WriteToDB(textBox22.Text, "DB667.Tag13");
-        }
-
-        private void button7_Click(object sender, EventArgs e)
-        {
-            App.WriteToDB(textBox21.Text, "DB667.Tag12");
-        }
-
-
-
-
-
 
         //OBCZAIC DELEGATY I ZDARZENIA 
         //Na samym koncu zajac sie swoimi kontrolkami jak juz bede wiedzial jak stricte maja wygladac i co od nich oczekuje
