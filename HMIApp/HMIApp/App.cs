@@ -194,439 +194,93 @@ namespace HMIApp
                     //Read DB - Odczytanie DBka w celu ustalenia jaką wartosc od 0 do 255 jest w danym bajcie
                     PLC.Read(int.Parse(DBWrite_NumberOfDB), DBWrite_NrOfByteinDB, DBWrite_LengthofDataType, DB);
                     //Write BOOL
-                    //switch (DBWrite_NrOfBitinByte)
-                    //{
-                    //    case 0:
-                            values = GetBit(DB[DBWrite_NrOfByteinDB], DBWrite_NrOfBitinByte);
-                            valuesToString = values.ToString();
-                            if (valuesToString.ToUpper() == "TRUE")
+                    values = GetBit(DB[DBWrite_NrOfByteinDB], DBWrite_NrOfBitinByte);
+                    valuesToString = values.ToString();
+                    if (valuesToString.ToUpper() == "TRUE")
+                    {
+                        if (valuetoWrite.ToUpper() == "TRUE" || valuetoWrite.ToUpper() == "")
+                        {
+                            boolValueFromDB = DB[DBWrite_NrOfByteinDB];
+                            BoolToSave = BitConverter.GetBytes(boolValueFromDB);
+                        }
+                        else if (valuetoWrite.ToUpper() == "FALSE")
+                        {
+                            switch (DBWrite_NrOfBitinByte)
                             {
-                                if (valuetoWrite.ToUpper() == "TRUE")
-                                {
-                                    boolValueFromDB = DB[DBWrite_NrOfByteinDB];
-                                    BoolToSave = BitConverter.GetBytes(boolValueFromDB);
-                                }
-                                else if (valuetoWrite.ToUpper() == "FALSE")
-                                {
-                                    switch (DBWrite_NrOfBitinByte)
-                                    {
-                                        case 0:
-                                            boolValue = 1;
-                                            break;
-                                        case 1:
-                                            boolValue = 2;
-                                            break;
-                                        case 2:
-                                            boolValue = 4;
-                                            break;
-                                        case 3:
-                                            boolValue = 8;
-                                            break;
-                                        case 4:
-                                            boolValue = 16;
-                                            break;
-                                        case 5:
-                                            boolValue = 32;
-                                            break;
-                                        case 6:
-                                            boolValue = 64;
-                                            break;
-                                        case 7:
-                                            boolValue = 128;
-                                            break;
-                                    }
-
-                                    boolValueFromDB = DB[DBWrite_NrOfByteinDB];
-                                    boolValueFromDB = boolValueFromDB - boolValue;
-                                    BoolToSave = BitConverter.GetBytes(boolValueFromDB);
-                                }
-                                else
-                                {
-                                    boolValueFromDB = DB[DBWrite_NrOfByteinDB];
-                                    BoolToSave = BitConverter.GetBytes(boolValueFromDB);
-                                }
+                                case 0:
+                                    boolValue = 1;
+                                    break;
+                                case 1:
+                                    boolValue = 2;
+                                    break;
+                                case 2:
+                                    boolValue = 4;
+                                    break;
+                                case 3:
+                                    boolValue = 8;
+                                    break;
+                                case 4:
+                                    boolValue = 16;
+                                    break;
+                                case 5:
+                                    boolValue = 32;
+                                    break;
+                                case 6:
+                                    boolValue = 64;
+                                    break;
+                                case 7:
+                                    boolValue = 128;
+                                    break;
                             }
-                            else if (valuesToString.ToUpper() == "FALSE")
+
+                            boolValueFromDB = DB[DBWrite_NrOfByteinDB];
+                            boolValueFromDB = boolValueFromDB - boolValue;
+                            BoolToSave = BitConverter.GetBytes(boolValueFromDB);
+                        }
+                    }
+                    else if (valuesToString.ToUpper() == "FALSE")
+                    {
+                        if (valuetoWrite.ToUpper() == "FALSE" || valuetoWrite.ToUpper() == "")
+                        {
+                            boolValueFromDB = DB[DBWrite_NrOfByteinDB];
+                            BoolToSave = BitConverter.GetBytes(boolValueFromDB);
+                        }
+                        else if (valuetoWrite.ToUpper() == "TRUE")
+                        {
+                            switch (DBWrite_NrOfBitinByte)
                             {
-                                if (valuetoWrite.ToUpper() == "FALSE")
-                                {
-                                    boolValueFromDB = DB[DBWrite_NrOfByteinDB];
-                                    BoolToSave = BitConverter.GetBytes(boolValueFromDB);
-                                }
-                                else if (valuetoWrite.ToUpper() == "TRUE")
-                                {
-                                    switch (DBWrite_NrOfBitinByte)
-                                    {
-                                        case 0:
-                                            boolValue = 1;
-                                            break;
-                                        case 1:
-                                            boolValue = 2;
-                                            break;
-                                        case 2:
-                                            boolValue = 4;
-                                            break;
-                                        case 3:
-                                            boolValue = 8;
-                                            break;
-                                        case 4:
-                                            boolValue = 16;
-                                            break;
-                                        case 5:
-                                            boolValue = 32;
-                                            break;
-                                        case 6:
-                                            boolValue = 64;
-                                            break;
-                                        case 7:
-                                            boolValue = 128;
-                                            break;
-                                    }
-                                    boolValueFromDB = DB[DBWrite_NrOfByteinDB];
-                                    boolValueFromDB = boolValueFromDB + boolValue;
-                                    BoolToSave = BitConverter.GetBytes(boolValueFromDB);
-                                }
-                                else
-                                {
-                                    boolValueFromDB = DB[DBWrite_NrOfByteinDB];
-                                    BoolToSave = BitConverter.GetBytes(boolValueFromDB);
-                                }
+                                case 0:
+                                    boolValue = 1;
+                                    break;
+                                case 1:
+                                    boolValue = 2;
+                                    break;
+                                case 2:
+                                    boolValue = 4;
+                                    break;
+                                case 3:
+                                    boolValue = 8;
+                                    break;
+                                case 4:
+                                    boolValue = 16;
+                                    break;
+                                case 5:
+                                    boolValue = 32;
+                                    break;
+                                case 6:
+                                    boolValue = 64;
+                                    break;
+                                case 7:
+                                    boolValue = 128;
+                                    break;
                             }
-                            PLC.Write(int.Parse(DBWrite_NumberOfDB), DBWrite_NrOfByteinDB, DBWrite_LengthofDataType, BoolToSave);
-                            break;
-                    //    case 1:
-                    //        values = GetBit(DB[DBWrite_NrOfByteinDB], DBWrite_NrOfBitinByte);
-                    //        valuesToString = values.ToString();
-                    //        if (valuesToString.ToUpper() == "TRUE")
-                    //        {
-                    //            if (valuetoWrite.ToUpper() == "TRUE")
-                    //            {
-                    //                boolValueFromDB = DB[DBWrite_NrOfByteinDB];
-                    //                BoolToSave = BitConverter.GetBytes(boolValueFromDB);
-                    //            }
-                    //            else if (valuetoWrite.ToUpper() == "FALSE")
-                    //            {
-
-                    //                boolValue = 2;
-                    //                boolValueFromDB = DB[DBWrite_NrOfByteinDB];
-                    //                boolValueFromDB = boolValueFromDB - boolValue;
-                    //                BoolToSave = BitConverter.GetBytes(boolValueFromDB);
-                    //            }
-                    //            else
-                    //            {
-                    //                boolValueFromDB = DB[DBWrite_NrOfByteinDB];
-                    //                BoolToSave = BitConverter.GetBytes(boolValueFromDB);
-                    //            }
-                    //        }
-                    //        else if (valuesToString.ToUpper() == "FALSE")
-                    //        {
-                    //            if (valuetoWrite.ToUpper() == "FALSE")
-                    //            {
-                    //                boolValueFromDB = DB[DBWrite_NrOfByteinDB];
-                    //                BoolToSave = BitConverter.GetBytes(boolValueFromDB);
-                    //            }
-                    //            else if (valuetoWrite.ToUpper() == "TRUE")
-                    //            {
-
-                    //                boolValue = 2;
-                    //                boolValueFromDB = DB[DBWrite_NrOfByteinDB];
-                    //                boolValueFromDB = boolValueFromDB + boolValue;
-                    //                BoolToSave = BitConverter.GetBytes(boolValueFromDB);
-                    //            }
-                    //            else
-                    //            {
-                    //                boolValueFromDB = DB[DBWrite_NrOfByteinDB];
-                    //                BoolToSave = BitConverter.GetBytes(boolValueFromDB);
-                    //            }
-                    //        }
-                    //        PLC.Write(int.Parse(DBWrite_NumberOfDB), DBWrite_NrOfByteinDB, DBWrite_LengthofDataType, BoolToSave);
-                    //        break;
-                    //    case 2:
-                    //        values = GetBit(DB[DBWrite_NrOfByteinDB], DBWrite_NrOfBitinByte);
-                    //        valuesToString = values.ToString();
-                    //        if (valuesToString.ToUpper() == "TRUE")
-                    //        {
-                    //            if (valuetoWrite.ToUpper() == "TRUE")
-                    //            {
-                    //                boolValueFromDB = DB[DBWrite_NrOfByteinDB];
-                    //                BoolToSave = BitConverter.GetBytes(boolValueFromDB);
-                    //            }
-                    //            else if (valuetoWrite.ToUpper() == "FALSE")
-                    //            {
-
-                    //                boolValue = 4;
-                    //                boolValueFromDB = DB[DBWrite_NrOfByteinDB];
-                    //                boolValueFromDB = boolValueFromDB - boolValue;
-                    //                BoolToSave = BitConverter.GetBytes(boolValueFromDB);
-                    //            }
-                    //            else
-                    //            {
-                    //                boolValueFromDB = DB[DBWrite_NrOfByteinDB];
-                    //                BoolToSave = BitConverter.GetBytes(boolValueFromDB);
-                    //            }
-                    //        }
-                    //        else if (valuesToString.ToUpper() == "FALSE")
-                    //        {
-                    //            if (valuetoWrite.ToUpper() == "FALSE")
-                    //            {
-                    //                boolValueFromDB = DB[DBWrite_NrOfByteinDB];
-                    //                BoolToSave = BitConverter.GetBytes(boolValueFromDB);
-                    //            }
-                    //            else if (valuetoWrite.ToUpper() == "TRUE")
-                    //            {
-
-                    //                boolValue = 4;
-                    //                boolValueFromDB = DB[DBWrite_NrOfByteinDB];
-                    //                boolValueFromDB = boolValueFromDB + boolValue;
-                    //                BoolToSave = BitConverter.GetBytes(boolValueFromDB);
-                    //            }
-                    //            else
-                    //            {
-                    //                boolValueFromDB = DB[DBWrite_NrOfByteinDB];
-                    //                BoolToSave = BitConverter.GetBytes(boolValueFromDB);
-                    //            }
-                    //        }
-                    //        PLC.Write(int.Parse(DBWrite_NumberOfDB), DBWrite_NrOfByteinDB, DBWrite_LengthofDataType, BoolToSave);
-                    //        break;
-                    //    case 3:
-                    //        values = GetBit(DB[DBWrite_NrOfByteinDB], DBWrite_NrOfBitinByte);
-                    //        valuesToString = values.ToString();
-                    //        if (valuesToString.ToUpper() == "TRUE")
-                    //        {
-                    //            if (valuetoWrite.ToUpper() == "TRUE")
-                    //            {
-                    //                boolValueFromDB = DB[DBWrite_NrOfByteinDB];
-                    //                BoolToSave = BitConverter.GetBytes(boolValueFromDB);
-                    //            }
-                    //            else if (valuetoWrite.ToUpper() == "FALSE")
-                    //            {
-
-                    //                boolValue = 8;
-                    //                boolValueFromDB = DB[DBWrite_NrOfByteinDB];
-                    //                boolValueFromDB = boolValueFromDB - boolValue;
-                    //                BoolToSave = BitConverter.GetBytes(boolValueFromDB);
-                    //            }
-                    //            else
-                    //            {
-                    //                boolValueFromDB = DB[DBWrite_NrOfByteinDB];
-                    //                BoolToSave = BitConverter.GetBytes(boolValueFromDB);
-                    //            }
-                    //        }
-                    //        else if (valuesToString.ToUpper() == "FALSE")
-                    //        {
-                    //            if (valuetoWrite.ToUpper() == "FALSE")
-                    //            {
-                    //                boolValueFromDB = DB[DBWrite_NrOfByteinDB];
-                    //                BoolToSave = BitConverter.GetBytes(boolValueFromDB);
-                    //            }
-                    //            else if (valuetoWrite.ToUpper() == "TRUE")
-                    //            {
-
-                    //                boolValue = 8;
-                    //                boolValueFromDB = DB[DBWrite_NrOfByteinDB];
-                    //                boolValueFromDB = boolValueFromDB + boolValue;
-                    //                BoolToSave = BitConverter.GetBytes(boolValueFromDB);
-                    //            }
-                    //            else
-                    //            {
-                    //                boolValueFromDB = DB[DBWrite_NrOfByteinDB];
-                    //                BoolToSave = BitConverter.GetBytes(boolValueFromDB);
-                    //            }
-                    //        }
-                    //        PLC.Write(int.Parse(DBWrite_NumberOfDB), DBWrite_NrOfByteinDB, DBWrite_LengthofDataType, BoolToSave);
-                    //        break;
-                    //    case 4:
-                    //        values = GetBit(DB[DBWrite_NrOfByteinDB], DBWrite_NrOfBitinByte);
-                    //        valuesToString = values.ToString();
-                    //        if (valuesToString.ToUpper() == "TRUE")
-                    //        {
-                    //            if (valuetoWrite.ToUpper() == "TRUE")
-                    //            {
-                    //                boolValueFromDB = DB[DBWrite_NrOfByteinDB];
-                    //                BoolToSave = BitConverter.GetBytes(boolValueFromDB);
-                    //            }
-                    //            else if (valuetoWrite.ToUpper() == "FALSE")
-                    //            {
-
-                    //                boolValue = 16;
-                    //                boolValueFromDB = DB[DBWrite_NrOfByteinDB];
-                    //                boolValueFromDB = boolValueFromDB - boolValue;
-                    //                BoolToSave = BitConverter.GetBytes(boolValueFromDB);
-                    //            }
-                    //            else
-                    //            {
-                    //                boolValueFromDB = DB[DBWrite_NrOfByteinDB];
-                    //                BoolToSave = BitConverter.GetBytes(boolValueFromDB);
-                    //            }
-                    //        }
-                    //        else if (valuesToString.ToUpper() == "FALSE")
-                    //        {
-                    //            if (valuetoWrite.ToUpper() == "FALSE")
-                    //            {
-                    //                boolValueFromDB = DB[DBWrite_NrOfByteinDB];
-                    //                BoolToSave = BitConverter.GetBytes(boolValueFromDB);
-                    //            }
-                    //            else if (valuetoWrite.ToUpper() == "TRUE")
-                    //            {
-
-                    //                boolValue = 16;
-                    //                boolValueFromDB = DB[DBWrite_NrOfByteinDB];
-                    //                boolValueFromDB = boolValueFromDB + boolValue;
-                    //                BoolToSave = BitConverter.GetBytes(boolValueFromDB);
-                    //            }
-                    //            else
-                    //            {
-                    //                boolValueFromDB = DB[DBWrite_NrOfByteinDB];
-                    //                BoolToSave = BitConverter.GetBytes(boolValueFromDB);
-                    //            }
-                    //        }
-                    //        PLC.Write(int.Parse(DBWrite_NumberOfDB), DBWrite_NrOfByteinDB, DBWrite_LengthofDataType, BoolToSave);
-                    //        break;
-                    //    case 5:
-                    //        values = GetBit(DB[DBWrite_NrOfByteinDB], DBWrite_NrOfBitinByte);
-                    //        valuesToString = values.ToString();
-                    //        if (valuesToString.ToUpper() == "TRUE")
-                    //        {
-                    //            if (valuetoWrite.ToUpper() == "TRUE")
-                    //            {
-                    //                boolValueFromDB = DB[DBWrite_NrOfByteinDB];
-                    //                BoolToSave = BitConverter.GetBytes(boolValueFromDB);
-                    //            }
-                    //            else if (valuetoWrite.ToUpper() == "FALSE")
-                    //            {
-
-                    //                boolValue = 32;
-                    //                boolValueFromDB = DB[DBWrite_NrOfByteinDB];
-                    //                boolValueFromDB = boolValueFromDB - boolValue;
-                    //                BoolToSave = BitConverter.GetBytes(boolValueFromDB);
-                    //            }
-                    //            else
-                    //            {
-                    //                boolValueFromDB = DB[DBWrite_NrOfByteinDB];
-                    //                BoolToSave = BitConverter.GetBytes(boolValueFromDB);
-                    //            }
-                    //        }
-                    //        else if (valuesToString.ToUpper() == "FALSE")
-                    //        {
-                    //            if (valuetoWrite.ToUpper() == "FALSE")
-                    //            {
-                    //                boolValueFromDB = DB[DBWrite_NrOfByteinDB];
-                    //                BoolToSave = BitConverter.GetBytes(boolValueFromDB);
-                    //            }
-                    //            else if (valuetoWrite.ToUpper() == "TRUE")
-                    //            {
-
-                    //                boolValue = 32;
-                    //                boolValueFromDB = DB[DBWrite_NrOfByteinDB];
-                    //                boolValueFromDB = boolValueFromDB + boolValue;
-                    //                BoolToSave = BitConverter.GetBytes(boolValueFromDB);
-                    //            }
-                    //            else
-                    //            {
-                    //                boolValueFromDB = DB[DBWrite_NrOfByteinDB];
-                    //                BoolToSave = BitConverter.GetBytes(boolValueFromDB);
-                    //            }
-                    //        }
-                    //        PLC.Write(int.Parse(DBWrite_NumberOfDB), DBWrite_NrOfByteinDB, DBWrite_LengthofDataType, BoolToSave);
-                    //        break;
-                    //    case 6:
-                    //        values = GetBit(DB[DBWrite_NrOfByteinDB], DBWrite_NrOfBitinByte);
-                    //        valuesToString = values.ToString();
-                    //        if (valuesToString.ToUpper() == "TRUE")
-                    //        {
-                    //            if (valuetoWrite.ToUpper() == "TRUE")
-                    //            {
-                    //                boolValueFromDB = DB[DBWrite_NrOfByteinDB];
-                    //                BoolToSave = BitConverter.GetBytes(boolValueFromDB);
-                    //            }
-                    //            else if (valuetoWrite.ToUpper() == "FALSE")
-                    //            {
-
-                    //                boolValue = 64;
-                    //                boolValueFromDB = DB[DBWrite_NrOfByteinDB];
-                    //                boolValueFromDB = boolValueFromDB - boolValue;
-                    //                BoolToSave = BitConverter.GetBytes(boolValueFromDB);
-                    //            }
-                    //            else
-                    //            {
-                    //                boolValueFromDB = DB[DBWrite_NrOfByteinDB];
-                    //                BoolToSave = BitConverter.GetBytes(boolValueFromDB);
-                    //            }
-                    //        }
-                    //        else if (valuesToString.ToUpper() == "FALSE")
-                    //        {
-                    //            if (valuetoWrite.ToUpper() == "FALSE")
-                    //            {
-                    //                boolValueFromDB = DB[DBWrite_NrOfByteinDB];
-                    //                BoolToSave = BitConverter.GetBytes(boolValueFromDB);
-                    //            }
-                    //            else if (valuetoWrite.ToUpper() == "TRUE")
-                    //            {
-
-                    //                boolValue = 64;
-                    //                boolValueFromDB = DB[DBWrite_NrOfByteinDB];
-                    //                boolValueFromDB = boolValueFromDB + boolValue;
-                    //                BoolToSave = BitConverter.GetBytes(boolValueFromDB);
-                    //            }
-                    //            else
-                    //            {
-                    //                boolValueFromDB = DB[DBWrite_NrOfByteinDB];
-                    //                BoolToSave = BitConverter.GetBytes(boolValueFromDB);
-                    //            }
-                    //        }
-                    //        PLC.Write(int.Parse(DBWrite_NumberOfDB), DBWrite_NrOfByteinDB, DBWrite_LengthofDataType, BoolToSave);
-                    //        break;
-                    //    case 7:
-                    //        values = GetBit(DB[DBWrite_NrOfByteinDB], DBWrite_NrOfBitinByte);
-                    //        valuesToString = values.ToString();
-                    //        if (valuesToString.ToUpper() == "TRUE")
-                    //        {
-                    //            if (valuetoWrite.ToUpper() == "TRUE")
-                    //            {
-                    //                boolValueFromDB = DB[DBWrite_NrOfByteinDB];
-                    //                BoolToSave = BitConverter.GetBytes(boolValueFromDB);
-                    //            }
-                    //            else if (valuetoWrite.ToUpper() == "FALSE")
-                    //            {
-
-                    //                boolValue = 128;
-                    //                boolValueFromDB = DB[DBWrite_NrOfByteinDB];
-                    //                boolValueFromDB = boolValueFromDB - boolValue;
-                    //                BoolToSave = BitConverter.GetBytes(boolValueFromDB);
-                    //            }
-                    //            else
-                    //            {
-                    //                boolValueFromDB = DB[DBWrite_NrOfByteinDB];
-                    //                BoolToSave = BitConverter.GetBytes(boolValueFromDB);
-                    //            }
-                    //        }
-                    //        else if (valuesToString.ToUpper() == "FALSE")
-                    //        {
-                    //            if (valuetoWrite.ToUpper() == "FALSE")
-                    //            {
-                    //                boolValueFromDB = DB[DBWrite_NrOfByteinDB];
-                    //                BoolToSave = BitConverter.GetBytes(boolValueFromDB);
-                    //            }
-                    //            else if (valuetoWrite.ToUpper() == "TRUE")
-                    //            {
-
-                    //                boolValue = 128;
-                    //                boolValueFromDB = DB[DBWrite_NrOfByteinDB];
-                    //                boolValueFromDB = boolValueFromDB + boolValue;
-                    //                BoolToSave = BitConverter.GetBytes(boolValueFromDB);
-                    //            }
-                    //            else
-                    //            {
-                    //                boolValueFromDB = DB[DBWrite_NrOfByteinDB];
-                    //                BoolToSave = BitConverter.GetBytes(boolValueFromDB);
-                    //            }
-                    //        }
-                    //        PLC.Write(int.Parse(DBWrite_NumberOfDB), DBWrite_NrOfByteinDB, DBWrite_LengthofDataType, BoolToSave);
-                    //        break;
-                    //    default:
-                    //        break;
-                    //}
-                    //break;
+                            boolValueFromDB = DB[DBWrite_NrOfByteinDB];
+                            boolValueFromDB = boolValueFromDB + boolValue;
+                            BoolToSave = BitConverter.GetBytes(boolValueFromDB);
+                        }
+                    }
+                    PLC.Write(int.Parse(DBWrite_NumberOfDB), DBWrite_NrOfByteinDB, DBWrite_LengthofDataType, BoolToSave);
+                    break;
                 case "BYTE":
                     //Write BYTE
                     short ByteValue = Convert.ToByte(valuetoWrite);
