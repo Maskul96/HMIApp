@@ -9,7 +9,7 @@ namespace HMIApp
     public interface iApp
     {
         void RunInitPLC();
-        void ReadFromDB();
+        void ReadActualValueFromDB();
         bool GetBit(byte b, int bitNumber);
         void WriteToDB(string valuetoWrite, string DataTypeofTag);
 

@@ -8,6 +8,7 @@ using System.ComponentModel;
 using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -22,10 +23,13 @@ namespace HMIApp
         private readonly iCSVReader _csvReader;
         public int DBRead_position;
         public string DBRead_NumberOfDB;
+        public int DBRead_position1;
+        public string DBRead_NameofTagWithoutNumberofDB;
         public int DBRead_StartDB;
         public int DBRead_EndDB;
         public int DBRead_NrOfByteinDB;
         public int DBRead_NrOfBitinByte;
+        public string DBRead_TagName;
         public Form1 obj;
 
         //Zmienne do DBka do zapisywania
@@ -66,7 +70,10 @@ namespace HMIApp
         }
 
         //Odczyt z pliku CSV i od razu odczyt danych z DBka
-        public void ReadFromDB()
+        //Teraz ogarnac to tak zeby nie trzeba bylo recznie wpisywac gdzie maja dane sie zapisywac czyli zeby nie bylo 
+        //tak jak: Form1._Form1.textBox2.Text = values[0].ToString(); - ze textobxa trzeba wpisac recznie
+                                
+        public void ReadActualValueFromDB()
         {
             var dbtags = CSVReader.DBStructure("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_0.csv");
 
@@ -98,60 +105,70 @@ namespace HMIApp
                     case "BOOL":
                         //Read BOOL               
                         DBRead_NrOfBitinByte = dbTag.NumberOfBitInByte;
-                        BitArray bitArray = new BitArray(DB[0]);
+                        DBRead_NrOfByteinDB = dbTag.NumberOfByteInDB;
+                        BitArray bitArray = new BitArray(DB[DBRead_NrOfByteinDB]);
                         bool[] values = new bool[8];
+                        //Wyszukanie samej nazwy Taga, która odpowiada 1:1 nazwie TextBoxa
+                        DBRead_position1 = dbTag.TagName.IndexOf(".") +1;
+                        DBRead_NameofTagWithoutNumberofDB = dbTag.TagName.Substring(DBRead_position1);
+                        DBRead_TagName = dbTag.TagName;
+
                         switch (DBRead_NrOfBitinByte)
                         {
                             case 0:
-                                values[0] = GetBit(DB[0], 0);
-                                Form1._Form1.textBox2.Text = values[0].ToString();
+                                values[0] = GetBit(DB[DBRead_NrOfByteinDB], 0);
+                                //Wyszukanie TextBoxa po jego nazwie
+                                TextBox txt = Form1._Form1.Controls.Find($"{DBRead_NameofTagWithoutNumberofDB}", true).FirstOrDefault() as TextBox;
+                                txt.Text = values[0].ToString();
                                 break;
                             case 1:
-                                values[1] = GetBit(DB[0], 1);
-                                Form1._Form1.textBox3.Text = values[1].ToString();
+                                values[1] = GetBit(DB[DBRead_NrOfByteinDB], 1);
+                                Form1._Form1.Tag1.Text = values[1].ToString();
                                 break;
                             case 2:
-                                values[2] = GetBit(DB[0], 2);
-                                Form1._Form1.textBox4.Text = values[2].ToString();
+                                values[2] = GetBit(DB[DBRead_NrOfByteinDB], 2);
+                                Form1._Form1.Tag8.Text = values[2].ToString();
                                 break;
                             case 3:
-                                values[3] = GetBit(DB[0], 3);
-                                Form1._Form1.textBox5.Text = values[3].ToString();
+                                values[3] = GetBit(DB[DBRead_NrOfByteinDB], 3);
+                                Form1._Form1.Tag9.Text = values[3].ToString();
                                 break;
                             case 4:
-                                values[4] = GetBit(DB[0], 4);
-                                Form1._Form1.textBox6.Text = values[4].ToString();
+                                values[4] = GetBit(DB[DBRead_NrOfByteinDB], 4);
+                                Form1._Form1.Tag10.Text = values[4].ToString();
                                 break;
                             case 5:
-                                values[5] = GetBit(DB[0], 5);
-                                Form1._Form1.textBox7.Text = values[5].ToString();
+                                values[5] = GetBit(DB[DBRead_NrOfByteinDB], 5);
+                                Form1._Form1.Tag11.Text = values[5].ToString();
                                 break;
                             case 6:
-                                values[6] = GetBit(DB[0], 6);
-                                Form1._Form1.textBox8.Text = values[6].ToString();
+                                values[6] = GetBit(DB[DBRead_NrOfByteinDB], 6);
+                                Form1._Form1.Tag12.Text = values[6].ToString();
                                 break;
                             case 7:
-                                values[7] = GetBit(DB[0], 7);
-                                Form1._Form1.textBox9.Text = values[7].ToString();
+                                values[7] = GetBit(DB[DBRead_NrOfByteinDB], 7);
+                                Form1._Form1.Tag13.Text = values[7].ToString();
                                 break;
                         }
                         break;
                     case "BYTE":
-                        Form1._Form1.textBox10.Text = Convert.ToString(DB[1]);
-                        Form1._Form1.textBox11.Text = Convert.ToString(DB[2]);
+                        DBRead_NrOfByteinDB = dbTag.NumberOfByteInDB;
+                        Form1._Form1.Tag2.Text = Convert.ToString(DB[DBRead_NrOfByteinDB]);
+                        Form1._Form1.Tag2.Text = Convert.ToString(DB[DBRead_NrOfByteinDB]);
+                        Form1._Form1.Tag3.Text = Convert.ToString(DB[DBRead_NrOfByteinDB]);
                         break;
                     case "INT":
                         //Read INT16
-                        Form1._Form1.textBox12.Text = Convert.ToString(libnodave.getS16from(DB, 4));
-                        Form1._Form1.textBox13.Text = Convert.ToString(libnodave.getS16from(DB, 6));
+                        Form1._Form1.Tag4.Text = Convert.ToString(libnodave.getS16from(DB, 4));
+                        Form1._Form1.Tag5.Text = Convert.ToString(libnodave.getS16from(DB, 6));
                         break;
                     case "REAL":
                         //Read FLOAT
-                        Form1._Form1.textBox14.Text = Convert.ToString(libnodave.getFloatfrom(DB, 8));
+                        Form1._Form1.Tag6.Text = Convert.ToString(libnodave.getFloatfrom(DB, 8));
                         break;
                     case "DINT":
                         //Read DINT
-                        Form1._Form1.textBox15.Text = Convert.ToString(libnodave.getS32from(DB, 12));
+                        Form1._Form1.Tag7.Text = Convert.ToString(libnodave.getS32from(DB, 12));
                         break;
                     default:
                         break;

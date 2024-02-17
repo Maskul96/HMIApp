@@ -34,20 +34,20 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.textBox13 = new System.Windows.Forms.TextBox();
-            this.textBox14 = new System.Windows.Forms.TextBox();
-            this.textBox15 = new System.Windows.Forms.TextBox();
+            this.Tag0 = new System.Windows.Forms.TextBox();
+            this.Tag1 = new System.Windows.Forms.TextBox();
+            this.Tag8 = new System.Windows.Forms.TextBox();
+            this.Tag9 = new System.Windows.Forms.TextBox();
+            this.Tag10 = new System.Windows.Forms.TextBox();
+            this.Tag11 = new System.Windows.Forms.TextBox();
+            this.Tag12 = new System.Windows.Forms.TextBox();
+            this.Tag13 = new System.Windows.Forms.TextBox();
+            this.Tag2 = new System.Windows.Forms.TextBox();
+            this.Tag3 = new System.Windows.Forms.TextBox();
+            this.Tag4 = new System.Windows.Forms.TextBox();
+            this.Tag5 = new System.Windows.Forms.TextBox();
+            this.Tag6 = new System.Windows.Forms.TextBox();
+            this.Tag7 = new System.Windows.Forms.TextBox();
             this.textBox17 = new System.Windows.Forms.TextBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.textBox16 = new System.Windows.Forms.TextBox();
@@ -107,103 +107,103 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "Podaj nazwe Taga do Zapisu\r\nnp. DB666.Tag0 tak jak w pliku tags_zone_0";
             // 
-            // textBox2
+            // Tag0
             // 
-            this.textBox2.Location = new System.Drawing.Point(39, 38);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 5;
+            this.Tag0.Location = new System.Drawing.Point(38, 38);
+            this.Tag0.Name = "Tag0";
+            this.Tag0.Size = new System.Drawing.Size(100, 20);
+            this.Tag0.TabIndex = 5;
             // 
-            // textBox3
+            // Tag1
             // 
-            this.textBox3.Location = new System.Drawing.Point(39, 64);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 6;
+            this.Tag1.Location = new System.Drawing.Point(39, 64);
+            this.Tag1.Name = "Tag1";
+            this.Tag1.Size = new System.Drawing.Size(100, 20);
+            this.Tag1.TabIndex = 6;
             // 
-            // textBox4
+            // Tag8
             // 
-            this.textBox4.Location = new System.Drawing.Point(39, 90);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 7;
+            this.Tag8.Location = new System.Drawing.Point(39, 90);
+            this.Tag8.Name = "Tag8";
+            this.Tag8.Size = new System.Drawing.Size(100, 20);
+            this.Tag8.TabIndex = 7;
             // 
-            // textBox5
+            // Tag9
             // 
-            this.textBox5.Location = new System.Drawing.Point(39, 117);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 20);
-            this.textBox5.TabIndex = 8;
+            this.Tag9.Location = new System.Drawing.Point(39, 117);
+            this.Tag9.Name = "Tag9";
+            this.Tag9.Size = new System.Drawing.Size(100, 20);
+            this.Tag9.TabIndex = 8;
             // 
-            // textBox6
+            // Tag10
             // 
-            this.textBox6.Location = new System.Drawing.Point(39, 143);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 20);
-            this.textBox6.TabIndex = 9;
+            this.Tag10.Location = new System.Drawing.Point(39, 143);
+            this.Tag10.Name = "Tag10";
+            this.Tag10.Size = new System.Drawing.Size(100, 20);
+            this.Tag10.TabIndex = 9;
             // 
-            // textBox7
+            // Tag11
             // 
-            this.textBox7.Location = new System.Drawing.Point(39, 169);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(100, 20);
-            this.textBox7.TabIndex = 10;
+            this.Tag11.Location = new System.Drawing.Point(39, 169);
+            this.Tag11.Name = "Tag11";
+            this.Tag11.Size = new System.Drawing.Size(100, 20);
+            this.Tag11.TabIndex = 10;
             // 
-            // textBox8
+            // Tag12
             // 
-            this.textBox8.Location = new System.Drawing.Point(39, 195);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(100, 20);
-            this.textBox8.TabIndex = 11;
+            this.Tag12.Location = new System.Drawing.Point(39, 195);
+            this.Tag12.Name = "Tag12";
+            this.Tag12.Size = new System.Drawing.Size(100, 20);
+            this.Tag12.TabIndex = 11;
             // 
-            // textBox9
+            // Tag13
             // 
-            this.textBox9.Location = new System.Drawing.Point(39, 221);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(100, 20);
-            this.textBox9.TabIndex = 12;
+            this.Tag13.Location = new System.Drawing.Point(39, 221);
+            this.Tag13.Name = "Tag13";
+            this.Tag13.Size = new System.Drawing.Size(100, 20);
+            this.Tag13.TabIndex = 12;
             // 
-            // textBox10
+            // Tag2
             // 
-            this.textBox10.Location = new System.Drawing.Point(39, 247);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(100, 20);
-            this.textBox10.TabIndex = 13;
+            this.Tag2.Location = new System.Drawing.Point(39, 247);
+            this.Tag2.Name = "Tag2";
+            this.Tag2.Size = new System.Drawing.Size(100, 20);
+            this.Tag2.TabIndex = 13;
             // 
-            // textBox11
+            // Tag3
             // 
-            this.textBox11.Location = new System.Drawing.Point(39, 273);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(100, 20);
-            this.textBox11.TabIndex = 14;
+            this.Tag3.Location = new System.Drawing.Point(39, 273);
+            this.Tag3.Name = "Tag3";
+            this.Tag3.Size = new System.Drawing.Size(100, 20);
+            this.Tag3.TabIndex = 14;
             // 
-            // textBox12
+            // Tag4
             // 
-            this.textBox12.Location = new System.Drawing.Point(39, 299);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(100, 20);
-            this.textBox12.TabIndex = 15;
+            this.Tag4.Location = new System.Drawing.Point(39, 299);
+            this.Tag4.Name = "Tag4";
+            this.Tag4.Size = new System.Drawing.Size(100, 20);
+            this.Tag4.TabIndex = 15;
             // 
-            // textBox13
+            // Tag5
             // 
-            this.textBox13.Location = new System.Drawing.Point(39, 325);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(100, 20);
-            this.textBox13.TabIndex = 16;
+            this.Tag5.Location = new System.Drawing.Point(39, 325);
+            this.Tag5.Name = "Tag5";
+            this.Tag5.Size = new System.Drawing.Size(100, 20);
+            this.Tag5.TabIndex = 16;
             // 
-            // textBox14
+            // Tag6
             // 
-            this.textBox14.Location = new System.Drawing.Point(39, 351);
-            this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(100, 20);
-            this.textBox14.TabIndex = 17;
+            this.Tag6.Location = new System.Drawing.Point(39, 351);
+            this.Tag6.Name = "Tag6";
+            this.Tag6.Size = new System.Drawing.Size(100, 20);
+            this.Tag6.TabIndex = 17;
             // 
-            // textBox15
+            // Tag7
             // 
-            this.textBox15.Location = new System.Drawing.Point(39, 377);
-            this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(100, 20);
-            this.textBox15.TabIndex = 18;
+            this.Tag7.Location = new System.Drawing.Point(39, 377);
+            this.Tag7.Name = "Tag7";
+            this.Tag7.Size = new System.Drawing.Size(100, 20);
+            this.Tag7.TabIndex = 18;
             // 
             // textBox17
             // 
@@ -304,20 +304,20 @@
             this.Controls.Add(this.textBox18);
             this.Controls.Add(this.textBox16);
             this.Controls.Add(this.textBox17);
-            this.Controls.Add(this.textBox15);
-            this.Controls.Add(this.textBox14);
-            this.Controls.Add(this.textBox13);
-            this.Controls.Add(this.textBox12);
-            this.Controls.Add(this.textBox11);
-            this.Controls.Add(this.textBox10);
-            this.Controls.Add(this.textBox9);
-            this.Controls.Add(this.textBox8);
-            this.Controls.Add(this.textBox7);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.Tag7);
+            this.Controls.Add(this.Tag6);
+            this.Controls.Add(this.Tag5);
+            this.Controls.Add(this.Tag4);
+            this.Controls.Add(this.Tag3);
+            this.Controls.Add(this.Tag2);
+            this.Controls.Add(this.Tag13);
+            this.Controls.Add(this.Tag12);
+            this.Controls.Add(this.Tag11);
+            this.Controls.Add(this.Tag10);
+            this.Controls.Add(this.Tag9);
+            this.Controls.Add(this.Tag8);
+            this.Controls.Add(this.Tag1);
+            this.Controls.Add(this.Tag0);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -337,20 +337,20 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        public System.Windows.Forms.TextBox textBox2;
-        public System.Windows.Forms.TextBox textBox3;
-        public System.Windows.Forms.TextBox textBox4;
-        public System.Windows.Forms.TextBox textBox5;
-        public System.Windows.Forms.TextBox textBox6;
-        public System.Windows.Forms.TextBox textBox7;
-        public System.Windows.Forms.TextBox textBox8;
-        public System.Windows.Forms.TextBox textBox9;
-        public System.Windows.Forms.TextBox textBox10;
-        public System.Windows.Forms.TextBox textBox11;
-        public System.Windows.Forms.TextBox textBox12;
-        public System.Windows.Forms.TextBox textBox13;
-        public System.Windows.Forms.TextBox textBox14;
-        public System.Windows.Forms.TextBox textBox15;
+        public System.Windows.Forms.TextBox Tag0;
+        public System.Windows.Forms.TextBox Tag1;
+        public System.Windows.Forms.TextBox Tag8;
+        public System.Windows.Forms.TextBox Tag9;
+        public System.Windows.Forms.TextBox Tag10;
+        public System.Windows.Forms.TextBox Tag11;
+        public System.Windows.Forms.TextBox Tag12;
+        public System.Windows.Forms.TextBox Tag13;
+        public System.Windows.Forms.TextBox Tag2;
+        public System.Windows.Forms.TextBox Tag3;
+        public System.Windows.Forms.TextBox Tag4;
+        public System.Windows.Forms.TextBox Tag5;
+        public System.Windows.Forms.TextBox Tag6;
+        public System.Windows.Forms.TextBox Tag7;
         public System.Windows.Forms.TextBox textBox17;
         private System.Windows.Forms.Timer timer1;
         public System.Windows.Forms.TextBox textBox16;

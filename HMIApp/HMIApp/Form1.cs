@@ -20,7 +20,7 @@ namespace HMIApp
         //Referencje przechowywane w PLC - w pozniejszym etapie zrobic przechowywanie w bazie danych
         //Obiekty z Form1 Design ustawione z dostepem jako public zeby mozna bylo miec do nich dostep z innej klasy poprzez konstruktor
         //Ogarniete odczytywanie/zapisywanie z PLC - teraz je przetestowac i potem ogarnac wlasne ikony
-
+        //WSZYSTKIE TEXTBOXY NAZYWAMY NAZWA TAGA NP. JESLI DB666.TAG0 TO TEXTBOX DO KTOREGO PRZYPISUJEMY WARTOSC MA NAZWAE TAG0
         App App = new App();
        
         public Form1()
@@ -36,7 +36,7 @@ namespace HMIApp
             var app = serviceProvider.GetService<iApp>();
             // app.RunInitPLC();
             App.RunInitPLC();
-            App.ReadFromDB();
+            App.ReadActualValueFromDB();
             timer1.Enabled = true;
 
         }
@@ -45,7 +45,7 @@ namespace HMIApp
         //Metoda do update'u obiektow z poziomu innej klasy np. label5
         public void update(string message)
         {
-            label5.Text = message;
+           // label5.Text = message;
         }
         //Zapis 
         private void button1_Click(object sender, EventArgs e)
@@ -67,7 +67,7 @@ namespace HMIApp
         //Timer co 100ms do oczytywania DBka
         private void timer1_Tick(object sender, EventArgs e)
         {
-            App.ReadFromDB();
+            App.ReadActualValueFromDB();
         }
 
         //OBCZAIC DELEGATY I ZDARZENIA 
