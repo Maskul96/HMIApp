@@ -72,6 +72,8 @@ namespace HMIApp
             App.ReadActualValueFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_0.csv");
         }
 
+
+
         //OBCZAIC DELEGATY I ZDARZENIA 
         //Na samym koncu zajac sie swoimi kontrolkami jak juz bede wiedzial jak stricte maja wygladac i co od nich oczekuje
     }
