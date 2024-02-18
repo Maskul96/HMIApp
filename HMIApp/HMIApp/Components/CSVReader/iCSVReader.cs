@@ -11,7 +11,7 @@ namespace HMIApp.Components
     {
 
         List<DBTag> DBStructure(string filePath);
-
+        List<DBTagAlarms> DBAlarmStructure(string filePath);
 
     }
 }

@@ -43,6 +43,19 @@ namespace HMIApp
         public int DBWrite_NrOfByteinDB;
         public int DBWrite_NrOfBitinByte;
 
+
+        //Zmienne do DBka do alarmów
+        public int DBReadAlarm_position;
+        public string DBReadAlarm_NumberOfDB;
+        public int DBReadAlarm_position1;
+        public string DBReadAlarm_NameofTagWithoutNumberofDB;
+        public int DBReadAlarm_StartDB;
+        public int DBReadAlarm_EndDB;
+        public int DBReadAlarm_NrOfByteinDB;
+        public int DBReadAlarm_NrOfBitinByte;
+        public int DBReadAlarm_LengthOfDataType;
+        public string DBReadAlarm_AlarmName;
+
         public App(iCSVReader csvReader)
         {
             _csvReader = csvReader;
@@ -397,5 +410,113 @@ namespace HMIApp
             }
         }
 
+        //OGARNAC KILKA LINII ALARMOW
+        public void ReadAlarmsFromDB(string filepath)
+        {
+            var dbtags = CSVReader.DBAlarmStructure(filepath);
+
+            foreach (var dbTag in dbtags)
+            {
+                //Wyciagniecie z nazwy DBka jego numer
+                DBReadAlarm_position = dbTag.TagName.IndexOf('.') - 2;
+                DBReadAlarm_NumberOfDB = dbTag.TagName.Substring(2, DBReadAlarm_position);
+                //Wyciagniecie startowej pozycji i końcowej pozycji DBka - ustalamy dlugosc danych + ustalenie dlugosci tablicy
+                if (dbtags.First() == dbTag)
+                {
+                    DBReadAlarm_StartDB = dbTag.NumberOfByteInDB;
+                }
+                if (dbtags.Last() == dbTag)
+                {
+                    DBReadAlarm_EndDB = dbTag.NumberOfByteInDB;
+                    if (DBReadAlarm_EndDB == 0)
+                    {
+                        DBReadAlarm_EndDB++;
+                    }
+                }
+            }
+
+            byte[] DB = new byte[DBReadAlarm_EndDB] ;
+            byte[] DBTemp = BitConverter.GetBytes(255);
+            //Read DB
+            PLC.Read(int.Parse(DBReadAlarm_NumberOfDB), DBReadAlarm_StartDB, DBReadAlarm_EndDB, DB);
+
+                foreach (var dbTag in dbtags)
+                {
+                    //Read BOOL               
+                    DBReadAlarm_NrOfBitinByte = dbTag.NumberOfBitInByte;
+                    DBReadAlarm_NrOfByteinDB = dbTag.NumberOfByteInDB;
+                    DBReadAlarm_AlarmName = dbTag.NameofAlarm;
+                    BitArray bitArray = new BitArray(DB[DBReadAlarm_NrOfByteinDB]);
+                    bool[] values = new bool[8];
+
+                    switch (DBReadAlarm_NrOfBitinByte)
+                    {
+                        case 0:
+                            values[0] = GetBit(DB[DBReadAlarm_NrOfByteinDB], 0);
+                            if (values[0].ToString().ToUpper() == "TRUE")
+                            {
+                                Form1._Form1.listAlarmView.Items.Add(DBReadAlarm_AlarmName);
+                                Form1._Form1.listView1.Items.Add(DBReadAlarm_AlarmName);
+                            }
+                            break;
+                        case 1:
+                            values[1] = GetBit(DB[DBReadAlarm_NrOfByteinDB], 1);
+                            if (values[1].ToString().ToUpper() == "TRUE")
+                            {
+                                Form1._Form1.listAlarmView.Items.Add(DBReadAlarm_AlarmName);
+                            }
+                            break;
+                        case 2:
+                            values[2] = GetBit(DB[DBReadAlarm_NrOfByteinDB], 2);
+                            if (values[2].ToString().ToUpper() == "TRUE")
+                            {
+                                Form1._Form1.listAlarmView.Items.Add(DBReadAlarm_AlarmName);
+                            }
+                            break;
+                        case 3:
+                            values[3] = GetBit(DB[DBReadAlarm_NrOfByteinDB], 3);
+                            if (values[3].ToString().ToUpper() == "TRUE")
+                            {
+                                Form1._Form1.listAlarmView.Items.Add(DBReadAlarm_AlarmName);
+                            }
+                            break;
+                        case 4:
+                            values[4] = GetBit(DB[DBReadAlarm_NrOfByteinDB], 4);
+                            if (values[4].ToString().ToUpper() == "TRUE")
+                            {
+                                Form1._Form1.listAlarmView.Items.Add(DBReadAlarm_AlarmName);
+                            }
+                            break;
+                        case 5:
+                            values[5] = GetBit(DB[DBReadAlarm_NrOfByteinDB], 5);
+                            if (values[5].ToString().ToUpper() == "TRUE")
+                            {
+                                Form1._Form1.listAlarmView.Items.Add(DBReadAlarm_AlarmName);
+                            }
+                            break;
+                        case 6:
+                            values[6] = GetBit(DB[DBReadAlarm_NrOfByteinDB], 6);
+                            if (values[6].ToString().ToUpper() == "TRUE")
+                            {
+                                Form1._Form1.listAlarmView.Items.Add(DBReadAlarm_AlarmName);
+                            }
+                            break;
+                        case 7:
+                            values[7] = GetBit(DB[DBReadAlarm_NrOfByteinDB], 7);
+                            if (values[7].ToString().ToUpper() == "TRUE")
+                            {
+                                Form1._Form1.listAlarmView.Items.Add(DBReadAlarm_AlarmName);
+                            }
+
+                            break;
+                    }
+                }
+            
+        }
+
+        public void ReadIOFromDB(string filepath)
+        {
+
+        }
     }
 }
