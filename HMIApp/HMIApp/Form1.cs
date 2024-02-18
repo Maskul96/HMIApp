@@ -52,14 +52,14 @@ namespace HMIApp
         //Zapis 
         private void button1_Click(object sender, EventArgs e)
         {
-            App.WriteToDB(Tag000.Text, Tag000.Tag.ToString());
-            App.WriteToDB(Tag111.Text, Tag111.Tag.ToString());
-            App.WriteToDB(Tag888.Text, Tag888.Tag.ToString());
-            App.WriteToDB(Tag999.Text, Tag999.Tag.ToString());
-            App.WriteToDB(Tag100.Text, Tag100.Tag.ToString());
-            App.WriteToDB(Tag1111.Text, Tag1111.Tag.ToString());
-            App.WriteToDB(Tag122.Text, Tag122.Tag.ToString());
-            App.WriteToDB(Tag133.Text, Tag133.Tag.ToString());
+            App.WriteToDB(Tag000.Checked.ToString(), Tag000.Tag.ToString());
+            App.WriteToDB(Tag111.Checked.ToString(), Tag111.Tag.ToString());
+            App.WriteToDB(Tag888.Checked.ToString(), Tag888.Tag.ToString());
+            App.WriteToDB(Tag999.Checked.ToString(), Tag999.Tag.ToString());
+            App.WriteToDB(Tag100.Checked.ToString(), Tag100.Tag.ToString());
+            App.WriteToDB(Tag1111.Checked.ToString(), Tag1111.Tag.ToString());
+            App.WriteToDB(Tag122.Checked.ToString(), Tag122.Tag.ToString());
+            App.WriteToDB(Tag133.Checked.ToString(), Tag133.Tag.ToString());
             App.WriteToDB(Tag222.Text, Tag222.Tag.ToString());
             App.WriteToDB(Tag444.Text, Tag444.Tag.ToString());
             App.WriteToDB(Tag666.Text, Tag666.Tag.ToString());
@@ -70,6 +70,28 @@ namespace HMIApp
         private void timer1_Tick(object sender, EventArgs e)
         {
             App.ReadActualValueFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_0.csv");
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            App.ReadActualValueFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_1.csv");
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            App.ClosePLCConnection();
+            Close();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            //Ikonka TextBoxa moze sluzyc jako wskaznik IO's na zasadzie kolorowania jej backcoloru i enabled dajesz jako false
+            textBox17.BackColor = Color.LightGreen;
         }
 
 

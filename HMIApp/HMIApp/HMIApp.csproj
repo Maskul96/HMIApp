@@ -106,6 +106,7 @@
     </Compile>
     <None Include="Resources\Files\tags_zone_0.csv" />
     <None Include="Resources\Files\tags_zone_1.csv" />
+    <None Include="Resources\Files\tags_zone_2.csv" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

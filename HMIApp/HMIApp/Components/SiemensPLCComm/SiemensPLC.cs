@@ -25,14 +25,20 @@ namespace HMIApp
         private int continuous_reading_errors_;
         private int continuous_writing_errors_;
         private libnodave.daveOSserialType dave_serial_;
-        private libnodave.daveInterface dave_interface_;
+        public libnodave.daveInterface dave_interface_;
         public libnodave.daveConnection dave_connection_;
         private object cs_;
+        public Form1 obj;
 
         //konstruktor bezparametrowy
         public SiemensPLC()
         {
 
+        }
+
+        public SiemensPLC(Form1 obj)
+        {
+            this.obj = obj;
         }
 
         //konstruktor parametrowy
@@ -66,25 +72,26 @@ namespace HMIApp
                             int num = dave_connection_.connectPLC();
                             if (num == 0)
                             {
-                                MessageBox.Show($"CONNECTED,IP: {IP} port: {Port} ");
+                                //MessageBox.Show($"CONNECTED,IP: {IP} port: {Port} ");
+                                Form1._Form1.textBox4.Text = $"CONNECTED,IP: {IP} port: {Port} ";
                                 connected_ = true;
                                 return true;
                             }
-                            MessageBox.Show($"Error connecting to PLC: {libnodave.daveStrerror(num)} ");
+                            Form1._Form1.textBox4.Text = ($"Error connecting to PLC: {libnodave.daveStrerror(num)} ");
                             return false;
                         }
-                        MessageBox.Show($"Error initAdapter socket,IP: {IP} port: {Port}");
+                        Form1._Form1.textBox4.Text = ($"Error initAdapter socket,IP: {IP} port: {Port}");
                         return false;
                     }
-                    MessageBox.Show("Error opening socket, IP: {IP} port: {Port}");
+                    Form1._Form1.textBox4.Text = ("Error opening socket, IP: {IP} port: {Port}");
                     return false;
                 }
-                MessageBox.Show("Already connected");
+                Form1._Form1.textBox4.Text = ("Already connected");
                 return false;
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"{ex.ToString()}");
+                Form1._Form1.textBox4.Text = ($"{ex.ToString()}");
                 return false;
             }
         }
@@ -103,15 +110,15 @@ namespace HMIApp
                         connected_ = false;
                         return true;
                     }
-                    MessageBox.Show("Error in disconnect with PLC");
+                    Form1._Form1.textBox4.Text = ("Error in disconnect with PLC");
                     return false;
                 }
-                MessageBox.Show("PLC not connected");
+                Form1._Form1.textBox4.Text = ("PLC not connected");
                 return false;
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"{ex.ToString()}");
+                Form1._Form1.textBox4.Text = ($"{ex.ToString()}");
                 return false;
             }
         }
@@ -123,7 +130,7 @@ namespace HMIApp
 
             try
             {
-                //instrukcja lock zapewnia ze w dowolny momencie tylko jeden watek wykonuje jego tresc
+                //instrukcja lock zapewnia ze w dowolny momencie tylko jeden watek wykonuje jego tresc - zgodnie z dokumentacja biblioteki
                 lock (cs_)
                 {
                     int num = dave_connection_.readBytes(libnodave.daveDB, db, start, len, bytes);
@@ -134,7 +141,7 @@ namespace HMIApp
                         return true;
                     }
                     AddContinuousReadingErrors();
-                    MessageBox.Show($"Error reading: DB: {db}, start: {start}, len: {len}, Error: {libnodave.daveStrerror(num)}");
+                    Form1._Form1.textBox4.Text = ($"Error reading: DB: {db}, start: {start}, len: {len}, Error: {libnodave.daveStrerror(num)}");
 
                     return false;
                 }
@@ -142,7 +149,7 @@ namespace HMIApp
             catch (Exception ex)
             {
                 AddContinuousReadingErrors();
-                MessageBox.Show($"{ex.ToString()}");
+                Form1._Form1.textBox4.Text = ($"{ex.ToString()}");
                 return false;
             }
         }
@@ -163,16 +170,16 @@ namespace HMIApp
                         return true;
                     }
                     AddContinuousWritingErrors();
-                    MessageBox.Show($"Error writing: DB: {db}, start: {start}, len: {len}, Error: {libnodave.daveStrerror(num)}");
+                    Form1._Form1.textBox4.Text = ($"Error writing: DB: {db}, start: {start}, len: {len}, Error: {libnodave.daveStrerror(num)}");
 
                     return false;
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Blad tutaj");
+                Form1._Form1.textBox4.Text = ("Blad tutaj");
                 AddContinuousWritingErrors();
-                MessageBox.Show($"{ex.ToString()}");
+                Form1._Form1.textBox4.Text = ($"{ex.ToString()}");
                 return false;
             }
         }

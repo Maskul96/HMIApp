@@ -59,6 +59,7 @@ namespace HMIApp
 
         //Stworzenie obiektu z konfiguracja sterownika
         SiemensPLC PLC = new SiemensPLC("192.168.2.1", 102, 0, 1, 1000000);
+        
         //Stworzenie obiektu CSVReader do odczytu z pliku
         CSVReader CSVReader = new CSVReader();
 
@@ -66,6 +67,14 @@ namespace HMIApp
         public void RunInitPLC()
         {
             PLC.Init();
+
+            int TimeoutPLC  = PLC.dave_interface_.getTimeout();
+            Form1._Form1.textBox5.Text = TimeoutPLC.ToString();
+        }
+
+        public void ClosePLCConnection()
+        {
+            PLC.Close();
         }
 
         //Metoda wyciagająca dany bit z całego Byte'a
@@ -129,48 +138,49 @@ namespace HMIApp
                         DBRead_NameofTagWithoutNumberofDB = dbTag.TagName.Substring(DBRead_position1);
                         DBRead_TagName = dbTag.TagName;
                         TextBox txt;
+                        CheckBox chk;
                         switch (DBRead_NrOfBitinByte)
                         {
                             case 0:
                                 values[0] = GetBit(DB[DBRead_NrOfByteinDB], 0);
                                 //Wyszukanie TextBoxa po jego nazwie
-                                txt = Form1._Form1.Controls.Find($"{DBRead_NameofTagWithoutNumberofDB}", true).FirstOrDefault() as TextBox;
-                                txt.Text = values[0].ToString();
+                                chk = Form1._Form1.Controls.Find($"{DBRead_NameofTagWithoutNumberofDB}", true).FirstOrDefault() as CheckBox;
+                                chk.Checked = values[0];
                                 break;
                             case 1:
                                 values[1] = GetBit(DB[DBRead_NrOfByteinDB], 1);
-                                txt = Form1._Form1.Controls.Find($"{DBRead_NameofTagWithoutNumberofDB}", true).FirstOrDefault() as TextBox;
-                                txt.Text = values[1].ToString();
+                                chk = Form1._Form1.Controls.Find($"{DBRead_NameofTagWithoutNumberofDB}", true).FirstOrDefault() as CheckBox;
+                                chk.Checked = values[1];
                                 break;
                             case 2:
                                 values[2] = GetBit(DB[DBRead_NrOfByteinDB], 2);
-                                txt = Form1._Form1.Controls.Find($"{DBRead_NameofTagWithoutNumberofDB}", true).FirstOrDefault() as TextBox;
-                                txt.Text = values[2].ToString();
+                                chk = Form1._Form1.Controls.Find($"{DBRead_NameofTagWithoutNumberofDB}", true).FirstOrDefault() as CheckBox;
+                                chk.Checked = values[2];
                                 break;
                             case 3:
                                 values[3] = GetBit(DB[DBRead_NrOfByteinDB], 3);
-                                txt = Form1._Form1.Controls.Find($"{DBRead_NameofTagWithoutNumberofDB}", true).FirstOrDefault() as TextBox;
-                                txt.Text = values[3].ToString();
+                                chk = Form1._Form1.Controls.Find($"{DBRead_NameofTagWithoutNumberofDB}", true).FirstOrDefault() as CheckBox;
+                                chk.Checked = values[3];
                                 break;
                             case 4:
                                 values[4] = GetBit(DB[DBRead_NrOfByteinDB], 4);
-                                txt = Form1._Form1.Controls.Find($"{DBRead_NameofTagWithoutNumberofDB}", true).FirstOrDefault() as TextBox;
-                                txt.Text = values[4].ToString();
+                                chk = Form1._Form1.Controls.Find($"{DBRead_NameofTagWithoutNumberofDB}", true).FirstOrDefault() as CheckBox;
+                                chk.Checked = values[4];
                                 break;
                             case 5:
                                 values[5] = GetBit(DB[DBRead_NrOfByteinDB], 5);
-                                txt = Form1._Form1.Controls.Find($"{DBRead_NameofTagWithoutNumberofDB}", true).FirstOrDefault() as TextBox;
-                                txt.Text = values[5].ToString();
+                                chk = Form1._Form1.Controls.Find($"{DBRead_NameofTagWithoutNumberofDB}", true).FirstOrDefault() as CheckBox;
+                                chk.Checked = values[5];
                                 break;
                             case 6:
                                 values[6] = GetBit(DB[DBRead_NrOfByteinDB], 6);
-                                txt = Form1._Form1.Controls.Find($"{DBRead_NameofTagWithoutNumberofDB}", true).FirstOrDefault() as TextBox;
-                                txt.Text = values[6].ToString();
+                                chk = Form1._Form1.Controls.Find($"{DBRead_NameofTagWithoutNumberofDB}", true).FirstOrDefault() as CheckBox;
+                                chk.Checked = values[6];
                                 break;
                             case 7:
                                 values[7] = GetBit(DB[DBRead_NrOfByteinDB], 7);
-                                txt = Form1._Form1.Controls.Find($"{DBRead_NameofTagWithoutNumberofDB}", true).FirstOrDefault() as TextBox;
-                                txt.Text = values[7].ToString();
+                                chk = Form1._Form1.Controls.Find($"{DBRead_NameofTagWithoutNumberofDB}", true).FirstOrDefault() as CheckBox;
+                                chk.Checked = values[7];
                                 break;
                         }
                         break;
