@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem("");
             this.Tag2 = new System.Windows.Forms.TextBox();
             this.Tag3 = new System.Windows.Forms.TextBox();
             this.Tag4 = new System.Windows.Forms.TextBox();
@@ -42,7 +42,6 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.Tag14 = new System.Windows.Forms.TextBox();
             this.Uzytkownik = new System.Windows.Forms.Label();
-            this.DateAndTime = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -129,6 +128,11 @@
             this.tabPage9 = new System.Windows.Forms.TabPage();
             this.button8 = new System.Windows.Forms.Button();
             this.textBox17 = new System.Windows.Forms.TextBox();
+            this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label3 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -158,12 +162,11 @@
             this.Tag13 = new System.Windows.Forms.CheckBox();
             this.Tag15 = new System.Windows.Forms.CheckBox();
             this.label51 = new System.Windows.Forms.Label();
-            this.tabPage7 = new System.Windows.Forms.TabPage();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.listAlarmView = new System.Windows.Forms.ListView();
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.button9 = new System.Windows.Forms.Button();
+            this.label56 = new System.Windows.Forms.Label();
+            this.label57 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -241,15 +244,6 @@
             this.Uzytkownik.TabIndex = 67;
             this.Uzytkownik.Text = "Użytkownik:";
             // 
-            // DateAndTime
-            // 
-            this.DateAndTime.AutoSize = true;
-            this.DateAndTime.Location = new System.Drawing.Point(652, 13);
-            this.DateAndTime.Name = "DateAndTime";
-            this.DateAndTime.Size = new System.Drawing.Size(80, 13);
-            this.DateAndTime.TabIndex = 68;
-            this.DateAndTime.Text = "Data i Godzina:";
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::HMIApp.Properties.Resources.logotyp_Controltec;
@@ -294,16 +288,16 @@
             // 
             // chart1
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chart1.Legends.Add(legend2);
+            chartArea6.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea6);
+            legend6.Name = "Legend1";
+            this.chart1.Legends.Add(legend6);
             this.chart1.Location = new System.Drawing.Point(3, 40);
             this.chart1.Name = "chart1";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.chart1.Series.Add(series2);
+            series6.ChartArea = "ChartArea1";
+            series6.Legend = "Legend1";
+            series6.Name = "Series1";
+            this.chart1.Series.Add(series6);
             this.chart1.Size = new System.Drawing.Size(585, 267);
             this.chart1.TabIndex = 81;
             this.chart1.Text = "chart1";
@@ -1106,10 +1100,56 @@
             this.textBox17.Size = new System.Drawing.Size(32, 20);
             this.textBox17.TabIndex = 0;
             // 
+            // tabPage7
+            // 
+            this.tabPage7.Controls.Add(this.listView1);
+            this.tabPage7.Location = new System.Drawing.Point(4, 22);
+            this.tabPage7.Name = "tabPage7";
+            this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage7.Size = new System.Drawing.Size(601, 314);
+            this.tabPage7.TabIndex = 7;
+            this.tabPage7.Text = "HISTORIA ALARMÓW";
+            this.tabPage7.UseVisualStyleBackColor = true;
+            // 
+            // listView1
+            // 
+            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3});
+            this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listView1.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.listView1.FullRowSelect = true;
+            this.listView1.GridLines = true;
+            this.listView1.HideSelection = false;
+            this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            listViewItem6});
+            this.listView1.Location = new System.Drawing.Point(3, 3);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(595, 308);
+            this.listView1.TabIndex = 0;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "DZIEŃ I GODZINA";
+            this.columnHeader1.Width = 110;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "PLC TAG";
+            this.columnHeader2.Width = 90;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "NAZWA ALARMU";
+            this.columnHeader3.Width = 393;
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(16, 428);
+            this.label3.Location = new System.Drawing.Point(16, 422);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(51, 13);
             this.label3.TabIndex = 72;
@@ -1209,7 +1249,7 @@
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(5, 399);
+            this.label25.Location = new System.Drawing.Point(5, 391);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(78, 13);
             this.label25.TabIndex = 74;
@@ -1368,47 +1408,23 @@
             this.label51.TabIndex = 103;
             this.label51.Text = "Czas do wylogowania";
             // 
-            // tabPage7
-            // 
-            this.tabPage7.Controls.Add(this.listView1);
-            this.tabPage7.Location = new System.Drawing.Point(4, 22);
-            this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage7.Size = new System.Drawing.Size(601, 314);
-            this.tabPage7.TabIndex = 7;
-            this.tabPage7.Text = "HISTORIA ALARMÓW";
-            this.tabPage7.UseVisualStyleBackColor = true;
-            // 
-            // listView1
-            // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2});
-            this.listView1.HideSelection = false;
-            this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem2});
-            this.listView1.Location = new System.Drawing.Point(7, 7);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(588, 301);
-            this.listView1.TabIndex = 0;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "DZIEŃ I GODZINA";
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "ALARM";
-            // 
             // listAlarmView
             // 
+            this.listAlarmView.AutoArrange = false;
+            this.listAlarmView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader4});
             this.listAlarmView.HideSelection = false;
-            this.listAlarmView.Location = new System.Drawing.Point(90, 399);
+            this.listAlarmView.Location = new System.Drawing.Point(90, 411);
             this.listAlarmView.Name = "listAlarmView";
-            this.listAlarmView.Size = new System.Drawing.Size(688, 42);
+            this.listAlarmView.Size = new System.Drawing.Size(688, 34);
             this.listAlarmView.TabIndex = 104;
             this.listAlarmView.UseCompatibleStateImageBehavior = false;
+            this.listAlarmView.View = System.Windows.Forms.View.SmallIcon;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "";
+            this.columnHeader4.Width = 672;
             // 
             // button9
             // 
@@ -1420,11 +1436,31 @@
             this.button9.UseVisualStyleBackColor = true;
             this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
+            // label56
+            // 
+            this.label56.AutoSize = true;
+            this.label56.Location = new System.Drawing.Point(421, 26);
+            this.label56.Name = "label56";
+            this.label56.Size = new System.Drawing.Size(41, 13);
+            this.label56.TabIndex = 106;
+            this.label56.Text = "label56";
+            // 
+            // label57
+            // 
+            this.label57.AutoSize = true;
+            this.label57.Location = new System.Drawing.Point(670, 13);
+            this.label57.Name = "label57";
+            this.label57.Size = new System.Drawing.Size(75, 13);
+            this.label57.TabIndex = 107;
+            this.label57.Text = "Data i godzina";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label57);
+            this.Controls.Add(this.label56);
             this.Controls.Add(this.button9);
             this.Controls.Add(this.listAlarmView);
             this.Controls.Add(this.label51);
@@ -1460,7 +1496,6 @@
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.Tag6);
-            this.Controls.Add(this.DateAndTime);
             this.Controls.Add(this.Uzytkownik);
             this.Controls.Add(this.Tag5);
             this.Controls.Add(this.label9);
@@ -1503,7 +1538,6 @@
         private System.Windows.Forms.Timer timer1;
         public System.Windows.Forms.TextBox Tag14;
         private System.Windows.Forms.Label Uzytkownik;
-        private System.Windows.Forms.Label DateAndTime;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
@@ -1626,6 +1660,10 @@
         public System.Windows.Forms.ListView listView1;
         public System.Windows.Forms.ListView listAlarmView;
         private System.Windows.Forms.Button button9;
+        public System.Windows.Forms.ColumnHeader columnHeader3;
+        public System.Windows.Forms.Label label56;
+        public System.Windows.Forms.Label label57;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
     }
 }
 

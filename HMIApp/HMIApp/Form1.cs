@@ -71,7 +71,9 @@ namespace HMIApp
         private void timer1_Tick(object sender, EventArgs e)
         {
             App.ReadActualValueFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_0.csv");
-
+            App.ReadAlarmsFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_2.csv");
+            this.Text = DateTime.Now.ToString();
+            label57.Text = this.Text;
         }
 
         private void button2_Click(object sender, EventArgs e)

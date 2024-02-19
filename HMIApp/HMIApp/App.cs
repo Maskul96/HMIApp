@@ -55,6 +55,7 @@ namespace HMIApp
         public int DBReadAlarm_NrOfBitinByte;
         public int DBReadAlarm_LengthOfDataType;
         public string DBReadAlarm_AlarmName;
+        public string DBReadAlarm_TagName;
 
         public App(iCSVReader csvReader)
         {
@@ -72,7 +73,7 @@ namespace HMIApp
 
         //Stworzenie obiektu z konfiguracja sterownika
         SiemensPLC PLC = new SiemensPLC("192.168.2.1", 102, 0, 1, 1000000);
-        
+
         //Stworzenie obiektu CSVReader do odczytu z pliku
         CSVReader CSVReader = new CSVReader();
 
@@ -81,7 +82,7 @@ namespace HMIApp
         {
             PLC.Init();
 
-            int TimeoutPLC  = PLC.dave_interface_.getTimeout();
+            int TimeoutPLC = PLC.dave_interface_.getTimeout();
             Form1._Form1.textBox5.Text = TimeoutPLC.ToString();
         }
 
@@ -113,7 +114,7 @@ namespace HMIApp
                 }
                 if (dbtags.Last() == dbTag)
                 {
-                    switch(dbTag.DataTypeOfTag.ToUpper())
+                    switch (dbTag.DataTypeOfTag.ToUpper())
                     {
                         case "BOOL":
                             DBRead_EndDB = dbTag.NumberOfByteInDB;
@@ -147,7 +148,7 @@ namespace HMIApp
                         BitArray bitArray = new BitArray(DB[DBRead_NrOfByteinDB]);
                         bool[] values = new bool[8];
                         //Wyszukanie samej nazwy Taga, która odpowiada 1:1 nazwie TextBoxa
-                        DBRead_position1 = dbTag.TagName.IndexOf(".") +1;
+                        DBRead_position1 = dbTag.TagName.IndexOf(".") + 1;
                         DBRead_NameofTagWithoutNumberofDB = dbTag.TagName.Substring(DBRead_position1);
                         DBRead_TagName = dbTag.TagName;
                         TextBox txt;
@@ -435,85 +436,138 @@ namespace HMIApp
                 }
             }
 
-            byte[] DB = new byte[DBReadAlarm_EndDB] ;
+            byte[] DB = new byte[DBReadAlarm_EndDB];
             byte[] DBTemp = BitConverter.GetBytes(255);
             //Read DB
             PLC.Read(int.Parse(DBReadAlarm_NumberOfDB), DBReadAlarm_StartDB, DBReadAlarm_EndDB, DB);
 
-                foreach (var dbTag in dbtags)
+            foreach (var dbTag in dbtags)
+            {
+                //Read BOOL
+
+                DBReadAlarm_NrOfBitinByte = dbTag.NumberOfBitInByte;
+                DBReadAlarm_NrOfByteinDB = dbTag.NumberOfByteInDB;
+                DBReadAlarm_AlarmName = dbTag.NameofAlarm;
+                DBReadAlarm_TagName = dbTag.TagName;
+                BitArray bitArray = new BitArray(DB[DBReadAlarm_NrOfByteinDB]);
+                bool[] values = new bool[8];
+                switch (DBReadAlarm_NrOfBitinByte)
                 {
-                    //Read BOOL               
-                    DBReadAlarm_NrOfBitinByte = dbTag.NumberOfBitInByte;
-                    DBReadAlarm_NrOfByteinDB = dbTag.NumberOfByteInDB;
-                    DBReadAlarm_AlarmName = dbTag.NameofAlarm;
-                    BitArray bitArray = new BitArray(DB[DBReadAlarm_NrOfByteinDB]);
-                    bool[] values = new bool[8];
+                    case 0:
+                        values[0] = GetBit(DB[DBReadAlarm_NrOfByteinDB], 0);
+                        if (values[0].ToString().ToUpper() == "TRUE")
+                        {
+                            if (Form1._Form1.listView1.FindItemWithText(DBReadAlarm_AlarmName) == null)
+                            {
+                                Form1._Form1.listView1.Items.Add(new ListViewItem(new[] { DateTime.Now.ToString(), DBReadAlarm_TagName, DBReadAlarm_AlarmName }));
+                                Form1._Form1.listAlarmView.Items.Add(new ListViewItem(new[] { DBReadAlarm_AlarmName }));
+                                
+                            }
+                        }
+                        else
+                        {
+                            if (Form1._Form1.listView1.FindItemWithText(DBReadAlarm_AlarmName) != null)
+                            {
 
-                    switch (DBReadAlarm_NrOfBitinByte)
-                    {
-                        case 0:
-                            values[0] = GetBit(DB[DBReadAlarm_NrOfByteinDB], 0);
-                            if (values[0].ToString().ToUpper() == "TRUE")
-                            {
-                                Form1._Form1.listAlarmView.Items.Add(DBReadAlarm_AlarmName);
-                                Form1._Form1.listView1.Items.Add(DBReadAlarm_AlarmName);
+
                             }
-                            break;
-                        case 1:
-                            values[1] = GetBit(DB[DBReadAlarm_NrOfByteinDB], 1);
-                            if (values[1].ToString().ToUpper() == "TRUE")
+                        }
+                        break;
+                    case 1:
+                        values[1] = GetBit(DB[DBReadAlarm_NrOfByteinDB], 1);
+                        if (values[1].ToString().ToUpper() == "TRUE")
+                        {
+                            if (Form1._Form1.listView1.FindItemWithText(DBReadAlarm_AlarmName) == null)
                             {
-                                Form1._Form1.listAlarmView.Items.Add(DBReadAlarm_AlarmName);
-                            }
-                            break;
-                        case 2:
-                            values[2] = GetBit(DB[DBReadAlarm_NrOfByteinDB], 2);
-                            if (values[2].ToString().ToUpper() == "TRUE")
-                            {
-                                Form1._Form1.listAlarmView.Items.Add(DBReadAlarm_AlarmName);
-                            }
-                            break;
-                        case 3:
-                            values[3] = GetBit(DB[DBReadAlarm_NrOfByteinDB], 3);
-                            if (values[3].ToString().ToUpper() == "TRUE")
-                            {
-                                Form1._Form1.listAlarmView.Items.Add(DBReadAlarm_AlarmName);
-                            }
-                            break;
-                        case 4:
-                            values[4] = GetBit(DB[DBReadAlarm_NrOfByteinDB], 4);
-                            if (values[4].ToString().ToUpper() == "TRUE")
-                            {
-                                Form1._Form1.listAlarmView.Items.Add(DBReadAlarm_AlarmName);
-                            }
-                            break;
-                        case 5:
-                            values[5] = GetBit(DB[DBReadAlarm_NrOfByteinDB], 5);
-                            if (values[5].ToString().ToUpper() == "TRUE")
-                            {
-                                Form1._Form1.listAlarmView.Items.Add(DBReadAlarm_AlarmName);
-                            }
-                            break;
-                        case 6:
-                            values[6] = GetBit(DB[DBReadAlarm_NrOfByteinDB], 6);
-                            if (values[6].ToString().ToUpper() == "TRUE")
-                            {
-                                Form1._Form1.listAlarmView.Items.Add(DBReadAlarm_AlarmName);
-                            }
-                            break;
-                        case 7:
-                            values[7] = GetBit(DB[DBReadAlarm_NrOfByteinDB], 7);
-                            if (values[7].ToString().ToUpper() == "TRUE")
-                            {
-                                Form1._Form1.listAlarmView.Items.Add(DBReadAlarm_AlarmName);
+                                Form1._Form1.listView1.Items.Add(new ListViewItem(new[] { DateTime.Now.ToString(), DBReadAlarm_TagName, DBReadAlarm_AlarmName }));
+                                Form1._Form1.listAlarmView.Items.Add(new ListViewItem(new[] { DBReadAlarm_AlarmName }));
                             }
 
-                            break;
-                    }
+                        }
+
+                        break;
+                    case 2:
+                        values[2] = GetBit(DB[DBReadAlarm_NrOfByteinDB], 2);
+                        if (values[2].ToString().ToUpper() == "TRUE")
+                        {
+                            if (Form1._Form1.listView1.FindItemWithText(DBReadAlarm_AlarmName) == null)
+                            {
+                                Form1._Form1.listView1.Items.Add(new ListViewItem(new[] { DateTime.Now.ToString(), DBReadAlarm_TagName, DBReadAlarm_AlarmName }));
+                                Form1._Form1.listAlarmView.Items.Add(new ListViewItem(new[] { DBReadAlarm_AlarmName }));
+                            }
+                        }
+                       
+
+                        break;
+                    case 3:
+                        values[3] = GetBit(DB[DBReadAlarm_NrOfByteinDB], 3);
+                        if (values[3].ToString().ToUpper() == "TRUE")
+                        {
+                            if (Form1._Form1.listView1.FindItemWithText(DBReadAlarm_AlarmName) == null)
+                            {
+                                Form1._Form1.listView1.Items.Add(new ListViewItem(new[] { DateTime.Now.ToString(), DBReadAlarm_TagName, DBReadAlarm_AlarmName }));
+                                Form1._Form1.listAlarmView.Items.Add(new ListViewItem(new[] { DBReadAlarm_AlarmName }));
+                            }
+                        }
+
+                        break;
+                    case 4:
+                        values[4] = GetBit(DB[DBReadAlarm_NrOfByteinDB], 4);
+                        if (values[4].ToString().ToUpper() == "TRUE")
+                        {
+                            if (Form1._Form1.listView1.FindItemWithText(DBReadAlarm_AlarmName) == null)
+                            {
+                                Form1._Form1.listView1.Items.Add(new ListViewItem(new[] { DateTime.Now.ToString(), DBReadAlarm_TagName, DBReadAlarm_AlarmName }));
+                                Form1._Form1.listAlarmView.Items.Add(new ListViewItem(new[] { DBReadAlarm_AlarmName }));
+                            }
+                        }
+
+                        break;
+                    case 5:
+                        values[5] = GetBit(DB[DBReadAlarm_NrOfByteinDB], 5);
+                        if (values[5].ToString().ToUpper() == "TRUE")
+                        {
+                            if (Form1._Form1.listView1.FindItemWithText(DBReadAlarm_AlarmName) == null)
+                            {
+                                Form1._Form1.listView1.Items.Add(new ListViewItem(new[] { DateTime.Now.ToString(), DBReadAlarm_TagName, DBReadAlarm_AlarmName }));
+                                Form1._Form1.listAlarmView.Items.Add(new ListViewItem(new[] { DBReadAlarm_AlarmName }));
+                            }
+                        }
+
+                        break;
+                    case 6:
+                        values[6] = GetBit(DB[DBReadAlarm_NrOfByteinDB], 6);
+                        if (values[6].ToString().ToUpper() == "TRUE")
+                        {
+                            if (Form1._Form1.listView1.FindItemWithText(DBReadAlarm_AlarmName) == null)
+                            {
+                                Form1._Form1.listView1.Items.Add(new ListViewItem(new[] { DateTime.Now.ToString(), DBReadAlarm_TagName, DBReadAlarm_AlarmName }));
+                                Form1._Form1.listAlarmView.Items.Add(new ListViewItem(new[] { DBReadAlarm_AlarmName }));
+                            }
+                        }
+
+                        break;
+                    case 7:
+                        values[7] = GetBit(DB[DBReadAlarm_NrOfByteinDB], 7);
+                        if (values[7].ToString().ToUpper() == "TRUE")
+                        {
+                            if (Form1._Form1.listView1.FindItemWithText(DBReadAlarm_AlarmName) == null)
+                            {
+                                Form1._Form1.listView1.Items.Add(new ListViewItem(new[] { DateTime.Now.ToString(), DBReadAlarm_TagName, DBReadAlarm_AlarmName }));
+                                Form1._Form1.listAlarmView.Items.Add(new ListViewItem(new[] { DBReadAlarm_AlarmName }));
+                            }
+                        }
+                        break;
                 }
-            
+
+            }
+
+
+
         }
 
+        //KOMUNIKATY TO MUSI BYC OSOBNA LISTA WYPELNIENIA W C# JAKO STRING COLLECTION 
+        //Z PLC ODCZYTUJEMY TYLKO NUMER INT I NA PODSTAWIE NUMERU Z PLC WIĄŻEMY TO Z INDEXEM W LISCIE I WYSWIETLAMY
         public void ReadIOFromDB(string filepath)
         {
 
