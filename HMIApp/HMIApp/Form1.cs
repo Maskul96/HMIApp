@@ -72,6 +72,7 @@ namespace HMIApp
         {
             App.ReadActualValueFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_0.csv");
             App.ReadAlarmsFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_2.csv");
+            
             this.Text = DateTime.Now.ToString();
             label57.Text = this.Text;
         }
@@ -100,7 +101,12 @@ namespace HMIApp
 
         private void button9_Click(object sender, EventArgs e)
         {
-            App.ReadAlarmsFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_2.csv");
+            App.ReadMessages();
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            App.RemoveMessage();
         }
 
 

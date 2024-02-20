@@ -97,7 +97,9 @@ namespace HMIApp
             return (b & (1 << bitNumber)) != 0;
         }
 
-        //Odczyt z pliku CSV i od razu odczyt danych z DBka                               
+        //Odczyt z pliku CSV i od razu odczyt danych z DBka
+        //Jak zajdzie potrzeba dodania jakiejs zmiennej w kilku miejscach w kilku TextBoxach to ponizsze wiazanie po nazwie juz nie bedzie dzialac
+        //bo dwa obiekty nei moga miec takiej samej nazwy to trzeba bedzie dorobic funkcje z wiazanie nazwy np. "Tag0_PassValue"
         public void ReadActualValueFromDB(string filepath)
         {
             var dbtags = CSVReader.DBStructure(filepath);
@@ -412,6 +414,7 @@ namespace HMIApp
         }
 
         //OGARNAC KILKA LINII ALARMOW
+        //ZROBIC LISTBOXA BO ON DZIALA Z KOMUNIKATAMI DODAJ/USUN
         public void ReadAlarmsFromDB(string filepath)
         {
             var dbtags = CSVReader.DBAlarmStructure(filepath);
@@ -437,7 +440,6 @@ namespace HMIApp
             }
 
             byte[] DB = new byte[DBReadAlarm_EndDB];
-            byte[] DBTemp = BitConverter.GetBytes(255);
             //Read DB
             PLC.Read(int.Parse(DBReadAlarm_NumberOfDB), DBReadAlarm_StartDB, DBReadAlarm_EndDB, DB);
 
@@ -466,11 +468,7 @@ namespace HMIApp
                         }
                         else
                         {
-                            if (Form1._Form1.listView1.FindItemWithText(DBReadAlarm_AlarmName) != null)
-                            {
-
-
-                            }
+                            
                         }
                         break;
                     case 1:
@@ -571,6 +569,16 @@ namespace HMIApp
         public void ReadIOFromDB(string filepath)
         {
 
+        }
+
+        public void ReadMessages()
+        {
+            Form1._Form1.listBox1.Items.Add(new ListViewItem(new[] { "komunikat" }));
+        }
+
+        public void RemoveMessage()
+            {
+            Form1._Form1.listBox1.Items.RemoveAt(0);
         }
     }
 }
