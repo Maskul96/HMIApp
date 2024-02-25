@@ -40,6 +40,7 @@ namespace HMIApp
             App.ReadActualValueFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_0.csv");
             App.ReadActualValueFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_1.csv");
             App.ReadAlarmsFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_2.csv");
+            App.ReadIOFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_3.csv");
             timer1.Enabled = true;
 
         }
@@ -72,7 +73,8 @@ namespace HMIApp
         {
             App.ReadActualValueFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_0.csv");
             App.ReadAlarmsFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_2.csv");
-            
+            App.ReadIOFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_3.csv");
+
             this.Text = DateTime.Now.ToString();
             label57.Text = this.Text;
         }
@@ -96,18 +98,34 @@ namespace HMIApp
         private void button8_Click(object sender, EventArgs e)
         {
             //Ikonka TextBoxa moze sluzyc jako wskaznik IO's na zasadzie kolorowania jej backcoloru i enabled dajesz jako false
-            textBox17.BackColor = Color.LightGreen;
+            Input2.BackColor = Color.LightGreen;
         }
 
         private void button9_Click(object sender, EventArgs e)
         {
-            App.ReadMessages();
+            ListViewItem item = new ListViewItem();
+            item.Text = "alarm";
+            listAlarmView.Items.Add(item);
+            int index = listAlarmView.Items.IndexOf(item);
         }
 
         private void button10_Click(object sender, EventArgs e)
         {
-            App.RemoveMessage();
+           // listAlarmView.Items.RemoveAt(0);
+
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            App.WriteToDB("15", button4.Tag.ToString());
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            App.WriteToDB("11", button5.Tag.ToString());
+        }
+
+
 
 
 

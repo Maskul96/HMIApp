@@ -6,6 +6,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics.Eventing.Reader;
+using System.Drawing;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
@@ -13,6 +14,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Markup;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace HMIApp
 {
@@ -56,6 +58,31 @@ namespace HMIApp
         public int DBReadAlarm_LengthOfDataType;
         public string DBReadAlarm_AlarmName;
         public string DBReadAlarm_TagName;
+        public string DBReadAlarm_DataTypeofTag;
+        public int NrOfMessage;
+        public int[] index = new int[8];
+       public  ListViewItem item1 = new ListViewItem();
+       public ListViewItem item = new ListViewItem();
+        public ListViewItem item2= new ListViewItem();
+        public ListViewItem item3= new ListViewItem();
+        public ListViewItem item4= new ListViewItem();
+        public ListViewItem item5= new ListViewItem();
+        public ListViewItem item6= new ListViewItem();
+        public ListViewItem item7= new ListViewItem();
+
+        //Zmienne do DBka do IO
+        public int DBReadIO_position;
+        public string DBReadIO_NumberOfDB;
+        public int DBReadIO_position1;
+        public string DBReadIO_NameofTagWithoutNumberofDB;
+        public int DBReadIO_StartDB;
+        public int DBReadIO_EndDB;
+        public int DBReadIO_NrOfByteinDB;
+        public int DBReadIO_NrOfBitinByte;
+        public int DBReadIO_LengthOfDataType;
+        public string DBReadIO_AlarmName;
+        public string DBReadIO_TagName;
+        public string DBReadIO_DataTypeofTag;
 
         public App(iCSVReader csvReader)
         {
@@ -116,6 +143,7 @@ namespace HMIApp
                 }
                 if (dbtags.Last() == dbTag)
                 {
+                    //Zabezpieczenie wyjscia poza index tablicy
                     switch (dbTag.DataTypeOfTag.ToUpper())
                     {
                         case "BOOL":
@@ -140,7 +168,7 @@ namespace HMIApp
 
             foreach (var dbTag in dbtags)
             {
-
+                //sprobowac uproscic tego switcha
                 switch (dbTag.DataTypeOfTag.ToUpper())
                 {
                     case "BOOL":
@@ -161,42 +189,111 @@ namespace HMIApp
                                 values[0] = GetBit(DB[DBRead_NrOfByteinDB], 0);
                                 //Wyszukanie TextBoxa po jego nazwie
                                 chk = Form1._Form1.Controls.Find($"{DBRead_NameofTagWithoutNumberofDB}", true).FirstOrDefault() as CheckBox;
-                                chk.Checked = values[0];
+                                if (chk == null)
+                                {
+                                    //Wyjscie z case'a jesli nie znajdzie checkboxa i bedzie nullem
+                                    break;
+                                }
+                                else
+                                {
+                                    chk.Checked = values[0];
+                                }
                                 break;
                             case 1:
                                 values[1] = GetBit(DB[DBRead_NrOfByteinDB], 1);
                                 chk = Form1._Form1.Controls.Find($"{DBRead_NameofTagWithoutNumberofDB}", true).FirstOrDefault() as CheckBox;
-                                chk.Checked = values[1];
+                                if (chk == null)
+                                {
+                                    //Wyjscie z case'a jesli nie znajdzie checkboxa i bedzie nullem
+                                    break;
+                                }
+                                else
+                                {
+                                    chk.Checked = values[1];
+                                }
                                 break;
                             case 2:
                                 values[2] = GetBit(DB[DBRead_NrOfByteinDB], 2);
                                 chk = Form1._Form1.Controls.Find($"{DBRead_NameofTagWithoutNumberofDB}", true).FirstOrDefault() as CheckBox;
-                                chk.Checked = values[2];
+                                if (chk == null)
+                                {
+                                    //Wyjscie z case'a jesli nie znajdzie checkboxa i bedzie nullem
+                                    break;
+                                }
+                                else
+                                {
+                                    chk.Checked = values[2];
+                                }
+
                                 break;
                             case 3:
                                 values[3] = GetBit(DB[DBRead_NrOfByteinDB], 3);
                                 chk = Form1._Form1.Controls.Find($"{DBRead_NameofTagWithoutNumberofDB}", true).FirstOrDefault() as CheckBox;
-                                chk.Checked = values[3];
+                                if (chk == null)
+                                {
+                                    //Wyjscie z case'a jesli nie znajdzie checkboxa i bedzie nullem
+                                    break;
+                                }
+                                else
+                                {
+                                    chk.Checked = values[3];
+                                }
+
                                 break;
                             case 4:
                                 values[4] = GetBit(DB[DBRead_NrOfByteinDB], 4);
                                 chk = Form1._Form1.Controls.Find($"{DBRead_NameofTagWithoutNumberofDB}", true).FirstOrDefault() as CheckBox;
-                                chk.Checked = values[4];
+                                if (chk == null)
+                                {
+                                    //Wyjscie z case'a jesli nie znajdzie checkboxa i bedzie nullem
+                                    break;
+                                }
+                                else
+                                {
+                                    chk.Checked = values[4];
+                                }
+
                                 break;
                             case 5:
                                 values[5] = GetBit(DB[DBRead_NrOfByteinDB], 5);
                                 chk = Form1._Form1.Controls.Find($"{DBRead_NameofTagWithoutNumberofDB}", true).FirstOrDefault() as CheckBox;
-                                chk.Checked = values[5];
+                                if (chk == null)
+                                {
+                                    //Wyjscie z case'a jesli nie znajdzie checkboxa i bedzie nullem
+                                    break;
+                                }
+                                else
+                                {
+                                    chk.Checked = values[5];
+                                }
+
                                 break;
                             case 6:
                                 values[6] = GetBit(DB[DBRead_NrOfByteinDB], 6);
                                 chk = Form1._Form1.Controls.Find($"{DBRead_NameofTagWithoutNumberofDB}", true).FirstOrDefault() as CheckBox;
-                                chk.Checked = values[6];
+                                if (chk == null)
+                                {
+                                    //Wyjscie z case'a jesli nie znajdzie checkboxa i bedzie nullem
+                                    break;
+                                }
+                                else
+                                {
+                                    chk.Checked = values[6];
+                                }
+
                                 break;
                             case 7:
                                 values[7] = GetBit(DB[DBRead_NrOfByteinDB], 7);
                                 chk = Form1._Form1.Controls.Find($"{DBRead_NameofTagWithoutNumberofDB}", true).FirstOrDefault() as CheckBox;
-                                chk.Checked = values[7];
+                                if (chk == null)
+                                {
+                                    //Wyjscie z case'a jesli nie znajdzie checkboxa i bedzie nullem
+                                    break;
+                                }
+                                else
+                                {
+                                    chk.Checked = values[7];
+                                }
                                 break;
                         }
                         break;
@@ -208,17 +305,32 @@ namespace HMIApp
                         DBRead_NrOfByteinDB = dbTag.NumberOfByteInDB;
 
                         txt = Form1._Form1.Controls.Find($"{DBRead_NameofTagWithoutNumberofDB}", true).FirstOrDefault() as TextBox;
-                        txt.Text = Convert.ToString(DB[DBRead_NrOfByteinDB]);
+                        if (txt == null)
+                        {
+                            //Wyjscie z case'a jesli nie znajdzie textboxa i bedzie nullem
+                            break;
+                        }
+                        else
+                        {
+                            txt.Text = Convert.ToString(DB[DBRead_NrOfByteinDB]);
+                        }
                         break;
                     case "INT":
                         //Wyszukanie samej nazwy Taga, która odpowiada 1:1 nazwie TextBoxa
-                        DBRead_position1 = dbTag.TagName.IndexOf(".") + 1;
-                        DBRead_NameofTagWithoutNumberofDB = dbTag.TagName.Substring(DBRead_position1);
-                        DBRead_TagName = dbTag.TagName;
-                        DBRead_NrOfByteinDB = dbTag.NumberOfByteInDB;
-
-                        txt = Form1._Form1.Controls.Find($"{DBRead_NameofTagWithoutNumberofDB}", true).FirstOrDefault() as TextBox;
-                        txt.Text = Convert.ToString(libnodave.getS16from(DB, DBRead_NrOfByteinDB));
+                            DBRead_position1 = dbTag.TagName.IndexOf(".") + 1;
+                            DBRead_NameofTagWithoutNumberofDB = dbTag.TagName.Substring(DBRead_position1);
+                            DBRead_TagName = dbTag.TagName;
+                            DBRead_NrOfByteinDB = dbTag.NumberOfByteInDB;
+                            txt = Form1._Form1.Controls.Find($"{DBRead_NameofTagWithoutNumberofDB}", true).FirstOrDefault() as TextBox;
+                        if(txt == null)
+                        {
+                            //Wyjscie z case'a jesli nie znajdzie textboxa i bedzie nullem
+                            break;
+                        }
+                        else
+                        {
+                            txt.Text = Convert.ToString(libnodave.getS16from(DB, DBRead_NrOfByteinDB));
+                        }
                         break;
                     case "REAL":
                         //Wyszukanie samej nazwy Taga, która odpowiada 1:1 nazwie TextBoxa
@@ -228,7 +340,16 @@ namespace HMIApp
                         DBRead_NrOfByteinDB = dbTag.NumberOfByteInDB;
 
                         txt = Form1._Form1.Controls.Find($"{DBRead_NameofTagWithoutNumberofDB}", true).FirstOrDefault() as TextBox;
-                        txt.Text = Convert.ToString(libnodave.getFloatfrom(DB, DBRead_NrOfByteinDB));
+                        if (txt == null)
+                        {
+                            //Wyjscie z case'a jesli nie znajdzie textboxa i bedzie nullem
+                            break;
+                        }
+                        else
+                        {
+                            txt.Text = Convert.ToString(libnodave.getFloatfrom(DB, DBRead_NrOfByteinDB));
+                        }
+
                         break;
                     case "DINT":
                         //Wyszukanie samej nazwy Taga, która odpowiada 1:1 nazwie TextBoxa
@@ -238,7 +359,14 @@ namespace HMIApp
                         DBRead_NrOfByteinDB = dbTag.NumberOfByteInDB;
 
                         txt = Form1._Form1.Controls.Find($"{DBRead_NameofTagWithoutNumberofDB}", true).FirstOrDefault() as TextBox;
-                        txt.Text = Convert.ToString(libnodave.getS32from(DB, DBRead_NrOfByteinDB));
+                        if(txt == null)
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            txt.Text = Convert.ToString(libnodave.getS32from(DB, DBRead_NrOfByteinDB));
+                        }
                         break;
                     default:
                         break;
@@ -413,8 +541,7 @@ namespace HMIApp
             }
         }
 
-        //OGARNAC KILKA LINII ALARMOW
-        //ZROBIC LISTBOXA BO ON DZIALA Z KOMUNIKATAMI DODAJ/USUN
+        //ALARMY
         public void ReadAlarmsFromDB(string filepath)
         {
             var dbtags = CSVReader.DBAlarmStructure(filepath);
@@ -431,10 +558,15 @@ namespace HMIApp
                 }
                 if (dbtags.Last() == dbTag)
                 {
+                    //Zabezpieczenie wyjscia poza index tablicy
                     DBReadAlarm_EndDB = dbTag.NumberOfByteInDB;
                     if (DBReadAlarm_EndDB == 0)
                     {
                         DBReadAlarm_EndDB++;
+                    }
+                    else if (dbTag.DataTypeOfTag.ToUpper() == "INT")
+                    {
+                        DBReadAlarm_EndDB = dbTag.NumberOfByteInDB + 2;
                     }
                 }
             }
@@ -446,115 +578,206 @@ namespace HMIApp
             foreach (var dbTag in dbtags)
             {
                 //Read BOOL
-
                 DBReadAlarm_NrOfBitinByte = dbTag.NumberOfBitInByte;
                 DBReadAlarm_NrOfByteinDB = dbTag.NumberOfByteInDB;
                 DBReadAlarm_AlarmName = dbTag.NameofAlarm;
                 DBReadAlarm_TagName = dbTag.TagName;
+                DBReadAlarm_DataTypeofTag = dbTag.DataTypeOfTag;
                 BitArray bitArray = new BitArray(DB[DBReadAlarm_NrOfByteinDB]);
                 bool[] values = new bool[8];
-                switch (DBReadAlarm_NrOfBitinByte)
+                Form1._Form1.label56.Text = Form1._Form1.listAlarmView.Items.Count.ToString();
+
+                switch (DBReadAlarm_DataTypeofTag.ToUpper())
                 {
-                    case 0:
-                        values[0] = GetBit(DB[DBReadAlarm_NrOfByteinDB], 0);
-                        if (values[0].ToString().ToUpper() == "TRUE")
+                    case "BOOL":
+                        switch (DBReadAlarm_NrOfBitinByte)
                         {
-                            if (Form1._Form1.listView1.FindItemWithText(DBReadAlarm_AlarmName) == null)
-                            {
-                                Form1._Form1.listView1.Items.Add(new ListViewItem(new[] { DateTime.Now.ToString(), DBReadAlarm_TagName, DBReadAlarm_AlarmName }));
-                                Form1._Form1.listAlarmView.Items.Add(new ListViewItem(new[] { DBReadAlarm_AlarmName }));
+                            case 0:
+                                values[0] = GetBit(DB[DBReadAlarm_NrOfByteinDB], 0);
+                                if (values[0].ToString().ToUpper() == "TRUE")
+                                {
+                                    //Dodanie alarmu tylko wtedy jeśli nie ma go juz w liscie
+                                    if (Form1._Form1.listAlarmView.FindItemWithText(DBReadAlarm_AlarmName) == null)
+                                    {
+                                        
+                                        item.Text = DBReadAlarm_AlarmName;
+                                        Form1._Form1.listAlarmView.Items.Add(item);
+                                        index[0] = Form1._Form1.listAlarmView.Items.IndexOf(item);
+                                    }
+                                }
+                                else
+                                {
+                                    //Zabezpieczenie zeby to sie nie wykonywalo jak bedzie pusta lista
+                                    if (Form1._Form1.listAlarmView.FindItemWithText(DBReadAlarm_AlarmName) != null)
+                                    {
+                                        if (Form1._Form1.listAlarmView.Items.Count > 0)
+                                        {
+                                            Form1._Form1.listAlarmView.Items.Remove(item);
+                                        }
+                                    }                                
+                                }
+                                break;
+                            case 1:
+                                values[1] = GetBit(DB[DBReadAlarm_NrOfByteinDB], 1);
                                 
-                            }
-                        }
-                        else
-                        {
-                            
+                                if (values[1].ToString().ToUpper() == "TRUE")
+                                {
+                                    if (Form1._Form1.listAlarmView.FindItemWithText(DBReadAlarm_AlarmName) == null)
+                                    {                                        
+                                        item1.Text = DBReadAlarm_AlarmName;
+                                        Form1._Form1.listAlarmView.Items.Add(item1);
+                                        index[1] = Form1._Form1.listAlarmView.Items.IndexOf(item1);                                       
+                                    }
+                                }
+                                else
+                                {
+                                    if (Form1._Form1.listAlarmView.FindItemWithText(DBReadAlarm_AlarmName) != null)
+                                    {
+                                        if (Form1._Form1.listAlarmView.Items.Count > 0)
+                                        {
+                                            Form1._Form1.listAlarmView.Items.Remove(item1);                                         
+                                        }
+                                    }
+                                }
+                                break;
+                            case 2:
+                                values[2] = GetBit(DB[DBReadAlarm_NrOfByteinDB], 2);
+                                if (values[2].ToString().ToUpper() == "TRUE")
+                                {
+                                    if (Form1._Form1.listAlarmView.FindItemWithText(DBReadAlarm_AlarmName) == null)
+                                    {
+                                        item2.Text = DBReadAlarm_AlarmName;
+                                        Form1._Form1.listAlarmView.Items.Add(item2);
+                                        index[2] = Form1._Form1.listAlarmView.Items.IndexOf(item2);
+                                    }
+                                }
+                                else
+                                {
+                                    if (Form1._Form1.listAlarmView.FindItemWithText(DBReadAlarm_AlarmName) != null)
+                                    {
+                                        if (Form1._Form1.listAlarmView.Items.Count > 0)
+                                        {
+                                            Form1._Form1.listAlarmView.Items.Remove(item2);
+                                        }
+                                    }
+                                }
+                                break;
+                            case 3:
+                                values[3] = GetBit(DB[DBReadAlarm_NrOfByteinDB], 3);
+                                if (values[3].ToString().ToUpper() == "TRUE")
+                                {
+                                    if (Form1._Form1.listAlarmView.FindItemWithText(DBReadAlarm_AlarmName) == null)
+                                    {
+                                        item3.Text = DBReadAlarm_AlarmName;
+                                        Form1._Form1.listAlarmView.Items.Add(item3);
+                                        index[3] = Form1._Form1.listAlarmView.Items.IndexOf(item3);
+                                    }
+                                }
+                                else
+                                {
+                                    if (Form1._Form1.listAlarmView.FindItemWithText(DBReadAlarm_AlarmName) != null)
+                                    {
+                                        if (Form1._Form1.listAlarmView.Items.Count > 0)
+                                        {
+                                            Form1._Form1.listAlarmView.Items.Remove(item3);
+                                        }
+                                    }
+                                }
+                                break;
+                            case 4:
+                                values[4] = GetBit(DB[DBReadAlarm_NrOfByteinDB], 4);
+                                if (values[4].ToString().ToUpper() == "TRUE")
+                                {
+                                    if (Form1._Form1.listAlarmView.FindItemWithText(DBReadAlarm_AlarmName) == null)
+                                    {
+                                        item4.Text = DBReadAlarm_AlarmName;
+                                        Form1._Form1.listAlarmView.Items.Add(item4);
+                                        index[4] = Form1._Form1.listAlarmView.Items.IndexOf(item4);
+                                    }
+                                }
+                                else
+                                {
+                                    if (Form1._Form1.listAlarmView.FindItemWithText(DBReadAlarm_AlarmName) != null)
+                                    {
+                                        if (Form1._Form1.listAlarmView.Items.Count > 0)
+                                        {
+                                            Form1._Form1.listAlarmView.Items.Remove(item4);
+                                        }
+                                    }
+                                }
+                                break;
+                            case 5:
+                                values[5] = GetBit(DB[DBReadAlarm_NrOfByteinDB], 5);
+                                if (values[5].ToString().ToUpper() == "TRUE")
+                                {
+                                    if (Form1._Form1.listAlarmView.FindItemWithText(DBReadAlarm_AlarmName) == null)
+                                    {
+                                        item5.Text = DBReadAlarm_AlarmName;
+                                        Form1._Form1.listAlarmView.Items.Add(item5);
+                                        index[5] = Form1._Form1.listAlarmView.Items.IndexOf(item5);
+                                    }
+                                }
+                                else
+                                {
+                                    if (Form1._Form1.listAlarmView.FindItemWithText(DBReadAlarm_AlarmName) != null)
+                                    {
+                                        if (Form1._Form1.listAlarmView.Items.Count > 0)
+                                        {
+                                            Form1._Form1.listAlarmView.Items.Remove(item5);
+                                        }
+                                    }
+                                }
+                                break;
+                            case 6:
+                                values[6] = GetBit(DB[DBReadAlarm_NrOfByteinDB], 6);
+                                if (values[6].ToString().ToUpper() == "TRUE")
+                                {
+                                    if (Form1._Form1.listAlarmView.FindItemWithText(DBReadAlarm_AlarmName) == null)
+                                    {
+                                        item6.Text = DBReadAlarm_AlarmName;
+                                        Form1._Form1.listAlarmView.Items.Add(item6);
+                                        index[6] = Form1._Form1.listAlarmView.Items.IndexOf(item6);
+                                    }
+                                }
+                                else
+                                {
+                                    if (Form1._Form1.listAlarmView.FindItemWithText(DBReadAlarm_AlarmName) != null)
+                                    {
+                                        if (Form1._Form1.listAlarmView.Items.Count > 0)
+                                        {
+                                            Form1._Form1.listAlarmView.Items.Remove(item6);
+                                        }
+                                    }
+                                }
+                                break;
+                            case 7:
+                                values[7] = GetBit(DB[DBReadAlarm_NrOfByteinDB], 7);
+                                if (values[7].ToString().ToUpper() == "TRUE")
+                                {
+                                    if (Form1._Form1.listAlarmView.FindItemWithText(DBReadAlarm_AlarmName) == null)
+                                    {
+                                        item7.Text = DBReadAlarm_AlarmName;
+                                        Form1._Form1.listAlarmView.Items.Add(item7);
+                                        index[7] = Form1._Form1.listAlarmView.Items.IndexOf(item7);
+                                    }
+                                }
+                                else
+                                {
+                                    if (Form1._Form1.listAlarmView.FindItemWithText(DBReadAlarm_AlarmName) != null)
+                                    {
+                                        if (Form1._Form1.listAlarmView.Items.Count > 0)
+                                        {
+                                            Form1._Form1.listAlarmView.Items.Remove(item7);
+                                        }
+                                    }
+                                }
+                                break;
                         }
                         break;
-                    case 1:
-                        values[1] = GetBit(DB[DBReadAlarm_NrOfByteinDB], 1);
-                        if (values[1].ToString().ToUpper() == "TRUE")
-                        {
-                            if (Form1._Form1.listView1.FindItemWithText(DBReadAlarm_AlarmName) == null)
-                            {
-                                Form1._Form1.listView1.Items.Add(new ListViewItem(new[] { DateTime.Now.ToString(), DBReadAlarm_TagName, DBReadAlarm_AlarmName }));
-                                Form1._Form1.listAlarmView.Items.Add(new ListViewItem(new[] { DBReadAlarm_AlarmName }));
-                            }
-
-                        }
-
-                        break;
-                    case 2:
-                        values[2] = GetBit(DB[DBReadAlarm_NrOfByteinDB], 2);
-                        if (values[2].ToString().ToUpper() == "TRUE")
-                        {
-                            if (Form1._Form1.listView1.FindItemWithText(DBReadAlarm_AlarmName) == null)
-                            {
-                                Form1._Form1.listView1.Items.Add(new ListViewItem(new[] { DateTime.Now.ToString(), DBReadAlarm_TagName, DBReadAlarm_AlarmName }));
-                                Form1._Form1.listAlarmView.Items.Add(new ListViewItem(new[] { DBReadAlarm_AlarmName }));
-                            }
-                        }
-                       
-
-                        break;
-                    case 3:
-                        values[3] = GetBit(DB[DBReadAlarm_NrOfByteinDB], 3);
-                        if (values[3].ToString().ToUpper() == "TRUE")
-                        {
-                            if (Form1._Form1.listView1.FindItemWithText(DBReadAlarm_AlarmName) == null)
-                            {
-                                Form1._Form1.listView1.Items.Add(new ListViewItem(new[] { DateTime.Now.ToString(), DBReadAlarm_TagName, DBReadAlarm_AlarmName }));
-                                Form1._Form1.listAlarmView.Items.Add(new ListViewItem(new[] { DBReadAlarm_AlarmName }));
-                            }
-                        }
-
-                        break;
-                    case 4:
-                        values[4] = GetBit(DB[DBReadAlarm_NrOfByteinDB], 4);
-                        if (values[4].ToString().ToUpper() == "TRUE")
-                        {
-                            if (Form1._Form1.listView1.FindItemWithText(DBReadAlarm_AlarmName) == null)
-                            {
-                                Form1._Form1.listView1.Items.Add(new ListViewItem(new[] { DateTime.Now.ToString(), DBReadAlarm_TagName, DBReadAlarm_AlarmName }));
-                                Form1._Form1.listAlarmView.Items.Add(new ListViewItem(new[] { DBReadAlarm_AlarmName }));
-                            }
-                        }
-
-                        break;
-                    case 5:
-                        values[5] = GetBit(DB[DBReadAlarm_NrOfByteinDB], 5);
-                        if (values[5].ToString().ToUpper() == "TRUE")
-                        {
-                            if (Form1._Form1.listView1.FindItemWithText(DBReadAlarm_AlarmName) == null)
-                            {
-                                Form1._Form1.listView1.Items.Add(new ListViewItem(new[] { DateTime.Now.ToString(), DBReadAlarm_TagName, DBReadAlarm_AlarmName }));
-                                Form1._Form1.listAlarmView.Items.Add(new ListViewItem(new[] { DBReadAlarm_AlarmName }));
-                            }
-                        }
-
-                        break;
-                    case 6:
-                        values[6] = GetBit(DB[DBReadAlarm_NrOfByteinDB], 6);
-                        if (values[6].ToString().ToUpper() == "TRUE")
-                        {
-                            if (Form1._Form1.listView1.FindItemWithText(DBReadAlarm_AlarmName) == null)
-                            {
-                                Form1._Form1.listView1.Items.Add(new ListViewItem(new[] { DateTime.Now.ToString(), DBReadAlarm_TagName, DBReadAlarm_AlarmName }));
-                                Form1._Form1.listAlarmView.Items.Add(new ListViewItem(new[] { DBReadAlarm_AlarmName }));
-                            }
-                        }
-
-                        break;
-                    case 7:
-                        values[7] = GetBit(DB[DBReadAlarm_NrOfByteinDB], 7);
-                        if (values[7].ToString().ToUpper() == "TRUE")
-                        {
-                            if (Form1._Form1.listView1.FindItemWithText(DBReadAlarm_AlarmName) == null)
-                            {
-                                Form1._Form1.listView1.Items.Add(new ListViewItem(new[] { DateTime.Now.ToString(), DBReadAlarm_TagName, DBReadAlarm_AlarmName }));
-                                Form1._Form1.listAlarmView.Items.Add(new ListViewItem(new[] { DBReadAlarm_AlarmName }));
-                            }
-                        }
+                    case "INT":
+                        NrOfMessage = libnodave.getS16from(DB, DBReadAlarm_NrOfByteinDB);
+                        Form1._Form1.listBox1.SelectionMode = SelectionMode.MultiSimple;
+                        Form1._Form1.listBox1.SetSelected(NrOfMessage, true);
                         break;
                 }
 
@@ -568,17 +791,146 @@ namespace HMIApp
         //Z PLC ODCZYTUJEMY TYLKO NUMER INT I NA PODSTAWIE NUMERU Z PLC WIĄŻEMY TO Z INDEXEM W LISCIE I WYSWIETLAMY
         public void ReadIOFromDB(string filepath)
         {
+            var dbtags = CSVReader.DBStructure(filepath);
 
-        }
-
-        public void ReadMessages()
-        {
-            Form1._Form1.listBox1.Items.Add(new ListViewItem(new[] { "komunikat" }));
-        }
-
-        public void RemoveMessage()
+            foreach (var dbTag in dbtags)
             {
-            Form1._Form1.listBox1.Items.RemoveAt(0);
+                //Wyciagniecie z nazwy DBka jego numer
+                DBReadIO_position = dbTag.TagName.IndexOf('.') - 2;
+                DBReadIO_NumberOfDB = dbTag.TagName.Substring(2, DBReadIO_position);
+                //Wyciagniecie startowej pozycji i końcowej pozycji DBka - ustalamy dlugosc danych + ustalenie dlugosci tablicy
+                if (dbtags.First() == dbTag)
+                {
+                    DBReadIO_StartDB = dbTag.NumberOfByteInDB;
+                }
+                if (dbtags.Last() == dbTag)
+                {
+                    //Zabezpieczenie wyjscia poza index tablicy
+                    DBReadIO_EndDB = dbTag.NumberOfByteInDB + 1;
+                }
+            }
+
+            byte[] DB = new byte[DBReadIO_EndDB];
+            //Read DB
+            PLC.Read(int.Parse(DBReadIO_NumberOfDB), DBReadIO_StartDB, DBReadIO_EndDB, DB);
+
+            foreach (var dbTag in dbtags)
+            {
+                //Read BOOL
+
+                DBReadIO_NrOfBitinByte = dbTag.NumberOfBitInByte;
+                DBReadIO_NrOfByteinDB = dbTag.NumberOfByteInDB;
+                DBReadIO_TagName = dbTag.TagName;
+                DBReadIO_DataTypeofTag = dbTag.DataTypeOfTag;
+                BitArray bitArray = new BitArray(DB[DBReadIO_NrOfByteinDB]);
+                bool[] values = new bool[8];
+                //Wyszukanie samej nazwy Taga, która odpowiada 1:1 nazwie TextBoxa
+                DBReadIO_position1 = dbTag.TagName.IndexOf(".") + 1;
+                DBReadIO_NameofTagWithoutNumberofDB = dbTag.TagName.Substring(DBReadIO_position1);
+                TextBox txt;
+                switch (DBReadIO_NrOfBitinByte)
+                {
+                    case 0:
+                        values[0] = GetBit(DB[DBReadIO_NrOfByteinDB], 0);
+                        //Wyszukanie TextBoxa po jego nazwie i ustawienie kolor uw zaleznosci od stanu value[x]
+                        txt = Form1._Form1.Controls.Find($"{DBReadIO_NameofTagWithoutNumberofDB}", true).FirstOrDefault() as TextBox;
+                        if (values[0] == true)
+                        {
+                            txt.BackColor = Color.Green;
+                        }
+                        else
+                        {
+                            txt.BackColor = Color.White;
+                        }
+                        break;
+                    case 1:
+                        values[1] = GetBit(DB[DBReadIO_NrOfByteinDB], 1);
+                        txt = Form1._Form1.Controls.Find($"{DBReadIO_NameofTagWithoutNumberofDB}", true).FirstOrDefault() as TextBox;
+                        if (values[1])
+                        {
+                            txt.BackColor = Color.Green;
+                        }
+                        else
+                        {
+                            txt.BackColor = Color.White;
+                        }
+                        break;
+                    case 2:
+                        values[2] = GetBit(DB[DBReadIO_NrOfByteinDB], 2);
+                        txt = Form1._Form1.Controls.Find($"{DBReadIO_NameofTagWithoutNumberofDB}", true).FirstOrDefault() as TextBox;
+                        if (values[2])
+                        {
+                            txt.BackColor = Color.Green;
+                        }
+                        else
+                        {
+                            txt.BackColor = Color.White;
+                        }
+                        break;
+                    case 3:
+                        values[3] = GetBit(DB[DBReadIO_NrOfByteinDB], 3);
+                        txt = Form1._Form1.Controls.Find($"{DBReadIO_NameofTagWithoutNumberofDB}", true).FirstOrDefault() as TextBox;
+                        if (values[3])
+                        {
+                            txt.BackColor = Color.Green;
+                        }
+                        else
+                        {
+                            txt.BackColor = Color.White;
+                        }
+                        break;
+                    case 4:
+                        values[4] = GetBit(DB[DBReadIO_NrOfByteinDB], 4);
+                        txt = Form1._Form1.Controls.Find($"{DBReadIO_NameofTagWithoutNumberofDB}", true).FirstOrDefault() as TextBox;
+                        if (values[4])
+                        {
+                            txt.BackColor = Color.Green;
+                        }
+                        else
+                        {
+                            txt.BackColor = Color.White;
+                        }
+                        break;
+                    case 5:
+                        values[5] = GetBit(DB[DBReadIO_NrOfByteinDB], 5);
+                        txt = Form1._Form1.Controls.Find($"{DBReadIO_NameofTagWithoutNumberofDB}", true).FirstOrDefault() as TextBox;
+                        if (values[5])
+                        {
+                            txt.BackColor = Color.Green;
+                        }
+                        else
+                        {
+                            txt.BackColor = Color.White;
+                        }
+                        break;
+                    case 6:
+                        values[6] = GetBit(DB[DBReadIO_NrOfByteinDB], 6);
+                        txt = Form1._Form1.Controls.Find($"{DBReadIO_NameofTagWithoutNumberofDB}", true).FirstOrDefault() as TextBox;
+                        if (values[6])
+                        {
+                            txt.BackColor = Color.Green;
+                        }
+                        else
+                        {
+                            txt.BackColor = Color.White;
+                        }
+                        break;
+                    case 7:
+                        values[7] = GetBit(DB[DBReadIO_NrOfByteinDB], 7);
+                        txt = Form1._Form1.Controls.Find($"{DBReadIO_NameofTagWithoutNumberofDB}", true).FirstOrDefault() as TextBox;
+                        if (values[7])
+                        {
+                            txt.BackColor = Color.Green;
+                        }
+                        else
+                        {
+                            txt.BackColor = Color.White;
+                        }
+                        break;
+                }
+
+            }
+
         }
     }
 }

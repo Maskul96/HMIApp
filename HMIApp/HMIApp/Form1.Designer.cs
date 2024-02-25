@@ -126,8 +126,32 @@
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
             this.tabPage9 = new System.Windows.Forms.TabPage();
+            this.tabControl3 = new System.Windows.Forms.TabControl();
+            this.tabPage10 = new System.Windows.Forms.TabPage();
+            this.Input10 = new System.Windows.Forms.TextBox();
+            this.Input9 = new System.Windows.Forms.TextBox();
+            this.Input8 = new System.Windows.Forms.TextBox();
+            this.Input7 = new System.Windows.Forms.TextBox();
+            this.Input6 = new System.Windows.Forms.TextBox();
+            this.Input5 = new System.Windows.Forms.TextBox();
+            this.Input4 = new System.Windows.Forms.TextBox();
+            this.Input3 = new System.Windows.Forms.TextBox();
+            this.Input2 = new System.Windows.Forms.TextBox();
+            this.Input1 = new System.Windows.Forms.TextBox();
+            this.Input0 = new System.Windows.Forms.TextBox();
+            this.tabPage11 = new System.Windows.Forms.TabPage();
+            this.Output10 = new System.Windows.Forms.TextBox();
+            this.Output9 = new System.Windows.Forms.TextBox();
+            this.Output8 = new System.Windows.Forms.TextBox();
+            this.Output7 = new System.Windows.Forms.TextBox();
+            this.Output6 = new System.Windows.Forms.TextBox();
+            this.Output5 = new System.Windows.Forms.TextBox();
+            this.Output4 = new System.Windows.Forms.TextBox();
+            this.Output3 = new System.Windows.Forms.TextBox();
+            this.Output2 = new System.Windows.Forms.TextBox();
+            this.Output1 = new System.Windows.Forms.TextBox();
+            this.Output0 = new System.Windows.Forms.TextBox();
             this.button8 = new System.Windows.Forms.Button();
-            this.textBox17 = new System.Windows.Forms.TextBox();
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.listView1 = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -181,6 +205,9 @@
             this.tabPage5.SuspendLayout();
             this.tabPage6.SuspendLayout();
             this.tabPage9.SuspendLayout();
+            this.tabControl3.SuspendLayout();
+            this.tabPage10.SuspendLayout();
+            this.tabPage11.SuspendLayout();
             this.tabPage7.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -364,8 +391,10 @@
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(75, 23);
             this.button5.TabIndex = 1;
+            this.button5.Tag = "DB667.NrOfDeviceToControl";
             this.button5.Text = "Siłownik";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button4
             // 
@@ -373,8 +402,10 @@
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 23);
             this.button4.TabIndex = 0;
+            this.button4.Tag = "DB667.NrOfDeviceToControl";
             this.button4.Text = "Serwo";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // tabPage3
             // 
@@ -1073,8 +1104,8 @@
             // 
             // tabPage9
             // 
+            this.tabPage9.Controls.Add(this.tabControl3);
             this.tabPage9.Controls.Add(this.button8);
-            this.tabPage9.Controls.Add(this.textBox17);
             this.tabPage9.Location = new System.Drawing.Point(4, 22);
             this.tabPage9.Name = "tabPage9";
             this.tabPage9.Padding = new System.Windows.Forms.Padding(3);
@@ -1083,24 +1114,221 @@
             this.tabPage9.Text = "WEJŚCIA/WYJŚCIA";
             this.tabPage9.UseVisualStyleBackColor = true;
             // 
+            // tabControl3
+            // 
+            this.tabControl3.Controls.Add(this.tabPage10);
+            this.tabControl3.Controls.Add(this.tabPage11);
+            this.tabControl3.Location = new System.Drawing.Point(6, 6);
+            this.tabControl3.Name = "tabControl3";
+            this.tabControl3.SelectedIndex = 0;
+            this.tabControl3.Size = new System.Drawing.Size(589, 280);
+            this.tabControl3.TabIndex = 2;
+            // 
+            // tabPage10
+            // 
+            this.tabPage10.Controls.Add(this.Input10);
+            this.tabPage10.Controls.Add(this.Input9);
+            this.tabPage10.Controls.Add(this.Input8);
+            this.tabPage10.Controls.Add(this.Input7);
+            this.tabPage10.Controls.Add(this.Input6);
+            this.tabPage10.Controls.Add(this.Input5);
+            this.tabPage10.Controls.Add(this.Input4);
+            this.tabPage10.Controls.Add(this.Input3);
+            this.tabPage10.Controls.Add(this.Input2);
+            this.tabPage10.Controls.Add(this.Input1);
+            this.tabPage10.Controls.Add(this.Input0);
+            this.tabPage10.Location = new System.Drawing.Point(4, 22);
+            this.tabPage10.Name = "tabPage10";
+            this.tabPage10.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage10.Size = new System.Drawing.Size(581, 254);
+            this.tabPage10.TabIndex = 0;
+            this.tabPage10.Text = "WEJŚCIA";
+            this.tabPage10.UseVisualStyleBackColor = true;
+            // 
+            // Input10
+            // 
+            this.Input10.Location = new System.Drawing.Point(243, 33);
+            this.Input10.Name = "Input10";
+            this.Input10.Size = new System.Drawing.Size(20, 20);
+            this.Input10.TabIndex = 10;
+            // 
+            // Input9
+            // 
+            this.Input9.Location = new System.Drawing.Point(243, 7);
+            this.Input9.Name = "Input9";
+            this.Input9.Size = new System.Drawing.Size(20, 20);
+            this.Input9.TabIndex = 9;
+            // 
+            // Input8
+            // 
+            this.Input8.Location = new System.Drawing.Point(7, 228);
+            this.Input8.Name = "Input8";
+            this.Input8.Size = new System.Drawing.Size(20, 20);
+            this.Input8.TabIndex = 8;
+            // 
+            // Input7
+            // 
+            this.Input7.Location = new System.Drawing.Point(7, 201);
+            this.Input7.Name = "Input7";
+            this.Input7.Size = new System.Drawing.Size(20, 20);
+            this.Input7.TabIndex = 7;
+            // 
+            // Input6
+            // 
+            this.Input6.Location = new System.Drawing.Point(7, 175);
+            this.Input6.Name = "Input6";
+            this.Input6.Size = new System.Drawing.Size(20, 20);
+            this.Input6.TabIndex = 6;
+            // 
+            // Input5
+            // 
+            this.Input5.Location = new System.Drawing.Point(7, 149);
+            this.Input5.Name = "Input5";
+            this.Input5.Size = new System.Drawing.Size(20, 20);
+            this.Input5.TabIndex = 5;
+            // 
+            // Input4
+            // 
+            this.Input4.Location = new System.Drawing.Point(7, 114);
+            this.Input4.Name = "Input4";
+            this.Input4.Size = new System.Drawing.Size(20, 20);
+            this.Input4.TabIndex = 4;
+            // 
+            // Input3
+            // 
+            this.Input3.Location = new System.Drawing.Point(7, 82);
+            this.Input3.Name = "Input3";
+            this.Input3.Size = new System.Drawing.Size(20, 20);
+            this.Input3.TabIndex = 3;
+            // 
+            // Input2
+            // 
+            this.Input2.Location = new System.Drawing.Point(7, 59);
+            this.Input2.Name = "Input2";
+            this.Input2.Size = new System.Drawing.Size(20, 20);
+            this.Input2.TabIndex = 2;
+            // 
+            // Input1
+            // 
+            this.Input1.Location = new System.Drawing.Point(7, 33);
+            this.Input1.Name = "Input1";
+            this.Input1.Size = new System.Drawing.Size(20, 20);
+            this.Input1.TabIndex = 1;
+            // 
+            // Input0
+            // 
+            this.Input0.Location = new System.Drawing.Point(7, 7);
+            this.Input0.Name = "Input0";
+            this.Input0.Size = new System.Drawing.Size(20, 20);
+            this.Input0.TabIndex = 0;
+            // 
+            // tabPage11
+            // 
+            this.tabPage11.Controls.Add(this.Output10);
+            this.tabPage11.Controls.Add(this.Output9);
+            this.tabPage11.Controls.Add(this.Output8);
+            this.tabPage11.Controls.Add(this.Output7);
+            this.tabPage11.Controls.Add(this.Output6);
+            this.tabPage11.Controls.Add(this.Output5);
+            this.tabPage11.Controls.Add(this.Output4);
+            this.tabPage11.Controls.Add(this.Output3);
+            this.tabPage11.Controls.Add(this.Output2);
+            this.tabPage11.Controls.Add(this.Output1);
+            this.tabPage11.Controls.Add(this.Output0);
+            this.tabPage11.Location = new System.Drawing.Point(4, 22);
+            this.tabPage11.Name = "tabPage11";
+            this.tabPage11.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage11.Size = new System.Drawing.Size(581, 254);
+            this.tabPage11.TabIndex = 1;
+            this.tabPage11.Text = "WYJŚCIA";
+            this.tabPage11.UseVisualStyleBackColor = true;
+            // 
+            // Output10
+            // 
+            this.Output10.Location = new System.Drawing.Point(275, 32);
+            this.Output10.Name = "Output10";
+            this.Output10.Size = new System.Drawing.Size(20, 20);
+            this.Output10.TabIndex = 21;
+            // 
+            // Output9
+            // 
+            this.Output9.Location = new System.Drawing.Point(275, 6);
+            this.Output9.Name = "Output9";
+            this.Output9.Size = new System.Drawing.Size(20, 20);
+            this.Output9.TabIndex = 20;
+            // 
+            // Output8
+            // 
+            this.Output8.Location = new System.Drawing.Point(6, 218);
+            this.Output8.Name = "Output8";
+            this.Output8.Size = new System.Drawing.Size(20, 20);
+            this.Output8.TabIndex = 19;
+            // 
+            // Output7
+            // 
+            this.Output7.Location = new System.Drawing.Point(6, 191);
+            this.Output7.Name = "Output7";
+            this.Output7.Size = new System.Drawing.Size(20, 20);
+            this.Output7.TabIndex = 18;
+            // 
+            // Output6
+            // 
+            this.Output6.Location = new System.Drawing.Point(6, 164);
+            this.Output6.Name = "Output6";
+            this.Output6.Size = new System.Drawing.Size(20, 20);
+            this.Output6.TabIndex = 17;
+            // 
+            // Output5
+            // 
+            this.Output5.Location = new System.Drawing.Point(6, 137);
+            this.Output5.Name = "Output5";
+            this.Output5.Size = new System.Drawing.Size(20, 20);
+            this.Output5.TabIndex = 16;
+            // 
+            // Output4
+            // 
+            this.Output4.Location = new System.Drawing.Point(6, 111);
+            this.Output4.Name = "Output4";
+            this.Output4.Size = new System.Drawing.Size(20, 20);
+            this.Output4.TabIndex = 15;
+            // 
+            // Output3
+            // 
+            this.Output3.Location = new System.Drawing.Point(6, 85);
+            this.Output3.Name = "Output3";
+            this.Output3.Size = new System.Drawing.Size(20, 20);
+            this.Output3.TabIndex = 14;
+            // 
+            // Output2
+            // 
+            this.Output2.Location = new System.Drawing.Point(6, 58);
+            this.Output2.Name = "Output2";
+            this.Output2.Size = new System.Drawing.Size(20, 20);
+            this.Output2.TabIndex = 13;
+            // 
+            // Output1
+            // 
+            this.Output1.Location = new System.Drawing.Point(6, 32);
+            this.Output1.Name = "Output1";
+            this.Output1.Size = new System.Drawing.Size(20, 20);
+            this.Output1.TabIndex = 12;
+            // 
+            // Output0
+            // 
+            this.Output0.Location = new System.Drawing.Point(6, 6);
+            this.Output0.Name = "Output0";
+            this.Output0.Size = new System.Drawing.Size(20, 20);
+            this.Output0.TabIndex = 11;
+            // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(89, 122);
+            this.button8.Location = new System.Drawing.Point(3, 288);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(75, 23);
             this.button8.TabIndex = 1;
             this.button8.Text = "Zmień kolor";
             this.button8.UseVisualStyleBackColor = true;
             this.button8.Click += new System.EventHandler(this.button8_Click);
-            // 
-            // textBox17
-            // 
-            this.textBox17.BackColor = System.Drawing.SystemColors.Window;
-            this.textBox17.Enabled = false;
-            this.textBox17.Location = new System.Drawing.Point(89, 82);
-            this.textBox17.Name = "textBox17";
-            this.textBox17.Size = new System.Drawing.Size(32, 20);
-            this.textBox17.TabIndex = 0;
             // 
             // tabPage7
             // 
@@ -1458,10 +1686,17 @@
             // 
             // listBox1
             // 
+            this.listBox1.BackColor = System.Drawing.Color.Gold;
+            this.listBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.listBox1.ForeColor = System.Drawing.SystemColors.MenuText;
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(89, 361);
+            this.listBox1.Items.AddRange(new object[] {
+            "",
+            "kom1",
+            "kom2"});
+            this.listBox1.Location = new System.Drawing.Point(89, 387);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(529, 43);
+            this.listBox1.Size = new System.Drawing.Size(529, 17);
             this.listBox1.TabIndex = 108;
             // 
             // button10
@@ -1544,7 +1779,11 @@
             this.tabPage6.ResumeLayout(false);
             this.tabPage6.PerformLayout();
             this.tabPage9.ResumeLayout(false);
-            this.tabPage9.PerformLayout();
+            this.tabControl3.ResumeLayout(false);
+            this.tabPage10.ResumeLayout(false);
+            this.tabPage10.PerformLayout();
+            this.tabPage11.ResumeLayout(false);
+            this.tabPage11.PerformLayout();
             this.tabPage7.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -1674,7 +1913,6 @@
         private System.Windows.Forms.TextBox textBox12;
         private System.Windows.Forms.TextBox textBox11;
         private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.TextBox textBox17;
         private System.Windows.Forms.Label label51;
         private System.Windows.Forms.TabPage tabPage7;
         public System.Windows.Forms.ColumnHeader columnHeader1;
@@ -1688,6 +1926,31 @@
         private System.Windows.Forms.ColumnHeader columnHeader4;
         public System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.TabControl tabControl3;
+        private System.Windows.Forms.TabPage tabPage10;
+        public System.Windows.Forms.TextBox Input0;
+        private System.Windows.Forms.TabPage tabPage11;
+        public System.Windows.Forms.TextBox Input1;
+        public System.Windows.Forms.TextBox Input2;
+        public System.Windows.Forms.TextBox Input3;
+        public System.Windows.Forms.TextBox Input4;
+        public System.Windows.Forms.TextBox Input5;
+        public System.Windows.Forms.TextBox Input6;
+        public System.Windows.Forms.TextBox Input7;
+        public System.Windows.Forms.TextBox Input8;
+        public System.Windows.Forms.TextBox Input10;
+        public System.Windows.Forms.TextBox Input9;
+        public System.Windows.Forms.TextBox Output10;
+        public System.Windows.Forms.TextBox Output9;
+        public System.Windows.Forms.TextBox Output8;
+        public System.Windows.Forms.TextBox Output7;
+        public System.Windows.Forms.TextBox Output6;
+        public System.Windows.Forms.TextBox Output5;
+        public System.Windows.Forms.TextBox Output4;
+        public System.Windows.Forms.TextBox Output3;
+        public System.Windows.Forms.TextBox Output2;
+        public System.Windows.Forms.TextBox Output1;
+        public System.Windows.Forms.TextBox Output0;
     }
 }
 
