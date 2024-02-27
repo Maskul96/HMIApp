@@ -29,10 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem("");
             this.Tag2 = new System.Windows.Forms.TextBox();
             this.Tag3 = new System.Windows.Forms.TextBox();
             this.Tag4 = new System.Windows.Forms.TextBox();
@@ -45,7 +42,6 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.label49 = new System.Windows.Forms.Label();
             this.label47 = new System.Windows.Forms.Label();
             this.textBox9 = new System.Windows.Forms.TextBox();
@@ -188,15 +184,11 @@
             this.label51 = new System.Windows.Forms.Label();
             this.listAlarmView = new System.Windows.Forms.ListView();
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.button9 = new System.Windows.Forms.Button();
-            this.label56 = new System.Windows.Forms.Label();
             this.label57 = new System.Windows.Forms.Label();
             this.listBox1 = new System.Windows.Forms.ListBox();
-            this.button10 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabPage4.SuspendLayout();
@@ -301,7 +293,6 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.chart1);
             this.tabPage1.Controls.Add(this.label49);
             this.tabPage1.Controls.Add(this.label47);
             this.tabPage1.Controls.Add(this.textBox9);
@@ -314,22 +305,6 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "AUTO";
             this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // chart1
-            // 
-            chartArea3.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea3);
-            legend3.Name = "Legend1";
-            this.chart1.Legends.Add(legend3);
-            this.chart1.Location = new System.Drawing.Point(3, 40);
-            this.chart1.Name = "chart1";
-            series3.ChartArea = "ChartArea1";
-            series3.Legend = "Legend1";
-            series3.Name = "Series1";
-            this.chart1.Series.Add(series3);
-            this.chart1.Size = new System.Drawing.Size(585, 237);
-            this.chart1.TabIndex = 81;
-            this.chart1.Text = "chart1";
             // 
             // label49
             // 
@@ -1353,7 +1328,7 @@
             this.listView1.GridLines = true;
             this.listView1.HideSelection = false;
             this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem3});
+            listViewItem5});
             this.listView1.Location = new System.Drawing.Point(3, 3);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(595, 308);
@@ -1640,40 +1615,24 @@
             // 
             // listAlarmView
             // 
-            this.listAlarmView.AutoArrange = false;
+            this.listAlarmView.AllowColumnReorder = true;
             this.listAlarmView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader4});
+            this.listAlarmView.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.listAlarmView.HideSelection = false;
-            this.listAlarmView.Location = new System.Drawing.Point(90, 411);
+            this.listAlarmView.Location = new System.Drawing.Point(90, 410);
+            this.listAlarmView.MultiSelect = false;
             this.listAlarmView.Name = "listAlarmView";
-            this.listAlarmView.Size = new System.Drawing.Size(688, 34);
+            this.listAlarmView.Size = new System.Drawing.Size(688, 35);
             this.listAlarmView.TabIndex = 104;
+            this.listAlarmView.TileSize = new System.Drawing.Size(500, 15);
             this.listAlarmView.UseCompatibleStateImageBehavior = false;
-            this.listAlarmView.View = System.Windows.Forms.View.SmallIcon;
+            this.listAlarmView.View = System.Windows.Forms.View.Tile;
             // 
             // columnHeader4
             // 
             this.columnHeader4.Text = "";
             this.columnHeader4.Width = 672;
-            // 
-            // button9
-            // 
-            this.button9.Location = new System.Drawing.Point(340, 13);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(75, 23);
-            this.button9.TabIndex = 105;
-            this.button9.Text = "button9";
-            this.button9.UseVisualStyleBackColor = true;
-            this.button9.Click += new System.EventHandler(this.button9_Click);
-            // 
-            // label56
-            // 
-            this.label56.AutoSize = true;
-            this.label56.Location = new System.Drawing.Point(421, 26);
-            this.label56.Name = "label56";
-            this.label56.Size = new System.Drawing.Size(41, 13);
-            this.label56.TabIndex = 106;
-            this.label56.Text = "label56";
             // 
             // label57
             // 
@@ -1686,39 +1645,29 @@
             // 
             // listBox1
             // 
-            this.listBox1.BackColor = System.Drawing.Color.Gold;
-            this.listBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.listBox1.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.listBox1.BackColor = System.Drawing.Color.Yellow;
+            this.listBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.listBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.listBox1.ForeColor = System.Drawing.SystemColors.MenuText;
             this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 15;
             this.listBox1.Items.AddRange(new object[] {
             "",
-            "kom1",
-            "kom2"});
-            this.listBox1.Location = new System.Drawing.Point(89, 387);
+            "START CYKLU",
+            "DOJAZD SZYBKI"});
+            this.listBox1.Location = new System.Drawing.Point(89, 384);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(529, 17);
+            this.listBox1.Size = new System.Drawing.Size(529, 19);
             this.listBox1.TabIndex = 108;
-            // 
-            // button10
-            // 
-            this.button10.Location = new System.Drawing.Point(636, 386);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(75, 23);
-            this.button10.TabIndex = 109;
-            this.button10.Text = "button10";
-            this.button10.UseVisualStyleBackColor = true;
-            this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button10);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.label57);
-            this.Controls.Add(this.label56);
-            this.Controls.Add(this.button9);
             this.Controls.Add(this.listAlarmView);
             this.Controls.Add(this.label51);
             this.Controls.Add(this.Tag15);
@@ -1766,7 +1715,6 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
@@ -1832,7 +1780,6 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
@@ -1919,13 +1866,9 @@
         public System.Windows.Forms.ColumnHeader columnHeader2;
         public System.Windows.Forms.ListView listView1;
         public System.Windows.Forms.ListView listAlarmView;
-        private System.Windows.Forms.Button button9;
         public System.Windows.Forms.ColumnHeader columnHeader3;
-        public System.Windows.Forms.Label label56;
         public System.Windows.Forms.Label label57;
-        private System.Windows.Forms.ColumnHeader columnHeader4;
         public System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.Button button10;
         private System.Windows.Forms.TabControl tabControl3;
         private System.Windows.Forms.TabPage tabPage10;
         public System.Windows.Forms.TextBox Input0;
@@ -1951,6 +1894,7 @@
         public System.Windows.Forms.TextBox Output2;
         public System.Windows.Forms.TextBox Output1;
         public System.Windows.Forms.TextBox Output0;
+        public System.Windows.Forms.ColumnHeader columnHeader4;
     }
 }
 
