@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem10 = new System.Windows.Forms.ListViewItem("");
             this.Tag2 = new System.Windows.Forms.TextBox();
             this.Tag3 = new System.Windows.Forms.TextBox();
             this.Tag4 = new System.Windows.Forms.TextBox();
@@ -99,7 +99,6 @@
             this.label44 = new System.Windows.Forms.Label();
             this.label45 = new System.Windows.Forms.Label();
             this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.textBox14 = new System.Windows.Forms.TextBox();
             this.textBox15 = new System.Windows.Forms.TextBox();
             this.textBox16 = new System.Windows.Forms.TextBox();
             this.button7 = new System.Windows.Forms.Button();
@@ -108,7 +107,6 @@
             this.label55 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label52 = new System.Windows.Forms.Label();
-            this.textBox13 = new System.Windows.Forms.TextBox();
             this.textBox12 = new System.Windows.Forms.TextBox();
             this.textBox11 = new System.Windows.Forms.TextBox();
             this.button6 = new System.Windows.Forms.Button();
@@ -186,6 +184,12 @@
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label57 = new System.Windows.Forms.Label();
             this.listBox1 = new System.Windows.Forms.ListBox();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.button10 = new System.Windows.Forms.Button();
+            this.label56 = new System.Windows.Forms.Label();
+            this.listBox2 = new System.Windows.Forms.ListBox();
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -865,7 +869,10 @@
             // 
             // tabPage5
             // 
-            this.tabPage5.Controls.Add(this.textBox14);
+            this.tabPage5.Controls.Add(this.listBox2);
+            this.tabPage5.Controls.Add(this.label56);
+            this.tabPage5.Controls.Add(this.comboBox4);
+            this.tabPage5.Controls.Add(this.comboBox3);
             this.tabPage5.Controls.Add(this.textBox15);
             this.tabPage5.Controls.Add(this.textBox16);
             this.tabPage5.Controls.Add(this.button7);
@@ -874,7 +881,6 @@
             this.tabPage5.Controls.Add(this.label55);
             this.tabPage5.Controls.Add(this.comboBox2);
             this.tabPage5.Controls.Add(this.label52);
-            this.tabPage5.Controls.Add(this.textBox13);
             this.tabPage5.Controls.Add(this.textBox12);
             this.tabPage5.Controls.Add(this.textBox11);
             this.tabPage5.Controls.Add(this.button6);
@@ -888,13 +894,6 @@
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "UŻYTKOWNICY";
             this.tabPage5.UseVisualStyleBackColor = true;
-            // 
-            // textBox14
-            // 
-            this.textBox14.Location = new System.Drawing.Point(354, 154);
-            this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(100, 20);
-            this.textBox14.TabIndex = 15;
             // 
             // textBox15
             // 
@@ -963,13 +962,6 @@
             this.label52.TabIndex = 7;
             this.label52.Text = "Obecni użytkownicy w bazie:";
             // 
-            // textBox13
-            // 
-            this.textBox13.Location = new System.Drawing.Point(90, 92);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(100, 20);
-            this.textBox13.TabIndex = 6;
-            // 
             // textBox12
             // 
             this.textBox12.Location = new System.Drawing.Point(90, 56);
@@ -992,6 +984,7 @@
             this.button6.TabIndex = 3;
             this.button6.Text = "Dodaj Użytkownika";
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // label50
             // 
@@ -1328,7 +1321,7 @@
             this.listView1.GridLines = true;
             this.listView1.HideSelection = false;
             this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem5});
+            listViewItem10});
             this.listView1.Location = new System.Drawing.Point(3, 3);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(595, 308);
@@ -1661,11 +1654,68 @@
             this.listBox1.Size = new System.Drawing.Size(529, 19);
             this.listBox1.TabIndex = 108;
             // 
+            // comboBox3
+            // 
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Items.AddRange(new object[] {
+            "Operator",
+            "Lider",
+            "Technolog"});
+            this.comboBox3.Location = new System.Drawing.Point(93, 89);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(97, 21);
+            this.comboBox3.TabIndex = 16;
+            this.comboBox3.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
+            // 
+            // comboBox4
+            // 
+            this.comboBox4.FormattingEnabled = true;
+            this.comboBox4.Items.AddRange(new object[] {
+            "Operator",
+            "Lider",
+            "Technolog"});
+            this.comboBox4.Location = new System.Drawing.Point(357, 154);
+            this.comboBox4.Name = "comboBox4";
+            this.comboBox4.Size = new System.Drawing.Size(97, 21);
+            this.comboBox4.TabIndex = 17;
+            // 
+            // button10
+            // 
+            this.button10.Location = new System.Drawing.Point(346, 8);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(75, 23);
+            this.button10.TabIndex = 110;
+            this.button10.Text = "button10";
+            this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.button10_Click_1);
+            // 
+            // label56
+            // 
+            this.label56.AutoSize = true;
+            this.label56.Location = new System.Drawing.Point(9, 168);
+            this.label56.Name = "label56";
+            this.label56.Size = new System.Drawing.Size(0, 13);
+            this.label56.TabIndex = 75;
+            // 
+            // listBox2
+            // 
+            this.listBox2.FormattingEnabled = true;
+            this.listBox2.Location = new System.Drawing.Point(16, 162);
+            this.listBox2.Name = "listBox2";
+            this.listBox2.Size = new System.Drawing.Size(174, 17);
+            this.listBox2.TabIndex = 76;
+            // 
+            // timer2
+            // 
+            this.timer2.Interval = 5000;
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button10);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.label57);
             this.Controls.Add(this.listAlarmView);
@@ -1847,18 +1897,11 @@
         private System.Windows.Forms.Label label50;
         private System.Windows.Forms.Label label46;
         private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.TextBox textBox14;
-        private System.Windows.Forms.TextBox textBox15;
-        private System.Windows.Forms.TextBox textBox16;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Label label53;
         private System.Windows.Forms.Label label54;
         private System.Windows.Forms.Label label55;
-        private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Label label52;
-        private System.Windows.Forms.TextBox textBox13;
-        private System.Windows.Forms.TextBox textBox12;
-        private System.Windows.Forms.TextBox textBox11;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Label label51;
         private System.Windows.Forms.TabPage tabPage7;
@@ -1895,6 +1938,17 @@
         public System.Windows.Forms.TextBox Output1;
         public System.Windows.Forms.TextBox Output0;
         public System.Windows.Forms.ColumnHeader columnHeader4;
+        public System.Windows.Forms.ComboBox comboBox4;
+        public System.Windows.Forms.ComboBox comboBox3;
+        public System.Windows.Forms.TextBox textBox15;
+        public System.Windows.Forms.TextBox textBox16;
+        public System.Windows.Forms.ComboBox comboBox2;
+        public System.Windows.Forms.TextBox textBox12;
+        public System.Windows.Forms.TextBox textBox11;
+        private System.Windows.Forms.Button button10;
+        public System.Windows.Forms.ListBox listBox2;
+        private System.Windows.Forms.Label label56;
+        public System.Windows.Forms.Timer timer2;
     }
 }
 

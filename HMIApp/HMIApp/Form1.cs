@@ -36,8 +36,8 @@ namespace HMIApp
             //Na podstawie service providera wyciagamy sobie implementacje Interfejsu
             var serviceProvider = services.BuildServiceProvider();
             var app = serviceProvider.GetService<iApp>();
-            Users.SaveToXML();
             Users.Run();
+            //Ponizej zakomentowane zeby odpalac apke do testowania uzytkownikow
            // App.RunInitPLC();
             //App.ReadActualValueFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_0.csv");
             //App.ReadActualValueFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_1.csv");
@@ -69,11 +69,13 @@ namespace HMIApp
             App.WriteToDB(Tag444.Text, Tag444.Tag.ToString());
             App.WriteToDB(Tag666.Text, Tag666.Tag.ToString());
 
+            
         }
 
         //Timer co 100ms do oczytywania DBka
         private void timer1_Tick(object sender, EventArgs e)
         {
+            //Ponizej zakomentowane zeby odpalac apke do testowania uzytkownikow
             //App.ReadActualValueFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_0.csv");
             //App.ReadAlarmsFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_2.csv");
             //App.ReadIOFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_3.csv");
@@ -112,11 +114,7 @@ namespace HMIApp
             int index = listAlarmView.Items.IndexOf(item);
         }
 
-        private void button10_Click(object sender, EventArgs e)
-        {
-           // listAlarmView.Items.RemoveAt(0);
 
-        }
 
         private void button4_Click(object sender, EventArgs e)
         {
@@ -126,6 +124,30 @@ namespace HMIApp
         private void button5_Click(object sender, EventArgs e)
         {
             App.WriteToDB("11", button5.Tag.ToString());
+        }
+
+        private void button10_Click_1(object sender, EventArgs e)
+        {
+
+            if (comboBox2.SelectedIndex == 1)
+            {
+                textBox16.Text = comboBox2.SelectedItem.ToString();
+            }
+        }
+
+        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            Users.SaveToXML();
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            listBox2.Items.Clear();
         }
 
 
