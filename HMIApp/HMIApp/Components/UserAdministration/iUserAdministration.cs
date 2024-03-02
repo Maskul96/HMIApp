@@ -11,5 +11,8 @@ namespace HMIApp.Components.UserAdministration
         void Run();
         void SaveToXML();
         void LoadFromXML();
+        void UpdateFromXML();
+
+        void EditXML();
     }
 }

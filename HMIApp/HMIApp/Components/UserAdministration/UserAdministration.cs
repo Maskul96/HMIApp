@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
@@ -27,11 +29,12 @@ namespace HMIApp.Components.UserAdministration
         public void Run()
         {
             XDocument document = LoadFromXML("document.xml");
-            EditUserFromXML(document);
+           UpdateFromXML(document);
 
         }
         public void SaveToXML()
         {
+            //ZROBIC ZABEZPIECZENIE ZE NIE MOZESZ DODACC UZYTKOWNIKA BEZ NAZWY I BEZ NR KARTY !
             //Załaduj plik przed dodaniem nowych danych i zapisaniem
             XDocument document = LoadFromXML("document.xml");
 
@@ -50,7 +53,25 @@ namespace HMIApp.Components.UserAdministration
             Form1._Form1.listBox2.Items.Add("Użytkownik dodany");
             Form1._Form1.timer2.Enabled = true;
 
-            EditUserFromXML(document);
+            UpdateFromXML(document);
+        }
+
+        public void EditXML()
+        {
+            //Załaduj plik przed dodaniem nowych danych i zapisaniem
+            XDocument document = LoadFromXML("document.xml");
+
+            NrofCard = Form1._Form1.textBox16.Text;
+            Name = Form1._Form1.textBox15.Text;
+            UserRights = Form1._Form1.comboBox4.SelectedIndex.ToString();
+
+
+            document.Save("document.xml");
+            //Dodac event na dodanie uzytkownika do listy i swyswietlic jako komunikat
+            Form1._Form1.listBox2.Items.Add("Użytkownik zedytowany");
+            Form1._Form1.timer2.Enabled = true;
+
+            UpdateFromXML(document);
         }
 
         public XDocument LoadFromXML(string filepath)
@@ -58,27 +79,40 @@ namespace HMIApp.Components.UserAdministration
             return XDocument.Load(filepath);
         }
 
-        public void EditUserFromXML(XDocument document)
+        //Metoda do wysietlania wybranego uzytkownika do edycji z parametrem opcjonalnym string
+        public void UpdateFromXML(XDocument document, string Name = "")
         {
-            var names = document.Element("Użytkownicy")? //jeżeli on istnieje to wyciagnij elementy z nazwa Uzytkownik "?" oznacza "czy istnieje"
-            .Elements("Użytkownik")
-            .Select(x => x.Attribute("Numer_karty")?.Value);
-            foreach (var item in names)
+            if (Name == "")
             {
-                Form1._Form1.comboBox2.Items.Add(item);
+                var names = document.Element("Użytkownicy")? //jeżeli on istnieje to wyciagnij elementy z nazwa Uzytkownik "?" oznacza "czy istnieje"
+                .Elements("Użytkownik")
+                .Select(x => x.Attribute("Nazwa_użytkownika")?.Value);
+                foreach (var item in names)
+                {
+                    Form1._Form1.comboBox2.Items.Add(item);
+                }
             }
-            string test;
-            if (Form1._Form1.comboBox2.SelectedIndex == 1)
-            {
-                Form1._Form1.textBox16.Text = Form1._Form1.comboBox2.SelectedItem.ToString();
-                test = Form1._Form1.textBox16.Text;
+            if (Name != "")
+                    {
+                var names = document.Element("Użytkownicy")?
+                .Elements("Użytkownik")
+                .Where(x => x.Attribute("Nazwa_użytkownika")?.Value == Name)
+                .Select(x => x.Attribute("Numer_karty")?.Value);
+                foreach (var item in names)
+                {
+                    Form1._Form1.textBox16.Text = item;
+                }
+
+                names = document.Element("Użytkownicy")?
+                .Elements("Użytkownik")
+                .Where(x => x.Attribute("Nazwa_użytkownika")?.Value == Name)
+                .Select(x => x.Attribute("Uprawnienia")?.Value);
+                foreach (var item in names)
+                {
+                    int test = Convert.ToInt16(item);
+                    Form1._Form1.comboBox4.SelectedIndex = test;   
+                }
             }
-
-            //var namescd = document.Element("Użytkownicy")? //jeżeli on istnieje to wyciagnij elementy z nazwa Uzytkownik "?" oznacza "czy istnieje"
-            //.Elements("Użytkownik")
-            //.Where(x => x.Attribute("Nazwa_użytkownika")?.Value == test)
-            //.Select(x => x.Attribute("Nazwa_użytkownika")?.Value);
-
         }
     }
 }

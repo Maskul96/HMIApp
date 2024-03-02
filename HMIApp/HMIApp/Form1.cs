@@ -94,11 +94,7 @@ namespace HMIApp
             App.ClosePLCConnection();
             Close();
         }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
+ 
 
         private void button8_Click(object sender, EventArgs e)
         {
@@ -126,20 +122,6 @@ namespace HMIApp
             App.WriteToDB("11", button5.Tag.ToString());
         }
 
-        private void button10_Click_1(object sender, EventArgs e)
-        {
-
-            if (comboBox2.SelectedIndex == 1)
-            {
-                textBox16.Text = comboBox2.SelectedItem.ToString();
-            }
-        }
-
-        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void button6_Click(object sender, EventArgs e)
         {
             Users.SaveToXML();
@@ -148,6 +130,18 @@ namespace HMIApp
         private void timer2_Tick(object sender, EventArgs e)
         {
             listBox2.Items.Clear();
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            textBox15.Text = comboBox2.SelectedItem.ToString();
+            Users.UpdateFromXML(Users.LoadFromXML("document.xml"), textBox15.Text);
+
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            Users.SaveToXML();
         }
 
 
