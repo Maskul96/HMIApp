@@ -141,7 +141,7 @@ namespace HMIApp
 
         private void button7_Click(object sender, EventArgs e)
         {
-            Users.SaveToXML();
+            Users.EditXML();
         }
 
 

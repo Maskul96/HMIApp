@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("");
             this.Tag2 = new System.Windows.Forms.TextBox();
             this.Tag3 = new System.Windows.Forms.TextBox();
             this.Tag4 = new System.Windows.Forms.TextBox();
@@ -190,6 +190,8 @@
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.button10 = new System.Windows.Forms.Button();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.label58 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -869,6 +871,8 @@
             // 
             // tabPage5
             // 
+            this.tabPage5.Controls.Add(this.textBox1);
+            this.tabPage5.Controls.Add(this.label58);
             this.tabPage5.Controls.Add(this.listBox2);
             this.tabPage5.Controls.Add(this.label56);
             this.tabPage5.Controls.Add(this.comboBox4);
@@ -934,7 +938,6 @@
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(97, 21);
             this.comboBox3.TabIndex = 16;
-
             // 
             // textBox15
             // 
@@ -945,7 +948,7 @@
             // 
             // textBox16
             // 
-            this.textBox16.Location = new System.Drawing.Point(354, 79);
+            this.textBox16.Location = new System.Drawing.Point(353, 76);
             this.textBox16.Name = "textBox16";
             this.textBox16.Size = new System.Drawing.Size(100, 20);
             this.textBox16.TabIndex = 13;
@@ -1364,7 +1367,7 @@
             this.listView1.GridLines = true;
             this.listView1.HideSelection = false;
             this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem2});
+            listViewItem4});
             this.listView1.Location = new System.Drawing.Point(3, 3);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(595, 308);
@@ -1705,12 +1708,27 @@
             this.button10.TabIndex = 110;
             this.button10.Text = "button10";
             this.button10.UseVisualStyleBackColor = true;
-
             // 
             // timer2
             // 
             this.timer2.Interval = 5000;
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
+            // 
+            // label58
+            // 
+            this.label58.AutoSize = true;
+            this.label58.Location = new System.Drawing.Point(497, 76);
+            this.label58.Name = "label58";
+            this.label58.Size = new System.Drawing.Size(18, 13);
+            this.label58.TabIndex = 77;
+            this.label58.Text = "ID";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(495, 92);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(58, 20);
+            this.textBox1.TabIndex = 78;
             // 
             // Form1
             // 
@@ -1904,7 +1922,6 @@
         private System.Windows.Forms.Label label55;
         private System.Windows.Forms.Label label52;
         private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Label label51;
         private System.Windows.Forms.TabPage tabPage7;
         public System.Windows.Forms.ColumnHeader columnHeader1;
         public System.Windows.Forms.ColumnHeader columnHeader2;
@@ -1946,10 +1963,13 @@
         public System.Windows.Forms.ComboBox comboBox2;
         public System.Windows.Forms.TextBox textBox12;
         public System.Windows.Forms.TextBox textBox11;
-        private System.Windows.Forms.Button button10;
         public System.Windows.Forms.ListBox listBox2;
         private System.Windows.Forms.Label label56;
         public System.Windows.Forms.Timer timer2;
+        public System.Windows.Forms.Label label51;
+        public System.Windows.Forms.Button button10;
+        public System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label58;
     }
 }
 
