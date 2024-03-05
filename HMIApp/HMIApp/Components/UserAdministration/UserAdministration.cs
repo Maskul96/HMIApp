@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Security.Cryptography;
 using System.Windows.Forms;
 using System.Xml;
 using System.Xml.Linq;
@@ -32,7 +33,7 @@ namespace HMIApp.Components.UserAdministration
         public void Run()
         {
             XDocument document = LoadFromXML("document.xml");
-            UpdateFromXML(document);
+            DisplayValuesFromXML(document);
 
         }
         public void SaveToXML()
@@ -46,20 +47,31 @@ namespace HMIApp.Components.UserAdministration
             NrofCard = Form1._Form1.textBox11.Text;
             Name = Form1._Form1.textBox12.Text;
             UserRights = Form1._Form1.comboBox3.SelectedIndex.ToString();
-            document.Element("Użytkownicy").Add
-                (new XElement("Użytkownik",
-                new XAttribute("ID", id),
-                new XAttribute("Numer_karty", NrofCard),
-             new XAttribute("Nazwa_użytkownika", Name),
-             new XAttribute("Uprawnienia", UserRights)));
+            if (NrofCard != "" && Name != "" && UserRights != "")
+            {
+                document.Element("Użytkownicy").Add
+                    (new XElement("Użytkownik",
+                    new XAttribute("ID", id),
+                    new XAttribute("Numer_karty", NrofCard),
+                 new XAttribute("Nazwa_użytkownika", Name),
+                 new XAttribute("Uprawnienia", UserRights)));
+                //Zapis ppliku
+                document.Save("document.xml");
+                //Komunikat dla usera
+                Form1._Form1.listBox2.Items.Add("Użytkownik dodany");
 
-            document.Save("document.xml");
-            //Dodac event na dodanie uzytkownika do listy i swyswietlic jako komunikat
-            Form1._Form1.listBox2.Items.Add("Użytkownik dodany");
+                //Wyczyszczenie i nastepnie update listy w combobox
+                ClearListInComboBox();
+                DisplayValuesFromXML(document);
+            }
+            else
+            {
+                //Komunikat dla usera
+                Form1._Form1.listBox2.Items.Add("Niepoprawne dane");
+            }
+
             Form1._Form1.timer2.Enabled = true;
 
-            //Poprawic jeszcze update po zapisie ! podwaja nam wszystko w comboboxie
-            UpdateFromXML(document);
         }
 
         public void EditXML()
@@ -67,25 +79,39 @@ namespace HMIApp.Components.UserAdministration
             //Załaduj plik przed dodaniem nowych danych i zapisaniem
             XDocument document = LoadFromXML("document.xml");
 
+            //Dane wejsciowe do edycji
             NrofCard = Form1._Form1.textBox16.Text;
             Name = Form1._Form1.textBox15.Text;
             UserRights = Form1._Form1.comboBox4.SelectedIndex.ToString();
             int.TryParse(Form1._Form1.textBox1.Text, out id);
-            
-            var names = document.Element("Użytkownicy")?
+            if (NrofCard != "" && Name != "" && UserRights != "")
+            {
+                //Edytowanie danych użytkownika
+                var names = document.Element("Użytkownicy")?
             .Elements("Użytkownik")
             .Where(x => x.Attribute("ID")?.Value == id.ToString())
             .Single();
-            names.Attribute("Numer_karty").Value = Form1._Form1.textBox16.Text;
-            names.Attribute("Nazwa_użytkownika").Value = Form1._Form1.textBox15.Text;
-            names.Attribute("Uprawnienia").Value = Form1._Form1.comboBox4.SelectedIndex.ToString();
+                names.Attribute("Numer_karty").Value = Form1._Form1.textBox16.Text;
+                names.Attribute("Nazwa_użytkownika").Value = Form1._Form1.textBox15.Text;
+                names.Attribute("Uprawnienia").Value = Form1._Form1.comboBox4.SelectedIndex.ToString();
 
-            document.Save("document.xml");
-            //Dodac event na dodanie uzytkownika do listy i swyswietlic jako komunikat
-            Form1._Form1.listBox2.Items.Add("Użytkownik zedytowany");
+                //Zapis ppliku
+                document.Save("document.xml");
+
+                //Komunikat dla usera
+                Form1._Form1.listBox2.Items.Add("Użytkownik zedytowany");
+
+                //Wyczyszczenie i nastepnie update listy w combobox
+                ClearListInComboBox();
+                DisplayValuesFromXML(document);
+            }
+            else
+            {
+                //Komunikat dla usera
+                Form1._Form1.listBox2.Items.Add("Niepoprawne dane");
+            }
             Form1._Form1.timer2.Enabled = true;
 
-            UpdateFromXML(document, Form1._Form1.textBox15.Text);
         }
 
         public XDocument LoadFromXML(string filepath)
@@ -93,8 +119,14 @@ namespace HMIApp.Components.UserAdministration
             return XDocument.Load(filepath);
         }
 
+        //kasowanie listy celem pozniejszego update'u
+        public void ClearListInComboBox()
+        {
+            Form1._Form1.comboBox2.Items.Clear();
+        }
+
         //Metoda do wysietlania wybranego uzytkownika do edycji z parametrem opcjonalnym string
-        public void UpdateFromXML(XDocument document, string Name = "")
+        public void DisplayValuesFromXML(XDocument document, string Name = "")
         {
             if (Name == "")
             {
@@ -103,7 +135,7 @@ namespace HMIApp.Components.UserAdministration
                 .Select(x => x.Attribute("Nazwa_użytkownika")?.Value);
                 foreach (var item in names)
                 {
-                    Form1._Form1.comboBox2.Items.Add(item);
+                        Form1._Form1.comboBox2.Items.Add(item);
                 }
             }
             if (Name != "")

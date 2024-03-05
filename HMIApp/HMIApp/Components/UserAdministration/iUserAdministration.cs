@@ -11,7 +11,8 @@ namespace HMIApp.Components.UserAdministration
         void Run();
         void SaveToXML();
         void LoadFromXML();
-        void UpdateFromXML();
+        void UpdateDisplayValuesFromXML();
+        void ClearListinComboBox();
 
         void EditXML();
     }

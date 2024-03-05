@@ -135,13 +135,14 @@ namespace HMIApp
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
             textBox15.Text = comboBox2.SelectedItem.ToString();
-            Users.UpdateFromXML(Users.LoadFromXML("document.xml"), textBox15.Text);
+            Users.DisplayValuesFromXML(Users.LoadFromXML("document.xml"), textBox15.Text);
 
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
             Users.EditXML();
+           
         }
 
 
