@@ -28,13 +28,67 @@ namespace HMIApp.Components.UserAdministration
         public string Name;
         public string UserRights;
         public int id=1;
-
+        public bool UserIsLoggedIn;
+        public int Interval = 10000/1000;
 
         public void Run()
         {
             XDocument document = LoadFromXML("document.xml");
             DisplayValuesFromXML(document);
+            FindUserinXML();
+        }
 
+        public void ClearUserFromDisplay()
+        {
+            Form1._Form1.label60.Text = "";
+            Form1._Form1.label61.Text = "";
+            Form1._Form1.label62.Text = "";
+            UserIsLoggedIn = false;
+        }
+
+        public void FindUserinXML()
+        {
+            //Załaduj plik przed sprawdzeniem czy jest uzytkownik w nim
+            XDocument document = LoadFromXML("document.xml");
+
+            //Dane wejsciowe 
+            NrofCard = Form1._Form1.textBox6.Text;
+
+            if (NrofCard != "")
+            {
+                var names = document.Element("Użytkownicy")?
+                .Elements("Użytkownik")
+                .Where(x => x.Attribute("Numer_karty")?.Value == NrofCard)
+                .Single();
+
+                UserIsLoggedIn = (names != null) ? true : false;
+
+                Form1._Form1.label60.Text = names.Attribute("Numer_karty").Value;
+                Form1._Form1.label61.Text = names.Attribute("Nazwa_użytkownika").Value;
+                switch (names.Attribute("Uprawnienia").Value)
+                {
+                    case "0":
+                        Form1._Form1.label62.Text = "Operator";
+                        break;
+                    case "1":
+                        Form1._Form1.label62.Text = "Lider";
+                        break;
+                    case "2":
+                        Form1._Form1.label62.Text = "Technolog";
+                        break;
+                    default:
+                        Form1._Form1.label62.Text = "Operator";
+                        break;
+                }
+                //Obsluga odliczania czasu do wylogowania
+                Form1._Form1.timer3.Enabled = true;
+                Form1._Form1.label63.Text = Interval.ToString();
+                Form1._Form1.timer4.Enabled = true;
+            }
+            else
+            {
+                ClearUserFromDisplay();
+            }
         }
         public void SaveToXML()
         {

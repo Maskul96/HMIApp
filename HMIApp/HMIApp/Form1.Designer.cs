@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
             this.Tag2 = new System.Windows.Forms.TextBox();
             this.Tag3 = new System.Windows.Forms.TextBox();
             this.Tag4 = new System.Windows.Forms.TextBox();
@@ -99,6 +99,8 @@
             this.label44 = new System.Windows.Forms.Label();
             this.label45 = new System.Windows.Forms.Label();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label58 = new System.Windows.Forms.Label();
             this.listBox2 = new System.Windows.Forms.ListBox();
             this.label56 = new System.Windows.Forms.Label();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
@@ -188,10 +190,16 @@
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label57 = new System.Windows.Forms.Label();
             this.listBox1 = new System.Windows.Forms.ListBox();
-            this.button10 = new System.Windows.Forms.Button();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
-            this.label58 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button9 = new System.Windows.Forms.Button();
+            this.label59 = new System.Windows.Forms.Label();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.label60 = new System.Windows.Forms.Label();
+            this.label61 = new System.Windows.Forms.Label();
+            this.label62 = new System.Windows.Forms.Label();
+            this.timer3 = new System.Windows.Forms.Timer(this.components);
+            this.label63 = new System.Windows.Forms.Label();
+            this.timer4 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -211,6 +219,7 @@
             // 
             // Tag2
             // 
+            this.Tag2.Enabled = false;
             this.Tag2.Location = new System.Drawing.Point(740, 176);
             this.Tag2.Name = "Tag2";
             this.Tag2.Size = new System.Drawing.Size(38, 20);
@@ -218,6 +227,7 @@
             // 
             // Tag3
             // 
+            this.Tag3.Enabled = false;
             this.Tag3.Location = new System.Drawing.Point(740, 205);
             this.Tag3.Name = "Tag3";
             this.Tag3.Size = new System.Drawing.Size(38, 20);
@@ -225,6 +235,7 @@
             // 
             // Tag4
             // 
+            this.Tag4.Enabled = false;
             this.Tag4.Location = new System.Drawing.Point(740, 231);
             this.Tag4.Name = "Tag4";
             this.Tag4.Size = new System.Drawing.Size(38, 20);
@@ -232,6 +243,7 @@
             // 
             // Tag5
             // 
+            this.Tag5.Enabled = false;
             this.Tag5.Location = new System.Drawing.Point(740, 258);
             this.Tag5.Name = "Tag5";
             this.Tag5.Size = new System.Drawing.Size(38, 20);
@@ -239,6 +251,7 @@
             // 
             // Tag6
             // 
+            this.Tag6.Enabled = false;
             this.Tag6.Location = new System.Drawing.Point(740, 288);
             this.Tag6.Name = "Tag6";
             this.Tag6.Size = new System.Drawing.Size(38, 20);
@@ -246,6 +259,7 @@
             // 
             // Tag7
             // 
+            this.Tag7.Enabled = false;
             this.Tag7.Location = new System.Drawing.Point(740, 341);
             this.Tag7.Name = "Tag7";
             this.Tag7.Size = new System.Drawing.Size(38, 20);
@@ -257,6 +271,7 @@
             // 
             // Tag14
             // 
+            this.Tag14.Enabled = false;
             this.Tag14.Location = new System.Drawing.Point(740, 362);
             this.Tag14.Name = "Tag14";
             this.Tag14.Size = new System.Drawing.Size(38, 20);
@@ -265,7 +280,7 @@
             // Uzytkownik
             // 
             this.Uzytkownik.AutoSize = true;
-            this.Uzytkownik.Location = new System.Drawing.Point(253, 13);
+            this.Uzytkownik.Location = new System.Drawing.Point(253, 5);
             this.Uzytkownik.Name = "Uzytkownik";
             this.Uzytkownik.Size = new System.Drawing.Size(65, 13);
             this.Uzytkownik.TabIndex = 67;
@@ -334,6 +349,7 @@
             // 
             // textBox9
             // 
+            this.textBox9.Enabled = false;
             this.textBox9.Location = new System.Drawing.Point(451, 8);
             this.textBox9.Name = "textBox9";
             this.textBox9.Size = new System.Drawing.Size(137, 20);
@@ -341,6 +357,7 @@
             // 
             // textBox10
             // 
+            this.textBox10.Enabled = false;
             this.textBox10.Location = new System.Drawing.Point(103, 8);
             this.textBox10.Name = "textBox10";
             this.textBox10.Size = new System.Drawing.Size(235, 20);
@@ -407,6 +424,7 @@
             // 
             // textBox7
             // 
+            this.textBox7.Enabled = false;
             this.textBox7.Location = new System.Drawing.Point(454, 14);
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(137, 20);
@@ -414,6 +432,7 @@
             // 
             // textBox8
             // 
+            this.textBox8.Enabled = false;
             this.textBox8.Location = new System.Drawing.Point(106, 14);
             this.textBox8.Name = "textBox8";
             this.textBox8.Size = new System.Drawing.Size(235, 20);
@@ -871,6 +890,9 @@
             // 
             // tabPage5
             // 
+            this.tabPage5.Controls.Add(this.textBox6);
+            this.tabPage5.Controls.Add(this.label59);
+            this.tabPage5.Controls.Add(this.button9);
             this.tabPage5.Controls.Add(this.textBox1);
             this.tabPage5.Controls.Add(this.label58);
             this.tabPage5.Controls.Add(this.listBox2);
@@ -899,8 +921,26 @@
             this.tabPage5.Text = "UŻYTKOWNICY";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
+            // textBox1
+            // 
+            this.textBox1.Enabled = false;
+            this.textBox1.Location = new System.Drawing.Point(495, 92);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(58, 20);
+            this.textBox1.TabIndex = 78;
+            // 
+            // label58
+            // 
+            this.label58.AutoSize = true;
+            this.label58.Location = new System.Drawing.Point(497, 76);
+            this.label58.Name = "label58";
+            this.label58.Size = new System.Drawing.Size(18, 13);
+            this.label58.TabIndex = 77;
+            this.label58.Text = "ID";
+            // 
             // listBox2
             // 
+            this.listBox2.Enabled = false;
             this.listBox2.FormattingEnabled = true;
             this.listBox2.Location = new System.Drawing.Point(16, 162);
             this.listBox2.Name = "listBox2";
@@ -992,7 +1032,9 @@
             // 
             // comboBox2
             // 
+            this.comboBox2.DropDownHeight = 100;
             this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.IntegralHeight = false;
             this.comboBox2.Location = new System.Drawing.Point(279, 34);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(274, 21);
@@ -1085,6 +1127,7 @@
             // 
             // textBox5
             // 
+            this.textBox5.Enabled = false;
             this.textBox5.Location = new System.Drawing.Point(81, 36);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(68, 20);
@@ -1101,6 +1144,7 @@
             // 
             // textBox4
             // 
+            this.textBox4.Enabled = false;
             this.textBox4.Location = new System.Drawing.Point(68, 10);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(355, 20);
@@ -1132,6 +1176,7 @@
             // 
             this.tabControl3.Controls.Add(this.tabPage10);
             this.tabControl3.Controls.Add(this.tabPage11);
+            this.tabControl3.Enabled = false;
             this.tabControl3.Location = new System.Drawing.Point(6, 6);
             this.tabControl3.Name = "tabControl3";
             this.tabControl3.SelectedIndex = 0;
@@ -1161,6 +1206,7 @@
             // 
             // Input10
             // 
+            this.Input10.Enabled = false;
             this.Input10.Location = new System.Drawing.Point(243, 33);
             this.Input10.Name = "Input10";
             this.Input10.Size = new System.Drawing.Size(20, 20);
@@ -1168,6 +1214,7 @@
             // 
             // Input9
             // 
+            this.Input9.Enabled = false;
             this.Input9.Location = new System.Drawing.Point(243, 7);
             this.Input9.Name = "Input9";
             this.Input9.Size = new System.Drawing.Size(20, 20);
@@ -1175,6 +1222,7 @@
             // 
             // Input8
             // 
+            this.Input8.Enabled = false;
             this.Input8.Location = new System.Drawing.Point(7, 228);
             this.Input8.Name = "Input8";
             this.Input8.Size = new System.Drawing.Size(20, 20);
@@ -1182,6 +1230,7 @@
             // 
             // Input7
             // 
+            this.Input7.Enabled = false;
             this.Input7.Location = new System.Drawing.Point(7, 201);
             this.Input7.Name = "Input7";
             this.Input7.Size = new System.Drawing.Size(20, 20);
@@ -1189,6 +1238,7 @@
             // 
             // Input6
             // 
+            this.Input6.Enabled = false;
             this.Input6.Location = new System.Drawing.Point(7, 175);
             this.Input6.Name = "Input6";
             this.Input6.Size = new System.Drawing.Size(20, 20);
@@ -1196,6 +1246,7 @@
             // 
             // Input5
             // 
+            this.Input5.Enabled = false;
             this.Input5.Location = new System.Drawing.Point(7, 149);
             this.Input5.Name = "Input5";
             this.Input5.Size = new System.Drawing.Size(20, 20);
@@ -1203,6 +1254,7 @@
             // 
             // Input4
             // 
+            this.Input4.Enabled = false;
             this.Input4.Location = new System.Drawing.Point(7, 114);
             this.Input4.Name = "Input4";
             this.Input4.Size = new System.Drawing.Size(20, 20);
@@ -1210,6 +1262,7 @@
             // 
             // Input3
             // 
+            this.Input3.Enabled = false;
             this.Input3.Location = new System.Drawing.Point(7, 82);
             this.Input3.Name = "Input3";
             this.Input3.Size = new System.Drawing.Size(20, 20);
@@ -1217,6 +1270,7 @@
             // 
             // Input2
             // 
+            this.Input2.Enabled = false;
             this.Input2.Location = new System.Drawing.Point(7, 59);
             this.Input2.Name = "Input2";
             this.Input2.Size = new System.Drawing.Size(20, 20);
@@ -1224,6 +1278,7 @@
             // 
             // Input1
             // 
+            this.Input1.Enabled = false;
             this.Input1.Location = new System.Drawing.Point(7, 33);
             this.Input1.Name = "Input1";
             this.Input1.Size = new System.Drawing.Size(20, 20);
@@ -1231,6 +1286,7 @@
             // 
             // Input0
             // 
+            this.Input0.Enabled = false;
             this.Input0.Location = new System.Drawing.Point(7, 7);
             this.Input0.Name = "Input0";
             this.Input0.Size = new System.Drawing.Size(20, 20);
@@ -1259,6 +1315,7 @@
             // 
             // Output10
             // 
+            this.Output10.Enabled = false;
             this.Output10.Location = new System.Drawing.Point(275, 32);
             this.Output10.Name = "Output10";
             this.Output10.Size = new System.Drawing.Size(20, 20);
@@ -1266,6 +1323,7 @@
             // 
             // Output9
             // 
+            this.Output9.Enabled = false;
             this.Output9.Location = new System.Drawing.Point(275, 6);
             this.Output9.Name = "Output9";
             this.Output9.Size = new System.Drawing.Size(20, 20);
@@ -1273,6 +1331,7 @@
             // 
             // Output8
             // 
+            this.Output8.Enabled = false;
             this.Output8.Location = new System.Drawing.Point(6, 218);
             this.Output8.Name = "Output8";
             this.Output8.Size = new System.Drawing.Size(20, 20);
@@ -1280,6 +1339,7 @@
             // 
             // Output7
             // 
+            this.Output7.Enabled = false;
             this.Output7.Location = new System.Drawing.Point(6, 191);
             this.Output7.Name = "Output7";
             this.Output7.Size = new System.Drawing.Size(20, 20);
@@ -1287,6 +1347,7 @@
             // 
             // Output6
             // 
+            this.Output6.Enabled = false;
             this.Output6.Location = new System.Drawing.Point(6, 164);
             this.Output6.Name = "Output6";
             this.Output6.Size = new System.Drawing.Size(20, 20);
@@ -1294,6 +1355,7 @@
             // 
             // Output5
             // 
+            this.Output5.Enabled = false;
             this.Output5.Location = new System.Drawing.Point(6, 137);
             this.Output5.Name = "Output5";
             this.Output5.Size = new System.Drawing.Size(20, 20);
@@ -1301,6 +1363,7 @@
             // 
             // Output4
             // 
+            this.Output4.Enabled = false;
             this.Output4.Location = new System.Drawing.Point(6, 111);
             this.Output4.Name = "Output4";
             this.Output4.Size = new System.Drawing.Size(20, 20);
@@ -1308,6 +1371,7 @@
             // 
             // Output3
             // 
+            this.Output3.Enabled = false;
             this.Output3.Location = new System.Drawing.Point(6, 85);
             this.Output3.Name = "Output3";
             this.Output3.Size = new System.Drawing.Size(20, 20);
@@ -1315,6 +1379,7 @@
             // 
             // Output2
             // 
+            this.Output2.Enabled = false;
             this.Output2.Location = new System.Drawing.Point(6, 58);
             this.Output2.Name = "Output2";
             this.Output2.Size = new System.Drawing.Size(20, 20);
@@ -1322,6 +1387,7 @@
             // 
             // Output1
             // 
+            this.Output1.Enabled = false;
             this.Output1.Location = new System.Drawing.Point(6, 32);
             this.Output1.Name = "Output1";
             this.Output1.Size = new System.Drawing.Size(20, 20);
@@ -1329,6 +1395,7 @@
             // 
             // Output0
             // 
+            this.Output0.Enabled = false;
             this.Output0.Location = new System.Drawing.Point(6, 6);
             this.Output0.Name = "Output0";
             this.Output0.Size = new System.Drawing.Size(20, 20);
@@ -1362,12 +1429,13 @@
             this.columnHeader2,
             this.columnHeader3});
             this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listView1.Enabled = false;
             this.listView1.ForeColor = System.Drawing.SystemColors.InfoText;
             this.listView1.FullRowSelect = true;
             this.listView1.GridLines = true;
             this.listView1.HideSelection = false;
             this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem4});
+            listViewItem1});
             this.listView1.Location = new System.Drawing.Point(3, 3);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(595, 308);
@@ -1565,6 +1633,7 @@
             // Tag0
             // 
             this.Tag0.AutoSize = true;
+            this.Tag0.Enabled = false;
             this.Tag0.Location = new System.Drawing.Point(658, 66);
             this.Tag0.Name = "Tag0";
             this.Tag0.Size = new System.Drawing.Size(15, 14);
@@ -1574,6 +1643,7 @@
             // Tag8
             // 
             this.Tag8.AutoSize = true;
+            this.Tag8.Enabled = false;
             this.Tag8.Location = new System.Drawing.Point(658, 95);
             this.Tag8.Name = "Tag8";
             this.Tag8.Size = new System.Drawing.Size(15, 14);
@@ -1583,6 +1653,7 @@
             // Tag10
             // 
             this.Tag10.AutoSize = true;
+            this.Tag10.Enabled = false;
             this.Tag10.Location = new System.Drawing.Point(657, 125);
             this.Tag10.Name = "Tag10";
             this.Tag10.Size = new System.Drawing.Size(15, 14);
@@ -1592,6 +1663,7 @@
             // Tag12
             // 
             this.Tag12.AutoSize = true;
+            this.Tag12.Enabled = false;
             this.Tag12.Location = new System.Drawing.Point(657, 148);
             this.Tag12.Name = "Tag12";
             this.Tag12.Size = new System.Drawing.Size(15, 14);
@@ -1601,6 +1673,7 @@
             // Tag1
             // 
             this.Tag1.AutoSize = true;
+            this.Tag1.Enabled = false;
             this.Tag1.Location = new System.Drawing.Point(742, 66);
             this.Tag1.Name = "Tag1";
             this.Tag1.Size = new System.Drawing.Size(15, 14);
@@ -1610,6 +1683,7 @@
             // Tag9
             // 
             this.Tag9.AutoSize = true;
+            this.Tag9.Enabled = false;
             this.Tag9.Location = new System.Drawing.Point(742, 95);
             this.Tag9.Name = "Tag9";
             this.Tag9.Size = new System.Drawing.Size(15, 14);
@@ -1619,6 +1693,7 @@
             // Tag11
             // 
             this.Tag11.AutoSize = true;
+            this.Tag11.Enabled = false;
             this.Tag11.Location = new System.Drawing.Point(742, 121);
             this.Tag11.Name = "Tag11";
             this.Tag11.Size = new System.Drawing.Size(15, 14);
@@ -1628,6 +1703,7 @@
             // Tag13
             // 
             this.Tag13.AutoSize = true;
+            this.Tag13.Enabled = false;
             this.Tag13.Location = new System.Drawing.Point(742, 148);
             this.Tag13.Name = "Tag13";
             this.Tag13.Size = new System.Drawing.Size(15, 14);
@@ -1637,6 +1713,7 @@
             // Tag15
             // 
             this.Tag15.AutoSize = true;
+            this.Tag15.Enabled = false;
             this.Tag15.Location = new System.Drawing.Point(740, 315);
             this.Tag15.Name = "Tag15";
             this.Tag15.Size = new System.Drawing.Size(15, 14);
@@ -1646,7 +1723,7 @@
             // label51
             // 
             this.label51.AutoSize = true;
-            this.label51.Location = new System.Drawing.Point(457, 13);
+            this.label51.Location = new System.Drawing.Point(509, 13);
             this.label51.Name = "label51";
             this.label51.Size = new System.Drawing.Size(109, 13);
             this.label51.TabIndex = 103;
@@ -1657,6 +1734,7 @@
             this.listAlarmView.AllowColumnReorder = true;
             this.listAlarmView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader4});
+            this.listAlarmView.Enabled = false;
             this.listAlarmView.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.listAlarmView.HideSelection = false;
             this.listAlarmView.Location = new System.Drawing.Point(90, 410);
@@ -1687,6 +1765,7 @@
             this.listBox1.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             this.listBox1.BackColor = System.Drawing.Color.Yellow;
             this.listBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.listBox1.Enabled = false;
             this.listBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.listBox1.ForeColor = System.Drawing.SystemColors.MenuText;
             this.listBox1.FormattingEnabled = true;
@@ -1700,42 +1779,92 @@
             this.listBox1.Size = new System.Drawing.Size(529, 19);
             this.listBox1.TabIndex = 108;
             // 
-            // button10
-            // 
-            this.button10.Location = new System.Drawing.Point(346, 8);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(75, 23);
-            this.button10.TabIndex = 110;
-            this.button10.Text = "button10";
-            this.button10.UseVisualStyleBackColor = true;
-            // 
             // timer2
             // 
             this.timer2.Interval = 5000;
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
-            // label58
+            // button9
             // 
-            this.label58.AutoSize = true;
-            this.label58.Location = new System.Drawing.Point(497, 76);
-            this.label58.Name = "label58";
-            this.label58.Size = new System.Drawing.Size(18, 13);
-            this.label58.TabIndex = 77;
-            this.label58.Text = "ID";
+            this.button9.Location = new System.Drawing.Point(21, 263);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(75, 23);
+            this.button9.TabIndex = 79;
+            this.button9.Text = "ZALOGUJ";
+            this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click_1);
             // 
-            // textBox1
+            // label59
             // 
-            this.textBox1.Location = new System.Drawing.Point(495, 92);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(58, 20);
-            this.textBox1.TabIndex = 78;
+            this.label59.Location = new System.Drawing.Point(21, 208);
+            this.label59.Name = "label59";
+            this.label59.Size = new System.Drawing.Size(199, 54);
+            this.label59.TabIndex = 80;
+            this.label59.Text = "Tymczasowe zastapienie karty RFID - wpisujesz kod karty recznie i przyciskiem Zal" +
+    "oguj zastepujesz opcje odczytania karty";
+            // 
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(21, 288);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(169, 20);
+            this.textBox6.TabIndex = 81;
+            // 
+            // label60
+            // 
+            this.label60.AutoSize = true;
+            this.label60.Location = new System.Drawing.Point(317, 5);
+            this.label60.Name = "label60";
+            this.label60.Size = new System.Drawing.Size(29, 13);
+            this.label60.TabIndex = 109;
+            this.label60.Text = "Imie:";
+            // 
+            // label61
+            // 
+            this.label61.AutoSize = true;
+            this.label61.Location = new System.Drawing.Point(317, 18);
+            this.label61.Name = "label61";
+            this.label61.Size = new System.Drawing.Size(47, 13);
+            this.label61.TabIndex = 110;
+            this.label61.Text = "Nr karty:";
+            // 
+            // label62
+            // 
+            this.label62.AutoSize = true;
+            this.label62.Location = new System.Drawing.Point(317, 31);
+            this.label62.Name = "label62";
+            this.label62.Size = new System.Drawing.Size(69, 13);
+            this.label62.TabIndex = 111;
+            this.label62.Text = "Uprawnienia:";
+            // 
+            // timer3
+            // 
+            this.timer3.Interval = 10000;
+            this.timer3.Tick += new System.EventHandler(this.timer3_Tick);
+            // 
+            // label63
+            // 
+            this.label63.AutoSize = true;
+            this.label63.Location = new System.Drawing.Point(618, 13);
+            this.label63.Name = "label63";
+            this.label63.Size = new System.Drawing.Size(41, 13);
+            this.label63.TabIndex = 112;
+            this.label63.Text = "label63";
+            // 
+            // timer4
+            // 
+            this.timer4.Interval = 1000;
+            this.timer4.Tick += new System.EventHandler(this.timer4_Tick);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button10);
+            this.Controls.Add(this.label63);
+            this.Controls.Add(this.label62);
+            this.Controls.Add(this.label61);
+            this.Controls.Add(this.label60);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.label57);
             this.Controls.Add(this.listAlarmView);
@@ -1967,9 +2096,17 @@
         private System.Windows.Forms.Label label56;
         public System.Windows.Forms.Timer timer2;
         public System.Windows.Forms.Label label51;
-        public System.Windows.Forms.Button button10;
         public System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label58;
+        private System.Windows.Forms.Label label59;
+        public System.Windows.Forms.Button button9;
+        public System.Windows.Forms.TextBox textBox6;
+        public System.Windows.Forms.Label label60;
+        public System.Windows.Forms.Label label61;
+        public System.Windows.Forms.Label label62;
+        public System.Windows.Forms.Timer timer3;
+        public System.Windows.Forms.Label label63;
+        public System.Windows.Forms.Timer timer4;
     }
 }
 

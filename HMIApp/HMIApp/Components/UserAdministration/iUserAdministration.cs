@@ -14,6 +14,8 @@ namespace HMIApp.Components.UserAdministration
         void UpdateDisplayValuesFromXML();
         void ClearListinComboBox();
 
+        void ClearUserFromDisplay();
+        void FindUserinXML();
         void EditXML();
     }
 }

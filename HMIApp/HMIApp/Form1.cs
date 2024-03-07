@@ -45,6 +45,8 @@ namespace HMIApp
             //App.ReadIOFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_3.csv");
             timer1.Enabled = true;
             listBox1.DrawItem += new System.Windows.Forms.DrawItemEventHandler(App.listBox1_DrawItem);
+            label63.Text = "";
+
 
         }
         //statyczna zmienna typu Form1 zeby dostac sie z poziomu innej klasy do obiektow wewnatrz Form1
@@ -83,55 +85,50 @@ namespace HMIApp
             this.Text = DateTime.Now.ToString();
             label57.Text = this.Text;
         }
-
+        //Cofniecie zmian dokonanych w karcie Dane - Modyfikowalne
         private void button2_Click(object sender, EventArgs e)
         {
             App.ReadActualValueFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_1.csv");
         }
 
+        //Zamkniecie aplikacji
         private void button3_Click(object sender, EventArgs e)
         {
             App.ClosePLCConnection();
             Close();
         }
  
-
+        //Zmiana koloru ikonki w karcie Wejscia/Wyjscia
         private void button8_Click(object sender, EventArgs e)
         {
             //Ikonka TextBoxa moze sluzyc jako wskaznik IO's na zasadzie kolorowania jej backcoloru i enabled dajesz jako false
             Input2.BackColor = Color.LightGreen;
         }
 
-        private void button9_Click(object sender, EventArgs e)
-        {
-            ListViewItem item = new ListViewItem();
-            item.Text = "alarm";
-            listAlarmView.Items.Add(item);
-            int index = listAlarmView.Items.IndexOf(item);
-        }
-
-
-
+        //Testowy przycisk z karty Manual do wyslania komendy
         private void button4_Click(object sender, EventArgs e)
         {
             App.WriteToDB("15", button4.Tag.ToString());
         }
-
+        //Testowy przycisk z karty Manual do wyslania komendy
         private void button5_Click(object sender, EventArgs e)
         {
             App.WriteToDB("11", button5.Tag.ToString());
         }
 
+        //Przycisk wyzwalajacy zapis uzytkownika
         private void button6_Click(object sender, EventArgs e)
         {
             Users.SaveToXML();
         }
 
+        //Wyczyszczenie statusu karty Użytkownicy
         private void timer2_Tick(object sender, EventArgs e)
         {
             listBox2.Items.Clear();
         }
 
+        //Wyswietlenie uzytkownikow z bazy
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
             textBox15.Text = comboBox2.SelectedItem.ToString();
@@ -139,14 +136,41 @@ namespace HMIApp
 
         }
 
+        //Przycisk wyzwalający edycje użytkownika
         private void button7_Click(object sender, EventArgs e)
         {
             Users.EditXML();
            
         }
 
+        //Przycisk zastepujacy event przyłożenia karty RFID d oczytnika
+        private void button9_Click_1(object sender, EventArgs e)
+        {
+            Users.FindUserinXML();
+        }
 
+        //Wylogowanie uzytkownika po uplywie czasu
+        private void timer3_Tick(object sender, EventArgs e)
+        {
+            Users.ClearUserFromDisplay();
+            timer3.Enabled = false;
+        }
 
+        //Obsluga odliczania czasu do wylogowania
+        private void timer4_Tick(object sender, EventArgs e)
+        {
+            if(timer3.Enabled)
+            {
+                Users.Interval -= 1;
+                label63.Text = Users.Interval.ToString();
+            }
+            else
+            {
+                timer4.Enabled = false;
+                Users.Interval = 10000 / 1000;
+                label63.Text = Users.Interval.ToString();
+            }
+        }
 
 
         //OBCZAIC DELEGATY I ZDARZENIA 
