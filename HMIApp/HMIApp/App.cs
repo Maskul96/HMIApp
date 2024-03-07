@@ -158,6 +158,7 @@ namespace HMIApp
                 if (dbtags.Last() == dbTag)
                 {
                     //Zabezpieczenie wyjscia poza index tablicy
+                    //Przemyśleć tez zabezpieczenie jakby string mial byc ostatnim elementem tablicy
                     switch (dbTag.DataTypeOfTag.ToUpper())
                     {
                         case "BOOL":
@@ -382,6 +383,16 @@ namespace HMIApp
                             txt.Text = Convert.ToString(libnodave.getS32from(DB, DBRead_NrOfByteinDB));
                         }
                         break;
+                    case "STRING":
+                        //Testowe napisanie odczytu stringa - sprawdzic jutro z PLC czy to zadziala - jak nie to sciagnac sobie poprzednia apke z Gita
+                        DBRead_NrOfByteinDB = dbTag.NumberOfByteInDB;
+                        DBRead_LengthOfDataType = dbTag.LengthDataType;
+                        for (int i = 0; i <= DBRead_LengthOfDataType; i++)
+                        {
+                            Form1._Form1.textBox8.Text += (char)DB[DBRead_NrOfByteinDB];
+                            DBRead_NrOfByteinDB += 1;
+                        }
+                        break;
                     default:
                         break;
                 }
@@ -545,6 +556,17 @@ namespace HMIApp
                     {
                         int dintValue = Convert.ToInt32(valuetoWrite);
                         IntBytes = BitConverter.GetBytes(dintValue);
+                        Array.Reverse(IntBytes);
+                        PLC.Write(int.Parse(DBWrite_NumberOfDB), DBWrite_NrOfByteinDB, DBWrite_LengthofDataType, IntBytes);
+                    }
+                    break;
+                case "STRING":
+                    //Przetestować zapis stringa tez i sprawdzic czy dziala zmiana nazwy referencji
+                    //Write string
+                    if (valuetoWrite != "")
+                    {
+                        int length = valuetoWrite.Length;
+                        IntBytes = BitConverter.GetBytes(length);
                         Array.Reverse(IntBytes);
                         PLC.Write(int.Parse(DBWrite_NumberOfDB), DBWrite_NrOfByteinDB, DBWrite_LengthofDataType, IntBytes);
                     }

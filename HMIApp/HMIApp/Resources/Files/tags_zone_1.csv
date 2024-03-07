@@ -13,4 +13,5 @@ DB667.Tag444,Int,4,0,2
 DB667.Tag555,Int,6,0,2
 DB667.Tag666,Real,8,0,4
 DB667.Tag777,Real,12,0,4
-DB667.NrOfDeviceToControl,Int,16,0,2
+DB667.Tag2222,String,16,0,10
+DB667.NrOfDeviceToControl,Int,26,0,2
