@@ -62,14 +62,14 @@ namespace HMIApp
         public int NrOfMessage;
         public int[] index = new int[8];
         public int[] index1 = new int[8];
-        public  ListViewItem item1 = new ListViewItem();
+        public ListViewItem item1 = new ListViewItem();
         public ListViewItem item = new ListViewItem();
-        public ListViewItem item2= new ListViewItem();
-        public ListViewItem item3= new ListViewItem();
-        public ListViewItem item4= new ListViewItem();
-        public ListViewItem item5= new ListViewItem();
-        public ListViewItem item6= new ListViewItem();
-        public ListViewItem item7= new ListViewItem();
+        public ListViewItem item2 = new ListViewItem();
+        public ListViewItem item3 = new ListViewItem();
+        public ListViewItem item4 = new ListViewItem();
+        public ListViewItem item5 = new ListViewItem();
+        public ListViewItem item6 = new ListViewItem();
+        public ListViewItem item7 = new ListViewItem();
         public ListViewItem itemArchive = new ListViewItem();
         public ListViewItem itemArchive1 = new ListViewItem();
         public ListViewItem itemArchive2 = new ListViewItem();
@@ -115,9 +115,9 @@ namespace HMIApp
         CSVReader CSVReader = new CSVReader();
 
         //Metoda do tworzenia alarmów z trzema tekstami w listview
-        public ListViewItem MakeList( string Alarm, string Alarm1, string Alarm2)
+        public ListViewItem MakeList(string Alarm, string Alarm1, string Alarm2)
         {
-           return new ListViewItem(new[] {Alarm, Alarm1, Alarm2});
+            return new ListViewItem(new[] { Alarm, Alarm1, Alarm2 });
         }
 
         //Metoda uruchamiająca komunikacje z PLC
@@ -332,12 +332,12 @@ namespace HMIApp
                         break;
                     case "INT":
                         //Wyszukanie samej nazwy Taga, która odpowiada 1:1 nazwie TextBoxa
-                            DBRead_position1 = dbTag.TagName.IndexOf(".") + 1;
-                            DBRead_NameofTagWithoutNumberofDB = dbTag.TagName.Substring(DBRead_position1);
-                            DBRead_TagName = dbTag.TagName;
-                            DBRead_NrOfByteinDB = dbTag.NumberOfByteInDB;
-                            txt = Form1._Form1.Controls.Find($"{DBRead_NameofTagWithoutNumberofDB}", true).FirstOrDefault() as TextBox;
-                        if(txt == null)
+                        DBRead_position1 = dbTag.TagName.IndexOf(".") + 1;
+                        DBRead_NameofTagWithoutNumberofDB = dbTag.TagName.Substring(DBRead_position1);
+                        DBRead_TagName = dbTag.TagName;
+                        DBRead_NrOfByteinDB = dbTag.NumberOfByteInDB;
+                        txt = Form1._Form1.Controls.Find($"{DBRead_NameofTagWithoutNumberofDB}", true).FirstOrDefault() as TextBox;
+                        if (txt == null)
                         {
                             //Wyjscie z case'a jesli nie znajdzie textboxa i bedzie nullem
                             break;
@@ -374,7 +374,7 @@ namespace HMIApp
                         DBRead_NrOfByteinDB = dbTag.NumberOfByteInDB;
 
                         txt = Form1._Form1.Controls.Find($"{DBRead_NameofTagWithoutNumberofDB}", true).FirstOrDefault() as TextBox;
-                        if(txt == null)
+                        if (txt == null)
                         {
                             break;
                         }
@@ -384,13 +384,22 @@ namespace HMIApp
                         }
                         break;
                     case "STRING":
-                        //Testowe napisanie odczytu stringa - sprawdzic jutro z PLC czy to zadziala - jak nie to sciagnac sobie poprzednia apke z Gita
+                        //Pierwszy bajt stringa - oznacza calkowita długosc
+                        //Drugi bajt stringa oznacza dlugosc obecnie wpisanego ciagu znaków
+                        //dorobic szukanie po nazwie textboxa - numer klienta do odczytu !
                         DBRead_NrOfByteinDB = dbTag.NumberOfByteInDB;
                         DBRead_LengthOfDataType = dbTag.LengthDataType;
-                        for (int i = 0; i <= DBRead_LengthOfDataType; i++)
+                        int SecondByte = DBRead_NrOfByteinDB + 1;
+                        int actuallengthofstring = Convert.ToInt16(DB[SecondByte]);
+                        string NumberOfReference = "";
+                        for (int i = SecondByte + 1; i <= actuallengthofstring + SecondByte; i++)
                         {
-                            Form1._Form1.textBox8.Text += (char)DB[DBRead_NrOfByteinDB];
-                            DBRead_NrOfByteinDB += 1;
+                            NumberOfReference += (char)DB[i];
+
+                        }
+                        if (Form1._Form1.textBox8.Text != NumberOfReference)
+                        {
+                            Form1._Form1.textBox8.Text = NumberOfReference;
                         }
                         break;
                     default:
@@ -561,13 +570,18 @@ namespace HMIApp
                     }
                     break;
                 case "STRING":
-                    //Przetestować zapis stringa tez i sprawdzic czy dziala zmiana nazwy referencji
+                    //Zapis stringa jeszzce nie dziala poprawnie !
                     //Write string
                     if (valuetoWrite != "")
                     {
                         int length = valuetoWrite.Length;
-                        IntBytes = BitConverter.GetBytes(length);
-                        Array.Reverse(IntBytes);
+                        char[] charArray = new char[length];
+                        for (int i = 0; i < length; i++)
+                        {
+                            charArray[i] = valuetoWrite[i];
+                        }
+                        IntBytes = Encoding.ASCII.GetBytes(charArray);
+                        //Array.Reverse(IntBytes);
                         PLC.Write(int.Parse(DBWrite_NumberOfDB), DBWrite_NrOfByteinDB, DBWrite_LengthofDataType, IntBytes);
                     }
                     break;
@@ -634,7 +648,7 @@ namespace HMIApp
                                     //Dodanie alarmu tylko wtedy jeśli nie ma go juz w liscie
                                     if (Form1._Form1.listAlarmView.FindItemWithText(DBReadAlarm_AlarmName) == null)
                                     {
-                                        
+
                                         item.Text = DBReadAlarm_AlarmName;
                                         item.BackColor = Color.Red; item.ForeColor = Color.Black;
                                         Form1._Form1.listAlarmView.Items.Add(item);
@@ -642,10 +656,10 @@ namespace HMIApp
                                     }
                                     if (Form1._Form1.listView1.FindItemWithText(DBReadAlarm_AlarmName) == null)
                                     {
-                                       itemArchive = MakeList( DateTime.Now.ToString(), DBReadAlarm_TagName, DBReadAlarm_AlarmName);
+                                        itemArchive = MakeList(DateTime.Now.ToString(), DBReadAlarm_TagName, DBReadAlarm_AlarmName);
                                         itemArchive.BackColor = Color.Red; itemArchive.ForeColor = Color.Black;
                                         Form1._Form1.listView1.Items.Add(itemArchive);
-                                       index1[0] = Form1._Form1.listView1.Items.IndexOf(itemArchive);
+                                        index1[0] = Form1._Form1.listView1.Items.IndexOf(itemArchive);
                                     }
                                 }
                                 else
@@ -669,15 +683,15 @@ namespace HMIApp
                                 break;
                             case 1:
                                 values[1] = GetBit(DB[DBReadAlarm_NrOfByteinDB], 1);
-                                
+
                                 if (values[1].ToString().ToUpper() == "TRUE")
                                 {
                                     if (Form1._Form1.listAlarmView.FindItemWithText(DBReadAlarm_AlarmName) == null)
-                                    {                                        
+                                    {
                                         item1.Text = DBReadAlarm_AlarmName;
                                         item1.BackColor = Color.Red; item1.ForeColor = Color.Black;
                                         Form1._Form1.listAlarmView.Items.Add(item1);
-                                        index[1] = Form1._Form1.listAlarmView.Items.IndexOf(item1);                                       
+                                        index[1] = Form1._Form1.listAlarmView.Items.IndexOf(item1);
                                     }
                                     if (Form1._Form1.listView1.FindItemWithText(DBReadAlarm_AlarmName) == null)
                                     {
@@ -693,7 +707,7 @@ namespace HMIApp
                                     {
                                         if (Form1._Form1.listAlarmView.Items.Count > 0)
                                         {
-                                            Form1._Form1.listAlarmView.Items.Remove(item1);                                         
+                                            Form1._Form1.listAlarmView.Items.Remove(item1);
                                         }
                                     }
                                     if (Form1._Form1.listView1.FindItemWithText(DBReadAlarm_AlarmName) != null)
@@ -952,7 +966,7 @@ namespace HMIApp
                                           e.Index,
                                           e.State ^ DrawItemState.Selected,
                                           e.ForeColor,
-                                          Color.Yellow); 
+                                          Color.Yellow);
 
             //Draw background kolor dla kazdego itema
             e.DrawBackground();
@@ -961,7 +975,7 @@ namespace HMIApp
             //Jesli item jest selected to rysuj prostokat wokol itema
             e.DrawFocusRectangle();
         }
-        
+
         public void ReadIOFromDB(string filepath)
         {
             var dbtags = CSVReader.DBStructure(filepath);
