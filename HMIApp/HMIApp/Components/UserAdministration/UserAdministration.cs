@@ -1,23 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
-using System.Runtime.InteropServices;
-using System.Security.Cryptography;
-using System.Windows.Forms;
-using System.Xml;
 using System.Xml.Linq;
-using System.Xml.XPath;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace HMIApp.Components.UserAdministration
 {
     public class UserAdministration
     {
+        //konstruktor bezparametrowy
         public UserAdministration()
         {
 
         }
+        //konstruktor z parametrem Form1 obj
         public UserAdministration(Form1 obj)
         {
             this.obj = obj;
@@ -29,13 +23,34 @@ namespace HMIApp.Components.UserAdministration
         public string UserRights;
         public int id=1;
         public bool UserIsLoggedIn;
-        public int Interval = 10000/1000;
+        public int Interval = 100000/1000;
 
         public void Run()
         {
             XDocument document = LoadFromXML("document.xml");
             DisplayValuesFromXML(document);
             FindUserinXML();
+        }
+
+        public void EnabledObjects()
+        {
+            if ( UserIsLoggedIn )
+            {
+                //Form1._Form1.button1.Enabled = true;
+                //Form1._Form1.button2.Enabled = true;
+                Form1._Form1.button3.Enabled = true;
+                Form1._Form1.button6.Enabled = true;
+                Form1._Form1.button7.Enabled = true;
+            }
+            else
+            {
+                //Form1._Form1.button1.Enabled = false;
+                //Form1._Form1.button2.Enabled = false;
+                Form1._Form1.button3.Enabled = false;
+                Form1._Form1.button6.Enabled = false;
+                Form1._Form1.button7.Enabled = false;
+            }
+
         }
 
         public void ClearUserFromDisplay()
@@ -81,9 +96,9 @@ namespace HMIApp.Components.UserAdministration
                         break;
                 }
                 //Obsluga odliczania czasu do wylogowania
-                Form1._Form1.timer3.Enabled = true;
+                Form1._Form1.TimeoutWylogowania.Enabled = true;
                 Form1._Form1.label63.Text = Interval.ToString();
-                Form1._Form1.timer4.Enabled = true;
+                Form1._Form1.OdliczaSekunde.Enabled = true;
             }
             else
             {
@@ -92,7 +107,6 @@ namespace HMIApp.Components.UserAdministration
         }
         public void SaveToXML()
         {
-            //ZROBIC ZABEZPIECZENIE ZE NIE MOZESZ DODACC UZYTKOWNIKA BEZ NAZWY I BEZ NR KARTY !
             //Załaduj plik przed dodaniem nowych danych i zapisaniem
             XDocument document = LoadFromXML("document.xml");
 
@@ -103,20 +117,34 @@ namespace HMIApp.Components.UserAdministration
             UserRights = Form1._Form1.comboBox3.SelectedIndex.ToString();
             if (NrofCard != "" && Name != "" && UserRights != "")
             {
-                document.Element("Użytkownicy").Add
-                    (new XElement("Użytkownik",
-                    new XAttribute("ID", id),
-                    new XAttribute("Numer_karty", NrofCard),
-                 new XAttribute("Nazwa_użytkownika", Name),
-                 new XAttribute("Uprawnienia", UserRights)));
-                //Zapis ppliku
-                document.Save("document.xml");
-                //Komunikat dla usera
-                Form1._Form1.listBox2.Items.Add("Użytkownik dodany");
+                //Zabezpieczenie przed dodanie usera o tym samym numerze karty
+                var names = document.Element("Użytkownicy")?
+                .Elements("Użytkownik")
+                .Where(x => x.Attribute("Numer_karty")?.Value == NrofCard)
+                .Single();
 
-                //Wyczyszczenie i nastepnie update listy w combobox
-                ClearListInComboBox();
-                DisplayValuesFromXML(document);
+                if (NrofCard != names.Attribute("Numer_karty").Value)
+                {
+                    document.Element("Użytkownicy").Add
+                        (new XElement("Użytkownik",
+                        new XAttribute("ID", id),
+                        new XAttribute("Numer_karty", NrofCard),
+                     new XAttribute("Nazwa_użytkownika", Name),
+                     new XAttribute("Uprawnienia", UserRights)));
+                    //Zapis ppliku
+                    document.Save("document.xml");
+                    //Komunikat dla usera
+                    Form1._Form1.listBox2.Items.Add("Użytkownik dodany");
+
+                    //Wyczyszczenie i nastepnie update listy w combobox
+                    ClearListInComboBox();
+                    DisplayValuesFromXML(document);
+                }
+                else
+                {
+                    //Komunikat dla usera
+                    Form1._Form1.listBox2.Items.Add("Użytkownik już istnieje!");
+                }
             }
             else
             {
@@ -124,7 +152,7 @@ namespace HMIApp.Components.UserAdministration
                 Form1._Form1.listBox2.Items.Add("Niepoprawne dane");
             }
 
-            Form1._Form1.timer2.Enabled = true;
+            Form1._Form1.CzyszczenieStatusówLogowania.Enabled = true;
 
         }
 
@@ -164,7 +192,7 @@ namespace HMIApp.Components.UserAdministration
                 //Komunikat dla usera
                 Form1._Form1.listBox2.Items.Add("Niepoprawne dane");
             }
-            Form1._Form1.timer2.Enabled = true;
+            Form1._Form1.CzyszczenieStatusówLogowania.Enabled = true;
 
         }
 

@@ -15,5 +15,6 @@ DB666.Tag6,Real,8,0,4
 DB666.Tag15,Bool,12,0,0
 DB666.Tag7,DInt,14,0,4
 DB666.Tag14,Dint,18,0,4
-DB666.Tag16,String,22,0,10
-DB666.Rezerwa,Dint,34,0,4
+DB666.Tag16,String,22,0,12
+DB666.Tag17,String,34,0,12
+DB666.Rezerwa,Dint,46,0,4

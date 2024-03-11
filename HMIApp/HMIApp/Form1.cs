@@ -2,16 +2,8 @@
 using HMIApp.Components;
 using Microsoft.Extensions.DependencyInjection;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Drawing.Imaging;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using HMIApp.Components.UserAdministration;
 
 namespace HMIApp
@@ -43,10 +35,10 @@ namespace HMIApp
             App.ReadActualValueFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_1.csv");
             App.ReadAlarmsFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_2.csv");
             App.ReadIOFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_3.csv");
-            timer1.Enabled = true;
+            OdczytDB.Enabled = true;
             listBox1.DrawItem += new System.Windows.Forms.DrawItemEventHandler(App.listBox1_DrawItem);
             label63.Text = "";
-
+            Users.EnabledObjects();
 
         }
         //statyczna zmienna typu Form1 zeby dostac sie z poziomu innej klasy do obiektow wewnatrz Form1
@@ -72,6 +64,7 @@ namespace HMIApp
             App.WriteToDB(Tag444.Text, Tag444.Tag.ToString());
             App.WriteToDB(Tag666.Text, Tag666.Tag.ToString());
             App.WriteToDB(Tag2222.Text, Tag2222.Tag.ToString());
+            App.WriteToDB(Tag2223.Text, Tag2223.Tag.ToString());
 
 
         }
@@ -149,27 +142,29 @@ namespace HMIApp
         private void button9_Click_1(object sender, EventArgs e)
         {
             Users.FindUserinXML();
+            Users.EnabledObjects();
         }
 
         //Wylogowanie uzytkownika po uplywie czasu
         private void timer3_Tick(object sender, EventArgs e)
         {
             Users.ClearUserFromDisplay();
-            timer3.Enabled = false;
+            TimeoutWylogowania.Enabled = false;
+            Users.EnabledObjects();
         }
 
         //Obsluga odliczania czasu do wylogowania
         private void timer4_Tick(object sender, EventArgs e)
         {
-            if(timer3.Enabled)
+            if(TimeoutWylogowania.Enabled)
             {
                 Users.Interval -= 1;
                 label63.Text = Users.Interval.ToString();
             }
             else
             {
-                timer4.Enabled = false;
-                Users.Interval = 10000 / 1000;
+                OdliczaSekunde.Enabled = false;
+                Users.Interval = 100000 / 1000;
                 label63.Text = Users.Interval.ToString();
             }
         }

@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
             this.Tag2 = new System.Windows.Forms.TextBox();
             this.Tag3 = new System.Windows.Forms.TextBox();
             this.Tag4 = new System.Windows.Forms.TextBox();
             this.Tag5 = new System.Windows.Forms.TextBox();
             this.Tag6 = new System.Windows.Forms.TextBox();
             this.Tag7 = new System.Windows.Forms.TextBox();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.OdczytDB = new System.Windows.Forms.Timer(this.components);
             this.Tag14 = new System.Windows.Forms.TextBox();
             this.Uzytkownik = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -46,11 +46,6 @@
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.tabPage4 = new System.Windows.Forms.TabPage();
@@ -75,7 +70,7 @@
             this.Tag333 = new System.Windows.Forms.TextBox();
             this.Tag444 = new System.Windows.Forms.TextBox();
             this.Tag222 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.Tag2223 = new System.Windows.Forms.TextBox();
             this.Tag2222 = new System.Windows.Forms.TextBox();
             this.label31 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
@@ -155,6 +150,11 @@
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Tag17 = new System.Windows.Forms.TextBox();
+            this.Tag16 = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -188,13 +188,13 @@
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label57 = new System.Windows.Forms.Label();
             this.listBox1 = new System.Windows.Forms.ListBox();
-            this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.CzyszczenieStatusówLogowania = new System.Windows.Forms.Timer(this.components);
             this.label60 = new System.Windows.Forms.Label();
             this.label61 = new System.Windows.Forms.Label();
             this.label62 = new System.Windows.Forms.Label();
-            this.timer3 = new System.Windows.Forms.Timer(this.components);
+            this.TimeoutWylogowania = new System.Windows.Forms.Timer(this.components);
             this.label63 = new System.Windows.Forms.Label();
-            this.timer4 = new System.Windows.Forms.Timer(this.components);
+            this.OdliczaSekunde = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -218,6 +218,7 @@
             this.Tag2.Name = "Tag2";
             this.Tag2.Size = new System.Drawing.Size(38, 20);
             this.Tag2.TabIndex = 13;
+            this.Tag2.Tag = "";
             // 
             // Tag3
             // 
@@ -259,9 +260,9 @@
             this.Tag7.Size = new System.Drawing.Size(38, 20);
             this.Tag7.TabIndex = 18;
             // 
-            // timer1
+            // OdczytDB
             // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.OdczytDB.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Tag14
             // 
@@ -362,52 +363,6 @@
             this.tabPage3.Text = "PRZEZBROJENIE";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // textBox7
-            // 
-            this.textBox7.Enabled = false;
-            this.textBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBox7.Location = new System.Drawing.Point(465, 44);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(137, 18);
-            this.textBox7.TabIndex = 100;
-            // 
-            // textBox8
-            // 
-            this.textBox8.Enabled = false;
-            this.textBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBox8.Location = new System.Drawing.Point(103, 44);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(235, 18);
-            this.textBox8.TabIndex = 99;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Gold;
-            this.label5.Location = new System.Drawing.Point(381, 46);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(72, 13);
-            this.label5.TabIndex = 102;
-            this.label5.Text = "Numer klienta";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.Gold;
-            this.label6.Location = new System.Drawing.Point(8, 46);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(91, 13);
-            this.label6.TabIndex = 101;
-            this.label6.Text = "Nazwa Referencji";
-            // 
-            // label8
-            // 
-            this.label8.BackColor = System.Drawing.Color.Gold;
-            this.label8.Location = new System.Drawing.Point(6, 43);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(608, 20);
-            this.label8.TabIndex = 103;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -466,7 +421,7 @@
             this.tabPage8.Controls.Add(this.Tag333);
             this.tabPage8.Controls.Add(this.Tag444);
             this.tabPage8.Controls.Add(this.Tag222);
-            this.tabPage8.Controls.Add(this.textBox2);
+            this.tabPage8.Controls.Add(this.Tag2223);
             this.tabPage8.Controls.Add(this.Tag2222);
             this.tabPage8.Controls.Add(this.label31);
             this.tabPage8.Controls.Add(this.button1);
@@ -667,12 +622,13 @@
             this.Tag222.TabIndex = 56;
             this.Tag222.Tag = "DB667.Tag222";
             // 
-            // textBox2
+            // Tag2223
             // 
-            this.textBox2.Location = new System.Drawing.Point(451, 11);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(137, 20);
-            this.textBox2.TabIndex = 95;
+            this.Tag2223.Location = new System.Drawing.Point(451, 11);
+            this.Tag2223.Name = "Tag2223";
+            this.Tag2223.Size = new System.Drawing.Size(137, 20);
+            this.Tag2223.TabIndex = 95;
+            this.Tag2223.Tag = "DB667.Tag2223";
             // 
             // Tag2222
             // 
@@ -810,9 +766,9 @@
             this.label43.BackColor = System.Drawing.Color.Gold;
             this.label43.Location = new System.Drawing.Point(371, 14);
             this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(72, 13);
+            this.label43.Size = new System.Drawing.Size(74, 13);
             this.label43.TabIndex = 97;
-            this.label43.Text = "Numer klienta";
+            this.label43.Text = "Nazwa klienta";
             // 
             // label44
             // 
@@ -831,6 +787,7 @@
             this.label45.Name = "label45";
             this.label45.Size = new System.Drawing.Size(586, 34);
             this.label45.TabIndex = 98;
+            this.label45.Tag = "DB667.Tag2223";
             // 
             // tabPage5
             // 
@@ -860,21 +817,21 @@
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(601, 314);
+            this.tabPage5.Size = new System.Drawing.Size(601, 292);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "UŻYTKOWNICY";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
             // textBox6
             // 
-            this.textBox6.Location = new System.Drawing.Point(21, 288);
+            this.textBox6.Location = new System.Drawing.Point(16, 269);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(169, 20);
             this.textBox6.TabIndex = 81;
             // 
             // label59
             // 
-            this.label59.Location = new System.Drawing.Point(21, 208);
+            this.label59.Location = new System.Drawing.Point(18, 187);
             this.label59.Name = "label59";
             this.label59.Size = new System.Drawing.Size(199, 54);
             this.label59.TabIndex = 80;
@@ -883,7 +840,7 @@
             // 
             // button9
             // 
-            this.button9.Location = new System.Drawing.Point(21, 263);
+            this.button9.Location = new System.Drawing.Point(21, 241);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(75, 23);
             this.button9.TabIndex = 79;
@@ -1081,7 +1038,7 @@
             this.tabPage6.Location = new System.Drawing.Point(4, 22);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(601, 314);
+            this.tabPage6.Size = new System.Drawing.Size(601, 292);
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "SERWIS";
             this.tabPage6.UseVisualStyleBackColor = true;
@@ -1137,7 +1094,7 @@
             this.tabPage9.Location = new System.Drawing.Point(4, 22);
             this.tabPage9.Name = "tabPage9";
             this.tabPage9.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage9.Size = new System.Drawing.Size(601, 314);
+            this.tabPage9.Size = new System.Drawing.Size(601, 292);
             this.tabPage9.TabIndex = 6;
             this.tabPage9.Text = "WEJŚCIA/WYJŚCIA";
             this.tabPage9.UseVisualStyleBackColor = true;
@@ -1387,7 +1344,7 @@
             this.tabPage7.Location = new System.Drawing.Point(4, 22);
             this.tabPage7.Name = "tabPage7";
             this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage7.Size = new System.Drawing.Size(601, 314);
+            this.tabPage7.Size = new System.Drawing.Size(601, 292);
             this.tabPage7.TabIndex = 7;
             this.tabPage7.Text = "HISTORIA ALARMÓW";
             this.tabPage7.UseVisualStyleBackColor = true;
@@ -1405,10 +1362,10 @@
             this.listView1.GridLines = true;
             this.listView1.HideSelection = false;
             this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem4});
+            listViewItem1});
             this.listView1.Location = new System.Drawing.Point(3, 3);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(595, 308);
+            this.listView1.Size = new System.Drawing.Size(595, 286);
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -1427,6 +1384,54 @@
             // 
             this.columnHeader3.Text = "NAZWA ALARMU";
             this.columnHeader3.Width = 393;
+            // 
+            // Tag17
+            // 
+            this.Tag17.Enabled = false;
+            this.Tag17.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.Tag17.Location = new System.Drawing.Point(465, 44);
+            this.Tag17.Name = "Tag17";
+            this.Tag17.Size = new System.Drawing.Size(137, 18);
+            this.Tag17.TabIndex = 100;
+            this.Tag17.Tag = "DB666.Tag17";
+            // 
+            // Tag16
+            // 
+            this.Tag16.Enabled = false;
+            this.Tag16.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.Tag16.Location = new System.Drawing.Point(103, 44);
+            this.Tag16.Name = "Tag16";
+            this.Tag16.Size = new System.Drawing.Size(235, 18);
+            this.Tag16.TabIndex = 99;
+            this.Tag16.Tag = "DB666.Tag16";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Gold;
+            this.label5.Location = new System.Drawing.Point(381, 46);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(74, 13);
+            this.label5.TabIndex = 102;
+            this.label5.Text = "Nazwa klienta";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Gold;
+            this.label6.Location = new System.Drawing.Point(8, 46);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(91, 13);
+            this.label6.TabIndex = 101;
+            this.label6.Text = "Nazwa Referencji";
+            // 
+            // label8
+            // 
+            this.label8.BackColor = System.Drawing.Color.Gold;
+            this.label8.Location = new System.Drawing.Point(6, 43);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(608, 20);
+            this.label8.TabIndex = 103;
             // 
             // label3
             // 
@@ -1749,10 +1754,10 @@
             this.listBox1.Size = new System.Drawing.Size(529, 19);
             this.listBox1.TabIndex = 108;
             // 
-            // timer2
+            // CzyszczenieStatusówLogowania
             // 
-            this.timer2.Interval = 5000;
-            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
+            this.CzyszczenieStatusówLogowania.Interval = 5000;
+            this.CzyszczenieStatusówLogowania.Tick += new System.EventHandler(this.timer2_Tick);
             // 
             // label60
             // 
@@ -1781,10 +1786,10 @@
             this.label62.TabIndex = 111;
             this.label62.Text = "Uprawnienia:";
             // 
-            // timer3
+            // TimeoutWylogowania
             // 
-            this.timer3.Interval = 10000;
-            this.timer3.Tick += new System.EventHandler(this.timer3_Tick);
+            this.TimeoutWylogowania.Interval = 100000;
+            this.TimeoutWylogowania.Tick += new System.EventHandler(this.timer3_Tick);
             // 
             // label63
             // 
@@ -1795,19 +1800,19 @@
             this.label63.TabIndex = 112;
             this.label63.Text = "label63";
             // 
-            // timer4
+            // OdliczaSekunde
             // 
-            this.timer4.Interval = 1000;
-            this.timer4.Tick += new System.EventHandler(this.timer4_Tick);
+            this.OdliczaSekunde.Interval = 1000;
+            this.OdliczaSekunde.Tick += new System.EventHandler(this.timer4_Tick);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.textBox7);
+            this.Controls.Add(this.Tag17);
             this.Controls.Add(this.label63);
-            this.Controls.Add(this.textBox8);
+            this.Controls.Add(this.Tag16);
             this.Controls.Add(this.label62);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label61);
@@ -1889,7 +1894,7 @@
         public System.Windows.Forms.TextBox Tag4;
         public System.Windows.Forms.TextBox Tag5;
         public System.Windows.Forms.TextBox Tag7;
-        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer OdczytDB;
         public System.Windows.Forms.TextBox Tag14;
         private System.Windows.Forms.Label Uzytkownik;
         private System.Windows.Forms.PictureBox pictureBox1;
@@ -1911,7 +1916,6 @@
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label1;
         public System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label2;
@@ -1929,7 +1933,6 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.TabControl tabControl2;
         private System.Windows.Forms.TabPage tabPage8;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.Label label29;
@@ -1940,10 +1943,9 @@
         public System.Windows.Forms.TextBox Tag333;
         public System.Windows.Forms.TextBox Tag444;
         public System.Windows.Forms.TextBox Tag222;
-        public System.Windows.Forms.TextBox textBox2;
+        public System.Windows.Forms.TextBox Tag2223;
         public System.Windows.Forms.TextBox Tag2222;
         private System.Windows.Forms.Label label31;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.Label label34;
@@ -1977,17 +1979,15 @@
         public System.Windows.Forms.CheckBox Tag000;
         public System.Windows.Forms.TextBox Tag6;
         private System.Windows.Forms.ComboBox comboBox1;
-        public System.Windows.Forms.TextBox textBox7;
-        public System.Windows.Forms.TextBox textBox8;
+        public System.Windows.Forms.TextBox Tag17;
+        public System.Windows.Forms.TextBox Tag16;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Label label50;
         private System.Windows.Forms.Label label46;
         private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Label label53;
         private System.Windows.Forms.Label label54;
         private System.Windows.Forms.Label label55;
@@ -2036,7 +2036,7 @@
         public System.Windows.Forms.TextBox textBox11;
         public System.Windows.Forms.ListBox listBox2;
         private System.Windows.Forms.Label label56;
-        public System.Windows.Forms.Timer timer2;
+        public System.Windows.Forms.Timer CzyszczenieStatusówLogowania;
         public System.Windows.Forms.Label label51;
         public System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label58;
@@ -2046,9 +2046,14 @@
         public System.Windows.Forms.Label label60;
         public System.Windows.Forms.Label label61;
         public System.Windows.Forms.Label label62;
-        public System.Windows.Forms.Timer timer3;
+        public System.Windows.Forms.Timer TimeoutWylogowania;
         public System.Windows.Forms.Label label63;
-        public System.Windows.Forms.Timer timer4;
+        public System.Windows.Forms.Timer OdliczaSekunde;
+        public System.Windows.Forms.Button button3;
+        public System.Windows.Forms.Button button2;
+        public System.Windows.Forms.Button button1;
+        public System.Windows.Forms.Button button6;
+        public System.Windows.Forms.Button button7;
     }
 }
 

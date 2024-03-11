@@ -1,25 +1,19 @@
 ﻿using HMIApp.Components;
 using HMIApp.Components.CSVReader;
-using HMIApp.Components.CSVReader.Models;
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Linq;
-using System.Linq.Expressions;
-using System.Reflection;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Windows.Markup;
-using static System.Net.Mime.MediaTypeNames;
+
 
 namespace HMIApp
 {
     public class App : iApp
     {
+
+
         //Deklaracja zmiennych
         //Zmienne do DBka do odczytania
         private readonly iCSVReader _csvReader;
@@ -180,12 +174,14 @@ namespace HMIApp
             byte[] DB = new byte[DBRead_EndDB];
             //Read DB
             PLC.Read(int.Parse(DBRead_NumberOfDB), DBRead_StartDB, DBRead_EndDB, DB);
+            
 
             foreach (var dbTag in dbtags)
             {
                 //sprobowac uproscic tego switcha
                 switch (dbTag.DataTypeOfTag.ToUpper())
                 {
+                                          
                     case "BOOL":
                         //Read BOOL               
                         DBRead_NrOfBitinByte = dbTag.NumberOfBitInByte;
@@ -316,6 +312,9 @@ namespace HMIApp
                         //Wyszukanie samej nazwy Taga, która odpowiada 1:1 nazwie TextBoxa
                         DBRead_position1 = dbTag.TagName.IndexOf(".") + 1;
                         DBRead_NameofTagWithoutNumberofDB = dbTag.TagName.Substring(DBRead_position1);
+                        //PONIZEJ LINIA DO WYRZUCENIA KROPKI ZZA NUMERU DBKA
+                        DBRead_TagName = dbTag.TagName.Remove(DBRead_position1 - 1, 1);
+                        //
                         DBRead_TagName = dbTag.TagName;
                         DBRead_NrOfByteinDB = dbTag.NumberOfByteInDB;
 
@@ -386,20 +385,29 @@ namespace HMIApp
                     case "STRING":
                         //Pierwszy bajt stringa - oznacza calkowita długosc
                         //Drugi bajt stringa oznacza dlugosc obecnie wpisanego ciagu znaków
-                        //dorobic szukanie po nazwie textboxa - numer klienta do odczytu !
+                        //Wyszukanie samej nazwy Taga, która odpowiada 1:1 nazwie TextBoxa
+                        DBRead_position1 = dbTag.TagName.IndexOf(".") + 1;
+                        DBRead_NameofTagWithoutNumberofDB = dbTag.TagName.Substring(DBRead_position1);
+                        DBRead_TagName = dbTag.TagName;
                         DBRead_NrOfByteinDB = dbTag.NumberOfByteInDB;
                         DBRead_LengthOfDataType = dbTag.LengthDataType;
+
                         int SecondByte = DBRead_NrOfByteinDB + 1;
                         int actuallengthofstring = Convert.ToInt16(DB[SecondByte]);
-                        string NumberOfReference = "";
+                        string StringFromDB = "";
                         for (int i = SecondByte + 1; i <= actuallengthofstring + SecondByte; i++)
                         {
-                            NumberOfReference += (char)DB[i];
+                            StringFromDB += (char)DB[i];
 
                         }
-                        if (Form1._Form1.textBox8.Text != NumberOfReference)
+                        txt = Form1._Form1.Controls.Find($"{DBRead_NameofTagWithoutNumberofDB}", true).FirstOrDefault() as TextBox;
+                        if (txt == null)
                         {
-                            Form1._Form1.textBox8.Text = NumberOfReference;
+                            break;
+                        }
+                        else
+                        {
+                            txt.Text = StringFromDB;
                         }
                         break;
                     default:
@@ -570,19 +578,22 @@ namespace HMIApp
                     }
                     break;
                 case "STRING":
-                    //Zapis stringa jeszzce nie dziala poprawnie !
                     //Write string
                     if (valuetoWrite != "")
                     {
-                        int length = valuetoWrite.Length;
-                        char[] charArray = new char[length];
-                        for (int i = 0; i < length; i++)
+                    int length = valuetoWrite.Length;
+                    char[] charArray = new char[length+2];
+                    charArray[0] = (char)DBWrite_LengthofDataType;
+                    charArray[1] = (char)length;
+                    for (int i = 2; i <=  length + 1; i++)
+                    {
+                        charArray[i] = Convert.ToChar(valuetoWrite[i-2]);
+                    }
+                    IntBytes = Encoding.ASCII.GetBytes(charArray);
+                        if (length <= DBWrite_LengthofDataType - 2)
                         {
-                            charArray[i] = valuetoWrite[i];
+                            PLC.Write(int.Parse(DBWrite_NumberOfDB), DBWrite_NrOfByteinDB, DBWrite_LengthofDataType, IntBytes);
                         }
-                        IntBytes = Encoding.ASCII.GetBytes(charArray);
-                        //Array.Reverse(IntBytes);
-                        PLC.Write(int.Parse(DBWrite_NumberOfDB), DBWrite_NrOfByteinDB, DBWrite_LengthofDataType, IntBytes);
                     }
                     break;
                 default:

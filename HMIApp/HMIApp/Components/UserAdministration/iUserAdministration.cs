@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace HMIApp.Components.UserAdministration
 {
     public interface iUserAdministration
@@ -14,6 +9,7 @@ namespace HMIApp.Components.UserAdministration
         void UpdateDisplayValuesFromXML();
         void ClearListinComboBox();
 
+        void EnabledObjects();
         void ClearUserFromDisplay();
         void FindUserinXML();
         void EditXML();
