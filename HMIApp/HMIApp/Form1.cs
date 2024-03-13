@@ -12,9 +12,10 @@ namespace HMIApp
     {
         //Referencje przechowywane w PLC - w pozniejszym etapie zrobic przechowywanie w bazie danych
         //Obiekty z Form1 Design ustawione z dostepem jako public zeby mozna bylo miec do nich dostep z innej klasy poprzez konstruktor
-        //Ogarniete odczytywanie/zapisywanie z PLC - teraz je przetestowac i potem ogarnac wlasne ikony
-        //WSZYSTKIE TEXTBOXY NAZYWAMY NAZWA TAGA NP. JESLI DB666.TAG0 TO TEXTBOX DO KTOREGO PRZYPISUJEMY WARTOSC MA NAZWAE TAG0
-        //NAZWY TAGOW NIE MOGA SIE POWTARZAC!
+        //W PRZYPADKU ODCZYTU Z DBKÓW WSZYSTKIE KONTROLKI NAZYWAMY NAZWĄ TAGA NP. JESLI DB666.TAG0 TO TEXTBOX DO KTOREGO PRZYPISUJEMY WARTOSC MA NAZWE DB666TAG0 - BEZ KROPKI 
+        //W PRZYPADKU ZAPISU DO DBKÓW NIE JEST JUZ ISTOTNA NAZWA TAGA A TO CO JEST WPISANE POD "TAG PROPERTY" CZYLI 
+        //JESLI CHCEMY ZAPISAC COS DO DB667.TAG100 TO W TAG PROPERTY WPISUJEMY DB667.TAG100
+        
         App App = new App();
         UserAdministration Users = new UserAdministration();
         public Form1()
@@ -52,19 +53,19 @@ namespace HMIApp
         //Zapis 
         private void button1_Click(object sender, EventArgs e)
         {
-            App.WriteToDB(Tag000.Checked.ToString(), Tag000.Tag.ToString());
-            App.WriteToDB(Tag111.Checked.ToString(), Tag111.Tag.ToString());
-            App.WriteToDB(Tag888.Checked.ToString(), Tag888.Tag.ToString());
-            App.WriteToDB(Tag999.Checked.ToString(), Tag999.Tag.ToString());
-            App.WriteToDB(Tag100.Checked.ToString(), Tag100.Tag.ToString());
-            App.WriteToDB(Tag1111.Checked.ToString(), Tag1111.Tag.ToString());
-            App.WriteToDB(Tag122.Checked.ToString(), Tag122.Tag.ToString());
-            App.WriteToDB(Tag133.Checked.ToString(), Tag133.Tag.ToString());
-            App.WriteToDB(Tag222.Text, Tag222.Tag.ToString());
-            App.WriteToDB(Tag444.Text, Tag444.Tag.ToString());
-            App.WriteToDB(Tag666.Text, Tag666.Tag.ToString());
-            App.WriteToDB(Tag2222.Text, Tag2222.Tag.ToString());
-            App.WriteToDB(Tag2223.Text, Tag2223.Tag.ToString());
+            App.WriteToDB(DB667Tag000.Checked.ToString(), DB667Tag000.Tag.ToString());
+            App.WriteToDB(DB667Tag111.Checked.ToString(), DB667Tag111.Tag.ToString());
+            App.WriteToDB(DB667Tag888.Checked.ToString(), DB667Tag888.Tag.ToString());
+            App.WriteToDB(DB667Tag999.Checked.ToString(), DB667Tag999.Tag.ToString());
+            App.WriteToDB(DB667Tag100.Checked.ToString(), DB667Tag100.Tag.ToString());
+            App.WriteToDB(DB667Tag1111.Checked.ToString(), DB667Tag1111.Tag.ToString());
+            App.WriteToDB(DB667Tag122.Checked.ToString(), DB667Tag122.Tag.ToString());
+            App.WriteToDB(DB667Tag133.Checked.ToString(), DB667Tag133.Tag.ToString());
+            App.WriteToDB(DB667Tag222.Text, DB667Tag222.Tag.ToString());
+            App.WriteToDB(DB667Tag444.Text, DB667Tag444.Tag.ToString());
+            App.WriteToDB(DB667Tag666.Text, DB667Tag666.Tag.ToString());
+            App.WriteToDB(DB667Tag2222.Text, DB667Tag2222.Tag.ToString());
+            App.WriteToDB(DB667Tag2223.Text, DB667Tag2223.Tag.ToString());
 
 
         }
@@ -97,7 +98,7 @@ namespace HMIApp
         private void button8_Click(object sender, EventArgs e)
         {
             //Ikonka TextBoxa moze sluzyc jako wskaznik IO's na zasadzie kolorowania jej backcoloru i enabled dajesz jako false
-            Input2.BackColor = Color.LightGreen;
+            DB669Input2.BackColor = Color.LightGreen;
         }
 
         //Testowy przycisk z karty Manual do wyslania komendy
@@ -168,6 +169,8 @@ namespace HMIApp
                 label63.Text = Users.Interval.ToString();
             }
         }
+
+ 
 
 
         //OBCZAIC DELEGATY I ZDARZENIA 

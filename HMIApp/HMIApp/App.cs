@@ -33,6 +33,7 @@ namespace HMIApp
         public int DBWrite_position;
         public string DBWrite_NumberOfDB;
         public string DBWrite_DataTypeofTag;
+        public string DBWrite_TagName;
         public int DBWrite_StartDB;
         public int DBWrite_EndDB;
         public int DBWrite_LengthofDataType;
@@ -152,22 +153,7 @@ namespace HMIApp
                 if (dbtags.Last() == dbTag)
                 {
                     //Zabezpieczenie wyjscia poza index tablicy
-                    //Przemyśleć tez zabezpieczenie jakby string mial byc ostatnim elementem tablicy
-                    switch (dbTag.DataTypeOfTag.ToUpper())
-                    {
-                        case "BOOL":
-                            DBRead_EndDB = dbTag.NumberOfByteInDB;
-                            break;
-                        case "BYTE":
-                            DBRead_EndDB = dbTag.NumberOfByteInDB + 1;
-                            break;
-                        case "INT":
-                            DBRead_EndDB = dbTag.NumberOfByteInDB + 2;
-                            break;
-                        default:
-                            DBRead_EndDB = dbTag.NumberOfByteInDB + 4;
-                            break;
-                    }
+                    DBRead_EndDB = dbTag.NumberOfByteInDB + dbTag.LengthDataType;
                 }
             }
 
@@ -189,9 +175,10 @@ namespace HMIApp
                         BitArray bitArray = new BitArray(DB[DBRead_NrOfByteinDB]);
                         bool[] values = new bool[8];
                         //Wyszukanie samej nazwy Taga, która odpowiada 1:1 nazwie TextBoxa
-                        DBRead_position1 = dbTag.TagName.IndexOf(".") + 1;
-                        DBRead_NameofTagWithoutNumberofDB = dbTag.TagName.Substring(DBRead_position1);
-                        DBRead_TagName = dbTag.TagName;
+                        //DBRead_position1 = dbTag.TagName.IndexOf(".") + 1;
+                        //DBRead_NameofTagWithoutNumberofDB = dbTag.TagName.Substring(DBRead_position1);
+                        DBRead_position1 = dbTag.TagName.IndexOf(".");
+                        DBRead_TagName = dbTag.TagName.Remove(DBRead_position1, 1);
                         TextBox txt;
                         CheckBox chk;
                         switch (DBRead_NrOfBitinByte)
@@ -199,7 +186,7 @@ namespace HMIApp
                             case 0:
                                 values[0] = GetBit(DB[DBRead_NrOfByteinDB], 0);
                                 //Wyszukanie TextBoxa po jego nazwie
-                                chk = Form1._Form1.Controls.Find($"{DBRead_NameofTagWithoutNumberofDB}", true).FirstOrDefault() as CheckBox;
+                                chk = Form1._Form1.Controls.Find($"{DBRead_TagName}", true).FirstOrDefault() as CheckBox;
                                 if (chk == null)
                                 {
                                     //Wyjscie z case'a jesli nie znajdzie checkboxa i bedzie nullem
@@ -212,7 +199,7 @@ namespace HMIApp
                                 break;
                             case 1:
                                 values[1] = GetBit(DB[DBRead_NrOfByteinDB], 1);
-                                chk = Form1._Form1.Controls.Find($"{DBRead_NameofTagWithoutNumberofDB}", true).FirstOrDefault() as CheckBox;
+                                chk = Form1._Form1.Controls.Find($"{DBRead_TagName}", true).FirstOrDefault() as CheckBox;
                                 if (chk == null)
                                 {
                                     //Wyjscie z case'a jesli nie znajdzie checkboxa i bedzie nullem
@@ -225,7 +212,7 @@ namespace HMIApp
                                 break;
                             case 2:
                                 values[2] = GetBit(DB[DBRead_NrOfByteinDB], 2);
-                                chk = Form1._Form1.Controls.Find($"{DBRead_NameofTagWithoutNumberofDB}", true).FirstOrDefault() as CheckBox;
+                                chk = Form1._Form1.Controls.Find($"{DBRead_TagName}", true).FirstOrDefault() as CheckBox;
                                 if (chk == null)
                                 {
                                     //Wyjscie z case'a jesli nie znajdzie checkboxa i bedzie nullem
@@ -239,7 +226,7 @@ namespace HMIApp
                                 break;
                             case 3:
                                 values[3] = GetBit(DB[DBRead_NrOfByteinDB], 3);
-                                chk = Form1._Form1.Controls.Find($"{DBRead_NameofTagWithoutNumberofDB}", true).FirstOrDefault() as CheckBox;
+                                chk = Form1._Form1.Controls.Find($"{DBRead_TagName}", true).FirstOrDefault() as CheckBox;
                                 if (chk == null)
                                 {
                                     //Wyjscie z case'a jesli nie znajdzie checkboxa i bedzie nullem
@@ -253,7 +240,7 @@ namespace HMIApp
                                 break;
                             case 4:
                                 values[4] = GetBit(DB[DBRead_NrOfByteinDB], 4);
-                                chk = Form1._Form1.Controls.Find($"{DBRead_NameofTagWithoutNumberofDB}", true).FirstOrDefault() as CheckBox;
+                                chk = Form1._Form1.Controls.Find($"{DBRead_TagName}", true).FirstOrDefault() as CheckBox;
                                 if (chk == null)
                                 {
                                     //Wyjscie z case'a jesli nie znajdzie checkboxa i bedzie nullem
@@ -267,7 +254,7 @@ namespace HMIApp
                                 break;
                             case 5:
                                 values[5] = GetBit(DB[DBRead_NrOfByteinDB], 5);
-                                chk = Form1._Form1.Controls.Find($"{DBRead_NameofTagWithoutNumberofDB}", true).FirstOrDefault() as CheckBox;
+                                chk = Form1._Form1.Controls.Find($"{DBRead_TagName}", true).FirstOrDefault() as CheckBox;
                                 if (chk == null)
                                 {
                                     //Wyjscie z case'a jesli nie znajdzie checkboxa i bedzie nullem
@@ -281,7 +268,7 @@ namespace HMIApp
                                 break;
                             case 6:
                                 values[6] = GetBit(DB[DBRead_NrOfByteinDB], 6);
-                                chk = Form1._Form1.Controls.Find($"{DBRead_NameofTagWithoutNumberofDB}", true).FirstOrDefault() as CheckBox;
+                                chk = Form1._Form1.Controls.Find($"{DBRead_TagName}", true).FirstOrDefault() as CheckBox;
                                 if (chk == null)
                                 {
                                     //Wyjscie z case'a jesli nie znajdzie checkboxa i bedzie nullem
@@ -295,7 +282,7 @@ namespace HMIApp
                                 break;
                             case 7:
                                 values[7] = GetBit(DB[DBRead_NrOfByteinDB], 7);
-                                chk = Form1._Form1.Controls.Find($"{DBRead_NameofTagWithoutNumberofDB}", true).FirstOrDefault() as CheckBox;
+                                chk = Form1._Form1.Controls.Find($"{DBRead_TagName}", true).FirstOrDefault() as CheckBox;
                                 if (chk == null)
                                 {
                                     //Wyjscie z case'a jesli nie znajdzie checkboxa i bedzie nullem
@@ -310,15 +297,15 @@ namespace HMIApp
                         break;
                     case "BYTE":
                         //Wyszukanie samej nazwy Taga, która odpowiada 1:1 nazwie TextBoxa
-                        DBRead_position1 = dbTag.TagName.IndexOf(".") + 1;
-                        DBRead_NameofTagWithoutNumberofDB = dbTag.TagName.Substring(DBRead_position1);
+                        //DBRead_position1 = dbTag.TagName.IndexOf(".")+1;
+                        //DBRead_NameofTagWithoutNumberofDB = dbTag.TagName.Substring(DBRead_position1);
+                        //DBRead_TagName = dbTag.TagName;
                         //PONIZEJ LINIA DO WYRZUCENIA KROPKI ZZA NUMERU DBKA
-                        DBRead_TagName = dbTag.TagName.Remove(DBRead_position1 - 1, 1);
-                        //
-                        DBRead_TagName = dbTag.TagName;
+                        DBRead_position1 = dbTag.TagName.IndexOf(".");
+                        DBRead_TagName = dbTag.TagName.Remove(DBRead_position1, 1);
                         DBRead_NrOfByteinDB = dbTag.NumberOfByteInDB;
 
-                        txt = Form1._Form1.Controls.Find($"{DBRead_NameofTagWithoutNumberofDB}", true).FirstOrDefault() as TextBox;
+                        txt = Form1._Form1.Controls.Find($"{DBRead_TagName}", true).FirstOrDefault() as TextBox;
                         if (txt == null)
                         {
                             //Wyjscie z case'a jesli nie znajdzie textboxa i bedzie nullem
@@ -331,11 +318,14 @@ namespace HMIApp
                         break;
                     case "INT":
                         //Wyszukanie samej nazwy Taga, która odpowiada 1:1 nazwie TextBoxa
-                        DBRead_position1 = dbTag.TagName.IndexOf(".") + 1;
-                        DBRead_NameofTagWithoutNumberofDB = dbTag.TagName.Substring(DBRead_position1);
-                        DBRead_TagName = dbTag.TagName;
+                        //DBRead_position1 = dbTag.TagName.IndexOf(".") + 1;
+                        //DBRead_NameofTagWithoutNumberofDB = dbTag.TagName.Substring(DBRead_position1);
+                        //DBRead_TagName = dbTag.TagName;
+                        DBRead_position1 = dbTag.TagName.IndexOf(".");
+                        DBRead_TagName = dbTag.TagName.Remove(DBRead_position1, 1);
                         DBRead_NrOfByteinDB = dbTag.NumberOfByteInDB;
-                        txt = Form1._Form1.Controls.Find($"{DBRead_NameofTagWithoutNumberofDB}", true).FirstOrDefault() as TextBox;
+
+                        txt = Form1._Form1.Controls.Find($"{DBRead_TagName}", true).FirstOrDefault() as TextBox;
                         if (txt == null)
                         {
                             //Wyjscie z case'a jesli nie znajdzie textboxa i bedzie nullem
@@ -348,12 +338,14 @@ namespace HMIApp
                         break;
                     case "REAL":
                         //Wyszukanie samej nazwy Taga, która odpowiada 1:1 nazwie TextBoxa
-                        DBRead_position1 = dbTag.TagName.IndexOf(".") + 1;
-                        DBRead_NameofTagWithoutNumberofDB = dbTag.TagName.Substring(DBRead_position1);
-                        DBRead_TagName = dbTag.TagName;
+                        //DBRead_position1 = dbTag.TagName.IndexOf(".") + 1;
+                        //DBRead_NameofTagWithoutNumberofDB = dbTag.TagName.Substring(DBRead_position1);
+                        //DBRead_TagName = dbTag.TagName;
+                        DBRead_position1 = dbTag.TagName.IndexOf(".");
+                        DBRead_TagName = dbTag.TagName.Remove(DBRead_position1, 1);
                         DBRead_NrOfByteinDB = dbTag.NumberOfByteInDB;
 
-                        txt = Form1._Form1.Controls.Find($"{DBRead_NameofTagWithoutNumberofDB}", true).FirstOrDefault() as TextBox;
+                        txt = Form1._Form1.Controls.Find($"{DBRead_TagName}", true).FirstOrDefault() as TextBox;
                         if (txt == null)
                         {
                             //Wyjscie z case'a jesli nie znajdzie textboxa i bedzie nullem
@@ -367,12 +359,14 @@ namespace HMIApp
                         break;
                     case "DINT":
                         //Wyszukanie samej nazwy Taga, która odpowiada 1:1 nazwie TextBoxa
-                        DBRead_position1 = dbTag.TagName.IndexOf(".") + 1;
-                        DBRead_NameofTagWithoutNumberofDB = dbTag.TagName.Substring(DBRead_position1);
-                        DBRead_TagName = dbTag.TagName;
+                        //DBRead_position1 = dbTag.TagName.IndexOf(".") + 1;
+                        //DBRead_NameofTagWithoutNumberofDB = dbTag.TagName.Substring(DBRead_position1);
+                        //DBRead_TagName = dbTag.TagName;
+                        DBRead_position1 = dbTag.TagName.IndexOf(".");
+                        DBRead_TagName = dbTag.TagName.Remove(DBRead_position1, 1);
                         DBRead_NrOfByteinDB = dbTag.NumberOfByteInDB;
 
-                        txt = Form1._Form1.Controls.Find($"{DBRead_NameofTagWithoutNumberofDB}", true).FirstOrDefault() as TextBox;
+                        txt = Form1._Form1.Controls.Find($"{DBRead_TagName}", true).FirstOrDefault() as TextBox;
                         if (txt == null)
                         {
                             break;
@@ -386,9 +380,11 @@ namespace HMIApp
                         //Pierwszy bajt stringa - oznacza calkowita długosc
                         //Drugi bajt stringa oznacza dlugosc obecnie wpisanego ciagu znaków
                         //Wyszukanie samej nazwy Taga, która odpowiada 1:1 nazwie TextBoxa
-                        DBRead_position1 = dbTag.TagName.IndexOf(".") + 1;
-                        DBRead_NameofTagWithoutNumberofDB = dbTag.TagName.Substring(DBRead_position1);
-                        DBRead_TagName = dbTag.TagName;
+                        //DBRead_position1 = dbTag.TagName.IndexOf(".") + 1;
+                        //DBRead_NameofTagWithoutNumberofDB = dbTag.TagName.Substring(DBRead_position1);
+                        //DBRead_TagName = dbTag.TagName;
+                        DBRead_position1 = dbTag.TagName.IndexOf(".");
+                        DBRead_TagName = dbTag.TagName.Remove(DBRead_position1, 1);
                         DBRead_NrOfByteinDB = dbTag.NumberOfByteInDB;
                         DBRead_LengthOfDataType = dbTag.LengthDataType;
 
@@ -400,7 +396,7 @@ namespace HMIApp
                             StringFromDB += (char)DB[i];
 
                         }
-                        txt = Form1._Form1.Controls.Find($"{DBRead_NameofTagWithoutNumberofDB}", true).FirstOrDefault() as TextBox;
+                        txt = Form1._Form1.Controls.Find($"{DBRead_TagName}", true).FirstOrDefault() as TextBox;
                         if (txt == null)
                         {
                             break;
@@ -426,7 +422,7 @@ namespace HMIApp
             foreach (var dbTag in dbtags)
             {
                 //Wyciagniecie z nazwy DBka jego numer
-                DBWrite_position = dbTag.TagName.IndexOf('.') - 2;
+                DBWrite_position = dbTag.TagName.IndexOf(".") - 2;
                 DBWrite_NumberOfDB = dbTag.TagName.Substring(2, DBWrite_position);
                 //Przepisanie danych potrzebnych do konfiguracji zapisu odpowiednich danych
                 if (NameofTaginDB == dbTag.TagName)
@@ -625,9 +621,9 @@ namespace HMIApp
                     {
                         DBReadAlarm_EndDB++;
                     }
-                    else if (dbTag.DataTypeOfTag.ToUpper() == "INT")
+                    else
                     {
-                        DBReadAlarm_EndDB = dbTag.NumberOfByteInDB + 2;
+                        DBReadAlarm_EndDB = dbTag.NumberOfByteInDB + dbTag.LengthDataType;
                     }
                 }
             }
@@ -1018,20 +1014,19 @@ namespace HMIApp
 
                 DBReadIO_NrOfBitinByte = dbTag.NumberOfBitInByte;
                 DBReadIO_NrOfByteinDB = dbTag.NumberOfByteInDB;
-                DBReadIO_TagName = dbTag.TagName;
                 DBReadIO_DataTypeofTag = dbTag.DataTypeOfTag;
                 BitArray bitArray = new BitArray(DB[DBReadIO_NrOfByteinDB]);
                 bool[] values = new bool[8];
                 //Wyszukanie samej nazwy Taga, która odpowiada 1:1 nazwie TextBoxa
-                DBReadIO_position1 = dbTag.TagName.IndexOf(".") + 1;
-                DBReadIO_NameofTagWithoutNumberofDB = dbTag.TagName.Substring(DBReadIO_position1);
+                DBReadIO_position1 = dbTag.TagName.IndexOf(".");
+                DBReadIO_TagName = dbTag.TagName.Remove(DBReadIO_position1, 1);
                 TextBox txt;
                 switch (DBReadIO_NrOfBitinByte)
                 {
                     case 0:
                         values[0] = GetBit(DB[DBReadIO_NrOfByteinDB], 0);
                         //Wyszukanie TextBoxa po jego nazwie i ustawienie kolor uw zaleznosci od stanu value[x]
-                        txt = Form1._Form1.Controls.Find($"{DBReadIO_NameofTagWithoutNumberofDB}", true).FirstOrDefault() as TextBox;
+                        txt = Form1._Form1.Controls.Find($"{DBReadIO_TagName}", true).FirstOrDefault() as TextBox;
                         if (values[0] == true)
                         {
                             txt.BackColor = Color.Green;
@@ -1043,7 +1038,7 @@ namespace HMIApp
                         break;
                     case 1:
                         values[1] = GetBit(DB[DBReadIO_NrOfByteinDB], 1);
-                        txt = Form1._Form1.Controls.Find($"{DBReadIO_NameofTagWithoutNumberofDB}", true).FirstOrDefault() as TextBox;
+                        txt = Form1._Form1.Controls.Find($"{DBReadIO_TagName}", true).FirstOrDefault() as TextBox;
                         if (values[1])
                         {
                             txt.BackColor = Color.Green;
@@ -1055,7 +1050,7 @@ namespace HMIApp
                         break;
                     case 2:
                         values[2] = GetBit(DB[DBReadIO_NrOfByteinDB], 2);
-                        txt = Form1._Form1.Controls.Find($"{DBReadIO_NameofTagWithoutNumberofDB}", true).FirstOrDefault() as TextBox;
+                        txt = Form1._Form1.Controls.Find($"{DBReadIO_TagName}", true).FirstOrDefault() as TextBox;
                         if (values[2])
                         {
                             txt.BackColor = Color.Green;
@@ -1067,7 +1062,7 @@ namespace HMIApp
                         break;
                     case 3:
                         values[3] = GetBit(DB[DBReadIO_NrOfByteinDB], 3);
-                        txt = Form1._Form1.Controls.Find($"{DBReadIO_NameofTagWithoutNumberofDB}", true).FirstOrDefault() as TextBox;
+                        txt = Form1._Form1.Controls.Find($"{DBReadIO_TagName}", true).FirstOrDefault() as TextBox;
                         if (values[3])
                         {
                             txt.BackColor = Color.Green;
@@ -1079,7 +1074,7 @@ namespace HMIApp
                         break;
                     case 4:
                         values[4] = GetBit(DB[DBReadIO_NrOfByteinDB], 4);
-                        txt = Form1._Form1.Controls.Find($"{DBReadIO_NameofTagWithoutNumberofDB}", true).FirstOrDefault() as TextBox;
+                        txt = Form1._Form1.Controls.Find($"{DBReadIO_TagName}", true).FirstOrDefault() as TextBox;
                         if (values[4])
                         {
                             txt.BackColor = Color.Green;
@@ -1091,7 +1086,7 @@ namespace HMIApp
                         break;
                     case 5:
                         values[5] = GetBit(DB[DBReadIO_NrOfByteinDB], 5);
-                        txt = Form1._Form1.Controls.Find($"{DBReadIO_NameofTagWithoutNumberofDB}", true).FirstOrDefault() as TextBox;
+                        txt = Form1._Form1.Controls.Find($"{DBReadIO_TagName}", true).FirstOrDefault() as TextBox;
                         if (values[5])
                         {
                             txt.BackColor = Color.Green;
@@ -1103,7 +1098,7 @@ namespace HMIApp
                         break;
                     case 6:
                         values[6] = GetBit(DB[DBReadIO_NrOfByteinDB], 6);
-                        txt = Form1._Form1.Controls.Find($"{DBReadIO_NameofTagWithoutNumberofDB}", true).FirstOrDefault() as TextBox;
+                        txt = Form1._Form1.Controls.Find($"{DBReadIO_TagName}", true).FirstOrDefault() as TextBox;
                         if (values[6])
                         {
                             txt.BackColor = Color.Green;
@@ -1115,7 +1110,7 @@ namespace HMIApp
                         break;
                     case 7:
                         values[7] = GetBit(DB[DBReadIO_NrOfByteinDB], 7);
-                        txt = Form1._Form1.Controls.Find($"{DBReadIO_NameofTagWithoutNumberofDB}", true).FirstOrDefault() as TextBox;
+                        txt = Form1._Form1.Controls.Find($"{DBReadIO_TagName}", true).FirstOrDefault() as TextBox;
                         if (values[7])
                         {
                             txt.BackColor = Color.Green;

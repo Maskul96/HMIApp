@@ -30,14 +30,14 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
-            this.Tag2 = new System.Windows.Forms.TextBox();
-            this.Tag3 = new System.Windows.Forms.TextBox();
-            this.Tag4 = new System.Windows.Forms.TextBox();
-            this.Tag5 = new System.Windows.Forms.TextBox();
-            this.Tag6 = new System.Windows.Forms.TextBox();
-            this.Tag7 = new System.Windows.Forms.TextBox();
+            this.DB666Tag2 = new System.Windows.Forms.TextBox();
+            this.DB666Tag3 = new System.Windows.Forms.TextBox();
+            this.DB666Tag4 = new System.Windows.Forms.TextBox();
+            this.DB666Tag5 = new System.Windows.Forms.TextBox();
+            this.DB666Tag6 = new System.Windows.Forms.TextBox();
+            this.DB666Tag7 = new System.Windows.Forms.TextBox();
             this.OdczytDB = new System.Windows.Forms.Timer(this.components);
-            this.Tag14 = new System.Windows.Forms.TextBox();
+            this.DB666Tag14 = new System.Windows.Forms.TextBox();
             this.Uzytkownik = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -51,27 +51,27 @@
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage8 = new System.Windows.Forms.TabPage();
-            this.Tag133 = new System.Windows.Forms.CheckBox();
-            this.Tag122 = new System.Windows.Forms.CheckBox();
-            this.Tag1111 = new System.Windows.Forms.CheckBox();
-            this.Tag100 = new System.Windows.Forms.CheckBox();
-            this.Tag999 = new System.Windows.Forms.CheckBox();
-            this.Tag888 = new System.Windows.Forms.CheckBox();
-            this.Tag111 = new System.Windows.Forms.CheckBox();
-            this.Tag000 = new System.Windows.Forms.CheckBox();
+            this.DB667Tag133 = new System.Windows.Forms.CheckBox();
+            this.DB667Tag122 = new System.Windows.Forms.CheckBox();
+            this.DB667Tag1111 = new System.Windows.Forms.CheckBox();
+            this.DB667Tag100 = new System.Windows.Forms.CheckBox();
+            this.DB667Tag999 = new System.Windows.Forms.CheckBox();
+            this.DB667Tag888 = new System.Windows.Forms.CheckBox();
+            this.DB667Tag111 = new System.Windows.Forms.CheckBox();
+            this.DB667Tag000 = new System.Windows.Forms.CheckBox();
             this.button2 = new System.Windows.Forms.Button();
             this.label27 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
-            this.Tag777 = new System.Windows.Forms.TextBox();
-            this.Tag666 = new System.Windows.Forms.TextBox();
-            this.Tag555 = new System.Windows.Forms.TextBox();
-            this.Tag333 = new System.Windows.Forms.TextBox();
-            this.Tag444 = new System.Windows.Forms.TextBox();
-            this.Tag222 = new System.Windows.Forms.TextBox();
-            this.Tag2223 = new System.Windows.Forms.TextBox();
-            this.Tag2222 = new System.Windows.Forms.TextBox();
+            this.DB667Tag777 = new System.Windows.Forms.TextBox();
+            this.DB667Tag666 = new System.Windows.Forms.TextBox();
+            this.DB667Tag555 = new System.Windows.Forms.TextBox();
+            this.DB667Tag333 = new System.Windows.Forms.TextBox();
+            this.DB667Tag444 = new System.Windows.Forms.TextBox();
+            this.DB667Tag222 = new System.Windows.Forms.TextBox();
+            this.DB667Tag2223 = new System.Windows.Forms.TextBox();
+            this.DB667Tag2222 = new System.Windows.Forms.TextBox();
             this.label31 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.label32 = new System.Windows.Forms.Label();
@@ -121,37 +121,37 @@
             this.tabPage9 = new System.Windows.Forms.TabPage();
             this.tabControl3 = new System.Windows.Forms.TabControl();
             this.tabPage10 = new System.Windows.Forms.TabPage();
-            this.Input10 = new System.Windows.Forms.TextBox();
-            this.Input9 = new System.Windows.Forms.TextBox();
-            this.Input8 = new System.Windows.Forms.TextBox();
-            this.Input7 = new System.Windows.Forms.TextBox();
-            this.Input6 = new System.Windows.Forms.TextBox();
-            this.Input5 = new System.Windows.Forms.TextBox();
-            this.Input4 = new System.Windows.Forms.TextBox();
-            this.Input3 = new System.Windows.Forms.TextBox();
-            this.Input2 = new System.Windows.Forms.TextBox();
-            this.Input1 = new System.Windows.Forms.TextBox();
-            this.Input0 = new System.Windows.Forms.TextBox();
-            this.tabPage11 = new System.Windows.Forms.TabPage();
-            this.Output10 = new System.Windows.Forms.TextBox();
-            this.Output9 = new System.Windows.Forms.TextBox();
-            this.Output8 = new System.Windows.Forms.TextBox();
-            this.Output7 = new System.Windows.Forms.TextBox();
-            this.Output6 = new System.Windows.Forms.TextBox();
-            this.Output5 = new System.Windows.Forms.TextBox();
-            this.Output4 = new System.Windows.Forms.TextBox();
-            this.Output3 = new System.Windows.Forms.TextBox();
-            this.Output2 = new System.Windows.Forms.TextBox();
-            this.Output1 = new System.Windows.Forms.TextBox();
-            this.Output0 = new System.Windows.Forms.TextBox();
+            this.DB669Input10 = new System.Windows.Forms.TextBox();
             this.button8 = new System.Windows.Forms.Button();
+            this.DB669Input9 = new System.Windows.Forms.TextBox();
+            this.DB669Input8 = new System.Windows.Forms.TextBox();
+            this.DB669Input7 = new System.Windows.Forms.TextBox();
+            this.DB669Input6 = new System.Windows.Forms.TextBox();
+            this.DB669Input5 = new System.Windows.Forms.TextBox();
+            this.DB669Input4 = new System.Windows.Forms.TextBox();
+            this.DB669Input3 = new System.Windows.Forms.TextBox();
+            this.DB669Input2 = new System.Windows.Forms.TextBox();
+            this.DB669Input1 = new System.Windows.Forms.TextBox();
+            this.DB669Input0 = new System.Windows.Forms.TextBox();
+            this.tabPage11 = new System.Windows.Forms.TabPage();
+            this.DB669Output10 = new System.Windows.Forms.TextBox();
+            this.DB669Output9 = new System.Windows.Forms.TextBox();
+            this.DB669Output8 = new System.Windows.Forms.TextBox();
+            this.DB669Output7 = new System.Windows.Forms.TextBox();
+            this.DB669Output6 = new System.Windows.Forms.TextBox();
+            this.DB669Output5 = new System.Windows.Forms.TextBox();
+            this.DB669Output4 = new System.Windows.Forms.TextBox();
+            this.DB669Output3 = new System.Windows.Forms.TextBox();
+            this.DB669Output2 = new System.Windows.Forms.TextBox();
+            this.DB669Output1 = new System.Windows.Forms.TextBox();
+            this.DB669Output0 = new System.Windows.Forms.TextBox();
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.listView1 = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Tag17 = new System.Windows.Forms.TextBox();
-            this.Tag16 = new System.Windows.Forms.TextBox();
+            this.DB666Tag17 = new System.Windows.Forms.TextBox();
+            this.DB666Tag16 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -174,15 +174,15 @@
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.Tag0 = new System.Windows.Forms.CheckBox();
-            this.Tag8 = new System.Windows.Forms.CheckBox();
-            this.Tag10 = new System.Windows.Forms.CheckBox();
-            this.Tag12 = new System.Windows.Forms.CheckBox();
-            this.Tag1 = new System.Windows.Forms.CheckBox();
-            this.Tag9 = new System.Windows.Forms.CheckBox();
-            this.Tag11 = new System.Windows.Forms.CheckBox();
-            this.Tag13 = new System.Windows.Forms.CheckBox();
-            this.Tag15 = new System.Windows.Forms.CheckBox();
+            this.DB666Tag0 = new System.Windows.Forms.CheckBox();
+            this.DB666Tag8 = new System.Windows.Forms.CheckBox();
+            this.DB666Tag10 = new System.Windows.Forms.CheckBox();
+            this.DB666Tag12 = new System.Windows.Forms.CheckBox();
+            this.DB666Tag1 = new System.Windows.Forms.CheckBox();
+            this.DB666Tag9 = new System.Windows.Forms.CheckBox();
+            this.DB666Tag11 = new System.Windows.Forms.CheckBox();
+            this.DB666Tag13 = new System.Windows.Forms.CheckBox();
+            this.DB666Tag15 = new System.Windows.Forms.CheckBox();
             this.label51 = new System.Windows.Forms.Label();
             this.listAlarmView = new System.Windows.Forms.ListView();
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -211,66 +211,66 @@
             this.tabPage7.SuspendLayout();
             this.SuspendLayout();
             // 
-            // Tag2
+            // DB666Tag2
             // 
-            this.Tag2.Enabled = false;
-            this.Tag2.Location = new System.Drawing.Point(740, 176);
-            this.Tag2.Name = "Tag2";
-            this.Tag2.Size = new System.Drawing.Size(38, 20);
-            this.Tag2.TabIndex = 13;
-            this.Tag2.Tag = "";
+            this.DB666Tag2.Enabled = false;
+            this.DB666Tag2.Location = new System.Drawing.Point(740, 176);
+            this.DB666Tag2.Name = "DB666Tag2";
+            this.DB666Tag2.Size = new System.Drawing.Size(38, 20);
+            this.DB666Tag2.TabIndex = 13;
+            this.DB666Tag2.Tag = "";
             // 
-            // Tag3
+            // DB666Tag3
             // 
-            this.Tag3.Enabled = false;
-            this.Tag3.Location = new System.Drawing.Point(740, 205);
-            this.Tag3.Name = "Tag3";
-            this.Tag3.Size = new System.Drawing.Size(38, 20);
-            this.Tag3.TabIndex = 14;
+            this.DB666Tag3.Enabled = false;
+            this.DB666Tag3.Location = new System.Drawing.Point(740, 205);
+            this.DB666Tag3.Name = "DB666Tag3";
+            this.DB666Tag3.Size = new System.Drawing.Size(38, 20);
+            this.DB666Tag3.TabIndex = 14;
             // 
-            // Tag4
+            // DB666Tag4
             // 
-            this.Tag4.Enabled = false;
-            this.Tag4.Location = new System.Drawing.Point(740, 231);
-            this.Tag4.Name = "Tag4";
-            this.Tag4.Size = new System.Drawing.Size(38, 20);
-            this.Tag4.TabIndex = 15;
+            this.DB666Tag4.Enabled = false;
+            this.DB666Tag4.Location = new System.Drawing.Point(740, 231);
+            this.DB666Tag4.Name = "DB666Tag4";
+            this.DB666Tag4.Size = new System.Drawing.Size(38, 20);
+            this.DB666Tag4.TabIndex = 15;
             // 
-            // Tag5
+            // DB666Tag5
             // 
-            this.Tag5.Enabled = false;
-            this.Tag5.Location = new System.Drawing.Point(740, 258);
-            this.Tag5.Name = "Tag5";
-            this.Tag5.Size = new System.Drawing.Size(38, 20);
-            this.Tag5.TabIndex = 16;
+            this.DB666Tag5.Enabled = false;
+            this.DB666Tag5.Location = new System.Drawing.Point(740, 258);
+            this.DB666Tag5.Name = "DB666Tag5";
+            this.DB666Tag5.Size = new System.Drawing.Size(38, 20);
+            this.DB666Tag5.TabIndex = 16;
             // 
-            // Tag6
+            // DB666Tag6
             // 
-            this.Tag6.Enabled = false;
-            this.Tag6.Location = new System.Drawing.Point(740, 288);
-            this.Tag6.Name = "Tag6";
-            this.Tag6.Size = new System.Drawing.Size(38, 20);
-            this.Tag6.TabIndex = 17;
+            this.DB666Tag6.Enabled = false;
+            this.DB666Tag6.Location = new System.Drawing.Point(740, 288);
+            this.DB666Tag6.Name = "DB666Tag6";
+            this.DB666Tag6.Size = new System.Drawing.Size(38, 20);
+            this.DB666Tag6.TabIndex = 17;
             // 
-            // Tag7
+            // DB666Tag7
             // 
-            this.Tag7.Enabled = false;
-            this.Tag7.Location = new System.Drawing.Point(740, 341);
-            this.Tag7.Name = "Tag7";
-            this.Tag7.Size = new System.Drawing.Size(38, 20);
-            this.Tag7.TabIndex = 18;
+            this.DB666Tag7.Enabled = false;
+            this.DB666Tag7.Location = new System.Drawing.Point(740, 341);
+            this.DB666Tag7.Name = "DB666Tag7";
+            this.DB666Tag7.Size = new System.Drawing.Size(38, 20);
+            this.DB666Tag7.TabIndex = 18;
             // 
             // OdczytDB
             // 
             this.OdczytDB.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // Tag14
+            // DB666Tag14
             // 
-            this.Tag14.Enabled = false;
-            this.Tag14.Location = new System.Drawing.Point(740, 362);
-            this.Tag14.Name = "Tag14";
-            this.Tag14.Size = new System.Drawing.Size(38, 20);
-            this.Tag14.TabIndex = 59;
+            this.DB666Tag14.Enabled = false;
+            this.DB666Tag14.Location = new System.Drawing.Point(740, 362);
+            this.DB666Tag14.Name = "DB666Tag14";
+            this.DB666Tag14.Size = new System.Drawing.Size(38, 20);
+            this.DB666Tag14.TabIndex = 59;
             // 
             // Uzytkownik
             // 
@@ -304,7 +304,7 @@
             this.tabControl1.Location = new System.Drawing.Point(9, 66);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(609, 318);
+            this.tabControl1.Size = new System.Drawing.Size(616, 345);
             this.tabControl1.TabIndex = 70;
             // 
             // tabPage1
@@ -312,7 +312,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(601, 292);
+            this.tabPage1.Size = new System.Drawing.Size(608, 319);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "AUTO";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -324,7 +324,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(601, 292);
+            this.tabPage2.Size = new System.Drawing.Size(608, 319);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "MANUAL";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -358,7 +358,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(601, 292);
+            this.tabPage3.Size = new System.Drawing.Size(608, 319);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "PRZEZBROJENIE";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -386,7 +386,7 @@
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(601, 292);
+            this.tabPage4.Size = new System.Drawing.Size(608, 319);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "DANE";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -397,32 +397,32 @@
             this.tabControl2.Location = new System.Drawing.Point(6, 6);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(606, 305);
+            this.tabControl2.Size = new System.Drawing.Size(606, 304);
             this.tabControl2.TabIndex = 0;
             // 
             // tabPage8
             // 
-            this.tabPage8.Controls.Add(this.Tag133);
-            this.tabPage8.Controls.Add(this.Tag122);
-            this.tabPage8.Controls.Add(this.Tag1111);
-            this.tabPage8.Controls.Add(this.Tag100);
-            this.tabPage8.Controls.Add(this.Tag999);
-            this.tabPage8.Controls.Add(this.Tag888);
-            this.tabPage8.Controls.Add(this.Tag111);
-            this.tabPage8.Controls.Add(this.Tag000);
+            this.tabPage8.Controls.Add(this.DB667Tag133);
+            this.tabPage8.Controls.Add(this.DB667Tag122);
+            this.tabPage8.Controls.Add(this.DB667Tag1111);
+            this.tabPage8.Controls.Add(this.DB667Tag100);
+            this.tabPage8.Controls.Add(this.DB667Tag999);
+            this.tabPage8.Controls.Add(this.DB667Tag888);
+            this.tabPage8.Controls.Add(this.DB667Tag111);
+            this.tabPage8.Controls.Add(this.DB667Tag000);
             this.tabPage8.Controls.Add(this.button2);
             this.tabPage8.Controls.Add(this.label27);
             this.tabPage8.Controls.Add(this.label28);
             this.tabPage8.Controls.Add(this.label29);
             this.tabPage8.Controls.Add(this.label30);
-            this.tabPage8.Controls.Add(this.Tag777);
-            this.tabPage8.Controls.Add(this.Tag666);
-            this.tabPage8.Controls.Add(this.Tag555);
-            this.tabPage8.Controls.Add(this.Tag333);
-            this.tabPage8.Controls.Add(this.Tag444);
-            this.tabPage8.Controls.Add(this.Tag222);
-            this.tabPage8.Controls.Add(this.Tag2223);
-            this.tabPage8.Controls.Add(this.Tag2222);
+            this.tabPage8.Controls.Add(this.DB667Tag777);
+            this.tabPage8.Controls.Add(this.DB667Tag666);
+            this.tabPage8.Controls.Add(this.DB667Tag555);
+            this.tabPage8.Controls.Add(this.DB667Tag333);
+            this.tabPage8.Controls.Add(this.DB667Tag444);
+            this.tabPage8.Controls.Add(this.DB667Tag222);
+            this.tabPage8.Controls.Add(this.DB667Tag2223);
+            this.tabPage8.Controls.Add(this.DB667Tag2222);
             this.tabPage8.Controls.Add(this.label31);
             this.tabPage8.Controls.Add(this.button1);
             this.tabPage8.Controls.Add(this.label32);
@@ -442,90 +442,90 @@
             this.tabPage8.Location = new System.Drawing.Point(4, 22);
             this.tabPage8.Name = "tabPage8";
             this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage8.Size = new System.Drawing.Size(598, 279);
+            this.tabPage8.Size = new System.Drawing.Size(598, 278);
             this.tabPage8.TabIndex = 1;
             this.tabPage8.Text = "MODYFIKOWALNE";
             this.tabPage8.UseVisualStyleBackColor = true;
             // 
-            // Tag133
+            // DB667Tag133
             // 
-            this.Tag133.AutoSize = true;
-            this.Tag133.Location = new System.Drawing.Point(84, 255);
-            this.Tag133.Name = "Tag133";
-            this.Tag133.Size = new System.Drawing.Size(15, 14);
-            this.Tag133.TabIndex = 122;
-            this.Tag133.Tag = "DB667.Tag133";
-            this.Tag133.UseVisualStyleBackColor = true;
+            this.DB667Tag133.AutoSize = true;
+            this.DB667Tag133.Location = new System.Drawing.Point(84, 255);
+            this.DB667Tag133.Name = "DB667Tag133";
+            this.DB667Tag133.Size = new System.Drawing.Size(15, 14);
+            this.DB667Tag133.TabIndex = 122;
+            this.DB667Tag133.Tag = "DB667.Tag133";
+            this.DB667Tag133.UseVisualStyleBackColor = true;
             // 
-            // Tag122
+            // DB667Tag122
             // 
-            this.Tag122.AutoSize = true;
-            this.Tag122.Location = new System.Drawing.Point(84, 230);
-            this.Tag122.Name = "Tag122";
-            this.Tag122.Size = new System.Drawing.Size(15, 14);
-            this.Tag122.TabIndex = 121;
-            this.Tag122.Tag = "DB667.Tag122";
-            this.Tag122.UseVisualStyleBackColor = true;
+            this.DB667Tag122.AutoSize = true;
+            this.DB667Tag122.Location = new System.Drawing.Point(84, 230);
+            this.DB667Tag122.Name = "DB667Tag122";
+            this.DB667Tag122.Size = new System.Drawing.Size(15, 14);
+            this.DB667Tag122.TabIndex = 121;
+            this.DB667Tag122.Tag = "DB667.Tag122";
+            this.DB667Tag122.UseVisualStyleBackColor = true;
             // 
-            // Tag1111
+            // DB667Tag1111
             // 
-            this.Tag1111.AutoSize = true;
-            this.Tag1111.Location = new System.Drawing.Point(84, 204);
-            this.Tag1111.Name = "Tag1111";
-            this.Tag1111.Size = new System.Drawing.Size(15, 14);
-            this.Tag1111.TabIndex = 120;
-            this.Tag1111.Tag = "DB667.Tag1111";
-            this.Tag1111.UseVisualStyleBackColor = true;
+            this.DB667Tag1111.AutoSize = true;
+            this.DB667Tag1111.Location = new System.Drawing.Point(84, 204);
+            this.DB667Tag1111.Name = "DB667Tag1111";
+            this.DB667Tag1111.Size = new System.Drawing.Size(15, 14);
+            this.DB667Tag1111.TabIndex = 120;
+            this.DB667Tag1111.Tag = "DB667.Tag1111";
+            this.DB667Tag1111.UseVisualStyleBackColor = true;
             // 
-            // Tag100
+            // DB667Tag100
             // 
-            this.Tag100.AutoSize = true;
-            this.Tag100.Location = new System.Drawing.Point(84, 178);
-            this.Tag100.Name = "Tag100";
-            this.Tag100.Size = new System.Drawing.Size(15, 14);
-            this.Tag100.TabIndex = 119;
-            this.Tag100.Tag = "DB667.Tag100";
-            this.Tag100.UseVisualStyleBackColor = true;
+            this.DB667Tag100.AutoSize = true;
+            this.DB667Tag100.Location = new System.Drawing.Point(84, 178);
+            this.DB667Tag100.Name = "DB667Tag100";
+            this.DB667Tag100.Size = new System.Drawing.Size(15, 14);
+            this.DB667Tag100.TabIndex = 119;
+            this.DB667Tag100.Tag = "DB667.Tag100";
+            this.DB667Tag100.UseVisualStyleBackColor = true;
             // 
-            // Tag999
+            // DB667Tag999
             // 
-            this.Tag999.AutoSize = true;
-            this.Tag999.Location = new System.Drawing.Point(84, 154);
-            this.Tag999.Name = "Tag999";
-            this.Tag999.Size = new System.Drawing.Size(15, 14);
-            this.Tag999.TabIndex = 118;
-            this.Tag999.Tag = "DB667.Tag999";
-            this.Tag999.UseVisualStyleBackColor = true;
+            this.DB667Tag999.AutoSize = true;
+            this.DB667Tag999.Location = new System.Drawing.Point(84, 154);
+            this.DB667Tag999.Name = "DB667Tag999";
+            this.DB667Tag999.Size = new System.Drawing.Size(15, 14);
+            this.DB667Tag999.TabIndex = 118;
+            this.DB667Tag999.Tag = "DB667.Tag999";
+            this.DB667Tag999.UseVisualStyleBackColor = true;
             // 
-            // Tag888
+            // DB667Tag888
             // 
-            this.Tag888.AutoSize = true;
-            this.Tag888.Location = new System.Drawing.Point(84, 128);
-            this.Tag888.Name = "Tag888";
-            this.Tag888.Size = new System.Drawing.Size(15, 14);
-            this.Tag888.TabIndex = 117;
-            this.Tag888.Tag = "DB667.Tag888";
-            this.Tag888.UseVisualStyleBackColor = true;
+            this.DB667Tag888.AutoSize = true;
+            this.DB667Tag888.Location = new System.Drawing.Point(84, 128);
+            this.DB667Tag888.Name = "DB667Tag888";
+            this.DB667Tag888.Size = new System.Drawing.Size(15, 14);
+            this.DB667Tag888.TabIndex = 117;
+            this.DB667Tag888.Tag = "DB667.Tag888";
+            this.DB667Tag888.UseVisualStyleBackColor = true;
             // 
-            // Tag111
+            // DB667Tag111
             // 
-            this.Tag111.AutoSize = true;
-            this.Tag111.Location = new System.Drawing.Point(84, 102);
-            this.Tag111.Name = "Tag111";
-            this.Tag111.Size = new System.Drawing.Size(15, 14);
-            this.Tag111.TabIndex = 116;
-            this.Tag111.Tag = "DB667.Tag111";
-            this.Tag111.UseVisualStyleBackColor = true;
+            this.DB667Tag111.AutoSize = true;
+            this.DB667Tag111.Location = new System.Drawing.Point(84, 102);
+            this.DB667Tag111.Name = "DB667Tag111";
+            this.DB667Tag111.Size = new System.Drawing.Size(15, 14);
+            this.DB667Tag111.TabIndex = 116;
+            this.DB667Tag111.Tag = "DB667.Tag111";
+            this.DB667Tag111.UseVisualStyleBackColor = true;
             // 
-            // Tag000
+            // DB667Tag000
             // 
-            this.Tag000.AutoSize = true;
-            this.Tag000.Location = new System.Drawing.Point(84, 75);
-            this.Tag000.Name = "Tag000";
-            this.Tag000.Size = new System.Drawing.Size(15, 14);
-            this.Tag000.TabIndex = 103;
-            this.Tag000.Tag = "DB667.Tag000";
-            this.Tag000.UseVisualStyleBackColor = true;
+            this.DB667Tag000.AutoSize = true;
+            this.DB667Tag000.Location = new System.Drawing.Point(84, 75);
+            this.DB667Tag000.Name = "DB667Tag000";
+            this.DB667Tag000.Size = new System.Drawing.Size(15, 14);
+            this.DB667Tag000.TabIndex = 103;
+            this.DB667Tag000.Tag = "DB667.Tag000";
+            this.DB667Tag000.UseVisualStyleBackColor = true;
             // 
             // button2
             // 
@@ -574,70 +574,70 @@
             this.label30.TabIndex = 111;
             this.label30.Text = "Odczyt INT 1";
             // 
-            // Tag777
+            // DB667Tag777
             // 
-            this.Tag777.Location = new System.Drawing.Point(323, 206);
-            this.Tag777.Name = "Tag777";
-            this.Tag777.Size = new System.Drawing.Size(60, 20);
-            this.Tag777.TabIndex = 63;
-            this.Tag777.Tag = "DB667.Tag777";
+            this.DB667Tag777.Location = new System.Drawing.Point(323, 206);
+            this.DB667Tag777.Name = "DB667Tag777";
+            this.DB667Tag777.Size = new System.Drawing.Size(60, 20);
+            this.DB667Tag777.TabIndex = 63;
+            this.DB667Tag777.Tag = "DB667.Tag777";
             // 
-            // Tag666
+            // DB667Tag666
             // 
-            this.Tag666.Location = new System.Drawing.Point(323, 179);
-            this.Tag666.Name = "Tag666";
-            this.Tag666.Size = new System.Drawing.Size(60, 20);
-            this.Tag666.TabIndex = 58;
-            this.Tag666.Tag = "DB667.Tag666";
+            this.DB667Tag666.Location = new System.Drawing.Point(323, 179);
+            this.DB667Tag666.Name = "DB667Tag666";
+            this.DB667Tag666.Size = new System.Drawing.Size(60, 20);
+            this.DB667Tag666.TabIndex = 58;
+            this.DB667Tag666.Tag = "DB667.Tag666";
             // 
-            // Tag555
+            // DB667Tag555
             // 
-            this.Tag555.Location = new System.Drawing.Point(323, 152);
-            this.Tag555.Name = "Tag555";
-            this.Tag555.Size = new System.Drawing.Size(60, 20);
-            this.Tag555.TabIndex = 62;
-            this.Tag555.Tag = "DB667.Tag555";
+            this.DB667Tag555.Location = new System.Drawing.Point(323, 152);
+            this.DB667Tag555.Name = "DB667Tag555";
+            this.DB667Tag555.Size = new System.Drawing.Size(60, 20);
+            this.DB667Tag555.TabIndex = 62;
+            this.DB667Tag555.Tag = "DB667.Tag555";
             // 
-            // Tag333
+            // DB667Tag333
             // 
-            this.Tag333.Location = new System.Drawing.Point(323, 99);
-            this.Tag333.Name = "Tag333";
-            this.Tag333.Size = new System.Drawing.Size(60, 20);
-            this.Tag333.TabIndex = 61;
-            this.Tag333.Tag = "DB667.Tag333";
+            this.DB667Tag333.Location = new System.Drawing.Point(323, 99);
+            this.DB667Tag333.Name = "DB667Tag333";
+            this.DB667Tag333.Size = new System.Drawing.Size(60, 20);
+            this.DB667Tag333.TabIndex = 61;
+            this.DB667Tag333.Tag = "DB667.Tag333";
             // 
-            // Tag444
+            // DB667Tag444
             // 
-            this.Tag444.Location = new System.Drawing.Point(323, 126);
-            this.Tag444.Name = "Tag444";
-            this.Tag444.Size = new System.Drawing.Size(60, 20);
-            this.Tag444.TabIndex = 57;
-            this.Tag444.Tag = "DB667.Tag444";
+            this.DB667Tag444.Location = new System.Drawing.Point(323, 126);
+            this.DB667Tag444.Name = "DB667Tag444";
+            this.DB667Tag444.Size = new System.Drawing.Size(60, 20);
+            this.DB667Tag444.TabIndex = 57;
+            this.DB667Tag444.Tag = "DB667.Tag444";
             // 
-            // Tag222
+            // DB667Tag222
             // 
-            this.Tag222.Location = new System.Drawing.Point(323, 69);
-            this.Tag222.Name = "Tag222";
-            this.Tag222.Size = new System.Drawing.Size(60, 20);
-            this.Tag222.TabIndex = 56;
-            this.Tag222.Tag = "DB667.Tag222";
+            this.DB667Tag222.Location = new System.Drawing.Point(323, 69);
+            this.DB667Tag222.Name = "DB667Tag222";
+            this.DB667Tag222.Size = new System.Drawing.Size(60, 20);
+            this.DB667Tag222.TabIndex = 56;
+            this.DB667Tag222.Tag = "DB667.Tag222";
             // 
-            // Tag2223
+            // DB667Tag2223
             // 
-            this.Tag2223.Location = new System.Drawing.Point(451, 11);
-            this.Tag2223.Name = "Tag2223";
-            this.Tag2223.Size = new System.Drawing.Size(137, 20);
-            this.Tag2223.TabIndex = 95;
-            this.Tag2223.Tag = "DB667.Tag2223";
+            this.DB667Tag2223.Location = new System.Drawing.Point(451, 11);
+            this.DB667Tag2223.Name = "DB667Tag2223";
+            this.DB667Tag2223.Size = new System.Drawing.Size(137, 20);
+            this.DB667Tag2223.TabIndex = 95;
+            this.DB667Tag2223.Tag = "DB667.Tag2223";
             // 
-            // Tag2222
+            // DB667Tag2222
             // 
-            this.Tag2222.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.Tag2222.Location = new System.Drawing.Point(103, 11);
-            this.Tag2222.Name = "Tag2222";
-            this.Tag2222.Size = new System.Drawing.Size(262, 18);
-            this.Tag2222.TabIndex = 94;
-            this.Tag2222.Tag = "DB667.Tag2222";
+            this.DB667Tag2222.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.DB667Tag2222.Location = new System.Drawing.Point(103, 11);
+            this.DB667Tag2222.Name = "DB667Tag2222";
+            this.DB667Tag2222.Size = new System.Drawing.Size(262, 18);
+            this.DB667Tag2222.TabIndex = 94;
+            this.DB667Tag2222.Tag = "DB667.Tag2222";
             // 
             // label31
             // 
@@ -817,7 +817,7 @@
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(601, 292);
+            this.tabPage5.Size = new System.Drawing.Size(608, 319);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "UŻYTKOWNICY";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -1038,7 +1038,7 @@
             this.tabPage6.Location = new System.Drawing.Point(4, 22);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(601, 292);
+            this.tabPage6.Size = new System.Drawing.Size(608, 319);
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "SERWIS";
             this.tabPage6.UseVisualStyleBackColor = true;
@@ -1090,11 +1090,10 @@
             // tabPage9
             // 
             this.tabPage9.Controls.Add(this.tabControl3);
-            this.tabPage9.Controls.Add(this.button8);
             this.tabPage9.Location = new System.Drawing.Point(4, 22);
             this.tabPage9.Name = "tabPage9";
             this.tabPage9.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage9.Size = new System.Drawing.Size(601, 292);
+            this.tabPage9.Size = new System.Drawing.Size(608, 319);
             this.tabPage9.TabIndex = 6;
             this.tabPage9.Text = "WEJŚCIA/WYJŚCIA";
             this.tabPage9.UseVisualStyleBackColor = true;
@@ -1103,7 +1102,6 @@
             // 
             this.tabControl3.Controls.Add(this.tabPage10);
             this.tabControl3.Controls.Add(this.tabPage11);
-            this.tabControl3.Enabled = false;
             this.tabControl3.Location = new System.Drawing.Point(6, 6);
             this.tabControl3.Name = "tabControl3";
             this.tabControl3.SelectedIndex = 0;
@@ -1112,17 +1110,18 @@
             // 
             // tabPage10
             // 
-            this.tabPage10.Controls.Add(this.Input10);
-            this.tabPage10.Controls.Add(this.Input9);
-            this.tabPage10.Controls.Add(this.Input8);
-            this.tabPage10.Controls.Add(this.Input7);
-            this.tabPage10.Controls.Add(this.Input6);
-            this.tabPage10.Controls.Add(this.Input5);
-            this.tabPage10.Controls.Add(this.Input4);
-            this.tabPage10.Controls.Add(this.Input3);
-            this.tabPage10.Controls.Add(this.Input2);
-            this.tabPage10.Controls.Add(this.Input1);
-            this.tabPage10.Controls.Add(this.Input0);
+            this.tabPage10.Controls.Add(this.DB669Input10);
+            this.tabPage10.Controls.Add(this.button8);
+            this.tabPage10.Controls.Add(this.DB669Input9);
+            this.tabPage10.Controls.Add(this.DB669Input8);
+            this.tabPage10.Controls.Add(this.DB669Input7);
+            this.tabPage10.Controls.Add(this.DB669Input6);
+            this.tabPage10.Controls.Add(this.DB669Input5);
+            this.tabPage10.Controls.Add(this.DB669Input4);
+            this.tabPage10.Controls.Add(this.DB669Input3);
+            this.tabPage10.Controls.Add(this.DB669Input2);
+            this.tabPage10.Controls.Add(this.DB669Input1);
+            this.tabPage10.Controls.Add(this.DB669Input0);
             this.tabPage10.Location = new System.Drawing.Point(4, 22);
             this.tabPage10.Name = "tabPage10";
             this.tabPage10.Padding = new System.Windows.Forms.Padding(3);
@@ -1131,107 +1130,117 @@
             this.tabPage10.Text = "WEJŚCIA";
             this.tabPage10.UseVisualStyleBackColor = true;
             // 
-            // Input10
+            // DB669Input10
             // 
-            this.Input10.Enabled = false;
-            this.Input10.Location = new System.Drawing.Point(243, 33);
-            this.Input10.Name = "Input10";
-            this.Input10.Size = new System.Drawing.Size(20, 20);
-            this.Input10.TabIndex = 10;
+            this.DB669Input10.Enabled = false;
+            this.DB669Input10.Location = new System.Drawing.Point(243, 33);
+            this.DB669Input10.Name = "DB669Input10";
+            this.DB669Input10.Size = new System.Drawing.Size(20, 20);
+            this.DB669Input10.TabIndex = 10;
             // 
-            // Input9
+            // button8
             // 
-            this.Input9.Enabled = false;
-            this.Input9.Location = new System.Drawing.Point(243, 7);
-            this.Input9.Name = "Input9";
-            this.Input9.Size = new System.Drawing.Size(20, 20);
-            this.Input9.TabIndex = 9;
+            this.button8.Location = new System.Drawing.Point(80, 225);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(75, 23);
+            this.button8.TabIndex = 1;
+            this.button8.Text = "Zmień kolor";
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
-            // Input8
+            // DB669Input9
             // 
-            this.Input8.Enabled = false;
-            this.Input8.Location = new System.Drawing.Point(7, 228);
-            this.Input8.Name = "Input8";
-            this.Input8.Size = new System.Drawing.Size(20, 20);
-            this.Input8.TabIndex = 8;
+            this.DB669Input9.Enabled = false;
+            this.DB669Input9.Location = new System.Drawing.Point(243, 7);
+            this.DB669Input9.Name = "DB669Input9";
+            this.DB669Input9.Size = new System.Drawing.Size(20, 20);
+            this.DB669Input9.TabIndex = 9;
             // 
-            // Input7
+            // DB669Input8
             // 
-            this.Input7.Enabled = false;
-            this.Input7.Location = new System.Drawing.Point(7, 201);
-            this.Input7.Name = "Input7";
-            this.Input7.Size = new System.Drawing.Size(20, 20);
-            this.Input7.TabIndex = 7;
+            this.DB669Input8.Enabled = false;
+            this.DB669Input8.Location = new System.Drawing.Point(7, 228);
+            this.DB669Input8.Name = "DB669Input8";
+            this.DB669Input8.Size = new System.Drawing.Size(20, 20);
+            this.DB669Input8.TabIndex = 8;
             // 
-            // Input6
+            // DB669Input7
             // 
-            this.Input6.Enabled = false;
-            this.Input6.Location = new System.Drawing.Point(7, 175);
-            this.Input6.Name = "Input6";
-            this.Input6.Size = new System.Drawing.Size(20, 20);
-            this.Input6.TabIndex = 6;
+            this.DB669Input7.Enabled = false;
+            this.DB669Input7.Location = new System.Drawing.Point(7, 201);
+            this.DB669Input7.Name = "DB669Input7";
+            this.DB669Input7.Size = new System.Drawing.Size(20, 20);
+            this.DB669Input7.TabIndex = 7;
             // 
-            // Input5
+            // DB669Input6
             // 
-            this.Input5.Enabled = false;
-            this.Input5.Location = new System.Drawing.Point(7, 149);
-            this.Input5.Name = "Input5";
-            this.Input5.Size = new System.Drawing.Size(20, 20);
-            this.Input5.TabIndex = 5;
+            this.DB669Input6.Enabled = false;
+            this.DB669Input6.Location = new System.Drawing.Point(7, 175);
+            this.DB669Input6.Name = "DB669Input6";
+            this.DB669Input6.Size = new System.Drawing.Size(20, 20);
+            this.DB669Input6.TabIndex = 6;
             // 
-            // Input4
+            // DB669Input5
             // 
-            this.Input4.Enabled = false;
-            this.Input4.Location = new System.Drawing.Point(7, 114);
-            this.Input4.Name = "Input4";
-            this.Input4.Size = new System.Drawing.Size(20, 20);
-            this.Input4.TabIndex = 4;
+            this.DB669Input5.Enabled = false;
+            this.DB669Input5.Location = new System.Drawing.Point(7, 149);
+            this.DB669Input5.Name = "DB669Input5";
+            this.DB669Input5.Size = new System.Drawing.Size(20, 20);
+            this.DB669Input5.TabIndex = 5;
             // 
-            // Input3
+            // DB669Input4
             // 
-            this.Input3.Enabled = false;
-            this.Input3.Location = new System.Drawing.Point(7, 82);
-            this.Input3.Name = "Input3";
-            this.Input3.Size = new System.Drawing.Size(20, 20);
-            this.Input3.TabIndex = 3;
+            this.DB669Input4.Enabled = false;
+            this.DB669Input4.Location = new System.Drawing.Point(7, 114);
+            this.DB669Input4.Name = "DB669Input4";
+            this.DB669Input4.Size = new System.Drawing.Size(20, 20);
+            this.DB669Input4.TabIndex = 4;
             // 
-            // Input2
+            // DB669Input3
             // 
-            this.Input2.Enabled = false;
-            this.Input2.Location = new System.Drawing.Point(7, 59);
-            this.Input2.Name = "Input2";
-            this.Input2.Size = new System.Drawing.Size(20, 20);
-            this.Input2.TabIndex = 2;
+            this.DB669Input3.Enabled = false;
+            this.DB669Input3.Location = new System.Drawing.Point(7, 82);
+            this.DB669Input3.Name = "DB669Input3";
+            this.DB669Input3.Size = new System.Drawing.Size(20, 20);
+            this.DB669Input3.TabIndex = 3;
             // 
-            // Input1
+            // DB669Input2
             // 
-            this.Input1.Enabled = false;
-            this.Input1.Location = new System.Drawing.Point(7, 33);
-            this.Input1.Name = "Input1";
-            this.Input1.Size = new System.Drawing.Size(20, 20);
-            this.Input1.TabIndex = 1;
+            this.DB669Input2.Enabled = false;
+            this.DB669Input2.Location = new System.Drawing.Point(7, 59);
+            this.DB669Input2.Name = "DB669Input2";
+            this.DB669Input2.Size = new System.Drawing.Size(20, 20);
+            this.DB669Input2.TabIndex = 2;
             // 
-            // Input0
+            // DB669Input1
             // 
-            this.Input0.Enabled = false;
-            this.Input0.Location = new System.Drawing.Point(7, 7);
-            this.Input0.Name = "Input0";
-            this.Input0.Size = new System.Drawing.Size(20, 20);
-            this.Input0.TabIndex = 0;
+            this.DB669Input1.Enabled = false;
+            this.DB669Input1.Location = new System.Drawing.Point(7, 33);
+            this.DB669Input1.Name = "DB669Input1";
+            this.DB669Input1.Size = new System.Drawing.Size(20, 20);
+            this.DB669Input1.TabIndex = 1;
+            // 
+            // DB669Input0
+            // 
+            this.DB669Input0.Enabled = false;
+            this.DB669Input0.Location = new System.Drawing.Point(7, 7);
+            this.DB669Input0.Name = "DB669Input0";
+            this.DB669Input0.Size = new System.Drawing.Size(20, 20);
+            this.DB669Input0.TabIndex = 0;
             // 
             // tabPage11
             // 
-            this.tabPage11.Controls.Add(this.Output10);
-            this.tabPage11.Controls.Add(this.Output9);
-            this.tabPage11.Controls.Add(this.Output8);
-            this.tabPage11.Controls.Add(this.Output7);
-            this.tabPage11.Controls.Add(this.Output6);
-            this.tabPage11.Controls.Add(this.Output5);
-            this.tabPage11.Controls.Add(this.Output4);
-            this.tabPage11.Controls.Add(this.Output3);
-            this.tabPage11.Controls.Add(this.Output2);
-            this.tabPage11.Controls.Add(this.Output1);
-            this.tabPage11.Controls.Add(this.Output0);
+            this.tabPage11.Controls.Add(this.DB669Output10);
+            this.tabPage11.Controls.Add(this.DB669Output9);
+            this.tabPage11.Controls.Add(this.DB669Output8);
+            this.tabPage11.Controls.Add(this.DB669Output7);
+            this.tabPage11.Controls.Add(this.DB669Output6);
+            this.tabPage11.Controls.Add(this.DB669Output5);
+            this.tabPage11.Controls.Add(this.DB669Output4);
+            this.tabPage11.Controls.Add(this.DB669Output3);
+            this.tabPage11.Controls.Add(this.DB669Output2);
+            this.tabPage11.Controls.Add(this.DB669Output1);
+            this.tabPage11.Controls.Add(this.DB669Output0);
             this.tabPage11.Location = new System.Drawing.Point(4, 22);
             this.tabPage11.Name = "tabPage11";
             this.tabPage11.Padding = new System.Windows.Forms.Padding(3);
@@ -1240,103 +1249,93 @@
             this.tabPage11.Text = "WYJŚCIA";
             this.tabPage11.UseVisualStyleBackColor = true;
             // 
-            // Output10
+            // DB669Output10
             // 
-            this.Output10.Enabled = false;
-            this.Output10.Location = new System.Drawing.Point(275, 32);
-            this.Output10.Name = "Output10";
-            this.Output10.Size = new System.Drawing.Size(20, 20);
-            this.Output10.TabIndex = 21;
+            this.DB669Output10.Enabled = false;
+            this.DB669Output10.Location = new System.Drawing.Point(275, 32);
+            this.DB669Output10.Name = "DB669Output10";
+            this.DB669Output10.Size = new System.Drawing.Size(20, 20);
+            this.DB669Output10.TabIndex = 21;
             // 
-            // Output9
+            // DB669Output9
             // 
-            this.Output9.Enabled = false;
-            this.Output9.Location = new System.Drawing.Point(275, 6);
-            this.Output9.Name = "Output9";
-            this.Output9.Size = new System.Drawing.Size(20, 20);
-            this.Output9.TabIndex = 20;
+            this.DB669Output9.Enabled = false;
+            this.DB669Output9.Location = new System.Drawing.Point(275, 6);
+            this.DB669Output9.Name = "DB669Output9";
+            this.DB669Output9.Size = new System.Drawing.Size(20, 20);
+            this.DB669Output9.TabIndex = 20;
             // 
-            // Output8
+            // DB669Output8
             // 
-            this.Output8.Enabled = false;
-            this.Output8.Location = new System.Drawing.Point(6, 218);
-            this.Output8.Name = "Output8";
-            this.Output8.Size = new System.Drawing.Size(20, 20);
-            this.Output8.TabIndex = 19;
+            this.DB669Output8.Enabled = false;
+            this.DB669Output8.Location = new System.Drawing.Point(6, 218);
+            this.DB669Output8.Name = "DB669Output8";
+            this.DB669Output8.Size = new System.Drawing.Size(20, 20);
+            this.DB669Output8.TabIndex = 19;
             // 
-            // Output7
+            // DB669Output7
             // 
-            this.Output7.Enabled = false;
-            this.Output7.Location = new System.Drawing.Point(6, 191);
-            this.Output7.Name = "Output7";
-            this.Output7.Size = new System.Drawing.Size(20, 20);
-            this.Output7.TabIndex = 18;
+            this.DB669Output7.Enabled = false;
+            this.DB669Output7.Location = new System.Drawing.Point(6, 191);
+            this.DB669Output7.Name = "DB669Output7";
+            this.DB669Output7.Size = new System.Drawing.Size(20, 20);
+            this.DB669Output7.TabIndex = 18;
             // 
-            // Output6
+            // DB669Output6
             // 
-            this.Output6.Enabled = false;
-            this.Output6.Location = new System.Drawing.Point(6, 164);
-            this.Output6.Name = "Output6";
-            this.Output6.Size = new System.Drawing.Size(20, 20);
-            this.Output6.TabIndex = 17;
+            this.DB669Output6.Enabled = false;
+            this.DB669Output6.Location = new System.Drawing.Point(6, 164);
+            this.DB669Output6.Name = "DB669Output6";
+            this.DB669Output6.Size = new System.Drawing.Size(20, 20);
+            this.DB669Output6.TabIndex = 17;
             // 
-            // Output5
+            // DB669Output5
             // 
-            this.Output5.Enabled = false;
-            this.Output5.Location = new System.Drawing.Point(6, 137);
-            this.Output5.Name = "Output5";
-            this.Output5.Size = new System.Drawing.Size(20, 20);
-            this.Output5.TabIndex = 16;
+            this.DB669Output5.Enabled = false;
+            this.DB669Output5.Location = new System.Drawing.Point(6, 137);
+            this.DB669Output5.Name = "DB669Output5";
+            this.DB669Output5.Size = new System.Drawing.Size(20, 20);
+            this.DB669Output5.TabIndex = 16;
             // 
-            // Output4
+            // DB669Output4
             // 
-            this.Output4.Enabled = false;
-            this.Output4.Location = new System.Drawing.Point(6, 111);
-            this.Output4.Name = "Output4";
-            this.Output4.Size = new System.Drawing.Size(20, 20);
-            this.Output4.TabIndex = 15;
+            this.DB669Output4.Enabled = false;
+            this.DB669Output4.Location = new System.Drawing.Point(6, 111);
+            this.DB669Output4.Name = "DB669Output4";
+            this.DB669Output4.Size = new System.Drawing.Size(20, 20);
+            this.DB669Output4.TabIndex = 15;
             // 
-            // Output3
+            // DB669Output3
             // 
-            this.Output3.Enabled = false;
-            this.Output3.Location = new System.Drawing.Point(6, 85);
-            this.Output3.Name = "Output3";
-            this.Output3.Size = new System.Drawing.Size(20, 20);
-            this.Output3.TabIndex = 14;
+            this.DB669Output3.Enabled = false;
+            this.DB669Output3.Location = new System.Drawing.Point(6, 85);
+            this.DB669Output3.Name = "DB669Output3";
+            this.DB669Output3.Size = new System.Drawing.Size(20, 20);
+            this.DB669Output3.TabIndex = 14;
             // 
-            // Output2
+            // DB669Output2
             // 
-            this.Output2.Enabled = false;
-            this.Output2.Location = new System.Drawing.Point(6, 58);
-            this.Output2.Name = "Output2";
-            this.Output2.Size = new System.Drawing.Size(20, 20);
-            this.Output2.TabIndex = 13;
+            this.DB669Output2.Enabled = false;
+            this.DB669Output2.Location = new System.Drawing.Point(6, 58);
+            this.DB669Output2.Name = "DB669Output2";
+            this.DB669Output2.Size = new System.Drawing.Size(20, 20);
+            this.DB669Output2.TabIndex = 13;
             // 
-            // Output1
+            // DB669Output1
             // 
-            this.Output1.Enabled = false;
-            this.Output1.Location = new System.Drawing.Point(6, 32);
-            this.Output1.Name = "Output1";
-            this.Output1.Size = new System.Drawing.Size(20, 20);
-            this.Output1.TabIndex = 12;
+            this.DB669Output1.Enabled = false;
+            this.DB669Output1.Location = new System.Drawing.Point(6, 32);
+            this.DB669Output1.Name = "DB669Output1";
+            this.DB669Output1.Size = new System.Drawing.Size(20, 20);
+            this.DB669Output1.TabIndex = 12;
             // 
-            // Output0
+            // DB669Output0
             // 
-            this.Output0.Enabled = false;
-            this.Output0.Location = new System.Drawing.Point(6, 6);
-            this.Output0.Name = "Output0";
-            this.Output0.Size = new System.Drawing.Size(20, 20);
-            this.Output0.TabIndex = 11;
-            // 
-            // button8
-            // 
-            this.button8.Location = new System.Drawing.Point(3, 288);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(75, 23);
-            this.button8.TabIndex = 1;
-            this.button8.Text = "Zmień kolor";
-            this.button8.UseVisualStyleBackColor = true;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
+            this.DB669Output0.Enabled = false;
+            this.DB669Output0.Location = new System.Drawing.Point(6, 6);
+            this.DB669Output0.Name = "DB669Output0";
+            this.DB669Output0.Size = new System.Drawing.Size(20, 20);
+            this.DB669Output0.TabIndex = 11;
             // 
             // tabPage7
             // 
@@ -1344,7 +1343,7 @@
             this.tabPage7.Location = new System.Drawing.Point(4, 22);
             this.tabPage7.Name = "tabPage7";
             this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage7.Size = new System.Drawing.Size(601, 292);
+            this.tabPage7.Size = new System.Drawing.Size(608, 319);
             this.tabPage7.TabIndex = 7;
             this.tabPage7.Text = "HISTORIA ALARMÓW";
             this.tabPage7.UseVisualStyleBackColor = true;
@@ -1365,7 +1364,7 @@
             listViewItem1});
             this.listView1.Location = new System.Drawing.Point(3, 3);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(595, 286);
+            this.listView1.Size = new System.Drawing.Size(602, 313);
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -1385,25 +1384,25 @@
             this.columnHeader3.Text = "NAZWA ALARMU";
             this.columnHeader3.Width = 393;
             // 
-            // Tag17
+            // DB666Tag17
             // 
-            this.Tag17.Enabled = false;
-            this.Tag17.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.Tag17.Location = new System.Drawing.Point(465, 44);
-            this.Tag17.Name = "Tag17";
-            this.Tag17.Size = new System.Drawing.Size(137, 18);
-            this.Tag17.TabIndex = 100;
-            this.Tag17.Tag = "DB666.Tag17";
+            this.DB666Tag17.Enabled = false;
+            this.DB666Tag17.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.DB666Tag17.Location = new System.Drawing.Point(465, 44);
+            this.DB666Tag17.Name = "DB666Tag17";
+            this.DB666Tag17.Size = new System.Drawing.Size(137, 18);
+            this.DB666Tag17.TabIndex = 100;
+            this.DB666Tag17.Tag = "DB666.Tag17";
             // 
-            // Tag16
+            // DB666Tag16
             // 
-            this.Tag16.Enabled = false;
-            this.Tag16.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.Tag16.Location = new System.Drawing.Point(103, 44);
-            this.Tag16.Name = "Tag16";
-            this.Tag16.Size = new System.Drawing.Size(235, 18);
-            this.Tag16.TabIndex = 99;
-            this.Tag16.Tag = "DB666.Tag16";
+            this.DB666Tag16.Enabled = false;
+            this.DB666Tag16.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.DB666Tag16.Location = new System.Drawing.Point(103, 44);
+            this.DB666Tag16.Name = "DB666Tag16";
+            this.DB666Tag16.Size = new System.Drawing.Size(235, 18);
+            this.DB666Tag16.TabIndex = 99;
+            this.DB666Tag16.Tag = "DB666.Tag16";
             // 
             // label5
             // 
@@ -1436,7 +1435,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(16, 422);
+            this.label3.Location = new System.Drawing.Point(16, 455);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(51, 13);
             this.label3.TabIndex = 72;
@@ -1536,7 +1535,7 @@
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(5, 391);
+            this.label25.Location = new System.Drawing.Point(5, 424);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(78, 13);
             this.label25.TabIndex = 74;
@@ -1605,95 +1604,95 @@
             this.label16.TabIndex = 85;
             this.label16.Text = "P8";
             // 
-            // Tag0
+            // DB666Tag0
             // 
-            this.Tag0.AutoSize = true;
-            this.Tag0.Enabled = false;
-            this.Tag0.Location = new System.Drawing.Point(658, 66);
-            this.Tag0.Name = "Tag0";
-            this.Tag0.Size = new System.Drawing.Size(15, 14);
-            this.Tag0.TabIndex = 94;
-            this.Tag0.UseVisualStyleBackColor = true;
+            this.DB666Tag0.AutoSize = true;
+            this.DB666Tag0.Enabled = false;
+            this.DB666Tag0.Location = new System.Drawing.Point(658, 66);
+            this.DB666Tag0.Name = "DB666Tag0";
+            this.DB666Tag0.Size = new System.Drawing.Size(15, 14);
+            this.DB666Tag0.TabIndex = 94;
+            this.DB666Tag0.UseVisualStyleBackColor = true;
             // 
-            // Tag8
+            // DB666Tag8
             // 
-            this.Tag8.AutoSize = true;
-            this.Tag8.Enabled = false;
-            this.Tag8.Location = new System.Drawing.Point(658, 95);
-            this.Tag8.Name = "Tag8";
-            this.Tag8.Size = new System.Drawing.Size(15, 14);
-            this.Tag8.TabIndex = 95;
-            this.Tag8.UseVisualStyleBackColor = true;
+            this.DB666Tag8.AutoSize = true;
+            this.DB666Tag8.Enabled = false;
+            this.DB666Tag8.Location = new System.Drawing.Point(658, 95);
+            this.DB666Tag8.Name = "DB666Tag8";
+            this.DB666Tag8.Size = new System.Drawing.Size(15, 14);
+            this.DB666Tag8.TabIndex = 95;
+            this.DB666Tag8.UseVisualStyleBackColor = true;
             // 
-            // Tag10
+            // DB666Tag10
             // 
-            this.Tag10.AutoSize = true;
-            this.Tag10.Enabled = false;
-            this.Tag10.Location = new System.Drawing.Point(657, 125);
-            this.Tag10.Name = "Tag10";
-            this.Tag10.Size = new System.Drawing.Size(15, 14);
-            this.Tag10.TabIndex = 96;
-            this.Tag10.UseVisualStyleBackColor = true;
+            this.DB666Tag10.AutoSize = true;
+            this.DB666Tag10.Enabled = false;
+            this.DB666Tag10.Location = new System.Drawing.Point(657, 125);
+            this.DB666Tag10.Name = "DB666Tag10";
+            this.DB666Tag10.Size = new System.Drawing.Size(15, 14);
+            this.DB666Tag10.TabIndex = 96;
+            this.DB666Tag10.UseVisualStyleBackColor = true;
             // 
-            // Tag12
+            // DB666Tag12
             // 
-            this.Tag12.AutoSize = true;
-            this.Tag12.Enabled = false;
-            this.Tag12.Location = new System.Drawing.Point(657, 148);
-            this.Tag12.Name = "Tag12";
-            this.Tag12.Size = new System.Drawing.Size(15, 14);
-            this.Tag12.TabIndex = 97;
-            this.Tag12.UseVisualStyleBackColor = true;
+            this.DB666Tag12.AutoSize = true;
+            this.DB666Tag12.Enabled = false;
+            this.DB666Tag12.Location = new System.Drawing.Point(657, 148);
+            this.DB666Tag12.Name = "DB666Tag12";
+            this.DB666Tag12.Size = new System.Drawing.Size(15, 14);
+            this.DB666Tag12.TabIndex = 97;
+            this.DB666Tag12.UseVisualStyleBackColor = true;
             // 
-            // Tag1
+            // DB666Tag1
             // 
-            this.Tag1.AutoSize = true;
-            this.Tag1.Enabled = false;
-            this.Tag1.Location = new System.Drawing.Point(742, 66);
-            this.Tag1.Name = "Tag1";
-            this.Tag1.Size = new System.Drawing.Size(15, 14);
-            this.Tag1.TabIndex = 98;
-            this.Tag1.UseVisualStyleBackColor = true;
+            this.DB666Tag1.AutoSize = true;
+            this.DB666Tag1.Enabled = false;
+            this.DB666Tag1.Location = new System.Drawing.Point(742, 66);
+            this.DB666Tag1.Name = "DB666Tag1";
+            this.DB666Tag1.Size = new System.Drawing.Size(15, 14);
+            this.DB666Tag1.TabIndex = 98;
+            this.DB666Tag1.UseVisualStyleBackColor = true;
             // 
-            // Tag9
+            // DB666Tag9
             // 
-            this.Tag9.AutoSize = true;
-            this.Tag9.Enabled = false;
-            this.Tag9.Location = new System.Drawing.Point(742, 95);
-            this.Tag9.Name = "Tag9";
-            this.Tag9.Size = new System.Drawing.Size(15, 14);
-            this.Tag9.TabIndex = 99;
-            this.Tag9.UseVisualStyleBackColor = true;
+            this.DB666Tag9.AutoSize = true;
+            this.DB666Tag9.Enabled = false;
+            this.DB666Tag9.Location = new System.Drawing.Point(742, 95);
+            this.DB666Tag9.Name = "DB666Tag9";
+            this.DB666Tag9.Size = new System.Drawing.Size(15, 14);
+            this.DB666Tag9.TabIndex = 99;
+            this.DB666Tag9.UseVisualStyleBackColor = true;
             // 
-            // Tag11
+            // DB666Tag11
             // 
-            this.Tag11.AutoSize = true;
-            this.Tag11.Enabled = false;
-            this.Tag11.Location = new System.Drawing.Point(742, 121);
-            this.Tag11.Name = "Tag11";
-            this.Tag11.Size = new System.Drawing.Size(15, 14);
-            this.Tag11.TabIndex = 100;
-            this.Tag11.UseVisualStyleBackColor = true;
+            this.DB666Tag11.AutoSize = true;
+            this.DB666Tag11.Enabled = false;
+            this.DB666Tag11.Location = new System.Drawing.Point(742, 121);
+            this.DB666Tag11.Name = "DB666Tag11";
+            this.DB666Tag11.Size = new System.Drawing.Size(15, 14);
+            this.DB666Tag11.TabIndex = 100;
+            this.DB666Tag11.UseVisualStyleBackColor = true;
             // 
-            // Tag13
+            // DB666Tag13
             // 
-            this.Tag13.AutoSize = true;
-            this.Tag13.Enabled = false;
-            this.Tag13.Location = new System.Drawing.Point(742, 148);
-            this.Tag13.Name = "Tag13";
-            this.Tag13.Size = new System.Drawing.Size(15, 14);
-            this.Tag13.TabIndex = 101;
-            this.Tag13.UseVisualStyleBackColor = true;
+            this.DB666Tag13.AutoSize = true;
+            this.DB666Tag13.Enabled = false;
+            this.DB666Tag13.Location = new System.Drawing.Point(742, 148);
+            this.DB666Tag13.Name = "DB666Tag13";
+            this.DB666Tag13.Size = new System.Drawing.Size(15, 14);
+            this.DB666Tag13.TabIndex = 101;
+            this.DB666Tag13.UseVisualStyleBackColor = true;
             // 
-            // Tag15
+            // DB666Tag15
             // 
-            this.Tag15.AutoSize = true;
-            this.Tag15.Enabled = false;
-            this.Tag15.Location = new System.Drawing.Point(740, 315);
-            this.Tag15.Name = "Tag15";
-            this.Tag15.Size = new System.Drawing.Size(15, 14);
-            this.Tag15.TabIndex = 102;
-            this.Tag15.UseVisualStyleBackColor = true;
+            this.DB666Tag15.AutoSize = true;
+            this.DB666Tag15.Enabled = false;
+            this.DB666Tag15.Location = new System.Drawing.Point(740, 315);
+            this.DB666Tag15.Name = "DB666Tag15";
+            this.DB666Tag15.Size = new System.Drawing.Size(15, 14);
+            this.DB666Tag15.TabIndex = 102;
+            this.DB666Tag15.UseVisualStyleBackColor = true;
             // 
             // label51
             // 
@@ -1712,7 +1711,7 @@
             this.listAlarmView.Enabled = false;
             this.listAlarmView.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.listAlarmView.HideSelection = false;
-            this.listAlarmView.Location = new System.Drawing.Point(90, 410);
+            this.listAlarmView.Location = new System.Drawing.Point(90, 443);
             this.listAlarmView.MultiSelect = false;
             this.listAlarmView.Name = "listAlarmView";
             this.listAlarmView.Size = new System.Drawing.Size(688, 35);
@@ -1749,7 +1748,7 @@
             "",
             "START CYKLU",
             "DOJAZD SZYBKI"});
-            this.listBox1.Location = new System.Drawing.Point(89, 384);
+            this.listBox1.Location = new System.Drawing.Point(89, 417);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(529, 19);
             this.listBox1.TabIndex = 108;
@@ -1809,10 +1808,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.Tag17);
+            this.ClientSize = new System.Drawing.Size(800, 490);
+            this.Controls.Add(this.DB666Tag17);
             this.Controls.Add(this.label63);
-            this.Controls.Add(this.Tag16);
+            this.Controls.Add(this.DB666Tag16);
             this.Controls.Add(this.label62);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label61);
@@ -1823,15 +1822,15 @@
             this.Controls.Add(this.label57);
             this.Controls.Add(this.listAlarmView);
             this.Controls.Add(this.label51);
-            this.Controls.Add(this.Tag15);
-            this.Controls.Add(this.Tag13);
-            this.Controls.Add(this.Tag11);
-            this.Controls.Add(this.Tag9);
-            this.Controls.Add(this.Tag1);
-            this.Controls.Add(this.Tag12);
-            this.Controls.Add(this.Tag10);
-            this.Controls.Add(this.Tag8);
-            this.Controls.Add(this.Tag0);
+            this.Controls.Add(this.DB666Tag15);
+            this.Controls.Add(this.DB666Tag13);
+            this.Controls.Add(this.DB666Tag11);
+            this.Controls.Add(this.DB666Tag9);
+            this.Controls.Add(this.DB666Tag1);
+            this.Controls.Add(this.DB666Tag12);
+            this.Controls.Add(this.DB666Tag10);
+            this.Controls.Add(this.DB666Tag8);
+            this.Controls.Add(this.DB666Tag0);
             this.Controls.Add(this.label24);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.label23);
@@ -1847,20 +1846,20 @@
             this.Controls.Add(this.label18);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label17);
-            this.Controls.Add(this.Tag14);
+            this.Controls.Add(this.DB666Tag14);
             this.Controls.Add(this.label25);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.Tag7);
+            this.Controls.Add(this.DB666Tag7);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.Tag6);
+            this.Controls.Add(this.DB666Tag6);
             this.Controls.Add(this.Uzytkownik);
-            this.Controls.Add(this.Tag5);
+            this.Controls.Add(this.DB666Tag5);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.Tag4);
-            this.Controls.Add(this.Tag3);
-            this.Controls.Add(this.Tag2);
+            this.Controls.Add(this.DB666Tag4);
+            this.Controls.Add(this.DB666Tag3);
+            this.Controls.Add(this.DB666Tag2);
             this.Name = "Form1";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -1889,13 +1888,13 @@
         }
 
         #endregion
-        public System.Windows.Forms.TextBox Tag2;
-        public System.Windows.Forms.TextBox Tag3;
-        public System.Windows.Forms.TextBox Tag4;
-        public System.Windows.Forms.TextBox Tag5;
-        public System.Windows.Forms.TextBox Tag7;
+        public System.Windows.Forms.TextBox DB666Tag2;
+        public System.Windows.Forms.TextBox DB666Tag3;
+        public System.Windows.Forms.TextBox DB666Tag4;
+        public System.Windows.Forms.TextBox DB666Tag5;
+        public System.Windows.Forms.TextBox DB666Tag7;
         private System.Windows.Forms.Timer OdczytDB;
-        public System.Windows.Forms.TextBox Tag14;
+        public System.Windows.Forms.TextBox DB666Tag14;
         private System.Windows.Forms.Label Uzytkownik;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TabControl tabControl1;
@@ -1937,14 +1936,14 @@
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Label label30;
-        public System.Windows.Forms.TextBox Tag777;
-        public System.Windows.Forms.TextBox Tag666;
-        public System.Windows.Forms.TextBox Tag555;
-        public System.Windows.Forms.TextBox Tag333;
-        public System.Windows.Forms.TextBox Tag444;
-        public System.Windows.Forms.TextBox Tag222;
-        public System.Windows.Forms.TextBox Tag2223;
-        public System.Windows.Forms.TextBox Tag2222;
+        public System.Windows.Forms.TextBox DB667Tag777;
+        public System.Windows.Forms.TextBox DB667Tag666;
+        public System.Windows.Forms.TextBox DB667Tag555;
+        public System.Windows.Forms.TextBox DB667Tag333;
+        public System.Windows.Forms.TextBox DB667Tag444;
+        public System.Windows.Forms.TextBox DB667Tag222;
+        public System.Windows.Forms.TextBox DB667Tag2223;
+        public System.Windows.Forms.TextBox DB667Tag2222;
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.Label label33;
@@ -1960,27 +1959,27 @@
         private System.Windows.Forms.Label label43;
         private System.Windows.Forms.Label label44;
         private System.Windows.Forms.Label label45;
-        public System.Windows.Forms.CheckBox Tag0;
-        public System.Windows.Forms.CheckBox Tag8;
-        public System.Windows.Forms.CheckBox Tag10;
-        public System.Windows.Forms.CheckBox Tag12;
-        public System.Windows.Forms.CheckBox Tag1;
-        public System.Windows.Forms.CheckBox Tag9;
-        public System.Windows.Forms.CheckBox Tag11;
-        public System.Windows.Forms.CheckBox Tag13;
-        public System.Windows.Forms.CheckBox Tag15;
-        public System.Windows.Forms.CheckBox Tag133;
-        public System.Windows.Forms.CheckBox Tag122;
-        public System.Windows.Forms.CheckBox Tag1111;
-        public System.Windows.Forms.CheckBox Tag100;
-        public System.Windows.Forms.CheckBox Tag999;
-        public System.Windows.Forms.CheckBox Tag888;
-        public System.Windows.Forms.CheckBox Tag111;
-        public System.Windows.Forms.CheckBox Tag000;
-        public System.Windows.Forms.TextBox Tag6;
+        public System.Windows.Forms.CheckBox DB666Tag0;
+        public System.Windows.Forms.CheckBox DB666Tag8;
+        public System.Windows.Forms.CheckBox DB666Tag10;
+        public System.Windows.Forms.CheckBox DB666Tag12;
+        public System.Windows.Forms.CheckBox DB666Tag1;
+        public System.Windows.Forms.CheckBox DB666Tag9;
+        public System.Windows.Forms.CheckBox DB666Tag11;
+        public System.Windows.Forms.CheckBox DB666Tag13;
+        public System.Windows.Forms.CheckBox DB666Tag15;
+        public System.Windows.Forms.CheckBox DB667Tag133;
+        public System.Windows.Forms.CheckBox DB667Tag122;
+        public System.Windows.Forms.CheckBox DB667Tag1111;
+        public System.Windows.Forms.CheckBox DB667Tag100;
+        public System.Windows.Forms.CheckBox DB667Tag999;
+        public System.Windows.Forms.CheckBox DB667Tag888;
+        public System.Windows.Forms.CheckBox DB667Tag111;
+        public System.Windows.Forms.CheckBox DB667Tag000;
+        public System.Windows.Forms.TextBox DB666Tag6;
         private System.Windows.Forms.ComboBox comboBox1;
-        public System.Windows.Forms.TextBox Tag17;
-        public System.Windows.Forms.TextBox Tag16;
+        public System.Windows.Forms.TextBox DB666Tag17;
+        public System.Windows.Forms.TextBox DB666Tag16;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label8;
@@ -2003,29 +2002,29 @@
         public System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.TabControl tabControl3;
         private System.Windows.Forms.TabPage tabPage10;
-        public System.Windows.Forms.TextBox Input0;
+        public System.Windows.Forms.TextBox DB669Input0;
         private System.Windows.Forms.TabPage tabPage11;
-        public System.Windows.Forms.TextBox Input1;
-        public System.Windows.Forms.TextBox Input2;
-        public System.Windows.Forms.TextBox Input3;
-        public System.Windows.Forms.TextBox Input4;
-        public System.Windows.Forms.TextBox Input5;
-        public System.Windows.Forms.TextBox Input6;
-        public System.Windows.Forms.TextBox Input7;
-        public System.Windows.Forms.TextBox Input8;
-        public System.Windows.Forms.TextBox Input10;
-        public System.Windows.Forms.TextBox Input9;
-        public System.Windows.Forms.TextBox Output10;
-        public System.Windows.Forms.TextBox Output9;
-        public System.Windows.Forms.TextBox Output8;
-        public System.Windows.Forms.TextBox Output7;
-        public System.Windows.Forms.TextBox Output6;
-        public System.Windows.Forms.TextBox Output5;
-        public System.Windows.Forms.TextBox Output4;
-        public System.Windows.Forms.TextBox Output3;
-        public System.Windows.Forms.TextBox Output2;
-        public System.Windows.Forms.TextBox Output1;
-        public System.Windows.Forms.TextBox Output0;
+        public System.Windows.Forms.TextBox DB669Input1;
+        public System.Windows.Forms.TextBox DB669Input2;
+        public System.Windows.Forms.TextBox DB669Input3;
+        public System.Windows.Forms.TextBox DB669Input4;
+        public System.Windows.Forms.TextBox DB669Input5;
+        public System.Windows.Forms.TextBox DB669Input6;
+        public System.Windows.Forms.TextBox DB669Input7;
+        public System.Windows.Forms.TextBox DB669Input8;
+        public System.Windows.Forms.TextBox DB669Input10;
+        public System.Windows.Forms.TextBox DB669Input9;
+        public System.Windows.Forms.TextBox DB669Output10;
+        public System.Windows.Forms.TextBox DB669Output9;
+        public System.Windows.Forms.TextBox DB669Output8;
+        public System.Windows.Forms.TextBox DB669Output7;
+        public System.Windows.Forms.TextBox DB669Output6;
+        public System.Windows.Forms.TextBox DB669Output5;
+        public System.Windows.Forms.TextBox DB669Output4;
+        public System.Windows.Forms.TextBox DB669Output3;
+        public System.Windows.Forms.TextBox DB669Output2;
+        public System.Windows.Forms.TextBox DB669Output1;
+        public System.Windows.Forms.TextBox DB669Output0;
         public System.Windows.Forms.ColumnHeader columnHeader4;
         public System.Windows.Forms.ComboBox comboBox4;
         public System.Windows.Forms.ComboBox comboBox3;
