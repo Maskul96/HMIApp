@@ -1,5 +1,6 @@
 ﻿using HMIApp.Components;
 using HMIApp.Components.CSVReader;
+using HMIApp.Data;
 using System;
 using System.Collections;
 using System.Drawing;
@@ -16,7 +17,7 @@ namespace HMIApp
 
         //Deklaracja zmiennych
         //Zmienne do DBka do odczytania
-        private readonly iCSVReader _csvReader;
+        //private readonly iCSVReader _csvReader;
         public int DBRead_position;
         public string DBRead_NumberOfDB;
         public int DBRead_position1;
@@ -89,9 +90,20 @@ namespace HMIApp
         public string DBReadIO_TagName;
         public string DBReadIO_DataTypeofTag;
 
-        public App(iCSVReader csvReader)
+        //konstruktor do wstrzykiwania csvReader - UNUSED
+        //public App(iCSVReader csvReader)
+        //{
+        //    _csvReader = csvReader;
+        //}
+
+
+        private readonly HMIAppDBContext _hmiAppDbContext;
+        //konstruktor do wstrzykiwania DBContext
+        public App(HMIAppDBContext hmiAppDbContext)
         {
-            _csvReader = csvReader;
+            _hmiAppDbContext = hmiAppDbContext;
+            //w momencie wywolania konstruktora sprawdzamy czy nasza baza danych jest stworzona - jesli nie jest stworzona to ponizsza metoda ja utworzy
+            _hmiAppDbContext.Database.EnsureCreated();
         }
         public App()
         {
@@ -102,6 +114,7 @@ namespace HMIApp
         {
             this.obj = obj;
         }
+
 
         //Stworzenie obiektu z konfiguracja sterownika
         SiemensPLC PLC = new SiemensPLC("192.168.2.1", 102, 0, 1, 1000000);

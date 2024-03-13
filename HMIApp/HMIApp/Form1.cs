@@ -5,32 +5,37 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 using HMIApp.Components.UserAdministration;
+using HMIApp.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace HMIApp
 {
     public partial class Form1 : Form
     {
-        //Referencje przechowywane w PLC - w pozniejszym etapie zrobic przechowywanie w bazie danych
-        //Obiekty z Form1 Design ustawione z dostepem jako public zeby mozna bylo miec do nich dostep z innej klasy poprzez konstruktor
         //W PRZYPADKU ODCZYTU Z DBKÓW WSZYSTKIE KONTROLKI NAZYWAMY NAZWĄ TAGA NP. JESLI DB666.TAG0 TO TEXTBOX DO KTOREGO PRZYPISUJEMY WARTOSC MA NAZWE DB666TAG0 - BEZ KROPKI 
         //W PRZYPADKU ZAPISU DO DBKÓW NIE JEST JUZ ISTOTNA NAZWA TAGA A TO CO JEST WPISANE POD "TAG PROPERTY" CZYLI 
         //JESLI CHCEMY ZAPISAC COS DO DB667.TAG100 TO W TAG PROPERTY WPISUJEMY DB667.TAG100
-        
+
         App App = new App();
         UserAdministration Users = new UserAdministration();
         public Form1()
         {
             InitializeComponent();
             _Form1 = this;
+
             //Services do dependency injection
             var services = new ServiceCollection();
             services.AddSingleton<iApp, App>();
             services.AddSingleton<iCSVReader, CSVReader>();
-            //Na podstawie service providera wyciagamy sobie implementacje Interfejsu
+
+            //ZArejestrowanie DBContextu - connection string wrzucic pozniej w jakis plik konfiguracyjny
+            services.AddDbContext<HMIAppDBContext>(options => options
+            .UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=testdb;Integrated Security=True;Context Connection=False"));
+
             var serviceProvider = services.BuildServiceProvider();
             var app = serviceProvider.GetService<iApp>();
+
             Users.Run();
-            //Ponizej zakomentowane zeby odpalac apke do testowania uzytkownikow
             App.RunInitPLC();
             App.ReadActualValueFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_0.csv");
             App.ReadActualValueFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_1.csv");
@@ -45,11 +50,6 @@ namespace HMIApp
         //statyczna zmienna typu Form1 zeby dostac sie z poziomu innej klasy do obiektow wewnatrz Form1
         public static Form1 _Form1;
 
-        //Metoda do update'u obiektow z poziomu innej klasy np. label5
-        public void update(string message)
-        {
-           // label5.Text = message;
-        }
         //Zapis 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -81,6 +81,7 @@ namespace HMIApp
             this.Text = DateTime.Now.ToString();
             label57.Text = this.Text;
         }
+
         //Cofniecie zmian dokonanych w karcie Dane - Modyfikowalne
         private void button2_Click(object sender, EventArgs e)
         {
@@ -93,19 +94,13 @@ namespace HMIApp
             App.ClosePLCConnection();
             Close();
         }
- 
-        //Zmiana koloru ikonki w karcie Wejscia/Wyjscia
-        private void button8_Click(object sender, EventArgs e)
-        {
-            //Ikonka TextBoxa moze sluzyc jako wskaznik IO's na zasadzie kolorowania jej backcoloru i enabled dajesz jako false
-            DB669Input2.BackColor = Color.LightGreen;
-        }
 
         //Testowy przycisk z karty Manual do wyslania komendy
         private void button4_Click(object sender, EventArgs e)
         {
             App.WriteToDB("15", button4.Tag.ToString());
         }
+
         //Testowy przycisk z karty Manual do wyslania komendy
         private void button5_Click(object sender, EventArgs e)
         {
@@ -170,10 +165,5 @@ namespace HMIApp
             }
         }
 
- 
-
-
-        //OBCZAIC DELEGATY I ZDARZENIA 
-        //Na samym koncu zajac sie swoimi kontrolkami jak juz bede wiedzial jak stricte maja wygladac i co od nich oczekuje
     }
 }
