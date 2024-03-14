@@ -133,8 +133,8 @@ namespace HMIApp
         {
             PLC.Init();
 
-            int TimeoutPLC = PLC.dave_interface_.getTimeout();
-            Form1._Form1.textBox5.Text = TimeoutPLC.ToString();
+           // int TimeoutPLC = PLC.dave_interface_.getTimeout();
+           // Form1._Form1.textBox5.Text = TimeoutPLC.ToString();
         }
 
         public void ClosePLCConnection()

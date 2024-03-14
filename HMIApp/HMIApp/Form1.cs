@@ -8,13 +8,11 @@ using HMIApp.Components.UserAdministration;
 using HMIApp.Data;
 using Microsoft.EntityFrameworkCore;
 
+
 namespace HMIApp
 {
     public partial class Form1 : Form
     {
-        //W PRZYPADKU ODCZYTU Z DBKÓW WSZYSTKIE KONTROLKI NAZYWAMY NAZWĄ TAGA NP. JESLI DB666.TAG0 TO TEXTBOX DO KTOREGO PRZYPISUJEMY WARTOSC MA NAZWE DB666TAG0 - BEZ KROPKI 
-        //W PRZYPADKU ZAPISU DO DBKÓW NIE JEST JUZ ISTOTNA NAZWA TAGA A TO CO JEST WPISANE POD "TAG PROPERTY" CZYLI 
-        //JESLI CHCEMY ZAPISAC COS DO DB667.TAG100 TO W TAG PROPERTY WPISUJEMY DB667.TAG100
 
         App App = new App();
         UserAdministration Users = new UserAdministration();
@@ -26,11 +24,11 @@ namespace HMIApp
             //Services do dependency injection
             var services = new ServiceCollection();
             services.AddSingleton<iApp, App>();
-            services.AddSingleton<iCSVReader, CSVReader>();
-
+            //services.AddSingleton<iCSVReader, CSVReader>();
+            //Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=testdb;Integrated Security=True;Context Connection=False
             //ZArejestrowanie DBContextu - connection string wrzucic pozniej w jakis plik konfiguracyjny
             services.AddDbContext<HMIAppDBContext>(options => options
-            .UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=testdb;Integrated Security=True;Context Connection=False"));
+            .UseSqlServer("Data Source=NB022173\\SQLEXPRESS;Initial Catalog=test69;Integrated Security=True;Trust Server Certificate=True"));
 
             var serviceProvider = services.BuildServiceProvider();
             var app = serviceProvider.GetService<iApp>();
@@ -73,7 +71,6 @@ namespace HMIApp
         //Timer co 100ms do oczytywania DBka
         private void timer1_Tick(object sender, EventArgs e)
         {
-            //Ponizej zakomentowane zeby odpalac apke do testowania uzytkownikow
             App.ReadActualValueFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_0.csv");
             App.ReadAlarmsFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_2.csv");
             App.ReadIOFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_3.csv");
