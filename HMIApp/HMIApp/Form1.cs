@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using HMIApp.Components.UserAdministration;
 using HMIApp.Data;
 using Microsoft.EntityFrameworkCore;
+using Humanizer;
 
 
 namespace HMIApp
@@ -25,24 +26,25 @@ namespace HMIApp
             var services = new ServiceCollection();
             services.AddSingleton<iApp, App>();
             //services.AddSingleton<iCSVReader, CSVReader>();
-            //Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=testdb;Integrated Security=True;Context Connection=False
+
             //ZArejestrowanie DBContextu - connection string wrzucic pozniej w jakis plik konfiguracyjny
             services.AddDbContext<HMIAppDBContext>(options => options
-            .UseSqlServer("Data Source=NB022173\\SQLEXPRESS;Initial Catalog=test69;Integrated Security=True;Trust Server Certificate=True"));
+            .UseSqlServer("Data Source=NB022173\\SQLEXPRESS;Initial Catalog=test699;Integrated Security=True;Trust Server Certificate=True"));
 
             var serviceProvider = services.BuildServiceProvider();
             var app = serviceProvider.GetService<iApp>();
 
             Users.Run();
-            App.RunInitPLC();
-            App.ReadActualValueFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_0.csv");
-            App.ReadActualValueFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_1.csv");
-            App.ReadAlarmsFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_2.csv");
-            App.ReadIOFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_3.csv");
+            //App.RunInitPLC();
+            //App.ReadActualValueFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_0.csv");
+            //App.ReadActualValueFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_1.csv");
+            //App.ReadAlarmsFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_2.csv");
+            //App.ReadIOFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_3.csv");
             OdczytDB.Enabled = true;
             listBox1.DrawItem += new System.Windows.Forms.DrawItemEventHandler(App.listBox1_DrawItem);
             label63.Text = "";
             Users.EnabledObjects();
+
 
         }
         //statyczna zmienna typu Form1 zeby dostac sie z poziomu innej klasy do obiektow wewnatrz Form1
@@ -71,12 +73,14 @@ namespace HMIApp
         //Timer co 100ms do oczytywania DBka
         private void timer1_Tick(object sender, EventArgs e)
         {
-            App.ReadActualValueFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_0.csv");
-            App.ReadAlarmsFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_2.csv");
-            App.ReadIOFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_3.csv");
+            //App.ReadActualValueFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_0.csv");
+            //App.ReadAlarmsFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_2.csv");
+            //App.ReadIOFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_3.csv");
 
             this.Text = DateTime.Now.ToString();
             label57.Text = this.Text;
+             maskedTextBox1.Text = textBox2.Text;
+
         }
 
         //Cofniecie zmian dokonanych w karcie Dane - Modyfikowalne
@@ -128,7 +132,7 @@ namespace HMIApp
         private void button7_Click(object sender, EventArgs e)
         {
             Users.EditXML();
-           
+
         }
 
         //Przycisk zastepujacy event przyłożenia karty RFID d oczytnika
@@ -149,7 +153,7 @@ namespace HMIApp
         //Obsluga odliczania czasu do wylogowania
         private void timer4_Tick(object sender, EventArgs e)
         {
-            if(TimeoutWylogowania.Enabled)
+            if (TimeoutWylogowania.Enabled)
             {
                 Users.Interval -= 1;
                 label63.Text = Users.Interval.ToString();
@@ -161,6 +165,7 @@ namespace HMIApp
                 label63.Text = Users.Interval.ToString();
             }
         }
+
 
     }
 }

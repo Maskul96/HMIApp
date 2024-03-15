@@ -6,6 +6,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HMIApp", "HMIApp\HMIApp.csp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HMIApp.Tests", "HMIApp.Tests\HMIApp.Tests.csproj", "{2648E205-96CB-4723-BF4E-23FA1C8CB7F7}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{ABE6C88E-8601-4AC0-B1C8-66D90ABD4E91}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

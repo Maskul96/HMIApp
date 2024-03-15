@@ -1,6 +1,7 @@
 ﻿using HMIApp.Components;
 using HMIApp.Components.CSVReader;
 using HMIApp.Data;
+using Humanizer;
 using System;
 using System.Collections;
 using System.Drawing;

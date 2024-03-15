@@ -43,6 +43,8 @@
             tabControl1 = new System.Windows.Forms.TabControl();
             tabPage1 = new System.Windows.Forms.TabPage();
             tabPage2 = new System.Windows.Forms.TabPage();
+            label47 = new System.Windows.Forms.Label();
+            textBox7 = new System.Windows.Forms.TextBox();
             button5 = new System.Windows.Forms.Button();
             button4 = new System.Windows.Forms.Button();
             tabPage3 = new System.Windows.Forms.TabPage();
@@ -195,6 +197,17 @@
             TimeoutWylogowania = new System.Windows.Forms.Timer(components);
             label63 = new System.Windows.Forms.Label();
             OdliczaSekunde = new System.Windows.Forms.Timer(components);
+            textBox2 = new System.Windows.Forms.TextBox();
+            label48 = new System.Windows.Forms.Label();
+            textBox8 = new System.Windows.Forms.TextBox();
+            label49 = new System.Windows.Forms.Label();
+            textBox9 = new System.Windows.Forms.TextBox();
+            label64 = new System.Windows.Forms.Label();
+            textBox10 = new System.Windows.Forms.TextBox();
+            label65 = new System.Windows.Forms.Label();
+            textBox13 = new System.Windows.Forms.TextBox();
+            maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            label66 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             tabControl1.SuspendLayout();
             tabPage2.SuspendLayout();
@@ -314,7 +327,7 @@
             tabControl1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new System.Drawing.Size(719, 398);
+            tabControl1.Size = new System.Drawing.Size(719, 375);
             tabControl1.TabIndex = 70;
             // 
             // tabPage1
@@ -323,23 +336,44 @@
             tabPage1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            tabPage1.Size = new System.Drawing.Size(711, 370);
+            tabPage1.Size = new System.Drawing.Size(711, 347);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "AUTO";
             tabPage1.UseVisualStyleBackColor = true;
             // 
             // tabPage2
             // 
+            tabPage2.Controls.Add(label47);
+            tabPage2.Controls.Add(textBox7);
             tabPage2.Controls.Add(button5);
             tabPage2.Controls.Add(button4);
             tabPage2.Location = new System.Drawing.Point(4, 24);
             tabPage2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            tabPage2.Size = new System.Drawing.Size(711, 370);
+            tabPage2.Size = new System.Drawing.Size(711, 347);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "MANUAL";
             tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // label47
+            // 
+            label47.AutoSize = true;
+            label47.Location = new System.Drawing.Point(13, 66);
+            label47.Name = "label47";
+            label47.Size = new System.Drawing.Size(66, 15);
+            label47.TabIndex = 116;
+            label47.Text = "Poz. serwo:";
+            // 
+            // textBox7
+            // 
+            textBox7.Enabled = false;
+            textBox7.Location = new System.Drawing.Point(86, 66);
+            textBox7.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            textBox7.Name = "textBox7";
+            textBox7.Size = new System.Drawing.Size(44, 23);
+            textBox7.TabIndex = 115;
+            textBox7.Tag = "";
             // 
             // button5
             // 
@@ -373,7 +407,7 @@
             tabPage3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             tabPage3.Name = "tabPage3";
             tabPage3.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            tabPage3.Size = new System.Drawing.Size(711, 370);
+            tabPage3.Size = new System.Drawing.Size(711, 347);
             tabPage3.TabIndex = 2;
             tabPage3.Text = "PRZEZBROJENIE";
             tabPage3.UseVisualStyleBackColor = true;
@@ -404,7 +438,7 @@
             tabPage4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             tabPage4.Name = "tabPage4";
             tabPage4.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            tabPage4.Size = new System.Drawing.Size(711, 370);
+            tabPage4.Size = new System.Drawing.Size(711, 347);
             tabPage4.TabIndex = 3;
             tabPage4.Text = "DANE";
             tabPage4.UseVisualStyleBackColor = true;
@@ -416,7 +450,7 @@
             tabControl2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             tabControl2.Name = "tabControl2";
             tabControl2.SelectedIndex = 0;
-            tabControl2.Size = new System.Drawing.Size(707, 351);
+            tabControl2.Size = new System.Drawing.Size(707, 334);
             tabControl2.TabIndex = 0;
             // 
             // tabPage8
@@ -462,7 +496,7 @@
             tabPage8.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             tabPage8.Name = "tabPage8";
             tabPage8.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            tabPage8.Size = new System.Drawing.Size(699, 323);
+            tabPage8.Size = new System.Drawing.Size(699, 306);
             tabPage8.TabIndex = 1;
             tabPage8.Text = "MODYFIKOWALNE";
             tabPage8.UseVisualStyleBackColor = true;
@@ -470,7 +504,7 @@
             // DB667Tag133
             // 
             DB667Tag133.AutoSize = true;
-            DB667Tag133.Location = new System.Drawing.Point(98, 294);
+            DB667Tag133.Location = new System.Drawing.Point(97, 279);
             DB667Tag133.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             DB667Tag133.Name = "DB667Tag133";
             DB667Tag133.Size = new System.Drawing.Size(15, 14);
@@ -715,7 +749,7 @@
             // label33
             // 
             label33.AutoSize = true;
-            label33.Location = new System.Drawing.Point(9, 295);
+            label33.Location = new System.Drawing.Point(8, 280);
             label33.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label33.Name = "label33";
             label33.Size = new System.Drawing.Size(71, 15);
@@ -875,7 +909,7 @@
             tabPage5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             tabPage5.Name = "tabPage5";
             tabPage5.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            tabPage5.Size = new System.Drawing.Size(711, 370);
+            tabPage5.Size = new System.Drawing.Size(711, 347);
             tabPage5.TabIndex = 4;
             tabPage5.Text = "UŻYTKOWNICY";
             tabPage5.UseVisualStyleBackColor = true;
@@ -1114,7 +1148,7 @@
             tabPage6.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             tabPage6.Name = "tabPage6";
             tabPage6.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            tabPage6.Size = new System.Drawing.Size(711, 370);
+            tabPage6.Size = new System.Drawing.Size(711, 347);
             tabPage6.TabIndex = 5;
             tabPage6.Text = "SERWIS";
             tabPage6.UseVisualStyleBackColor = true;
@@ -1175,7 +1209,7 @@
             tabPage9.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             tabPage9.Name = "tabPage9";
             tabPage9.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            tabPage9.Size = new System.Drawing.Size(711, 370);
+            tabPage9.Size = new System.Drawing.Size(711, 347);
             tabPage9.TabIndex = 6;
             tabPage9.Text = "WEJŚCIA/WYJŚCIA";
             tabPage9.UseVisualStyleBackColor = true;
@@ -1451,7 +1485,7 @@
             tabPage7.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             tabPage7.Name = "tabPage7";
             tabPage7.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            tabPage7.Size = new System.Drawing.Size(711, 370);
+            tabPage7.Size = new System.Drawing.Size(711, 347);
             tabPage7.TabIndex = 7;
             tabPage7.Text = "HISTORIA ALARMÓW";
             tabPage7.UseVisualStyleBackColor = true;
@@ -1468,7 +1502,7 @@
             listView1.Location = new System.Drawing.Point(4, 3);
             listView1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             listView1.Name = "listView1";
-            listView1.Size = new System.Drawing.Size(703, 364);
+            listView1.Size = new System.Drawing.Size(703, 341);
             listView1.TabIndex = 0;
             listView1.UseCompatibleStateImageBehavior = false;
             listView1.View = System.Windows.Forms.View.Details;
@@ -1944,6 +1978,108 @@
             OdliczaSekunde.Interval = 1000;
             OdliczaSekunde.Tick += timer4_Tick;
             // 
+            // textBox2
+            // 
+            textBox2.Location = new System.Drawing.Point(463, 17);
+            textBox2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new System.Drawing.Size(44, 23);
+            textBox2.TabIndex = 113;
+            // 
+            // label48
+            // 
+            label48.AutoSize = true;
+            label48.Location = new System.Drawing.Point(20, 454);
+            label48.Name = "label48";
+            label48.Size = new System.Drawing.Size(66, 15);
+            label48.TabIndex = 118;
+            label48.Text = "Poz. serwo:";
+            // 
+            // textBox8
+            // 
+            textBox8.Enabled = false;
+            textBox8.Location = new System.Drawing.Point(93, 454);
+            textBox8.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            textBox8.Name = "textBox8";
+            textBox8.Size = new System.Drawing.Size(44, 23);
+            textBox8.TabIndex = 117;
+            textBox8.Tag = "";
+            // 
+            // label49
+            // 
+            label49.AutoSize = true;
+            label49.Location = new System.Drawing.Point(163, 454);
+            label49.Name = "label49";
+            label49.Size = new System.Drawing.Size(66, 15);
+            label49.TabIndex = 120;
+            label49.Text = "Poz. serwo:";
+            // 
+            // textBox9
+            // 
+            textBox9.Enabled = false;
+            textBox9.Location = new System.Drawing.Point(236, 454);
+            textBox9.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            textBox9.Name = "textBox9";
+            textBox9.Size = new System.Drawing.Size(44, 23);
+            textBox9.TabIndex = 119;
+            textBox9.Tag = "";
+            // 
+            // label64
+            // 
+            label64.AutoSize = true;
+            label64.Location = new System.Drawing.Point(319, 454);
+            label64.Name = "label64";
+            label64.Size = new System.Drawing.Size(51, 15);
+            label64.TabIndex = 122;
+            label64.Text = "Akt. sila:";
+            // 
+            // textBox10
+            // 
+            textBox10.Enabled = false;
+            textBox10.Location = new System.Drawing.Point(392, 454);
+            textBox10.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            textBox10.Name = "textBox10";
+            textBox10.Size = new System.Drawing.Size(44, 23);
+            textBox10.TabIndex = 121;
+            textBox10.Tag = "";
+            // 
+            // label65
+            // 
+            label65.AutoSize = true;
+            label65.Location = new System.Drawing.Point(463, 454);
+            label65.Name = "label65";
+            label65.Size = new System.Drawing.Size(49, 15);
+            label65.TabIndex = 124;
+            label65.Text = "Akt Sila:";
+            // 
+            // textBox13
+            // 
+            textBox13.Enabled = false;
+            textBox13.Location = new System.Drawing.Point(536, 454);
+            textBox13.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            textBox13.Name = "textBox13";
+            textBox13.Size = new System.Drawing.Size(44, 23);
+            textBox13.TabIndex = 123;
+            textBox13.Tag = "";
+            // 
+            // maskedTextBox1
+            // 
+            maskedTextBox1.Location = new System.Drawing.Point(514, 17);
+            maskedTextBox1.Mask = "0000.0";
+            maskedTextBox1.Name = "maskedTextBox1";
+            maskedTextBox1.Size = new System.Drawing.Size(80, 23);
+            maskedTextBox1.TabIndex = 125;
+            // 
+            // label66
+            // 
+            label66.AutoSize = true;
+            label66.Location = new System.Drawing.Point(514, -1);
+            label66.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label66.Name = "label66";
+            label66.Size = new System.Drawing.Size(186, 15);
+            label66.TabIndex = 126;
+            label66.Text = "MaskedTextBox do odczytu Floata";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -1951,6 +2087,17 @@
             AutoSize = true;
             AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             ClientSize = new System.Drawing.Size(933, 565);
+            Controls.Add(label66);
+            Controls.Add(maskedTextBox1);
+            Controls.Add(label65);
+            Controls.Add(textBox13);
+            Controls.Add(label64);
+            Controls.Add(textBox10);
+            Controls.Add(label49);
+            Controls.Add(textBox9);
+            Controls.Add(label48);
+            Controls.Add(textBox8);
+            Controls.Add(textBox2);
             Controls.Add(DB666Tag17);
             Controls.Add(label63);
             Controls.Add(DB666Tag16);
@@ -2010,6 +2157,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             tabControl1.ResumeLayout(false);
             tabPage2.ResumeLayout(false);
+            tabPage2.PerformLayout();
             tabPage3.ResumeLayout(false);
             tabPage3.PerformLayout();
             tabPage4.ResumeLayout(false);
@@ -2197,6 +2345,19 @@
         public System.Windows.Forms.Button button1;
         public System.Windows.Forms.Button button6;
         public System.Windows.Forms.Button button7;
+        public System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label47;
+        public System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.Label label48;
+        public System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.Label label49;
+        public System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.Label label64;
+        public System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.Label label65;
+        public System.Windows.Forms.TextBox textBox13;
+        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
+        public System.Windows.Forms.Label label66;
     }
 }
 
