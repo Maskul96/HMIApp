@@ -14,11 +14,9 @@ namespace HMIApp
 {
     public class App : iApp
     {
+        public Form1 obj;
 
-
-        //Deklaracja zmiennych
-        //Zmienne do DBka do odczytania
-        //private readonly iCSVReader _csvReader;
+        #region Zmienne do DBka do odczytu 
         public int DBRead_position;
         public string DBRead_NumberOfDB;
         public int DBRead_position1;
@@ -29,9 +27,9 @@ namespace HMIApp
         public int DBRead_NrOfBitinByte;
         public int DBRead_LengthOfDataType;
         public string DBRead_TagName;
-        public Form1 obj;
+        #endregion
 
-        //Zmienne do DBka do zapisywania
+        #region Zmienne do DBka do zapisu
         public int DBWrite_position;
         public string DBWrite_NumberOfDB;
         public string DBWrite_DataTypeofTag;
@@ -41,9 +39,9 @@ namespace HMIApp
         public int DBWrite_LengthofDataType;
         public int DBWrite_NrOfByteinDB;
         public int DBWrite_NrOfBitinByte;
+        #endregion
 
-
-        //Zmienne do DBka do alarmów
+        #region Zmienne do DBka do odczytu Alarmów i komunikatow
         public int DBReadAlarm_position;
         public string DBReadAlarm_NumberOfDB;
         public int DBReadAlarm_position1;
@@ -75,9 +73,9 @@ namespace HMIApp
         public ListViewItem itemArchive5 = new ListViewItem();
         public ListViewItem itemArchive6 = new ListViewItem();
         public ListViewItem itemArchive7 = new ListViewItem();
+        #endregion
 
-
-        //Zmienne do DBka do IO
+        #region Zmienne do DBka do odczytu IO's
         public int DBReadIO_position;
         public string DBReadIO_NumberOfDB;
         public int DBReadIO_position1;
@@ -90,22 +88,8 @@ namespace HMIApp
         public string DBReadIO_AlarmName;
         public string DBReadIO_TagName;
         public string DBReadIO_DataTypeofTag;
+        #endregion
 
-        //konstruktor do wstrzykiwania csvReader - UNUSED
-        //public App(iCSVReader csvReader)
-        //{
-        //    _csvReader = csvReader;
-        //}
-
-
-        private readonly HMIAppDBContext _hmiAppDbContext;
-        //konstruktor do wstrzykiwania DBContext
-        public App(HMIAppDBContext hmiAppDbContext)
-        {
-            _hmiAppDbContext = hmiAppDbContext;
-            //w momencie wywolania konstruktora sprawdzamy czy nasza baza danych jest stworzona - jesli nie jest stworzona to ponizsza metoda ja utworzy
-            _hmiAppDbContext.Database.EnsureCreated();
-        }
         public App()
         {
 
@@ -133,9 +117,8 @@ namespace HMIApp
         public void RunInitPLC()
         {
             PLC.Init();
-
-           // int TimeoutPLC = PLC.dave_interface_.getTimeout();
-           // Form1._Form1.textBox5.Text = TimeoutPLC.ToString();
+            int TimeoutPLC = PLC.dave_interface_.getTimeout();
+            Form1._Form1.textBox5.Text = TimeoutPLC.ToString();
         }
 
         public void ClosePLCConnection()

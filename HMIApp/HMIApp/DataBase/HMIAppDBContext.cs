@@ -1,7 +1,7 @@
-﻿using HMIApp.Components.CSVReader.Models;
+﻿using HMIApp.Components.DataBase;
 using Microsoft.EntityFrameworkCore;
 
-namespace HMIApp.Data 
+namespace HMIApp.Data
 {
     public class HMIAppDBContext : DbContext
     {

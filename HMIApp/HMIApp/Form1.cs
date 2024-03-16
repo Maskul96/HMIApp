@@ -17,22 +17,37 @@ namespace HMIApp
 
         App App = new App();
         UserAdministration Users = new UserAdministration();
+        DataBase Data = new DataBase();
+        //Services do dependency injection
+        ServiceCollection services = new ServiceCollection();
+        ServiceProvider serviceProvider;
+
+        //konstruktor Form1
         public Form1()
         {
             InitializeComponent();
             _Form1 = this;
+            Data.Run();
+            #region zakomentowane services ktore bylo wczesniej
+            ////Services do dependency injection
+            //var services = new ServiceCollection();
+            //services.AddSingleton<iDataBase, DataBase>();
+            ////ZArejestrowanie DBContextu - connection string wrzucic pozniej w jakis plik konfiguracyjny
+            //services.AddDbContext<HMIAppDBContext>(options => options
+            //.UseSqlServer(Data.ConnectionString));
+            //var serviceProvider = services.BuildServiceProvider();
+            //var database = serviceProvider.GetService<iDataBase>();
+            //database.SaveToDataBase();
+            //database.ReadFromDataBase();
+            # endregion koniec komentarza services
 
             //Services do dependency injection
-            var services = new ServiceCollection();
-            services.AddSingleton<iApp, App>();
-            //services.AddSingleton<iCSVReader, CSVReader>();
-
-            //ZArejestrowanie DBContextu - connection string wrzucic pozniej w jakis plik konfiguracyjny
+            services.AddSingleton<iDataBase, DataBase>();
+            //ZArejestrowanie DBContextu - Stworzenie połączenia do bazy danych i service providera
             services.AddDbContext<HMIAppDBContext>(options => options
-            .UseSqlServer("Data Source=NB022173\\SQLEXPRESS;Initial Catalog=test699;Integrated Security=True;Trust Server Certificate=True"));
-
-            var serviceProvider = services.BuildServiceProvider();
-            var app = serviceProvider.GetService<iApp>();
+            .UseSqlServer(Data.ConnectionString));
+            serviceProvider = services.BuildServiceProvider();
+            ReadFromDb();
 
             Users.Run();
             //App.RunInitPLC();
@@ -49,6 +64,13 @@ namespace HMIApp
         }
         //statyczna zmienna typu Form1 zeby dostac sie z poziomu innej klasy do obiektow wewnatrz Form1
         public static Form1 _Form1;
+
+       //TESTOWA METODA DO ODCZYTU DANYCH Z BAZY
+        public void ReadFromDb()
+        {
+            var database = serviceProvider.GetService<iDataBase>();
+            database.ReadFromDataBase();
+        }
 
         //Zapis 
         private void button1_Click(object sender, EventArgs e)
@@ -79,7 +101,7 @@ namespace HMIApp
 
             this.Text = DateTime.Now.ToString();
             label57.Text = this.Text;
-             maskedTextBox1.Text = textBox2.Text;
+            maskedTextBox1.Text = textBox2.Text;
 
         }
 
@@ -166,6 +188,11 @@ namespace HMIApp
             }
         }
 
-
+        //TESTOWY PRZYCISK WYZWALAJACY ZAPIS
+        private void button10_Click(object sender, EventArgs e)
+        {
+            var database = serviceProvider.GetService<iDataBase>();
+            database.SaveToDataBase();
+        }
     }
 }

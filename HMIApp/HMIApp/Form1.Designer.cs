@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
             DB666Tag2 = new System.Windows.Forms.TextBox();
             DB666Tag3 = new System.Windows.Forms.TextBox();
             DB666Tag4 = new System.Windows.Forms.TextBox();
@@ -52,6 +52,7 @@
             tabPage4 = new System.Windows.Forms.TabPage();
             tabControl2 = new System.Windows.Forms.TabControl();
             tabPage8 = new System.Windows.Forms.TabPage();
+            DB667Tag666 = new System.Windows.Forms.TextBox();
             DB667Tag133 = new System.Windows.Forms.CheckBox();
             DB667Tag122 = new System.Windows.Forms.CheckBox();
             DB667Tag1111 = new System.Windows.Forms.CheckBox();
@@ -207,7 +208,7 @@
             maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             label66 = new System.Windows.Forms.Label();
             DB666Tag6 = new System.Windows.Forms.MaskedTextBox();
-            DB667Tag666 = new System.Windows.Forms.TextBox();
+            button10 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             tabControl1.SuspendLayout();
             tabPage2.SuspendLayout();
@@ -491,6 +492,15 @@
             tabPage8.TabIndex = 1;
             tabPage8.Text = "MODYFIKOWALNE";
             tabPage8.UseVisualStyleBackColor = true;
+            // 
+            // DB667Tag666
+            // 
+            DB667Tag666.Location = new System.Drawing.Point(377, 207);
+            DB667Tag666.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            DB667Tag666.Name = "DB667Tag666";
+            DB667Tag666.Size = new System.Drawing.Size(69, 23);
+            DB667Tag666.TabIndex = 130;
+            DB667Tag666.Tag = "DB667.Tag666";
             // 
             // DB667Tag133
             // 
@@ -1480,7 +1490,7 @@
             listView1.ForeColor = System.Drawing.SystemColors.InfoText;
             listView1.FullRowSelect = true;
             listView1.GridLines = true;
-            listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] { listViewItem2 });
+            listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] { listViewItem1 });
             listView1.Location = new System.Drawing.Point(4, 3);
             listView1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             listView1.Name = "listView1";
@@ -2064,20 +2074,22 @@
             // 
             // DB666Tag6
             // 
-            DB666Tag6.Location = new System.Drawing.Point(835, 327);
+            DB666Tag6.Enabled = false;
+            DB666Tag6.Location = new System.Drawing.Point(863, 327);
             DB666Tag6.Mask = "0000.0";
             DB666Tag6.Name = "DB666Tag6";
-            DB666Tag6.Size = new System.Drawing.Size(80, 23);
+            DB666Tag6.Size = new System.Drawing.Size(44, 23);
             DB666Tag6.TabIndex = 127;
             // 
-            // DB667Tag666
+            // button10
             // 
-            DB667Tag666.Location = new System.Drawing.Point(377, 207);
-            DB667Tag666.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            DB667Tag666.Name = "DB667Tag666";
-            DB667Tag666.Size = new System.Drawing.Size(69, 23);
-            DB667Tag666.TabIndex = 130;
-            DB667Tag666.Tag = "DB667.Tag666";
+            button10.Location = new System.Drawing.Point(481, 13);
+            button10.Name = "button10";
+            button10.Size = new System.Drawing.Size(75, 23);
+            button10.TabIndex = 128;
+            button10.Text = "button10";
+            button10.UseVisualStyleBackColor = true;
+            button10.Click += button10_Click;
             // 
             // Form1
             // 
@@ -2086,6 +2098,7 @@
             AutoSize = true;
             AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             ClientSize = new System.Drawing.Size(933, 565);
+            Controls.Add(button10);
             Controls.Add(DB666Tag6);
             Controls.Add(label66);
             Controls.Add(maskedTextBox1);
@@ -2357,6 +2370,7 @@
         public System.Windows.Forms.Label label66;
         public System.Windows.Forms.MaskedTextBox DB666Tag6;
         public System.Windows.Forms.TextBox DB667Tag666;
+        private System.Windows.Forms.Button button10;
     }
 }
 

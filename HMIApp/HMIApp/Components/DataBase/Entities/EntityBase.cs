@@ -1,5 +1,4 @@
-﻿
-namespace HMIApp.Components.CSVReader.Models
+﻿namespace HMIApp.Components.DataBase.Entities
 {
     public class EntityBase
     {
