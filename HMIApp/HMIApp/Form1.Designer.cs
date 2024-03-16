@@ -29,12 +29,11 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("");
             DB666Tag2 = new System.Windows.Forms.TextBox();
             DB666Tag3 = new System.Windows.Forms.TextBox();
             DB666Tag4 = new System.Windows.Forms.TextBox();
             DB666Tag5 = new System.Windows.Forms.TextBox();
-            DB666Tag6 = new System.Windows.Forms.TextBox();
             DB666Tag7 = new System.Windows.Forms.TextBox();
             OdczytDB = new System.Windows.Forms.Timer(components);
             DB666Tag14 = new System.Windows.Forms.TextBox();
@@ -67,7 +66,6 @@
             label29 = new System.Windows.Forms.Label();
             label30 = new System.Windows.Forms.Label();
             DB667Tag777 = new System.Windows.Forms.TextBox();
-            DB667Tag666 = new System.Windows.Forms.TextBox();
             DB667Tag555 = new System.Windows.Forms.TextBox();
             DB667Tag333 = new System.Windows.Forms.TextBox();
             DB667Tag444 = new System.Windows.Forms.TextBox();
@@ -208,6 +206,8 @@
             textBox13 = new System.Windows.Forms.TextBox();
             maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             label66 = new System.Windows.Forms.Label();
+            DB666Tag6 = new System.Windows.Forms.MaskedTextBox();
+            DB667Tag666 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             tabControl1.SuspendLayout();
             tabPage2.SuspendLayout();
@@ -260,15 +260,6 @@
             DB666Tag5.Name = "DB666Tag5";
             DB666Tag5.Size = new System.Drawing.Size(44, 23);
             DB666Tag5.TabIndex = 16;
-            // 
-            // DB666Tag6
-            // 
-            DB666Tag6.Enabled = false;
-            DB666Tag6.Location = new System.Drawing.Point(863, 332);
-            DB666Tag6.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            DB666Tag6.Name = "DB666Tag6";
-            DB666Tag6.Size = new System.Drawing.Size(44, 23);
-            DB666Tag6.TabIndex = 17;
             // 
             // DB666Tag7
             // 
@@ -455,6 +446,7 @@
             // 
             // tabPage8
             // 
+            tabPage8.Controls.Add(DB667Tag666);
             tabPage8.Controls.Add(DB667Tag133);
             tabPage8.Controls.Add(DB667Tag122);
             tabPage8.Controls.Add(DB667Tag1111);
@@ -469,7 +461,6 @@
             tabPage8.Controls.Add(label29);
             tabPage8.Controls.Add(label30);
             tabPage8.Controls.Add(DB667Tag777);
-            tabPage8.Controls.Add(DB667Tag666);
             tabPage8.Controls.Add(DB667Tag555);
             tabPage8.Controls.Add(DB667Tag333);
             tabPage8.Controls.Add(DB667Tag444);
@@ -649,15 +640,6 @@
             DB667Tag777.Size = new System.Drawing.Size(69, 23);
             DB667Tag777.TabIndex = 63;
             DB667Tag777.Tag = "DB667.Tag777";
-            // 
-            // DB667Tag666
-            // 
-            DB667Tag666.Location = new System.Drawing.Point(377, 207);
-            DB667Tag666.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            DB667Tag666.Name = "DB667Tag666";
-            DB667Tag666.Size = new System.Drawing.Size(69, 23);
-            DB667Tag666.TabIndex = 58;
-            DB667Tag666.Tag = "DB667.Tag666";
             // 
             // DB667Tag555
             // 
@@ -1498,7 +1480,7 @@
             listView1.ForeColor = System.Drawing.SystemColors.InfoText;
             listView1.FullRowSelect = true;
             listView1.GridLines = true;
-            listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] { listViewItem1 });
+            listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] { listViewItem2 });
             listView1.Location = new System.Drawing.Point(4, 3);
             listView1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             listView1.Name = "listView1";
@@ -1980,7 +1962,7 @@
             // 
             // textBox2
             // 
-            textBox2.Location = new System.Drawing.Point(463, 17);
+            textBox2.Location = new System.Drawing.Point(731, 480);
             textBox2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             textBox2.Name = "textBox2";
             textBox2.Size = new System.Drawing.Size(44, 23);
@@ -2064,7 +2046,7 @@
             // 
             // maskedTextBox1
             // 
-            maskedTextBox1.Location = new System.Drawing.Point(514, 17);
+            maskedTextBox1.Location = new System.Drawing.Point(782, 480);
             maskedTextBox1.Mask = "0000.0";
             maskedTextBox1.Name = "maskedTextBox1";
             maskedTextBox1.Size = new System.Drawing.Size(80, 23);
@@ -2073,12 +2055,29 @@
             // label66
             // 
             label66.AutoSize = true;
-            label66.Location = new System.Drawing.Point(514, -1);
+            label66.Location = new System.Drawing.Point(731, 462);
             label66.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label66.Name = "label66";
             label66.Size = new System.Drawing.Size(186, 15);
             label66.TabIndex = 126;
             label66.Text = "MaskedTextBox do odczytu Floata";
+            // 
+            // DB666Tag6
+            // 
+            DB666Tag6.Location = new System.Drawing.Point(835, 327);
+            DB666Tag6.Mask = "0000.0";
+            DB666Tag6.Name = "DB666Tag6";
+            DB666Tag6.Size = new System.Drawing.Size(80, 23);
+            DB666Tag6.TabIndex = 127;
+            // 
+            // DB667Tag666
+            // 
+            DB667Tag666.Location = new System.Drawing.Point(377, 207);
+            DB667Tag666.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            DB667Tag666.Name = "DB667Tag666";
+            DB667Tag666.Size = new System.Drawing.Size(69, 23);
+            DB667Tag666.TabIndex = 130;
+            DB667Tag666.Tag = "DB667.Tag666";
             // 
             // Form1
             // 
@@ -2087,6 +2086,7 @@
             AutoSize = true;
             AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             ClientSize = new System.Drawing.Size(933, 565);
+            Controls.Add(DB666Tag6);
             Controls.Add(label66);
             Controls.Add(maskedTextBox1);
             Controls.Add(label65);
@@ -2142,7 +2142,6 @@
             Controls.Add(label7);
             Controls.Add(tabControl1);
             Controls.Add(pictureBox1);
-            Controls.Add(DB666Tag6);
             Controls.Add(Uzytkownik);
             Controls.Add(DB666Tag5);
             Controls.Add(label9);
@@ -2229,7 +2228,6 @@
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Label label30;
         public System.Windows.Forms.TextBox DB667Tag777;
-        public System.Windows.Forms.TextBox DB667Tag666;
         public System.Windows.Forms.TextBox DB667Tag555;
         public System.Windows.Forms.TextBox DB667Tag333;
         public System.Windows.Forms.TextBox DB667Tag444;
@@ -2268,7 +2266,6 @@
         public System.Windows.Forms.CheckBox DB667Tag888;
         public System.Windows.Forms.CheckBox DB667Tag111;
         public System.Windows.Forms.CheckBox DB667Tag000;
-        public System.Windows.Forms.TextBox DB666Tag6;
         private System.Windows.Forms.ComboBox comboBox1;
         public System.Windows.Forms.TextBox DB666Tag17;
         public System.Windows.Forms.TextBox DB666Tag16;
@@ -2358,6 +2355,8 @@
         public System.Windows.Forms.TextBox textBox13;
         private System.Windows.Forms.MaskedTextBox maskedTextBox1;
         public System.Windows.Forms.Label label66;
+        public System.Windows.Forms.MaskedTextBox DB666Tag6;
+        public System.Windows.Forms.TextBox DB667Tag666;
     }
 }
 

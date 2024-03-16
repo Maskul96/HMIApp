@@ -194,6 +194,7 @@ namespace HMIApp
                         DBRead_position1 = dbTag.TagName.IndexOf(".");
                         DBRead_TagName = dbTag.TagName.Remove(DBRead_position1, 1);
                         TextBox txt;
+                        MaskedTextBox Mtxt;
                         CheckBox chk;
                         switch (DBRead_NrOfBitinByte)
                         {
@@ -359,15 +360,15 @@ namespace HMIApp
                         DBRead_TagName = dbTag.TagName.Remove(DBRead_position1, 1);
                         DBRead_NrOfByteinDB = dbTag.NumberOfByteInDB;
 
-                        txt = Form1._Form1.Controls.Find($"{DBRead_TagName}", true).FirstOrDefault() as TextBox;
-                        if (txt == null)
+                        Mtxt = Form1._Form1.Controls.Find($"{DBRead_TagName}", true).FirstOrDefault() as MaskedTextBox;
+                        if (Mtxt == null)
                         {
                             //Wyjscie z case'a jesli nie znajdzie textboxa i bedzie nullem
                             break;
                         }
                         else
                         {
-                            txt.Text = Convert.ToString(libnodave.getFloatfrom(DB, DBRead_NrOfByteinDB));
+                            Mtxt.Text = Convert.ToString(libnodave.getFloatfrom(DB, DBRead_NrOfByteinDB));
                         }
 
                         break;
