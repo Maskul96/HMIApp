@@ -13,7 +13,7 @@ namespace HMIApp
 
         void ReadIOFromDB(string filepath);
         bool GetBit(byte b, int bitNumber);
-        void WriteToDB(string valuetoWrite, string DataTypeofTag);
+        void WriteToDB(string valuetoWrite, string DataTypeofTag, int filenameIndex);
 
     }
 }

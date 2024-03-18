@@ -412,10 +412,20 @@ namespace HMIApp
         }
 
         //Zapis danych do DB i odczyt pliku z zapisywaniem
-        public void WriteToDB(string valuetoWrite, string NameofTaginDB)
+        //Index = 0 zapis do DB666, index = 1 zapis do DB667
+        public void WriteToDB(string valuetoWrite, string NameofTaginDB, int filenameIndex = 0)
         {
+            string filename="";
+            if(filenameIndex == 0)
+            {
+                filename = "D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_0.csv";
+            }
+            else if (filenameIndex == 1) 
+            {
+                filename = "D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_1.csv";
+            }
             //Odczyt listy z tagami do zapisu
-            var dbtags = CSVReader.DBStructure("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_1.csv");
+            var dbtags = CSVReader.DBStructure(filename);
 
             foreach (var dbTag in dbtags)
             {

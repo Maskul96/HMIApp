@@ -48,7 +48,6 @@ namespace HMIApp
             .UseSqlServer(Data.ConnectionString));
             serviceProvider = services.BuildServiceProvider();
             ReadFromDb();
-
             Users.Run();
             //App.RunInitPLC();
             //App.ReadActualValueFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_0.csv");
@@ -65,29 +64,31 @@ namespace HMIApp
         //statyczna zmienna typu Form1 zeby dostac sie z poziomu innej klasy do obiektow wewnatrz Form1
         public static Form1 _Form1;
 
-       //TESTOWA METODA DO ODCZYTU DANYCH Z BAZY
+        //TESTOWA METODA DO ODCZYTU DANYCH Z BAZY
         public void ReadFromDb()
         {
             var database = serviceProvider.GetService<iDataBase>();
-            database.ReadFromDataBase();
+            // database.SelectFromDataBase();
+            database.SelectFromDataBase("1234");
+            database.SelectFromDbToComboBox();
         }
 
         //Zapis 
         private void button1_Click(object sender, EventArgs e)
         {
-            App.WriteToDB(DB667Tag000.Checked.ToString(), DB667Tag000.Tag.ToString());
-            App.WriteToDB(DB667Tag111.Checked.ToString(), DB667Tag111.Tag.ToString());
-            App.WriteToDB(DB667Tag888.Checked.ToString(), DB667Tag888.Tag.ToString());
-            App.WriteToDB(DB667Tag999.Checked.ToString(), DB667Tag999.Tag.ToString());
-            App.WriteToDB(DB667Tag100.Checked.ToString(), DB667Tag100.Tag.ToString());
-            App.WriteToDB(DB667Tag1111.Checked.ToString(), DB667Tag1111.Tag.ToString());
-            App.WriteToDB(DB667Tag122.Checked.ToString(), DB667Tag122.Tag.ToString());
-            App.WriteToDB(DB667Tag133.Checked.ToString(), DB667Tag133.Tag.ToString());
-            App.WriteToDB(DB667Tag222.Text, DB667Tag222.Tag.ToString());
-            App.WriteToDB(DB667Tag444.Text, DB667Tag444.Tag.ToString());
-            App.WriteToDB(DB667Tag666.Text, DB667Tag666.Tag.ToString());
-            App.WriteToDB(DB667Tag2222.Text, DB667Tag2222.Tag.ToString());
-            App.WriteToDB(DB667Tag2223.Text, DB667Tag2223.Tag.ToString());
+            App.WriteToDB(DB666Tag0PassedValue.Checked.ToString(), DB666Tag0PassedValue.Tag.ToString());
+            App.WriteToDB(DB666Tag1PassedValue.Checked.ToString(), DB666Tag1PassedValue.Tag.ToString());
+            App.WriteToDB(DB666Tag8PassedValue.Checked.ToString(), DB666Tag8PassedValue.Tag.ToString());
+            App.WriteToDB(DB666Tag9PassedValue.Checked.ToString(), DB666Tag9PassedValue.Tag.ToString());
+            App.WriteToDB(DB666Tag10PassedValue.Checked.ToString(), DB666Tag10PassedValue.Tag.ToString());
+            App.WriteToDB(DB666Tag11PassedValue.Checked.ToString(), DB666Tag11PassedValue.Tag.ToString());
+            App.WriteToDB(DB666Tag12PassedValue.Checked.ToString(), DB666Tag12PassedValue.Tag.ToString());
+            App.WriteToDB(DB666Tag13PassedValue.Checked.ToString(), DB666Tag13PassedValue.Tag.ToString());
+            App.WriteToDB(DB666Tag2PassedValue.Text, DB666Tag2PassedValue.Tag.ToString());
+            App.WriteToDB(DB666Tag4PassedValue.Text, DB666Tag4PassedValue.Tag.ToString());
+            App.WriteToDB(DB666Tag6PassedValue.Text, DB666Tag6PassedValue.Tag.ToString());
+            App.WriteToDB(DB666Tag16PassedValue.Text, DB666Tag16PassedValue.Tag.ToString());
+            App.WriteToDB(DB666Tag17PassedValue.Text, DB666Tag17PassedValue.Tag.ToString());
 
 
         }
@@ -192,7 +193,13 @@ namespace HMIApp
         private void button10_Click(object sender, EventArgs e)
         {
             var database = serviceProvider.GetService<iDataBase>();
-            database.SaveToDataBase();
+            database.InsertToDataBase();
+        }
+
+        private void comboBox5_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var database = serviceProvider.GetService<iDataBase>();
+            database.SelectFromDataBase(comboBox5.Text);
         }
     }
 }

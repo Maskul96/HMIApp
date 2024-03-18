@@ -1,4 +1,6 @@
 ﻿
+using HMIApp.Components.DataBase;
+
 namespace HMIApp.Data
 {
     public interface iDataBase
@@ -6,8 +8,13 @@ namespace HMIApp.Data
         string ReadConfFile(string filepath);
         void Run();
 
-        void SaveToDataBase();
+        void InsertToDataBase();
 
-        void ReadFromDataBase();
+        void SelectFromDataBase(string referencenumber);
+        void SelectFromDbToComboBox();
+        Reference? ReadFirst(string referencenumber);
+        void UpdateDb(string referencenumber);
+        void Delete(string referencenumber);
+
     }
 }
