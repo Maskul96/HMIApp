@@ -88,15 +88,7 @@
             textBox13 = new System.Windows.Forms.TextBox();
             maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             label66 = new System.Windows.Forms.Label();
-            DB666Tag6 = new System.Windows.Forms.MaskedTextBox();
             button10 = new System.Windows.Forms.Button();
-            DB666Tag15 = new System.Windows.Forms.MaskedTextBox();
-            DB666Tag7 = new System.Windows.Forms.MaskedTextBox();
-            DB666Tag14 = new System.Windows.Forms.MaskedTextBox();
-            DB666Tag5 = new System.Windows.Forms.MaskedTextBox();
-            DB666Tag4 = new System.Windows.Forms.MaskedTextBox();
-            DB666Tag3 = new System.Windows.Forms.MaskedTextBox();
-            DB666Tag2 = new System.Windows.Forms.MaskedTextBox();
             DB666Tag20 = new System.Windows.Forms.TextBox();
             DB666Tag21 = new System.Windows.Forms.TextBox();
             DB666Tag18 = new System.Windows.Forms.TextBox();
@@ -172,6 +164,7 @@
             tabPage4 = new System.Windows.Forms.TabPage();
             Poprzednia = new System.Windows.Forms.TabControl();
             tabPage8 = new System.Windows.Forms.TabPage();
+            label103 = new System.Windows.Forms.Label();
             button13 = new System.Windows.Forms.Button();
             label102 = new System.Windows.Forms.Label();
             label72 = new System.Windows.Forms.Label();
@@ -283,6 +276,14 @@
             button4 = new System.Windows.Forms.Button();
             tabPage1 = new System.Windows.Forms.TabPage();
             tabControl1 = new System.Windows.Forms.TabControl();
+            DB666Tag2 = new System.Windows.Forms.TextBox();
+            DB666Tag3 = new System.Windows.Forms.TextBox();
+            DB666Tag4 = new System.Windows.Forms.TextBox();
+            DB666Tag5 = new System.Windows.Forms.TextBox();
+            DB666Tag6 = new System.Windows.Forms.TextBox();
+            DB666Tag15 = new System.Windows.Forms.TextBox();
+            DB666Tag7 = new System.Windows.Forms.TextBox();
+            DB666Tag14 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             tabPage7.SuspendLayout();
             tabPage9.SuspendLayout();
@@ -871,15 +872,6 @@
             label66.TabIndex = 126;
             label66.Text = "MaskedTextBox do odczytu Floata";
             // 
-            // DB666Tag6
-            // 
-            DB666Tag6.Enabled = false;
-            DB666Tag6.Location = new System.Drawing.Point(858, 266);
-            DB666Tag6.Mask = "0000.0";
-            DB666Tag6.Name = "DB666Tag6";
-            DB666Tag6.Size = new System.Drawing.Size(44, 23);
-            DB666Tag6.TabIndex = 127;
-            // 
             // button10
             // 
             button10.Location = new System.Drawing.Point(481, 13);
@@ -889,69 +881,6 @@
             button10.Text = "button10";
             button10.UseVisualStyleBackColor = true;
             button10.Click += button10_Click;
-            // 
-            // DB666Tag15
-            // 
-            DB666Tag15.Enabled = false;
-            DB666Tag15.Location = new System.Drawing.Point(858, 299);
-            DB666Tag15.Mask = "0000.0";
-            DB666Tag15.Name = "DB666Tag15";
-            DB666Tag15.Size = new System.Drawing.Size(44, 23);
-            DB666Tag15.TabIndex = 129;
-            // 
-            // DB666Tag7
-            // 
-            DB666Tag7.Enabled = false;
-            DB666Tag7.Location = new System.Drawing.Point(858, 328);
-            DB666Tag7.Mask = "0000.0";
-            DB666Tag7.Name = "DB666Tag7";
-            DB666Tag7.Size = new System.Drawing.Size(44, 23);
-            DB666Tag7.TabIndex = 130;
-            // 
-            // DB666Tag14
-            // 
-            DB666Tag14.Enabled = false;
-            DB666Tag14.Location = new System.Drawing.Point(858, 354);
-            DB666Tag14.Mask = "0000.0";
-            DB666Tag14.Name = "DB666Tag14";
-            DB666Tag14.Size = new System.Drawing.Size(44, 23);
-            DB666Tag14.TabIndex = 131;
-            // 
-            // DB666Tag5
-            // 
-            DB666Tag5.Enabled = false;
-            DB666Tag5.Location = new System.Drawing.Point(858, 237);
-            DB666Tag5.Mask = "0000.0";
-            DB666Tag5.Name = "DB666Tag5";
-            DB666Tag5.Size = new System.Drawing.Size(44, 23);
-            DB666Tag5.TabIndex = 132;
-            // 
-            // DB666Tag4
-            // 
-            DB666Tag4.Enabled = false;
-            DB666Tag4.Location = new System.Drawing.Point(858, 206);
-            DB666Tag4.Mask = "0000.0";
-            DB666Tag4.Name = "DB666Tag4";
-            DB666Tag4.Size = new System.Drawing.Size(44, 23);
-            DB666Tag4.TabIndex = 133;
-            // 
-            // DB666Tag3
-            // 
-            DB666Tag3.Enabled = false;
-            DB666Tag3.Location = new System.Drawing.Point(858, 176);
-            DB666Tag3.Mask = "0000.0";
-            DB666Tag3.Name = "DB666Tag3";
-            DB666Tag3.Size = new System.Drawing.Size(44, 23);
-            DB666Tag3.TabIndex = 134;
-            // 
-            // DB666Tag2
-            // 
-            DB666Tag2.Enabled = false;
-            DB666Tag2.Location = new System.Drawing.Point(858, 147);
-            DB666Tag2.Mask = "0000.0";
-            DB666Tag2.Name = "DB666Tag2";
-            DB666Tag2.Size = new System.Drawing.Size(44, 23);
-            DB666Tag2.TabIndex = 135;
             // 
             // DB666Tag20
             // 
@@ -1720,6 +1649,7 @@
             // 
             // tabPage8
             // 
+            tabPage8.Controls.Add(label103);
             tabPage8.Controls.Add(button13);
             tabPage8.Controls.Add(label102);
             tabPage8.Controls.Add(label72);
@@ -1780,6 +1710,16 @@
             tabPage8.TabIndex = 1;
             tabPage8.Text = "MODYFIKOWALNE";
             tabPage8.UseVisualStyleBackColor = true;
+            // 
+            // label103
+            // 
+            label103.AutoSize = true;
+            label103.Location = new System.Drawing.Point(421, 128);
+            label103.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label103.Name = "label103";
+            label103.Size = new System.Drawing.Size(264, 15);
+            label103.TabIndex = 154;
+            label103.Text = "Real wpisujemy tylko po przecinku nie po kropce";
             // 
             // button13
             // 
@@ -1852,7 +1792,6 @@
             // 
             // DB666Tag22PassedValue
             // 
-            DB666Tag22PassedValue.Enabled = false;
             DB666Tag22PassedValue.Location = new System.Drawing.Point(557, 276);
             DB666Tag22PassedValue.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             DB666Tag22PassedValue.Name = "DB666Tag22PassedValue";
@@ -1862,7 +1801,6 @@
             // 
             // DB666Tag19PassedValue
             // 
-            DB666Tag19PassedValue.Enabled = false;
             DB666Tag19PassedValue.Location = new System.Drawing.Point(528, 247);
             DB666Tag19PassedValue.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             DB666Tag19PassedValue.Name = "DB666Tag19PassedValue";
@@ -1881,7 +1819,6 @@
             // 
             // DB666Tag18PassedValue
             // 
-            DB666Tag18PassedValue.Enabled = false;
             DB666Tag18PassedValue.Location = new System.Drawing.Point(528, 218);
             DB666Tag18PassedValue.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             DB666Tag18PassedValue.Name = "DB666Tag18PassedValue";
@@ -1891,7 +1828,6 @@
             // 
             // DB666Tag21PassedValue
             // 
-            DB666Tag21PassedValue.Enabled = false;
             DB666Tag21PassedValue.Location = new System.Drawing.Point(632, 247);
             DB666Tag21PassedValue.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             DB666Tag21PassedValue.Name = "DB666Tag21PassedValue";
@@ -1901,7 +1837,6 @@
             // 
             // DB666Tag20PassedValue
             // 
-            DB666Tag20PassedValue.Enabled = false;
             DB666Tag20PassedValue.Location = new System.Drawing.Point(632, 218);
             DB666Tag20PassedValue.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             DB666Tag20PassedValue.Name = "DB666Tag20PassedValue";
@@ -2968,6 +2903,70 @@
             tabControl1.Size = new System.Drawing.Size(719, 375);
             tabControl1.TabIndex = 70;
             // 
+            // DB666Tag2
+            // 
+            DB666Tag2.Enabled = false;
+            DB666Tag2.Location = new System.Drawing.Point(858, 146);
+            DB666Tag2.Name = "DB666Tag2";
+            DB666Tag2.Size = new System.Drawing.Size(43, 23);
+            DB666Tag2.TabIndex = 146;
+            // 
+            // DB666Tag3
+            // 
+            DB666Tag3.Enabled = false;
+            DB666Tag3.Location = new System.Drawing.Point(858, 176);
+            DB666Tag3.Name = "DB666Tag3";
+            DB666Tag3.Size = new System.Drawing.Size(43, 23);
+            DB666Tag3.TabIndex = 147;
+            // 
+            // DB666Tag4
+            // 
+            DB666Tag4.Enabled = false;
+            DB666Tag4.Location = new System.Drawing.Point(858, 206);
+            DB666Tag4.Name = "DB666Tag4";
+            DB666Tag4.Size = new System.Drawing.Size(43, 23);
+            DB666Tag4.TabIndex = 148;
+            // 
+            // DB666Tag5
+            // 
+            DB666Tag5.Enabled = false;
+            DB666Tag5.Location = new System.Drawing.Point(858, 242);
+            DB666Tag5.Name = "DB666Tag5";
+            DB666Tag5.Size = new System.Drawing.Size(43, 23);
+            DB666Tag5.TabIndex = 149;
+            // 
+            // DB666Tag6
+            // 
+            DB666Tag6.Enabled = false;
+            DB666Tag6.Location = new System.Drawing.Point(858, 271);
+            DB666Tag6.Name = "DB666Tag6";
+            DB666Tag6.Size = new System.Drawing.Size(43, 23);
+            DB666Tag6.TabIndex = 150;
+            // 
+            // DB666Tag15
+            // 
+            DB666Tag15.Enabled = false;
+            DB666Tag15.Location = new System.Drawing.Point(858, 300);
+            DB666Tag15.Name = "DB666Tag15";
+            DB666Tag15.Size = new System.Drawing.Size(43, 23);
+            DB666Tag15.TabIndex = 151;
+            // 
+            // DB666Tag7
+            // 
+            DB666Tag7.Enabled = false;
+            DB666Tag7.Location = new System.Drawing.Point(858, 327);
+            DB666Tag7.Name = "DB666Tag7";
+            DB666Tag7.Size = new System.Drawing.Size(43, 23);
+            DB666Tag7.TabIndex = 152;
+            // 
+            // DB666Tag14
+            // 
+            DB666Tag14.Enabled = false;
+            DB666Tag14.Location = new System.Drawing.Point(858, 354);
+            DB666Tag14.Name = "DB666Tag14";
+            DB666Tag14.Size = new System.Drawing.Size(43, 23);
+            DB666Tag14.TabIndex = 153;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -2975,6 +2974,14 @@
             AutoSize = true;
             AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             ClientSize = new System.Drawing.Size(933, 565);
+            Controls.Add(DB666Tag14);
+            Controls.Add(DB666Tag7);
+            Controls.Add(DB666Tag15);
+            Controls.Add(DB666Tag6);
+            Controls.Add(DB666Tag5);
+            Controls.Add(DB666Tag4);
+            Controls.Add(DB666Tag3);
+            Controls.Add(DB666Tag2);
             Controls.Add(label71);
             Controls.Add(label70);
             Controls.Add(label69);
@@ -2985,15 +2992,7 @@
             Controls.Add(DB666Tag18);
             Controls.Add(DB666Tag21);
             Controls.Add(DB666Tag20);
-            Controls.Add(DB666Tag2);
-            Controls.Add(DB666Tag3);
-            Controls.Add(DB666Tag4);
-            Controls.Add(DB666Tag5);
-            Controls.Add(DB666Tag14);
-            Controls.Add(DB666Tag7);
-            Controls.Add(DB666Tag15);
             Controls.Add(button10);
-            Controls.Add(DB666Tag6);
             Controls.Add(label66);
             Controls.Add(maskedTextBox1);
             Controls.Add(label65);
@@ -3137,15 +3136,7 @@
         public System.Windows.Forms.TextBox textBox13;
         private System.Windows.Forms.MaskedTextBox maskedTextBox1;
         public System.Windows.Forms.Label label66;
-        public System.Windows.Forms.MaskedTextBox DB666Tag6;
         private System.Windows.Forms.Button button10;
-        public System.Windows.Forms.MaskedTextBox DB666Tag15;
-        public System.Windows.Forms.MaskedTextBox DB666Tag7;
-        public System.Windows.Forms.MaskedTextBox DB666Tag14;
-        public System.Windows.Forms.MaskedTextBox DB666Tag5;
-        public System.Windows.Forms.MaskedTextBox DB666Tag4;
-        public System.Windows.Forms.MaskedTextBox DB666Tag3;
-        public System.Windows.Forms.MaskedTextBox DB666Tag2;
         public System.Windows.Forms.TextBox DB666Tag20;
         public System.Windows.Forms.TextBox DB666Tag21;
         public System.Windows.Forms.TextBox DB666Tag18;
@@ -3332,6 +3323,15 @@
         private System.Windows.Forms.Label label102;
         public System.Windows.Forms.ComboBox comboBox5;
         public System.Windows.Forms.Button button13;
+        public System.Windows.Forms.TextBox DB666Tag2;
+        public System.Windows.Forms.TextBox DB666Tag3;
+        public System.Windows.Forms.TextBox DB666Tag4;
+        public System.Windows.Forms.TextBox DB666Tag5;
+        public System.Windows.Forms.TextBox DB666Tag6;
+        public System.Windows.Forms.TextBox DB666Tag15;
+        public System.Windows.Forms.TextBox DB666Tag7;
+        public System.Windows.Forms.TextBox DB666Tag14;
+        private System.Windows.Forms.Label label103;
     }
 }
 

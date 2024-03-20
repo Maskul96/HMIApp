@@ -343,15 +343,15 @@ namespace HMIApp
                         DBRead_TagName = dbTag.TagName.Remove(DBRead_position1, 1);
                         DBRead_NrOfByteinDB = dbTag.NumberOfByteInDB;
 
-                        Mtxt = Form1._Form1.Controls.Find($"{DBRead_TagName}", true).FirstOrDefault() as MaskedTextBox;
-                        if (Mtxt == null)
+                        txt = Form1._Form1.Controls.Find($"{DBRead_TagName}", true).FirstOrDefault() as TextBox;
+                        if (txt == null)
                         {
                             //Wyjscie z case'a jesli nie znajdzie textboxa i bedzie nullem
                             break;
                         }
                         else
                         {
-                            Mtxt.Text = Convert.ToString(libnodave.getFloatfrom(DB, DBRead_NrOfByteinDB));
+                            txt.Text = Convert.ToString(libnodave.getFloatfrom(DB, DBRead_NrOfByteinDB));
                         }
 
                         break;
@@ -446,7 +446,7 @@ namespace HMIApp
             {
                 //ZAPISYWANIE BOOLI 
                 case "BOOL":
-                    byte[] DB = new byte[DBWrite_LengthofDataType];
+                    byte[] DB = new byte[DBWrite_NrOfByteinDB + 1];
                     bool values = false;
                     string valuesToString = "";
                     int boolValueFromDB = 0;
@@ -497,6 +497,7 @@ namespace HMIApp
                             boolValueFromDB = DB[DBWrite_NrOfByteinDB];
                             boolValueFromDB = boolValueFromDB - boolValue;
                             BoolToSave = BitConverter.GetBytes(boolValueFromDB);
+                            PLC.Write(int.Parse(DBWrite_NumberOfDB), DBWrite_NrOfByteinDB, DBWrite_LengthofDataType, BoolToSave);
                         }
                     }
                     else if (valuesToString.ToUpper() == "FALSE")
@@ -538,9 +539,10 @@ namespace HMIApp
                             boolValueFromDB = DB[DBWrite_NrOfByteinDB];
                             boolValueFromDB = boolValueFromDB + boolValue;
                             BoolToSave = BitConverter.GetBytes(boolValueFromDB);
+                            PLC.Write(int.Parse(DBWrite_NumberOfDB), DBWrite_NrOfByteinDB, DBWrite_LengthofDataType, BoolToSave);
                         }
                     }
-                    PLC.Write(int.Parse(DBWrite_NumberOfDB), DBWrite_NrOfByteinDB, DBWrite_LengthofDataType, BoolToSave);
+
                     break;
                 case "BYTE":
                     //Write BYTE
@@ -563,12 +565,19 @@ namespace HMIApp
                     break;
                 case "REAL":
                     //Write Float
-                    if (valuetoWrite != "")
+                    if (!valuetoWrite.Contains("."))
                     {
-                        float fltValue = (float)Convert.ToDouble(valuetoWrite);
-                        var i = libnodave.daveToPLCfloat(fltValue);
-                        IntBytes = BitConverter.GetBytes(i);
-                        PLC.Write(int.Parse(DBWrite_NumberOfDB), DBWrite_NrOfByteinDB, DBWrite_LengthofDataType, IntBytes);
+                        if (valuetoWrite != "")
+                        {
+                            float fltValue = (float)Convert.ToDouble(valuetoWrite);
+                            var i = libnodave.daveToPLCfloat(fltValue);
+                            IntBytes = BitConverter.GetBytes(i);
+                            PLC.Write(int.Parse(DBWrite_NumberOfDB), DBWrite_NrOfByteinDB, DBWrite_LengthofDataType, IntBytes);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Zamiast kropki daj przecinek :)");
                     }
                     break;
                 case "DINT":

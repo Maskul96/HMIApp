@@ -17,7 +17,7 @@ namespace HMIApp
 
         App App = new App();
         UserAdministration Users = new UserAdministration();
-        DataBase Data = new DataBase();
+        DataBase DataBase = new DataBase();
         //Services do dependency injection
         ServiceCollection services = new ServiceCollection();
         ServiceProvider serviceProvider;
@@ -27,7 +27,13 @@ namespace HMIApp
         {
             InitializeComponent();
             _Form1 = this;
-            Data.Run();
+
+            App.RunInitPLC();
+            App.ReadActualValueFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_0.csv");
+            App.ReadAlarmsFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_2.csv");
+            App.ReadIOFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_3.csv");
+
+            DataBase.Run();
             #region zakomentowane services ktore bylo wczesniej
             ////Services do dependency injection
             //var services = new ServiceCollection();
@@ -45,15 +51,11 @@ namespace HMIApp
             services.AddSingleton<iDataBase, DataBase>();
             //ZArejestrowanie DBContextu - Stworzenie połączenia do bazy danych i service providera
             services.AddDbContext<HMIAppDBContext>(options => options
-            .UseSqlServer(Data.ConnectionString));
+            .UseSqlServer(DataBase.ConnectionString));
             serviceProvider = services.BuildServiceProvider();
             ReadFromDb();
             Users.Run();
-            //App.RunInitPLC();
-            //App.ReadActualValueFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_0.csv");
-            //App.ReadActualValueFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_1.csv");
-            //App.ReadAlarmsFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_2.csv");
-            //App.ReadIOFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_3.csv");
+    
             OdczytDB.Enabled = true;
             listBox1.DrawItem += new System.Windows.Forms.DrawItemEventHandler(App.listBox1_DrawItem);
             label63.Text = "";
@@ -69,7 +71,7 @@ namespace HMIApp
         {
             var database = serviceProvider.GetService<iDataBase>();
             // database.SelectFromDataBase();
-            database.SelectFromDataBase("1234");
+            database.SelectFromDataBase("12345");
             database.SelectFromDbToComboBox();
         }
 
@@ -89,16 +91,27 @@ namespace HMIApp
             App.WriteToDB(DB666Tag6PassedValue.Text, DB666Tag6PassedValue.Tag.ToString());
             App.WriteToDB(DB666Tag16PassedValue.Text, DB666Tag16PassedValue.Tag.ToString());
             App.WriteToDB(DB666Tag17PassedValue.Text, DB666Tag17PassedValue.Tag.ToString());
+            App.WriteToDB(DB666Tag3PassedValue.Text, DB666Tag3PassedValue.Tag.ToString());
+            App.WriteToDB(DB666Tag5PassedValue.Text, DB666Tag5PassedValue.Tag.ToString());
+            App.WriteToDB(DB666Tag15PassedValue.Text, DB666Tag15PassedValue.Tag.ToString());
+            App.WriteToDB(DB666Tag7PassedValue.Text, DB666Tag7PassedValue.Tag.ToString());
+            App.WriteToDB(DB666Tag14PassedValue.Text, DB666Tag14PassedValue.Tag.ToString());
+            App.WriteToDB(DB666Tag18PassedValue.Text, DB666Tag18PassedValue.Tag.ToString());
+            App.WriteToDB(DB666Tag19PassedValue.Text, DB666Tag19PassedValue.Tag.ToString());
+            App.WriteToDB(DB666Tag20PassedValue.Text, DB666Tag20PassedValue.Tag.ToString());
+            App.WriteToDB(DB666Tag21PassedValue.Text, DB666Tag21PassedValue.Tag.ToString());
+            App.WriteToDB(DB666Tag22PassedValue.Text, DB666Tag22PassedValue.Tag.ToString());
 
-
+            var database = serviceProvider.GetService<iDataBase>();
+            database.UpdateDb("12345");
         }
 
         //Timer co 100ms do oczytywania DBka
         private void timer1_Tick(object sender, EventArgs e)
         {
-            //App.ReadActualValueFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_0.csv");
-            //App.ReadAlarmsFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_2.csv");
-            //App.ReadIOFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_3.csv");
+            App.ReadActualValueFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_0.csv");
+            App.ReadAlarmsFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_2.csv");
+            App.ReadIOFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_3.csv");
 
             this.Text = DateTime.Now.ToString();
             label57.Text = this.Text;
