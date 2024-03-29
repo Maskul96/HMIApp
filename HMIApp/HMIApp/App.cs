@@ -446,7 +446,7 @@ namespace HMIApp
             {
                 //ZAPISYWANIE BOOLI 
                 case "BOOL":
-                    byte[] DB = new byte[DBWrite_NrOfByteinDB + 1];
+                    byte[] DB = new byte[1];
                     bool values = false;
                     string valuesToString = "";
                     int boolValueFromDB = 0;
@@ -455,13 +455,14 @@ namespace HMIApp
                     //Read DB - Odczytanie DBka w celu ustalenia jaką wartosc od 0 do 255 jest w danym bajcie
                     PLC.Read(int.Parse(DBWrite_NumberOfDB), DBWrite_NrOfByteinDB, DBWrite_LengthofDataType, DB);
                     //Write BOOL
-                    values = GetBit(DB[DBWrite_NrOfByteinDB], DBWrite_NrOfBitinByte);
+                    boolValueFromDB = DB[0];
+                    values = GetBit(DB[0], DBWrite_NrOfBitinByte);
                     valuesToString = values.ToString();
                     if (valuesToString.ToUpper() == "TRUE")
                     {
                         if (valuetoWrite.ToUpper() == "TRUE" || valuetoWrite.ToUpper() == "")
                         {
-                            boolValueFromDB = DB[DBWrite_NrOfByteinDB];
+                            boolValueFromDB = DB[0];
                             BoolToSave = BitConverter.GetBytes(boolValueFromDB);
                         }
                         else if (valuetoWrite.ToUpper() == "FALSE")
@@ -494,7 +495,7 @@ namespace HMIApp
                                     break;
                             }
 
-                            boolValueFromDB = DB[DBWrite_NrOfByteinDB];
+                            boolValueFromDB = DB[0];
                             boolValueFromDB = boolValueFromDB - boolValue;
                             BoolToSave = BitConverter.GetBytes(boolValueFromDB);
                             PLC.Write(int.Parse(DBWrite_NumberOfDB), DBWrite_NrOfByteinDB, DBWrite_LengthofDataType, BoolToSave);
@@ -504,7 +505,7 @@ namespace HMIApp
                     {
                         if (valuetoWrite.ToUpper() == "FALSE" || valuetoWrite.ToUpper() == "")
                         {
-                            boolValueFromDB = DB[DBWrite_NrOfByteinDB];
+                            boolValueFromDB = DB[0];
                             BoolToSave = BitConverter.GetBytes(boolValueFromDB);
                         }
                         else if (valuetoWrite.ToUpper() == "TRUE")
@@ -536,7 +537,7 @@ namespace HMIApp
                                     boolValue = 128;
                                     break;
                             }
-                            boolValueFromDB = DB[DBWrite_NrOfByteinDB];
+                            boolValueFromDB = DB[0];
                             boolValueFromDB = boolValueFromDB + boolValue;
                             BoolToSave = BitConverter.GetBytes(boolValueFromDB);
                             PLC.Write(int.Parse(DBWrite_NumberOfDB), DBWrite_NrOfByteinDB, DBWrite_LengthofDataType, BoolToSave);
