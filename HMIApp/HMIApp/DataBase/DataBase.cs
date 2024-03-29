@@ -55,34 +55,34 @@ namespace HMIApp.Data
         //Metoda inserta do bazy
         public void InsertToDataBase()
         {
-            var query = _hmiAppDbContext.References.Where(x => x.ReferenceNumber == Form1._Form1.DB666Tag16PassedValue.Text).SingleOrDefault();
+            var query = _hmiAppDbContext.References.Where(x => x.ReferenceNumber == Form1._Form1.DB666Tag16.Text).SingleOrDefault();
             if (query == null)
             {
                 _hmiAppDbContext.References.Add(new Reference()
                 {
-                    ReferenceNumber = Form1._Form1.DB666Tag16PassedValue.Text,
-                    NameOfClient = Form1._Form1.DB666Tag17PassedValue.Text,
-                    ParameterCyklC1 = Form1._Form1.DB666Tag0PassedValue.Checked,
-                    ParameterCyklC2 = Form1._Form1.DB666Tag1PassedValue.Checked,
-                    ParameterCyklC3 = Form1._Form1.DB666Tag8PassedValue.Checked,
-                    ParameterCyklC4 = Form1._Form1.DB666Tag9PassedValue.Checked,
-                    ParameterCyklC5 = Form1._Form1.DB666Tag10PassedValue.Checked,
-                    ParameterCyklC6 = Form1._Form1.DB666Tag11PassedValue.Checked,
-                    ParameterCyklC7 = Form1._Form1.DB666Tag12PassedValue.Checked,
-                    ParameterCyklC8 = Form1._Form1.DB666Tag13PassedValue.Checked,
-                    ParameterP1 = float.Parse(Form1._Form1.DB666Tag2PassedValue.Text),
-                    ParameterP2 = float.Parse(Form1._Form1.DB666Tag3PassedValue.Text),
-                    ParameterP3 = float.Parse(Form1._Form1.DB666Tag4PassedValue.Text),
-                    ParameterP4 = float.Parse(Form1._Form1.DB666Tag5PassedValue.Text),
-                    ParameterP5 = float.Parse(Form1._Form1.DB666Tag6PassedValue.Text),
-                    ParameterP6 = float.Parse(Form1._Form1.DB666Tag15PassedValue.Text),
-                    ParameterP7 = float.Parse(Form1._Form1.DB666Tag7PassedValue.Text),
-                    ParameterP8 = float.Parse(Form1._Form1.DB666Tag14PassedValue.Text),
-                    ForceF1 = int.Parse(Form1._Form1.DB666Tag18PassedValue.Text),
-                    ForceF2 = int.Parse(Form1._Form1.DB666Tag19PassedValue.Text),
-                    ForceF3 = int.Parse(Form1._Form1.DB666Tag20PassedValue.Text),
-                    ForceF4 = int.Parse(Form1._Form1.DB666Tag21PassedValue.Text),
-                    ForceF5 = int.Parse(Form1._Form1.DB666Tag22PassedValue.Text)
+                    ReferenceNumber = Form1._Form1.DB666Tag16.Text,
+                    NameOfClient = Form1._Form1.DB666Tag17.Text,
+                    ParameterCyklC1 = Form1._Form1.DB666Tag0.Checked,
+                    ParameterCyklC2 = Form1._Form1.DB666Tag1.Checked,
+                    ParameterCyklC3 = Form1._Form1.DB666Tag8.Checked,
+                    ParameterCyklC4 = Form1._Form1.DB666Tag9.Checked,
+                    ParameterCyklC5 = Form1._Form1.DB666Tag10.Checked,
+                    ParameterCyklC6 = Form1._Form1.DB666Tag11.Checked,
+                    ParameterCyklC7 = Form1._Form1.DB666Tag12.Checked,
+                    ParameterCyklC8 = Form1._Form1.DB666Tag13.Checked,
+                    ParameterP1 = float.Parse(Form1._Form1.DB666Tag2.Text),
+                    ParameterP2 = float.Parse(Form1._Form1.DB666Tag3.Text),
+                    ParameterP3 = float.Parse(Form1._Form1.DB666Tag4.Text),
+                    ParameterP4 = float.Parse(Form1._Form1.DB666Tag5.Text),
+                    ParameterP5 = float.Parse(Form1._Form1.DB666Tag6.Text),
+                    ParameterP6 = float.Parse(Form1._Form1.DB666Tag15.Text),
+                    ParameterP7 = float.Parse(Form1._Form1.DB666Tag7.Text),
+                    ParameterP8 = float.Parse(Form1._Form1.DB666Tag14.Text),
+                    ForceF1 = int.Parse(Form1._Form1.DB666Tag18.Text),
+                    ForceF2 = int.Parse(Form1._Form1.DB666Tag19.Text),
+                    ForceF3 = int.Parse(Form1._Form1.DB666Tag20.Text),
+                    ForceF4 = int.Parse(Form1._Form1.DB666Tag21.Text),
+                    ForceF5 = int.Parse(Form1._Form1.DB666Tag22.Text)
                 });
 
                 _hmiAppDbContext.SaveChanges();
@@ -135,29 +135,29 @@ namespace HMIApp.Data
 
                 foreach (var item in query)
                 {
-                    Form1._Form1.DB666Tag16PassedValue.Text = item.ReferenceNumber;
-                    Form1._Form1.DB666Tag17PassedValue.Text = item.NameOfClient;
-                    Form1._Form1.DB666Tag0PassedValue.Checked = item.ParameterCyklC1;
-                    Form1._Form1.DB666Tag1PassedValue.Checked = item.ParameterCyklC2;
-                    Form1._Form1.DB666Tag8PassedValue.Checked = item.ParameterCyklC3;
-                    Form1._Form1.DB666Tag9PassedValue.Checked = item.ParameterCyklC4;
-                    Form1._Form1.DB666Tag10PassedValue.Checked = item.ParameterCyklC5;
-                    Form1._Form1.DB666Tag11PassedValue.Checked = item.ParameterCyklC6;
-                    Form1._Form1.DB666Tag12PassedValue.Checked = item.ParameterCyklC7;
-                    Form1._Form1.DB666Tag13PassedValue.Checked = item.ParameterCyklC8;
-                    Form1._Form1.DB666Tag2PassedValue.Text = item.ParameterP1.ToString();
-                    Form1._Form1.DB666Tag3PassedValue.Text = item.ParameterP2.ToString();
-                    Form1._Form1.DB666Tag4PassedValue.Text = item.ParameterP3.ToString();
-                    Form1._Form1.DB666Tag5PassedValue.Text = item.ParameterP4.ToString();
-                    Form1._Form1.DB666Tag6PassedValue.Text = item.ParameterP5.ToString();
-                    Form1._Form1.DB666Tag15PassedValue.Text = item.ParameterP6.ToString();
-                    Form1._Form1.DB666Tag7PassedValue.Text = item.ParameterP7.ToString();
-                    Form1._Form1.DB666Tag14PassedValue.Text = item.ParameterP8.ToString();
-                    Form1._Form1.DB666Tag18PassedValue.Text = item.ForceF1.ToString();
-                    Form1._Form1.DB666Tag19PassedValue.Text = item.ForceF2.ToString();
-                    Form1._Form1.DB666Tag20PassedValue.Text = item.ForceF3.ToString();
-                    Form1._Form1.DB666Tag21PassedValue.Text = item.ForceF4.ToString();
-                    Form1._Form1.DB666Tag22PassedValue.Text = item.ForceF5.ToString();
+                    Form1._Form1.DB666Tag16.Text = item.ReferenceNumber;
+                    Form1._Form1.DB666Tag17.Text = item.NameOfClient;
+                    Form1._Form1.DB666Tag0.Checked = item.ParameterCyklC1;
+                    Form1._Form1.DB666Tag1.Checked = item.ParameterCyklC2;
+                    Form1._Form1.DB666Tag8.Checked = item.ParameterCyklC3;
+                    Form1._Form1.DB666Tag9.Checked = item.ParameterCyklC4;
+                    Form1._Form1.DB666Tag10.Checked = item.ParameterCyklC5;
+                    Form1._Form1.DB666Tag11.Checked = item.ParameterCyklC6;
+                    Form1._Form1.DB666Tag12.Checked = item.ParameterCyklC7;
+                    Form1._Form1.DB666Tag13.Checked = item.ParameterCyklC8;
+                    Form1._Form1.DB666Tag2.Text = item.ParameterP1.ToString();
+                    Form1._Form1.DB666Tag3.Text = item.ParameterP2.ToString();
+                    Form1._Form1.DB666Tag4.Text = item.ParameterP3.ToString();
+                    Form1._Form1.DB666Tag5.Text = item.ParameterP4.ToString();
+                    Form1._Form1.DB666Tag6.Text = item.ParameterP5.ToString();
+                    Form1._Form1.DB666Tag15.Text = item.ParameterP6.ToString();
+                    Form1._Form1.DB666Tag7.Text = item.ParameterP7.ToString();
+                    Form1._Form1.DB666Tag14.Text = item.ParameterP8.ToString();
+                    Form1._Form1.DB666Tag18.Text = item.ForceF1.ToString();
+                    Form1._Form1.DB666Tag19.Text = item.ForceF2.ToString();
+                    Form1._Form1.DB666Tag20.Text = item.ForceF3.ToString();
+                    Form1._Form1.DB666Tag21.Text = item.ForceF4.ToString();
+                    Form1._Form1.DB666Tag22.Text = item.ForceF5.ToString();
 
                 }
             }
@@ -194,29 +194,29 @@ namespace HMIApp.Data
         {
             //    ////Update danych cd
             var ref1 = ReadFirst(referencenumber);
-            ref1.ReferenceNumber = Form1._Form1.DB666Tag16PassedValue.Text;
-            ref1.NameOfClient = Form1._Form1.DB666Tag17PassedValue.Text;
-            ref1.ParameterCyklC1 = Form1._Form1.DB666Tag0PassedValue.Checked;
-            ref1.ParameterCyklC2 = Form1._Form1.DB666Tag1PassedValue.Checked;
-            ref1.ParameterCyklC3 = Form1._Form1.DB666Tag8PassedValue.Checked;
-            ref1.ParameterCyklC4 = Form1._Form1.DB666Tag9PassedValue.Checked;
-            ref1.ParameterCyklC5 = Form1._Form1.DB666Tag10PassedValue.Checked;
-            ref1.ParameterCyklC6 = Form1._Form1.DB666Tag11PassedValue.Checked;
-            ref1.ParameterCyklC7 = Form1._Form1.DB666Tag12PassedValue.Checked;
-            ref1.ParameterCyklC8 = Form1._Form1.DB666Tag13PassedValue.Checked;
-            ref1.ParameterP1 = float.Parse(Form1._Form1.DB666Tag2PassedValue.Text);
-            ref1.ParameterP2 = float.Parse(Form1._Form1.DB666Tag3PassedValue.Text);
-            ref1.ParameterP3 = float.Parse(Form1._Form1.DB666Tag4PassedValue.Text);
-            ref1.ParameterP4 = float.Parse(Form1._Form1.DB666Tag5PassedValue.Text);
-            ref1.ParameterP5 = float.Parse(Form1._Form1.DB666Tag6PassedValue.Text);
-            ref1.ParameterP6 = float.Parse(Form1._Form1.DB666Tag15PassedValue.Text);
-            ref1.ParameterP7 = float.Parse(Form1._Form1.DB666Tag7PassedValue.Text);
-            ref1.ParameterP8 = float.Parse(Form1._Form1.DB666Tag14PassedValue.Text);
-            ref1.ForceF1 = int.Parse(Form1._Form1.DB666Tag18PassedValue.Text);
-            ref1.ForceF2 = int.Parse(Form1._Form1.DB666Tag19PassedValue.Text);
-            ref1.ForceF3 = int.Parse(Form1._Form1.DB666Tag20PassedValue.Text);
-            ref1.ForceF4 = int.Parse(Form1._Form1.DB666Tag21PassedValue.Text);
-            ref1.ForceF5 = int.Parse(Form1._Form1.DB666Tag22PassedValue.Text);
+            ref1.ReferenceNumber = Form1._Form1.DB666Tag16.Text;
+            ref1.NameOfClient = Form1._Form1.DB666Tag17.Text;
+            ref1.ParameterCyklC1 = Form1._Form1.DB666Tag0.Checked;
+            ref1.ParameterCyklC2 = Form1._Form1.DB666Tag1.Checked;
+            ref1.ParameterCyklC3 = Form1._Form1.DB666Tag8.Checked;
+            ref1.ParameterCyklC4 = Form1._Form1.DB666Tag9.Checked;
+            ref1.ParameterCyklC5 = Form1._Form1.DB666Tag10.Checked;
+            ref1.ParameterCyklC6 = Form1._Form1.DB666Tag11.Checked;
+            ref1.ParameterCyklC7 = Form1._Form1.DB666Tag12.Checked;
+            ref1.ParameterCyklC8 = Form1._Form1.DB666Tag13.Checked;
+            ref1.ParameterP1 = float.Parse(Form1._Form1.DB666Tag2.Text);
+            ref1.ParameterP2 = float.Parse(Form1._Form1.DB666Tag3.Text);
+            ref1.ParameterP3 = float.Parse(Form1._Form1.DB666Tag4.Text);
+            ref1.ParameterP4 = float.Parse(Form1._Form1.DB666Tag5.Text);
+            ref1.ParameterP5 = float.Parse(Form1._Form1.DB666Tag6.Text);
+            ref1.ParameterP6 = float.Parse(Form1._Form1.DB666Tag15.Text);
+            ref1.ParameterP7 = float.Parse(Form1._Form1.DB666Tag7.Text);
+            ref1.ParameterP8 = float.Parse(Form1._Form1.DB666Tag14.Text);
+            ref1.ForceF1 = int.Parse(Form1._Form1.DB666Tag18.Text);
+            ref1.ForceF2 = int.Parse(Form1._Form1.DB666Tag19.Text);
+            ref1.ForceF3 = int.Parse(Form1._Form1.DB666Tag20.Text);
+            ref1.ForceF4 = int.Parse(Form1._Form1.DB666Tag21.Text);
+            ref1.ForceF5 = int.Parse(Form1._Form1.DB666Tag22.Text);
             _hmiAppDbContext.SaveChanges();
             ClearCombobox();
             SelectFromDbToComboBox();

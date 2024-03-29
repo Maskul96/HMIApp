@@ -29,42 +29,17 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
             OdczytDB = new System.Windows.Forms.Timer(components);
             Uzytkownik = new System.Windows.Forms.Label();
             pictureBox1 = new System.Windows.Forms.PictureBox();
-            DB666Tag17 = new System.Windows.Forms.TextBox();
-            DB666Tag16 = new System.Windows.Forms.TextBox();
+            DB666Tag17PassedValue = new System.Windows.Forms.TextBox();
+            DB666Tag16PassedValue = new System.Windows.Forms.TextBox();
             label5 = new System.Windows.Forms.Label();
             label6 = new System.Windows.Forms.Label();
             label8 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
-            label7 = new System.Windows.Forms.Label();
-            label9 = new System.Windows.Forms.Label();
-            label17 = new System.Windows.Forms.Label();
-            label18 = new System.Windows.Forms.Label();
-            label19 = new System.Windows.Forms.Label();
-            label20 = new System.Windows.Forms.Label();
-            label21 = new System.Windows.Forms.Label();
-            label22 = new System.Windows.Forms.Label();
-            label23 = new System.Windows.Forms.Label();
-            label24 = new System.Windows.Forms.Label();
             label25 = new System.Windows.Forms.Label();
-            label10 = new System.Windows.Forms.Label();
-            label11 = new System.Windows.Forms.Label();
-            label12 = new System.Windows.Forms.Label();
-            label13 = new System.Windows.Forms.Label();
-            label14 = new System.Windows.Forms.Label();
-            label15 = new System.Windows.Forms.Label();
-            label16 = new System.Windows.Forms.Label();
-            DB666Tag0 = new System.Windows.Forms.CheckBox();
-            DB666Tag8 = new System.Windows.Forms.CheckBox();
-            DB666Tag10 = new System.Windows.Forms.CheckBox();
-            DB666Tag12 = new System.Windows.Forms.CheckBox();
-            DB666Tag1 = new System.Windows.Forms.CheckBox();
-            DB666Tag9 = new System.Windows.Forms.CheckBox();
-            DB666Tag11 = new System.Windows.Forms.CheckBox();
-            DB666Tag13 = new System.Windows.Forms.CheckBox();
             label51 = new System.Windows.Forms.Label();
             listAlarmView = new System.Windows.Forms.ListView();
             columnHeader4 = new System.Windows.Forms.ColumnHeader();
@@ -85,16 +60,6 @@
             textBox10 = new System.Windows.Forms.TextBox();
             label65 = new System.Windows.Forms.Label();
             textBox13 = new System.Windows.Forms.TextBox();
-            DB666Tag20 = new System.Windows.Forms.TextBox();
-            DB666Tag21 = new System.Windows.Forms.TextBox();
-            DB666Tag18 = new System.Windows.Forms.TextBox();
-            DB666Tag19 = new System.Windows.Forms.TextBox();
-            DB666Tag22 = new System.Windows.Forms.TextBox();
-            label67 = new System.Windows.Forms.Label();
-            label68 = new System.Windows.Forms.Label();
-            label69 = new System.Windows.Forms.Label();
-            label70 = new System.Windows.Forms.Label();
-            label71 = new System.Windows.Forms.Label();
             tabPage7 = new System.Windows.Forms.TabPage();
             listView1 = new System.Windows.Forms.ListView();
             columnHeader1 = new System.Windows.Forms.ColumnHeader();
@@ -134,6 +99,9 @@
             label1 = new System.Windows.Forms.Label();
             button3 = new System.Windows.Forms.Button();
             tabPage5 = new System.Windows.Forms.TabPage();
+            label24 = new System.Windows.Forms.Label();
+            label22 = new System.Windows.Forms.Label();
+            label20 = new System.Windows.Forms.Label();
             textBox6 = new System.Windows.Forms.TextBox();
             textBox1 = new System.Windows.Forms.TextBox();
             textBox15 = new System.Windows.Forms.TextBox();
@@ -157,50 +125,45 @@
             label50 = new System.Windows.Forms.Label();
             label46 = new System.Windows.Forms.Label();
             label26 = new System.Windows.Forms.Label();
+            label21 = new System.Windows.Forms.Label();
+            label23 = new System.Windows.Forms.Label();
             tabPage4 = new System.Windows.Forms.TabPage();
             Poprzednia = new System.Windows.Forms.TabControl();
             tabPage8 = new System.Windows.Forms.TabPage();
-            button2 = new System.Windows.Forms.Button();
-            label103 = new System.Windows.Forms.Label();
-            button13 = new System.Windows.Forms.Button();
             label102 = new System.Windows.Forms.Label();
             label72 = new System.Windows.Forms.Label();
             label73 = new System.Windows.Forms.Label();
             label74 = new System.Windows.Forms.Label();
-            DB666Tag14PassedValue = new System.Windows.Forms.TextBox();
-            DB666Tag7PassedValue = new System.Windows.Forms.TextBox();
-            DB666Tag22PassedValue = new System.Windows.Forms.TextBox();
-            DB666Tag19PassedValue = new System.Windows.Forms.TextBox();
-            DB666Tag6PassedValue = new System.Windows.Forms.TextBox();
-            DB666Tag18PassedValue = new System.Windows.Forms.TextBox();
-            DB666Tag21PassedValue = new System.Windows.Forms.TextBox();
-            DB666Tag20PassedValue = new System.Windows.Forms.TextBox();
-            DB666Tag15PassedValue = new System.Windows.Forms.TextBox();
-            DB666Tag5PassedValue = new System.Windows.Forms.TextBox();
-            DB666Tag3PassedValue = new System.Windows.Forms.TextBox();
-            DB666Tag4PassedValue = new System.Windows.Forms.TextBox();
-            DB666Tag2PassedValue = new System.Windows.Forms.TextBox();
-            DB666Tag17PassedValue = new System.Windows.Forms.TextBox();
-            DB666Tag16PassedValue = new System.Windows.Forms.TextBox();
+            DB666Tag14 = new System.Windows.Forms.TextBox();
+            DB666Tag7 = new System.Windows.Forms.TextBox();
+            DB666Tag22 = new System.Windows.Forms.TextBox();
+            DB666Tag19 = new System.Windows.Forms.TextBox();
+            DB666Tag6 = new System.Windows.Forms.TextBox();
+            DB666Tag18 = new System.Windows.Forms.TextBox();
+            DB666Tag21 = new System.Windows.Forms.TextBox();
+            DB666Tag20 = new System.Windows.Forms.TextBox();
+            DB666Tag15 = new System.Windows.Forms.TextBox();
+            DB666Tag5 = new System.Windows.Forms.TextBox();
+            DB666Tag3 = new System.Windows.Forms.TextBox();
+            DB666Tag4 = new System.Windows.Forms.TextBox();
+            DB666Tag2 = new System.Windows.Forms.TextBox();
             label75 = new System.Windows.Forms.Label();
             label4 = new System.Windows.Forms.Label();
             label76 = new System.Windows.Forms.Label();
-            comboBox5 = new System.Windows.Forms.ComboBox();
-            DB666Tag13PassedValue = new System.Windows.Forms.CheckBox();
-            DB666Tag12PassedValue = new System.Windows.Forms.CheckBox();
-            DB666Tag11PassedValue = new System.Windows.Forms.CheckBox();
-            DB666Tag10PassedValue = new System.Windows.Forms.CheckBox();
-            DB666Tag9PassedValue = new System.Windows.Forms.CheckBox();
-            DB666Tag8PassedValue = new System.Windows.Forms.CheckBox();
-            DB666Tag1PassedValue = new System.Windows.Forms.CheckBox();
-            DB666Tag0PassedValue = new System.Windows.Forms.CheckBox();
             label27 = new System.Windows.Forms.Label();
             label28 = new System.Windows.Forms.Label();
             label29 = new System.Windows.Forms.Label();
             label30 = new System.Windows.Forms.Label();
             label31 = new System.Windows.Forms.Label();
-            button1 = new System.Windows.Forms.Button();
             label32 = new System.Windows.Forms.Label();
+            DB666Tag13 = new System.Windows.Forms.CheckBox();
+            DB666Tag12 = new System.Windows.Forms.CheckBox();
+            DB666Tag11 = new System.Windows.Forms.CheckBox();
+            DB666Tag10 = new System.Windows.Forms.CheckBox();
+            DB666Tag9 = new System.Windows.Forms.CheckBox();
+            DB666Tag8 = new System.Windows.Forms.CheckBox();
+            DB666Tag1 = new System.Windows.Forms.CheckBox();
+            DB666Tag0 = new System.Windows.Forms.CheckBox();
             label33 = new System.Windows.Forms.Label();
             label34 = new System.Windows.Forms.Label();
             label35 = new System.Windows.Forms.Label();
@@ -209,26 +172,33 @@
             label38 = new System.Windows.Forms.Label();
             label39 = new System.Windows.Forms.Label();
             label40 = new System.Windows.Forms.Label();
+            label7 = new System.Windows.Forms.Label();
+            button2 = new System.Windows.Forms.Button();
+            label103 = new System.Windows.Forms.Label();
+            button13 = new System.Windows.Forms.Button();
+            DB666Tag17 = new System.Windows.Forms.TextBox();
+            DB666Tag16 = new System.Windows.Forms.TextBox();
+            comboBox5 = new System.Windows.Forms.ComboBox();
+            button1 = new System.Windows.Forms.Button();
             label41 = new System.Windows.Forms.Label();
             label42 = new System.Windows.Forms.Label();
             label43 = new System.Windows.Forms.Label();
             label44 = new System.Windows.Forms.Label();
             label45 = new System.Windows.Forms.Label();
+            label9 = new System.Windows.Forms.Label();
             tabPage2 = new System.Windows.Forms.TabPage();
+            textBox18 = new System.Windows.Forms.TextBox();
+            textBox17 = new System.Windows.Forms.TextBox();
+            label70 = new System.Windows.Forms.Label();
+            label69 = new System.Windows.Forms.Label();
             label47 = new System.Windows.Forms.Label();
             textBox7 = new System.Windows.Forms.TextBox();
             button5 = new System.Windows.Forms.Button();
             button4 = new System.Windows.Forms.Button();
+            label67 = new System.Windows.Forms.Label();
+            label68 = new System.Windows.Forms.Label();
             tabPage1 = new System.Windows.Forms.TabPage();
             tabControl1 = new System.Windows.Forms.TabControl();
-            DB666Tag2 = new System.Windows.Forms.TextBox();
-            DB666Tag3 = new System.Windows.Forms.TextBox();
-            DB666Tag4 = new System.Windows.Forms.TextBox();
-            DB666Tag5 = new System.Windows.Forms.TextBox();
-            DB666Tag6 = new System.Windows.Forms.TextBox();
-            DB666Tag15 = new System.Windows.Forms.TextBox();
-            DB666Tag7 = new System.Windows.Forms.TextBox();
-            DB666Tag14 = new System.Windows.Forms.TextBox();
             label66 = new System.Windows.Forms.Label();
             label77 = new System.Windows.Forms.Label();
             label78 = new System.Windows.Forms.Label();
@@ -241,6 +211,19 @@
             label85 = new System.Windows.Forms.Label();
             label86 = new System.Windows.Forms.Label();
             label87 = new System.Windows.Forms.Label();
+            label10 = new System.Windows.Forms.Label();
+            label11 = new System.Windows.Forms.Label();
+            label12 = new System.Windows.Forms.Label();
+            label13 = new System.Windows.Forms.Label();
+            label14 = new System.Windows.Forms.Label();
+            label15 = new System.Windows.Forms.Label();
+            label16 = new System.Windows.Forms.Label();
+            label17 = new System.Windows.Forms.Label();
+            textBox2 = new System.Windows.Forms.TextBox();
+            textBox3 = new System.Windows.Forms.TextBox();
+            textBox14 = new System.Windows.Forms.TextBox();
+            label18 = new System.Windows.Forms.Label();
+            label19 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             tabPage7.SuspendLayout();
             tabPage9.SuspendLayout();
@@ -264,7 +247,7 @@
             // 
             Uzytkownik.AutoSize = true;
             Uzytkownik.BackColor = System.Drawing.Color.LightBlue;
-            Uzytkownik.Location = new System.Drawing.Point(174, 5);
+            Uzytkownik.Location = new System.Drawing.Point(174, 6);
             Uzytkownik.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             Uzytkownik.Name = "Uzytkownik";
             Uzytkownik.Size = new System.Drawing.Size(71, 15);
@@ -274,7 +257,7 @@
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.logotyp_Controltec;
-            pictureBox1.Location = new System.Drawing.Point(7, 4);
+            pictureBox1.Location = new System.Drawing.Point(7, 5);
             pictureBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new System.Drawing.Size(160, 42);
@@ -282,27 +265,27 @@
             pictureBox1.TabIndex = 69;
             pictureBox1.TabStop = false;
             // 
-            // DB666Tag17
+            // DB666Tag17PassedValue
             // 
-            DB666Tag17.Enabled = false;
-            DB666Tag17.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 238);
-            DB666Tag17.Location = new System.Drawing.Point(542, 53);
-            DB666Tag17.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            DB666Tag17.Name = "DB666Tag17";
-            DB666Tag17.Size = new System.Drawing.Size(159, 18);
-            DB666Tag17.TabIndex = 100;
-            DB666Tag17.Tag = "DB666.Tag17";
+            DB666Tag17PassedValue.Enabled = false;
+            DB666Tag17PassedValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 238);
+            DB666Tag17PassedValue.Location = new System.Drawing.Point(542, 53);
+            DB666Tag17PassedValue.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            DB666Tag17PassedValue.Name = "DB666Tag17PassedValue";
+            DB666Tag17PassedValue.Size = new System.Drawing.Size(159, 18);
+            DB666Tag17PassedValue.TabIndex = 100;
+            DB666Tag17PassedValue.Tag = "DB666.Tag17";
             // 
-            // DB666Tag16
+            // DB666Tag16PassedValue
             // 
-            DB666Tag16.Enabled = false;
-            DB666Tag16.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 238);
-            DB666Tag16.Location = new System.Drawing.Point(120, 53);
-            DB666Tag16.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            DB666Tag16.Name = "DB666Tag16";
-            DB666Tag16.Size = new System.Drawing.Size(274, 18);
-            DB666Tag16.TabIndex = 99;
-            DB666Tag16.Tag = "DB666.Tag16";
+            DB666Tag16PassedValue.Enabled = false;
+            DB666Tag16PassedValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 238);
+            DB666Tag16PassedValue.Location = new System.Drawing.Point(120, 53);
+            DB666Tag16PassedValue.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            DB666Tag16PassedValue.Name = "DB666Tag16PassedValue";
+            DB666Tag16PassedValue.Size = new System.Drawing.Size(274, 18);
+            DB666Tag16PassedValue.TabIndex = 99;
+            DB666Tag16PassedValue.Tag = "DB666.Tag16";
             // 
             // label5
             // 
@@ -340,282 +323,23 @@
             // 
             label3.AutoSize = true;
             label3.BackColor = System.Drawing.Color.LightBlue;
-            label3.Location = new System.Drawing.Point(28, 526);
+            label3.Location = new System.Drawing.Point(32, 526);
             label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label3.Name = "label3";
             label3.Size = new System.Drawing.Size(54, 15);
             label3.TabIndex = 72;
             label3.Text = "ALARMY";
             // 
-            // label7
-            // 
-            label7.BackColor = System.Drawing.Color.LightBlue;
-            label7.Location = new System.Drawing.Point(728, 50);
-            label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            label7.Name = "label7";
-            label7.Size = new System.Drawing.Size(202, 23);
-            label7.TabIndex = 76;
-            label7.Text = "AKTUALNE DANE";
-            label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Location = new System.Drawing.Point(736, 76);
-            label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            label9.Name = "label9";
-            label9.Size = new System.Drawing.Size(20, 15);
-            label9.TabIndex = 78;
-            label9.Text = "P1";
-            // 
-            // label17
-            // 
-            label17.AutoSize = true;
-            label17.Location = new System.Drawing.Point(731, 146);
-            label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            label17.Name = "label17";
-            label17.Size = new System.Drawing.Size(96, 15);
-            label17.TabIndex = 86;
-            label17.Text = "Odczyt Real Tag2";
-            // 
-            // label18
-            // 
-            label18.AutoSize = true;
-            label18.Location = new System.Drawing.Point(731, 179);
-            label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            label18.Name = "label18";
-            label18.Size = new System.Drawing.Size(96, 15);
-            label18.TabIndex = 87;
-            label18.Text = "Odczyt Real Tag3";
-            // 
-            // label19
-            // 
-            label19.AutoSize = true;
-            label19.Location = new System.Drawing.Point(731, 209);
-            label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            label19.Name = "label19";
-            label19.Size = new System.Drawing.Size(96, 15);
-            label19.TabIndex = 88;
-            label19.Text = "Odczyt Real Tag4";
-            // 
-            // label20
-            // 
-            label20.AutoSize = true;
-            label20.Location = new System.Drawing.Point(731, 242);
-            label20.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            label20.Name = "label20";
-            label20.Size = new System.Drawing.Size(96, 15);
-            label20.TabIndex = 89;
-            label20.Text = "Odczyt Real Tag5";
-            // 
-            // label21
-            // 
-            label21.AutoSize = true;
-            label21.Location = new System.Drawing.Point(731, 271);
-            label21.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            label21.Name = "label21";
-            label21.Size = new System.Drawing.Size(96, 15);
-            label21.TabIndex = 90;
-            label21.Text = "Odczyt Real Tag6";
-            // 
-            // label22
-            // 
-            label22.AutoSize = true;
-            label22.Location = new System.Drawing.Point(731, 302);
-            label22.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            label22.Name = "label22";
-            label22.Size = new System.Drawing.Size(102, 15);
-            label22.TabIndex = 91;
-            label22.Text = "Odczyt Real Tag15";
-            // 
-            // label23
-            // 
-            label23.AutoSize = true;
-            label23.Location = new System.Drawing.Point(731, 330);
-            label23.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            label23.Name = "label23";
-            label23.Size = new System.Drawing.Size(96, 15);
-            label23.TabIndex = 92;
-            label23.Text = "Odczyt Real Tag7";
-            // 
-            // label24
-            // 
-            label24.AutoSize = true;
-            label24.Location = new System.Drawing.Point(731, 357);
-            label24.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            label24.Name = "label24";
-            label24.Size = new System.Drawing.Size(102, 15);
-            label24.TabIndex = 93;
-            label24.Text = "Odczyt Real Tag14";
-            // 
             // label25
             // 
             label25.AutoSize = true;
             label25.BackColor = System.Drawing.Color.LightBlue;
-            label25.Location = new System.Drawing.Point(17, 486);
+            label25.Location = new System.Drawing.Point(20, 486);
             label25.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label25.Name = "label25";
             label25.Size = new System.Drawing.Size(80, 15);
             label25.TabIndex = 74;
             label25.Text = "KOMUNIKATY";
-            // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.Location = new System.Drawing.Point(835, 76);
-            label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            label10.Name = "label10";
-            label10.Size = new System.Drawing.Size(20, 15);
-            label10.TabIndex = 79;
-            label10.Text = "P2";
-            // 
-            // label11
-            // 
-            label11.AutoSize = true;
-            label11.Location = new System.Drawing.Point(736, 94);
-            label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            label11.Name = "label11";
-            label11.Size = new System.Drawing.Size(20, 15);
-            label11.TabIndex = 80;
-            label11.Text = "P3";
-            // 
-            // label12
-            // 
-            label12.AutoSize = true;
-            label12.Location = new System.Drawing.Point(835, 94);
-            label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            label12.Name = "label12";
-            label12.Size = new System.Drawing.Size(20, 15);
-            label12.TabIndex = 81;
-            label12.Text = "P4";
-            // 
-            // label13
-            // 
-            label13.AutoSize = true;
-            label13.Location = new System.Drawing.Point(736, 110);
-            label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            label13.Name = "label13";
-            label13.Size = new System.Drawing.Size(20, 15);
-            label13.TabIndex = 82;
-            label13.Text = "P5";
-            // 
-            // label14
-            // 
-            label14.AutoSize = true;
-            label14.Location = new System.Drawing.Point(835, 111);
-            label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            label14.Name = "label14";
-            label14.Size = new System.Drawing.Size(20, 15);
-            label14.TabIndex = 83;
-            label14.Text = "P6";
-            // 
-            // label15
-            // 
-            label15.AutoSize = true;
-            label15.Location = new System.Drawing.Point(736, 129);
-            label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            label15.Name = "label15";
-            label15.Size = new System.Drawing.Size(20, 15);
-            label15.TabIndex = 84;
-            label15.Text = "P7";
-            // 
-            // label16
-            // 
-            label16.AutoSize = true;
-            label16.Location = new System.Drawing.Point(835, 129);
-            label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            label16.Name = "label16";
-            label16.Size = new System.Drawing.Size(20, 15);
-            label16.TabIndex = 85;
-            label16.Text = "P8";
-            // 
-            // DB666Tag0
-            // 
-            DB666Tag0.AutoSize = true;
-            DB666Tag0.Enabled = false;
-            DB666Tag0.Location = new System.Drawing.Point(768, 76);
-            DB666Tag0.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            DB666Tag0.Name = "DB666Tag0";
-            DB666Tag0.Size = new System.Drawing.Size(15, 14);
-            DB666Tag0.TabIndex = 94;
-            DB666Tag0.UseVisualStyleBackColor = true;
-            // 
-            // DB666Tag8
-            // 
-            DB666Tag8.AutoSize = true;
-            DB666Tag8.Enabled = false;
-            DB666Tag8.Location = new System.Drawing.Point(768, 93);
-            DB666Tag8.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            DB666Tag8.Name = "DB666Tag8";
-            DB666Tag8.Size = new System.Drawing.Size(15, 14);
-            DB666Tag8.TabIndex = 95;
-            DB666Tag8.UseVisualStyleBackColor = true;
-            // 
-            // DB666Tag10
-            // 
-            DB666Tag10.AutoSize = true;
-            DB666Tag10.Enabled = false;
-            DB666Tag10.Location = new System.Drawing.Point(766, 113);
-            DB666Tag10.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            DB666Tag10.Name = "DB666Tag10";
-            DB666Tag10.Size = new System.Drawing.Size(15, 14);
-            DB666Tag10.TabIndex = 96;
-            DB666Tag10.UseVisualStyleBackColor = true;
-            // 
-            // DB666Tag12
-            // 
-            DB666Tag12.AutoSize = true;
-            DB666Tag12.Enabled = false;
-            DB666Tag12.Location = new System.Drawing.Point(766, 129);
-            DB666Tag12.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            DB666Tag12.Name = "DB666Tag12";
-            DB666Tag12.Size = new System.Drawing.Size(15, 14);
-            DB666Tag12.TabIndex = 97;
-            DB666Tag12.UseVisualStyleBackColor = true;
-            // 
-            // DB666Tag1
-            // 
-            DB666Tag1.AutoSize = true;
-            DB666Tag1.Enabled = false;
-            DB666Tag1.Location = new System.Drawing.Point(866, 76);
-            DB666Tag1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            DB666Tag1.Name = "DB666Tag1";
-            DB666Tag1.Size = new System.Drawing.Size(15, 14);
-            DB666Tag1.TabIndex = 98;
-            DB666Tag1.UseVisualStyleBackColor = true;
-            // 
-            // DB666Tag9
-            // 
-            DB666Tag9.AutoSize = true;
-            DB666Tag9.Enabled = false;
-            DB666Tag9.Location = new System.Drawing.Point(866, 93);
-            DB666Tag9.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            DB666Tag9.Name = "DB666Tag9";
-            DB666Tag9.Size = new System.Drawing.Size(15, 14);
-            DB666Tag9.TabIndex = 99;
-            DB666Tag9.UseVisualStyleBackColor = true;
-            // 
-            // DB666Tag11
-            // 
-            DB666Tag11.AutoSize = true;
-            DB666Tag11.Enabled = false;
-            DB666Tag11.Location = new System.Drawing.Point(866, 109);
-            DB666Tag11.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            DB666Tag11.Name = "DB666Tag11";
-            DB666Tag11.Size = new System.Drawing.Size(15, 14);
-            DB666Tag11.TabIndex = 100;
-            DB666Tag11.UseVisualStyleBackColor = true;
-            // 
-            // DB666Tag13
-            // 
-            DB666Tag13.AutoSize = true;
-            DB666Tag13.Enabled = false;
-            DB666Tag13.Location = new System.Drawing.Point(866, 129);
-            DB666Tag13.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            DB666Tag13.Name = "DB666Tag13";
-            DB666Tag13.Size = new System.Drawing.Size(15, 14);
-            DB666Tag13.TabIndex = 101;
-            DB666Tag13.UseVisualStyleBackColor = true;
             // 
             // label51
             // 
@@ -634,7 +358,7 @@
             listAlarmView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { columnHeader4 });
             listAlarmView.Enabled = false;
             listAlarmView.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 238);
-            listAlarmView.Location = new System.Drawing.Point(114, 511);
+            listAlarmView.Location = new System.Drawing.Point(118, 511);
             listAlarmView.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             listAlarmView.MultiSelect = false;
             listAlarmView.Name = "listAlarmView";
@@ -671,7 +395,7 @@
             listBox1.FormattingEnabled = true;
             listBox1.ItemHeight = 15;
             listBox1.Items.AddRange(new object[] { "", "START CYKLU", "DOJAZD SZYBKI" });
-            listBox1.Location = new System.Drawing.Point(114, 484);
+            listBox1.Location = new System.Drawing.Point(118, 484);
             listBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             listBox1.Name = "listBox1";
             listBox1.Size = new System.Drawing.Size(806, 19);
@@ -686,7 +410,7 @@
             // 
             label60.AutoSize = true;
             label60.BackColor = System.Drawing.Color.LightBlue;
-            label60.Location = new System.Drawing.Point(247, 5);
+            label60.Location = new System.Drawing.Point(247, 6);
             label60.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label60.Name = "label60";
             label60.Size = new System.Drawing.Size(33, 15);
@@ -737,7 +461,8 @@
             // label48
             // 
             label48.AutoSize = true;
-            label48.Location = new System.Drawing.Point(20, 454);
+            label48.BackColor = System.Drawing.Color.White;
+            label48.Location = new System.Drawing.Point(736, 266);
             label48.Name = "label48";
             label48.Size = new System.Drawing.Size(66, 15);
             label48.TabIndex = 118;
@@ -746,7 +471,7 @@
             // textBox8
             // 
             textBox8.Enabled = false;
-            textBox8.Location = new System.Drawing.Point(93, 454);
+            textBox8.Location = new System.Drawing.Point(813, 265);
             textBox8.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             textBox8.Name = "textBox8";
             textBox8.Size = new System.Drawing.Size(44, 23);
@@ -756,7 +481,8 @@
             // label49
             // 
             label49.AutoSize = true;
-            label49.Location = new System.Drawing.Point(163, 454);
+            label49.BackColor = System.Drawing.Color.White;
+            label49.Location = new System.Drawing.Point(736, 237);
             label49.Name = "label49";
             label49.Size = new System.Drawing.Size(66, 15);
             label49.TabIndex = 120;
@@ -765,7 +491,7 @@
             // textBox9
             // 
             textBox9.Enabled = false;
-            textBox9.Location = new System.Drawing.Point(236, 454);
+            textBox9.Location = new System.Drawing.Point(813, 236);
             textBox9.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             textBox9.Name = "textBox9";
             textBox9.Size = new System.Drawing.Size(44, 23);
@@ -775,7 +501,8 @@
             // label64
             // 
             label64.AutoSize = true;
-            label64.Location = new System.Drawing.Point(319, 454);
+            label64.BackColor = System.Drawing.Color.White;
+            label64.Location = new System.Drawing.Point(736, 212);
             label64.Name = "label64";
             label64.Size = new System.Drawing.Size(51, 15);
             label64.TabIndex = 122;
@@ -784,7 +511,7 @@
             // textBox10
             // 
             textBox10.Enabled = false;
-            textBox10.Location = new System.Drawing.Point(392, 454);
+            textBox10.Location = new System.Drawing.Point(813, 209);
             textBox10.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             textBox10.Name = "textBox10";
             textBox10.Size = new System.Drawing.Size(44, 23);
@@ -794,7 +521,8 @@
             // label65
             // 
             label65.AutoSize = true;
-            label65.Location = new System.Drawing.Point(463, 454);
+            label65.BackColor = System.Drawing.Color.White;
+            label65.Location = new System.Drawing.Point(736, 181);
             label65.Name = "label65";
             label65.Size = new System.Drawing.Size(49, 15);
             label65.TabIndex = 124;
@@ -803,112 +531,12 @@
             // textBox13
             // 
             textBox13.Enabled = false;
-            textBox13.Location = new System.Drawing.Point(536, 454);
+            textBox13.Location = new System.Drawing.Point(813, 181);
             textBox13.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             textBox13.Name = "textBox13";
             textBox13.Size = new System.Drawing.Size(44, 23);
             textBox13.TabIndex = 123;
             textBox13.Tag = "";
-            // 
-            // DB666Tag20
-            // 
-            DB666Tag20.Enabled = false;
-            DB666Tag20.Location = new System.Drawing.Point(886, 383);
-            DB666Tag20.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            DB666Tag20.Name = "DB666Tag20";
-            DB666Tag20.Size = new System.Drawing.Size(44, 23);
-            DB666Tag20.TabIndex = 136;
-            DB666Tag20.Tag = "";
-            // 
-            // DB666Tag21
-            // 
-            DB666Tag21.Enabled = false;
-            DB666Tag21.Location = new System.Drawing.Point(886, 412);
-            DB666Tag21.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            DB666Tag21.Name = "DB666Tag21";
-            DB666Tag21.Size = new System.Drawing.Size(44, 23);
-            DB666Tag21.TabIndex = 137;
-            DB666Tag21.Tag = "";
-            // 
-            // DB666Tag18
-            // 
-            DB666Tag18.Enabled = false;
-            DB666Tag18.Location = new System.Drawing.Point(782, 383);
-            DB666Tag18.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            DB666Tag18.Name = "DB666Tag18";
-            DB666Tag18.Size = new System.Drawing.Size(44, 23);
-            DB666Tag18.TabIndex = 138;
-            DB666Tag18.Tag = "";
-            // 
-            // DB666Tag19
-            // 
-            DB666Tag19.Enabled = false;
-            DB666Tag19.Location = new System.Drawing.Point(782, 412);
-            DB666Tag19.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            DB666Tag19.Name = "DB666Tag19";
-            DB666Tag19.Size = new System.Drawing.Size(44, 23);
-            DB666Tag19.TabIndex = 139;
-            DB666Tag19.Tag = "";
-            // 
-            // DB666Tag22
-            // 
-            DB666Tag22.Enabled = false;
-            DB666Tag22.Location = new System.Drawing.Point(811, 441);
-            DB666Tag22.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            DB666Tag22.Name = "DB666Tag22";
-            DB666Tag22.Size = new System.Drawing.Size(44, 23);
-            DB666Tag22.TabIndex = 140;
-            DB666Tag22.Tag = "";
-            // 
-            // label67
-            // 
-            label67.AutoSize = true;
-            label67.Location = new System.Drawing.Point(727, 386);
-            label67.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            label67.Name = "label67";
-            label67.Size = new System.Drawing.Size(54, 15);
-            label67.TabIndex = 141;
-            label67.Text = "Int Tag18";
-            // 
-            // label68
-            // 
-            label68.AutoSize = true;
-            label68.Location = new System.Drawing.Point(727, 415);
-            label68.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            label68.Name = "label68";
-            label68.Size = new System.Drawing.Size(54, 15);
-            label68.TabIndex = 142;
-            label68.Text = "Int Tag19";
-            // 
-            // label69
-            // 
-            label69.AutoSize = true;
-            label69.Location = new System.Drawing.Point(827, 386);
-            label69.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            label69.Name = "label69";
-            label69.Size = new System.Drawing.Size(54, 15);
-            label69.TabIndex = 143;
-            label69.Text = "Int Tag20";
-            // 
-            // label70
-            // 
-            label70.AutoSize = true;
-            label70.Location = new System.Drawing.Point(827, 415);
-            label70.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            label70.Name = "label70";
-            label70.Size = new System.Drawing.Size(54, 15);
-            label70.TabIndex = 144;
-            label70.Text = "Int Tag21";
-            // 
-            // label71
-            // 
-            label71.AutoSize = true;
-            label71.Location = new System.Drawing.Point(749, 444);
-            label71.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            label71.Name = "label71";
-            label71.Size = new System.Drawing.Size(54, 15);
-            label71.TabIndex = 145;
-            label71.Text = "Int Tag22";
             // 
             // tabPage7
             // 
@@ -917,7 +545,7 @@
             tabPage7.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             tabPage7.Name = "tabPage7";
             tabPage7.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            tabPage7.Size = new System.Drawing.Size(711, 347);
+            tabPage7.Size = new System.Drawing.Size(711, 373);
             tabPage7.TabIndex = 7;
             tabPage7.Text = "HISTORIA ALARMÓW";
             tabPage7.UseVisualStyleBackColor = true;
@@ -926,15 +554,14 @@
             // 
             listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { columnHeader1, columnHeader2, columnHeader3 });
             listView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            listView1.Enabled = false;
             listView1.ForeColor = System.Drawing.SystemColors.InfoText;
             listView1.FullRowSelect = true;
             listView1.GridLines = true;
-            listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] { listViewItem8 });
+            listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] { listViewItem1 });
             listView1.Location = new System.Drawing.Point(4, 3);
             listView1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             listView1.Name = "listView1";
-            listView1.Size = new System.Drawing.Size(703, 341);
+            listView1.Size = new System.Drawing.Size(703, 367);
             listView1.TabIndex = 0;
             listView1.UseCompatibleStateImageBehavior = false;
             listView1.View = System.Windows.Forms.View.Details;
@@ -961,7 +588,7 @@
             tabPage9.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             tabPage9.Name = "tabPage9";
             tabPage9.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            tabPage9.Size = new System.Drawing.Size(711, 347);
+            tabPage9.Size = new System.Drawing.Size(711, 373);
             tabPage9.TabIndex = 6;
             tabPage9.Text = "WEJŚCIA/WYJŚCIA";
             tabPage9.UseVisualStyleBackColor = true;
@@ -1241,7 +868,7 @@
             tabPage6.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             tabPage6.Name = "tabPage6";
             tabPage6.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            tabPage6.Size = new System.Drawing.Size(711, 347);
+            tabPage6.Size = new System.Drawing.Size(711, 373);
             tabPage6.TabIndex = 5;
             tabPage6.Text = "SERWIS";
             tabPage6.UseVisualStyleBackColor = true;
@@ -1259,7 +886,7 @@
             // textBox5
             // 
             textBox5.Enabled = false;
-            textBox5.Location = new System.Drawing.Point(94, 42);
+            textBox5.Location = new System.Drawing.Point(87, 42);
             textBox5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             textBox5.Name = "textBox5";
             textBox5.Size = new System.Drawing.Size(79, 23);
@@ -1268,7 +895,7 @@
             // textBox4
             // 
             textBox4.Enabled = false;
-            textBox4.Location = new System.Drawing.Point(79, 12);
+            textBox4.Location = new System.Drawing.Point(86, 12);
             textBox4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             textBox4.Name = "textBox4";
             textBox4.Size = new System.Drawing.Size(414, 23);
@@ -1277,7 +904,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new System.Drawing.Point(8, 15);
+            label1.Location = new System.Drawing.Point(10, 15);
             label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label1.Name = "label1";
             label1.Size = new System.Drawing.Size(63, 15);
@@ -1297,6 +924,9 @@
             // 
             // tabPage5
             // 
+            tabPage5.Controls.Add(label24);
+            tabPage5.Controls.Add(label22);
+            tabPage5.Controls.Add(label20);
             tabPage5.Controls.Add(textBox6);
             tabPage5.Controls.Add(textBox1);
             tabPage5.Controls.Add(textBox15);
@@ -1320,18 +950,56 @@
             tabPage5.Controls.Add(label50);
             tabPage5.Controls.Add(label46);
             tabPage5.Controls.Add(label26);
+            tabPage5.Controls.Add(label21);
+            tabPage5.Controls.Add(label23);
             tabPage5.Location = new System.Drawing.Point(4, 24);
             tabPage5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             tabPage5.Name = "tabPage5";
             tabPage5.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            tabPage5.Size = new System.Drawing.Size(711, 347);
+            tabPage5.Size = new System.Drawing.Size(711, 373);
             tabPage5.TabIndex = 4;
             tabPage5.Text = "UŻYTKOWNICY";
             tabPage5.UseVisualStyleBackColor = true;
             // 
+            // label24
+            // 
+            label24.BackColor = System.Drawing.Color.Gold;
+            label24.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            label24.Location = new System.Drawing.Point(4, 174);
+            label24.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label24.Name = "label24";
+            label24.Size = new System.Drawing.Size(310, 21);
+            label24.TabIndex = 179;
+            label24.Text = "Statusy modułu logowania";
+            label24.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label22
+            // 
+            label22.BackColor = System.Drawing.Color.Gold;
+            label22.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            label22.Location = new System.Drawing.Point(4, 3);
+            label22.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label22.Name = "label22";
+            label22.Size = new System.Drawing.Size(310, 21);
+            label22.TabIndex = 177;
+            label22.Text = "Dodanie użytkowników";
+            label22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label20
+            // 
+            label20.BackColor = System.Drawing.Color.Gold;
+            label20.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            label20.Location = new System.Drawing.Point(322, 3);
+            label20.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label20.Name = "label20";
+            label20.Size = new System.Drawing.Size(381, 21);
+            label20.TabIndex = 176;
+            label20.Text = "Edycja użytkowników";
+            label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // textBox6
             // 
-            textBox6.Location = new System.Drawing.Point(19, 310);
+            textBox6.Location = new System.Drawing.Point(8, 274);
             textBox6.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             textBox6.Name = "textBox6";
             textBox6.Size = new System.Drawing.Size(196, 23);
@@ -1340,7 +1008,7 @@
             // textBox1
             // 
             textBox1.Enabled = false;
-            textBox1.Location = new System.Drawing.Point(578, 106);
+            textBox1.Location = new System.Drawing.Point(634, 28);
             textBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             textBox1.Name = "textBox1";
             textBox1.Size = new System.Drawing.Size(67, 23);
@@ -1348,39 +1016,39 @@
             // 
             // textBox15
             // 
-            textBox15.Location = new System.Drawing.Point(413, 136);
+            textBox15.Location = new System.Drawing.Point(412, 120);
             textBox15.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             textBox15.Name = "textBox15";
-            textBox15.Size = new System.Drawing.Size(116, 23);
+            textBox15.Size = new System.Drawing.Size(275, 23);
             textBox15.TabIndex = 14;
             // 
             // textBox16
             // 
-            textBox16.Location = new System.Drawing.Point(412, 88);
+            textBox16.Location = new System.Drawing.Point(412, 87);
             textBox16.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             textBox16.Name = "textBox16";
-            textBox16.Size = new System.Drawing.Size(116, 23);
+            textBox16.Size = new System.Drawing.Size(275, 23);
             textBox16.TabIndex = 13;
             // 
             // textBox12
             // 
-            textBox12.Location = new System.Drawing.Point(105, 65);
+            textBox12.Location = new System.Drawing.Point(97, 60);
             textBox12.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             textBox12.Name = "textBox12";
-            textBox12.Size = new System.Drawing.Size(116, 23);
+            textBox12.Size = new System.Drawing.Size(205, 23);
             textBox12.TabIndex = 5;
             // 
             // textBox11
             // 
-            textBox11.Location = new System.Drawing.Point(105, 20);
+            textBox11.Location = new System.Drawing.Point(97, 31);
             textBox11.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             textBox11.Name = "textBox11";
-            textBox11.Size = new System.Drawing.Size(116, 23);
+            textBox11.Size = new System.Drawing.Size(205, 23);
             textBox11.TabIndex = 4;
             // 
             // label59
             // 
-            label59.Location = new System.Drawing.Point(21, 216);
+            label59.Location = new System.Drawing.Point(8, 300);
             label59.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label59.Name = "label59";
             label59.Size = new System.Drawing.Size(232, 62);
@@ -1389,7 +1057,7 @@
             // 
             // button9
             // 
-            button9.Location = new System.Drawing.Point(24, 278);
+            button9.Location = new System.Drawing.Point(7, 241);
             button9.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             button9.Name = "button9";
             button9.Size = new System.Drawing.Size(88, 27);
@@ -1401,7 +1069,7 @@
             // label58
             // 
             label58.AutoSize = true;
-            label58.Location = new System.Drawing.Point(580, 88);
+            label58.Location = new System.Drawing.Point(610, 30);
             label58.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label58.Name = "label58";
             label58.Size = new System.Drawing.Size(18, 15);
@@ -1413,10 +1081,10 @@
             listBox2.Enabled = false;
             listBox2.FormattingEnabled = true;
             listBox2.ItemHeight = 15;
-            listBox2.Location = new System.Drawing.Point(19, 187);
+            listBox2.Location = new System.Drawing.Point(4, 198);
             listBox2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             listBox2.Name = "listBox2";
-            listBox2.Size = new System.Drawing.Size(202, 19);
+            listBox2.Size = new System.Drawing.Size(310, 19);
             listBox2.TabIndex = 76;
             // 
             // label56
@@ -1432,25 +1100,25 @@
             // 
             comboBox4.FormattingEnabled = true;
             comboBox4.Items.AddRange(new object[] { "Operator", "Lider", "Technolog" });
-            comboBox4.Location = new System.Drawing.Point(416, 178);
+            comboBox4.Location = new System.Drawing.Point(412, 154);
             comboBox4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             comboBox4.Name = "comboBox4";
-            comboBox4.Size = new System.Drawing.Size(112, 23);
+            comboBox4.Size = new System.Drawing.Size(275, 23);
             comboBox4.TabIndex = 17;
             // 
             // comboBox3
             // 
             comboBox3.FormattingEnabled = true;
             comboBox3.Items.AddRange(new object[] { "Operator", "Lider", "Technolog" });
-            comboBox3.Location = new System.Drawing.Point(108, 103);
+            comboBox3.Location = new System.Drawing.Point(97, 89);
             comboBox3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             comboBox3.Name = "comboBox3";
-            comboBox3.Size = new System.Drawing.Size(112, 23);
+            comboBox3.Size = new System.Drawing.Size(205, 23);
             comboBox3.TabIndex = 16;
             // 
             // button7
             // 
-            button7.Location = new System.Drawing.Point(336, 219);
+            button7.Location = new System.Drawing.Point(331, 194);
             button7.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             button7.Name = "button7";
             button7.Size = new System.Drawing.Size(172, 27);
@@ -1462,7 +1130,7 @@
             // label53
             // 
             label53.AutoSize = true;
-            label53.Location = new System.Drawing.Point(332, 178);
+            label53.Location = new System.Drawing.Point(331, 158);
             label53.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label53.Name = "label53";
             label53.Size = new System.Drawing.Size(73, 15);
@@ -1472,7 +1140,7 @@
             // label54
             // 
             label54.AutoSize = true;
-            label54.Location = new System.Drawing.Point(332, 135);
+            label54.Location = new System.Drawing.Point(332, 125);
             label54.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label54.Name = "label54";
             label54.Size = new System.Drawing.Size(30, 15);
@@ -1482,7 +1150,7 @@
             // label55
             // 
             label55.AutoSize = true;
-            label55.Location = new System.Drawing.Point(329, 91);
+            label55.Location = new System.Drawing.Point(330, 90);
             label55.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label55.Name = "label55";
             label55.Size = new System.Drawing.Size(74, 15);
@@ -1494,17 +1162,17 @@
             comboBox2.DropDownHeight = 100;
             comboBox2.FormattingEnabled = true;
             comboBox2.IntegralHeight = false;
-            comboBox2.Location = new System.Drawing.Point(326, 39);
+            comboBox2.Location = new System.Drawing.Point(327, 53);
             comboBox2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             comboBox2.Name = "comboBox2";
-            comboBox2.Size = new System.Drawing.Size(319, 23);
+            comboBox2.Size = new System.Drawing.Size(374, 23);
             comboBox2.TabIndex = 8;
             comboBox2.SelectedIndexChanged += comboBox2_SelectedIndexChanged;
             // 
             // label52
             // 
             label52.AutoSize = true;
-            label52.Location = new System.Drawing.Point(322, 20);
+            label52.Location = new System.Drawing.Point(327, 31);
             label52.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label52.Name = "label52";
             label52.Size = new System.Drawing.Size(159, 15);
@@ -1513,7 +1181,7 @@
             // 
             // button6
             // 
-            button6.Location = new System.Drawing.Point(28, 148);
+            button6.Location = new System.Drawing.Point(12, 120);
             button6.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             button6.Name = "button6";
             button6.Size = new System.Drawing.Size(172, 27);
@@ -1525,7 +1193,7 @@
             // label50
             // 
             label50.AutoSize = true;
-            label50.Location = new System.Drawing.Point(24, 106);
+            label50.Location = new System.Drawing.Point(12, 92);
             label50.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label50.Name = "label50";
             label50.Size = new System.Drawing.Size(73, 15);
@@ -1535,7 +1203,7 @@
             // label46
             // 
             label46.AutoSize = true;
-            label46.Location = new System.Drawing.Point(24, 63);
+            label46.Location = new System.Drawing.Point(15, 64);
             label46.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label46.Name = "label46";
             label46.Size = new System.Drawing.Size(30, 15);
@@ -1545,12 +1213,34 @@
             // label26
             // 
             label26.AutoSize = true;
-            label26.Location = new System.Drawing.Point(21, 20);
+            label26.Location = new System.Drawing.Point(13, 34);
             label26.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label26.Name = "label26";
             label26.Size = new System.Drawing.Size(74, 15);
             label26.TabIndex = 0;
             label26.Text = "Numer Karty";
+            // 
+            // label21
+            // 
+            label21.BackColor = System.Drawing.Color.White;
+            label21.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            label21.Location = new System.Drawing.Point(322, 26);
+            label21.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label21.Name = "label21";
+            label21.Size = new System.Drawing.Size(381, 344);
+            label21.TabIndex = 176;
+            label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label23
+            // 
+            label23.BackColor = System.Drawing.Color.White;
+            label23.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            label23.Location = new System.Drawing.Point(4, 26);
+            label23.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label23.Name = "label23";
+            label23.Size = new System.Drawing.Size(310, 147);
+            label23.TabIndex = 178;
+            label23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tabPage4
             // 
@@ -1559,7 +1249,7 @@
             tabPage4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             tabPage4.Name = "tabPage4";
             tabPage4.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            tabPage4.Size = new System.Drawing.Size(711, 347);
+            tabPage4.Size = new System.Drawing.Size(711, 373);
             tabPage4.TabIndex = 3;
             tabPage4.Text = "DANE";
             tabPage4.UseVisualStyleBackColor = true;
@@ -1571,52 +1261,45 @@
             Poprzednia.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             Poprzednia.Name = "Poprzednia";
             Poprzednia.SelectedIndex = 0;
-            Poprzednia.Size = new System.Drawing.Size(707, 334);
+            Poprzednia.Size = new System.Drawing.Size(700, 360);
             Poprzednia.TabIndex = 0;
             // 
             // tabPage8
             // 
-            tabPage8.Controls.Add(button2);
-            tabPage8.Controls.Add(label103);
-            tabPage8.Controls.Add(button13);
             tabPage8.Controls.Add(label102);
             tabPage8.Controls.Add(label72);
             tabPage8.Controls.Add(label73);
             tabPage8.Controls.Add(label74);
-            tabPage8.Controls.Add(DB666Tag14PassedValue);
-            tabPage8.Controls.Add(DB666Tag7PassedValue);
-            tabPage8.Controls.Add(DB666Tag22PassedValue);
-            tabPage8.Controls.Add(DB666Tag19PassedValue);
-            tabPage8.Controls.Add(DB666Tag6PassedValue);
-            tabPage8.Controls.Add(DB666Tag18PassedValue);
-            tabPage8.Controls.Add(DB666Tag21PassedValue);
-            tabPage8.Controls.Add(DB666Tag20PassedValue);
-            tabPage8.Controls.Add(DB666Tag15PassedValue);
-            tabPage8.Controls.Add(DB666Tag5PassedValue);
-            tabPage8.Controls.Add(DB666Tag3PassedValue);
-            tabPage8.Controls.Add(DB666Tag4PassedValue);
-            tabPage8.Controls.Add(DB666Tag2PassedValue);
-            tabPage8.Controls.Add(DB666Tag17PassedValue);
-            tabPage8.Controls.Add(DB666Tag16PassedValue);
+            tabPage8.Controls.Add(DB666Tag14);
+            tabPage8.Controls.Add(DB666Tag7);
+            tabPage8.Controls.Add(DB666Tag22);
+            tabPage8.Controls.Add(DB666Tag19);
+            tabPage8.Controls.Add(DB666Tag6);
+            tabPage8.Controls.Add(DB666Tag18);
+            tabPage8.Controls.Add(DB666Tag21);
+            tabPage8.Controls.Add(DB666Tag20);
+            tabPage8.Controls.Add(DB666Tag15);
+            tabPage8.Controls.Add(DB666Tag5);
+            tabPage8.Controls.Add(DB666Tag3);
+            tabPage8.Controls.Add(DB666Tag4);
+            tabPage8.Controls.Add(DB666Tag2);
             tabPage8.Controls.Add(label75);
             tabPage8.Controls.Add(label4);
             tabPage8.Controls.Add(label76);
-            tabPage8.Controls.Add(comboBox5);
-            tabPage8.Controls.Add(DB666Tag13PassedValue);
-            tabPage8.Controls.Add(DB666Tag12PassedValue);
-            tabPage8.Controls.Add(DB666Tag11PassedValue);
-            tabPage8.Controls.Add(DB666Tag10PassedValue);
-            tabPage8.Controls.Add(DB666Tag9PassedValue);
-            tabPage8.Controls.Add(DB666Tag8PassedValue);
-            tabPage8.Controls.Add(DB666Tag1PassedValue);
-            tabPage8.Controls.Add(DB666Tag0PassedValue);
             tabPage8.Controls.Add(label27);
             tabPage8.Controls.Add(label28);
             tabPage8.Controls.Add(label29);
             tabPage8.Controls.Add(label30);
             tabPage8.Controls.Add(label31);
-            tabPage8.Controls.Add(button1);
             tabPage8.Controls.Add(label32);
+            tabPage8.Controls.Add(DB666Tag13);
+            tabPage8.Controls.Add(DB666Tag12);
+            tabPage8.Controls.Add(DB666Tag11);
+            tabPage8.Controls.Add(DB666Tag10);
+            tabPage8.Controls.Add(DB666Tag9);
+            tabPage8.Controls.Add(DB666Tag8);
+            tabPage8.Controls.Add(DB666Tag1);
+            tabPage8.Controls.Add(DB666Tag0);
             tabPage8.Controls.Add(label33);
             tabPage8.Controls.Add(label34);
             tabPage8.Controls.Add(label35);
@@ -1625,58 +1308,33 @@
             tabPage8.Controls.Add(label38);
             tabPage8.Controls.Add(label39);
             tabPage8.Controls.Add(label40);
+            tabPage8.Controls.Add(label7);
+            tabPage8.Controls.Add(button2);
+            tabPage8.Controls.Add(label103);
+            tabPage8.Controls.Add(button13);
+            tabPage8.Controls.Add(DB666Tag17);
+            tabPage8.Controls.Add(DB666Tag16);
+            tabPage8.Controls.Add(comboBox5);
+            tabPage8.Controls.Add(button1);
             tabPage8.Controls.Add(label41);
             tabPage8.Controls.Add(label42);
             tabPage8.Controls.Add(label43);
             tabPage8.Controls.Add(label44);
             tabPage8.Controls.Add(label45);
+            tabPage8.Controls.Add(label9);
             tabPage8.Location = new System.Drawing.Point(4, 24);
             tabPage8.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             tabPage8.Name = "tabPage8";
             tabPage8.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            tabPage8.Size = new System.Drawing.Size(699, 306);
+            tabPage8.Size = new System.Drawing.Size(692, 332);
             tabPage8.TabIndex = 1;
             tabPage8.Text = "MODYFIKOWALNE";
             tabPage8.UseVisualStyleBackColor = true;
             // 
-            // button2
-            // 
-            button2.Location = new System.Drawing.Point(593, 169);
-            button2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            button2.Name = "button2";
-            button2.Size = new System.Drawing.Size(83, 28);
-            button2.TabIndex = 156;
-            button2.Tag = "";
-            button2.Text = "Usuń ref.";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click_1;
-            // 
-            // label103
-            // 
-            label103.AutoSize = true;
-            label103.Location = new System.Drawing.Point(421, 128);
-            label103.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            label103.Name = "label103";
-            label103.Size = new System.Drawing.Size(264, 15);
-            label103.TabIndex = 154;
-            label103.Text = "Real wpisujemy tylko po przecinku nie po kropce";
-            // 
-            // button13
-            // 
-            button13.Location = new System.Drawing.Point(489, 169);
-            button13.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            button13.Name = "button13";
-            button13.Size = new System.Drawing.Size(83, 28);
-            button13.TabIndex = 155;
-            button13.Tag = "";
-            button13.Text = "Dodaj nową";
-            button13.UseVisualStyleBackColor = true;
-            button13.Click += button13_Click;
-            // 
             // label102
             // 
             label102.AutoSize = true;
-            label102.Location = new System.Drawing.Point(495, 281);
+            label102.Location = new System.Drawing.Point(445, 216);
             label102.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label102.Name = "label102";
             label102.Size = new System.Drawing.Size(54, 15);
@@ -1686,7 +1344,7 @@
             // label72
             // 
             label72.AutoSize = true;
-            label72.Location = new System.Drawing.Point(573, 250);
+            label72.Location = new System.Drawing.Point(448, 271);
             label72.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label72.Name = "label72";
             label72.Size = new System.Drawing.Size(54, 15);
@@ -1696,7 +1354,7 @@
             // label73
             // 
             label73.AutoSize = true;
-            label73.Location = new System.Drawing.Point(235, 280);
+            label73.Location = new System.Drawing.Point(236, 292);
             label73.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label73.Name = "label73";
             label73.Size = new System.Drawing.Size(105, 15);
@@ -1706,153 +1364,134 @@
             // label74
             // 
             label74.AutoSize = true;
-            label74.Location = new System.Drawing.Point(573, 221);
+            label74.Location = new System.Drawing.Point(448, 242);
             label74.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label74.Name = "label74";
             label74.Size = new System.Drawing.Size(54, 15);
             label74.TabIndex = 153;
             label74.Text = "Int Tag20";
             // 
-            // DB666Tag14PassedValue
+            // DB666Tag14
             // 
-            DB666Tag14PassedValue.Location = new System.Drawing.Point(341, 275);
-            DB666Tag14PassedValue.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            DB666Tag14PassedValue.Name = "DB666Tag14PassedValue";
-            DB666Tag14PassedValue.Size = new System.Drawing.Size(48, 23);
-            DB666Tag14PassedValue.TabIndex = 135;
-            DB666Tag14PassedValue.Tag = "DB666.Tag14";
+            DB666Tag14.Location = new System.Drawing.Point(350, 289);
+            DB666Tag14.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            DB666Tag14.Name = "DB666Tag14";
+            DB666Tag14.Size = new System.Drawing.Size(48, 23);
+            DB666Tag14.TabIndex = 135;
+            DB666Tag14.Tag = "DB666.Tag14";
             // 
-            // DB666Tag7PassedValue
+            // DB666Tag7
             // 
-            DB666Tag7PassedValue.Location = new System.Drawing.Point(341, 247);
-            DB666Tag7PassedValue.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            DB666Tag7PassedValue.Name = "DB666Tag7PassedValue";
-            DB666Tag7PassedValue.Size = new System.Drawing.Size(48, 23);
-            DB666Tag7PassedValue.TabIndex = 133;
-            DB666Tag7PassedValue.Tag = "DB666.Tag7";
+            DB666Tag7.Location = new System.Drawing.Point(350, 264);
+            DB666Tag7.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            DB666Tag7.Name = "DB666Tag7";
+            DB666Tag7.Size = new System.Drawing.Size(48, 23);
+            DB666Tag7.TabIndex = 133;
+            DB666Tag7.Tag = "DB666.Tag7";
             // 
-            // DB666Tag22PassedValue
+            // DB666Tag22
             // 
-            DB666Tag22PassedValue.Location = new System.Drawing.Point(557, 276);
-            DB666Tag22PassedValue.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            DB666Tag22PassedValue.Name = "DB666Tag22PassedValue";
-            DB666Tag22PassedValue.Size = new System.Drawing.Size(44, 23);
-            DB666Tag22PassedValue.TabIndex = 150;
-            DB666Tag22PassedValue.Tag = "DB666.Tag22";
+            DB666Tag22.Location = new System.Drawing.Point(507, 211);
+            DB666Tag22.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            DB666Tag22.Name = "DB666Tag22";
+            DB666Tag22.Size = new System.Drawing.Size(44, 23);
+            DB666Tag22.TabIndex = 150;
+            DB666Tag22.Tag = "DB666.Tag22";
             // 
-            // DB666Tag19PassedValue
+            // DB666Tag19
             // 
-            DB666Tag19PassedValue.Location = new System.Drawing.Point(528, 247);
-            DB666Tag19PassedValue.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            DB666Tag19PassedValue.Name = "DB666Tag19PassedValue";
-            DB666Tag19PassedValue.Size = new System.Drawing.Size(44, 23);
-            DB666Tag19PassedValue.TabIndex = 149;
-            DB666Tag19PassedValue.Tag = "DB666.Tag19";
+            DB666Tag19.Location = new System.Drawing.Point(507, 182);
+            DB666Tag19.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            DB666Tag19.Name = "DB666Tag19";
+            DB666Tag19.Size = new System.Drawing.Size(44, 23);
+            DB666Tag19.TabIndex = 149;
+            DB666Tag19.Tag = "DB666.Tag19";
             // 
-            // DB666Tag6PassedValue
+            // DB666Tag6
             // 
-            DB666Tag6PassedValue.Location = new System.Drawing.Point(341, 194);
-            DB666Tag6PassedValue.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            DB666Tag6PassedValue.Name = "DB666Tag6PassedValue";
-            DB666Tag6PassedValue.Size = new System.Drawing.Size(48, 23);
-            DB666Tag6PassedValue.TabIndex = 130;
-            DB666Tag6PassedValue.Tag = "DB666.Tag6";
+            DB666Tag6.Location = new System.Drawing.Point(350, 210);
+            DB666Tag6.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            DB666Tag6.Name = "DB666Tag6";
+            DB666Tag6.Size = new System.Drawing.Size(48, 23);
+            DB666Tag6.TabIndex = 130;
+            DB666Tag6.Tag = "DB666.Tag6";
             // 
-            // DB666Tag18PassedValue
+            // DB666Tag18
             // 
-            DB666Tag18PassedValue.Location = new System.Drawing.Point(528, 218);
-            DB666Tag18PassedValue.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            DB666Tag18PassedValue.Name = "DB666Tag18PassedValue";
-            DB666Tag18PassedValue.Size = new System.Drawing.Size(44, 23);
-            DB666Tag18PassedValue.TabIndex = 148;
-            DB666Tag18PassedValue.Tag = "DB666.Tag18";
+            DB666Tag18.Location = new System.Drawing.Point(507, 153);
+            DB666Tag18.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            DB666Tag18.Name = "DB666Tag18";
+            DB666Tag18.Size = new System.Drawing.Size(44, 23);
+            DB666Tag18.TabIndex = 148;
+            DB666Tag18.Tag = "DB666.Tag18";
             // 
-            // DB666Tag21PassedValue
+            // DB666Tag21
             // 
-            DB666Tag21PassedValue.Location = new System.Drawing.Point(632, 247);
-            DB666Tag21PassedValue.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            DB666Tag21PassedValue.Name = "DB666Tag21PassedValue";
-            DB666Tag21PassedValue.Size = new System.Drawing.Size(44, 23);
-            DB666Tag21PassedValue.TabIndex = 147;
-            DB666Tag21PassedValue.Tag = "DB666.Tag21";
+            DB666Tag21.Location = new System.Drawing.Point(507, 268);
+            DB666Tag21.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            DB666Tag21.Name = "DB666Tag21";
+            DB666Tag21.Size = new System.Drawing.Size(44, 23);
+            DB666Tag21.TabIndex = 147;
+            DB666Tag21.Tag = "DB666.Tag21";
             // 
-            // DB666Tag20PassedValue
+            // DB666Tag20
             // 
-            DB666Tag20PassedValue.Location = new System.Drawing.Point(632, 218);
-            DB666Tag20PassedValue.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            DB666Tag20PassedValue.Name = "DB666Tag20PassedValue";
-            DB666Tag20PassedValue.Size = new System.Drawing.Size(44, 23);
-            DB666Tag20PassedValue.TabIndex = 146;
-            DB666Tag20PassedValue.Tag = "DB666.Tag20";
+            DB666Tag20.Location = new System.Drawing.Point(507, 239);
+            DB666Tag20.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            DB666Tag20.Name = "DB666Tag20";
+            DB666Tag20.Size = new System.Drawing.Size(44, 23);
+            DB666Tag20.TabIndex = 146;
+            DB666Tag20.Tag = "DB666.Tag20";
             // 
-            // DB666Tag15PassedValue
+            // DB666Tag15
             // 
-            DB666Tag15PassedValue.Location = new System.Drawing.Point(341, 223);
-            DB666Tag15PassedValue.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            DB666Tag15PassedValue.Name = "DB666Tag15PassedValue";
-            DB666Tag15PassedValue.Size = new System.Drawing.Size(48, 23);
-            DB666Tag15PassedValue.TabIndex = 63;
-            DB666Tag15PassedValue.Tag = "DB666.Tag15";
+            DB666Tag15.Location = new System.Drawing.Point(350, 239);
+            DB666Tag15.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            DB666Tag15.Name = "DB666Tag15";
+            DB666Tag15.Size = new System.Drawing.Size(48, 23);
+            DB666Tag15.TabIndex = 63;
+            DB666Tag15.Tag = "DB666.Tag15";
             // 
-            // DB666Tag5PassedValue
+            // DB666Tag5
             // 
-            DB666Tag5PassedValue.Location = new System.Drawing.Point(341, 166);
-            DB666Tag5PassedValue.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            DB666Tag5PassedValue.Name = "DB666Tag5PassedValue";
-            DB666Tag5PassedValue.Size = new System.Drawing.Size(48, 23);
-            DB666Tag5PassedValue.TabIndex = 62;
-            DB666Tag5PassedValue.Tag = "DB666.Tag5";
+            DB666Tag5.Location = new System.Drawing.Point(350, 183);
+            DB666Tag5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            DB666Tag5.Name = "DB666Tag5";
+            DB666Tag5.Size = new System.Drawing.Size(48, 23);
+            DB666Tag5.TabIndex = 62;
+            DB666Tag5.Tag = "DB666.Tag5";
             // 
-            // DB666Tag3PassedValue
+            // DB666Tag3
             // 
-            DB666Tag3PassedValue.Location = new System.Drawing.Point(341, 108);
-            DB666Tag3PassedValue.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            DB666Tag3PassedValue.Name = "DB666Tag3PassedValue";
-            DB666Tag3PassedValue.Size = new System.Drawing.Size(48, 23);
-            DB666Tag3PassedValue.TabIndex = 61;
-            DB666Tag3PassedValue.Tag = "DB666.Tag3";
+            DB666Tag3.Location = new System.Drawing.Point(350, 127);
+            DB666Tag3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            DB666Tag3.Name = "DB666Tag3";
+            DB666Tag3.Size = new System.Drawing.Size(48, 23);
+            DB666Tag3.TabIndex = 61;
+            DB666Tag3.Tag = "DB666.Tag3";
             // 
-            // DB666Tag4PassedValue
+            // DB666Tag4
             // 
-            DB666Tag4PassedValue.Location = new System.Drawing.Point(341, 137);
-            DB666Tag4PassedValue.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            DB666Tag4PassedValue.Name = "DB666Tag4PassedValue";
-            DB666Tag4PassedValue.Size = new System.Drawing.Size(48, 23);
-            DB666Tag4PassedValue.TabIndex = 57;
-            DB666Tag4PassedValue.Tag = "DB666.Tag4";
+            DB666Tag4.Location = new System.Drawing.Point(350, 156);
+            DB666Tag4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            DB666Tag4.Name = "DB666Tag4";
+            DB666Tag4.Size = new System.Drawing.Size(48, 23);
+            DB666Tag4.TabIndex = 57;
+            DB666Tag4.Tag = "DB666.Tag4";
             // 
-            // DB666Tag2PassedValue
+            // DB666Tag2
             // 
-            DB666Tag2PassedValue.Location = new System.Drawing.Point(341, 80);
-            DB666Tag2PassedValue.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            DB666Tag2PassedValue.Name = "DB666Tag2PassedValue";
-            DB666Tag2PassedValue.Size = new System.Drawing.Size(48, 23);
-            DB666Tag2PassedValue.TabIndex = 56;
-            DB666Tag2PassedValue.Tag = "DB666.Tag2";
-            // 
-            // DB666Tag17PassedValue
-            // 
-            DB666Tag17PassedValue.Location = new System.Drawing.Point(526, 13);
-            DB666Tag17PassedValue.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            DB666Tag17PassedValue.Name = "DB666Tag17PassedValue";
-            DB666Tag17PassedValue.Size = new System.Drawing.Size(159, 23);
-            DB666Tag17PassedValue.TabIndex = 95;
-            DB666Tag17PassedValue.Tag = "DB666.Tag17";
-            // 
-            // DB666Tag16PassedValue
-            // 
-            DB666Tag16PassedValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 238);
-            DB666Tag16PassedValue.Location = new System.Drawing.Point(120, 13);
-            DB666Tag16PassedValue.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            DB666Tag16PassedValue.Name = "DB666Tag16PassedValue";
-            DB666Tag16PassedValue.Size = new System.Drawing.Size(305, 18);
-            DB666Tag16PassedValue.TabIndex = 94;
-            DB666Tag16PassedValue.Tag = "DB666.Tag16";
+            DB666Tag2.Location = new System.Drawing.Point(507, 127);
+            DB666Tag2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            DB666Tag2.Name = "DB666Tag2";
+            DB666Tag2.Size = new System.Drawing.Size(44, 23);
+            DB666Tag2.TabIndex = 56;
+            DB666Tag2.Tag = "DB666.Tag2";
             // 
             // label75
             // 
             label75.AutoSize = true;
-            label75.Location = new System.Drawing.Point(473, 250);
+            label75.Location = new System.Drawing.Point(452, 185);
             label75.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label75.Name = "label75";
             label75.Size = new System.Drawing.Size(54, 15);
@@ -1862,7 +1501,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new System.Drawing.Point(235, 252);
+            label4.Location = new System.Drawing.Point(244, 271);
             label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label4.Name = "label4";
             label4.Size = new System.Drawing.Size(99, 15);
@@ -1872,115 +1511,17 @@
             // label76
             // 
             label76.AutoSize = true;
-            label76.Location = new System.Drawing.Point(473, 221);
+            label76.Location = new System.Drawing.Point(452, 156);
             label76.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label76.Name = "label76";
             label76.Size = new System.Drawing.Size(54, 15);
             label76.TabIndex = 151;
             label76.Text = "Int Tag18";
             // 
-            // comboBox5
-            // 
-            comboBox5.FormattingEnabled = true;
-            comboBox5.Location = new System.Drawing.Point(507, 52);
-            comboBox5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            comboBox5.Name = "comboBox5";
-            comboBox5.Size = new System.Drawing.Size(184, 23);
-            comboBox5.TabIndex = 131;
-            comboBox5.SelectedIndexChanged += comboBox5_SelectedIndexChanged;
-            // 
-            // DB666Tag13PassedValue
-            // 
-            DB666Tag13PassedValue.AutoSize = true;
-            DB666Tag13PassedValue.Location = new System.Drawing.Point(97, 279);
-            DB666Tag13PassedValue.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            DB666Tag13PassedValue.Name = "DB666Tag13PassedValue";
-            DB666Tag13PassedValue.Size = new System.Drawing.Size(15, 14);
-            DB666Tag13PassedValue.TabIndex = 122;
-            DB666Tag13PassedValue.Tag = "DB666.Tag13";
-            DB666Tag13PassedValue.UseVisualStyleBackColor = true;
-            // 
-            // DB666Tag12PassedValue
-            // 
-            DB666Tag12PassedValue.AutoSize = true;
-            DB666Tag12PassedValue.Location = new System.Drawing.Point(98, 265);
-            DB666Tag12PassedValue.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            DB666Tag12PassedValue.Name = "DB666Tag12PassedValue";
-            DB666Tag12PassedValue.Size = new System.Drawing.Size(15, 14);
-            DB666Tag12PassedValue.TabIndex = 121;
-            DB666Tag12PassedValue.Tag = "DB666.Tag12";
-            DB666Tag12PassedValue.UseVisualStyleBackColor = true;
-            // 
-            // DB666Tag11PassedValue
-            // 
-            DB666Tag11PassedValue.AutoSize = true;
-            DB666Tag11PassedValue.Location = new System.Drawing.Point(98, 235);
-            DB666Tag11PassedValue.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            DB666Tag11PassedValue.Name = "DB666Tag11PassedValue";
-            DB666Tag11PassedValue.Size = new System.Drawing.Size(15, 14);
-            DB666Tag11PassedValue.TabIndex = 120;
-            DB666Tag11PassedValue.Tag = "DB666.Tag11";
-            DB666Tag11PassedValue.UseVisualStyleBackColor = true;
-            // 
-            // DB666Tag10PassedValue
-            // 
-            DB666Tag10PassedValue.AutoSize = true;
-            DB666Tag10PassedValue.Location = new System.Drawing.Point(98, 205);
-            DB666Tag10PassedValue.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            DB666Tag10PassedValue.Name = "DB666Tag10PassedValue";
-            DB666Tag10PassedValue.Size = new System.Drawing.Size(15, 14);
-            DB666Tag10PassedValue.TabIndex = 119;
-            DB666Tag10PassedValue.Tag = "DB666.Tag10";
-            DB666Tag10PassedValue.UseVisualStyleBackColor = true;
-            // 
-            // DB666Tag9PassedValue
-            // 
-            DB666Tag9PassedValue.AutoSize = true;
-            DB666Tag9PassedValue.Location = new System.Drawing.Point(98, 178);
-            DB666Tag9PassedValue.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            DB666Tag9PassedValue.Name = "DB666Tag9PassedValue";
-            DB666Tag9PassedValue.Size = new System.Drawing.Size(15, 14);
-            DB666Tag9PassedValue.TabIndex = 118;
-            DB666Tag9PassedValue.Tag = "DB666.Tag9";
-            DB666Tag9PassedValue.UseVisualStyleBackColor = true;
-            // 
-            // DB666Tag8PassedValue
-            // 
-            DB666Tag8PassedValue.AutoSize = true;
-            DB666Tag8PassedValue.Location = new System.Drawing.Point(98, 148);
-            DB666Tag8PassedValue.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            DB666Tag8PassedValue.Name = "DB666Tag8PassedValue";
-            DB666Tag8PassedValue.Size = new System.Drawing.Size(15, 14);
-            DB666Tag8PassedValue.TabIndex = 117;
-            DB666Tag8PassedValue.Tag = "DB666.Tag8";
-            DB666Tag8PassedValue.UseVisualStyleBackColor = true;
-            // 
-            // DB666Tag1PassedValue
-            // 
-            DB666Tag1PassedValue.AutoSize = true;
-            DB666Tag1PassedValue.Location = new System.Drawing.Point(98, 118);
-            DB666Tag1PassedValue.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            DB666Tag1PassedValue.Name = "DB666Tag1PassedValue";
-            DB666Tag1PassedValue.Size = new System.Drawing.Size(15, 14);
-            DB666Tag1PassedValue.TabIndex = 116;
-            DB666Tag1PassedValue.Tag = "DB666.Tag1";
-            DB666Tag1PassedValue.UseVisualStyleBackColor = true;
-            // 
-            // DB666Tag0PassedValue
-            // 
-            DB666Tag0PassedValue.AutoSize = true;
-            DB666Tag0PassedValue.Location = new System.Drawing.Point(98, 87);
-            DB666Tag0PassedValue.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            DB666Tag0PassedValue.Name = "DB666Tag0PassedValue";
-            DB666Tag0PassedValue.Size = new System.Drawing.Size(15, 14);
-            DB666Tag0PassedValue.TabIndex = 103;
-            DB666Tag0PassedValue.Tag = "DB666.Tag0";
-            DB666Tag0PassedValue.UseVisualStyleBackColor = true;
-            // 
             // label27
             // 
             label27.AutoSize = true;
-            label27.Location = new System.Drawing.Point(235, 228);
+            label27.Location = new System.Drawing.Point(243, 244);
             label27.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label27.Name = "label27";
             label27.Size = new System.Drawing.Size(105, 15);
@@ -1990,7 +1531,7 @@
             // label28
             // 
             label28.AutoSize = true;
-            label28.Location = new System.Drawing.Point(235, 199);
+            label28.Location = new System.Drawing.Point(244, 218);
             label28.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label28.Name = "label28";
             label28.Size = new System.Drawing.Size(96, 15);
@@ -2000,7 +1541,7 @@
             // label29
             // 
             label29.AutoSize = true;
-            label29.Location = new System.Drawing.Point(235, 171);
+            label29.Location = new System.Drawing.Point(244, 190);
             label29.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label29.Name = "label29";
             label29.Size = new System.Drawing.Size(96, 15);
@@ -2010,7 +1551,7 @@
             // label30
             // 
             label30.AutoSize = true;
-            label30.Location = new System.Drawing.Point(235, 142);
+            label30.Location = new System.Drawing.Point(244, 161);
             label30.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label30.Name = "label30";
             label30.Size = new System.Drawing.Size(96, 15);
@@ -2020,39 +1561,115 @@
             // label31
             // 
             label31.AutoSize = true;
-            label31.Location = new System.Drawing.Point(235, 113);
+            label31.Location = new System.Drawing.Point(244, 132);
             label31.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label31.Name = "label31";
             label31.Size = new System.Drawing.Size(96, 15);
             label31.TabIndex = 110;
             label31.Text = "Odczyt Real Tag3";
             // 
-            // button1
-            // 
-            button1.Location = new System.Drawing.Point(602, 87);
-            button1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            button1.Name = "button1";
-            button1.Size = new System.Drawing.Size(83, 28);
-            button1.TabIndex = 0;
-            button1.Tag = "";
-            button1.Text = "Edytuj";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
-            // 
             // label32
             // 
             label32.AutoSize = true;
-            label32.Location = new System.Drawing.Point(235, 84);
+            label32.Location = new System.Drawing.Point(411, 130);
             label32.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label32.Name = "label32";
             label32.Size = new System.Drawing.Size(96, 15);
             label32.TabIndex = 109;
             label32.Text = "Odczyt Real Tag2";
             // 
+            // DB666Tag13
+            // 
+            DB666Tag13.AutoSize = true;
+            DB666Tag13.Location = new System.Drawing.Point(95, 256);
+            DB666Tag13.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            DB666Tag13.Name = "DB666Tag13";
+            DB666Tag13.Size = new System.Drawing.Size(15, 14);
+            DB666Tag13.TabIndex = 122;
+            DB666Tag13.Tag = "DB666.Tag13";
+            DB666Tag13.UseVisualStyleBackColor = true;
+            // 
+            // DB666Tag12
+            // 
+            DB666Tag12.AutoSize = true;
+            DB666Tag12.Location = new System.Drawing.Point(95, 229);
+            DB666Tag12.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            DB666Tag12.Name = "DB666Tag12";
+            DB666Tag12.Size = new System.Drawing.Size(15, 14);
+            DB666Tag12.TabIndex = 121;
+            DB666Tag12.Tag = "DB666.Tag12";
+            DB666Tag12.UseVisualStyleBackColor = true;
+            // 
+            // DB666Tag11
+            // 
+            DB666Tag11.AutoSize = true;
+            DB666Tag11.Location = new System.Drawing.Point(95, 202);
+            DB666Tag11.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            DB666Tag11.Name = "DB666Tag11";
+            DB666Tag11.Size = new System.Drawing.Size(15, 14);
+            DB666Tag11.TabIndex = 120;
+            DB666Tag11.Tag = "DB666.Tag11";
+            DB666Tag11.UseVisualStyleBackColor = true;
+            // 
+            // DB666Tag10
+            // 
+            DB666Tag10.AutoSize = true;
+            DB666Tag10.Location = new System.Drawing.Point(98, 175);
+            DB666Tag10.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            DB666Tag10.Name = "DB666Tag10";
+            DB666Tag10.Size = new System.Drawing.Size(15, 14);
+            DB666Tag10.TabIndex = 119;
+            DB666Tag10.Tag = "DB666.Tag10";
+            DB666Tag10.UseVisualStyleBackColor = true;
+            // 
+            // DB666Tag9
+            // 
+            DB666Tag9.AutoSize = true;
+            DB666Tag9.Location = new System.Drawing.Point(97, 154);
+            DB666Tag9.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            DB666Tag9.Name = "DB666Tag9";
+            DB666Tag9.Size = new System.Drawing.Size(15, 14);
+            DB666Tag9.TabIndex = 118;
+            DB666Tag9.Tag = "DB666.Tag9";
+            DB666Tag9.UseVisualStyleBackColor = true;
+            // 
+            // DB666Tag8
+            // 
+            DB666Tag8.AutoSize = true;
+            DB666Tag8.Location = new System.Drawing.Point(98, 129);
+            DB666Tag8.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            DB666Tag8.Name = "DB666Tag8";
+            DB666Tag8.Size = new System.Drawing.Size(15, 14);
+            DB666Tag8.TabIndex = 117;
+            DB666Tag8.Tag = "DB666.Tag8";
+            DB666Tag8.UseVisualStyleBackColor = true;
+            // 
+            // DB666Tag1
+            // 
+            DB666Tag1.AutoSize = true;
+            DB666Tag1.Location = new System.Drawing.Point(98, 106);
+            DB666Tag1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            DB666Tag1.Name = "DB666Tag1";
+            DB666Tag1.Size = new System.Drawing.Size(15, 14);
+            DB666Tag1.TabIndex = 116;
+            DB666Tag1.Tag = "DB666.Tag1";
+            DB666Tag1.UseVisualStyleBackColor = true;
+            // 
+            // DB666Tag0
+            // 
+            DB666Tag0.AutoSize = true;
+            DB666Tag0.Location = new System.Drawing.Point(98, 79);
+            DB666Tag0.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            DB666Tag0.Name = "DB666Tag0";
+            DB666Tag0.Size = new System.Drawing.Size(15, 14);
+            DB666Tag0.TabIndex = 103;
+            DB666Tag0.Tag = "DB666.Tag0";
+            DB666Tag0.UseVisualStyleBackColor = true;
+            // 
             // label33
             // 
             label33.AutoSize = true;
-            label33.Location = new System.Drawing.Point(8, 280);
+            label33.Location = new System.Drawing.Point(13, 255);
             label33.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label33.Name = "label33";
             label33.Size = new System.Drawing.Size(71, 15);
@@ -2062,7 +1679,7 @@
             // label34
             // 
             label34.AutoSize = true;
-            label34.Location = new System.Drawing.Point(8, 265);
+            label34.Location = new System.Drawing.Point(13, 228);
             label34.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label34.Name = "label34";
             label34.Size = new System.Drawing.Size(71, 15);
@@ -2072,7 +1689,7 @@
             // label35
             // 
             label35.AutoSize = true;
-            label35.Location = new System.Drawing.Point(9, 235);
+            label35.Location = new System.Drawing.Point(13, 202);
             label35.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label35.Name = "label35";
             label35.Size = new System.Drawing.Size(71, 15);
@@ -2082,7 +1699,7 @@
             // label36
             // 
             label36.AutoSize = true;
-            label36.Location = new System.Drawing.Point(9, 205);
+            label36.Location = new System.Drawing.Point(13, 174);
             label36.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label36.Name = "label36";
             label36.Size = new System.Drawing.Size(71, 15);
@@ -2092,7 +1709,7 @@
             // label37
             // 
             label37.AutoSize = true;
-            label37.Location = new System.Drawing.Point(9, 178);
+            label37.Location = new System.Drawing.Point(13, 153);
             label37.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label37.Name = "label37";
             label37.Size = new System.Drawing.Size(71, 15);
@@ -2102,7 +1719,7 @@
             // label38
             // 
             label38.AutoSize = true;
-            label38.Location = new System.Drawing.Point(9, 148);
+            label38.Location = new System.Drawing.Point(13, 128);
             label38.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label38.Name = "label38";
             label38.Size = new System.Drawing.Size(71, 15);
@@ -2112,7 +1729,7 @@
             // label39
             // 
             label39.AutoSize = true;
-            label39.Location = new System.Drawing.Point(9, 118);
+            label39.Location = new System.Drawing.Point(13, 105);
             label39.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label39.Name = "label39";
             label39.Size = new System.Drawing.Size(71, 15);
@@ -2122,20 +1739,107 @@
             // label40
             // 
             label40.AutoSize = true;
-            label40.Location = new System.Drawing.Point(8, 88);
+            label40.Location = new System.Drawing.Point(13, 78);
             label40.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label40.Name = "label40";
             label40.Size = new System.Drawing.Size(71, 15);
             label40.TabIndex = 101;
             label40.Text = "Parametr P1";
             // 
+            // label7
+            // 
+            label7.BackColor = System.Drawing.Color.White;
+            label7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            label7.Location = new System.Drawing.Point(7, 66);
+            label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label7.Name = "label7";
+            label7.Size = new System.Drawing.Size(220, 249);
+            label7.TabIndex = 157;
+            label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // button2
+            // 
+            button2.Location = new System.Drawing.Point(598, 70);
+            button2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            button2.Name = "button2";
+            button2.Size = new System.Drawing.Size(83, 22);
+            button2.TabIndex = 156;
+            button2.Tag = "";
+            button2.Text = "Usuń ref.";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click_1;
+            // 
+            // label103
+            // 
+            label103.AutoSize = true;
+            label103.Location = new System.Drawing.Point(232, 74);
+            label103.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label103.Name = "label103";
+            label103.Size = new System.Drawing.Size(264, 15);
+            label103.TabIndex = 154;
+            label103.Text = "Real wpisujemy tylko po przecinku nie po kropce";
+            // 
+            // button13
+            // 
+            button13.Location = new System.Drawing.Point(598, 42);
+            button13.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            button13.Name = "button13";
+            button13.Size = new System.Drawing.Size(83, 23);
+            button13.TabIndex = 155;
+            button13.Tag = "";
+            button13.Text = "Dodaj nową";
+            button13.UseVisualStyleBackColor = true;
+            button13.Click += button13_Click;
+            // 
+            // DB666Tag17
+            // 
+            DB666Tag17.Location = new System.Drawing.Point(523, 10);
+            DB666Tag17.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            DB666Tag17.Name = "DB666Tag17";
+            DB666Tag17.Size = new System.Drawing.Size(159, 23);
+            DB666Tag17.TabIndex = 95;
+            DB666Tag17.Tag = "DB666.Tag17";
+            // 
+            // DB666Tag16
+            // 
+            DB666Tag16.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 238);
+            DB666Tag16.Location = new System.Drawing.Point(113, 13);
+            DB666Tag16.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            DB666Tag16.Name = "DB666Tag16";
+            DB666Tag16.Size = new System.Drawing.Size(305, 18);
+            DB666Tag16.TabIndex = 94;
+            DB666Tag16.Tag = "DB666.Tag16";
+            // 
+            // comboBox5
+            // 
+            comboBox5.FormattingEnabled = true;
+            comboBox5.Location = new System.Drawing.Point(235, 42);
+            comboBox5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            comboBox5.Name = "comboBox5";
+            comboBox5.Size = new System.Drawing.Size(264, 23);
+            comboBox5.TabIndex = 131;
+            comboBox5.SelectedIndexChanged += comboBox5_SelectedIndexChanged;
+            // 
+            // button1
+            // 
+            button1.Location = new System.Drawing.Point(507, 42);
+            button1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            button1.Name = "button1";
+            button1.Size = new System.Drawing.Size(83, 23);
+            button1.TabIndex = 0;
+            button1.Tag = "";
+            button1.Text = "Zapisz";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
             // label41
             // 
             label41.BackColor = System.Drawing.Color.LightBlue;
-            label41.Location = new System.Drawing.Point(235, 51);
+            label41.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            label41.Location = new System.Drawing.Point(232, 95);
             label41.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label41.Name = "label41";
-            label41.Size = new System.Drawing.Size(264, 23);
+            label41.Size = new System.Drawing.Size(449, 23);
             label41.TabIndex = 100;
             label41.Text = "Parametry procesowe";
             label41.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2143,7 +1847,8 @@
             // label42
             // 
             label42.BackColor = System.Drawing.Color.LightBlue;
-            label42.Location = new System.Drawing.Point(8, 51);
+            label42.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            label42.Location = new System.Drawing.Point(8, 41);
             label42.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label42.Name = "label42";
             label42.Size = new System.Drawing.Size(219, 23);
@@ -2155,7 +1860,7 @@
             // 
             label43.AutoSize = true;
             label43.BackColor = System.Drawing.Color.Gold;
-            label43.Location = new System.Drawing.Point(433, 16);
+            label43.Location = new System.Drawing.Point(433, 14);
             label43.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label43.Name = "label43";
             label43.Size = new System.Drawing.Size(80, 15);
@@ -2166,7 +1871,7 @@
             // 
             label44.AutoSize = true;
             label44.BackColor = System.Drawing.Color.Gold;
-            label44.Location = new System.Drawing.Point(9, 17);
+            label44.Location = new System.Drawing.Point(9, 14);
             label44.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label44.Name = "label44";
             label44.Size = new System.Drawing.Size(97, 15);
@@ -2176,32 +1881,86 @@
             // label45
             // 
             label45.BackColor = System.Drawing.Color.Gold;
+            label45.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             label45.Location = new System.Drawing.Point(7, 7);
             label45.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label45.Name = "label45";
-            label45.Size = new System.Drawing.Size(684, 39);
+            label45.Size = new System.Drawing.Size(684, 29);
             label45.TabIndex = 98;
             label45.Tag = "DB667.Tag2223";
             // 
+            // label9
+            // 
+            label9.BackColor = System.Drawing.Color.White;
+            label9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            label9.Location = new System.Drawing.Point(232, 120);
+            label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label9.Name = "label9";
+            label9.Size = new System.Drawing.Size(449, 195);
+            label9.TabIndex = 158;
+            label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // tabPage2
             // 
+            tabPage2.Controls.Add(textBox18);
+            tabPage2.Controls.Add(textBox17);
+            tabPage2.Controls.Add(label70);
+            tabPage2.Controls.Add(label69);
             tabPage2.Controls.Add(label47);
             tabPage2.Controls.Add(textBox7);
             tabPage2.Controls.Add(button5);
             tabPage2.Controls.Add(button4);
+            tabPage2.Controls.Add(label67);
+            tabPage2.Controls.Add(label68);
             tabPage2.Location = new System.Drawing.Point(4, 24);
             tabPage2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            tabPage2.Size = new System.Drawing.Size(711, 347);
+            tabPage2.Size = new System.Drawing.Size(711, 373);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "MANUAL";
             tabPage2.UseVisualStyleBackColor = true;
             // 
+            // textBox18
+            // 
+            textBox18.Enabled = false;
+            textBox18.Location = new System.Drawing.Point(208, 37);
+            textBox18.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            textBox18.Name = "textBox18";
+            textBox18.Size = new System.Drawing.Size(23, 23);
+            textBox18.TabIndex = 181;
+            // 
+            // textBox17
+            // 
+            textBox17.Enabled = false;
+            textBox17.Location = new System.Drawing.Point(128, 37);
+            textBox17.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            textBox17.Name = "textBox17";
+            textBox17.Size = new System.Drawing.Size(23, 23);
+            textBox17.TabIndex = 180;
+            // 
+            // label70
+            // 
+            label70.AutoSize = true;
+            label70.Location = new System.Drawing.Point(191, 18);
+            label70.Name = "label70";
+            label70.Size = new System.Drawing.Size(65, 15);
+            label70.TabIndex = 179;
+            label70.Text = "Poz. przód:";
+            // 
+            // label69
+            // 
+            label69.AutoSize = true;
+            label69.Location = new System.Drawing.Point(116, 18);
+            label69.Name = "label69";
+            label69.Size = new System.Drawing.Size(49, 15);
+            label69.TabIndex = 178;
+            label69.Text = "Poz. Tył:";
+            // 
             // label47
             // 
             label47.AutoSize = true;
-            label47.Location = new System.Drawing.Point(13, 66);
+            label47.Location = new System.Drawing.Point(399, 38);
             label47.Name = "label47";
             label47.Size = new System.Drawing.Size(66, 15);
             label47.TabIndex = 116;
@@ -2210,16 +1969,16 @@
             // textBox7
             // 
             textBox7.Enabled = false;
-            textBox7.Location = new System.Drawing.Point(86, 66);
+            textBox7.Location = new System.Drawing.Point(470, 35);
             textBox7.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             textBox7.Name = "textBox7";
-            textBox7.Size = new System.Drawing.Size(44, 23);
+            textBox7.Size = new System.Drawing.Size(62, 23);
             textBox7.TabIndex = 115;
             textBox7.Tag = "";
             // 
             // button5
             // 
-            button5.Location = new System.Drawing.Point(160, 28);
+            button5.Location = new System.Drawing.Point(21, 35);
             button5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             button5.Name = "button5";
             button5.Size = new System.Drawing.Size(88, 27);
@@ -2231,7 +1990,7 @@
             // 
             // button4
             // 
-            button4.Location = new System.Drawing.Point(51, 27);
+            button4.Location = new System.Drawing.Point(297, 33);
             button4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             button4.Name = "button4";
             button4.Size = new System.Drawing.Size(88, 27);
@@ -2241,13 +2000,35 @@
             button4.UseVisualStyleBackColor = true;
             button4.Click += button4_Click;
             // 
+            // label67
+            // 
+            label67.BackColor = System.Drawing.Color.White;
+            label67.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            label67.Location = new System.Drawing.Point(13, 15);
+            label67.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label67.Name = "label67";
+            label67.Size = new System.Drawing.Size(253, 342);
+            label67.TabIndex = 176;
+            label67.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label68
+            // 
+            label68.BackColor = System.Drawing.Color.White;
+            label68.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            label68.Location = new System.Drawing.Point(289, 15);
+            label68.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label68.Name = "label68";
+            label68.Size = new System.Drawing.Size(253, 342);
+            label68.TabIndex = 177;
+            label68.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // tabPage1
             // 
             tabPage1.Location = new System.Drawing.Point(4, 24);
             tabPage1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            tabPage1.Size = new System.Drawing.Size(711, 347);
+            tabPage1.Size = new System.Drawing.Size(711, 373);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "AUTO";
             tabPage1.UseVisualStyleBackColor = true;
@@ -2265,72 +2046,8 @@
             tabControl1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new System.Drawing.Size(719, 375);
+            tabControl1.Size = new System.Drawing.Size(719, 401);
             tabControl1.TabIndex = 70;
-            // 
-            // DB666Tag2
-            // 
-            DB666Tag2.Enabled = false;
-            DB666Tag2.Location = new System.Drawing.Point(858, 147);
-            DB666Tag2.Name = "DB666Tag2";
-            DB666Tag2.Size = new System.Drawing.Size(43, 23);
-            DB666Tag2.TabIndex = 146;
-            // 
-            // DB666Tag3
-            // 
-            DB666Tag3.Enabled = false;
-            DB666Tag3.Location = new System.Drawing.Point(858, 176);
-            DB666Tag3.Name = "DB666Tag3";
-            DB666Tag3.Size = new System.Drawing.Size(43, 23);
-            DB666Tag3.TabIndex = 147;
-            // 
-            // DB666Tag4
-            // 
-            DB666Tag4.Enabled = false;
-            DB666Tag4.Location = new System.Drawing.Point(858, 206);
-            DB666Tag4.Name = "DB666Tag4";
-            DB666Tag4.Size = new System.Drawing.Size(43, 23);
-            DB666Tag4.TabIndex = 148;
-            // 
-            // DB666Tag5
-            // 
-            DB666Tag5.Enabled = false;
-            DB666Tag5.Location = new System.Drawing.Point(858, 242);
-            DB666Tag5.Name = "DB666Tag5";
-            DB666Tag5.Size = new System.Drawing.Size(43, 23);
-            DB666Tag5.TabIndex = 149;
-            // 
-            // DB666Tag6
-            // 
-            DB666Tag6.Enabled = false;
-            DB666Tag6.Location = new System.Drawing.Point(858, 271);
-            DB666Tag6.Name = "DB666Tag6";
-            DB666Tag6.Size = new System.Drawing.Size(43, 23);
-            DB666Tag6.TabIndex = 150;
-            // 
-            // DB666Tag15
-            // 
-            DB666Tag15.Enabled = false;
-            DB666Tag15.Location = new System.Drawing.Point(858, 300);
-            DB666Tag15.Name = "DB666Tag15";
-            DB666Tag15.Size = new System.Drawing.Size(43, 23);
-            DB666Tag15.TabIndex = 151;
-            // 
-            // DB666Tag7
-            // 
-            DB666Tag7.Enabled = false;
-            DB666Tag7.Location = new System.Drawing.Point(858, 327);
-            DB666Tag7.Name = "DB666Tag7";
-            DB666Tag7.Size = new System.Drawing.Size(43, 23);
-            DB666Tag7.TabIndex = 152;
-            // 
-            // DB666Tag14
-            // 
-            DB666Tag14.Enabled = false;
-            DB666Tag14.Location = new System.Drawing.Point(858, 354);
-            DB666Tag14.Name = "DB666Tag14";
-            DB666Tag14.Size = new System.Drawing.Size(43, 23);
-            DB666Tag14.TabIndex = 153;
             // 
             // label66
             // 
@@ -2345,10 +2062,10 @@
             // 
             label77.BackColor = System.Drawing.Color.LightBlue;
             label77.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            label77.Location = new System.Drawing.Point(728, 3);
+            label77.Location = new System.Drawing.Point(729, 4);
             label77.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label77.Name = "label77";
-            label77.Size = new System.Drawing.Size(202, 42);
+            label77.Size = new System.Drawing.Size(200, 42);
             label77.TabIndex = 155;
             label77.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -2356,10 +2073,10 @@
             // 
             label78.BackColor = System.Drawing.Color.LightBlue;
             label78.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            label78.Location = new System.Drawing.Point(168, 3);
+            label78.Location = new System.Drawing.Point(171, 4);
             label78.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label78.Name = "label78";
-            label78.Size = new System.Drawing.Size(557, 20);
+            label78.Size = new System.Drawing.Size(554, 20);
             label78.TabIndex = 156;
             label78.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -2367,7 +2084,7 @@
             // 
             label79.BackColor = System.Drawing.Color.LightGreen;
             label79.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            label79.Location = new System.Drawing.Point(171, 25);
+            label79.Location = new System.Drawing.Point(171, 26);
             label79.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label79.Name = "label79";
             label79.Size = new System.Drawing.Size(96, 20);
@@ -2379,7 +2096,7 @@
             // 
             label80.BackColor = System.Drawing.Color.LightGreen;
             label80.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            label80.Location = new System.Drawing.Point(276, 25);
+            label80.Location = new System.Drawing.Point(276, 26);
             label80.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label80.Name = "label80";
             label80.Size = new System.Drawing.Size(80, 20);
@@ -2391,7 +2108,7 @@
             // 
             label81.BackColor = System.Drawing.Color.LightGreen;
             label81.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            label81.Location = new System.Drawing.Point(363, 25);
+            label81.Location = new System.Drawing.Point(363, 26);
             label81.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label81.Name = "label81";
             label81.Size = new System.Drawing.Size(80, 20);
@@ -2403,7 +2120,7 @@
             // 
             label82.BackColor = System.Drawing.Color.LightGreen;
             label82.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            label82.Location = new System.Drawing.Point(452, 25);
+            label82.Location = new System.Drawing.Point(452, 26);
             label82.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label82.Name = "label82";
             label82.Size = new System.Drawing.Size(80, 20);
@@ -2415,7 +2132,7 @@
             // 
             label83.BackColor = System.Drawing.Color.LightGreen;
             label83.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            label83.Location = new System.Drawing.Point(542, 25);
+            label83.Location = new System.Drawing.Point(542, 26);
             label83.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label83.Name = "label83";
             label83.Size = new System.Drawing.Size(80, 20);
@@ -2427,10 +2144,10 @@
             // 
             label84.BackColor = System.Drawing.Color.LightGreen;
             label84.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            label84.Location = new System.Drawing.Point(634, 25);
+            label84.Location = new System.Drawing.Point(634, 26);
             label84.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label84.Name = "label84";
-            label84.Size = new System.Drawing.Size(87, 20);
+            label84.Size = new System.Drawing.Size(90, 20);
             label84.TabIndex = 162;
             label84.Text = "HMI STATUS";
             label84.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2449,7 +2166,7 @@
             // 
             label86.BackColor = System.Drawing.Color.LightBlue;
             label86.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            label86.Location = new System.Drawing.Point(9, 483);
+            label86.Location = new System.Drawing.Point(12, 483);
             label86.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label86.Name = "label86";
             label86.Size = new System.Drawing.Size(97, 20);
@@ -2460,20 +2177,171 @@
             // 
             label87.BackColor = System.Drawing.Color.LightBlue;
             label87.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            label87.Location = new System.Drawing.Point(10, 511);
+            label87.Location = new System.Drawing.Point(13, 511);
             label87.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label87.Name = "label87";
             label87.Size = new System.Drawing.Size(96, 42);
             label87.TabIndex = 165;
             label87.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // label10
+            // 
+            label10.BackColor = System.Drawing.Color.Gold;
+            label10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            label10.Location = new System.Drawing.Point(729, 50);
+            label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label10.Name = "label10";
+            label10.Size = new System.Drawing.Size(200, 19);
+            label10.TabIndex = 166;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.BackColor = System.Drawing.Color.Gold;
+            label11.Location = new System.Drawing.Point(732, 52);
+            label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label11.Name = "label11";
+            label11.Size = new System.Drawing.Size(62, 15);
+            label11.TabIndex = 167;
+            label11.Text = "Czas cyklu";
+            // 
+            // label12
+            // 
+            label12.BackColor = System.Drawing.Color.Gold;
+            label12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            label12.Location = new System.Drawing.Point(729, 71);
+            label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label12.Name = "label12";
+            label12.Size = new System.Drawing.Size(200, 20);
+            label12.TabIndex = 168;
+            label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.BackColor = System.Drawing.Color.Gold;
+            label13.Location = new System.Drawing.Point(811, 74);
+            label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label13.Name = "label13";
+            label13.Size = new System.Drawing.Size(46, 15);
+            label13.TabIndex = 169;
+            label13.Text = "Liczniki";
+            // 
+            // label14
+            // 
+            label14.BackColor = System.Drawing.Color.White;
+            label14.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            label14.Location = new System.Drawing.Point(729, 92);
+            label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label14.Name = "label14";
+            label14.Size = new System.Drawing.Size(200, 56);
+            label14.TabIndex = 159;
+            label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.BackColor = System.Drawing.Color.White;
+            label15.Location = new System.Drawing.Point(736, 100);
+            label15.Name = "label15";
+            label15.Size = new System.Drawing.Size(57, 15);
+            label15.TabIndex = 170;
+            label15.Text = "Sztuki OK";
+            // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.BackColor = System.Drawing.Color.White;
+            label16.Location = new System.Drawing.Point(736, 115);
+            label16.Name = "label16";
+            label16.Size = new System.Drawing.Size(66, 15);
+            label16.TabIndex = 171;
+            label16.Text = "Sztuki NOK";
+            // 
+            // label17
+            // 
+            label17.AutoSize = true;
+            label17.BackColor = System.Drawing.Color.White;
+            label17.Location = new System.Drawing.Point(736, 130);
+            label17.Name = "label17";
+            label17.Size = new System.Drawing.Size(58, 15);
+            label17.TabIndex = 172;
+            label17.Text = "Wszystkie";
+            // 
+            // textBox2
+            // 
+            textBox2.Enabled = false;
+            textBox2.Location = new System.Drawing.Point(843, 100);
+            textBox2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            textBox2.Multiline = true;
+            textBox2.Name = "textBox2";
+            textBox2.Size = new System.Drawing.Size(77, 15);
+            textBox2.TabIndex = 173;
+            textBox2.Tag = "";
+            // 
+            // textBox3
+            // 
+            textBox3.Enabled = false;
+            textBox3.Location = new System.Drawing.Point(843, 115);
+            textBox3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            textBox3.Multiline = true;
+            textBox3.Name = "textBox3";
+            textBox3.Size = new System.Drawing.Size(77, 15);
+            textBox3.TabIndex = 174;
+            textBox3.Tag = "";
+            // 
+            // textBox14
+            // 
+            textBox14.Enabled = false;
+            textBox14.Location = new System.Drawing.Point(843, 130);
+            textBox14.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            textBox14.Multiline = true;
+            textBox14.Name = "textBox14";
+            textBox14.Size = new System.Drawing.Size(77, 15);
+            textBox14.TabIndex = 175;
+            textBox14.Tag = "";
+            // 
+            // label18
+            // 
+            label18.BackColor = System.Drawing.Color.LightBlue;
+            label18.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            label18.Location = new System.Drawing.Point(729, 150);
+            label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label18.Name = "label18";
+            label18.Size = new System.Drawing.Size(200, 23);
+            label18.TabIndex = 159;
+            label18.Text = "Aktualne dane";
+            label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label19
+            // 
+            label19.BackColor = System.Drawing.Color.White;
+            label19.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            label19.Location = new System.Drawing.Point(729, 175);
+            label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label19.Name = "label19";
+            label19.Size = new System.Drawing.Size(200, 298);
+            label19.TabIndex = 159;
+            label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             AutoSize = true;
-            AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             ClientSize = new System.Drawing.Size(933, 565);
+            Controls.Add(textBox13);
+            Controls.Add(label18);
+            Controls.Add(textBox14);
+            Controls.Add(textBox3);
+            Controls.Add(textBox2);
+            Controls.Add(label17);
+            Controls.Add(label16);
+            Controls.Add(label15);
+            Controls.Add(label13);
+            Controls.Add(label12);
+            Controls.Add(label11);
+            Controls.Add(label10);
             Controls.Add(label3);
             Controls.Add(label87);
             Controls.Add(label25);
@@ -2496,71 +2364,28 @@
             Controls.Add(label63);
             Controls.Add(label51);
             Controls.Add(label77);
-            Controls.Add(DB666Tag14);
-            Controls.Add(DB666Tag7);
-            Controls.Add(DB666Tag15);
-            Controls.Add(DB666Tag6);
-            Controls.Add(DB666Tag5);
-            Controls.Add(DB666Tag4);
-            Controls.Add(DB666Tag3);
-            Controls.Add(DB666Tag2);
-            Controls.Add(label71);
-            Controls.Add(label70);
-            Controls.Add(label69);
-            Controls.Add(label68);
-            Controls.Add(label67);
-            Controls.Add(DB666Tag22);
-            Controls.Add(DB666Tag19);
-            Controls.Add(DB666Tag18);
-            Controls.Add(DB666Tag21);
-            Controls.Add(DB666Tag20);
             Controls.Add(label65);
-            Controls.Add(textBox13);
             Controls.Add(label64);
             Controls.Add(textBox10);
             Controls.Add(label49);
             Controls.Add(textBox9);
             Controls.Add(label48);
             Controls.Add(textBox8);
-            Controls.Add(DB666Tag17);
-            Controls.Add(DB666Tag16);
+            Controls.Add(DB666Tag17PassedValue);
+            Controls.Add(DB666Tag16PassedValue);
             Controls.Add(label5);
             Controls.Add(label6);
             Controls.Add(label8);
-            Controls.Add(DB666Tag13);
-            Controls.Add(DB666Tag11);
-            Controls.Add(DB666Tag9);
-            Controls.Add(DB666Tag1);
-            Controls.Add(DB666Tag12);
-            Controls.Add(DB666Tag10);
-            Controls.Add(DB666Tag8);
-            Controls.Add(DB666Tag0);
-            Controls.Add(label24);
-            Controls.Add(label16);
-            Controls.Add(label23);
-            Controls.Add(label15);
-            Controls.Add(label22);
-            Controls.Add(label14);
-            Controls.Add(label21);
-            Controls.Add(label13);
-            Controls.Add(label20);
-            Controls.Add(label12);
-            Controls.Add(label19);
-            Controls.Add(label11);
-            Controls.Add(label18);
-            Controls.Add(label10);
-            Controls.Add(label17);
-            Controls.Add(label7);
             Controls.Add(tabControl1);
             Controls.Add(pictureBox1);
-            Controls.Add(label9);
             Controls.Add(label66);
-            FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            Controls.Add(label14);
+            Controls.Add(label19);
             Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             Name = "Form1";
             StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             Text = "Form1";
-            WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            WindowState = System.Windows.Forms.FormWindowState.Minimized;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             tabPage7.ResumeLayout(false);
             tabPage9.ResumeLayout(false);
@@ -2589,34 +2414,9 @@
         private System.Windows.Forms.Label Uzytkownik;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label16;
-        public System.Windows.Forms.CheckBox DB666Tag0;
-        public System.Windows.Forms.CheckBox DB666Tag8;
-        public System.Windows.Forms.CheckBox DB666Tag10;
-        public System.Windows.Forms.CheckBox DB666Tag12;
-        public System.Windows.Forms.CheckBox DB666Tag1;
-        public System.Windows.Forms.CheckBox DB666Tag9;
-        public System.Windows.Forms.CheckBox DB666Tag11;
-        public System.Windows.Forms.CheckBox DB666Tag13;
-        public System.Windows.Forms.TextBox DB666Tag17;
-        public System.Windows.Forms.TextBox DB666Tag16;
+        public System.Windows.Forms.TextBox DB666Tag17PassedValue;
+        public System.Windows.Forms.TextBox DB666Tag16PassedValue;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label8;
@@ -2640,16 +2440,6 @@
         public System.Windows.Forms.TextBox textBox10;
         private System.Windows.Forms.Label label65;
         public System.Windows.Forms.TextBox textBox13;
-        public System.Windows.Forms.TextBox DB666Tag20;
-        public System.Windows.Forms.TextBox DB666Tag21;
-        public System.Windows.Forms.TextBox DB666Tag18;
-        public System.Windows.Forms.TextBox DB666Tag19;
-        public System.Windows.Forms.TextBox DB666Tag22;
-        private System.Windows.Forms.Label label67;
-        private System.Windows.Forms.Label label68;
-        private System.Windows.Forms.Label label69;
-        private System.Windows.Forms.Label label70;
-        private System.Windows.Forms.Label label71;
         private System.Windows.Forms.TabPage tabPage7;
         public System.Windows.Forms.ListView listView1;
         public System.Windows.Forms.ColumnHeader columnHeader1;
@@ -2720,14 +2510,6 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabControl tabControl1;
-        public System.Windows.Forms.TextBox DB666Tag2;
-        public System.Windows.Forms.TextBox DB666Tag3;
-        public System.Windows.Forms.TextBox DB666Tag4;
-        public System.Windows.Forms.TextBox DB666Tag5;
-        public System.Windows.Forms.TextBox DB666Tag6;
-        public System.Windows.Forms.TextBox DB666Tag15;
-        public System.Windows.Forms.TextBox DB666Tag7;
-        public System.Windows.Forms.TextBox DB666Tag14;
         private System.Windows.Forms.TabControl Poprzednia;
         private System.Windows.Forms.TabPage tabPage8;
         private System.Windows.Forms.Label label103;
@@ -2736,33 +2518,33 @@
         private System.Windows.Forms.Label label72;
         private System.Windows.Forms.Label label73;
         private System.Windows.Forms.Label label74;
-        public System.Windows.Forms.TextBox DB666Tag14PassedValue;
-        public System.Windows.Forms.TextBox DB666Tag7PassedValue;
-        public System.Windows.Forms.TextBox DB666Tag22PassedValue;
-        public System.Windows.Forms.TextBox DB666Tag19PassedValue;
-        public System.Windows.Forms.TextBox DB666Tag6PassedValue;
-        public System.Windows.Forms.TextBox DB666Tag18PassedValue;
-        public System.Windows.Forms.TextBox DB666Tag21PassedValue;
-        public System.Windows.Forms.TextBox DB666Tag20PassedValue;
-        public System.Windows.Forms.TextBox DB666Tag15PassedValue;
-        public System.Windows.Forms.TextBox DB666Tag5PassedValue;
-        public System.Windows.Forms.TextBox DB666Tag3PassedValue;
-        public System.Windows.Forms.TextBox DB666Tag4PassedValue;
-        public System.Windows.Forms.TextBox DB666Tag2PassedValue;
-        public System.Windows.Forms.TextBox DB666Tag17PassedValue;
-        public System.Windows.Forms.TextBox DB666Tag16PassedValue;
+        public System.Windows.Forms.TextBox DB666Tag14;
+        public System.Windows.Forms.TextBox DB666Tag7;
+        public System.Windows.Forms.TextBox DB666Tag22;
+        public System.Windows.Forms.TextBox DB666Tag19;
+        public System.Windows.Forms.TextBox DB666Tag6;
+        public System.Windows.Forms.TextBox DB666Tag18;
+        public System.Windows.Forms.TextBox DB666Tag21;
+        public System.Windows.Forms.TextBox DB666Tag20;
+        public System.Windows.Forms.TextBox DB666Tag15;
+        public System.Windows.Forms.TextBox DB666Tag5;
+        public System.Windows.Forms.TextBox DB666Tag3;
+        public System.Windows.Forms.TextBox DB666Tag4;
+        public System.Windows.Forms.TextBox DB666Tag2;
+        public System.Windows.Forms.TextBox DB666Tag17;
+        public System.Windows.Forms.TextBox DB666Tag16;
         private System.Windows.Forms.Label label75;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label76;
         public System.Windows.Forms.ComboBox comboBox5;
-        public System.Windows.Forms.CheckBox DB666Tag13PassedValue;
-        public System.Windows.Forms.CheckBox DB666Tag12PassedValue;
-        public System.Windows.Forms.CheckBox DB666Tag11PassedValue;
-        public System.Windows.Forms.CheckBox DB666Tag10PassedValue;
-        public System.Windows.Forms.CheckBox DB666Tag9PassedValue;
-        public System.Windows.Forms.CheckBox DB666Tag8PassedValue;
-        public System.Windows.Forms.CheckBox DB666Tag1PassedValue;
-        public System.Windows.Forms.CheckBox DB666Tag0PassedValue;
+        public System.Windows.Forms.CheckBox DB666Tag13;
+        public System.Windows.Forms.CheckBox DB666Tag12;
+        public System.Windows.Forms.CheckBox DB666Tag11;
+        public System.Windows.Forms.CheckBox DB666Tag10;
+        public System.Windows.Forms.CheckBox DB666Tag9;
+        public System.Windows.Forms.CheckBox DB666Tag8;
+        public System.Windows.Forms.CheckBox DB666Tag1;
+        public System.Windows.Forms.CheckBox DB666Tag0;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.Label label29;
@@ -2796,6 +2578,32 @@
         private System.Windows.Forms.Label label85;
         private System.Windows.Forms.Label label86;
         private System.Windows.Forms.Label label87;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        public System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        public System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label17;
+        public System.Windows.Forms.TextBox textBox2;
+        public System.Windows.Forms.TextBox textBox3;
+        public System.Windows.Forms.TextBox textBox14;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label67;
+        private System.Windows.Forms.Label label19;
+        public System.Windows.Forms.TextBox textBox18;
+        public System.Windows.Forms.TextBox textBox17;
+        private System.Windows.Forms.Label label70;
+        private System.Windows.Forms.Label label69;
+        private System.Windows.Forms.Label label68;
     }
 }
 

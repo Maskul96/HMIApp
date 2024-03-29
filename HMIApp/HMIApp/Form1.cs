@@ -8,6 +8,7 @@ using HMIApp.Components.UserAdministration;
 using HMIApp.Data;
 using Microsoft.EntityFrameworkCore;
 using Humanizer;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 
 namespace HMIApp
@@ -29,7 +30,7 @@ namespace HMIApp
             _Form1 = this;
 
             App.RunInitPLC();
-            App.ReadActualValueFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_0.csv");
+            //unused//App.ReadActualValueFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_0.csv");
             App.ReadAlarmsFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_2.csv");
             App.ReadIOFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_3.csv");
 
@@ -61,10 +62,13 @@ namespace HMIApp
             label63.Text = "";
             Users.EnabledObjects();
 
+            CommaReplaceDotTextBox(this);
 
+           //UstawAnchorDlaKontrolek(this);
         }
         //statyczna zmienna typu Form1 zeby dostac sie z poziomu innej klasy do obiektow wewnatrz Form1
         public static Form1 _Form1;
+
 
         //METODA DO ODCZYTU DANYCH Z BAZY przy starcie aplikacji
         public void ReadFromDbWhenAppIsStarting()
@@ -86,43 +90,49 @@ namespace HMIApp
         //Zapis 
         private void button1_Click(object sender, EventArgs e)
         {
-            App.WriteToDB(DB666Tag0PassedValue.Checked.ToString(), DB666Tag0PassedValue.Tag.ToString());
-            App.WriteToDB(DB666Tag1PassedValue.Checked.ToString(), DB666Tag1PassedValue.Tag.ToString());
-            App.WriteToDB(DB666Tag8PassedValue.Checked.ToString(), DB666Tag8PassedValue.Tag.ToString());
-            App.WriteToDB(DB666Tag9PassedValue.Checked.ToString(), DB666Tag9PassedValue.Tag.ToString());
-            App.WriteToDB(DB666Tag10PassedValue.Checked.ToString(), DB666Tag10PassedValue.Tag.ToString());
-            App.WriteToDB(DB666Tag11PassedValue.Checked.ToString(), DB666Tag11PassedValue.Tag.ToString());
-            App.WriteToDB(DB666Tag12PassedValue.Checked.ToString(), DB666Tag12PassedValue.Tag.ToString());
-            App.WriteToDB(DB666Tag13PassedValue.Checked.ToString(), DB666Tag13PassedValue.Tag.ToString());
-            App.WriteToDB(DB666Tag2PassedValue.Text, DB666Tag2PassedValue.Tag.ToString());
-            App.WriteToDB(DB666Tag4PassedValue.Text, DB666Tag4PassedValue.Tag.ToString());
-            App.WriteToDB(DB666Tag6PassedValue.Text, DB666Tag6PassedValue.Tag.ToString());
-            App.WriteToDB(DB666Tag16PassedValue.Text, DB666Tag16PassedValue.Tag.ToString());
-            App.WriteToDB(DB666Tag17PassedValue.Text, DB666Tag17PassedValue.Tag.ToString());
-            App.WriteToDB(DB666Tag3PassedValue.Text, DB666Tag3PassedValue.Tag.ToString());
-            App.WriteToDB(DB666Tag5PassedValue.Text, DB666Tag5PassedValue.Tag.ToString());
-            App.WriteToDB(DB666Tag15PassedValue.Text, DB666Tag15PassedValue.Tag.ToString());
-            App.WriteToDB(DB666Tag7PassedValue.Text, DB666Tag7PassedValue.Tag.ToString());
-            App.WriteToDB(DB666Tag14PassedValue.Text, DB666Tag14PassedValue.Tag.ToString());
-            App.WriteToDB(DB666Tag18PassedValue.Text, DB666Tag18PassedValue.Tag.ToString());
-            App.WriteToDB(DB666Tag19PassedValue.Text, DB666Tag19PassedValue.Tag.ToString());
-            App.WriteToDB(DB666Tag20PassedValue.Text, DB666Tag20PassedValue.Tag.ToString());
-            App.WriteToDB(DB666Tag21PassedValue.Text, DB666Tag21PassedValue.Tag.ToString());
-            App.WriteToDB(DB666Tag22PassedValue.Text, DB666Tag22PassedValue.Tag.ToString());
+            App.WriteToDB(DB666Tag0.Checked.ToString(), DB666Tag0.Tag.ToString());
+            App.WriteToDB(DB666Tag1.Checked.ToString(), DB666Tag1.Tag.ToString());
+            App.WriteToDB(DB666Tag8.Checked.ToString(), DB666Tag8.Tag.ToString());
+            App.WriteToDB(DB666Tag9.Checked.ToString(), DB666Tag9.Tag.ToString());
+            App.WriteToDB(DB666Tag10.Checked.ToString(), DB666Tag10.Tag.ToString());
+            App.WriteToDB(DB666Tag11.Checked.ToString(), DB666Tag11.Tag.ToString());
+            App.WriteToDB(DB666Tag12.Checked.ToString(), DB666Tag12.Tag.ToString());
+            App.WriteToDB(DB666Tag13.Checked.ToString(), DB666Tag13.Tag.ToString());
+            App.WriteToDB(DB666Tag2.Text, DB666Tag2.Tag.ToString());
+            App.WriteToDB(DB666Tag4.Text, DB666Tag4.Tag.ToString());
+            App.WriteToDB(DB666Tag6.Text, DB666Tag6.Tag.ToString());
+            App.WriteToDB(DB666Tag16.Text, DB666Tag16.Tag.ToString());
+            App.WriteToDB(DB666Tag17.Text, DB666Tag17.Tag.ToString());
+            App.WriteToDB(DB666Tag3.Text, DB666Tag3.Tag.ToString());
+            App.WriteToDB(DB666Tag5.Text, DB666Tag5.Tag.ToString());
+            App.WriteToDB(DB666Tag15.Text, DB666Tag15.Tag.ToString());
+            App.WriteToDB(DB666Tag7.Text, DB666Tag7.Tag.ToString());
+            App.WriteToDB(DB666Tag14.Text, DB666Tag14.Tag.ToString());
+            App.WriteToDB(DB666Tag18.Text, DB666Tag18.Tag.ToString());
+            App.WriteToDB(DB666Tag19.Text, DB666Tag19.Tag.ToString());
+            App.WriteToDB(DB666Tag20.Text, DB666Tag20.Tag.ToString());
+            App.WriteToDB(DB666Tag21.Text, DB666Tag21.Tag.ToString());
+            App.WriteToDB(DB666Tag22.Text, DB666Tag22.Tag.ToString());
 
             var database = serviceProvider.GetService<iDataBase>();
             database.UpdateDb(comboBox5.SelectedItem.ToString());
         }
 
-        //Timer co 100ms do oczytywania DBka
+        //Timer co 100ms do oczytywania danych
         private void timer1_Tick(object sender, EventArgs e)
         {
-            App.ReadActualValueFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_0.csv");
+            //unused//App.ReadActualValueFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_0.csv");
             App.ReadAlarmsFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_2.csv");
             App.ReadIOFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_3.csv");
 
+            //aktualizacja daty i godziny
             this.Text = DateTime.Now.ToString();
             label57.Text = this.Text;
+
+            //przepisywanie numeru referencji i klienta do wyswietlenia dla operatora
+            DB666Tag16PassedValue.Text = DB666Tag16.Text;
+            DB666Tag17PassedValue.Text = DB666Tag17.Text;
+
         }
 
         //Cofniecie zmian dokonanych w karcie Dane - Modyfikowalne
@@ -138,16 +148,34 @@ namespace HMIApp
             Close();
         }
 
+        //Metoda do zmiany koloru buttona
+        int index = 0;
+        private void ChangeColorOfButton(Control button)
+        {
+            if (index == 0)
+            {
+                button.BackColor = Color.LightGreen;
+                index += 1;
+            }
+            else
+            {
+                button.BackColor = Color.Transparent;
+                index = 0;
+            }
+        }
+
         //Testowy przycisk z karty Manual do wyslania komendy
         private void button4_Click(object sender, EventArgs e)
         {
-            App.WriteToDB("15", button4.Tag.ToString());
+            App.WriteToDB("15", button4.Tag.ToString(),1);
+            ChangeColorOfButton(button4);
         }
 
         //Testowy przycisk z karty Manual do wyslania komendy
         private void button5_Click(object sender, EventArgs e)
         {
-            App.WriteToDB("11", button5.Tag.ToString());
+            App.WriteToDB("11", button5.Tag.ToString(),1);
+            ChangeColorOfButton(button5);
         }
 
         //Przycisk wyzwalajacy zapis uzytkownika
@@ -230,5 +258,47 @@ namespace HMIApp
                 App.ClearAllValueInForm1("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_0.csv");
             }
         }
+
+        //Zamiana kropki na przecinek
+        private void CommaReplaceDotTextBox(Control control)
+        {
+            foreach (Control ctrl in control.Controls)
+            {
+                if (ctrl is TextBox)
+                {
+                    TextBox textBox = (TextBox)ctrl;
+                    textBox.KeyPress += TextBox_KeyPress;
+                }
+                else if (ctrl.HasChildren)
+                {
+                    CommaReplaceDotTextBox(ctrl);
+                }
+            }
+        }
+
+        private void TextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+            // Jeśli naciśnięto kropkę, zamień na przecinek
+            if (e.KeyChar == '.')
+            {
+                e.KeyChar = ',';
+            }
+        }
+
+        //private void UstawAnchorDlaKontrolek(Control control)
+        //{
+        //    foreach (Control ctrl in control.Controls)
+        //    {
+        //        // Ustaw Anchor dla wszystkich kontrolek, aby rozciągały się wraz z formularzem
+        //        ctrl.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Bottom;
+
+        //        // Rekurencyjnie ustaw Anchor dla kontrolek podrzędnych
+        //        if (ctrl.HasChildren)
+        //        {
+        //            UstawAnchorDlaKontrolek(ctrl);
+        //        }
+        //    }
+        //}
     }
 }

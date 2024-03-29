@@ -147,11 +147,11 @@ namespace HMIApp
                 {
 
                     case "BOOL":
-                        chk = Form1._Form1.Controls.Find($"{DBRead_TagName}"+"PassedValue", true).FirstOrDefault() as CheckBox;
+                        chk = Form1._Form1.Controls.Find($"{DBRead_TagName}", true).FirstOrDefault() as CheckBox;
                         chk.Checked = false; 
                         break;
                     default:
-                        txt = Form1._Form1.Controls.Find($"{DBRead_TagName}"+"PassedValue", true).FirstOrDefault() as TextBox;
+                        txt = Form1._Form1.Controls.Find($"{DBRead_TagName}", true).FirstOrDefault() as TextBox;
                         txt.Text = "";
                         break;
                 }
