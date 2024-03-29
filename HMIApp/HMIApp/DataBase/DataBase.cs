@@ -86,6 +86,7 @@ namespace HMIApp.Data
                 });
 
                 _hmiAppDbContext.SaveChanges();
+                ClearCombobox();
                 SelectFromDbToComboBox();
             }
             else
@@ -97,62 +98,68 @@ namespace HMIApp.Data
         //metoda select z uzyciem LINQ
         public void SelectFromDataBase(string referencenumber)
         {
-
-            var query = _hmiAppDbContext.References.Where(x => x.ReferenceNumber == referencenumber)
-                .Select(x => new
-                {
-                    x.ReferenceNumber,
-                    x.NameOfClient,
-                    x.ParameterCyklC1,
-                    x.ParameterCyklC2,
-                    x.ParameterCyklC3,
-                    x.ParameterCyklC4,
-                    x.ParameterCyklC5,
-                    x.ParameterCyklC6,
-                    x.ParameterCyklC7,
-                    x.ParameterCyklC8,
-                    x.ParameterP1,
-                    x.ParameterP2,
-                    x.ParameterP3,
-                    x.ParameterP4,
-                    x.ParameterP5,
-                    x.ParameterP6,
-                    x.ParameterP7,
-                    x.ParameterP8,
-                    x.ForceF1,
-                    x.ForceF2,
-                    x.ForceF3,
-                    x.ForceF4,
-                    x.ForceF5
-                     })
-                    .ToList();
-
-            foreach (var item in query)
+            if(referencenumber == "")
             {
-                Form1._Form1.DB666Tag16PassedValue.Text = item.ReferenceNumber;
-                Form1._Form1.DB666Tag17PassedValue.Text = item.NameOfClient;
-                Form1._Form1.DB666Tag0PassedValue.Checked = item.ParameterCyklC1;
-                Form1._Form1.DB666Tag1PassedValue.Checked = item.ParameterCyklC2;
-                Form1._Form1.DB666Tag8PassedValue.Checked = item.ParameterCyklC3;
-                Form1._Form1.DB666Tag9PassedValue.Checked = item.ParameterCyklC4;
-                Form1._Form1.DB666Tag10PassedValue.Checked = item.ParameterCyklC5;
-                Form1._Form1.DB666Tag11PassedValue.Checked = item.ParameterCyklC6;
-                Form1._Form1.DB666Tag12PassedValue.Checked = item.ParameterCyklC7;
-                Form1._Form1.DB666Tag13PassedValue.Checked = item.ParameterCyklC8;
-                Form1._Form1.DB666Tag2PassedValue.Text = item.ParameterP1.ToString();
-                Form1._Form1.DB666Tag3PassedValue.Text = item.ParameterP2.ToString();
-                Form1._Form1.DB666Tag4PassedValue.Text = item.ParameterP3.ToString();
-                Form1._Form1.DB666Tag5PassedValue.Text = item.ParameterP4.ToString();
-                Form1._Form1.DB666Tag6PassedValue.Text = item.ParameterP5.ToString();
-                Form1._Form1.DB666Tag15PassedValue.Text = item.ParameterP6.ToString();
-                Form1._Form1.DB666Tag7PassedValue.Text = item.ParameterP7.ToString();
-                Form1._Form1.DB666Tag14PassedValue.Text = item.ParameterP8.ToString();
-                Form1._Form1.DB666Tag18PassedValue.Text = item.ForceF1.ToString();
-                Form1._Form1.DB666Tag19PassedValue.Text = item.ForceF2.ToString();
-                Form1._Form1.DB666Tag20PassedValue.Text = item.ForceF3.ToString();
-                Form1._Form1.DB666Tag21PassedValue.Text = item.ForceF4.ToString();
-                Form1._Form1.DB666Tag22PassedValue.Text = item.ForceF5.ToString();
+                MessageBox.Show("Nie podano referencji");
+            }
+            if (referencenumber != "")
+            {
+                var query = _hmiAppDbContext.References.Where(x => x.ReferenceNumber == referencenumber)
+                    .Select(x => new
+                    {
+                        x.ReferenceNumber,
+                        x.NameOfClient,
+                        x.ParameterCyklC1,
+                        x.ParameterCyklC2,
+                        x.ParameterCyklC3,
+                        x.ParameterCyklC4,
+                        x.ParameterCyklC5,
+                        x.ParameterCyklC6,
+                        x.ParameterCyklC7,
+                        x.ParameterCyklC8,
+                        x.ParameterP1,
+                        x.ParameterP2,
+                        x.ParameterP3,
+                        x.ParameterP4,
+                        x.ParameterP5,
+                        x.ParameterP6,
+                        x.ParameterP7,
+                        x.ParameterP8,
+                        x.ForceF1,
+                        x.ForceF2,
+                        x.ForceF3,
+                        x.ForceF4,
+                        x.ForceF5
+                    })
+                        .ToList();
 
+                foreach (var item in query)
+                {
+                    Form1._Form1.DB666Tag16PassedValue.Text = item.ReferenceNumber;
+                    Form1._Form1.DB666Tag17PassedValue.Text = item.NameOfClient;
+                    Form1._Form1.DB666Tag0PassedValue.Checked = item.ParameterCyklC1;
+                    Form1._Form1.DB666Tag1PassedValue.Checked = item.ParameterCyklC2;
+                    Form1._Form1.DB666Tag8PassedValue.Checked = item.ParameterCyklC3;
+                    Form1._Form1.DB666Tag9PassedValue.Checked = item.ParameterCyklC4;
+                    Form1._Form1.DB666Tag10PassedValue.Checked = item.ParameterCyklC5;
+                    Form1._Form1.DB666Tag11PassedValue.Checked = item.ParameterCyklC6;
+                    Form1._Form1.DB666Tag12PassedValue.Checked = item.ParameterCyklC7;
+                    Form1._Form1.DB666Tag13PassedValue.Checked = item.ParameterCyklC8;
+                    Form1._Form1.DB666Tag2PassedValue.Text = item.ParameterP1.ToString();
+                    Form1._Form1.DB666Tag3PassedValue.Text = item.ParameterP2.ToString();
+                    Form1._Form1.DB666Tag4PassedValue.Text = item.ParameterP3.ToString();
+                    Form1._Form1.DB666Tag5PassedValue.Text = item.ParameterP4.ToString();
+                    Form1._Form1.DB666Tag6PassedValue.Text = item.ParameterP5.ToString();
+                    Form1._Form1.DB666Tag15PassedValue.Text = item.ParameterP6.ToString();
+                    Form1._Form1.DB666Tag7PassedValue.Text = item.ParameterP7.ToString();
+                    Form1._Form1.DB666Tag14PassedValue.Text = item.ParameterP8.ToString();
+                    Form1._Form1.DB666Tag18PassedValue.Text = item.ForceF1.ToString();
+                    Form1._Form1.DB666Tag19PassedValue.Text = item.ForceF2.ToString();
+                    Form1._Form1.DB666Tag20PassedValue.Text = item.ForceF3.ToString();
+                    Form1._Form1.DB666Tag21PassedValue.Text = item.ForceF4.ToString();
+                    Form1._Form1.DB666Tag22PassedValue.Text = item.ForceF5.ToString();
+
+                }
             }
         }
 
@@ -167,6 +174,12 @@ namespace HMIApp.Data
                     Form1._Form1.comboBox5.Items.Add(Reference.ReferenceNumber);
                 }
             }
+        }
+
+        public void ClearCombobox()
+        {
+            Form1._Form1.comboBox5.Items.Clear();
+            Form1._Form1.comboBox5.Text = "";
         }
         //Update danych "?" zezwala na null - operator warunkowego dostepu
         //Metoda do zwrocenia wyszukiwanego przez nas pola w bazie
@@ -205,15 +218,22 @@ namespace HMIApp.Data
             ref1.ForceF4 = int.Parse(Form1._Form1.DB666Tag21PassedValue.Text);
             ref1.ForceF5 = int.Parse(Form1._Form1.DB666Tag22PassedValue.Text);
             _hmiAppDbContext.SaveChanges();
+            ClearCombobox();
+            SelectFromDbToComboBox();
         }
 
         public void Delete(string referencenumber)
         {
 
             //    ////usuwanie danych
-            var ref2 = ReadFirst(referencenumber);
-            _hmiAppDbContext.References.Remove(ref2);
-            _hmiAppDbContext.SaveChanges();
+            if (referencenumber != "")
+            {
+                var ref2 = ReadFirst(referencenumber);
+                _hmiAppDbContext.References.Remove(ref2);
+                _hmiAppDbContext.SaveChanges();
+            }
+            ClearCombobox();
+            SelectFromDbToComboBox();
         }
     }
 }

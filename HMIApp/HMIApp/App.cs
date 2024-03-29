@@ -132,6 +132,32 @@ namespace HMIApp
             return (b & (1 << bitNumber)) != 0;
         }
 
+        //Kasowanie zakladki Dane po uzyciu metody usuniecia referencji z bazy danych z klasy DataBase.cs
+        public void ClearAllValueInForm1(string filepath)
+        {
+            var dbtags = CSVReader.DBStructure(filepath);
+
+            foreach (var dbTag in dbtags)
+            {              
+                DBRead_position1 = dbTag.TagName.IndexOf(".");
+                DBRead_TagName = dbTag.TagName.Remove(DBRead_position1, 1);
+                TextBox txt;
+                CheckBox chk;
+                switch (dbTag.DataTypeOfTag.ToUpper())
+                {
+
+                    case "BOOL":
+                        chk = Form1._Form1.Controls.Find($"{DBRead_TagName}"+"PassedValue", true).FirstOrDefault() as CheckBox;
+                        chk.Checked = false; 
+                        break;
+                    default:
+                        txt = Form1._Form1.Controls.Find($"{DBRead_TagName}"+"PassedValue", true).FirstOrDefault() as TextBox;
+                        txt.Text = "";
+                        break;
+                }
+            }
+        }
+
         //Odczyt z pliku CSV i od razu odczyt danych z DBka
         public void ReadActualValueFromDB(string filepath)
         {
@@ -157,14 +183,14 @@ namespace HMIApp
             byte[] DB = new byte[DBRead_EndDB];
             //Read DB
             PLC.Read(int.Parse(DBRead_NumberOfDB), DBRead_StartDB, DBRead_EndDB, DB);
-            
+
 
             foreach (var dbTag in dbtags)
             {
                 //sprobowac uproscic tego switcha
                 switch (dbTag.DataTypeOfTag.ToUpper())
                 {
-                                          
+
                     case "BOOL":
                         //Read BOOL               
                         DBRead_NrOfBitinByte = dbTag.NumberOfBitInByte;
@@ -177,7 +203,6 @@ namespace HMIApp
                         DBRead_position1 = dbTag.TagName.IndexOf(".");
                         DBRead_TagName = dbTag.TagName.Remove(DBRead_position1, 1);
                         TextBox txt;
-                        MaskedTextBox Mtxt;
                         CheckBox chk;
                         switch (DBRead_NrOfBitinByte)
                         {
@@ -415,12 +440,12 @@ namespace HMIApp
         //Index = 0 zapis do DB666, index = 1 zapis do DB667
         public void WriteToDB(string valuetoWrite, string NameofTaginDB, int filenameIndex = 0)
         {
-            string filename="";
-            if(filenameIndex == 0)
+            string filename = "";
+            if (filenameIndex == 0)
             {
                 filename = "D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_0.csv";
             }
-            else if (filenameIndex == 1) 
+            else if (filenameIndex == 1)
             {
                 filename = "D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_1.csv";
             }
@@ -595,15 +620,15 @@ namespace HMIApp
                     //Write string
                     if (valuetoWrite != "")
                     {
-                    int length = valuetoWrite.Length;
-                    char[] charArray = new char[length+2];
-                    charArray[0] = (char)DBWrite_LengthofDataType;
-                    charArray[1] = (char)length;
-                    for (int i = 2; i <=  length + 1; i++)
-                    {
-                        charArray[i] = Convert.ToChar(valuetoWrite[i-2]);
-                    }
-                    IntBytes = Encoding.ASCII.GetBytes(charArray);
+                        int length = valuetoWrite.Length;
+                        char[] charArray = new char[length + 2];
+                        charArray[0] = (char)DBWrite_LengthofDataType;
+                        charArray[1] = (char)length;
+                        for (int i = 2; i <= length + 1; i++)
+                        {
+                            charArray[i] = Convert.ToChar(valuetoWrite[i - 2]);
+                        }
+                        IntBytes = Encoding.ASCII.GetBytes(charArray);
                         if (length <= DBWrite_LengthofDataType - 2)
                         {
                             PLC.Write(int.Parse(DBWrite_NumberOfDB), DBWrite_NrOfByteinDB, DBWrite_LengthofDataType, IntBytes);

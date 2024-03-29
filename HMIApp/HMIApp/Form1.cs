@@ -53,9 +53,9 @@ namespace HMIApp
             services.AddDbContext<HMIAppDBContext>(options => options
             .UseSqlServer(DataBase.ConnectionString));
             serviceProvider = services.BuildServiceProvider();
-            ReadFromDb();
+            ReadFromDbWhenAppIsStarting();
             Users.Run();
-    
+
             OdczytDB.Enabled = true;
             listBox1.DrawItem += new System.Windows.Forms.DrawItemEventHandler(App.listBox1_DrawItem);
             label63.Text = "";
@@ -66,13 +66,21 @@ namespace HMIApp
         //statyczna zmienna typu Form1 zeby dostac sie z poziomu innej klasy do obiektow wewnatrz Form1
         public static Form1 _Form1;
 
-        //TESTOWA METODA DO ODCZYTU DANYCH Z BAZY
-        public void ReadFromDb()
+        //METODA DO ODCZYTU DANYCH Z BAZY przy starcie aplikacji
+        public void ReadFromDbWhenAppIsStarting()
         {
             var database = serviceProvider.GetService<iDataBase>();
-            // database.SelectFromDataBase();
-            database.SelectFromDataBase("12345");
             database.SelectFromDbToComboBox();
+            //Najpierw odczyt z combobox zeby potem moc odczytac z bazy danych pierwszy element na starcie
+            if (comboBox5.Items.Count > 0)
+            {
+                database.SelectFromDataBase(comboBox5.Items[0].ToString());
+            }
+            else
+            {
+                // MessageBox.Show("Nie znaleziono referencji");
+            }
+
         }
 
         //Zapis 
@@ -103,7 +111,7 @@ namespace HMIApp
             App.WriteToDB(DB666Tag22PassedValue.Text, DB666Tag22PassedValue.Tag.ToString());
 
             var database = serviceProvider.GetService<iDataBase>();
-            database.UpdateDb("12345");
+            database.UpdateDb(comboBox5.SelectedItem.ToString());
         }
 
         //Timer co 100ms do oczytywania DBka
@@ -115,8 +123,6 @@ namespace HMIApp
 
             this.Text = DateTime.Now.ToString();
             label57.Text = this.Text;
-            maskedTextBox1.Text = textBox2.Text;
-
         }
 
         //Cofniecie zmian dokonanych w karcie Dane - Modyfikowalne
@@ -202,17 +208,27 @@ namespace HMIApp
             }
         }
 
-        //TESTOWY PRZYCISK WYZWALAJACY ZAPIS
-        private void button10_Click(object sender, EventArgs e)
+        // PRZYCISK WYZWALAJACY ZAPIS
+        private void button13_Click(object sender, EventArgs e)
         {
             var database = serviceProvider.GetService<iDataBase>();
             database.InsertToDataBase();
         }
-
+        //Wyrzucenie referencji po rozwinieciu comboboxa
         private void comboBox5_SelectedIndexChanged(object sender, EventArgs e)
         {
             var database = serviceProvider.GetService<iDataBase>();
             database.SelectFromDataBase(comboBox5.Text);
+        }
+        //Usuwanie wybranej referencji
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            var database = serviceProvider.GetService<iDataBase>();
+            if (comboBox5.Text != null && comboBox5.Text != "")
+            {
+                database.Delete(comboBox5.Text);
+                App.ClearAllValueInForm1("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_0.csv");
+            }
         }
     }
 }
