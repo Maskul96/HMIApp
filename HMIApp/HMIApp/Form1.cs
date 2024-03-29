@@ -28,11 +28,10 @@ namespace HMIApp
         {
             InitializeComponent();
             _Form1 = this;
-
-            App.RunInitPLC();
-            //unused//App.ReadActualValueFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_0.csv");
-            App.ReadAlarmsFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_2.csv");
-            App.ReadIOFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_3.csv");
+            //zakomentowane do robienia apki bez plc
+            //App.RunInitPLC();
+            //App.ReadAlarmsFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_2.csv");
+            //App.ReadIOFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_3.csv");
 
             DataBase.Run();
             #region zakomentowane services ktore bylo wczesniej
@@ -64,7 +63,6 @@ namespace HMIApp
 
             CommaReplaceDotTextBox(this);
 
-           //UstawAnchorDlaKontrolek(this);
         }
         //statyczna zmienna typu Form1 zeby dostac sie z poziomu innej klasy do obiektow wewnatrz Form1
         public static Form1 _Form1;
@@ -121,9 +119,9 @@ namespace HMIApp
         //Timer co 100ms do oczytywania danych
         private void timer1_Tick(object sender, EventArgs e)
         {
-            //unused//App.ReadActualValueFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_0.csv");
-            App.ReadAlarmsFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_2.csv");
-            App.ReadIOFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_3.csv");
+            //zakomentowane do robienia apki bez plc
+            //App.ReadAlarmsFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_2.csv");
+            //App.ReadIOFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_3.csv");
 
             //aktualizacja daty i godziny
             this.Text = DateTime.Now.ToString();
@@ -285,20 +283,5 @@ namespace HMIApp
                 e.KeyChar = ',';
             }
         }
-
-        //private void UstawAnchorDlaKontrolek(Control control)
-        //{
-        //    foreach (Control ctrl in control.Controls)
-        //    {
-        //        // Ustaw Anchor dla wszystkich kontrolek, aby rozciągały się wraz z formularzem
-        //        ctrl.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Bottom;
-
-        //        // Rekurencyjnie ustaw Anchor dla kontrolek podrzędnych
-        //        if (ctrl.HasChildren)
-        //        {
-        //            UstawAnchorDlaKontrolek(ctrl);
-        //        }
-        //    }
-        //}
     }
 }
