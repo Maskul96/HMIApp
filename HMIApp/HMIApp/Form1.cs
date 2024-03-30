@@ -165,14 +165,14 @@ namespace HMIApp
         //Testowy przycisk z karty Manual do wyslania komendy
         private void button4_Click(object sender, EventArgs e)
         {
-            App.WriteToDB("15", button4.Tag.ToString(),1);
+            App.WriteToDB("15", button4.Tag.ToString(), 1);
             ChangeColorOfButton(button4);
         }
 
         //Testowy przycisk z karty Manual do wyslania komendy
         private void button5_Click(object sender, EventArgs e)
         {
-            App.WriteToDB("11", button5.Tag.ToString(),1);
+            App.WriteToDB("11", button5.Tag.ToString(), 1);
             ChangeColorOfButton(button5);
         }
 
@@ -224,13 +224,13 @@ namespace HMIApp
             if (TimeoutWylogowania.Enabled)
             {
                 Users.Interval -= 1;
-                label63.Text = Users.Interval.ToString();
+                label13.Text = Users.Interval.ToString();
             }
             else
             {
                 OdliczaSekunde.Enabled = false;
                 Users.Interval = 100000 / 1000;
-                label63.Text = Users.Interval.ToString();
+                label13.Text = Users.Interval.ToString();
             }
         }
 
@@ -282,6 +282,21 @@ namespace HMIApp
             {
                 e.KeyChar = ',';
             }
+        }
+
+        private void label81_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabPage5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label41_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

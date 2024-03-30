@@ -97,7 +97,7 @@ namespace HMIApp.Components.UserAdministration
                 }
                 //Obsluga odliczania czasu do wylogowania
                 Form1._Form1.TimeoutWylogowania.Enabled = true;
-                Form1._Form1.label63.Text = Interval.ToString();
+                Form1._Form1.label13.Text = Interval.ToString();
                 Form1._Form1.OdliczaSekunde.Enabled = true;
             }
             else
