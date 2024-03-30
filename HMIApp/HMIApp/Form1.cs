@@ -9,10 +9,7 @@ using HMIApp.Data;
 using Microsoft.EntityFrameworkCore;
 using Humanizer;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
-using LiveCharts; //Core of the library
-using LiveCharts.Wpf; //The WPF controls
-using LiveCharts.WinForms;
-using HMIApp.Components.Chart;
+using HMIApp.MainChart;
 
 
 
@@ -38,21 +35,9 @@ namespace HMIApp
             //App.RunInitPLC();
             //App.ReadAlarmsFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_2.csv");
             //App.ReadIOFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_3.csv");
+            //Chart.ReadActualValueFromDBChart_Simplified("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_4.csv");
 
             DataBase.Run();
-            #region zakomentowane services ktore bylo wczesniej
-            ////Services do dependency injection
-            //var services = new ServiceCollection();
-            //services.AddSingleton<iDataBase, DataBase>();
-            ////ZArejestrowanie DBContextu - connection string wrzucic pozniej w jakis plik konfiguracyjny
-            //services.AddDbContext<HMIAppDBContext>(options => options
-            //.UseSqlServer(Data.ConnectionString));
-            //var serviceProvider = services.BuildServiceProvider();
-            //var database = serviceProvider.GetService<iDataBase>();
-            //database.SaveToDataBase();
-            //database.ReadFromDataBase();
-            # endregion koniec komentarza services
-
             //Services do dependency injection
             services.AddSingleton<iDataBase, DataBase>();
             //ZArejestrowanie DBContextu - Stworzenie połączenia do bazy danych i service providera
@@ -64,10 +49,12 @@ namespace HMIApp
 
             OdczytDB.Enabled = true;
             listBox1.DrawItem += new System.Windows.Forms.DrawItemEventHandler(App.listBox1_DrawItem);
-            label63.Text = "";
+            label13.Text = "";
             Users.EnabledObjects();
 
             CommaReplaceDotTextBox(this);
+
+            PassedValueControls.Run();
 
             Chart.Run();
         }
@@ -92,8 +79,8 @@ namespace HMIApp
 
         }
 
-        //Zapis 
-        private void button1_Click(object sender, EventArgs e)
+        //Zapis/Wczytanie referencji
+        private void SaveOrWriteRefToDBAndPLC()
         {
             App.WriteToDB(DB666Tag0.Checked.ToString(), DB666Tag0.Tag.ToString());
             App.WriteToDB(DB666Tag1.Checked.ToString(), DB666Tag1.Tag.ToString());
@@ -123,21 +110,29 @@ namespace HMIApp
             database.UpdateDb(comboBox5.SelectedItem.ToString());
         }
 
-        //Timer co 100ms do oczytywania danych
+        //Dwa przyciski do obslugi zapisu/wczytaja referencji
+        private void button1_Click(object sender, EventArgs e)
+        {
+            SaveOrWriteRefToDBAndPLC();
+        }
+        private void button10_Click(object sender, EventArgs e)
+        {
+            SaveOrWriteRefToDBAndPLC();
+            //Przepisanie wartosci do wygenerowania okna czytania sily w wykresie
+            Chart.WriteSpecifiedValueFromReference();
+        }
+
+        //Timer co 100ms do oczytywania danych - sprobowac skrocic czas
         private void timer1_Tick(object sender, EventArgs e)
         {
             //zakomentowane do robienia apki bez plc
             //App.ReadAlarmsFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_2.csv");
             //App.ReadIOFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_3.csv");
+            //Chart.ReadActualValueFromDBChart_Simplified("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_4.csv");
 
             //aktualizacja daty i godziny
             this.Text = DateTime.Now.ToString();
             label57.Text = this.Text;
-
-            //przepisywanie numeru referencji i klienta do wyswietlenia dla operatora
-            DB666Tag16PassedValue.Text = DB666Tag16.Text;
-            DB666Tag17PassedValue.Text = DB666Tag17.Text;
-
         }
 
         //Cofniecie zmian dokonanych w karcie Dane - Modyfikowalne
@@ -291,19 +286,6 @@ namespace HMIApp
             }
         }
 
-        private void label81_Click(object sender, EventArgs e)
-        {
 
-        }
-
-        private void tabPage5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label41_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

@@ -12,5 +12,14 @@ namespace HMIApp.Components
             this.obj = obj;
         }
         public Form1 obj;
+
+        //metoda statyczna do wywolywania przepisania danych
+        public static void Run()
+        {
+            //przepisywanie numeru referencji i klienta do wyswietlenia dla operatora
+            Form1._Form1.DB666Tag16PassedValue.Text = Form1._Form1.DB666Tag16.Text;
+            Form1._Form1.DB666Tag17PassedValue.Text = Form1._Form1.DB666Tag17.Text;
+        }
+
     }
 }

@@ -4,7 +4,7 @@ using System.Xml.Linq;
 
 namespace HMIApp.Components.UserAdministration
 {
-    public class UserAdministration
+    public class UserAdministration : iUserAdministration
     {
         //konstruktor bezparametrowy
         public UserAdministration()
@@ -250,6 +250,21 @@ namespace HMIApp.Components.UserAdministration
                     Form1._Form1.comboBox4.SelectedIndex = test;
                 }
             }
+        }
+
+        public void LoadFromXML()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UpdateDisplayValuesFromXML()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ClearListinComboBox()
+        {
+            throw new NotImplementedException();
         }
     }
 }

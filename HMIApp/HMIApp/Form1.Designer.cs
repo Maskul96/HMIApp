@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("");
             OdczytDB = new System.Windows.Forms.Timer(components);
             Uzytkownik = new System.Windows.Forms.Label();
             pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -230,6 +230,7 @@
             label68 = new System.Windows.Forms.Label();
             tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             label71 = new System.Windows.Forms.Label();
+            button10 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             tabPage7.SuspendLayout();
             tabPage9.SuspendLayout();
@@ -571,7 +572,7 @@
             listView1.ForeColor = System.Drawing.SystemColors.InfoText;
             listView1.FullRowSelect = true;
             listView1.GridLines = true;
-            listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] { listViewItem1 });
+            listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] { listViewItem2 });
             listView1.Location = new System.Drawing.Point(4, 3);
             listView1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             listView1.Name = "listView1";
@@ -1317,6 +1318,7 @@
             // 
             // tabPage8
             // 
+            tabPage8.Controls.Add(button10);
             tabPage8.Controls.Add(DB666Tag21);
             tabPage8.Controls.Add(label72);
             tabPage8.Controls.Add(label31);
@@ -1455,7 +1457,6 @@
             label41.TabIndex = 100;
             label41.Text = "Parametry procesowe";
             label41.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            label41.Click += label41_Click;
             // 
             // DB666Tag22
             // 
@@ -1828,7 +1829,7 @@
             label7.Location = new System.Drawing.Point(7, 66);
             label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label7.Name = "label7";
-            label7.Size = new System.Drawing.Size(220, 474);
+            label7.Size = new System.Drawing.Size(220, 462);
             label7.TabIndex = 157;
             label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -1846,7 +1847,7 @@
             // button2
             // 
             button2.Font = new System.Drawing.Font("Segoe UI", 11.25F);
-            button2.Location = new System.Drawing.Point(748, 41);
+            button2.Location = new System.Drawing.Point(967, 42);
             button2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             button2.Name = "button2";
             button2.Size = new System.Drawing.Size(110, 29);
@@ -1859,7 +1860,7 @@
             // button13
             // 
             button13.Font = new System.Drawing.Font("Segoe UI", 11.25F);
-            button13.Location = new System.Drawing.Point(635, 41);
+            button13.Location = new System.Drawing.Point(854, 42);
             button13.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             button13.Name = "button13";
             button13.Size = new System.Drawing.Size(104, 29);
@@ -1903,7 +1904,7 @@
             // 
             button1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             button1.Font = new System.Drawing.Font("Segoe UI", 11.25F);
-            button1.Location = new System.Drawing.Point(507, 42);
+            button1.Location = new System.Drawing.Point(695, 41);
             button1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             button1.Name = "button1";
             button1.Size = new System.Drawing.Size(118, 29);
@@ -1969,7 +1970,7 @@
             label86.Location = new System.Drawing.Point(235, 101);
             label86.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label86.Name = "label86";
-            label86.Size = new System.Drawing.Size(1004, 437);
+            label86.Size = new System.Drawing.Size(1004, 425);
             label86.TabIndex = 158;
             label86.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -2457,7 +2458,6 @@
             label81.TabIndex = 159;
             label81.Text = "MAN";
             label81.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            label81.Click += label81_Click;
             // 
             // label82
             // 
@@ -2563,6 +2563,20 @@
             label71.TabIndex = 176;
             label71.Text = "Edycja użytkowników";
             label71.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // button10
+            // 
+            button10.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            button10.Font = new System.Drawing.Font("Segoe UI", 11.25F);
+            button10.Location = new System.Drawing.Point(511, 42);
+            button10.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            button10.Name = "button10";
+            button10.Size = new System.Drawing.Size(118, 29);
+            button10.TabIndex = 159;
+            button10.Tag = "";
+            button10.Text = "Wczytaj";
+            button10.UseVisualStyleBackColor = true;
+            button10.Click += button10_Click;
             // 
             // Form1
             // 
@@ -2828,6 +2842,7 @@
         private System.Windows.Forms.Label label85;
         private System.Windows.Forms.Label label86;
         public ScottPlot.WinForms.FormsPlot formsPlot1;
+        public System.Windows.Forms.Button button10;
     }
 }
 
