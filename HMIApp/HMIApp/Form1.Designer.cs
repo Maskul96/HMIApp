@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
             OdczytDB = new System.Windows.Forms.Timer(components);
             Uzytkownik = new System.Windows.Forms.Label();
             pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -183,6 +183,7 @@
             label43 = new System.Windows.Forms.Label();
             label44 = new System.Windows.Forms.Label();
             label45 = new System.Windows.Forms.Label();
+            label86 = new System.Windows.Forms.Label();
             tabPage2 = new System.Windows.Forms.TabPage();
             textBox18 = new System.Windows.Forms.TextBox();
             textBox17 = new System.Windows.Forms.TextBox();
@@ -193,6 +194,7 @@
             button5 = new System.Windows.Forms.Button();
             button4 = new System.Windows.Forms.Button();
             tabPage1 = new System.Windows.Forms.TabPage();
+            formsPlot1 = new ScottPlot.WinForms.FormsPlot();
             textBox19 = new System.Windows.Forms.TextBox();
             label18 = new System.Windows.Forms.Label();
             label21 = new System.Windows.Forms.Label();
@@ -228,7 +230,6 @@
             label68 = new System.Windows.Forms.Label();
             tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             label71 = new System.Windows.Forms.Label();
-            label86 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             tabPage7.SuspendLayout();
             tabPage9.SuspendLayout();
@@ -570,7 +571,7 @@
             listView1.ForeColor = System.Drawing.SystemColors.InfoText;
             listView1.FullRowSelect = true;
             listView1.GridLines = true;
-            listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] { listViewItem3 });
+            listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] { listViewItem1 });
             listView1.Location = new System.Drawing.Point(4, 3);
             listView1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             listView1.Name = "listView1";
@@ -1827,7 +1828,7 @@
             label7.Location = new System.Drawing.Point(7, 66);
             label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label7.Name = "label7";
-            label7.Size = new System.Drawing.Size(220, 492);
+            label7.Size = new System.Drawing.Size(220, 474);
             label7.TabIndex = 157;
             label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -1960,6 +1961,18 @@
             label45.TabIndex = 98;
             label45.Tag = "DB667.Tag2223";
             // 
+            // label86
+            // 
+            label86.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            label86.BackColor = System.Drawing.Color.White;
+            label86.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            label86.Location = new System.Drawing.Point(235, 101);
+            label86.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label86.Name = "label86";
+            label86.Size = new System.Drawing.Size(1004, 437);
+            label86.TabIndex = 158;
+            label86.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // tabPage2
             // 
             tabPage2.Controls.Add(textBox18);
@@ -2066,6 +2079,7 @@
             // 
             // tabPage1
             // 
+            tabPage1.Controls.Add(formsPlot1);
             tabPage1.Controls.Add(textBox19);
             tabPage1.Controls.Add(label18);
             tabPage1.Controls.Add(label21);
@@ -2102,6 +2116,18 @@
             tabPage1.TabIndex = 0;
             tabPage1.Text = "AUTO";
             tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // formsPlot1
+            // 
+            formsPlot1.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            formsPlot1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            formsPlot1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            formsPlot1.Cursor = System.Windows.Forms.Cursors.Cross;
+            formsPlot1.DisplayScale = 1F;
+            formsPlot1.Location = new System.Drawing.Point(7, 6);
+            formsPlot1.Name = "formsPlot1";
+            formsPlot1.Size = new System.Drawing.Size(882, 580);
+            formsPlot1.TabIndex = 185;
             // 
             // textBox19
             // 
@@ -2538,18 +2564,6 @@
             label71.Text = "Edycja użytkowników";
             label71.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label86
-            // 
-            label86.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
-            label86.BackColor = System.Drawing.Color.White;
-            label86.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            label86.Location = new System.Drawing.Point(235, 101);
-            label86.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            label86.Name = "label86";
-            label86.Size = new System.Drawing.Size(1004, 455);
-            label86.TabIndex = 158;
-            label86.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // Form1
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -2813,6 +2827,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label85;
         private System.Windows.Forms.Label label86;
+        public ScottPlot.WinForms.FormsPlot formsPlot1;
     }
 }
 

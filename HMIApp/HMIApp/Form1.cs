@@ -9,6 +9,9 @@ using HMIApp.Data;
 using Microsoft.EntityFrameworkCore;
 using Humanizer;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
+using LiveCharts; //Core of the library
+using LiveCharts.Wpf; //The WPF controls
+using LiveCharts.WinForms; //the WinForm wrappers
 
 
 namespace HMIApp

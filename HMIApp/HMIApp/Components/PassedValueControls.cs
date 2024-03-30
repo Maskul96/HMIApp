@@ -3,5 +3,14 @@ namespace HMIApp.Components
 {
     public class PassedValueControls
     {
+        public PassedValueControls()
+        {
+            
+        }
+        public PassedValueControls(Form1 obj)
+        {
+            this.obj = obj;
+        }
+        public Form1 obj;
     }
 }
