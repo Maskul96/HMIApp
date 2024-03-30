@@ -11,7 +11,9 @@ using Humanizer;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using LiveCharts; //Core of the library
 using LiveCharts.Wpf; //The WPF controls
-using LiveCharts.WinForms; //the WinForm wrappers
+using LiveCharts.WinForms;
+using HMIApp.Components.Chart;
+
 
 
 namespace HMIApp
@@ -22,6 +24,7 @@ namespace HMIApp
         App App = new App();
         UserAdministration Users = new UserAdministration();
         DataBase DataBase = new DataBase();
+        Chart Chart = new Chart();
         //Services do dependency injection
         ServiceCollection services = new ServiceCollection();
         ServiceProvider serviceProvider;
@@ -66,6 +69,7 @@ namespace HMIApp
 
             CommaReplaceDotTextBox(this);
 
+            Chart.Run();
         }
         //statyczna zmienna typu Form1 zeby dostac sie z poziomu innej klasy do obiektow wewnatrz Form1
         public static Form1 _Form1;
