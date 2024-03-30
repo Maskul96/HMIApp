@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
             OdczytDB = new System.Windows.Forms.Timer(components);
             Uzytkownik = new System.Windows.Forms.Label();
             pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -129,6 +129,7 @@
             tabPage4 = new System.Windows.Forms.TabPage();
             Poprzednia = new System.Windows.Forms.TabControl();
             tabPage8 = new System.Windows.Forms.TabPage();
+            button10 = new System.Windows.Forms.Button();
             DB666Tag21 = new System.Windows.Forms.TextBox();
             label72 = new System.Windows.Forms.Label();
             label31 = new System.Windows.Forms.Label();
@@ -230,7 +231,6 @@
             label68 = new System.Windows.Forms.Label();
             tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             label71 = new System.Windows.Forms.Label();
-            button10 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             tabPage7.SuspendLayout();
             tabPage9.SuspendLayout();
@@ -354,12 +354,12 @@
             listAlarmView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { columnHeader4 });
             listAlarmView.Dock = System.Windows.Forms.DockStyle.Bottom;
             listAlarmView.Enabled = false;
-            listAlarmView.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 238);
-            listAlarmView.Location = new System.Drawing.Point(0, 739);
+            listAlarmView.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 238);
+            listAlarmView.Location = new System.Drawing.Point(0, 733);
             listAlarmView.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             listAlarmView.MultiSelect = false;
             listAlarmView.Name = "listAlarmView";
-            listAlarmView.Size = new System.Drawing.Size(1280, 42);
+            listAlarmView.Size = new System.Drawing.Size(1280, 67);
             listAlarmView.TabIndex = 104;
             listAlarmView.TileSize = new System.Drawing.Size(500, 15);
             listAlarmView.UseCompatibleStateImageBehavior = false;
@@ -386,19 +386,19 @@
             // listBox1
             // 
             listBox1.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            listBox1.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             listBox1.BackColor = System.Drawing.Color.Yellow;
-            listBox1.Dock = System.Windows.Forms.DockStyle.Bottom;
             listBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            listBox1.Enabled = false;
-            listBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 238);
+            listBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 238);
             listBox1.ForeColor = System.Drawing.SystemColors.MenuText;
             listBox1.FormattingEnabled = true;
-            listBox1.ItemHeight = 15;
-            listBox1.Items.AddRange(new object[] { "", "START CYKLU", "DOJAZD SZYBKI" });
-            listBox1.Location = new System.Drawing.Point(0, 781);
-            listBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            listBox1.IntegralHeight = false;
+            listBox1.ItemHeight = 49;
+            listBox1.Items.AddRange(new object[] { "", "\t\t\t\tSTART CYKLU", "\t\t\t\tDOJAZD SZYBKI" });
+            listBox1.Location = new System.Drawing.Point(0, 685);
+            listBox1.Margin = new System.Windows.Forms.Padding(3, 4, 4, 3);
             listBox1.Name = "listBox1";
-            listBox1.Size = new System.Drawing.Size(1280, 19);
+            listBox1.Size = new System.Drawing.Size(1280, 49);
             listBox1.TabIndex = 108;
             // 
             // CzyszczenieStatusówLogowania
@@ -560,7 +560,7 @@
             tabPage7.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             tabPage7.Name = "tabPage7";
             tabPage7.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            tabPage7.Size = new System.Drawing.Size(1272, 601);
+            tabPage7.Size = new System.Drawing.Size(1272, 550);
             tabPage7.TabIndex = 7;
             tabPage7.Text = "HISTORIA ALARMÓW";
             tabPage7.UseVisualStyleBackColor = true;
@@ -572,11 +572,11 @@
             listView1.ForeColor = System.Drawing.SystemColors.InfoText;
             listView1.FullRowSelect = true;
             listView1.GridLines = true;
-            listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] { listViewItem2 });
+            listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] { listViewItem1 });
             listView1.Location = new System.Drawing.Point(4, 3);
             listView1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             listView1.Name = "listView1";
-            listView1.Size = new System.Drawing.Size(1264, 595);
+            listView1.Size = new System.Drawing.Size(1264, 544);
             listView1.TabIndex = 0;
             listView1.UseCompatibleStateImageBehavior = false;
             listView1.View = System.Windows.Forms.View.Details;
@@ -603,7 +603,7 @@
             tabPage9.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             tabPage9.Name = "tabPage9";
             tabPage9.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            tabPage9.Size = new System.Drawing.Size(1272, 601);
+            tabPage9.Size = new System.Drawing.Size(1272, 550);
             tabPage9.TabIndex = 6;
             tabPage9.Text = "WEJŚCIA/WYJŚCIA";
             tabPage9.UseVisualStyleBackColor = true;
@@ -617,7 +617,7 @@
             tabControl3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             tabControl3.Name = "tabControl3";
             tabControl3.SelectedIndex = 0;
-            tabControl3.Size = new System.Drawing.Size(1264, 595);
+            tabControl3.Size = new System.Drawing.Size(1264, 544);
             tabControl3.TabIndex = 2;
             // 
             // tabPage10
@@ -638,7 +638,7 @@
             tabPage10.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             tabPage10.Name = "tabPage10";
             tabPage10.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            tabPage10.Size = new System.Drawing.Size(1256, 561);
+            tabPage10.Size = new System.Drawing.Size(1256, 510);
             tabPage10.TabIndex = 0;
             tabPage10.Text = "WEJŚCIA";
             tabPage10.UseVisualStyleBackColor = true;
@@ -778,7 +778,7 @@
             tabPage11.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             tabPage11.Name = "tabPage11";
             tabPage11.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            tabPage11.Size = new System.Drawing.Size(1256, 567);
+            tabPage11.Size = new System.Drawing.Size(1256, 516);
             tabPage11.TabIndex = 1;
             tabPage11.Text = "WYJŚCIA";
             tabPage11.UseVisualStyleBackColor = true;
@@ -893,7 +893,7 @@
             tabPage6.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             tabPage6.Name = "tabPage6";
             tabPage6.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            tabPage6.Size = new System.Drawing.Size(1272, 601);
+            tabPage6.Size = new System.Drawing.Size(1272, 550);
             tabPage6.TabIndex = 5;
             tabPage6.Text = "SERWIS";
             tabPage6.UseVisualStyleBackColor = true;
@@ -983,7 +983,7 @@
             tabPage5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             tabPage5.Name = "tabPage5";
             tabPage5.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            tabPage5.Size = new System.Drawing.Size(1272, 601);
+            tabPage5.Size = new System.Drawing.Size(1272, 550);
             tabPage5.TabIndex = 4;
             tabPage5.Text = "UŻYTKOWNICY";
             tabPage5.UseVisualStyleBackColor = true;
@@ -1207,7 +1207,7 @@
             // 
             // label59
             // 
-            label59.Location = new System.Drawing.Point(10, 525);
+            label59.Location = new System.Drawing.Point(260, 430);
             label59.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label59.Name = "label59";
             label59.Size = new System.Drawing.Size(232, 62);
@@ -1300,7 +1300,7 @@
             tabPage4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             tabPage4.Name = "tabPage4";
             tabPage4.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            tabPage4.Size = new System.Drawing.Size(1272, 601);
+            tabPage4.Size = new System.Drawing.Size(1272, 550);
             tabPage4.TabIndex = 3;
             tabPage4.Text = "DANE";
             tabPage4.UseVisualStyleBackColor = true;
@@ -1313,7 +1313,7 @@
             Poprzednia.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             Poprzednia.Name = "Poprzednia";
             Poprzednia.SelectedIndex = 0;
-            Poprzednia.Size = new System.Drawing.Size(1264, 595);
+            Poprzednia.Size = new System.Drawing.Size(1264, 544);
             Poprzednia.TabIndex = 0;
             // 
             // tabPage8
@@ -1378,10 +1378,24 @@
             tabPage8.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             tabPage8.Name = "tabPage8";
             tabPage8.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            tabPage8.Size = new System.Drawing.Size(1256, 561);
+            tabPage8.Size = new System.Drawing.Size(1256, 510);
             tabPage8.TabIndex = 1;
             tabPage8.Text = "MODYFIKOWALNE";
             tabPage8.UseVisualStyleBackColor = true;
+            // 
+            // button10
+            // 
+            button10.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            button10.Font = new System.Drawing.Font("Segoe UI", 11.25F);
+            button10.Location = new System.Drawing.Point(511, 42);
+            button10.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            button10.Name = "button10";
+            button10.Size = new System.Drawing.Size(118, 29);
+            button10.TabIndex = 159;
+            button10.Tag = "";
+            button10.Text = "Wczytaj";
+            button10.UseVisualStyleBackColor = true;
+            button10.Click += button10_Click;
             // 
             // DB666Tag21
             // 
@@ -1829,7 +1843,7 @@
             label7.Location = new System.Drawing.Point(7, 66);
             label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label7.Name = "label7";
-            label7.Size = new System.Drawing.Size(220, 462);
+            label7.Size = new System.Drawing.Size(220, 327);
             label7.TabIndex = 157;
             label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -1970,7 +1984,7 @@
             label86.Location = new System.Drawing.Point(235, 101);
             label86.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label86.Name = "label86";
-            label86.Size = new System.Drawing.Size(1004, 425);
+            label86.Size = new System.Drawing.Size(1004, 290);
             label86.TabIndex = 158;
             label86.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -1988,7 +2002,7 @@
             tabPage2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            tabPage2.Size = new System.Drawing.Size(1272, 601);
+            tabPage2.Size = new System.Drawing.Size(1272, 550);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "MANUAL";
             tabPage2.UseVisualStyleBackColor = true;
@@ -2113,7 +2127,7 @@
             tabPage1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            tabPage1.Size = new System.Drawing.Size(1272, 601);
+            tabPage1.Size = new System.Drawing.Size(1272, 550);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "AUTO";
             tabPage1.UseVisualStyleBackColor = true;
@@ -2125,9 +2139,10 @@
             formsPlot1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             formsPlot1.Cursor = System.Windows.Forms.Cursors.Cross;
             formsPlot1.DisplayScale = 1F;
+            formsPlot1.Enabled = false;
             formsPlot1.Location = new System.Drawing.Point(7, 6);
             formsPlot1.Name = "formsPlot1";
-            formsPlot1.Size = new System.Drawing.Size(882, 580);
+            formsPlot1.Size = new System.Drawing.Size(882, 529);
             formsPlot1.TabIndex = 185;
             // 
             // textBox19
@@ -2351,7 +2366,7 @@
             label19.Location = new System.Drawing.Point(896, 116);
             label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label19.Name = "label19";
-            label19.Size = new System.Drawing.Size(368, 470);
+            label19.Size = new System.Drawing.Size(368, 419);
             label19.TabIndex = 159;
             label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -2382,7 +2397,7 @@
             tabControl1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new System.Drawing.Size(1280, 635);
+            tabControl1.Size = new System.Drawing.Size(1280, 584);
             tabControl1.TabIndex = 70;
             // 
             // label66
@@ -2563,20 +2578,6 @@
             label71.TabIndex = 176;
             label71.Text = "Edycja użytkowników";
             label71.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // button10
-            // 
-            button10.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            button10.Font = new System.Drawing.Font("Segoe UI", 11.25F);
-            button10.Location = new System.Drawing.Point(511, 42);
-            button10.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            button10.Name = "button10";
-            button10.Size = new System.Drawing.Size(118, 29);
-            button10.TabIndex = 159;
-            button10.Tag = "";
-            button10.Text = "Wczytaj";
-            button10.UseVisualStyleBackColor = true;
-            button10.Click += button10_Click;
             // 
             // Form1
             // 

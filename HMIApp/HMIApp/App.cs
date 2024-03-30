@@ -8,6 +8,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Windows.ApplicationModel;
 
 
 namespace HMIApp
@@ -1003,9 +1004,10 @@ namespace HMIApp
             }
         }
 
-        //metoda do zmiany kolor selection item w listBox
+        //metoda do zmiany kolor selection item w listBox - moduł komunikatów z PLC
         public void listBox1_DrawItem(object sender, DrawItemEventArgs e)
         {
+            TextFormatFlags flags = TextFormatFlags.HorizontalCenter | TextFormatFlags.VerticalCenter;
             if (e.Index < 0) return;
 
             //Jesli item jest selected to zmień kolor
@@ -1021,7 +1023,11 @@ namespace HMIApp
             //Draw background kolor dla kazdego itema
             e.DrawBackground();
             //Obecny item text
-            e.Graphics.DrawString(Form1._Form1.listBox1.Items[e.Index].ToString(), e.Font, Brushes.Black, e.Bounds, StringFormat.GenericDefault);
+            //e.Graphics.DrawString(Form1._Form1.listBox1.Items[e.Index].ToString(), e.Font, Brushes.Black, e.Bounds,StringFormat.GenericDefault);
+            var textRect = e.Bounds;
+            string itemText = Form1._Form1.listBox1.Items[e.Index].ToString();
+            TextRenderer.DrawText(e.Graphics, itemText, e.Font, textRect, e.ForeColor, flags);
+
             //Jesli item jest selected to rysuj prostokat wokol itema
             e.DrawFocusRectangle();
         }
