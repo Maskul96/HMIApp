@@ -35,7 +35,7 @@ namespace HMIApp
             App.RunInitPLC();
             App.ReadAlarmsFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_2.csv");
             App.ReadIOFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_3.csv");
-            Chart.ReadActualValueFromDBChart_Simplified("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_4.csv");
+            App.ReadActualValueFromDBChart_Simplified("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_4.csv");
 
             DataBase.Run();
             //Services do dependency injection
@@ -56,7 +56,8 @@ namespace HMIApp
 
             PassedValueControls.Run();
 
-            Chart.Run();
+            App.CreatePlot();
+            App.CreateStaticPlot();
         }
         //statyczna zmienna typu Form1 zeby dostac sie z poziomu innej klasy do obiektow wewnatrz Form1
         public static Form1 _Form1;
@@ -113,17 +114,16 @@ namespace HMIApp
             App.WriteToDB(DB666Tag21.Text, DB666Tag21.Tag.ToString());
             App.WriteToDB(DB666Tag22.Text, DB666Tag22.Tag.ToString());
             //Przepisanie wartosci do wygenerowania okna czytania sily w wykresie
-            Chart.WriteSpecifiedValueFromReference();
+            App.WriteSpecifiedValueFromReference();
         }
 
-        //Timer co 100ms do oczytywania danych - sprobowac skrocic czas
+        //Timer co 10ms do oczytywania danych - sprobowac skrocic czas
         private void timer1_Tick(object sender, EventArgs e)
         {
             //zakomentowane do robienia apki bez plc
             App.ReadAlarmsFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_2.csv");
             App.ReadIOFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_3.csv");
-            Chart.ReadActualValueFromDBChart_Simplified("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_4.csv");
-            Chart.Run();
+            App.CreatePlot();
             //aktualizacja daty i godziny
             this.Text = DateTime.Now.ToString();
             label57.Text = this.Text;

@@ -15,5 +15,14 @@ namespace HMIApp
         bool GetBit(byte b, int bitNumber);
         void WriteToDB(string valuetoWrite, string DataTypeofTag, int filenameIndex);
 
+        void ReadActualValueFromDBChart_Simplified(string filepath);
+
+         int Counter { get; set; } //Counter przychodzi z PLC za kazdym razem jak PLC odczyta nową daną z inną pozycją i siłą
+         int ForceMin { get; set; }
+         int ForceMax { get; set; }
+         byte StartChart { get; set; }
+         double ActValX { get; set; }
+         double ActValY { get; set; }
+
     }
 }
