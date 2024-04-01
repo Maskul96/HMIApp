@@ -32,10 +32,10 @@ namespace HMIApp
             InitializeComponent();
             _Form1 = this;
             //zakomentowane do robienia apki bez plc
-            //App.RunInitPLC();
-            //App.ReadAlarmsFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_2.csv");
-            //App.ReadIOFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_3.csv");
-            //Chart.ReadActualValueFromDBChart_Simplified("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_4.csv");
+            App.RunInitPLC();
+            App.ReadAlarmsFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_2.csv");
+            App.ReadIOFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_3.csv");
+            Chart.ReadActualValueFromDBChart_Simplified("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_4.csv");
 
             DataBase.Run();
             //Services do dependency injection
@@ -79,8 +79,15 @@ namespace HMIApp
 
         }
 
-        //Zapis/Wczytanie referencji
-        private void SaveOrWriteRefToDBAndPLC()
+
+        //Dwa przyciski do obslugi zapisu/wczytaja referencji
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var database = serviceProvider.GetService<iDataBase>();
+            database.UpdateDb(comboBox5.SelectedItem.ToString());
+
+        }
+        private void button10_Click(object sender, EventArgs e)
         {
             App.WriteToDB(DB666Tag0.Checked.ToString(), DB666Tag0.Tag.ToString());
             App.WriteToDB(DB666Tag1.Checked.ToString(), DB666Tag1.Tag.ToString());
@@ -105,19 +112,6 @@ namespace HMIApp
             App.WriteToDB(DB666Tag20.Text, DB666Tag20.Tag.ToString());
             App.WriteToDB(DB666Tag21.Text, DB666Tag21.Tag.ToString());
             App.WriteToDB(DB666Tag22.Text, DB666Tag22.Tag.ToString());
-
-            var database = serviceProvider.GetService<iDataBase>();
-            database.UpdateDb(comboBox5.SelectedItem.ToString());
-        }
-
-        //Dwa przyciski do obslugi zapisu/wczytaja referencji
-        private void button1_Click(object sender, EventArgs e)
-        {
-            SaveOrWriteRefToDBAndPLC();
-        }
-        private void button10_Click(object sender, EventArgs e)
-        {
-            SaveOrWriteRefToDBAndPLC();
             //Przepisanie wartosci do wygenerowania okna czytania sily w wykresie
             Chart.WriteSpecifiedValueFromReference();
         }
@@ -126,10 +120,10 @@ namespace HMIApp
         private void timer1_Tick(object sender, EventArgs e)
         {
             //zakomentowane do robienia apki bez plc
-            //App.ReadAlarmsFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_2.csv");
-            //App.ReadIOFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_3.csv");
-            //Chart.ReadActualValueFromDBChart_Simplified("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_4.csv");
-
+            App.ReadAlarmsFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_2.csv");
+            App.ReadIOFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_3.csv");
+            Chart.ReadActualValueFromDBChart_Simplified("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_4.csv");
+            Chart.Run();
             //aktualizacja daty i godziny
             this.Text = DateTime.Now.ToString();
             label57.Text = this.Text;

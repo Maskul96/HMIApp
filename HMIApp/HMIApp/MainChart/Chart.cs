@@ -26,11 +26,11 @@ namespace HMIApp.MainChart
         }
 
         #region Zmienne do DBka do odczytu 
-        public int DBRead_position;
-        public string DBRead_NumberOfDB;
-        public int DBRead_StartDB;
-        public int DBRead_EndDB;
-        public int DBRead_NrOfByteinDB;
+        public int DBread_position;
+        public string DBread_NumberOfDB;
+        public int DBread_StartDB;
+        public int DBread_EndDB;
+        public int DBread_NrOfByteinDB;
 
         public byte StartChart; //z PLC żądanie rozpoczęcia generowania wykresu
         public int Counter; //Counter przychodzi z PLC za kazdym razem jak PLC odczyta nową daną z inną pozycją i siłą
@@ -68,57 +68,57 @@ namespace HMIApp.MainChart
             foreach (var dbTag in dbtags)
             {
                 //Wyciagniecie z nazwy DBka jego numer
-                DBRead_position = dbTag.TagName.IndexOf('.') - 2;
-                DBRead_NumberOfDB = dbTag.TagName.Substring(2, DBRead_position);
+                DBread_position = dbTag.TagName.IndexOf('.') - 2;
+                DBread_NumberOfDB = dbTag.TagName.Substring(2, DBread_position);
                 //Wyciagniecie startowej pozycji i końcowej pozycji DBka - ustalamy dlugosc danych + ustalenie dlugosci tablicy
                 if (dbtags.First() == dbTag)
                 {
-                    DBRead_StartDB = dbTag.NumberOfByteInDB;
+                    DBread_StartDB = dbTag.NumberOfByteInDB;
                 }
                 if (dbtags.Last() == dbTag)
                 {
                     //Zabezpieczenie wyjscia poza index tablicy
-                    DBRead_EndDB = dbTag.NumberOfByteInDB + dbTag.LengthDataType;
+                    DBread_EndDB = dbTag.NumberOfByteInDB + dbTag.LengthDataType;
                 }
             }
 
-            byte[] DB = new byte[DBRead_EndDB];
+            byte[] DB = new byte[DBread_EndDB];
             //Read DB
-            PLC.Read(int.Parse(DBRead_NumberOfDB), DBRead_StartDB, DBRead_EndDB, DB);
+            PLC.Read(int.Parse(DBread_NumberOfDB), DBread_StartDB, DBread_EndDB, DB);
 
             foreach (var dbTag in dbtags)
             {
                 switch (dbTag.DataTypeOfTag.ToUpper())
                 {
                     case "BYTE":
-                        DBRead_NrOfByteinDB = dbTag.NumberOfByteInDB;
+                        DBread_NrOfByteinDB = dbTag.NumberOfByteInDB;
                         if (dbTag.TagName == "DB665.Measure")
-                            StartChart = Convert.ToByte(DB[DBRead_NrOfByteinDB]);
+                            StartChart = DB[DBread_NrOfByteinDB];
                         break;
                     case "INT":
-                        DBRead_NrOfByteinDB = dbTag.NumberOfByteInDB;
+                        DBread_NrOfByteinDB = dbTag.NumberOfByteInDB;
                         if (dbTag.TagName == "DB665.Counter")
                         {
-                            Counter = libnodave.getS16from(DB, DBRead_NrOfByteinDB);
+                            Counter = libnodave.getS16from(DB, DBread_NrOfByteinDB);
                         }
                         else if (dbTag.TagName == "DB665.ForceMin")
                         {
-                            ForceMin = libnodave.getS16from(DB, DBRead_NrOfByteinDB);
+                            ForceMin = libnodave.getS16from(DB, DBread_NrOfByteinDB);
                         }
                         else if (dbTag.TagName == "DB665.ForceMax")
                         {
-                            ForceMax = libnodave.getS16from(DB, DBRead_NrOfByteinDB);
+                            ForceMax = libnodave.getS16from(DB, DBread_NrOfByteinDB);
                         }
                         break;
                     case "REAL":
-                        DBRead_NrOfByteinDB = dbTag.NumberOfByteInDB;
+                        DBread_NrOfByteinDB = dbTag.NumberOfByteInDB;
                         if (dbTag.TagName == "DB665.ActValX")
                         {
-                            ActValX = libnodave.getS16from(DB, DBRead_NrOfByteinDB);
+                            ActValX = libnodave.getFloatfrom(DB, DBread_NrOfByteinDB);
                         }
                         else if (dbTag.TagName == "DB665.ActValY")
                         {
-                            ActValY = libnodave.getS16from(DB, DBRead_NrOfByteinDB);
+                            ActValY = libnodave.getFloatfrom(DB, DBread_NrOfByteinDB);
                         }
                         break;
                     default:
@@ -164,8 +164,7 @@ namespace HMIApp.MainChart
                     int[] dataYForceMin = { ForceMin, ForceMin };
                     double[] dataXForceMax = { EndReading + offset, EndPoint + offset };
                     int[] dataYForceMax = { ForceMax, ForceMax };
-                    Form1._Form1.formsPlot1.Plot.XLabel("Pozycja [mm]");
-                    Form1._Form1.formsPlot1.Plot.YLabel("Siła [N]");
+
 
                     //Glowny plot
                     var mainplot = Form1._Form1.formsPlot1.Plot.Add.Scatter(dataX, dataY);
@@ -181,17 +180,22 @@ namespace HMIApp.MainChart
                     fmax.Color = Colors.Black;
                     fmax.LineStyle.Pattern = LinePattern.Dashed;
                     fmax.LineStyle.Width = 1;
-                    //Wyrysowanie prostokąta czytania siły
-                    var hs = Form1._Form1.formsPlot1.Plot.Add.HorizontalSpan(StartReading, EndReading);
-                    hs.LineStyle.Pattern = LinePattern.Dashed;
-                    hs.LineStyle.Width = 1;
-                    hs.FillStyle.Color = Colors.Blue.WithOpacity(0.2f);
 
-                    Form1._Form1.formsPlot1.Plot.Title("Wykres siły");
 
                     EndOfMeasuring = false;
                 }
             }
+            WriteSpecifiedValueFromReference();
+            Form1._Form1.formsPlot1.Plot.XLabel("Pozycja [mm]");
+            Form1._Form1.formsPlot1.Plot.YLabel("Siła [N]");
+            //Wyrysowanie prostokąta czytania siły
+            var hs = Form1._Form1.formsPlot1.Plot.Add.HorizontalSpan(StartReading, EndReading);
+            hs.LineStyle.Pattern = LinePattern.Dashed;
+            hs.LineStyle.Width = 1;
+            hs.FillStyle.Color = Colors.Blue.WithOpacity(0.2f);
+            Form1._Form1.formsPlot1.Plot.Title("Wykres siły");
+            Form1._Form1.formsPlot1.Refresh();
+
         }
 
         //Ponizsza metoda do wywolania dopiero jak zaczyta sie jakakolwiek referencja

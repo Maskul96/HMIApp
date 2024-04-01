@@ -192,8 +192,13 @@ namespace HMIApp.Data
 
         public void UpdateDb(string referencenumber)
         {
+            bool blockade = false;
             //    ////Update danych cd
             var ref1 = ReadFirst(referencenumber);
+            if(referencenumber == Form1._Form1.DB666Tag16.Text)
+            {
+                blockade = true;
+            }
             ref1.ReferenceNumber = Form1._Form1.DB666Tag16.Text;
             ref1.NameOfClient = Form1._Form1.DB666Tag17.Text;
             ref1.ParameterCyklC1 = Form1._Form1.DB666Tag0.Checked;
@@ -218,8 +223,13 @@ namespace HMIApp.Data
             ref1.ForceF4 = int.Parse(Form1._Form1.DB666Tag21.Text);
             ref1.ForceF5 = int.Parse(Form1._Form1.DB666Tag22.Text);
             _hmiAppDbContext.SaveChanges();
-            ClearCombobox();
+            //Dorobić taką opcję, że czyscimy comboboxa tylko wtedy kiedy zmienimy samą nazwe
+            if(blockade == false)
+            {
+                ClearCombobox();
+            }
             SelectFromDbToComboBox();
+            blockade = false;
         }
 
         public void Delete(string referencenumber)

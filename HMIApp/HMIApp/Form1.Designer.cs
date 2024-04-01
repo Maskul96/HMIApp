@@ -249,6 +249,7 @@
             // 
             // OdczytDB
             // 
+            OdczytDB.Interval = 10;
             OdczytDB.Tick += timer1_Tick;
             // 
             // Uzytkownik
@@ -1843,7 +1844,7 @@
             label7.Location = new System.Drawing.Point(7, 66);
             label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label7.Name = "label7";
-            label7.Size = new System.Drawing.Size(220, 327);
+            label7.Size = new System.Drawing.Size(220, 291);
             label7.TabIndex = 157;
             label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -1907,6 +1908,7 @@
             // comboBox5
             // 
             comboBox5.FormattingEnabled = true;
+            comboBox5.ImeMode = System.Windows.Forms.ImeMode.Off;
             comboBox5.Location = new System.Drawing.Point(235, 42);
             comboBox5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             comboBox5.Name = "comboBox5";
@@ -1984,7 +1986,7 @@
             label86.Location = new System.Drawing.Point(235, 101);
             label86.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label86.Name = "label86";
-            label86.Size = new System.Drawing.Size(1004, 290);
+            label86.Size = new System.Drawing.Size(1004, 254);
             label86.TabIndex = 158;
             label86.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
