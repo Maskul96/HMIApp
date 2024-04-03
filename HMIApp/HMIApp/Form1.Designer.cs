@@ -195,6 +195,7 @@
             button5 = new System.Windows.Forms.Button();
             button4 = new System.Windows.Forms.Button();
             tabPage1 = new System.Windows.Forms.TabPage();
+            button11 = new System.Windows.Forms.Button();
             formsPlot1 = new ScottPlot.WinForms.FormsPlot();
             textBox19 = new System.Windows.Forms.TextBox();
             label18 = new System.Windows.Forms.Label();
@@ -1844,7 +1845,7 @@
             label7.Location = new System.Drawing.Point(7, 66);
             label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label7.Name = "label7";
-            label7.Size = new System.Drawing.Size(220, 291);
+            label7.Size = new System.Drawing.Size(220, 219);
             label7.TabIndex = 157;
             label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -1986,7 +1987,7 @@
             label86.Location = new System.Drawing.Point(235, 101);
             label86.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label86.Name = "label86";
-            label86.Size = new System.Drawing.Size(1004, 254);
+            label86.Size = new System.Drawing.Size(1004, 182);
             label86.TabIndex = 158;
             label86.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -2096,6 +2097,7 @@
             // 
             // tabPage1
             // 
+            tabPage1.Controls.Add(button11);
             tabPage1.Controls.Add(formsPlot1);
             tabPage1.Controls.Add(textBox19);
             tabPage1.Controls.Add(label18);
@@ -2133,6 +2135,17 @@
             tabPage1.TabIndex = 0;
             tabPage1.Text = "AUTO";
             tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // button11
+            // 
+            button11.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            button11.Location = new System.Drawing.Point(969, 301);
+            button11.Name = "button11";
+            button11.Size = new System.Drawing.Size(125, 57);
+            button11.TabIndex = 186;
+            button11.Text = "CreatePlot";
+            button11.UseVisualStyleBackColor = true;
+            button11.Click += button11_Click;
             // 
             // formsPlot1
             // 
@@ -2846,6 +2859,7 @@
         private System.Windows.Forms.Label label86;
         public ScottPlot.WinForms.FormsPlot formsPlot1;
         public System.Windows.Forms.Button button10;
+        public System.Windows.Forms.Button button11;
     }
 }
 

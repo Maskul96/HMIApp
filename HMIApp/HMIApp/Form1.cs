@@ -56,7 +56,7 @@ namespace HMIApp
 
             PassedValueControls.Run();
 
-            App.CreatePlot();
+
             App.CreateStaticPlot();
         }
         //statyczna zmienna typu Form1 zeby dostac sie z poziomu innej klasy do obiektow wewnatrz Form1
@@ -280,6 +280,9 @@ namespace HMIApp
             }
         }
 
-
+        private void button11_Click(object sender, EventArgs e)
+        {
+            App.ResetEndOfMes();
+        }
     }
 }

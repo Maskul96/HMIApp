@@ -20,6 +20,8 @@ namespace HMIApp
         public Form1 obj;
 
         #region Zmienne do DBka do odczytu wykresu
+
+
         public int DBread_position;
         public string DBread_NumberOfDB;
         public int DBread_StartDB;
@@ -255,33 +257,47 @@ namespace HMIApp
             }
         }
 
+        double[] dataX = new double[500];
+        double[] dataY = new double[500];
+        public void ResetEndOfMes()
+        {
+            EndOfMeasuring = false;
+        }
         public void CreatePlot()
         {
-
-            double[] dataX = new double[500];
-            double[] dataY = new double[500];
-
-            if (StartChart == 1)
+            ReadActualValueFromDBChart_Simplified("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_4.csv");
+            if (StartChart == 0)
             {
-                index10 = 0;
                 EndOfMeasuring = false;
-                for (int i = 0; i < 500; i++)
+            }
+            WriteSpecifiedValueFromReference();
+            index10 = 0;
+            if (StartChart == 1 && EndOfMeasuring == false)
+            {
+
+                do
                 {
                     ReadActualValueFromDBChart_Simplified("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_4.csv");
-                    dataX[i] = ActValX;
-                    dataY[i] = ActValY;
-                    index10 += i;
+                    dataX[index10] = ActValX;
+                    dataY[index10] = ActValY;
+                    index10 += 1;
+
+                } while (ActValX > dataX[index10 + 1] + 1.0 && index10 <400);
+    
                     if (ActValX >= EndReading)
                     {
                         EndOfMeasuring = true;
-                        break;
                     }
+
+                if (dataX[399] != 0)
+                {
+                    EndOfMeasuring = true;
                 }
 
                 if (EndOfMeasuring)
                 {
                     //uzupelnienie komorek ktore mogly zostac nie zapelnione przez dane z PLC
-                    for (int i = index10 + 1; i <= 499; i++)
+                    for (int i = index10; i <= 499; i++)
                     {
                         dataX[i] = dataX[i - 1];
                         dataY[i] = dataY[i - 1];
@@ -294,45 +310,50 @@ namespace HMIApp
                     int[] dataYForceMax = { ForceMax, ForceMax };
 
 
-                    //Glowny plot
-                    var mainplot = Form1._Form1.formsPlot1.Plot.Add.Scatter(dataX, dataY);
-                    mainplot.Color = Colors.Red;
-                    mainplot.LineStyle.Width = 3;
+
                     //Plot sila minimalna
                     var fmin = Form1._Form1.formsPlot1.Plot.Add.Scatter(dataXForceMin, dataYForceMin);
                     fmin.Color = Colors.Black;
                     fmin.LineStyle.Pattern = LinePattern.Dashed;
                     fmin.LineStyle.Width = 1;
-                    //Plot sila max
+                    Form1._Form1.formsPlot1.Refresh();
+                    ////Plot sila max
                     var fmax = Form1._Form1.formsPlot1.Plot.Add.Scatter(dataXForceMax, dataYForceMax);
                     fmax.Color = Colors.Black;
                     fmax.LineStyle.Pattern = LinePattern.Dashed;
                     fmax.LineStyle.Width = 1;
+                    Form1._Form1.formsPlot1.Refresh();
+                    //Glowny plot
+                    var mainplot = Form1._Form1.formsPlot1.Plot.Add.Scatter(dataX, dataY);
+                    mainplot.Color = Colors.Red;
+                    mainplot.LineStyle.Width = 3;
+                    Form1._Form1.formsPlot1.Refresh();
 
-
-                    EndOfMeasuring = false;
                 }
             }
-            WriteSpecifiedValueFromReference();
+            else if (StartChart == 0)
+            {
+                EndOfMeasuring = false;
+            }
             Form1._Form1.formsPlot1.Refresh();
 
         }
 
         public void CreateStaticPlot()
         {
+            WriteSpecifiedValueFromReference();
             Form1._Form1.formsPlot1.Plot.XLabel("Pozycja [mm]");
             Form1._Form1.formsPlot1.Plot.YLabel("Siła [N]");
             //Wyrysowanie prostokąta czytania siły
-            var hs = Form1._Form1.formsPlot1.Plot.Add.HorizontalSpan(StartReading, EndReading);
+            //var hs = Form1._Form1.formsPlot1.Plot.Add.HorizontalSpan(StartReading, EndReading);
             var hs1 = Form1._Form1.formsPlot1.Plot.Add.Scatter(FastMovement, 0);
             hs1.Color = Colors.White;
             var hs2 = Form1._Form1.formsPlot1.Plot.Add.Scatter(EndReading, 0);
             hs2.Color = Colors.White;
-            hs.LineStyle.Pattern = LinePattern.Dashed;
-            hs.LineStyle.Width = 1;
-            hs.FillStyle.Color = Colors.Blue.WithOpacity(0.2f);
+           // hs.LineStyle.Pattern = LinePattern.Dashed;
+           // hs.LineStyle.Width = 1;
+           // hs.FillStyle.Color = Colors.Blue.WithOpacity(0.2f);
             Form1._Form1.formsPlot1.Plot.Title("Wykres siły");
-            WriteSpecifiedValueFromReference();
             Form1._Form1.formsPlot1.Refresh();
         }
 
