@@ -1,8 +1,8 @@
 Name,Type,Byte,Bit,Length,NameofAlarm
-DB668.Alarm0,Bool,0,0,0,Nazwa Alarmu 0
-DB668.Alarm1,Bool,0,1,0,Nazwa Alarmu 1
-DB668.Alarm2,Bool,0,2,0,Nazwa Alarmu 2
-DB668.Alarm3,Bool,0,3,0,Nazwa Alarmu 3
+DB668.Alarm0,Bool,0,0,0,Nazwa Alarmu 0 - EStop Za³¹czony
+DB668.Alarm1,Bool,0,1,0,Nazwa Alarmu 1 - Kurtyna Œwietlna jest przerwana
+DB668.Alarm2,Bool,0,2,0,Nazwa Alarmu 2 - B³¹d przekroczenia pozycji koñca monta¿u
+DB668.Alarm3,Bool,0,3,0,Nazwa Alarmu 3 - TraceUp Sztuka NOK lub NOK na poprzedniej operacji
 DB668.Alarm4,Bool,0,4,0,Nazwa Alarmu 4
 DB668.Alarm5,Bool,0,5,0,Nazwa Alarmu 5
 DB668.Alarm6,Bool,0,6,0,Nazwa alarmu 6

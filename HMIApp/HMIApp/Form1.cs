@@ -84,37 +84,49 @@ namespace HMIApp
         //Dwa przyciski do obslugi zapisu/wczytaja referencji
         private void button1_Click(object sender, EventArgs e)
         {
-            var database = serviceProvider.GetService<iDataBase>();
-            database.UpdateDb(comboBox5.SelectedItem.ToString());
-
+            if (comboBox5.Text != null && comboBox5.Text != "")
+            {
+                var database = serviceProvider.GetService<iDataBase>();
+                database.UpdateDb(comboBox5.SelectedItem.ToString());
+            }
+            formsPlot1.Plot.Clear();
+            App.CreateStaticPlot();
+            formsPlot1.Refresh();
         }
         private void button10_Click(object sender, EventArgs e)
         {
-            App.WriteToDB(DB666Tag0.Checked.ToString(), DB666Tag0.Tag.ToString());
-            App.WriteToDB(DB666Tag1.Checked.ToString(), DB666Tag1.Tag.ToString());
-            App.WriteToDB(DB666Tag8.Checked.ToString(), DB666Tag8.Tag.ToString());
-            App.WriteToDB(DB666Tag9.Checked.ToString(), DB666Tag9.Tag.ToString());
-            App.WriteToDB(DB666Tag10.Checked.ToString(), DB666Tag10.Tag.ToString());
-            App.WriteToDB(DB666Tag11.Checked.ToString(), DB666Tag11.Tag.ToString());
-            App.WriteToDB(DB666Tag12.Checked.ToString(), DB666Tag12.Tag.ToString());
-            App.WriteToDB(DB666Tag13.Checked.ToString(), DB666Tag13.Tag.ToString());
-            App.WriteToDB(DB666Tag2.Text, DB666Tag2.Tag.ToString());
-            App.WriteToDB(DB666Tag4.Text, DB666Tag4.Tag.ToString());
-            App.WriteToDB(DB666Tag6.Text, DB666Tag6.Tag.ToString());
-            App.WriteToDB(DB666Tag16.Text, DB666Tag16.Tag.ToString());
-            App.WriteToDB(DB666Tag17.Text, DB666Tag17.Tag.ToString());
-            App.WriteToDB(DB666Tag3.Text, DB666Tag3.Tag.ToString());
-            App.WriteToDB(DB666Tag5.Text, DB666Tag5.Tag.ToString());
-            App.WriteToDB(DB666Tag15.Text, DB666Tag15.Tag.ToString());
-            App.WriteToDB(DB666Tag7.Text, DB666Tag7.Tag.ToString());
-            App.WriteToDB(DB666Tag14.Text, DB666Tag14.Tag.ToString());
-            App.WriteToDB(DB666Tag18.Text, DB666Tag18.Tag.ToString());
-            App.WriteToDB(DB666Tag19.Text, DB666Tag19.Tag.ToString());
-            App.WriteToDB(DB666Tag20.Text, DB666Tag20.Tag.ToString());
-            App.WriteToDB(DB666Tag21.Text, DB666Tag21.Tag.ToString());
-            App.WriteToDB(DB666Tag22.Text, DB666Tag22.Tag.ToString());
-            //Przepisanie wartosci do wygenerowania okna czytania sily w wykresie
-            App.WriteSpecifiedValueFromReference();
+            if (comboBox5.Text != null && comboBox5.Text != "")
+            {
+                App.WriteToDB(DB666Tag0.Checked.ToString(), DB666Tag0.Tag.ToString());
+                App.WriteToDB(DB666Tag1.Checked.ToString(), DB666Tag1.Tag.ToString());
+                App.WriteToDB(DB666Tag8.Checked.ToString(), DB666Tag8.Tag.ToString());
+                App.WriteToDB(DB666Tag9.Checked.ToString(), DB666Tag9.Tag.ToString());
+                App.WriteToDB(DB666Tag10.Checked.ToString(), DB666Tag10.Tag.ToString());
+                App.WriteToDB(DB666Tag11.Checked.ToString(), DB666Tag11.Tag.ToString());
+                App.WriteToDB(DB666Tag12.Checked.ToString(), DB666Tag12.Tag.ToString());
+                App.WriteToDB(DB666Tag13.Checked.ToString(), DB666Tag13.Tag.ToString());
+                App.WriteToDB(DB666Tag2.Text, DB666Tag2.Tag.ToString());
+                App.WriteToDB(DB666Tag4.Text, DB666Tag4.Tag.ToString());
+                App.WriteToDB(DB666Tag6.Text, DB666Tag6.Tag.ToString());
+                App.WriteToDB(DB666Tag16.Text, DB666Tag16.Tag.ToString());
+                App.WriteToDB(DB666Tag17.Text, DB666Tag17.Tag.ToString());
+                App.WriteToDB(DB666Tag3.Text, DB666Tag3.Tag.ToString());
+                App.WriteToDB(DB666Tag5.Text, DB666Tag5.Tag.ToString());
+                App.WriteToDB(DB666Tag15.Text, DB666Tag15.Tag.ToString());
+                App.WriteToDB(DB666Tag7.Text, DB666Tag7.Tag.ToString());
+                App.WriteToDB(DB666Tag14.Text, DB666Tag14.Tag.ToString());
+                App.WriteToDB(DB666Tag18.Text, DB666Tag18.Tag.ToString());
+                App.WriteToDB(DB666Tag19.Text, DB666Tag19.Tag.ToString());
+                App.WriteToDB(DB666Tag20.Text, DB666Tag20.Tag.ToString());
+                App.WriteToDB(DB666Tag21.Text, DB666Tag21.Tag.ToString());
+                App.WriteToDB(DB666Tag22.Text, DB666Tag22.Tag.ToString());
+                //Przepisanie wartosci do wygenerowania okna czytania sily w wykresie
+                App.WriteSpecifiedValueFromReference();
+            }
+            formsPlot1.Plot.Clear();
+            App.CreateStaticPlot();
+            formsPlot1.Refresh();
+
         }
 
         //Timer co 10ms do oczytywania danych - sprobowac skrocic czas
@@ -282,7 +294,7 @@ namespace HMIApp
 
         private void button11_Click(object sender, EventArgs e)
         {
-            App.ResetEndOfMes();
+            formsPlot1.Plot.Clear();
         }
     }
 }

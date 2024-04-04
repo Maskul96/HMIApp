@@ -16,8 +16,11 @@ namespace HMIApp
         void WriteToDB(string valuetoWrite, string DataTypeofTag, int filenameIndex);
 
         void ReadActualValueFromDBChart_Simplified(string filepath);
+        void CreatePlot();
+        void CreateStaticPlot();
 
-         int Counter { get; set; } //Counter przychodzi z PLC za kazdym razem jak PLC odczyta nową daną z inną pozycją i siłą
+        void WriteSpecifiedValueFromReference();
+         int ClearPlot { get; set; } 
          int ForceMin { get; set; }
          int ForceMax { get; set; }
          byte StartChart { get; set; }

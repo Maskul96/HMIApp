@@ -1,6 +1,6 @@
 Name,Type,Byte,Bit,Length
 DB665.Measure,Byte,0,0,1
-DB665.Counter,Int,2,0,2
+DB665.ClearPlot,Int,2,0,2
 DB665.ActValX,Real,4,0,4
 DB665.ActValY,Real,8,0,4
 DB665.ForceMin,Int,12,0,2

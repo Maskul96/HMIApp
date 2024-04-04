@@ -195,7 +195,6 @@
             button5 = new System.Windows.Forms.Button();
             button4 = new System.Windows.Forms.Button();
             tabPage1 = new System.Windows.Forms.TabPage();
-            button11 = new System.Windows.Forms.Button();
             formsPlot1 = new ScottPlot.WinForms.FormsPlot();
             textBox19 = new System.Windows.Forms.TextBox();
             label18 = new System.Windows.Forms.Label();
@@ -352,10 +351,8 @@
             // 
             // listAlarmView
             // 
-            listAlarmView.AllowColumnReorder = true;
+            listAlarmView.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             listAlarmView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { columnHeader4 });
-            listAlarmView.Dock = System.Windows.Forms.DockStyle.Bottom;
-            listAlarmView.Enabled = false;
             listAlarmView.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 238);
             listAlarmView.Location = new System.Drawing.Point(0, 733);
             listAlarmView.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -363,7 +360,7 @@
             listAlarmView.Name = "listAlarmView";
             listAlarmView.Size = new System.Drawing.Size(1280, 67);
             listAlarmView.TabIndex = 104;
-            listAlarmView.TileSize = new System.Drawing.Size(500, 15);
+            listAlarmView.TileSize = new System.Drawing.Size(1200, 40);
             listAlarmView.UseCompatibleStateImageBehavior = false;
             listAlarmView.View = System.Windows.Forms.View.Tile;
             // 
@@ -389,10 +386,10 @@
             // 
             listBox1.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             listBox1.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
-            listBox1.BackColor = System.Drawing.Color.Yellow;
+            listBox1.BackColor = System.Drawing.Color.LawnGreen;
             listBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             listBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 238);
-            listBox1.ForeColor = System.Drawing.SystemColors.MenuText;
+            listBox1.ForeColor = System.Drawing.SystemColors.InfoText;
             listBox1.FormattingEnabled = true;
             listBox1.IntegralHeight = false;
             listBox1.ItemHeight = 49;
@@ -586,17 +583,17 @@
             // columnHeader1
             // 
             columnHeader1.Text = "DZIEŃ I GODZINA";
-            columnHeader1.Width = 110;
+            columnHeader1.Width = 250;
             // 
             // columnHeader2
             // 
             columnHeader2.Text = "PLC TAG";
-            columnHeader2.Width = 90;
+            columnHeader2.Width = 150;
             // 
             // columnHeader3
             // 
             columnHeader3.Text = "NAZWA ALARMU";
-            columnHeader3.Width = 393;
+            columnHeader3.Width = 750;
             // 
             // tabPage9
             // 
@@ -1132,11 +1129,12 @@
             // 
             // comboBox2
             // 
-            comboBox2.DropDownHeight = 100;
+            comboBox2.DropDownHeight = 200;
             comboBox2.FormattingEnabled = true;
             comboBox2.IntegralHeight = false;
             comboBox2.Location = new System.Drawing.Point(454, 59);
             comboBox2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            comboBox2.MaxDropDownItems = 20;
             comboBox2.Name = "comboBox2";
             comboBox2.Size = new System.Drawing.Size(220, 29);
             comboBox2.TabIndex = 8;
@@ -1845,7 +1843,7 @@
             label7.Location = new System.Drawing.Point(7, 66);
             label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label7.Name = "label7";
-            label7.Size = new System.Drawing.Size(220, 219);
+            label7.Size = new System.Drawing.Size(220, 135);
             label7.TabIndex = 157;
             label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -1987,7 +1985,7 @@
             label86.Location = new System.Drawing.Point(235, 101);
             label86.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label86.Name = "label86";
-            label86.Size = new System.Drawing.Size(1004, 182);
+            label86.Size = new System.Drawing.Size(1004, 98);
             label86.TabIndex = 158;
             label86.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -2097,7 +2095,6 @@
             // 
             // tabPage1
             // 
-            tabPage1.Controls.Add(button11);
             tabPage1.Controls.Add(formsPlot1);
             tabPage1.Controls.Add(textBox19);
             tabPage1.Controls.Add(label18);
@@ -2136,17 +2133,6 @@
             tabPage1.Text = "AUTO";
             tabPage1.UseVisualStyleBackColor = true;
             // 
-            // button11
-            // 
-            button11.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
-            button11.Location = new System.Drawing.Point(969, 301);
-            button11.Name = "button11";
-            button11.Size = new System.Drawing.Size(125, 57);
-            button11.TabIndex = 186;
-            button11.Text = "CreatePlot";
-            button11.UseVisualStyleBackColor = true;
-            button11.Click += button11_Click;
-            // 
             // formsPlot1
             // 
             formsPlot1.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
@@ -2154,7 +2140,6 @@
             formsPlot1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             formsPlot1.Cursor = System.Windows.Forms.Cursors.Cross;
             formsPlot1.DisplayScale = 1F;
-            formsPlot1.Enabled = false;
             formsPlot1.Location = new System.Drawing.Point(7, 6);
             formsPlot1.Name = "formsPlot1";
             formsPlot1.Size = new System.Drawing.Size(882, 529);
@@ -2859,7 +2844,6 @@
         private System.Windows.Forms.Label label86;
         public ScottPlot.WinForms.FormsPlot formsPlot1;
         public System.Windows.Forms.Button button10;
-        public System.Windows.Forms.Button button11;
     }
 }
 

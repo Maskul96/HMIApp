@@ -53,4 +53,7 @@
       <HintPath>..\..\..\libnodave\Dot.NET\libnodave.net.dll</HintPath>
     </Reference>
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Components\InveoRFID\" />
+  </ItemGroup>
 </Project>

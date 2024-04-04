@@ -28,7 +28,7 @@ namespace HMIApp
         public int DBread_EndDB;
         public int DBread_NrOfByteinDB;
 
-        public int Counter { get; set; } //Counter przychodzi z PLC za kazdym razem jak PLC odczyta nową daną z inną pozycją i siłą
+        public int ClearPlot { get; set; } 
         public int ForceMin { get; set; }
         public int ForceMax { get; set; }
         public byte StartChart { get; set; }
@@ -45,6 +45,8 @@ namespace HMIApp
         public double StartReading;
         public double EndReading;
         public double EndPoint;
+        public int ForceMaxfromRef;
+
         #endregion
 
         #region Zmienne do DBka do odczytu 
@@ -169,7 +171,7 @@ namespace HMIApp
             var dbtags = CSVReader.DBStructure(filepath);
 
             foreach (var dbTag in dbtags)
-            {              
+            {
                 DBRead_position1 = dbTag.TagName.IndexOf(".");
                 DBRead_TagName = dbTag.TagName.Remove(DBRead_position1, 1);
                 TextBox txt;
@@ -179,7 +181,7 @@ namespace HMIApp
 
                     case "BOOL":
                         chk = Form1._Form1.Controls.Find($"{DBRead_TagName}", true).FirstOrDefault() as CheckBox;
-                        chk.Checked = false; 
+                        chk.Checked = false;
                         break;
                     default:
                         txt = Form1._Form1.Controls.Find($"{DBRead_TagName}", true).FirstOrDefault() as TextBox;
@@ -226,9 +228,9 @@ namespace HMIApp
                         break;
                     case "INT":
                         DBread_NrOfByteinDB = dbTag.NumberOfByteInDB;
-                        if (dbTag.TagName == "DB665.Counter")
+                        if (dbTag.TagName == "DB665.ClearPlot")
                         {
-                            Counter = libnodave.getS16from(DB, DBread_NrOfByteinDB);
+                            ClearPlot = libnodave.getS16from(DB, DBread_NrOfByteinDB);
                         }
                         else if (dbTag.TagName == "DB665.ForceMin")
                         {
@@ -257,102 +259,82 @@ namespace HMIApp
             }
         }
 
-        double[] dataX = new double[500];
-        double[] dataY = new double[500];
-        public void ResetEndOfMes()
-        {
-            EndOfMeasuring = false;
-        }
+        //Tworzenie glownego wykresu
+        double[] ActX = new double[400];
+        double[] ActY = new double[400];
         public void CreatePlot()
         {
             ReadActualValueFromDBChart_Simplified("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_4.csv");
+            Form1._Form1.formsPlot1.Plot.Axes.SetLimits(FastMovement, EndPoint + 2.5, -500, ForceMaxfromRef);
             if (StartChart == 0)
             {
+                Form1._Form1.formsPlot1.Refresh();
                 EndOfMeasuring = false;
+                index10 = 0;
+            }
+            if (ClearPlot == 1)
+            {
+                Form1._Form1.formsPlot1.Plot.Clear();
+                CreateStaticPlot();
             }
             WriteSpecifiedValueFromReference();
-            index10 = 0;
-            if (StartChart == 1 && EndOfMeasuring == false)
+            if (StartChart == 1 && EndOfMeasuring == false && ActValX > FastMovement)
             {
+                ActX[index10] = ActValX;
+                ActY[index10] = ActValY;
+                index10 += 1;
 
-                do
+
+                if (ActValX >= EndPoint && EndOfMeasuring == false)
                 {
-                    ReadActualValueFromDBChart_Simplified("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_4.csv");
-                    dataX[index10] = ActValX;
-                    dataY[index10] = ActValY;
-                    index10 += 1;
-
-                } while (ActValX > dataX[index10 + 1] + 1.0 && index10 <400);
-    
-                    if (ActValX >= EndReading)
+                    for(int i= index10; i < 400; i++)
                     {
-                        EndOfMeasuring = true;
+                        ActX[i] = ActX[i - 1];
+                        ActY[i] = ActY[i - 1];
                     }
 
-                if (dataX[399] != 0)
-                {
                     EndOfMeasuring = true;
-                }
-
-                if (EndOfMeasuring)
-                {
-                    //uzupelnienie komorek ktore mogly zostac nie zapelnione przez dane z PLC
-                    for (int i = index10; i <= 499; i++)
-                    {
-                        dataX[i] = dataX[i - 1];
-                        dataY[i] = dataY[i - 1];
-                    }
-
-
                     double[] dataXForceMin = { FastMovement, EndPoint };
                     int[] dataYForceMin = { ForceMin, ForceMin };
-                    double[] dataXForceMax = { EndReading + offset, EndPoint + offset };
+                    double[] dataXForceMax = { EndReading, EndPoint };
                     int[] dataYForceMax = { ForceMax, ForceMax };
-
-
 
                     //Plot sila minimalna
                     var fmin = Form1._Form1.formsPlot1.Plot.Add.Scatter(dataXForceMin, dataYForceMin);
                     fmin.Color = Colors.Black;
                     fmin.LineStyle.Pattern = LinePattern.Dashed;
                     fmin.LineStyle.Width = 1;
-                    Form1._Form1.formsPlot1.Refresh();
                     ////Plot sila max
                     var fmax = Form1._Form1.formsPlot1.Plot.Add.Scatter(dataXForceMax, dataYForceMax);
                     fmax.Color = Colors.Black;
                     fmax.LineStyle.Pattern = LinePattern.Dashed;
                     fmax.LineStyle.Width = 1;
-                    Form1._Form1.formsPlot1.Refresh();
-                    //Glowny plot
-                    var mainplot = Form1._Form1.formsPlot1.Plot.Add.Scatter(dataX, dataY);
-                    mainplot.Color = Colors.Red;
-                    mainplot.LineStyle.Width = 3;
-                    Form1._Form1.formsPlot1.Refresh();
 
+                    var mainplot = Form1._Form1.formsPlot1.Plot.Add.Scatter(ActX, ActY);
+                    mainplot.Color = Colors.Red;
+                    mainplot.LineStyle.Width = 2;
+
+                    Form1._Form1.formsPlot1.Refresh();
                 }
             }
-            else if (StartChart == 0)
-            {
-                EndOfMeasuring = false;
-            }
-            Form1._Form1.formsPlot1.Refresh();
 
         }
 
+        //Tworzenie prostokata czytania sily
         public void CreateStaticPlot()
         {
             WriteSpecifiedValueFromReference();
             Form1._Form1.formsPlot1.Plot.XLabel("Pozycja [mm]");
             Form1._Form1.formsPlot1.Plot.YLabel("Siła [N]");
             //Wyrysowanie prostokąta czytania siły
-            //var hs = Form1._Form1.formsPlot1.Plot.Add.HorizontalSpan(StartReading, EndReading);
+            var hs = Form1._Form1.formsPlot1.Plot.Add.HorizontalSpan(StartReading, EndReading);
             var hs1 = Form1._Form1.formsPlot1.Plot.Add.Scatter(FastMovement, 0);
             hs1.Color = Colors.White;
             var hs2 = Form1._Form1.formsPlot1.Plot.Add.Scatter(EndReading, 0);
             hs2.Color = Colors.White;
-           // hs.LineStyle.Pattern = LinePattern.Dashed;
-           // hs.LineStyle.Width = 1;
-           // hs.FillStyle.Color = Colors.Blue.WithOpacity(0.2f);
+             hs.LineStyle.Pattern = LinePattern.Dashed;
+             hs.LineStyle.Width = 1;
+             hs.FillStyle.Color = Colors.Blue.WithOpacity(0.2f);
             Form1._Form1.formsPlot1.Plot.Title("Wykres siły");
             Form1._Form1.formsPlot1.Refresh();
         }
@@ -364,6 +346,8 @@ namespace HMIApp
             StartReading = Convert.ToDouble(Form1._Form1.DB666Tag5.Text);
             EndReading = Convert.ToDouble(Form1._Form1.DB666Tag6.Text);
             EndPoint = Convert.ToDouble(Form1._Form1.DB666Tag15.Text);
+            ForceMaxfromRef = Convert.ToInt16(Form1._Form1.DB666Tag18.Text);
+
         }
 
         //Odczyt z pliku CSV i od razu odczyt danych z DBka
@@ -908,7 +892,7 @@ namespace HMIApp
                                     {
 
                                         item.Text = DBReadAlarm_AlarmName;
-                                        item.BackColor = System.Drawing.Color.Red; item.ForeColor = System.Drawing.Color.Black;
+                                        item.ForeColor = System.Drawing.Color.Red; 
                                         Form1._Form1.listAlarmView.Items.Add(item);
                                         index[0] = Form1._Form1.listAlarmView.Items.IndexOf(item);
                                     }
@@ -930,9 +914,10 @@ namespace HMIApp
                                             Form1._Form1.listAlarmView.Items.Remove(item);
                                         }
                                     }
+                                    //Kasowanie archiwum alarmów po 100 alarmach
                                     if (Form1._Form1.listView1.FindItemWithText(DBReadAlarm_AlarmName) != null)
                                     {
-                                        if (Form1._Form1.listView1.Items.Count > 0)
+                                        if (Form1._Form1.listView1.Items.Count > 100)
                                         {
                                             Form1._Form1.listView1.Items.Remove(itemArchive);
                                         }
@@ -947,7 +932,7 @@ namespace HMIApp
                                     if (Form1._Form1.listAlarmView.FindItemWithText(DBReadAlarm_AlarmName) == null)
                                     {
                                         item1.Text = DBReadAlarm_AlarmName;
-                                        item1.BackColor = System.Drawing.Color.Red; item1.ForeColor = System.Drawing.Color.Black;
+                                        item1.ForeColor = System.Drawing.Color.Red;
                                         Form1._Form1.listAlarmView.Items.Add(item1);
                                         index[1] = Form1._Form1.listAlarmView.Items.IndexOf(item1);
                                     }
@@ -970,7 +955,7 @@ namespace HMIApp
                                     }
                                     if (Form1._Form1.listView1.FindItemWithText(DBReadAlarm_AlarmName) != null)
                                     {
-                                        if (Form1._Form1.listView1.Items.Count > 0)
+                                        if (Form1._Form1.listView1.Items.Count > 100)
                                         {
                                             Form1._Form1.listView1.Items.Remove(itemArchive1);
                                         }
@@ -984,7 +969,7 @@ namespace HMIApp
                                     if (Form1._Form1.listAlarmView.FindItemWithText(DBReadAlarm_AlarmName) == null)
                                     {
                                         item2.Text = DBReadAlarm_AlarmName;
-                                        item2.BackColor = System.Drawing.Color.Red; item2.ForeColor = System.Drawing.Color.Black;
+                                        item2.ForeColor = System.Drawing.Color.Red; 
                                         Form1._Form1.listAlarmView.Items.Add(item2);
                                         index[2] = Form1._Form1.listAlarmView.Items.IndexOf(item2);
                                     }
@@ -1007,7 +992,7 @@ namespace HMIApp
                                     }
                                     if (Form1._Form1.listView1.FindItemWithText(DBReadAlarm_AlarmName) != null)
                                     {
-                                        if (Form1._Form1.listView1.Items.Count > 0)
+                                        if (Form1._Form1.listView1.Items.Count > 100)
                                         {
                                             Form1._Form1.listView1.Items.Remove(itemArchive2);
                                         }
@@ -1021,7 +1006,7 @@ namespace HMIApp
                                     if (Form1._Form1.listAlarmView.FindItemWithText(DBReadAlarm_AlarmName) == null)
                                     {
                                         item3.Text = DBReadAlarm_AlarmName;
-                                        item3.BackColor = System.Drawing.Color.Red; item3.ForeColor = System.Drawing.Color.Black;
+                                        item3.ForeColor = System.Drawing.Color.Red;
                                         Form1._Form1.listAlarmView.Items.Add(item3);
                                         index[3] = Form1._Form1.listAlarmView.Items.IndexOf(item3);
                                     }
@@ -1044,7 +1029,7 @@ namespace HMIApp
                                     }
                                     if (Form1._Form1.listView1.FindItemWithText(DBReadAlarm_AlarmName) != null)
                                     {
-                                        if (Form1._Form1.listView1.Items.Count > 0)
+                                        if (Form1._Form1.listView1.Items.Count > 100)
                                         {
                                             Form1._Form1.listView1.Items.Remove(itemArchive3);
                                         }
@@ -1058,7 +1043,7 @@ namespace HMIApp
                                     if (Form1._Form1.listAlarmView.FindItemWithText(DBReadAlarm_AlarmName) == null)
                                     {
                                         item4.Text = DBReadAlarm_AlarmName;
-                                        item4.BackColor = System.Drawing.Color.Red; item4.ForeColor =         System.Drawing.Color.Black;
+                                        item4.ForeColor = System.Drawing.Color.Red; 
                                         Form1._Form1.listAlarmView.Items.Add(item4);
                                         index[4] = Form1._Form1.listAlarmView.Items.IndexOf(item4);
                                     }
@@ -1081,7 +1066,7 @@ namespace HMIApp
                                     }
                                     if (Form1._Form1.listView1.FindItemWithText(DBReadAlarm_AlarmName) != null)
                                     {
-                                        if (Form1._Form1.listView1.Items.Count > 0)
+                                        if (Form1._Form1.listView1.Items.Count > 100)
                                         {
                                             Form1._Form1.listView1.Items.Remove(itemArchive4);
                                         }
@@ -1095,7 +1080,7 @@ namespace HMIApp
                                     if (Form1._Form1.listAlarmView.FindItemWithText(DBReadAlarm_AlarmName) == null)
                                     {
                                         item5.Text = DBReadAlarm_AlarmName;
-                                        item5.BackColor = System.Drawing.Color.Red; item5.ForeColor = System.Drawing.Color.Black;
+                                        item5.ForeColor = System.Drawing.Color.Red; 
                                         Form1._Form1.listAlarmView.Items.Add(item5);
                                         index[5] = Form1._Form1.listAlarmView.Items.IndexOf(item5);
                                     }
@@ -1118,7 +1103,7 @@ namespace HMIApp
                                     }
                                     if (Form1._Form1.listView1.FindItemWithText(DBReadAlarm_AlarmName) != null)
                                     {
-                                        if (Form1._Form1.listView1.Items.Count > 0)
+                                        if (Form1._Form1.listView1.Items.Count > 100)
                                         {
                                             Form1._Form1.listView1.Items.Remove(itemArchive5);
                                         }
@@ -1132,7 +1117,7 @@ namespace HMIApp
                                     if (Form1._Form1.listAlarmView.FindItemWithText(DBReadAlarm_AlarmName) == null)
                                     {
                                         item6.Text = DBReadAlarm_AlarmName;
-                                        item6.BackColor = System.Drawing.Color.Red; item6.ForeColor = System.Drawing.Color.Black;
+                                        item6.ForeColor = System.Drawing.Color.Red;
                                         Form1._Form1.listAlarmView.Items.Add(item6);
                                         index[6] = Form1._Form1.listAlarmView.Items.IndexOf(item6);
                                     }
@@ -1155,7 +1140,7 @@ namespace HMIApp
                                     }
                                     if (Form1._Form1.listView1.FindItemWithText(DBReadAlarm_AlarmName) != null)
                                     {
-                                        if (Form1._Form1.listView1.Items.Count > 0)
+                                        if (Form1._Form1.listView1.Items.Count > 100)
                                         {
                                             Form1._Form1.listView1.Items.Remove(itemArchive6);
                                         }
@@ -1169,7 +1154,7 @@ namespace HMIApp
                                     if (Form1._Form1.listAlarmView.FindItemWithText(DBReadAlarm_AlarmName) == null)
                                     {
                                         item7.Text = DBReadAlarm_AlarmName;
-                                        item7.BackColor = System.Drawing.Color.Red; item7.ForeColor = System.Drawing.Color.Black;
+                                        item7.ForeColor = System.Drawing.Color.Red; 
                                         Form1._Form1.listAlarmView.Items.Add(item7);
                                         index[7] = Form1._Form1.listAlarmView.Items.IndexOf(item7);
                                     }
@@ -1192,7 +1177,7 @@ namespace HMIApp
                                     }
                                     if (Form1._Form1.listView1.FindItemWithText(DBReadAlarm_AlarmName) != null)
                                     {
-                                        if (Form1._Form1.listView1.Items.Count > 0)
+                                        if (Form1._Form1.listView1.Items.Count > 100)
                                         {
                                             Form1._Form1.listView1.Items.Remove(itemArchive7);
                                         }
@@ -1217,21 +1202,23 @@ namespace HMIApp
             TextFormatFlags flags = TextFormatFlags.HorizontalCenter | TextFormatFlags.VerticalCenter;
             if (e.Index < 0) return;
 
-            //Jesli item jest selected to zmień kolor
+            ////Jesli item jest selected to zmień kolor
             if ((e.State & DrawItemState.Selected) == DrawItemState.Selected)
                 e = new DrawItemEventArgs(e.Graphics,
-                                          e.Font,
-                                          e.Bounds,
-                                          e.Index,
-                                          e.State ^ DrawItemState.Selected,
-                                          e.ForeColor,
-                                          System.Drawing.Color.Yellow);
+                    e.Font,
+                    e.Bounds,
+                    e.Index,
+                    e.State ^ DrawItemState.Selected,
+                    e.ForeColor,
+                    System.Drawing.Color.LawnGreen);
 
             //Draw background kolor dla kazdego itema
             e.DrawBackground();
+
             //Obecny item text
             //e.Graphics.DrawString(Form1._Form1.listBox1.Items[e.Index].ToString(), e.Font, Brushes.Black, e.Bounds,StringFormat.GenericDefault);
             var textRect = e.Bounds;
+            
             string itemText = Form1._Form1.listBox1.Items[e.Index].ToString();
             TextRenderer.DrawText(e.Graphics, itemText, e.Font, textRect, e.ForeColor, flags);
 

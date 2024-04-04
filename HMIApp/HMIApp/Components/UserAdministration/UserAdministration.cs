@@ -25,6 +25,7 @@ namespace HMIApp.Components.UserAdministration
         public bool UserIsLoggedIn;
         public int Interval = 100000/1000;
 
+
         public void Run()
         {
             XDocument document = LoadFromXML("document.xml");
