@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             OdczytDB = new System.Windows.Forms.Timer(components);
             Uzytkownik = new System.Windows.Forms.Label();
@@ -208,6 +208,7 @@
             label45 = new System.Windows.Forms.Label();
             label86 = new System.Windows.Forms.Label();
             tabPage2 = new System.Windows.Forms.TabPage();
+            checkBox1 = new System.Windows.Forms.CheckBox();
             pictureBox2 = new System.Windows.Forms.PictureBox();
             textBox18 = new System.Windows.Forms.TextBox();
             textBox17 = new System.Windows.Forms.TextBox();
@@ -217,6 +218,7 @@
             textBox7 = new System.Windows.Forms.TextBox();
             button5 = new System.Windows.Forms.Button();
             button4 = new System.Windows.Forms.Button();
+            label23 = new System.Windows.Forms.Label();
             tabPage1 = new System.Windows.Forms.TabPage();
             listView2 = new System.Windows.Forms.ListView();
             columnHeader5 = new System.Windows.Forms.ColumnHeader();
@@ -239,17 +241,18 @@
             label66 = new System.Windows.Forms.Label();
             label77 = new System.Windows.Forms.Label();
             label78 = new System.Windows.Forms.Label();
-            label79 = new System.Windows.Forms.Label();
-            label80 = new System.Windows.Forms.Label();
-            label81 = new System.Windows.Forms.Label();
-            label82 = new System.Windows.Forms.Label();
-            label83 = new System.Windows.Forms.Label();
             label84 = new System.Windows.Forms.Label();
             label13 = new System.Windows.Forms.Label();
             tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             label68 = new System.Windows.Forms.Label();
             tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             label71 = new System.Windows.Forms.Label();
+            DB667Auto = new System.Windows.Forms.TextBox();
+            DB667Man = new System.Windows.Forms.TextBox();
+            DB667Safety = new System.Windows.Forms.TextBox();
+            DB667Kurtyna = new System.Windows.Forms.TextBox();
+            DB667PozWyj = new System.Windows.Forms.TextBox();
+            checkBox2 = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             tabPage7.SuspendLayout();
             tabPage9.SuspendLayout();
@@ -287,7 +290,7 @@
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.logotyp_Controltec;
-            pictureBox1.Location = new System.Drawing.Point(9, 4);
+            pictureBox1.Location = new System.Drawing.Point(8, 4);
             pictureBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new System.Drawing.Size(208, 56);
@@ -382,7 +385,7 @@
             listAlarmView.Size = new System.Drawing.Size(1280, 67);
             listAlarmView.Sorting = System.Windows.Forms.SortOrder.Descending;
             listAlarmView.TabIndex = 104;
-            listAlarmView.TileSize = new System.Drawing.Size(1200, 40);
+            listAlarmView.TileSize = new System.Drawing.Size(1200, 50);
             listAlarmView.UseCompatibleStateImageBehavior = false;
             listAlarmView.View = System.Windows.Forms.View.Tile;
             // 
@@ -488,7 +491,7 @@
             label48.AutoSize = true;
             label48.BackColor = System.Drawing.Color.White;
             label48.Font = new System.Drawing.Font("Segoe UI", 11.25F);
-            label48.Location = new System.Drawing.Point(910, 269);
+            label48.Location = new System.Drawing.Point(898, 269);
             label48.Name = "label48";
             label48.Size = new System.Drawing.Size(81, 20);
             label48.TabIndex = 118;
@@ -498,7 +501,7 @@
             // 
             textBox8.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
             textBox8.Enabled = false;
-            textBox8.Location = new System.Drawing.Point(1000, 260);
+            textBox8.Location = new System.Drawing.Point(988, 260);
             textBox8.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             textBox8.Name = "textBox8";
             textBox8.Size = new System.Drawing.Size(44, 29);
@@ -511,7 +514,7 @@
             label49.AutoSize = true;
             label49.BackColor = System.Drawing.Color.White;
             label49.Font = new System.Drawing.Font("Segoe UI", 11.25F);
-            label49.Location = new System.Drawing.Point(910, 225);
+            label49.Location = new System.Drawing.Point(898, 225);
             label49.Name = "label49";
             label49.Size = new System.Drawing.Size(81, 20);
             label49.TabIndex = 120;
@@ -521,7 +524,7 @@
             // 
             textBox9.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
             textBox9.Enabled = false;
-            textBox9.Location = new System.Drawing.Point(1000, 225);
+            textBox9.Location = new System.Drawing.Point(988, 225);
             textBox9.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             textBox9.Name = "textBox9";
             textBox9.Size = new System.Drawing.Size(44, 29);
@@ -534,7 +537,7 @@
             label64.AutoSize = true;
             label64.BackColor = System.Drawing.Color.White;
             label64.Font = new System.Drawing.Font("Segoe UI", 11.25F);
-            label64.Location = new System.Drawing.Point(906, 183);
+            label64.Location = new System.Drawing.Point(894, 183);
             label64.Name = "label64";
             label64.Size = new System.Drawing.Size(63, 20);
             label64.TabIndex = 122;
@@ -544,7 +547,7 @@
             // 
             textBox10.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
             textBox10.Enabled = false;
-            textBox10.Location = new System.Drawing.Point(1000, 174);
+            textBox10.Location = new System.Drawing.Point(988, 174);
             textBox10.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             textBox10.Name = "textBox10";
             textBox10.Size = new System.Drawing.Size(44, 29);
@@ -557,7 +560,7 @@
             label65.AutoSize = true;
             label65.BackColor = System.Drawing.Color.White;
             label65.Font = new System.Drawing.Font("Segoe UI", 11.25F);
-            label65.Location = new System.Drawing.Point(907, 139);
+            label65.Location = new System.Drawing.Point(895, 139);
             label65.Name = "label65";
             label65.Size = new System.Drawing.Size(62, 20);
             label65.TabIndex = 124;
@@ -567,7 +570,7 @@
             // 
             textBox13.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
             textBox13.Enabled = false;
-            textBox13.Location = new System.Drawing.Point(999, 139);
+            textBox13.Location = new System.Drawing.Point(987, 139);
             textBox13.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             textBox13.Name = "textBox13";
             textBox13.Size = new System.Drawing.Size(44, 29);
@@ -581,7 +584,7 @@
             tabPage7.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             tabPage7.Name = "tabPage7";
             tabPage7.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            tabPage7.Size = new System.Drawing.Size(1272, 550);
+            tabPage7.Size = new System.Drawing.Size(1260, 550);
             tabPage7.TabIndex = 7;
             tabPage7.Text = "HISTORIA ALARMÓW";
             tabPage7.UseVisualStyleBackColor = true;
@@ -593,11 +596,11 @@
             listView1.ForeColor = System.Drawing.SystemColors.InfoText;
             listView1.FullRowSelect = true;
             listView1.GridLines = true;
-            listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] { listViewItem3 });
+            listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] { listViewItem1 });
             listView1.Location = new System.Drawing.Point(4, 3);
             listView1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             listView1.Name = "listView1";
-            listView1.Size = new System.Drawing.Size(1264, 544);
+            listView1.Size = new System.Drawing.Size(1252, 544);
             listView1.TabIndex = 0;
             listView1.UseCompatibleStateImageBehavior = false;
             listView1.View = System.Windows.Forms.View.Details;
@@ -624,7 +627,7 @@
             tabPage9.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             tabPage9.Name = "tabPage9";
             tabPage9.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            tabPage9.Size = new System.Drawing.Size(1272, 550);
+            tabPage9.Size = new System.Drawing.Size(1260, 550);
             tabPage9.TabIndex = 6;
             tabPage9.Text = "WEJŚCIA/WYJŚCIA";
             tabPage9.UseVisualStyleBackColor = true;
@@ -638,7 +641,7 @@
             tabControl3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             tabControl3.Name = "tabControl3";
             tabControl3.SelectedIndex = 0;
-            tabControl3.Size = new System.Drawing.Size(1264, 544);
+            tabControl3.Size = new System.Drawing.Size(1252, 544);
             tabControl3.TabIndex = 2;
             // 
             // tabPage10
@@ -669,7 +672,7 @@
             tabPage10.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             tabPage10.Name = "tabPage10";
             tabPage10.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            tabPage10.Size = new System.Drawing.Size(1256, 510);
+            tabPage10.Size = new System.Drawing.Size(1244, 510);
             tabPage10.TabIndex = 0;
             tabPage10.Text = "WEJŚCIA";
             tabPage10.UseVisualStyleBackColor = true;
@@ -909,7 +912,7 @@
             tabPage11.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             tabPage11.Name = "tabPage11";
             tabPage11.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            tabPage11.Size = new System.Drawing.Size(1256, 516);
+            tabPage11.Size = new System.Drawing.Size(1244, 516);
             tabPage11.TabIndex = 1;
             tabPage11.Text = "WYJŚCIA";
             tabPage11.UseVisualStyleBackColor = true;
@@ -1123,7 +1126,7 @@
             tabPage6.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             tabPage6.Name = "tabPage6";
             tabPage6.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            tabPage6.Size = new System.Drawing.Size(1272, 550);
+            tabPage6.Size = new System.Drawing.Size(1260, 550);
             tabPage6.TabIndex = 5;
             tabPage6.Text = "SERWIS";
             tabPage6.UseVisualStyleBackColor = true;
@@ -1169,7 +1172,7 @@
             // button3
             // 
             button3.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
-            button3.Location = new System.Drawing.Point(745, 12);
+            button3.Location = new System.Drawing.Point(733, 12);
             button3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             button3.Name = "button3";
             button3.Size = new System.Drawing.Size(128, 51);
@@ -1213,7 +1216,7 @@
             tabPage5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             tabPage5.Name = "tabPage5";
             tabPage5.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            tabPage5.Size = new System.Drawing.Size(1272, 550);
+            tabPage5.Size = new System.Drawing.Size(1260, 550);
             tabPage5.TabIndex = 4;
             tabPage5.Text = "UŻYTKOWNICY";
             tabPage5.UseVisualStyleBackColor = true;
@@ -1531,7 +1534,7 @@
             tabPage4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             tabPage4.Name = "tabPage4";
             tabPage4.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            tabPage4.Size = new System.Drawing.Size(1272, 550);
+            tabPage4.Size = new System.Drawing.Size(1260, 550);
             tabPage4.TabIndex = 3;
             tabPage4.Text = "DANE";
             tabPage4.UseVisualStyleBackColor = true;
@@ -1544,7 +1547,7 @@
             Poprzednia.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             Poprzednia.Name = "Poprzednia";
             Poprzednia.SelectedIndex = 0;
-            Poprzednia.Size = new System.Drawing.Size(1264, 544);
+            Poprzednia.Size = new System.Drawing.Size(1252, 544);
             Poprzednia.TabIndex = 0;
             // 
             // tabPage8
@@ -1609,7 +1612,7 @@
             tabPage8.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             tabPage8.Name = "tabPage8";
             tabPage8.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            tabPage8.Size = new System.Drawing.Size(1256, 510);
+            tabPage8.Size = new System.Drawing.Size(1244, 510);
             tabPage8.TabIndex = 1;
             tabPage8.Text = "MODYFIKOWALNE";
             tabPage8.UseVisualStyleBackColor = true;
@@ -2074,7 +2077,7 @@
             label7.Location = new System.Drawing.Point(7, 66);
             label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label7.Name = "label7";
-            label7.Size = new System.Drawing.Size(220, 406);
+            label7.Size = new System.Drawing.Size(220, 154);
             label7.TabIndex = 157;
             label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -2216,12 +2219,14 @@
             label86.Location = new System.Drawing.Point(235, 101);
             label86.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label86.Name = "label86";
-            label86.Size = new System.Drawing.Size(1004, 371);
+            label86.Size = new System.Drawing.Size(1004, 304);
             label86.TabIndex = 158;
             label86.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tabPage2
             // 
+            tabPage2.Controls.Add(checkBox2);
+            tabPage2.Controls.Add(checkBox1);
             tabPage2.Controls.Add(pictureBox2);
             tabPage2.Controls.Add(textBox18);
             tabPage2.Controls.Add(textBox17);
@@ -2231,25 +2236,42 @@
             tabPage2.Controls.Add(textBox7);
             tabPage2.Controls.Add(button5);
             tabPage2.Controls.Add(button4);
+            tabPage2.Controls.Add(label23);
             tabPage2.Location = new System.Drawing.Point(4, 30);
             tabPage2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            tabPage2.Size = new System.Drawing.Size(1272, 550);
+            tabPage2.Size = new System.Drawing.Size(1260, 550);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "MANUAL";
             tabPage2.UseVisualStyleBackColor = true;
             // 
+            // checkBox1
+            // 
+            checkBox1.Appearance = System.Windows.Forms.Appearance.Button;
+            checkBox1.AutoSize = true;
+            checkBox1.BackColor = System.Drawing.Color.Transparent;
+            checkBox1.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            checkBox1.FlatAppearance.CheckedBackColor = System.Drawing.Color.Lime;
+            checkBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            checkBox1.Location = new System.Drawing.Point(59, 203);
+            checkBox1.Name = "checkBox1";
+            checkBox1.Size = new System.Drawing.Size(111, 31);
+            checkBox1.TabIndex = 184;
+            checkBox1.Text = "ToggleButton";
+            checkBox1.UseVisualStyleBackColor = false;
+            // 
             // pictureBox2
             // 
-            pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             pictureBox2.BackColor = System.Drawing.Color.Transparent;
             pictureBox2.BackgroundImage = (System.Drawing.Image)resources.GetObject("pictureBox2.BackgroundImage");
             pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             pictureBox2.InitialImage = null;
-            pictureBox2.Location = new System.Drawing.Point(866, 18);
+            pictureBox2.Location = new System.Drawing.Point(562, 15);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new System.Drawing.Size(375, 515);
+            pictureBox2.Size = new System.Drawing.Size(442, 522);
             pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             pictureBox2.TabIndex = 182;
             pictureBox2.TabStop = false;
@@ -2258,7 +2280,7 @@
             // 
             textBox18.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             textBox18.Enabled = false;
-            textBox18.Location = new System.Drawing.Point(215, 38);
+            textBox18.Location = new System.Drawing.Point(245, 45);
             textBox18.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             textBox18.Name = "textBox18";
             textBox18.Size = new System.Drawing.Size(30, 29);
@@ -2268,7 +2290,7 @@
             // 
             textBox17.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             textBox17.Enabled = false;
-            textBox17.Location = new System.Drawing.Point(133, 38);
+            textBox17.Location = new System.Drawing.Point(163, 45);
             textBox17.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             textBox17.Name = "textBox17";
             textBox17.Size = new System.Drawing.Size(29, 29);
@@ -2278,7 +2300,7 @@
             // 
             label70.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             label70.AutoSize = true;
-            label70.Location = new System.Drawing.Point(191, 18);
+            label70.Location = new System.Drawing.Point(221, 25);
             label70.Name = "label70";
             label70.Size = new System.Drawing.Size(84, 21);
             label70.TabIndex = 179;
@@ -2288,7 +2310,7 @@
             // 
             label69.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             label69.AutoSize = true;
-            label69.Location = new System.Drawing.Point(122, 18);
+            label69.Location = new System.Drawing.Point(152, 25);
             label69.Name = "label69";
             label69.Size = new System.Drawing.Size(63, 21);
             label69.TabIndex = 178;
@@ -2298,7 +2320,7 @@
             // 
             label47.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             label47.AutoSize = true;
-            label47.Location = new System.Drawing.Point(133, 102);
+            label47.Location = new System.Drawing.Point(163, 109);
             label47.Name = "label47";
             label47.Size = new System.Drawing.Size(86, 21);
             label47.TabIndex = 116;
@@ -2308,7 +2330,7 @@
             // 
             textBox7.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             textBox7.Enabled = false;
-            textBox7.Location = new System.Drawing.Point(226, 102);
+            textBox7.Location = new System.Drawing.Point(256, 109);
             textBox7.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             textBox7.Name = "textBox7";
             textBox7.Size = new System.Drawing.Size(62, 29);
@@ -2317,7 +2339,7 @@
             // 
             // button5
             // 
-            button5.Location = new System.Drawing.Point(21, 35);
+            button5.Location = new System.Drawing.Point(51, 42);
             button5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             button5.Name = "button5";
             button5.Size = new System.Drawing.Size(101, 32);
@@ -2329,7 +2351,7 @@
             // 
             // button4
             // 
-            button4.Location = new System.Drawing.Point(21, 98);
+            button4.Location = new System.Drawing.Point(51, 105);
             button4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             button4.Name = "button4";
             button4.Size = new System.Drawing.Size(101, 33);
@@ -2338,6 +2360,18 @@
             button4.Text = "Serwo";
             button4.UseVisualStyleBackColor = true;
             button4.Click += button4_Click;
+            // 
+            // label23
+            // 
+            label23.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            label23.BackColor = System.Drawing.Color.White;
+            label23.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            label23.Location = new System.Drawing.Point(8, 6);
+            label23.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label23.Name = "label23";
+            label23.Size = new System.Drawing.Size(1004, 541);
+            label23.TabIndex = 183;
+            label23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tabPage1
             // 
@@ -2369,7 +2403,7 @@
             tabPage1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            tabPage1.Size = new System.Drawing.Size(1272, 550);
+            tabPage1.Size = new System.Drawing.Size(1260, 550);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "AUTO";
             tabPage1.UseVisualStyleBackColor = true;
@@ -2380,40 +2414,46 @@
             listView2.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             listView2.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { columnHeader5 });
             listView2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 238);
-            listView2.Location = new System.Drawing.Point(87, 132);
+            listView2.Location = new System.Drawing.Point(259, 132);
             listView2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             listView2.MultiSelect = false;
             listView2.Name = "listView2";
-            listView2.Size = new System.Drawing.Size(723, 177);
+            listView2.Size = new System.Drawing.Size(366, 177);
             listView2.Sorting = System.Windows.Forms.SortOrder.Descending;
             listView2.TabIndex = 177;
-            listView2.TileSize = new System.Drawing.Size(1200, 40);
+            listView2.TileSize = new System.Drawing.Size(1000, 40);
             listView2.UseCompatibleStateImageBehavior = false;
             listView2.View = System.Windows.Forms.View.Tile;
+            listView2.Visible = false;
             // 
             // columnHeader5
             // 
             columnHeader5.Text = "";
-            columnHeader5.Width = 1000;
+            columnHeader5.Width = 150;
             // 
             // button8
             // 
-            button8.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
-            button8.Location = new System.Drawing.Point(385, 321);
+            button8.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            button8.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            button8.Location = new System.Drawing.Point(356, 321);
             button8.Name = "button8";
-            button8.Size = new System.Drawing.Size(110, 39);
+            button8.Size = new System.Drawing.Size(166, 39);
             button8.TabIndex = 187;
             button8.Text = "OK";
             button8.UseVisualStyleBackColor = true;
+            button8.Visible = false;
+            button8.Click += button8_Click;
             // 
             // label21
             // 
             label21.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             label21.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            label21.Location = new System.Drawing.Point(72, 116);
+            label21.Location = new System.Drawing.Point(239, 116);
             label21.Name = "label21";
-            label21.Size = new System.Drawing.Size(750, 256);
+            label21.Size = new System.Drawing.Size(402, 256);
             label21.TabIndex = 186;
+            label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            label21.Visible = false;
             // 
             // formsPlot1
             // 
@@ -2424,7 +2464,7 @@
             formsPlot1.DisplayScale = 1F;
             formsPlot1.Location = new System.Drawing.Point(8, 10);
             formsPlot1.Name = "formsPlot1";
-            formsPlot1.Size = new System.Drawing.Size(882, 525);
+            formsPlot1.Size = new System.Drawing.Size(870, 525);
             formsPlot1.TabIndex = 185;
             // 
             // label18
@@ -2433,7 +2473,7 @@
             label18.BackColor = System.Drawing.Color.LightBlue;
             label18.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             label18.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 238);
-            label18.Location = new System.Drawing.Point(896, 93);
+            label18.Location = new System.Drawing.Point(884, 93);
             label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label18.Name = "label18";
             label18.Size = new System.Drawing.Size(368, 23);
@@ -2445,7 +2485,7 @@
             // 
             textBox14.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             textBox14.Enabled = false;
-            textBox14.Location = new System.Drawing.Point(1011, 72);
+            textBox14.Location = new System.Drawing.Point(999, 72);
             textBox14.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             textBox14.Multiline = true;
             textBox14.Name = "textBox14";
@@ -2457,7 +2497,7 @@
             // 
             textBox3.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             textBox3.Enabled = false;
-            textBox3.Location = new System.Drawing.Point(1011, 52);
+            textBox3.Location = new System.Drawing.Point(999, 52);
             textBox3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             textBox3.Multiline = true;
             textBox3.Name = "textBox3";
@@ -2469,7 +2509,7 @@
             // 
             textBox2.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             textBox2.Enabled = false;
-            textBox2.Location = new System.Drawing.Point(1011, 32);
+            textBox2.Location = new System.Drawing.Point(999, 32);
             textBox2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             textBox2.Multiline = true;
             textBox2.Name = "textBox2";
@@ -2482,7 +2522,7 @@
             label17.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
             label17.AutoSize = true;
             label17.BackColor = System.Drawing.Color.White;
-            label17.Location = new System.Drawing.Point(902, 68);
+            label17.Location = new System.Drawing.Point(890, 68);
             label17.Name = "label17";
             label17.Size = new System.Drawing.Size(79, 21);
             label17.TabIndex = 172;
@@ -2493,7 +2533,7 @@
             label16.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
             label16.AutoSize = true;
             label16.BackColor = System.Drawing.Color.White;
-            label16.Location = new System.Drawing.Point(902, 46);
+            label16.Location = new System.Drawing.Point(890, 46);
             label16.Name = "label16";
             label16.Size = new System.Drawing.Size(89, 21);
             label16.TabIndex = 171;
@@ -2504,7 +2544,7 @@
             label15.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
             label15.AutoSize = true;
             label15.BackColor = System.Drawing.Color.White;
-            label15.Location = new System.Drawing.Point(902, 27);
+            label15.Location = new System.Drawing.Point(890, 27);
             label15.Name = "label15";
             label15.Size = new System.Drawing.Size(77, 21);
             label15.TabIndex = 170;
@@ -2516,7 +2556,7 @@
             label12.BackColor = System.Drawing.Color.Gold;
             label12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             label12.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 238);
-            label12.Location = new System.Drawing.Point(896, 3);
+            label12.Location = new System.Drawing.Point(884, 3);
             label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label12.Name = "label12";
             label12.Size = new System.Drawing.Size(198, 20);
@@ -2530,7 +2570,7 @@
             label11.AutoSize = true;
             label11.BackColor = System.Drawing.Color.Gold;
             label11.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 238);
-            label11.Location = new System.Drawing.Point(1102, 4);
+            label11.Location = new System.Drawing.Point(1090, 4);
             label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label11.Name = "label11";
             label11.Size = new System.Drawing.Size(67, 17);
@@ -2542,7 +2582,7 @@
             label10.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             label10.BackColor = System.Drawing.Color.Gold;
             label10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            label10.Location = new System.Drawing.Point(1100, 3);
+            label10.Location = new System.Drawing.Point(1088, 3);
             label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label10.Name = "label10";
             label10.Size = new System.Drawing.Size(164, 20);
@@ -2553,7 +2593,7 @@
             label19.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
             label19.BackColor = System.Drawing.Color.White;
             label19.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            label19.Location = new System.Drawing.Point(896, 116);
+            label19.Location = new System.Drawing.Point(884, 116);
             label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label19.Name = "label19";
             label19.Size = new System.Drawing.Size(368, 419);
@@ -2565,7 +2605,7 @@
             label14.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             label14.BackColor = System.Drawing.Color.White;
             label14.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            label14.Location = new System.Drawing.Point(896, 26);
+            label14.Location = new System.Drawing.Point(884, 26);
             label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label14.Name = "label14";
             label14.Size = new System.Drawing.Size(198, 67);
@@ -2587,7 +2627,7 @@
             tabControl1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new System.Drawing.Size(1280, 584);
+            tabControl1.Size = new System.Drawing.Size(1268, 584);
             tabControl1.TabIndex = 70;
             // 
             // label66
@@ -2606,7 +2646,7 @@
             label77.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             label77.BackColor = System.Drawing.Color.LightBlue;
             label77.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            label77.Location = new System.Drawing.Point(1076, 4);
+            label77.Location = new System.Drawing.Point(1075, 5);
             label77.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label77.Name = "label77";
             label77.Size = new System.Drawing.Size(200, 54);
@@ -2618,87 +2658,23 @@
             label78.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             label78.BackColor = System.Drawing.Color.LightBlue;
             label78.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            label78.Location = new System.Drawing.Point(222, 4);
+            label78.Location = new System.Drawing.Point(222, 5);
             label78.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label78.Name = "label78";
             label78.Size = new System.Drawing.Size(850, 20);
             label78.TabIndex = 156;
             label78.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label79
-            // 
-            label79.BackColor = System.Drawing.Color.LightGreen;
-            label79.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            label79.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            label79.Location = new System.Drawing.Point(222, 25);
-            label79.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            label79.Name = "label79";
-            label79.Size = new System.Drawing.Size(105, 35);
-            label79.TabIndex = 157;
-            label79.Text = "POZ. WYJ.";
-            label79.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label80
-            // 
-            label80.BackColor = System.Drawing.Color.LightGreen;
-            label80.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            label80.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            label80.Location = new System.Drawing.Point(334, 25);
-            label80.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            label80.Name = "label80";
-            label80.Size = new System.Drawing.Size(105, 35);
-            label80.TabIndex = 158;
-            label80.Text = "AUTO";
-            label80.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label81
-            // 
-            label81.BackColor = System.Drawing.Color.LightGreen;
-            label81.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            label81.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            label81.Location = new System.Drawing.Point(446, 25);
-            label81.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            label81.Name = "label81";
-            label81.Size = new System.Drawing.Size(105, 35);
-            label81.TabIndex = 159;
-            label81.Text = "MAN";
-            label81.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label82
-            // 
-            label82.BackColor = System.Drawing.Color.LightGreen;
-            label82.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            label82.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            label82.Location = new System.Drawing.Point(558, 25);
-            label82.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            label82.Name = "label82";
-            label82.Size = new System.Drawing.Size(105, 35);
-            label82.TabIndex = 160;
-            label82.Text = "SAFETY";
-            label82.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label83
-            // 
-            label83.BackColor = System.Drawing.Color.LightGreen;
-            label83.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            label83.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            label83.Location = new System.Drawing.Point(668, 25);
-            label83.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            label83.Name = "label83";
-            label83.Size = new System.Drawing.Size(105, 35);
-            label83.TabIndex = 161;
-            label83.Text = "KURTYNA";
-            label83.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // label84
             // 
+            label84.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             label84.BackColor = System.Drawing.Color.LightGreen;
             label84.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             label84.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 238);
-            label84.Location = new System.Drawing.Point(778, 25);
+            label84.Location = new System.Drawing.Point(967, 27);
             label84.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label84.Name = "label84";
-            label84.Size = new System.Drawing.Size(105, 35);
+            label84.Size = new System.Drawing.Size(105, 30);
             label84.TabIndex = 162;
             label84.Text = "HMI STATUS";
             label84.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2769,12 +2745,92 @@
             label71.Text = "Edycja użytkowników";
             label71.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // DB667Auto
+            // 
+            DB667Auto.Enabled = false;
+            DB667Auto.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 238);
+            DB667Auto.Location = new System.Drawing.Point(224, 27);
+            DB667Auto.Multiline = true;
+            DB667Auto.Name = "DB667Auto";
+            DB667Auto.Size = new System.Drawing.Size(110, 30);
+            DB667Auto.TabIndex = 177;
+            DB667Auto.Text = "AUTO";
+            DB667Auto.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // DB667Man
+            // 
+            DB667Man.Enabled = false;
+            DB667Man.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            DB667Man.Location = new System.Drawing.Point(358, 27);
+            DB667Man.Multiline = true;
+            DB667Man.Name = "DB667Man";
+            DB667Man.Size = new System.Drawing.Size(110, 30);
+            DB667Man.TabIndex = 178;
+            DB667Man.Text = "MANUAL";
+            DB667Man.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // DB667Safety
+            // 
+            DB667Safety.Enabled = false;
+            DB667Safety.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            DB667Safety.Location = new System.Drawing.Point(492, 27);
+            DB667Safety.Multiline = true;
+            DB667Safety.Name = "DB667Safety";
+            DB667Safety.Size = new System.Drawing.Size(110, 30);
+            DB667Safety.TabIndex = 179;
+            DB667Safety.Text = "SAFETY";
+            DB667Safety.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // DB667Kurtyna
+            // 
+            DB667Kurtyna.Enabled = false;
+            DB667Kurtyna.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            DB667Kurtyna.Location = new System.Drawing.Point(625, 27);
+            DB667Kurtyna.Multiline = true;
+            DB667Kurtyna.Name = "DB667Kurtyna";
+            DB667Kurtyna.Size = new System.Drawing.Size(110, 30);
+            DB667Kurtyna.TabIndex = 180;
+            DB667Kurtyna.Text = "KURTYNA";
+            DB667Kurtyna.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // DB667PozWyj
+            // 
+            DB667PozWyj.Enabled = false;
+            DB667PozWyj.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            DB667PozWyj.Location = new System.Drawing.Point(757, 27);
+            DB667PozWyj.Multiline = true;
+            DB667PozWyj.Name = "DB667PozWyj";
+            DB667PozWyj.Size = new System.Drawing.Size(110, 30);
+            DB667PozWyj.TabIndex = 181;
+            DB667PozWyj.Text = "POZ. WYJ.";
+            DB667PozWyj.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // checkBox2
+            // 
+            checkBox2.Appearance = System.Windows.Forms.Appearance.Button;
+            checkBox2.AutoSize = true;
+            checkBox2.BackColor = System.Drawing.Color.Transparent;
+            checkBox2.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            checkBox2.FlatAppearance.CheckedBackColor = System.Drawing.Color.Lime;
+            checkBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            checkBox2.Location = new System.Drawing.Point(59, 261);
+            checkBox2.Name = "checkBox2";
+            checkBox2.Size = new System.Drawing.Size(111, 31);
+            checkBox2.TabIndex = 185;
+            checkBox2.Text = "ToggleButton";
+            checkBox2.UseVisualStyleBackColor = false;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             ClientSize = new System.Drawing.Size(1280, 800);
+            Controls.Add(DB667PozWyj);
+            Controls.Add(DB667Kurtyna);
+            Controls.Add(DB667Safety);
+            Controls.Add(DB667Man);
+            Controls.Add(DB667Auto);
             Controls.Add(label13);
             Controls.Add(label60);
             Controls.Add(label61);
@@ -2782,11 +2838,6 @@
             Controls.Add(listAlarmView);
             Controls.Add(listBox1);
             Controls.Add(label84);
-            Controls.Add(label83);
-            Controls.Add(label82);
-            Controls.Add(label81);
-            Controls.Add(label80);
-            Controls.Add(label79);
             Controls.Add(Uzytkownik);
             Controls.Add(label78);
             Controls.Add(label57);
@@ -3042,17 +3093,20 @@
         private System.Windows.Forms.Label label105;
         private System.Windows.Forms.Label label106;
         private System.Windows.Forms.Label label107;
-        public System.Windows.Forms.Label label79;
-        public System.Windows.Forms.Label label80;
-        public System.Windows.Forms.Label label81;
-        public System.Windows.Forms.Label label82;
-        public System.Windows.Forms.Label label83;
         public System.Windows.Forms.Label label84;
         public System.Windows.Forms.Button button8;
         public System.Windows.Forms.Label label21;
         public System.Windows.Forms.ColumnHeader columnHeader5;
         public System.Windows.Forms.ListView listView2;
         public System.Windows.Forms.PictureBox pictureBox2;
+        public System.Windows.Forms.TextBox DB667Auto;
+        public System.Windows.Forms.TextBox DB667Man;
+        public System.Windows.Forms.TextBox DB667Safety;
+        public System.Windows.Forms.TextBox DB667Kurtyna;
+        public System.Windows.Forms.TextBox DB667PozWyj;
+        private System.Windows.Forms.Label label23;
+        public System.Windows.Forms.CheckBox checkBox1;
+        public System.Windows.Forms.CheckBox checkBox2;
     }
 }
 

@@ -35,6 +35,7 @@ namespace HMIApp
             App.ReadAlarmsFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_2.csv");
             App.ReadIOFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_3.csv");
             App.ReadActualValueFromDBChart_Simplified("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_4.csv");
+            App.ReadActualValueFromDBReferenceOrProcessData("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_1.csv");
 
             DataBase.Run();
             //Services do dependency injection
@@ -136,6 +137,7 @@ namespace HMIApp
             //zakomentuj ponizsze dwie metody do odpalenia apki bez PLC
             App.ReadAlarmsFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_2.csv");
             App.ReadIOFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_3.csv");
+            App.ReadActualValueFromDBReferenceOrProcessData("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_1.csv");
             App.CreatePlot();
             //aktualizacja daty i godziny
             this.Text = DateTime.Now.ToString();
@@ -147,6 +149,14 @@ namespace HMIApp
         {
             App.ClosePLCConnection();
             Close();
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
+            checkBox1.BackColor = Color.LightGreen;
+
+
         }
 
         //Metoda do zmiany koloru buttona do sterowania w trybie recznym
@@ -170,8 +180,7 @@ namespace HMIApp
         {
             App.WriteToDB("15", button4.Tag.ToString(), 1);
             ChangeColorOfButton(button4);
-            pictureBox2.Image = Image.FromFile("Resources/Machine/UkladPodnoszenia.png");
-            
+            pictureBox2.Image = new Bitmap(Properties.Resources.Serwo_18U1);
         }
 
         //Testowy przycisk z karty Manual do wyslania komendy
@@ -179,7 +188,7 @@ namespace HMIApp
         {
             App.WriteToDB("11", button5.Tag.ToString(), 1);
             ChangeColorOfButton(button5);
-            pictureBox2.Image = Image.FromFile("Resources/Machine/ChwytakDolny.png");
+            pictureBox2.Image = new Bitmap(Properties.Resources.Serwo_20U1);
         }
 
         //Przycisk wyzwalajacy zapis uzytkownika
@@ -270,6 +279,7 @@ namespace HMIApp
             {
                 if (ctrl is TextBox)
                 {
+                    //if(ctrl.Name == "textbox1")
                     TextBox textBox = (TextBox)ctrl;
                     textBox.KeyPress += TextBox_KeyPress;
                 }
@@ -290,5 +300,24 @@ namespace HMIApp
             }
         }
 
+        private void button8_Click(object sender, EventArgs e)
+        {
+            label21.Visible = false;
+            listView2.Visible = false;
+            button8.Visible = false;
+        }
+
+        private void checkBox2_Click(object sender, EventArgs e)
+        {
+            checkBox1.Checked = false;
+         
+            checkBox1.FlatAppearance.CheckedBackColor = Color.White;
+
+        }
+        private void checkBox1_Click(object sender, EventArgs e)
+        {
+            checkBox2.Checked = false;
+            checkBox2.FlatAppearance.CheckedBackColor = Color.White;
+        }
     }
 }

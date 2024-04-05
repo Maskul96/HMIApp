@@ -108,6 +108,14 @@ namespace HMIApp
         public ListViewItem itemArchive5 = new ListViewItem();
         public ListViewItem itemArchive6 = new ListViewItem();
         public ListViewItem itemArchive7 = new ListViewItem();
+        public ListViewItem itempopup = new ListViewItem();
+        public ListViewItem itempopup1 = new ListViewItem();
+        public ListViewItem itempopup2 = new ListViewItem();
+        public ListViewItem itempopup3 = new ListViewItem();
+        public ListViewItem itempopup4 = new ListViewItem();
+        public ListViewItem itempopup5 = new ListViewItem();
+        public ListViewItem itempopup6 = new ListViewItem();
+        public ListViewItem itempopup7 = new ListViewItem();
         #endregion
 
         #region Zmienne do DBka do odczytu IO's
@@ -352,8 +360,8 @@ namespace HMIApp
 
         }
 
-        //Odczyt z pliku CSV i od razu odczyt danych z DBka
-        public void ReadActualValueFromDB(string filepath)
+        //Odczyt z pliku CSV i od razu odczyt danych z DBka Referencji 
+        public void ReadActualValueFromDBReferenceOrProcessData(string filepath)
         {
             var dbtags = CSVReader.DBStructure(filepath);
 
@@ -381,7 +389,7 @@ namespace HMIApp
 
             foreach (var dbTag in dbtags)
             {
-                //sprobowac uproscic tego switcha
+                //sprobowac uproscic tego switcha szczegolnie z wyszukiwaniem kontrolek - zrobic na wzor tego c ozrobilem z zamiana kropki na przecinek
                 switch (dbTag.DataTypeOfTag.ToUpper())
                 {
 
@@ -389,7 +397,6 @@ namespace HMIApp
                         //Read BOOL               
                         DBRead_NrOfBitinByte = dbTag.NumberOfBitInByte;
                         DBRead_NrOfByteinDB = dbTag.NumberOfByteInDB;
-                        BitArray bitArray = new BitArray(DB[DBRead_NrOfByteinDB]);
                         bool[] values = new bool[8];
                         //Wyszukanie samej nazwy Taga, która odpowiada 1:1 nazwie TextBoxa
                         //DBRead_position1 = dbTag.TagName.IndexOf(".") + 1;
@@ -397,117 +404,159 @@ namespace HMIApp
                         DBRead_position1 = dbTag.TagName.IndexOf(".");
                         DBRead_TagName = dbTag.TagName.Remove(DBRead_position1, 1);
                         TextBox txt;
-                        CheckBox chk;
                         switch (DBRead_NrOfBitinByte)
                         {
                             case 0:
                                 values[0] = GetBit(DB[DBRead_NrOfByteinDB], 0);
                                 //Wyszukanie TextBoxa po jego nazwie
-                                chk = Form1._Form1.Controls.Find($"{DBRead_TagName}", true).FirstOrDefault() as CheckBox;
-                                if (chk == null)
+                                txt = Form1._Form1.Controls.Find($"{DBRead_TagName}", true).FirstOrDefault() as TextBox;
+                                if (txt == null)
                                 {
-                                    //Wyjscie z case'a jesli nie znajdzie checkboxa i bedzie nullem
                                     break;
                                 }
                                 else
                                 {
-                                    chk.Checked = values[0];
+                                    if (values[0])
+                                    {
+                                        txt.BackColor = System.Drawing.Color.LawnGreen;
+                                    }
+                                    else
+                                    {
+                                        txt.BackColor = System.Drawing.Color.OrangeRed;
+                                    }
                                 }
                                 break;
                             case 1:
                                 values[1] = GetBit(DB[DBRead_NrOfByteinDB], 1);
-                                chk = Form1._Form1.Controls.Find($"{DBRead_TagName}", true).FirstOrDefault() as CheckBox;
-                                if (chk == null)
+                                txt = Form1._Form1.Controls.Find($"{DBRead_TagName}", true).FirstOrDefault() as TextBox;
+                                if (txt == null)
                                 {
-                                    //Wyjscie z case'a jesli nie znajdzie checkboxa i bedzie nullem
                                     break;
                                 }
                                 else
                                 {
-                                    chk.Checked = values[1];
+                                    if (values[1])
+                                    {
+                                        txt.BackColor = System.Drawing.Color.LawnGreen;
+                                    }
+                                    else
+                                    {
+                                        txt.BackColor = System.Drawing.Color.OrangeRed;
+                                    }
                                 }
                                 break;
                             case 2:
                                 values[2] = GetBit(DB[DBRead_NrOfByteinDB], 2);
-                                chk = Form1._Form1.Controls.Find($"{DBRead_TagName}", true).FirstOrDefault() as CheckBox;
-                                if (chk == null)
+                                txt = Form1._Form1.Controls.Find($"{DBRead_TagName}", true).FirstOrDefault() as TextBox;
+                                if (txt == null)
                                 {
-                                    //Wyjscie z case'a jesli nie znajdzie checkboxa i bedzie nullem
                                     break;
                                 }
                                 else
                                 {
-                                    chk.Checked = values[2];
+                                    if (values[2])
+                                    {
+                                        txt.BackColor = System.Drawing.Color.LawnGreen;
+                                    }
+                                    else
+                                    {
+                                        txt.BackColor = System.Drawing.Color.OrangeRed;
+                                    }
                                 }
-
                                 break;
                             case 3:
                                 values[3] = GetBit(DB[DBRead_NrOfByteinDB], 3);
-                                chk = Form1._Form1.Controls.Find($"{DBRead_TagName}", true).FirstOrDefault() as CheckBox;
-                                if (chk == null)
+                                txt = Form1._Form1.Controls.Find($"{DBRead_TagName}", true).FirstOrDefault() as TextBox;
+                                if (txt == null)
                                 {
-                                    //Wyjscie z case'a jesli nie znajdzie checkboxa i bedzie nullem
                                     break;
                                 }
                                 else
                                 {
-                                    chk.Checked = values[3];
+                                    if (values[3])
+                                    {
+                                        txt.BackColor = System.Drawing.Color.LawnGreen;
+                                    }
+                                    else
+                                    {
+                                        txt.BackColor = System.Drawing.Color.OrangeRed;
+                                    }
                                 }
-
                                 break;
                             case 4:
                                 values[4] = GetBit(DB[DBRead_NrOfByteinDB], 4);
-                                chk = Form1._Form1.Controls.Find($"{DBRead_TagName}", true).FirstOrDefault() as CheckBox;
-                                if (chk == null)
+                                txt = Form1._Form1.Controls.Find($"{DBRead_TagName}", true).FirstOrDefault() as TextBox;
+                                if (txt == null)
                                 {
-                                    //Wyjscie z case'a jesli nie znajdzie checkboxa i bedzie nullem
                                     break;
                                 }
                                 else
                                 {
-                                    chk.Checked = values[4];
+                                    if (values[4])
+                                    {
+                                        txt.BackColor = System.Drawing.Color.LawnGreen;
+                                    }
+                                    else
+                                    {
+                                        txt.BackColor = System.Drawing.Color.OrangeRed;
+                                    }
                                 }
-
                                 break;
                             case 5:
                                 values[5] = GetBit(DB[DBRead_NrOfByteinDB], 5);
-                                chk = Form1._Form1.Controls.Find($"{DBRead_TagName}", true).FirstOrDefault() as CheckBox;
-                                if (chk == null)
+                                txt = Form1._Form1.Controls.Find($"{DBRead_TagName}", true).FirstOrDefault() as TextBox;
+                                if (txt == null)
                                 {
-                                    //Wyjscie z case'a jesli nie znajdzie checkboxa i bedzie nullem
                                     break;
                                 }
                                 else
                                 {
-                                    chk.Checked = values[5];
+                                    if (values[5])
+                                    {
+                                        txt.BackColor = System.Drawing.Color.LawnGreen;
+                                    }
+                                    else
+                                    {
+                                        txt.BackColor = System.Drawing.Color.OrangeRed;
+                                    }
                                 }
-
                                 break;
                             case 6:
                                 values[6] = GetBit(DB[DBRead_NrOfByteinDB], 6);
-                                chk = Form1._Form1.Controls.Find($"{DBRead_TagName}", true).FirstOrDefault() as CheckBox;
-                                if (chk == null)
+                                txt = Form1._Form1.Controls.Find($"{DBRead_TagName}", true).FirstOrDefault() as TextBox;
+                                if (txt == null)
                                 {
-                                    //Wyjscie z case'a jesli nie znajdzie checkboxa i bedzie nullem
                                     break;
                                 }
                                 else
                                 {
-                                    chk.Checked = values[6];
+                                    if (values[6])
+                                    {
+                                        txt.BackColor = System.Drawing.Color.LawnGreen;
+                                    }
+                                    else
+                                    {
+                                        txt.BackColor = System.Drawing.Color.OrangeRed;
+                                    }
                                 }
-
                                 break;
                             case 7:
                                 values[7] = GetBit(DB[DBRead_NrOfByteinDB], 7);
-                                chk = Form1._Form1.Controls.Find($"{DBRead_TagName}", true).FirstOrDefault() as CheckBox;
-                                if (chk == null)
+                                txt = Form1._Form1.Controls.Find($"{DBRead_TagName}", true).FirstOrDefault() as TextBox;
+                                if (txt == null)
                                 {
-                                    //Wyjscie z case'a jesli nie znajdzie checkboxa i bedzie nullem
                                     break;
                                 }
                                 else
                                 {
-                                    chk.Checked = values[7];
+                                    if (values[7])
+                                    {
+                                        txt.BackColor = System.Drawing.Color.LawnGreen;
+                                    }
+                                    else
+                                    {
+                                        txt.BackColor = System.Drawing.Color.OrangeRed;
+                                    }
                                 }
                                 break;
                         }
@@ -882,6 +931,12 @@ namespace HMIApp
                 switch (DBReadAlarm_DataTypeofTag.ToUpper())
                 {
                     case "BOOL":
+                        if (Form1._Form1.listView2.Items.Count == 0)
+                        {
+                            Form1._Form1.label21.Visible = false;
+                            Form1._Form1.listView2.Visible = false;
+                            Form1._Form1.button8.Visible = false;
+                        }
                         switch (DBReadAlarm_NrOfBitinByte)
                         {
                             case 0:
@@ -902,10 +957,13 @@ namespace HMIApp
                                     if (Form1._Form1.listView2.FindItemWithText(DBReadAlarm_AlarmName) == null)
                                     {
 
-                                        item.Text = DBReadAlarm_AlarmName;
-                                        item.ForeColor = System.Drawing.Color.Red;
-                                        Form1._Form1.listView2.Items.Add(item);
-                                        index[0] = Form1._Form1.listView2.Items.IndexOf(item);
+                                        itempopup.Text = DBReadAlarm_AlarmName;
+                                        itempopup.ForeColor = System.Drawing.Color.Red;
+                                        Form1._Form1.listView2.Items.Add(itempopup);
+                                        index[0] = Form1._Form1.listView2.Items.IndexOf(itempopup);
+                                        Form1._Form1.listView2.Visible = true;
+                                        Form1._Form1.button8.Visible = true;
+                                        Form1._Form1.label21.Visible = true;
 
                                     }
 
@@ -935,7 +993,7 @@ namespace HMIApp
                                     {
                                         if (Form1._Form1.listView2.Items.Count > 0)
                                         {
-                                            Form1._Form1.listView2.Items.Remove(item);
+                                            Form1._Form1.listView2.Items.Remove(itempopup);
                                         }
                                     }
                                     //Kasowanie archiwum alarmów po 100 alarmach
@@ -964,11 +1022,13 @@ namespace HMIApp
                                     if (Form1._Form1.listView2.FindItemWithText(DBReadAlarm_AlarmName) == null)
                                     {
 
-                                        item.Text = DBReadAlarm_AlarmName;
-                                        item.ForeColor = System.Drawing.Color.Red;
-                                        Form1._Form1.listView2.Items.Add(item);
-                                        index[1] = Form1._Form1.listView2.Items.IndexOf(item);
-
+                                        itempopup1.Text = DBReadAlarm_AlarmName;
+                                        itempopup1.ForeColor = System.Drawing.Color.Red;
+                                        Form1._Form1.listView2.Items.Add(itempopup1);
+                                        index[1] = Form1._Form1.listView2.Items.IndexOf(itempopup1);
+                                        Form1._Form1.listView2.Visible = true;
+                                        Form1._Form1.button8.Visible = true;
+                                        Form1._Form1.label21.Visible = true;
                                     }
                                     if (blockade[1] == false)
                                     {
@@ -994,7 +1054,7 @@ namespace HMIApp
                                     {
                                         if (Form1._Form1.listView2.Items.Count > 0)
                                         {
-                                            Form1._Form1.listView2.Items.Remove(item);
+                                            Form1._Form1.listView2.Items.Remove(itempopup1);
                                         }
                                     }
                                     if (Form1._Form1.listView1.FindItemWithText(DBReadAlarm_AlarmName) != null)
@@ -1019,10 +1079,13 @@ namespace HMIApp
                                     }
                                     if (Form1._Form1.listView2.FindItemWithText(DBReadAlarm_AlarmName) == null)
                                     {
-                                        item2.Text = DBReadAlarm_AlarmName;
-                                        item2.ForeColor = System.Drawing.Color.Red;
-                                        Form1._Form1.listView2.Items.Add(item2);
-                                        index[2] = Form1._Form1.listView2.Items.IndexOf(item2);
+                                        itempopup2.Text = DBReadAlarm_AlarmName;
+                                        itempopup2.ForeColor = System.Drawing.Color.Red;
+                                        Form1._Form1.listView2.Items.Add(itempopup2);
+                                        index[2] = Form1._Form1.listView2.Items.IndexOf(itempopup2);
+                                        Form1._Form1.listView2.Visible = true;
+                                        Form1._Form1.button8.Visible = true;
+                                        Form1._Form1.label21.Visible = true;
                                     }
                                     if (blockade[2] == false)
                                     {
@@ -1048,7 +1111,7 @@ namespace HMIApp
                                     {
                                         if (Form1._Form1.listView2.Items.Count > 0)
                                         {
-                                            Form1._Form1.listView2.Items.Remove(item);
+                                            Form1._Form1.listView2.Items.Remove(itempopup2);
                                         }
                                     }
                                     if (Form1._Form1.listView1.FindItemWithText(DBReadAlarm_AlarmName) != null)
@@ -1073,10 +1136,13 @@ namespace HMIApp
                                     }
                                     if (Form1._Form1.listView2.FindItemWithText(DBReadAlarm_AlarmName) == null)
                                     {
-                                        item3.Text = DBReadAlarm_AlarmName;
-                                        item3.ForeColor = System.Drawing.Color.Red;
-                                        Form1._Form1.listView2.Items.Add(item3);
-                                        index[3] = Form1._Form1.listView2.Items.IndexOf(item3);
+                                        itempopup3.Text = DBReadAlarm_AlarmName;
+                                        itempopup3.ForeColor = System.Drawing.Color.Red;
+                                        Form1._Form1.listView2.Items.Add(itempopup3);
+                                        index[3] = Form1._Form1.listView2.Items.IndexOf(itempopup3);
+                                        Form1._Form1.listView2.Visible = true;
+                                        Form1._Form1.button8.Visible = true;
+                                        Form1._Form1.label21.Visible = true;
                                     }
                                     if (blockade[3] == false)
                                     {
@@ -1102,7 +1168,7 @@ namespace HMIApp
                                     {
                                         if (Form1._Form1.listView2.Items.Count > 0)
                                         {
-                                            Form1._Form1.listView2.Items.Remove(item);
+                                            Form1._Form1.listView2.Items.Remove(itempopup3);
                                         }
                                     }
                                     if (Form1._Form1.listView1.FindItemWithText(DBReadAlarm_AlarmName) != null)
@@ -1127,10 +1193,13 @@ namespace HMIApp
                                     }
                                     if (Form1._Form1.listView2.FindItemWithText(DBReadAlarm_AlarmName) == null)
                                     {
-                                        item4.Text = DBReadAlarm_AlarmName;
-                                        item4.ForeColor = System.Drawing.Color.Red;
-                                        Form1._Form1.listView2.Items.Add(item4);
-                                        index[4] = Form1._Form1.listView2.Items.IndexOf(item4);
+                                        itempopup4.Text = DBReadAlarm_AlarmName;
+                                        itempopup4.ForeColor = System.Drawing.Color.Red;
+                                        Form1._Form1.listView2.Items.Add(itempopup4);
+                                        index[4] = Form1._Form1.listView2.Items.IndexOf(itempopup4);
+                                        Form1._Form1.listView2.Visible = true;
+                                        Form1._Form1.button8.Visible = true;
+                                        Form1._Form1.label21.Visible = true;
                                     }
                                     if (blockade[4] == false)
                                     {
@@ -1156,7 +1225,7 @@ namespace HMIApp
                                     {
                                         if (Form1._Form1.listView2.Items.Count > 0)
                                         {
-                                            Form1._Form1.listView2.Items.Remove(item);
+                                            Form1._Form1.listView2.Items.Remove(itempopup4);
                                         }
                                     }
                                     if (Form1._Form1.listView1.FindItemWithText(DBReadAlarm_AlarmName) != null)
@@ -1181,10 +1250,13 @@ namespace HMIApp
                                     }
                                     if (Form1._Form1.listView2.FindItemWithText(DBReadAlarm_AlarmName) == null)
                                     {
-                                        item5.Text = DBReadAlarm_AlarmName;
-                                        item5.ForeColor = System.Drawing.Color.Red;
-                                        Form1._Form1.listView2.Items.Add(item5);
-                                        index[5] = Form1._Form1.listView2.Items.IndexOf(item5);
+                                        itempopup5.Text = DBReadAlarm_AlarmName;
+                                        itempopup5.ForeColor = System.Drawing.Color.Red;
+                                        Form1._Form1.listView2.Items.Add(itempopup5);
+                                        index[5] = Form1._Form1.listView2.Items.IndexOf(itempopup5);
+                                        Form1._Form1.listView2.Visible = true;
+                                        Form1._Form1.button8.Visible = true;
+                                        Form1._Form1.label21.Visible = true;
                                     }
                                     if (blockade[5] == false)
                                     {
@@ -1210,7 +1282,7 @@ namespace HMIApp
                                     {
                                         if (Form1._Form1.listView2.Items.Count > 0)
                                         {
-                                            Form1._Form1.listView2.Items.Remove(item);
+                                            Form1._Form1.listView2.Items.Remove(itempopup5);
                                         }
                                     }
                                     if (Form1._Form1.listView1.FindItemWithText(DBReadAlarm_AlarmName) != null)
@@ -1235,10 +1307,13 @@ namespace HMIApp
                                     }
                                     if (Form1._Form1.listView2.FindItemWithText(DBReadAlarm_AlarmName) == null)
                                     {
-                                        item6.Text = DBReadAlarm_AlarmName;
-                                        item6.ForeColor = System.Drawing.Color.Red;
-                                        Form1._Form1.listView2.Items.Add(item6);
-                                        index[6] = Form1._Form1.listView2.Items.IndexOf(item6);
+                                        itempopup6.Text = DBReadAlarm_AlarmName;
+                                        itempopup6.ForeColor = System.Drawing.Color.Red;
+                                        Form1._Form1.listView2.Items.Add(itempopup6);
+                                        index[6] = Form1._Form1.listView2.Items.IndexOf(itempopup6);
+                                        Form1._Form1.listView2.Visible = true;
+                                        Form1._Form1.button8.Visible = true;
+                                        Form1._Form1.label21.Visible = true;
                                     }
                                     if (blockade[6] == false)
                                     {
@@ -1264,7 +1339,7 @@ namespace HMIApp
                                     {
                                         if (Form1._Form1.listView2.Items.Count > 0)
                                         {
-                                            Form1._Form1.listView2.Items.Remove(item);
+                                            Form1._Form1.listView2.Items.Remove(itempopup6);
                                         }
                                     }
                                     if (Form1._Form1.listView1.FindItemWithText(DBReadAlarm_AlarmName) != null)
@@ -1290,11 +1365,14 @@ namespace HMIApp
                                     }
                                     if (Form1._Form1.listView2.FindItemWithText(DBReadAlarm_AlarmName) == null)
                                     {
-                                        item7.Text = DBReadAlarm_AlarmName;
+                                        itempopup7.Text = DBReadAlarm_AlarmName;
 
-                                        item7.ForeColor = System.Drawing.Color.Red;
-                                        Form1._Form1.listView2.Items.Add(item7);
-                                        index[7] = Form1._Form1.listView2.Items.IndexOf(item7);
+                                        itempopup7.ForeColor = System.Drawing.Color.Red;
+                                        Form1._Form1.listView2.Items.Add(itempopup7);
+                                        index[7] = Form1._Form1.listView2.Items.IndexOf(itempopup7);
+                                        Form1._Form1.listView2.Visible = true;
+                                        Form1._Form1.button8.Visible = true;
+                                        Form1._Form1.label21.Visible = true;
                                     }
                                     if (blockade[7] == false)
                                     {
@@ -1320,7 +1398,7 @@ namespace HMIApp
                                     {
                                         if (Form1._Form1.listView2.Items.Count > 0)
                                         {
-                                            Form1._Form1.listView2.Items.Remove(item);
+                                            Form1._Form1.listView2.Items.Remove(itempopup7);
                                         }
                                     }
                                     if (Form1._Form1.listView1.FindItemWithText(DBReadAlarm_AlarmName) != null)
@@ -1330,12 +1408,6 @@ namespace HMIApp
                                             Form1._Form1.listView1.Items.Remove(itemArchive7);
                                         }
                                     }
-                                }
-                                if (Form1._Form1.listView2.Items.Count == 0)
-                                {
-                                    Form1._Form1.listView2.Visible = false;
-                                    Form1._Form1.button8.Visible = false;
-                                    Form1._Form1.label21.Visible = false;
                                 }
                                     break;
                                 
@@ -1395,7 +1467,6 @@ namespace HMIApp
                 DBReadIO_NrOfBitinByte = dbTag.NumberOfBitInByte;
                 DBReadIO_NrOfByteinDB = dbTag.NumberOfByteInDB;
                 DBReadIO_DataTypeofTag = dbTag.DataTypeOfTag;
-                BitArray bitArray = new BitArray(DB[DBReadIO_NrOfByteinDB]);
                 bool[] values = new bool[8];
                 //Wyszukanie samej nazwy Taga, która odpowiada 1:1 nazwie TextBoxa
                 DBReadIO_position1 = dbTag.TagName.IndexOf(".");
@@ -1407,97 +1478,129 @@ namespace HMIApp
                         values[0] = GetBit(DB[DBReadIO_NrOfByteinDB], 0);
                         //Wyszukanie TextBoxa po jego nazwie i ustawienie kolor uw zaleznosci od stanu value[x]
                         txt = Form1._Form1.Controls.Find($"{DBReadIO_TagName}", true).FirstOrDefault() as TextBox;
-                        if (values[0] == true)
-                        {
-                            txt.BackColor = System.Drawing.Color.Green;
-                        }
+                        if (txt == null) break;
                         else
                         {
-                            txt.BackColor = System.Drawing.Color.White;
+                            if (values[0] == true)
+                            {
+                                txt.BackColor = System.Drawing.Color.Green;
+                            }
+                            else
+                            {
+                                txt.BackColor = System.Drawing.Color.White;
+                            }
                         }
                         break;
                     case 1:
                         values[1] = GetBit(DB[DBReadIO_NrOfByteinDB], 1);
                         txt = Form1._Form1.Controls.Find($"{DBReadIO_TagName}", true).FirstOrDefault() as TextBox;
-                        if (values[1])
-                        {
-                            txt.BackColor = System.Drawing.Color.Green;
-                        }
+                        if (txt == null) break;
                         else
                         {
-                            txt.BackColor = System.Drawing.Color.White;
+                            if (values[1])
+                            {
+                                txt.BackColor = System.Drawing.Color.Green;
+                            }
+                            else
+                            {
+                                txt.BackColor = System.Drawing.Color.White;
+                            }
                         }
                         break;
                     case 2:
                         values[2] = GetBit(DB[DBReadIO_NrOfByteinDB], 2);
                         txt = Form1._Form1.Controls.Find($"{DBReadIO_TagName}", true).FirstOrDefault() as TextBox;
-                        if (values[2])
-                        {
-                            txt.BackColor = System.Drawing.Color.Green;
-                        }
+                        if (txt == null) break;
                         else
                         {
-                            txt.BackColor = System.Drawing.Color.White;
+                            if (values[2])
+                            {
+                                txt.BackColor = System.Drawing.Color.Green;
+                            }
+                            else
+                            {
+                                txt.BackColor = System.Drawing.Color.White;
+                            }
                         }
                         break;
                     case 3:
                         values[3] = GetBit(DB[DBReadIO_NrOfByteinDB], 3);
                         txt = Form1._Form1.Controls.Find($"{DBReadIO_TagName}", true).FirstOrDefault() as TextBox;
-                        if (values[3])
-                        {
-                            txt.BackColor = System.Drawing.Color.Green;
-                        }
+                        if (txt == null) break;
                         else
                         {
-                            txt.BackColor = System.Drawing.Color.White;
+                            if (values[3])
+                            {
+                                txt.BackColor = System.Drawing.Color.Green;
+                            }
+                            else
+                            {
+                                txt.BackColor = System.Drawing.Color.White;
+                            }
                         }
                         break;
                     case 4:
                         values[4] = GetBit(DB[DBReadIO_NrOfByteinDB], 4);
                         txt = Form1._Form1.Controls.Find($"{DBReadIO_TagName}", true).FirstOrDefault() as TextBox;
-                        if (values[4])
-                        {
-                            txt.BackColor = System.Drawing.Color.Green;
-                        }
+                        if (txt == null) break;
                         else
                         {
-                            txt.BackColor = System.Drawing.Color.White;
+                            if (values[4])
+                            {
+                                txt.BackColor = System.Drawing.Color.Green;
+                            }
+                            else
+                            {
+                                txt.BackColor = System.Drawing.Color.White;
+                            }
                         }
                         break;
                     case 5:
                         values[5] = GetBit(DB[DBReadIO_NrOfByteinDB], 5);
                         txt = Form1._Form1.Controls.Find($"{DBReadIO_TagName}", true).FirstOrDefault() as TextBox;
-                        if (values[5])
-                        {
-                            txt.BackColor = System.Drawing.Color.Green;
-                        }
+                        if (txt == null) break;
                         else
                         {
-                            txt.BackColor = System.Drawing.Color.White;
+                            if (values[5])
+                            {
+                                txt.BackColor = System.Drawing.Color.Green;
+                            }
+                            else
+                            {
+                                txt.BackColor = System.Drawing.Color.White;
+                            }
                         }
                         break;
                     case 6:
                         values[6] = GetBit(DB[DBReadIO_NrOfByteinDB], 6);
                         txt = Form1._Form1.Controls.Find($"{DBReadIO_TagName}", true).FirstOrDefault() as TextBox;
-                        if (values[6])
-                        {
-                            txt.BackColor = System.Drawing.Color.Green;
-                        }
+                        if (txt == null) break;
                         else
                         {
-                            txt.BackColor = System.Drawing.Color.White;
+                            if (values[6])
+                            {
+                                txt.BackColor = System.Drawing.Color.Green;
+                            }
+                            else
+                            {
+                                txt.BackColor = System.Drawing.Color.White;
+                            }
                         }
                         break;
                     case 7:
                         values[7] = GetBit(DB[DBReadIO_NrOfByteinDB], 7);
                         txt = Form1._Form1.Controls.Find($"{DBReadIO_TagName}", true).FirstOrDefault() as TextBox;
-                        if (values[7])
-                        {
-                            txt.BackColor = System.Drawing.Color.Green;
-                        }
+                        if (txt == null) break;
                         else
                         {
-                            txt.BackColor = System.Drawing.Color.White;
+                            if (values[7])
+                            {
+                                txt.BackColor = System.Drawing.Color.Green;
+                            }
+                            else
+                            {
+                                txt.BackColor = System.Drawing.Color.White;
+                            }
                         }
                         break;
                 }

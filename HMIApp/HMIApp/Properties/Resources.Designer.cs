@@ -69,5 +69,38 @@ namespace HMIApp.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+
+        internal static System.Drawing.Bitmap Main
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("Main", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        internal static System.Drawing.Bitmap Serwo_18U1
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("Serwo 18U1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        internal static System.Drawing.Bitmap Serwo_20U1
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("Serwo 20U1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        internal static System.Drawing.Bitmap Serwo_16U2
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("Serwo16U2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

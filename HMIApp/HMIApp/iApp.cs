@@ -8,7 +8,7 @@ namespace HMIApp
         ListViewItem MakeList(string Alarm, string Alarm1, string Alarm2);
         void listBox1_DrawItem(object sender, DrawItemEventArgs e);
         void ClosePLCConnection();
-        void ReadActualValueFromDB(string filepath);
+        void ReadActualValueFromDBReferenceOrProcessData(string filepath);
         void ReadAlarmsFromDB(string filepath);
 
         void ReadIOFromDB(string filepath);
