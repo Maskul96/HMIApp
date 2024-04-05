@@ -15,6 +15,7 @@ using Windows.ApplicationModel;
 
 namespace HMIApp
 {
+    //Klasa do obsługi komunikacji z PLC oraz odczytu/zapisu danych z DB i do rysowania wykresu
     public class App : iApp
     {
         public Form1 obj;
@@ -90,6 +91,7 @@ namespace HMIApp
         public int NrOfMessage;
         public int[] index = new int[8];
         public int[] index1 = new int[8];
+        bool[] blockade = new bool[8];
         public ListViewItem item1 = new ListViewItem();
         public ListViewItem item = new ListViewItem();
         public ListViewItem item2 = new ListViewItem();
@@ -140,7 +142,7 @@ namespace HMIApp
         //Stworzenie obiektu CSVReader do odczytu z pliku
         CSVReader CSVReader = new CSVReader();
 
-        //Metoda do tworzenia alarmów z trzema tekstami w listview
+        //Metoda do tworzenia alarmów z trzema tekstami (data, PLCTag, Nazwa) w listview 
         public ListViewItem MakeList(string Alarm, string Alarm1, string Alarm2)
         {
             return new ListViewItem(new[] { Alarm, Alarm1, Alarm2 });
@@ -875,7 +877,6 @@ namespace HMIApp
                 DBReadAlarm_AlarmName = dbTag.NameofAlarm;
                 DBReadAlarm_TagName = dbTag.TagName;
                 DBReadAlarm_DataTypeofTag = dbTag.DataTypeOfTag;
-                BitArray bitArray = new BitArray(DB[DBReadAlarm_NrOfByteinDB]);
                 bool[] values = new bool[8];
 
                 switch (DBReadAlarm_DataTypeofTag.ToUpper())
@@ -890,28 +891,51 @@ namespace HMIApp
                                     //Dodanie alarmu tylko wtedy jeśli nie ma go juz w liscie
                                     if (Form1._Form1.listAlarmView.FindItemWithText(DBReadAlarm_AlarmName) == null)
                                     {
-
+                                        
                                         item.Text = DBReadAlarm_AlarmName;
                                         item.ForeColor = System.Drawing.Color.Red; 
                                         Form1._Form1.listAlarmView.Items.Add(item);
                                         index[0] = Form1._Form1.listAlarmView.Items.IndexOf(item);
+
                                     }
-                                    if (Form1._Form1.listView1.FindItemWithText(DBReadAlarm_AlarmName) == null)
+                                    //Dodanie alarmu tylko wtedy jeśli nie ma go juz w liscie
+                                    if (Form1._Form1.listView2.FindItemWithText(DBReadAlarm_AlarmName) == null)
                                     {
-                                        itemArchive = MakeList(DateTime.Now.ToString(), DBReadAlarm_TagName, DBReadAlarm_AlarmName);
-                                        itemArchive.BackColor = System.Drawing.Color.Red; itemArchive.ForeColor = System.Drawing.Color.Black;
-                                        Form1._Form1.listView1.Items.Add(itemArchive);
-                                        index1[0] = Form1._Form1.listView1.Items.IndexOf(itemArchive);
+
+                                        item.Text = DBReadAlarm_AlarmName;
+                                        item.ForeColor = System.Drawing.Color.Red;
+                                        Form1._Form1.listView2.Items.Add(item);
+                                        index[0] = Form1._Form1.listView2.Items.IndexOf(item);
+
                                     }
+
+                                    if (blockade[0] == false)
+                                        {
+                                            itemArchive = MakeList(DateTime.Now.ToString(), DBReadAlarm_TagName, DBReadAlarm_AlarmName);
+                                            itemArchive.BackColor = System.Drawing.Color.Red; itemArchive.ForeColor = System.Drawing.Color.Black;
+                                            Form1._Form1.listView1.Items.Add(itemArchive);
+                                            index1[0] = Form1._Form1.listView1.Items.IndexOf(itemArchive);
+                                            blockade[0] = true;
+                                        }
+
                                 }
                                 else
                                 {
+                                    blockade[0] = false;
                                     //Zabezpieczenie zeby to sie nie wykonywalo jak bedzie pusta lista
                                     if (Form1._Form1.listAlarmView.FindItemWithText(DBReadAlarm_AlarmName) != null)
                                     {
                                         if (Form1._Form1.listAlarmView.Items.Count > 0)
                                         {
                                             Form1._Form1.listAlarmView.Items.Remove(item);
+                                        }
+                                    }
+                                    //Zabezpieczenie zeby to sie nie wykonywalo jak bedzie pusta lista
+                                    if (Form1._Form1.listView2.FindItemWithText(DBReadAlarm_AlarmName) != null)
+                                    {
+                                        if (Form1._Form1.listView2.Items.Count > 0)
+                                        {
+                                            Form1._Form1.listView2.Items.Remove(item);
                                         }
                                     }
                                     //Kasowanie archiwum alarmów po 100 alarmach
@@ -936,21 +960,41 @@ namespace HMIApp
                                         Form1._Form1.listAlarmView.Items.Add(item1);
                                         index[1] = Form1._Form1.listAlarmView.Items.IndexOf(item1);
                                     }
-                                    if (Form1._Form1.listView1.FindItemWithText(DBReadAlarm_AlarmName) == null)
+                                    //Dodanie alarmu tylko wtedy jeśli nie ma go juz w liscie
+                                    if (Form1._Form1.listView2.FindItemWithText(DBReadAlarm_AlarmName) == null)
+                                    {
+
+                                        item.Text = DBReadAlarm_AlarmName;
+                                        item.ForeColor = System.Drawing.Color.Red;
+                                        Form1._Form1.listView2.Items.Add(item);
+                                        index[1] = Form1._Form1.listView2.Items.IndexOf(item);
+
+                                    }
+                                    if (blockade[1] == false)
                                     {
                                         itemArchive1 = MakeList(DateTime.Now.ToString(), DBReadAlarm_TagName, DBReadAlarm_AlarmName);
                                         itemArchive1.BackColor = System.Drawing.Color.Red; itemArchive1.ForeColor = System.Drawing.Color.Black;
                                         Form1._Form1.listView1.Items.Add(itemArchive1);
                                         index1[1] = Form1._Form1.listView1.Items.IndexOf(itemArchive1);
+                                        blockade[1] = true;
                                     }
                                 }
                                 else
                                 {
+                                    blockade[1] = false;
                                     if (Form1._Form1.listAlarmView.FindItemWithText(DBReadAlarm_AlarmName) != null)
                                     {
                                         if (Form1._Form1.listAlarmView.Items.Count > 0)
                                         {
                                             Form1._Form1.listAlarmView.Items.Remove(item1);
+                                        }
+                                    }
+                                    //Zabezpieczenie zeby to sie nie wykonywalo jak bedzie pusta lista
+                                    if (Form1._Form1.listView2.FindItemWithText(DBReadAlarm_AlarmName) != null)
+                                    {
+                                        if (Form1._Form1.listView2.Items.Count > 0)
+                                        {
+                                            Form1._Form1.listView2.Items.Remove(item);
                                         }
                                     }
                                     if (Form1._Form1.listView1.FindItemWithText(DBReadAlarm_AlarmName) != null)
@@ -973,21 +1017,38 @@ namespace HMIApp
                                         Form1._Form1.listAlarmView.Items.Add(item2);
                                         index[2] = Form1._Form1.listAlarmView.Items.IndexOf(item2);
                                     }
-                                    if (Form1._Form1.listView1.FindItemWithText(DBReadAlarm_AlarmName) == null)
+                                    if (Form1._Form1.listView2.FindItemWithText(DBReadAlarm_AlarmName) == null)
+                                    {
+                                        item2.Text = DBReadAlarm_AlarmName;
+                                        item2.ForeColor = System.Drawing.Color.Red;
+                                        Form1._Form1.listView2.Items.Add(item2);
+                                        index[2] = Form1._Form1.listView2.Items.IndexOf(item2);
+                                    }
+                                    if (blockade[2] == false)
                                     {
                                         itemArchive2 = MakeList(DateTime.Now.ToString(), DBReadAlarm_TagName, DBReadAlarm_AlarmName);
                                         itemArchive2.BackColor = System.Drawing.Color.Red; itemArchive2.ForeColor = System.Drawing.Color.Black;
                                         Form1._Form1.listView1.Items.Add(itemArchive2);
                                         index1[2] = Form1._Form1.listView1.Items.IndexOf(itemArchive2);
+                                        blockade[2] = true;
                                     }
                                 }
                                 else
                                 {
+                                    blockade[2] = false;
                                     if (Form1._Form1.listAlarmView.FindItemWithText(DBReadAlarm_AlarmName) != null)
                                     {
                                         if (Form1._Form1.listAlarmView.Items.Count > 0)
                                         {
                                             Form1._Form1.listAlarmView.Items.Remove(item2);
+                                        }
+                                    }
+                                    //Zabezpieczenie zeby to sie nie wykonywalo jak bedzie pusta lista
+                                    if (Form1._Form1.listView2.FindItemWithText(DBReadAlarm_AlarmName) != null)
+                                    {
+                                        if (Form1._Form1.listView2.Items.Count > 0)
+                                        {
+                                            Form1._Form1.listView2.Items.Remove(item);
                                         }
                                     }
                                     if (Form1._Form1.listView1.FindItemWithText(DBReadAlarm_AlarmName) != null)
@@ -1010,21 +1071,38 @@ namespace HMIApp
                                         Form1._Form1.listAlarmView.Items.Add(item3);
                                         index[3] = Form1._Form1.listAlarmView.Items.IndexOf(item3);
                                     }
-                                    if (Form1._Form1.listView1.FindItemWithText(DBReadAlarm_AlarmName) == null)
+                                    if (Form1._Form1.listView2.FindItemWithText(DBReadAlarm_AlarmName) == null)
+                                    {
+                                        item3.Text = DBReadAlarm_AlarmName;
+                                        item3.ForeColor = System.Drawing.Color.Red;
+                                        Form1._Form1.listView2.Items.Add(item3);
+                                        index[3] = Form1._Form1.listView2.Items.IndexOf(item3);
+                                    }
+                                    if (blockade[3] == false)
                                     {
                                         itemArchive3 = MakeList(DateTime.Now.ToString(), DBReadAlarm_TagName, DBReadAlarm_AlarmName);
                                         itemArchive3.BackColor = System.Drawing.Color.Red; itemArchive3.ForeColor = System.Drawing.Color.Black;
                                         Form1._Form1.listView1.Items.Add(itemArchive3);
                                         index1[3] = Form1._Form1.listView1.Items.IndexOf(itemArchive3);
+                                        blockade[3] = true;
                                     }
                                 }
                                 else
                                 {
+                                    blockade[3] = false;
                                     if (Form1._Form1.listAlarmView.FindItemWithText(DBReadAlarm_AlarmName) != null)
                                     {
                                         if (Form1._Form1.listAlarmView.Items.Count > 0)
                                         {
                                             Form1._Form1.listAlarmView.Items.Remove(item3);
+                                        }
+                                    }
+                                    //Zabezpieczenie zeby to sie nie wykonywalo jak bedzie pusta lista
+                                    if (Form1._Form1.listView2.FindItemWithText(DBReadAlarm_AlarmName) != null)
+                                    {
+                                        if (Form1._Form1.listView2.Items.Count > 0)
+                                        {
+                                            Form1._Form1.listView2.Items.Remove(item);
                                         }
                                     }
                                     if (Form1._Form1.listView1.FindItemWithText(DBReadAlarm_AlarmName) != null)
@@ -1047,21 +1125,38 @@ namespace HMIApp
                                         Form1._Form1.listAlarmView.Items.Add(item4);
                                         index[4] = Form1._Form1.listAlarmView.Items.IndexOf(item4);
                                     }
-                                    if (Form1._Form1.listView1.FindItemWithText(DBReadAlarm_AlarmName) == null)
+                                    if (Form1._Form1.listView2.FindItemWithText(DBReadAlarm_AlarmName) == null)
+                                    {
+                                        item4.Text = DBReadAlarm_AlarmName;
+                                        item4.ForeColor = System.Drawing.Color.Red;
+                                        Form1._Form1.listView2.Items.Add(item4);
+                                        index[4] = Form1._Form1.listView2.Items.IndexOf(item4);
+                                    }
+                                    if (blockade[4] == false)
                                     {
                                         itemArchive4 = MakeList(DateTime.Now.ToString(), DBReadAlarm_TagName, DBReadAlarm_AlarmName);
                                         itemArchive4.BackColor = System.Drawing.Color.Red; itemArchive4.ForeColor = System.Drawing.Color.Black;
                                         Form1._Form1.listView1.Items.Add(itemArchive4);
                                         index1[4] = Form1._Form1.listView1.Items.IndexOf(itemArchive4);
+                                        blockade[4] = true;
                                     }
                                 }
                                 else
                                 {
+                                    blockade[4] = false;
                                     if (Form1._Form1.listAlarmView.FindItemWithText(DBReadAlarm_AlarmName) != null)
                                     {
                                         if (Form1._Form1.listAlarmView.Items.Count > 0)
                                         {
                                             Form1._Form1.listAlarmView.Items.Remove(item4);
+                                        }
+                                    }
+                                    //Zabezpieczenie zeby to sie nie wykonywalo jak bedzie pusta lista
+                                    if (Form1._Form1.listView2.FindItemWithText(DBReadAlarm_AlarmName) != null)
+                                    {
+                                        if (Form1._Form1.listView2.Items.Count > 0)
+                                        {
+                                            Form1._Form1.listView2.Items.Remove(item);
                                         }
                                     }
                                     if (Form1._Form1.listView1.FindItemWithText(DBReadAlarm_AlarmName) != null)
@@ -1084,21 +1179,38 @@ namespace HMIApp
                                         Form1._Form1.listAlarmView.Items.Add(item5);
                                         index[5] = Form1._Form1.listAlarmView.Items.IndexOf(item5);
                                     }
-                                    if (Form1._Form1.listView1.FindItemWithText(DBReadAlarm_AlarmName) == null)
+                                    if (Form1._Form1.listView2.FindItemWithText(DBReadAlarm_AlarmName) == null)
+                                    {
+                                        item5.Text = DBReadAlarm_AlarmName;
+                                        item5.ForeColor = System.Drawing.Color.Red;
+                                        Form1._Form1.listView2.Items.Add(item5);
+                                        index[5] = Form1._Form1.listView2.Items.IndexOf(item5);
+                                    }
+                                    if (blockade[5] == false)
                                     {
                                         itemArchive5 = MakeList(DateTime.Now.ToString(), DBReadAlarm_TagName, DBReadAlarm_AlarmName);
                                         itemArchive5.BackColor = System.Drawing.Color.Red; itemArchive5.ForeColor = System.Drawing.Color.Black;
                                         Form1._Form1.listView1.Items.Add(itemArchive5);
                                         index1[5] = Form1._Form1.listView1.Items.IndexOf(itemArchive5);
+                                        blockade[5] = true;
                                     }
                                 }
                                 else
                                 {
+                                    blockade[5] = false;
                                     if (Form1._Form1.listAlarmView.FindItemWithText(DBReadAlarm_AlarmName) != null)
                                     {
                                         if (Form1._Form1.listAlarmView.Items.Count > 0)
                                         {
                                             Form1._Form1.listAlarmView.Items.Remove(item5);
+                                        }
+                                    }
+                                    //Zabezpieczenie zeby to sie nie wykonywalo jak bedzie pusta lista
+                                    if (Form1._Form1.listView2.FindItemWithText(DBReadAlarm_AlarmName) != null)
+                                    {
+                                        if (Form1._Form1.listView2.Items.Count > 0)
+                                        {
+                                            Form1._Form1.listView2.Items.Remove(item);
                                         }
                                     }
                                     if (Form1._Form1.listView1.FindItemWithText(DBReadAlarm_AlarmName) != null)
@@ -1121,21 +1233,38 @@ namespace HMIApp
                                         Form1._Form1.listAlarmView.Items.Add(item6);
                                         index[6] = Form1._Form1.listAlarmView.Items.IndexOf(item6);
                                     }
-                                    if (Form1._Form1.listView1.FindItemWithText(DBReadAlarm_AlarmName) == null)
+                                    if (Form1._Form1.listView2.FindItemWithText(DBReadAlarm_AlarmName) == null)
+                                    {
+                                        item6.Text = DBReadAlarm_AlarmName;
+                                        item6.ForeColor = System.Drawing.Color.Red;
+                                        Form1._Form1.listView2.Items.Add(item6);
+                                        index[6] = Form1._Form1.listView2.Items.IndexOf(item6);
+                                    }
+                                    if (blockade[6] == false)
                                     {
                                         itemArchive6 = MakeList(DateTime.Now.ToString(), DBReadAlarm_TagName, DBReadAlarm_AlarmName);
                                         itemArchive6.BackColor = System.Drawing.Color.Red; itemArchive6.ForeColor = System.Drawing.Color.Black;
                                         Form1._Form1.listView1.Items.Add(itemArchive6);
                                         index1[6] = Form1._Form1.listView1.Items.IndexOf(itemArchive6);
+                                        blockade[6] = true;
                                     }
                                 }
                                 else
+                                    blockade[6] = false;
                                 {
                                     if (Form1._Form1.listAlarmView.FindItemWithText(DBReadAlarm_AlarmName) != null)
                                     {
                                         if (Form1._Form1.listAlarmView.Items.Count > 0)
                                         {
                                             Form1._Form1.listAlarmView.Items.Remove(item6);
+                                        }
+                                    }
+                                    //Zabezpieczenie zeby to sie nie wykonywalo jak bedzie pusta lista
+                                    if (Form1._Form1.listView2.FindItemWithText(DBReadAlarm_AlarmName) != null)
+                                    {
+                                        if (Form1._Form1.listView2.Items.Count > 0)
+                                        {
+                                            Form1._Form1.listView2.Items.Remove(item);
                                         }
                                     }
                                     if (Form1._Form1.listView1.FindItemWithText(DBReadAlarm_AlarmName) != null)
@@ -1154,25 +1283,44 @@ namespace HMIApp
                                     if (Form1._Form1.listAlarmView.FindItemWithText(DBReadAlarm_AlarmName) == null)
                                     {
                                         item7.Text = DBReadAlarm_AlarmName;
+                                        
                                         item7.ForeColor = System.Drawing.Color.Red; 
                                         Form1._Form1.listAlarmView.Items.Add(item7);
                                         index[7] = Form1._Form1.listAlarmView.Items.IndexOf(item7);
                                     }
-                                    if (Form1._Form1.listView1.FindItemWithText(DBReadAlarm_AlarmName) == null)
+                                    if (Form1._Form1.listView2.FindItemWithText(DBReadAlarm_AlarmName) == null)
+                                    {
+                                        item7.Text = DBReadAlarm_AlarmName;
+
+                                        item7.ForeColor = System.Drawing.Color.Red;
+                                        Form1._Form1.listView2.Items.Add(item7);
+                                        index[7] = Form1._Form1.listView2.Items.IndexOf(item7);
+                                    }
+                                    if (blockade[7] == false)
                                     {
                                         itemArchive7 = MakeList(DateTime.Now.ToString(), DBReadAlarm_TagName, DBReadAlarm_AlarmName);
                                         itemArchive7.BackColor = System.Drawing.Color.Red; itemArchive7.ForeColor = System.Drawing.Color.Black;
                                         Form1._Form1.listView1.Items.Add(itemArchive);
                                         index1[7] = Form1._Form1.listView1.Items.IndexOf(itemArchive7);
+                                        blockade[7] = true;
                                     }
                                 }
                                 else
                                 {
+                                    blockade[7] = false;
                                     if (Form1._Form1.listAlarmView.FindItemWithText(DBReadAlarm_AlarmName) != null)
                                     {
                                         if (Form1._Form1.listAlarmView.Items.Count > 0)
                                         {
                                             Form1._Form1.listAlarmView.Items.Remove(item7);
+                                        }
+                                    }
+                                    //Zabezpieczenie zeby to sie nie wykonywalo jak bedzie pusta lista
+                                    if (Form1._Form1.listView2.FindItemWithText(DBReadAlarm_AlarmName) != null)
+                                    {
+                                        if (Form1._Form1.listView2.Items.Count > 0)
+                                        {
+                                            Form1._Form1.listView2.Items.Remove(item);
                                         }
                                     }
                                     if (Form1._Form1.listView1.FindItemWithText(DBReadAlarm_AlarmName) != null)
@@ -1183,7 +1331,14 @@ namespace HMIApp
                                         }
                                     }
                                 }
-                                break;
+                                if (Form1._Form1.listView2.Items.Count == 0)
+                                {
+                                    Form1._Form1.listView2.Visible = false;
+                                    Form1._Form1.button8.Visible = false;
+                                    Form1._Form1.label21.Visible = false;
+                                }
+                                    break;
+                                
                         }
                         break;
                     case "INT":
@@ -1196,34 +1351,16 @@ namespace HMIApp
             }
         }
 
-        //metoda do zmiany kolor selection item w listBox - moduł komunikatów z PLC
+
+        //metoda do ustawienia po srodku item w listBox - moduł komunikatów z PLC
         public void listBox1_DrawItem(object sender, DrawItemEventArgs e)
         {
             TextFormatFlags flags = TextFormatFlags.HorizontalCenter | TextFormatFlags.VerticalCenter;
-            if (e.Index < 0) return;
-
-            ////Jesli item jest selected to zmień kolor
-            if ((e.State & DrawItemState.Selected) == DrawItemState.Selected)
-                e = new DrawItemEventArgs(e.Graphics,
-                    e.Font,
-                    e.Bounds,
-                    e.Index,
-                    e.State ^ DrawItemState.Selected,
-                    e.ForeColor,
-                    System.Drawing.Color.LawnGreen);
-
-            //Draw background kolor dla kazdego itema
-            e.DrawBackground();
-
-            //Obecny item text
-            //e.Graphics.DrawString(Form1._Form1.listBox1.Items[e.Index].ToString(), e.Font, Brushes.Black, e.Bounds,StringFormat.GenericDefault);
             var textRect = e.Bounds;
-            
+            var textColor = e.ForeColor;
+            textColor = System.Drawing.Color.Black;
             string itemText = Form1._Form1.listBox1.Items[e.Index].ToString();
-            TextRenderer.DrawText(e.Graphics, itemText, e.Font, textRect, e.ForeColor, flags);
-
-            //Jesli item jest selected to rysuj prostokat wokol itema
-            e.DrawFocusRectangle();
+            TextRenderer.DrawText(e.Graphics, itemText, e.Font, textRect, textColor, flags);
         }
 
         public void ReadIOFromDB(string filepath)

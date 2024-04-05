@@ -121,4 +121,34 @@
   <data name="logotyp-Controltec" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Logo's\logotyp-Controltec.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="ChwytakDolny" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Machine\ChwytakDolny.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ChwytakGorny" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Machine\ChwytakGorny.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GlowicaSmarujaca" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Machine\GlowicaSmarujaca.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Main" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Machine\Main.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Serwo 18U1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Machine\Serwo 18U1.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Serwo 20U1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Machine\Serwo 20U1.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Serwo16U2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Machine\Serwo16U2.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SzczekiOslonki" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Machine\SzczekiOslonki.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UkladPodnoszenia" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Machine\UkladPodnoszenia.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ZaciskTulipa" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Machine\ZaciskTulipa.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

@@ -29,7 +29,8 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("");
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             OdczytDB = new System.Windows.Forms.Timer(components);
             Uzytkownik = new System.Windows.Forms.Label();
             pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -66,8 +67,18 @@
             tabPage9 = new System.Windows.Forms.TabPage();
             tabControl3 = new System.Windows.Forms.TabControl();
             tabPage10 = new System.Windows.Forms.TabPage();
+            label96 = new System.Windows.Forms.Label();
+            label95 = new System.Windows.Forms.Label();
+            label94 = new System.Windows.Forms.Label();
+            label93 = new System.Windows.Forms.Label();
+            label92 = new System.Windows.Forms.Label();
+            label91 = new System.Windows.Forms.Label();
+            label90 = new System.Windows.Forms.Label();
+            label89 = new System.Windows.Forms.Label();
+            label88 = new System.Windows.Forms.Label();
+            label87 = new System.Windows.Forms.Label();
+            Input0 = new System.Windows.Forms.Label();
             DB669Input10 = new System.Windows.Forms.TextBox();
-            button8 = new System.Windows.Forms.Button();
             DB669Input9 = new System.Windows.Forms.TextBox();
             DB669Input8 = new System.Windows.Forms.TextBox();
             DB669Input7 = new System.Windows.Forms.TextBox();
@@ -79,6 +90,17 @@
             DB669Input1 = new System.Windows.Forms.TextBox();
             DB669Input0 = new System.Windows.Forms.TextBox();
             tabPage11 = new System.Windows.Forms.TabPage();
+            label108 = new System.Windows.Forms.Label();
+            label97 = new System.Windows.Forms.Label();
+            label98 = new System.Windows.Forms.Label();
+            label99 = new System.Windows.Forms.Label();
+            label100 = new System.Windows.Forms.Label();
+            label101 = new System.Windows.Forms.Label();
+            label103 = new System.Windows.Forms.Label();
+            label104 = new System.Windows.Forms.Label();
+            label105 = new System.Windows.Forms.Label();
+            label106 = new System.Windows.Forms.Label();
+            label107 = new System.Windows.Forms.Label();
             DB669Output10 = new System.Windows.Forms.TextBox();
             DB669Output9 = new System.Windows.Forms.TextBox();
             DB669Output8 = new System.Windows.Forms.TextBox();
@@ -186,6 +208,7 @@
             label45 = new System.Windows.Forms.Label();
             label86 = new System.Windows.Forms.Label();
             tabPage2 = new System.Windows.Forms.TabPage();
+            pictureBox2 = new System.Windows.Forms.PictureBox();
             textBox18 = new System.Windows.Forms.TextBox();
             textBox17 = new System.Windows.Forms.TextBox();
             label70 = new System.Windows.Forms.Label();
@@ -195,25 +218,21 @@
             button5 = new System.Windows.Forms.Button();
             button4 = new System.Windows.Forms.Button();
             tabPage1 = new System.Windows.Forms.TabPage();
-            formsPlot1 = new ScottPlot.WinForms.FormsPlot();
-            textBox19 = new System.Windows.Forms.TextBox();
-            label18 = new System.Windows.Forms.Label();
+            listView2 = new System.Windows.Forms.ListView();
+            columnHeader5 = new System.Windows.Forms.ColumnHeader();
+            button8 = new System.Windows.Forms.Button();
             label21 = new System.Windows.Forms.Label();
-            label23 = new System.Windows.Forms.Label();
+            formsPlot1 = new ScottPlot.WinForms.FormsPlot();
+            label18 = new System.Windows.Forms.Label();
             textBox14 = new System.Windows.Forms.TextBox();
             textBox3 = new System.Windows.Forms.TextBox();
-            textBox20 = new System.Windows.Forms.TextBox();
             textBox2 = new System.Windows.Forms.TextBox();
             label17 = new System.Windows.Forms.Label();
-            label25 = new System.Windows.Forms.Label();
             label16 = new System.Windows.Forms.Label();
             label15 = new System.Windows.Forms.Label();
-            textBox21 = new System.Windows.Forms.TextBox();
             label12 = new System.Windows.Forms.Label();
             label11 = new System.Windows.Forms.Label();
             label10 = new System.Windows.Forms.Label();
-            label67 = new System.Windows.Forms.Label();
-            textBox22 = new System.Windows.Forms.TextBox();
             label19 = new System.Windows.Forms.Label();
             label14 = new System.Windows.Forms.Label();
             tabControl1 = new System.Windows.Forms.TabControl();
@@ -243,6 +262,7 @@
             Poprzednia.SuspendLayout();
             tabPage8.SuspendLayout();
             tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             tabPage1.SuspendLayout();
             tabControl1.SuspendLayout();
             SuspendLayout();
@@ -351,6 +371,7 @@
             // 
             // listAlarmView
             // 
+            listAlarmView.Alignment = System.Windows.Forms.ListViewAlignment.Default;
             listAlarmView.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             listAlarmView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { columnHeader4 });
             listAlarmView.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 238);
@@ -359,6 +380,7 @@
             listAlarmView.MultiSelect = false;
             listAlarmView.Name = "listAlarmView";
             listAlarmView.Size = new System.Drawing.Size(1280, 67);
+            listAlarmView.Sorting = System.Windows.Forms.SortOrder.Descending;
             listAlarmView.TabIndex = 104;
             listAlarmView.TileSize = new System.Drawing.Size(1200, 40);
             listAlarmView.UseCompatibleStateImageBehavior = false;
@@ -367,7 +389,7 @@
             // columnHeader4
             // 
             columnHeader4.Text = "";
-            columnHeader4.Width = 672;
+            columnHeader4.Width = 1000;
             // 
             // label57
             // 
@@ -389,7 +411,7 @@
             listBox1.BackColor = System.Drawing.Color.LawnGreen;
             listBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             listBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 238);
-            listBox1.ForeColor = System.Drawing.SystemColors.InfoText;
+            listBox1.ForeColor = System.Drawing.SystemColors.Desktop;
             listBox1.FormattingEnabled = true;
             listBox1.IntegralHeight = false;
             listBox1.ItemHeight = 49;
@@ -466,7 +488,7 @@
             label48.AutoSize = true;
             label48.BackColor = System.Drawing.Color.White;
             label48.Font = new System.Drawing.Font("Segoe UI", 11.25F);
-            label48.Location = new System.Drawing.Point(907, 224);
+            label48.Location = new System.Drawing.Point(910, 269);
             label48.Name = "label48";
             label48.Size = new System.Drawing.Size(81, 20);
             label48.TabIndex = 118;
@@ -476,7 +498,7 @@
             // 
             textBox8.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
             textBox8.Enabled = false;
-            textBox8.Location = new System.Drawing.Point(1001, 223);
+            textBox8.Location = new System.Drawing.Point(1000, 260);
             textBox8.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             textBox8.Name = "textBox8";
             textBox8.Size = new System.Drawing.Size(44, 29);
@@ -489,7 +511,7 @@
             label49.AutoSize = true;
             label49.BackColor = System.Drawing.Color.White;
             label49.Font = new System.Drawing.Font("Segoe UI", 11.25F);
-            label49.Location = new System.Drawing.Point(907, 195);
+            label49.Location = new System.Drawing.Point(910, 225);
             label49.Name = "label49";
             label49.Size = new System.Drawing.Size(81, 20);
             label49.TabIndex = 120;
@@ -499,7 +521,7 @@
             // 
             textBox9.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
             textBox9.Enabled = false;
-            textBox9.Location = new System.Drawing.Point(1000, 194);
+            textBox9.Location = new System.Drawing.Point(1000, 225);
             textBox9.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             textBox9.Name = "textBox9";
             textBox9.Size = new System.Drawing.Size(44, 29);
@@ -512,7 +534,7 @@
             label64.AutoSize = true;
             label64.BackColor = System.Drawing.Color.White;
             label64.Font = new System.Drawing.Font("Segoe UI", 11.25F);
-            label64.Location = new System.Drawing.Point(907, 170);
+            label64.Location = new System.Drawing.Point(906, 183);
             label64.Name = "label64";
             label64.Size = new System.Drawing.Size(63, 20);
             label64.TabIndex = 122;
@@ -522,7 +544,7 @@
             // 
             textBox10.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
             textBox10.Enabled = false;
-            textBox10.Location = new System.Drawing.Point(1000, 167);
+            textBox10.Location = new System.Drawing.Point(1000, 174);
             textBox10.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             textBox10.Name = "textBox10";
             textBox10.Size = new System.Drawing.Size(44, 29);
@@ -571,7 +593,7 @@
             listView1.ForeColor = System.Drawing.SystemColors.InfoText;
             listView1.FullRowSelect = true;
             listView1.GridLines = true;
-            listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] { listViewItem1 });
+            listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] { listViewItem3 });
             listView1.Location = new System.Drawing.Point(4, 3);
             listView1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             listView1.Name = "listView1";
@@ -588,12 +610,12 @@
             // columnHeader2
             // 
             columnHeader2.Text = "PLC TAG";
-            columnHeader2.Width = 150;
+            columnHeader2.Width = 200;
             // 
             // columnHeader3
             // 
             columnHeader3.Text = "NAZWA ALARMU";
-            columnHeader3.Width = 750;
+            columnHeader3.Width = 800;
             // 
             // tabPage9
             // 
@@ -621,8 +643,18 @@
             // 
             // tabPage10
             // 
+            tabPage10.Controls.Add(label96);
+            tabPage10.Controls.Add(label95);
+            tabPage10.Controls.Add(label94);
+            tabPage10.Controls.Add(label93);
+            tabPage10.Controls.Add(label92);
+            tabPage10.Controls.Add(label91);
+            tabPage10.Controls.Add(label90);
+            tabPage10.Controls.Add(label89);
+            tabPage10.Controls.Add(label88);
+            tabPage10.Controls.Add(label87);
+            tabPage10.Controls.Add(Input0);
             tabPage10.Controls.Add(DB669Input10);
-            tabPage10.Controls.Add(button8);
             tabPage10.Controls.Add(DB669Input9);
             tabPage10.Controls.Add(DB669Input8);
             tabPage10.Controls.Add(DB669Input7);
@@ -642,126 +674,226 @@
             tabPage10.Text = "WEJŚCIA";
             tabPage10.UseVisualStyleBackColor = true;
             // 
+            // label96
+            // 
+            label96.AutoSize = true;
+            label96.Location = new System.Drawing.Point(462, 13);
+            label96.Name = "label96";
+            label96.Size = new System.Drawing.Size(64, 21);
+            label96.TabIndex = 21;
+            label96.Text = "Input10";
+            // 
+            // label95
+            // 
+            label95.AutoSize = true;
+            label95.Location = new System.Drawing.Point(65, 463);
+            label95.Name = "label95";
+            label95.Size = new System.Drawing.Size(55, 21);
+            label95.TabIndex = 20;
+            label95.Text = "Input9";
+            // 
+            // label94
+            // 
+            label94.AutoSize = true;
+            label94.Location = new System.Drawing.Point(65, 413);
+            label94.Name = "label94";
+            label94.Size = new System.Drawing.Size(55, 21);
+            label94.TabIndex = 19;
+            label94.Text = "Input8";
+            // 
+            // label93
+            // 
+            label93.AutoSize = true;
+            label93.Location = new System.Drawing.Point(65, 363);
+            label93.Name = "label93";
+            label93.Size = new System.Drawing.Size(55, 21);
+            label93.TabIndex = 18;
+            label93.Text = "Input7";
+            // 
+            // label92
+            // 
+            label92.AutoSize = true;
+            label92.Location = new System.Drawing.Point(65, 313);
+            label92.Name = "label92";
+            label92.Size = new System.Drawing.Size(55, 21);
+            label92.TabIndex = 17;
+            label92.Text = "Input6";
+            // 
+            // label91
+            // 
+            label91.AutoSize = true;
+            label91.Location = new System.Drawing.Point(65, 263);
+            label91.Name = "label91";
+            label91.Size = new System.Drawing.Size(55, 21);
+            label91.TabIndex = 16;
+            label91.Text = "Input5";
+            // 
+            // label90
+            // 
+            label90.AutoSize = true;
+            label90.Location = new System.Drawing.Point(65, 213);
+            label90.Name = "label90";
+            label90.Size = new System.Drawing.Size(55, 21);
+            label90.TabIndex = 15;
+            label90.Text = "Input4";
+            // 
+            // label89
+            // 
+            label89.AutoSize = true;
+            label89.Location = new System.Drawing.Point(65, 163);
+            label89.Name = "label89";
+            label89.Size = new System.Drawing.Size(55, 21);
+            label89.TabIndex = 14;
+            label89.Text = "Input3";
+            // 
+            // label88
+            // 
+            label88.AutoSize = true;
+            label88.Location = new System.Drawing.Point(65, 113);
+            label88.Name = "label88";
+            label88.Size = new System.Drawing.Size(55, 21);
+            label88.TabIndex = 13;
+            label88.Text = "Input2";
+            // 
+            // label87
+            // 
+            label87.AutoSize = true;
+            label87.Location = new System.Drawing.Point(65, 63);
+            label87.Name = "label87";
+            label87.Size = new System.Drawing.Size(55, 21);
+            label87.TabIndex = 12;
+            label87.Text = "Input1";
+            // 
+            // Input0
+            // 
+            Input0.AutoSize = true;
+            Input0.Location = new System.Drawing.Point(65, 13);
+            Input0.Name = "Input0";
+            Input0.Size = new System.Drawing.Size(55, 21);
+            Input0.TabIndex = 11;
+            Input0.Text = "Input0";
+            // 
             // DB669Input10
             // 
             DB669Input10.Enabled = false;
-            DB669Input10.Location = new System.Drawing.Point(284, 38);
+            DB669Input10.Location = new System.Drawing.Point(400, 10);
             DB669Input10.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             DB669Input10.Name = "DB669Input10";
-            DB669Input10.Size = new System.Drawing.Size(23, 29);
+            DB669Input10.Size = new System.Drawing.Size(30, 29);
             DB669Input10.TabIndex = 10;
-            // 
-            // button8
-            // 
-            button8.Location = new System.Drawing.Point(93, 260);
-            button8.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            button8.Name = "button8";
-            button8.Size = new System.Drawing.Size(88, 27);
-            button8.TabIndex = 1;
-            button8.Text = "Zmień kolor";
-            button8.UseVisualStyleBackColor = true;
             // 
             // DB669Input9
             // 
             DB669Input9.Enabled = false;
-            DB669Input9.Location = new System.Drawing.Point(284, 8);
+            DB669Input9.Location = new System.Drawing.Point(10, 460);
             DB669Input9.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             DB669Input9.Name = "DB669Input9";
-            DB669Input9.Size = new System.Drawing.Size(23, 29);
+            DB669Input9.Size = new System.Drawing.Size(30, 29);
             DB669Input9.TabIndex = 9;
             // 
             // DB669Input8
             // 
             DB669Input8.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             DB669Input8.Enabled = false;
-            DB669Input8.Location = new System.Drawing.Point(8, 263);
+            DB669Input8.Location = new System.Drawing.Point(10, 410);
             DB669Input8.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             DB669Input8.Name = "DB669Input8";
-            DB669Input8.Size = new System.Drawing.Size(23, 29);
+            DB669Input8.Size = new System.Drawing.Size(30, 29);
             DB669Input8.TabIndex = 8;
             // 
             // DB669Input7
             // 
             DB669Input7.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             DB669Input7.Enabled = false;
-            DB669Input7.Location = new System.Drawing.Point(8, 232);
+            DB669Input7.Location = new System.Drawing.Point(10, 360);
             DB669Input7.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             DB669Input7.Name = "DB669Input7";
-            DB669Input7.Size = new System.Drawing.Size(23, 29);
+            DB669Input7.Size = new System.Drawing.Size(30, 29);
             DB669Input7.TabIndex = 7;
             // 
             // DB669Input6
             // 
             DB669Input6.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             DB669Input6.Enabled = false;
-            DB669Input6.Location = new System.Drawing.Point(8, 202);
+            DB669Input6.Location = new System.Drawing.Point(10, 310);
             DB669Input6.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             DB669Input6.Name = "DB669Input6";
-            DB669Input6.Size = new System.Drawing.Size(23, 29);
+            DB669Input6.Size = new System.Drawing.Size(30, 29);
             DB669Input6.TabIndex = 6;
             // 
             // DB669Input5
             // 
             DB669Input5.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             DB669Input5.Enabled = false;
-            DB669Input5.Location = new System.Drawing.Point(8, 172);
+            DB669Input5.Location = new System.Drawing.Point(10, 260);
             DB669Input5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             DB669Input5.Name = "DB669Input5";
-            DB669Input5.Size = new System.Drawing.Size(23, 29);
+            DB669Input5.Size = new System.Drawing.Size(30, 29);
             DB669Input5.TabIndex = 5;
             // 
             // DB669Input4
             // 
             DB669Input4.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             DB669Input4.Enabled = false;
-            DB669Input4.Location = new System.Drawing.Point(8, 132);
+            DB669Input4.Location = new System.Drawing.Point(10, 210);
             DB669Input4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             DB669Input4.Name = "DB669Input4";
-            DB669Input4.Size = new System.Drawing.Size(23, 29);
+            DB669Input4.Size = new System.Drawing.Size(30, 29);
             DB669Input4.TabIndex = 4;
             // 
             // DB669Input3
             // 
             DB669Input3.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             DB669Input3.Enabled = false;
-            DB669Input3.Location = new System.Drawing.Point(8, 95);
+            DB669Input3.Location = new System.Drawing.Point(10, 160);
             DB669Input3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             DB669Input3.Name = "DB669Input3";
-            DB669Input3.Size = new System.Drawing.Size(23, 29);
+            DB669Input3.Size = new System.Drawing.Size(30, 29);
             DB669Input3.TabIndex = 3;
             // 
             // DB669Input2
             // 
             DB669Input2.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             DB669Input2.Enabled = false;
-            DB669Input2.Location = new System.Drawing.Point(8, 68);
+            DB669Input2.Location = new System.Drawing.Point(10, 110);
             DB669Input2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             DB669Input2.Name = "DB669Input2";
-            DB669Input2.Size = new System.Drawing.Size(23, 29);
+            DB669Input2.Size = new System.Drawing.Size(30, 29);
             DB669Input2.TabIndex = 2;
             // 
             // DB669Input1
             // 
             DB669Input1.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             DB669Input1.Enabled = false;
-            DB669Input1.Location = new System.Drawing.Point(8, 38);
+            DB669Input1.Location = new System.Drawing.Point(10, 60);
             DB669Input1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             DB669Input1.Name = "DB669Input1";
-            DB669Input1.Size = new System.Drawing.Size(23, 29);
+            DB669Input1.Size = new System.Drawing.Size(30, 29);
             DB669Input1.TabIndex = 1;
             // 
             // DB669Input0
             // 
             DB669Input0.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             DB669Input0.Enabled = false;
-            DB669Input0.Location = new System.Drawing.Point(8, 8);
+            DB669Input0.Location = new System.Drawing.Point(10, 10);
             DB669Input0.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             DB669Input0.Name = "DB669Input0";
-            DB669Input0.Size = new System.Drawing.Size(23, 29);
+            DB669Input0.Size = new System.Drawing.Size(30, 29);
             DB669Input0.TabIndex = 0;
             // 
             // tabPage11
             // 
+            tabPage11.Controls.Add(label108);
+            tabPage11.Controls.Add(label97);
+            tabPage11.Controls.Add(label98);
+            tabPage11.Controls.Add(label99);
+            tabPage11.Controls.Add(label100);
+            tabPage11.Controls.Add(label101);
+            tabPage11.Controls.Add(label103);
+            tabPage11.Controls.Add(label104);
+            tabPage11.Controls.Add(label105);
+            tabPage11.Controls.Add(label106);
+            tabPage11.Controls.Add(label107);
             tabPage11.Controls.Add(DB669Output10);
             tabPage11.Controls.Add(DB669Output9);
             tabPage11.Controls.Add(DB669Output8);
@@ -782,103 +914,202 @@
             tabPage11.Text = "WYJŚCIA";
             tabPage11.UseVisualStyleBackColor = true;
             // 
+            // label108
+            // 
+            label108.AutoSize = true;
+            label108.Location = new System.Drawing.Point(476, 13);
+            label108.Name = "label108";
+            label108.Size = new System.Drawing.Size(77, 21);
+            label108.TabIndex = 32;
+            label108.Text = "Output10";
+            // 
+            // label97
+            // 
+            label97.AutoSize = true;
+            label97.Location = new System.Drawing.Point(76, 463);
+            label97.Name = "label97";
+            label97.Size = new System.Drawing.Size(68, 21);
+            label97.TabIndex = 31;
+            label97.Text = "Output9";
+            // 
+            // label98
+            // 
+            label98.AutoSize = true;
+            label98.Location = new System.Drawing.Point(76, 413);
+            label98.Name = "label98";
+            label98.Size = new System.Drawing.Size(68, 21);
+            label98.TabIndex = 30;
+            label98.Text = "Output8";
+            // 
+            // label99
+            // 
+            label99.AutoSize = true;
+            label99.Location = new System.Drawing.Point(76, 363);
+            label99.Name = "label99";
+            label99.Size = new System.Drawing.Size(68, 21);
+            label99.TabIndex = 29;
+            label99.Text = "Output7";
+            // 
+            // label100
+            // 
+            label100.AutoSize = true;
+            label100.Location = new System.Drawing.Point(76, 313);
+            label100.Name = "label100";
+            label100.Size = new System.Drawing.Size(68, 21);
+            label100.TabIndex = 28;
+            label100.Text = "Output6";
+            // 
+            // label101
+            // 
+            label101.AutoSize = true;
+            label101.Location = new System.Drawing.Point(76, 263);
+            label101.Name = "label101";
+            label101.Size = new System.Drawing.Size(68, 21);
+            label101.TabIndex = 27;
+            label101.Text = "Output5";
+            // 
+            // label103
+            // 
+            label103.AutoSize = true;
+            label103.Location = new System.Drawing.Point(76, 213);
+            label103.Name = "label103";
+            label103.Size = new System.Drawing.Size(68, 21);
+            label103.TabIndex = 26;
+            label103.Text = "Output4";
+            // 
+            // label104
+            // 
+            label104.AutoSize = true;
+            label104.Location = new System.Drawing.Point(76, 163);
+            label104.Name = "label104";
+            label104.Size = new System.Drawing.Size(68, 21);
+            label104.TabIndex = 25;
+            label104.Text = "Output3";
+            // 
+            // label105
+            // 
+            label105.AutoSize = true;
+            label105.Location = new System.Drawing.Point(76, 113);
+            label105.Name = "label105";
+            label105.Size = new System.Drawing.Size(68, 21);
+            label105.TabIndex = 24;
+            label105.Text = "Output2";
+            // 
+            // label106
+            // 
+            label106.AutoSize = true;
+            label106.Location = new System.Drawing.Point(76, 63);
+            label106.Name = "label106";
+            label106.Size = new System.Drawing.Size(68, 21);
+            label106.TabIndex = 23;
+            label106.Text = "Output1";
+            // 
+            // label107
+            // 
+            label107.AutoSize = true;
+            label107.Location = new System.Drawing.Point(76, 13);
+            label107.Name = "label107";
+            label107.Size = new System.Drawing.Size(68, 21);
+            label107.TabIndex = 22;
+            label107.Text = "Output0";
+            // 
             // DB669Output10
             // 
             DB669Output10.Enabled = false;
-            DB669Output10.Location = new System.Drawing.Point(321, 37);
+            DB669Output10.Location = new System.Drawing.Point(400, 10);
             DB669Output10.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             DB669Output10.Name = "DB669Output10";
-            DB669Output10.Size = new System.Drawing.Size(23, 29);
+            DB669Output10.Size = new System.Drawing.Size(30, 29);
             DB669Output10.TabIndex = 21;
             // 
             // DB669Output9
             // 
             DB669Output9.Enabled = false;
-            DB669Output9.Location = new System.Drawing.Point(321, 7);
+            DB669Output9.Location = new System.Drawing.Point(10, 460);
             DB669Output9.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             DB669Output9.Name = "DB669Output9";
-            DB669Output9.Size = new System.Drawing.Size(23, 29);
+            DB669Output9.Size = new System.Drawing.Size(30, 29);
             DB669Output9.TabIndex = 20;
             // 
             // DB669Output8
             // 
             DB669Output8.Enabled = false;
-            DB669Output8.Location = new System.Drawing.Point(7, 252);
+            DB669Output8.Location = new System.Drawing.Point(10, 410);
             DB669Output8.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             DB669Output8.Name = "DB669Output8";
-            DB669Output8.Size = new System.Drawing.Size(23, 29);
+            DB669Output8.Size = new System.Drawing.Size(30, 29);
             DB669Output8.TabIndex = 19;
             // 
             // DB669Output7
             // 
             DB669Output7.Enabled = false;
-            DB669Output7.Location = new System.Drawing.Point(7, 220);
+            DB669Output7.Location = new System.Drawing.Point(10, 360);
             DB669Output7.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             DB669Output7.Name = "DB669Output7";
-            DB669Output7.Size = new System.Drawing.Size(23, 29);
+            DB669Output7.Size = new System.Drawing.Size(30, 29);
             DB669Output7.TabIndex = 18;
             // 
             // DB669Output6
             // 
             DB669Output6.Enabled = false;
-            DB669Output6.Location = new System.Drawing.Point(7, 189);
+            DB669Output6.Location = new System.Drawing.Point(10, 310);
             DB669Output6.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             DB669Output6.Name = "DB669Output6";
-            DB669Output6.Size = new System.Drawing.Size(23, 29);
+            DB669Output6.Size = new System.Drawing.Size(30, 29);
             DB669Output6.TabIndex = 17;
             // 
             // DB669Output5
             // 
             DB669Output5.Enabled = false;
-            DB669Output5.Location = new System.Drawing.Point(7, 158);
+            DB669Output5.Location = new System.Drawing.Point(10, 260);
             DB669Output5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             DB669Output5.Name = "DB669Output5";
-            DB669Output5.Size = new System.Drawing.Size(23, 29);
+            DB669Output5.Size = new System.Drawing.Size(30, 29);
             DB669Output5.TabIndex = 16;
             // 
             // DB669Output4
             // 
             DB669Output4.Enabled = false;
-            DB669Output4.Location = new System.Drawing.Point(7, 128);
+            DB669Output4.Location = new System.Drawing.Point(10, 210);
             DB669Output4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             DB669Output4.Name = "DB669Output4";
-            DB669Output4.Size = new System.Drawing.Size(23, 29);
+            DB669Output4.Size = new System.Drawing.Size(30, 29);
             DB669Output4.TabIndex = 15;
             // 
             // DB669Output3
             // 
             DB669Output3.Enabled = false;
-            DB669Output3.Location = new System.Drawing.Point(7, 98);
+            DB669Output3.Location = new System.Drawing.Point(10, 160);
             DB669Output3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             DB669Output3.Name = "DB669Output3";
-            DB669Output3.Size = new System.Drawing.Size(23, 29);
+            DB669Output3.Size = new System.Drawing.Size(30, 29);
             DB669Output3.TabIndex = 14;
             // 
             // DB669Output2
             // 
             DB669Output2.Enabled = false;
-            DB669Output2.Location = new System.Drawing.Point(7, 67);
+            DB669Output2.Location = new System.Drawing.Point(10, 110);
             DB669Output2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             DB669Output2.Name = "DB669Output2";
-            DB669Output2.Size = new System.Drawing.Size(23, 29);
+            DB669Output2.Size = new System.Drawing.Size(30, 29);
             DB669Output2.TabIndex = 13;
             // 
             // DB669Output1
             // 
             DB669Output1.Enabled = false;
-            DB669Output1.Location = new System.Drawing.Point(7, 37);
+            DB669Output1.Location = new System.Drawing.Point(10, 60);
             DB669Output1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             DB669Output1.Name = "DB669Output1";
-            DB669Output1.Size = new System.Drawing.Size(23, 29);
+            DB669Output1.Size = new System.Drawing.Size(30, 29);
             DB669Output1.TabIndex = 12;
             // 
             // DB669Output0
             // 
             DB669Output0.Enabled = false;
-            DB669Output0.Location = new System.Drawing.Point(7, 7);
+            DB669Output0.Location = new System.Drawing.Point(10, 10);
             DB669Output0.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             DB669Output0.Name = "DB669Output0";
-            DB669Output0.Size = new System.Drawing.Size(23, 29);
+            DB669Output0.Size = new System.Drawing.Size(30, 29);
             DB669Output0.TabIndex = 11;
             // 
             // tabPage6
@@ -1402,7 +1633,7 @@
             DB666Tag21.Location = new System.Drawing.Point(695, 360);
             DB666Tag21.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             DB666Tag21.Name = "DB666Tag21";
-            DB666Tag21.Size = new System.Drawing.Size(44, 29);
+            DB666Tag21.Size = new System.Drawing.Size(75, 29);
             DB666Tag21.TabIndex = 147;
             DB666Tag21.Tag = "DB666.Tag21";
             // 
@@ -1444,7 +1675,7 @@
             DB666Tag20.Location = new System.Drawing.Point(695, 314);
             DB666Tag20.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             DB666Tag20.Name = "DB666Tag20";
-            DB666Tag20.Size = new System.Drawing.Size(44, 29);
+            DB666Tag20.Size = new System.Drawing.Size(75, 29);
             DB666Tag20.TabIndex = 146;
             DB666Tag20.Tag = "DB666.Tag20";
             // 
@@ -1477,7 +1708,7 @@
             DB666Tag22.Location = new System.Drawing.Point(695, 258);
             DB666Tag22.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             DB666Tag22.Name = "DB666Tag22";
-            DB666Tag22.Size = new System.Drawing.Size(44, 29);
+            DB666Tag22.Size = new System.Drawing.Size(75, 29);
             DB666Tag22.TabIndex = 150;
             DB666Tag22.Tag = "DB666.Tag22";
             // 
@@ -1497,7 +1728,7 @@
             DB666Tag2.Location = new System.Drawing.Point(695, 108);
             DB666Tag2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             DB666Tag2.Name = "DB666Tag2";
-            DB666Tag2.Size = new System.Drawing.Size(44, 29);
+            DB666Tag2.Size = new System.Drawing.Size(75, 29);
             DB666Tag2.TabIndex = 56;
             DB666Tag2.Tag = "DB666.Tag2";
             // 
@@ -1517,7 +1748,7 @@
             DB666Tag19.Location = new System.Drawing.Point(695, 204);
             DB666Tag19.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             DB666Tag19.Name = "DB666Tag19";
-            DB666Tag19.Size = new System.Drawing.Size(44, 29);
+            DB666Tag19.Size = new System.Drawing.Size(75, 29);
             DB666Tag19.TabIndex = 149;
             DB666Tag19.Tag = "DB666.Tag19";
             // 
@@ -1548,7 +1779,7 @@
             DB666Tag18.Location = new System.Drawing.Point(695, 155);
             DB666Tag18.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             DB666Tag18.Name = "DB666Tag18";
-            DB666Tag18.Size = new System.Drawing.Size(44, 29);
+            DB666Tag18.Size = new System.Drawing.Size(75, 29);
             DB666Tag18.TabIndex = 148;
             DB666Tag18.Tag = "DB666.Tag18";
             // 
@@ -1557,7 +1788,7 @@
             DB666Tag14.Location = new System.Drawing.Point(391, 387);
             DB666Tag14.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             DB666Tag14.Name = "DB666Tag14";
-            DB666Tag14.Size = new System.Drawing.Size(48, 29);
+            DB666Tag14.Size = new System.Drawing.Size(75, 29);
             DB666Tag14.TabIndex = 135;
             DB666Tag14.Tag = "DB666.Tag14";
             // 
@@ -1588,7 +1819,7 @@
             DB666Tag3.Location = new System.Drawing.Point(391, 105);
             DB666Tag3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             DB666Tag3.Name = "DB666Tag3";
-            DB666Tag3.Size = new System.Drawing.Size(48, 29);
+            DB666Tag3.Size = new System.Drawing.Size(75, 29);
             DB666Tag3.TabIndex = 61;
             DB666Tag3.Tag = "DB666.Tag3";
             // 
@@ -1619,7 +1850,7 @@
             DB666Tag7.Location = new System.Drawing.Point(391, 338);
             DB666Tag7.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             DB666Tag7.Name = "DB666Tag7";
-            DB666Tag7.Size = new System.Drawing.Size(48, 29);
+            DB666Tag7.Size = new System.Drawing.Size(75, 29);
             DB666Tag7.TabIndex = 133;
             DB666Tag7.Tag = "DB666.Tag7";
             // 
@@ -1661,7 +1892,7 @@
             DB666Tag15.Location = new System.Drawing.Point(391, 298);
             DB666Tag15.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             DB666Tag15.Name = "DB666Tag15";
-            DB666Tag15.Size = new System.Drawing.Size(48, 29);
+            DB666Tag15.Size = new System.Drawing.Size(75, 29);
             DB666Tag15.TabIndex = 63;
             DB666Tag15.Tag = "DB666.Tag15";
             // 
@@ -1692,7 +1923,7 @@
             DB666Tag5.Location = new System.Drawing.Point(391, 197);
             DB666Tag5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             DB666Tag5.Name = "DB666Tag5";
-            DB666Tag5.Size = new System.Drawing.Size(48, 29);
+            DB666Tag5.Size = new System.Drawing.Size(75, 29);
             DB666Tag5.TabIndex = 62;
             DB666Tag5.Tag = "DB666.Tag5";
             // 
@@ -1701,7 +1932,7 @@
             DB666Tag6.Location = new System.Drawing.Point(391, 252);
             DB666Tag6.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             DB666Tag6.Name = "DB666Tag6";
-            DB666Tag6.Size = new System.Drawing.Size(48, 29);
+            DB666Tag6.Size = new System.Drawing.Size(75, 29);
             DB666Tag6.TabIndex = 130;
             DB666Tag6.Tag = "DB666.Tag6";
             // 
@@ -1710,7 +1941,7 @@
             DB666Tag4.Location = new System.Drawing.Point(391, 149);
             DB666Tag4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             DB666Tag4.Name = "DB666Tag4";
-            DB666Tag4.Size = new System.Drawing.Size(48, 29);
+            DB666Tag4.Size = new System.Drawing.Size(75, 29);
             DB666Tag4.TabIndex = 57;
             DB666Tag4.Tag = "DB666.Tag4";
             // 
@@ -1843,7 +2074,7 @@
             label7.Location = new System.Drawing.Point(7, 66);
             label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label7.Name = "label7";
-            label7.Size = new System.Drawing.Size(220, 135);
+            label7.Size = new System.Drawing.Size(220, 406);
             label7.TabIndex = 157;
             label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -1985,12 +2216,13 @@
             label86.Location = new System.Drawing.Point(235, 101);
             label86.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label86.Name = "label86";
-            label86.Size = new System.Drawing.Size(1004, 98);
+            label86.Size = new System.Drawing.Size(1004, 371);
             label86.TabIndex = 158;
             label86.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tabPage2
             // 
+            tabPage2.Controls.Add(pictureBox2);
             tabPage2.Controls.Add(textBox18);
             tabPage2.Controls.Add(textBox17);
             tabPage2.Controls.Add(label70);
@@ -2008,6 +2240,20 @@
             tabPage2.Text = "MANUAL";
             tabPage2.UseVisualStyleBackColor = true;
             // 
+            // pictureBox2
+            // 
+            pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            pictureBox2.BackColor = System.Drawing.Color.Transparent;
+            pictureBox2.BackgroundImage = (System.Drawing.Image)resources.GetObject("pictureBox2.BackgroundImage");
+            pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            pictureBox2.InitialImage = null;
+            pictureBox2.Location = new System.Drawing.Point(866, 18);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new System.Drawing.Size(375, 515);
+            pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 182;
+            pictureBox2.TabStop = false;
+            // 
             // textBox18
             // 
             textBox18.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
@@ -2022,7 +2268,7 @@
             // 
             textBox17.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             textBox17.Enabled = false;
-            textBox17.Location = new System.Drawing.Point(133, 37);
+            textBox17.Location = new System.Drawing.Point(133, 38);
             textBox17.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             textBox17.Name = "textBox17";
             textBox17.Size = new System.Drawing.Size(29, 29);
@@ -2042,7 +2288,7 @@
             // 
             label69.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             label69.AutoSize = true;
-            label69.Location = new System.Drawing.Point(116, 18);
+            label69.Location = new System.Drawing.Point(122, 18);
             label69.Name = "label69";
             label69.Size = new System.Drawing.Size(63, 21);
             label69.TabIndex = 178;
@@ -2074,7 +2320,7 @@
             button5.Location = new System.Drawing.Point(21, 35);
             button5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             button5.Name = "button5";
-            button5.Size = new System.Drawing.Size(88, 27);
+            button5.Size = new System.Drawing.Size(101, 32);
             button5.TabIndex = 1;
             button5.Tag = "DB667.NrOfDeviceToControl";
             button5.Text = "Siłownik";
@@ -2086,7 +2332,7 @@
             button4.Location = new System.Drawing.Point(21, 98);
             button4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             button4.Name = "button4";
-            button4.Size = new System.Drawing.Size(88, 27);
+            button4.Size = new System.Drawing.Size(101, 33);
             button4.TabIndex = 0;
             button4.Tag = "DB667.NrOfDeviceToControl";
             button4.Text = "Serwo";
@@ -2095,30 +2341,25 @@
             // 
             // tabPage1
             // 
-            tabPage1.Controls.Add(formsPlot1);
-            tabPage1.Controls.Add(textBox19);
-            tabPage1.Controls.Add(label18);
+            tabPage1.Controls.Add(listView2);
+            tabPage1.Controls.Add(button8);
             tabPage1.Controls.Add(label21);
-            tabPage1.Controls.Add(label23);
+            tabPage1.Controls.Add(formsPlot1);
+            tabPage1.Controls.Add(label18);
             tabPage1.Controls.Add(textBox14);
             tabPage1.Controls.Add(textBox8);
             tabPage1.Controls.Add(textBox3);
-            tabPage1.Controls.Add(textBox20);
             tabPage1.Controls.Add(textBox2);
             tabPage1.Controls.Add(label48);
             tabPage1.Controls.Add(label17);
-            tabPage1.Controls.Add(label25);
             tabPage1.Controls.Add(label16);
             tabPage1.Controls.Add(textBox9);
             tabPage1.Controls.Add(label15);
-            tabPage1.Controls.Add(textBox21);
             tabPage1.Controls.Add(label12);
             tabPage1.Controls.Add(label11);
             tabPage1.Controls.Add(label49);
             tabPage1.Controls.Add(label10);
-            tabPage1.Controls.Add(label67);
             tabPage1.Controls.Add(textBox10);
-            tabPage1.Controls.Add(textBox22);
             tabPage1.Controls.Add(label64);
             tabPage1.Controls.Add(label65);
             tabPage1.Controls.Add(textBox13);
@@ -2133,6 +2374,47 @@
             tabPage1.Text = "AUTO";
             tabPage1.UseVisualStyleBackColor = true;
             // 
+            // listView2
+            // 
+            listView2.Alignment = System.Windows.Forms.ListViewAlignment.Default;
+            listView2.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            listView2.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { columnHeader5 });
+            listView2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 238);
+            listView2.Location = new System.Drawing.Point(87, 132);
+            listView2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            listView2.MultiSelect = false;
+            listView2.Name = "listView2";
+            listView2.Size = new System.Drawing.Size(723, 177);
+            listView2.Sorting = System.Windows.Forms.SortOrder.Descending;
+            listView2.TabIndex = 177;
+            listView2.TileSize = new System.Drawing.Size(1200, 40);
+            listView2.UseCompatibleStateImageBehavior = false;
+            listView2.View = System.Windows.Forms.View.Tile;
+            // 
+            // columnHeader5
+            // 
+            columnHeader5.Text = "";
+            columnHeader5.Width = 1000;
+            // 
+            // button8
+            // 
+            button8.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            button8.Location = new System.Drawing.Point(385, 321);
+            button8.Name = "button8";
+            button8.Size = new System.Drawing.Size(110, 39);
+            button8.TabIndex = 187;
+            button8.Text = "OK";
+            button8.UseVisualStyleBackColor = true;
+            // 
+            // label21
+            // 
+            label21.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            label21.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            label21.Location = new System.Drawing.Point(72, 116);
+            label21.Name = "label21";
+            label21.Size = new System.Drawing.Size(750, 256);
+            label21.TabIndex = 186;
+            // 
             // formsPlot1
             // 
             formsPlot1.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
@@ -2140,21 +2422,10 @@
             formsPlot1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             formsPlot1.Cursor = System.Windows.Forms.Cursors.Cross;
             formsPlot1.DisplayScale = 1F;
-            formsPlot1.Location = new System.Drawing.Point(7, 6);
+            formsPlot1.Location = new System.Drawing.Point(8, 10);
             formsPlot1.Name = "formsPlot1";
-            formsPlot1.Size = new System.Drawing.Size(882, 529);
+            formsPlot1.Size = new System.Drawing.Size(882, 525);
             formsPlot1.TabIndex = 185;
-            // 
-            // textBox19
-            // 
-            textBox19.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
-            textBox19.Enabled = false;
-            textBox19.Location = new System.Drawing.Point(1213, 138);
-            textBox19.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            textBox19.Name = "textBox19";
-            textBox19.Size = new System.Drawing.Size(44, 29);
-            textBox19.TabIndex = 183;
-            textBox19.Tag = "";
             // 
             // label18
             // 
@@ -2169,30 +2440,6 @@
             label18.TabIndex = 159;
             label18.Text = "Aktualne dane";
             label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label21
-            // 
-            label21.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
-            label21.AutoSize = true;
-            label21.BackColor = System.Drawing.Color.White;
-            label21.Font = new System.Drawing.Font("Segoe UI", 11.25F);
-            label21.Location = new System.Drawing.Point(1121, 138);
-            label21.Name = "label21";
-            label21.Size = new System.Drawing.Size(62, 20);
-            label21.TabIndex = 184;
-            label21.Text = "Akt Sila:";
-            // 
-            // label23
-            // 
-            label23.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
-            label23.AutoSize = true;
-            label23.BackColor = System.Drawing.Color.White;
-            label23.Font = new System.Drawing.Font("Segoe UI", 11.25F);
-            label23.Location = new System.Drawing.Point(1121, 169);
-            label23.Name = "label23";
-            label23.Size = new System.Drawing.Size(63, 20);
-            label23.TabIndex = 182;
-            label23.Text = "Akt. sila:";
             // 
             // textBox14
             // 
@@ -2218,17 +2465,6 @@
             textBox3.TabIndex = 174;
             textBox3.Tag = "";
             // 
-            // textBox20
-            // 
-            textBox20.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
-            textBox20.Enabled = false;
-            textBox20.Location = new System.Drawing.Point(1214, 166);
-            textBox20.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            textBox20.Name = "textBox20";
-            textBox20.Size = new System.Drawing.Size(44, 29);
-            textBox20.TabIndex = 181;
-            textBox20.Tag = "";
-            // 
             // textBox2
             // 
             textBox2.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
@@ -2252,18 +2488,6 @@
             label17.TabIndex = 172;
             label17.Text = "Wszystkie";
             // 
-            // label25
-            // 
-            label25.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
-            label25.AutoSize = true;
-            label25.BackColor = System.Drawing.Color.White;
-            label25.Font = new System.Drawing.Font("Segoe UI", 11.25F);
-            label25.Location = new System.Drawing.Point(1121, 194);
-            label25.Name = "label25";
-            label25.Size = new System.Drawing.Size(81, 20);
-            label25.TabIndex = 180;
-            label25.Text = "Poz. serwo:";
-            // 
             // label16
             // 
             label16.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
@@ -2285,17 +2509,6 @@
             label15.Size = new System.Drawing.Size(77, 21);
             label15.TabIndex = 170;
             label15.Text = "Sztuki OK";
-            // 
-            // textBox21
-            // 
-            textBox21.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
-            textBox21.Enabled = false;
-            textBox21.Location = new System.Drawing.Point(1214, 193);
-            textBox21.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            textBox21.Name = "textBox21";
-            textBox21.Size = new System.Drawing.Size(44, 29);
-            textBox21.TabIndex = 179;
-            textBox21.Tag = "";
             // 
             // label12
             // 
@@ -2334,29 +2547,6 @@
             label10.Name = "label10";
             label10.Size = new System.Drawing.Size(164, 20);
             label10.TabIndex = 166;
-            // 
-            // label67
-            // 
-            label67.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
-            label67.AutoSize = true;
-            label67.BackColor = System.Drawing.Color.White;
-            label67.Font = new System.Drawing.Font("Segoe UI", 11.25F);
-            label67.Location = new System.Drawing.Point(1121, 223);
-            label67.Name = "label67";
-            label67.Size = new System.Drawing.Size(81, 20);
-            label67.TabIndex = 178;
-            label67.Text = "Poz. serwo:";
-            // 
-            // textBox22
-            // 
-            textBox22.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
-            textBox22.Enabled = false;
-            textBox22.Location = new System.Drawing.Point(1215, 222);
-            textBox22.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            textBox22.Name = "textBox22";
-            textBox22.Size = new System.Drawing.Size(44, 29);
-            textBox22.TabIndex = 177;
-            textBox22.Tag = "";
             // 
             // label19
             // 
@@ -2635,6 +2825,7 @@
             tabPage8.PerformLayout();
             tabPage2.ResumeLayout(false);
             tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             tabPage1.ResumeLayout(false);
             tabPage1.PerformLayout();
             tabControl1.ResumeLayout(false);
@@ -2680,7 +2871,6 @@
         private System.Windows.Forms.TabControl tabControl3;
         private System.Windows.Forms.TabPage tabPage10;
         public System.Windows.Forms.TextBox DB669Input10;
-        private System.Windows.Forms.Button button8;
         public System.Windows.Forms.TextBox DB669Input9;
         public System.Windows.Forms.TextBox DB669Input8;
         public System.Windows.Forms.TextBox DB669Input7;
@@ -2799,12 +2989,6 @@
         private System.Windows.Forms.Label label66;
         private System.Windows.Forms.Label label77;
         private System.Windows.Forms.Label label78;
-        private System.Windows.Forms.Label label79;
-        private System.Windows.Forms.Label label80;
-        private System.Windows.Forms.Label label81;
-        private System.Windows.Forms.Label label82;
-        private System.Windows.Forms.Label label83;
-        private System.Windows.Forms.Label label84;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label10;
         public System.Windows.Forms.Label label11;
@@ -2827,14 +3011,6 @@
         private System.Windows.Forms.Label label69;
         private System.Windows.Forms.Label label3;
         public System.Windows.Forms.Label label13;
-        public System.Windows.Forms.TextBox textBox19;
-        private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Label label23;
-        public System.Windows.Forms.TextBox textBox20;
-        private System.Windows.Forms.Label label25;
-        public System.Windows.Forms.TextBox textBox21;
-        private System.Windows.Forms.Label label67;
-        public System.Windows.Forms.TextBox textBox22;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Label label68;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
@@ -2844,6 +3020,39 @@
         private System.Windows.Forms.Label label86;
         public ScottPlot.WinForms.FormsPlot formsPlot1;
         public System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Label Input0;
+        private System.Windows.Forms.Label label96;
+        private System.Windows.Forms.Label label95;
+        private System.Windows.Forms.Label label94;
+        private System.Windows.Forms.Label label93;
+        private System.Windows.Forms.Label label92;
+        private System.Windows.Forms.Label label91;
+        private System.Windows.Forms.Label label90;
+        private System.Windows.Forms.Label label89;
+        private System.Windows.Forms.Label label88;
+        private System.Windows.Forms.Label label87;
+        private System.Windows.Forms.Label label108;
+        private System.Windows.Forms.Label label97;
+        private System.Windows.Forms.Label label98;
+        private System.Windows.Forms.Label label99;
+        private System.Windows.Forms.Label label100;
+        private System.Windows.Forms.Label label101;
+        private System.Windows.Forms.Label label103;
+        private System.Windows.Forms.Label label104;
+        private System.Windows.Forms.Label label105;
+        private System.Windows.Forms.Label label106;
+        private System.Windows.Forms.Label label107;
+        public System.Windows.Forms.Label label79;
+        public System.Windows.Forms.Label label80;
+        public System.Windows.Forms.Label label81;
+        public System.Windows.Forms.Label label82;
+        public System.Windows.Forms.Label label83;
+        public System.Windows.Forms.Label label84;
+        public System.Windows.Forms.Button button8;
+        public System.Windows.Forms.Label label21;
+        public System.Windows.Forms.ColumnHeader columnHeader5;
+        public System.Windows.Forms.ListView listView2;
+        public System.Windows.Forms.PictureBox pictureBox2;
     }
 }
 

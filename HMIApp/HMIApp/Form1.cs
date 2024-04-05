@@ -9,7 +9,7 @@ using HMIApp.Data;
 using Microsoft.EntityFrameworkCore;
 using Humanizer;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
-using HMIApp.MainChart;
+
 
 
 
@@ -21,7 +21,6 @@ namespace HMIApp
         App App = new App();
         UserAdministration Users = new UserAdministration();
         DataBase DataBase = new DataBase();
-        Chart Chart = new Chart();
         //Services do dependency injection
         ServiceCollection services = new ServiceCollection();
         ServiceProvider serviceProvider;
@@ -31,7 +30,7 @@ namespace HMIApp
         {
             InitializeComponent();
             _Form1 = this;
-            //zakomentowane do robienia apki bez plc
+            //zakomentuj ponizsze cztery metody do odpalenia apki bez PLC
             App.RunInitPLC();
             App.ReadAlarmsFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_2.csv");
             App.ReadIOFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_3.csv");
@@ -56,8 +55,9 @@ namespace HMIApp
 
             PassedValueControls.Run();
 
-
             App.CreateStaticPlot();
+
+
         }
         //statyczna zmienna typu Form1 zeby dostac sie z poziomu innej klasy do obiektow wewnatrz Form1
         public static Form1 _Form1;
@@ -81,7 +81,7 @@ namespace HMIApp
         }
 
 
-        //Dwa przyciski do obslugi zapisu/wczytaja referencji
+        //Zapisz referencje do bazy danych
         private void button1_Click(object sender, EventArgs e)
         {
             if (comboBox5.Text != null && comboBox5.Text != "")
@@ -93,6 +93,7 @@ namespace HMIApp
             App.CreateStaticPlot();
             formsPlot1.Refresh();
         }
+        //wczytaj referencje do PLC
         private void button10_Click(object sender, EventArgs e)
         {
             if (comboBox5.Text != null && comboBox5.Text != "")
@@ -132,19 +133,13 @@ namespace HMIApp
         //Timer co 10ms do oczytywania danych - sprobowac skrocic czas
         private void timer1_Tick(object sender, EventArgs e)
         {
-            //zakomentowane do robienia apki bez plc
+            //zakomentuj ponizsze dwie metody do odpalenia apki bez PLC
             App.ReadAlarmsFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_2.csv");
             App.ReadIOFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_3.csv");
             App.CreatePlot();
             //aktualizacja daty i godziny
             this.Text = DateTime.Now.ToString();
             label57.Text = this.Text;
-        }
-
-        //Cofniecie zmian dokonanych w karcie Dane - Modyfikowalne
-        private void button2_Click(object sender, EventArgs e)
-        {
-            App.ReadActualValueFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_1.csv");
         }
 
         //Zamkniecie aplikacji
@@ -154,7 +149,7 @@ namespace HMIApp
             Close();
         }
 
-        //Metoda do zmiany koloru buttona
+        //Metoda do zmiany koloru buttona do sterowania w trybie recznym
         int index = 0;
         private void ChangeColorOfButton(Control button)
         {
@@ -175,6 +170,8 @@ namespace HMIApp
         {
             App.WriteToDB("15", button4.Tag.ToString(), 1);
             ChangeColorOfButton(button4);
+            pictureBox2.Image = Image.FromFile("Resources/Machine/UkladPodnoszenia.png");
+            
         }
 
         //Testowy przycisk z karty Manual do wyslania komendy
@@ -182,6 +179,7 @@ namespace HMIApp
         {
             App.WriteToDB("11", button5.Tag.ToString(), 1);
             ChangeColorOfButton(button5);
+            pictureBox2.Image = Image.FromFile("Resources/Machine/ChwytakDolny.png");
         }
 
         //Przycisk wyzwalajacy zapis uzytkownika
@@ -211,7 +209,7 @@ namespace HMIApp
 
         }
 
-        //Przycisk zastepujacy event przyłożenia karty RFID d oczytnika
+        //Przycisk zastepujacy event przyłożenia karty RFID do czytnika
         private void button9_Click_1(object sender, EventArgs e)
         {
             Users.FindUserinXML();
@@ -242,7 +240,7 @@ namespace HMIApp
             }
         }
 
-        // PRZYCISK WYZWALAJACY ZAPIS
+        // PRZYCISK WYZWALAJACY ZAPIS referencji
         private void button13_Click(object sender, EventArgs e)
         {
             var database = serviceProvider.GetService<iDataBase>();
@@ -292,9 +290,5 @@ namespace HMIApp
             }
         }
 
-        private void button11_Click(object sender, EventArgs e)
-        {
-            formsPlot1.Plot.Clear();
-        }
     }
 }

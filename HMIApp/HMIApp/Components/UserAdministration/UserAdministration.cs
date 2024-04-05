@@ -37,19 +37,23 @@ namespace HMIApp.Components.UserAdministration
         {
             if ( UserIsLoggedIn )
             {
-                //Form1._Form1.button1.Enabled = true;
-                //Form1._Form1.button2.Enabled = true;
+                Form1._Form1.button1.Enabled = true;
+                Form1._Form1.button2.Enabled = true;
                 Form1._Form1.button3.Enabled = true;
                 Form1._Form1.button6.Enabled = true;
                 Form1._Form1.button7.Enabled = true;
+                Form1._Form1.button13.Enabled = true;
+                Form1._Form1.button10.Enabled = true;
             }
             else
             {
-                //Form1._Form1.button1.Enabled = false;
-                //Form1._Form1.button2.Enabled = false;
+                Form1._Form1.button1.Enabled = false;
+                Form1._Form1.button2.Enabled = false;
                 Form1._Form1.button3.Enabled = false;
                 Form1._Form1.button6.Enabled = false;
                 Form1._Form1.button7.Enabled = false;
+                Form1._Form1.button13.Enabled = false;
+                Form1._Form1.button10.Enabled = false;
             }
 
         }

@@ -78,12 +78,15 @@ namespace HMIApp
                                 return true;
                             }
                             Form1._Form1.textBox4.Text = ($"Error connecting to PLC: {libnodave.daveStrerror(num)} ");
+                            Form1._Form1.label84.BackColor = System.Drawing.Color.IndianRed;
                             return false;
                         }
                         Form1._Form1.textBox4.Text = ($"Error initAdapter socket,IP: {IP} port: {Port}");
+                        Form1._Form1.label84.BackColor = System.Drawing.Color.IndianRed;
                         return false;
                     }
                     Form1._Form1.textBox4.Text = ("Error opening socket, IP: {IP} port: {Port}");
+                    Form1._Form1.label84.BackColor = System.Drawing.Color.IndianRed;
                     return false;
                 }
                 Form1._Form1.textBox4.Text = ("Already connected");
