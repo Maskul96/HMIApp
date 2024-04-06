@@ -262,8 +262,8 @@ namespace HMIApp
         }
 
         //Tworzenie glownego wykresu
-        double[] ActX = new double[400];
-        double[] ActY = new double[400];
+        double[] ActX = new double[1000];
+        double[] ActY = new double[1000];
         public void CreatePlot()
         {
             ReadActualValueFromDBChart_Simplified("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_4.csv");
@@ -280,8 +280,9 @@ namespace HMIApp
                 CreateStaticPlot();
             }
             WriteSpecifiedValueFromReference();
-            if (StartChart == 1 && EndOfMeasuring == false && ActValX > FastMovement)
+            if (StartChart == 1 && EndOfMeasuring == false && ActValX > FastMovement+10.0)
             {
+
                 ActX[index10] = ActValX;
                 ActY[index10] = ActValY;
                 index10 += 1;
@@ -289,7 +290,7 @@ namespace HMIApp
 
                 if (ActValX >= EndPoint && EndOfMeasuring == false)
                 {
-                    for(int i= index10; i < 400; i++)
+                    for(int i= index10; i < 1000; i++)
                     {
                         ActX[i] = ActX[i - 1];
                         ActY[i] = ActY[i - 1];
@@ -923,12 +924,7 @@ namespace HMIApp
                 switch (DBReadAlarm_DataTypeofTag.ToUpper())
                 {
                     case "BOOL":
-                        if (Form1._Form1.listViewPopUpAlarms.Items.Count == 0)
-                        {
-                            Form1._Form1.label_BackGroundPopUpAlarms.Visible = false;
-                            Form1._Form1.listViewPopUpAlarms.Visible = false;
-                            Form1._Form1.ButtonOKClosePopUpAlarms.Visible = false;
-                        }
+
                         switch (DBReadAlarm_NrOfBitinByte)
                         {
                             case 0:
@@ -953,9 +949,11 @@ namespace HMIApp
                                         itempopup.ForeColor = System.Drawing.Color.Red;
                                         Form1._Form1.listViewPopUpAlarms.Items.Add(itempopup);
                                         index[0] = Form1._Form1.listViewPopUpAlarms.Items.IndexOf(itempopup);
+                                        Form1._Form1.dataGridView1.Rows[0].Cells[0].Value = DBReadAlarm_AlarmName;
                                         Form1._Form1.listViewPopUpAlarms.Visible = true;
                                         Form1._Form1.ButtonOKClosePopUpAlarms.Visible = true;
                                         Form1._Form1.label_BackGroundPopUpAlarms.Visible = true;
+                                        
 
                                     }
 
@@ -1401,7 +1399,13 @@ namespace HMIApp
                                         }
                                     }
                                 }
-                                    break;
+                                if (Form1._Form1.listViewPopUpAlarms.Items.Count == 0)
+                                {
+                                    Form1._Form1.label_BackGroundPopUpAlarms.Visible = false;
+                                    Form1._Form1.listViewPopUpAlarms.Visible = false;
+                                    Form1._Form1.ButtonOKClosePopUpAlarms.Visible = false;
+                                }
+                                break;
                                 
                         }
                         break;

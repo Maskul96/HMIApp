@@ -8,6 +8,8 @@ using HMIApp.Components.UserAdministration;
 using HMIApp.Data;
 using Microsoft.EntityFrameworkCore;
 using HMIApp.Components.RFIDCardReader;
+using Microsoft.Win32;
+using System.Diagnostics;
 
 
 
@@ -60,11 +62,12 @@ namespace HMIApp
 
             App.CreateStaticPlot();
 
-            serialPortReader.InitializeSerialPort();
-            serialPortReader.Run();
+            //serialPortReader.InitializeSerialPort();
+            // serialPortReader.Run();
         }
         //statyczna zmienna typu Form1 zeby dostac sie z poziomu innej klasy do obiektow wewnatrz Form1
         public static Form1 _Form1;
+
 
 
         //METODA DO ODCZYTU DANYCH Z BAZY przy starcie aplikacji
@@ -92,6 +95,10 @@ namespace HMIApp
             {
                 var database = serviceProvider.GetService<iDataBase>();
                 database.UpdateDb(comboBoxListaReferencji.SelectedItem.ToString());
+            }
+            else
+            {
+                MessageBox.Show("Nie wybrano referencji do zapisania");
             }
             formsPlot1.Plot.Clear();
             App.CreateStaticPlot();
@@ -127,6 +134,10 @@ namespace HMIApp
                 App.WriteToDB(DB666Tag22.Text, DB666Tag22.Tag.ToString());
                 //Przepisanie wartosci do wygenerowania okna czytania sily w wykresie
                 App.WriteSpecifiedValueFromReference();
+            }
+            else
+            {
+                MessageBox.Show("Nie wybrano referencji do wczytania");
             }
             formsPlot1.Plot.Clear();
             App.CreateStaticPlot();
@@ -296,7 +307,7 @@ namespace HMIApp
         private void Form1Closing(object sender, FormClosingEventArgs e)
         {
             App.ClosePLCConnection();
-            serialPortReader.Close();
+            //serialPortReader.Close();
         }
 
 
@@ -304,7 +315,7 @@ namespace HMIApp
         private void button3_Click(object sender, EventArgs e)
         {
             App.ClosePLCConnection();
-            serialPortReader.Close();
+            //serialPortReader.Close();
             Close();
         }
 

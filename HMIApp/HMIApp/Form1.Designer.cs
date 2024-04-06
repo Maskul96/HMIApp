@@ -29,8 +29,11 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             OdczytDB = new System.Windows.Forms.Timer(components);
             label_Uzytkownik = new System.Windows.Forms.Label();
             pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -52,13 +55,13 @@
             label63 = new System.Windows.Forms.Label();
             OdliczaSekunde = new System.Windows.Forms.Timer(components);
             label48 = new System.Windows.Forms.Label();
-            textBox8 = new System.Windows.Forms.TextBox();
+            DB667Serwo16U2Poz = new System.Windows.Forms.TextBox();
             label49 = new System.Windows.Forms.Label();
-            textBox9 = new System.Windows.Forms.TextBox();
+            DB667Serwo18U1Poz = new System.Windows.Forms.TextBox();
             label64 = new System.Windows.Forms.Label();
-            textBox10 = new System.Windows.Forms.TextBox();
+            DB667AktSila = new System.Windows.Forms.TextBox();
             label65 = new System.Windows.Forms.Label();
-            textBox13 = new System.Windows.Forms.TextBox();
+            DB667AktSmar = new System.Windows.Forms.TextBox();
             tabPage7 = new System.Windows.Forms.TabPage();
             listView_AlarmsArchive = new System.Windows.Forms.ListView();
             columnHeader1 = new System.Windows.Forms.ColumnHeader();
@@ -220,16 +223,18 @@
             textBox7 = new System.Windows.Forms.TextBox();
             label23 = new System.Windows.Forms.Label();
             tabPage1 = new System.Windows.Forms.TabPage();
-            textBox19 = new System.Windows.Forms.TextBox();
+            dataGridView1 = new System.Windows.Forms.DataGridView();
+            Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             listViewPopUpAlarms = new System.Windows.Forms.ListView();
             columnHeader5 = new System.Windows.Forms.ColumnHeader();
             ButtonOKClosePopUpAlarms = new System.Windows.Forms.Button();
             label_BackGroundPopUpAlarms = new System.Windows.Forms.Label();
+            DB667CzasCyklu = new System.Windows.Forms.TextBox();
             formsPlot1 = new ScottPlot.WinForms.FormsPlot();
             Label_AktualneDane = new System.Windows.Forms.Label();
-            textBox14 = new System.Windows.Forms.TextBox();
-            textBox3 = new System.Windows.Forms.TextBox();
-            textBox2 = new System.Windows.Forms.TextBox();
+            DB667WszystkieSztuki = new System.Windows.Forms.TextBox();
+            DB667SztukiNOK = new System.Windows.Forms.TextBox();
+            DB667SztukiOK = new System.Windows.Forms.TextBox();
             label_Wszystkie = new System.Windows.Forms.Label();
             label_SztukiNOK = new System.Windows.Forms.Label();
             label_SztukiOK = new System.Windows.Forms.Label();
@@ -267,6 +272,7 @@
             tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBoxMachineImages).BeginInit();
             tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             tabControl1.SuspendLayout();
             SuspendLayout();
             // 
@@ -497,16 +503,16 @@
             label48.TabIndex = 118;
             label48.Text = "Poz. serwo 16U2:";
             // 
-            // textBox8
+            // DB667Serwo16U2Poz
             // 
-            textBox8.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
-            textBox8.Enabled = false;
-            textBox8.Location = new System.Drawing.Point(1018, 260);
-            textBox8.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            textBox8.Name = "textBox8";
-            textBox8.Size = new System.Drawing.Size(58, 29);
-            textBox8.TabIndex = 117;
-            textBox8.Tag = "";
+            DB667Serwo16U2Poz.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            DB667Serwo16U2Poz.Enabled = false;
+            DB667Serwo16U2Poz.Location = new System.Drawing.Point(1018, 260);
+            DB667Serwo16U2Poz.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            DB667Serwo16U2Poz.Name = "DB667Serwo16U2Poz";
+            DB667Serwo16U2Poz.Size = new System.Drawing.Size(58, 29);
+            DB667Serwo16U2Poz.TabIndex = 117;
+            DB667Serwo16U2Poz.Tag = "";
             // 
             // label49
             // 
@@ -520,16 +526,16 @@
             label49.TabIndex = 120;
             label49.Text = "Poz. serwo 18U2:";
             // 
-            // textBox9
+            // DB667Serwo18U1Poz
             // 
-            textBox9.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
-            textBox9.Enabled = false;
-            textBox9.Location = new System.Drawing.Point(1018, 221);
-            textBox9.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            textBox9.Name = "textBox9";
-            textBox9.Size = new System.Drawing.Size(58, 29);
-            textBox9.TabIndex = 119;
-            textBox9.Tag = "";
+            DB667Serwo18U1Poz.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            DB667Serwo18U1Poz.Enabled = false;
+            DB667Serwo18U1Poz.Location = new System.Drawing.Point(1018, 221);
+            DB667Serwo18U1Poz.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            DB667Serwo18U1Poz.Name = "DB667Serwo18U1Poz";
+            DB667Serwo18U1Poz.Size = new System.Drawing.Size(58, 29);
+            DB667Serwo18U1Poz.TabIndex = 119;
+            DB667Serwo18U1Poz.Tag = "";
             // 
             // label64
             // 
@@ -543,16 +549,16 @@
             label64.TabIndex = 122;
             label64.Text = "Akt. sila:";
             // 
-            // textBox10
+            // DB667AktSila
             // 
-            textBox10.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
-            textBox10.Enabled = false;
-            textBox10.Location = new System.Drawing.Point(1018, 179);
-            textBox10.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            textBox10.Name = "textBox10";
-            textBox10.Size = new System.Drawing.Size(58, 29);
-            textBox10.TabIndex = 121;
-            textBox10.Tag = "";
+            DB667AktSila.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            DB667AktSila.Enabled = false;
+            DB667AktSila.Location = new System.Drawing.Point(1018, 179);
+            DB667AktSila.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            DB667AktSila.Name = "DB667AktSila";
+            DB667AktSila.Size = new System.Drawing.Size(58, 29);
+            DB667AktSila.TabIndex = 121;
+            DB667AktSila.Tag = "";
             // 
             // label65
             // 
@@ -566,16 +572,16 @@
             label65.TabIndex = 124;
             label65.Text = "Akt. Smar:";
             // 
-            // textBox13
+            // DB667AktSmar
             // 
-            textBox13.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
-            textBox13.Enabled = false;
-            textBox13.Location = new System.Drawing.Point(1018, 139);
-            textBox13.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            textBox13.Name = "textBox13";
-            textBox13.Size = new System.Drawing.Size(58, 29);
-            textBox13.TabIndex = 123;
-            textBox13.Tag = "";
+            DB667AktSmar.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            DB667AktSmar.Enabled = false;
+            DB667AktSmar.Location = new System.Drawing.Point(1018, 139);
+            DB667AktSmar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            DB667AktSmar.Name = "DB667AktSmar";
+            DB667AktSmar.Size = new System.Drawing.Size(58, 29);
+            DB667AktSmar.TabIndex = 123;
+            DB667AktSmar.Tag = "";
             // 
             // tabPage7
             // 
@@ -596,7 +602,7 @@
             listView_AlarmsArchive.ForeColor = System.Drawing.SystemColors.InfoText;
             listView_AlarmsArchive.FullRowSelect = true;
             listView_AlarmsArchive.GridLines = true;
-            listView_AlarmsArchive.Items.AddRange(new System.Windows.Forms.ListViewItem[] { listViewItem2 });
+            listView_AlarmsArchive.Items.AddRange(new System.Windows.Forms.ListViewItem[] { listViewItem1 });
             listView_AlarmsArchive.Location = new System.Drawing.Point(4, 3);
             listView_AlarmsArchive.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             listView_AlarmsArchive.Name = "listView_AlarmsArchive";
@@ -2055,7 +2061,7 @@
             label7.Location = new System.Drawing.Point(7, 66);
             label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label7.Name = "label7";
-            label7.Size = new System.Drawing.Size(220, 345);
+            label7.Size = new System.Drawing.Size(220, 291);
             label7.TabIndex = 157;
             label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -2197,7 +2203,7 @@
             label86.Location = new System.Drawing.Point(235, 102);
             label86.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label86.Name = "label86";
-            label86.Size = new System.Drawing.Size(1004, 310);
+            label86.Size = new System.Drawing.Size(1004, 255);
             label86.TabIndex = 158;
             label86.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -2388,29 +2394,30 @@
             // 
             // tabPage1
             // 
-            tabPage1.Controls.Add(textBox19);
+            tabPage1.Controls.Add(dataGridView1);
             tabPage1.Controls.Add(listViewPopUpAlarms);
             tabPage1.Controls.Add(ButtonOKClosePopUpAlarms);
             tabPage1.Controls.Add(label_BackGroundPopUpAlarms);
+            tabPage1.Controls.Add(DB667CzasCyklu);
             tabPage1.Controls.Add(formsPlot1);
             tabPage1.Controls.Add(Label_AktualneDane);
-            tabPage1.Controls.Add(textBox14);
-            tabPage1.Controls.Add(textBox8);
-            tabPage1.Controls.Add(textBox3);
-            tabPage1.Controls.Add(textBox2);
+            tabPage1.Controls.Add(DB667WszystkieSztuki);
+            tabPage1.Controls.Add(DB667Serwo16U2Poz);
+            tabPage1.Controls.Add(DB667SztukiNOK);
+            tabPage1.Controls.Add(DB667SztukiOK);
             tabPage1.Controls.Add(label48);
             tabPage1.Controls.Add(label_Wszystkie);
             tabPage1.Controls.Add(label_SztukiNOK);
-            tabPage1.Controls.Add(textBox9);
+            tabPage1.Controls.Add(DB667Serwo18U1Poz);
             tabPage1.Controls.Add(label_SztukiOK);
             tabPage1.Controls.Add(label_Liczniki);
             tabPage1.Controls.Add(label_CzasCyklu);
             tabPage1.Controls.Add(label49);
             tabPage1.Controls.Add(label10);
-            tabPage1.Controls.Add(textBox10);
+            tabPage1.Controls.Add(DB667AktSila);
             tabPage1.Controls.Add(label64);
             tabPage1.Controls.Add(label65);
-            tabPage1.Controls.Add(textBox13);
+            tabPage1.Controls.Add(DB667AktSmar);
             tabPage1.Controls.Add(label19);
             tabPage1.Controls.Add(label14);
             tabPage1.Location = new System.Drawing.Point(4, 30);
@@ -2422,40 +2429,68 @@
             tabPage1.Text = "AUTO";
             tabPage1.UseVisualStyleBackColor = true;
             // 
-            // textBox19
+            // dataGridView1
             // 
-            textBox19.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
-            textBox19.Enabled = false;
-            textBox19.Location = new System.Drawing.Point(1175, 5);
-            textBox19.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            textBox19.Multiline = true;
-            textBox19.Name = "textBox19";
-            textBox19.Size = new System.Drawing.Size(75, 16);
-            textBox19.TabIndex = 188;
-            textBox19.Tag = "";
+            dataGridView1.AllowUserToOrderColumns = true;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Red;
+            dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            dataGridView1.BackgroundColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 238);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.ButtonHighlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.ColumnHeadersVisible = false;
+            dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { Column1 });
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 238);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            dataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridView1.Enabled = false;
+            dataGridView1.Location = new System.Drawing.Point(553, 143);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersVisible = false;
+            dataGridView1.Size = new System.Drawing.Size(183, 150);
+            dataGridView1.TabIndex = 189;
+            // 
+            // Column1
+            // 
+            Column1.HeaderText = "";
+            Column1.Name = "Column1";
+            Column1.Width = 21;
             // 
             // listViewPopUpAlarms
             // 
             listViewPopUpAlarms.Alignment = System.Windows.Forms.ListViewAlignment.Default;
+            listViewPopUpAlarms.AllowColumnReorder = true;
             listViewPopUpAlarms.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             listViewPopUpAlarms.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { columnHeader5 });
-            listViewPopUpAlarms.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 238);
-            listViewPopUpAlarms.Location = new System.Drawing.Point(259, 132);
+            listViewPopUpAlarms.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 238);
+            listViewPopUpAlarms.Location = new System.Drawing.Point(146, 132);
             listViewPopUpAlarms.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             listViewPopUpAlarms.MultiSelect = false;
             listViewPopUpAlarms.Name = "listViewPopUpAlarms";
-            listViewPopUpAlarms.Size = new System.Drawing.Size(366, 177);
+            listViewPopUpAlarms.Size = new System.Drawing.Size(604, 177);
             listViewPopUpAlarms.Sorting = System.Windows.Forms.SortOrder.Descending;
             listViewPopUpAlarms.TabIndex = 177;
             listViewPopUpAlarms.TileSize = new System.Drawing.Size(1000, 40);
             listViewPopUpAlarms.UseCompatibleStateImageBehavior = false;
             listViewPopUpAlarms.View = System.Windows.Forms.View.Tile;
-            listViewPopUpAlarms.Visible = false;
             // 
             // columnHeader5
             // 
             columnHeader5.Text = "";
-            columnHeader5.Width = 150;
+            columnHeader5.Width = 600;
             // 
             // ButtonOKClosePopUpAlarms
             // 
@@ -2467,19 +2502,31 @@
             ButtonOKClosePopUpAlarms.TabIndex = 187;
             ButtonOKClosePopUpAlarms.Text = "OK";
             ButtonOKClosePopUpAlarms.UseVisualStyleBackColor = true;
-            ButtonOKClosePopUpAlarms.Visible = false;
             ButtonOKClosePopUpAlarms.Click += button8_Click;
             // 
             // label_BackGroundPopUpAlarms
             // 
             label_BackGroundPopUpAlarms.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             label_BackGroundPopUpAlarms.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            label_BackGroundPopUpAlarms.Location = new System.Drawing.Point(240, 116);
+            label_BackGroundPopUpAlarms.Location = new System.Drawing.Point(126, 116);
             label_BackGroundPopUpAlarms.Name = "label_BackGroundPopUpAlarms";
-            label_BackGroundPopUpAlarms.Size = new System.Drawing.Size(402, 256);
+            label_BackGroundPopUpAlarms.Size = new System.Drawing.Size(644, 256);
             label_BackGroundPopUpAlarms.TabIndex = 186;
             label_BackGroundPopUpAlarms.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            label_BackGroundPopUpAlarms.Visible = false;
+            // 
+            // DB667CzasCyklu
+            // 
+            DB667CzasCyklu.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            DB667CzasCyklu.Enabled = false;
+            DB667CzasCyklu.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 238);
+            DB667CzasCyklu.Location = new System.Drawing.Point(1174, 5);
+            DB667CzasCyklu.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            DB667CzasCyklu.Multiline = true;
+            DB667CzasCyklu.Name = "DB667CzasCyklu";
+            DB667CzasCyklu.Size = new System.Drawing.Size(75, 16);
+            DB667CzasCyklu.TabIndex = 188;
+            DB667CzasCyklu.Tag = "";
+            DB667CzasCyklu.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // formsPlot1
             // 
@@ -2507,48 +2554,54 @@
             Label_AktualneDane.Text = "Aktualne dane";
             Label_AktualneDane.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBox14
+            // DB667WszystkieSztuki
             // 
-            textBox14.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
-            textBox14.Enabled = false;
-            textBox14.Location = new System.Drawing.Point(999, 72);
-            textBox14.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            textBox14.Multiline = true;
-            textBox14.Name = "textBox14";
-            textBox14.Size = new System.Drawing.Size(77, 15);
-            textBox14.TabIndex = 175;
-            textBox14.Tag = "";
+            DB667WszystkieSztuki.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            DB667WszystkieSztuki.Enabled = false;
+            DB667WszystkieSztuki.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 238);
+            DB667WszystkieSztuki.Location = new System.Drawing.Point(999, 71);
+            DB667WszystkieSztuki.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            DB667WszystkieSztuki.Multiline = true;
+            DB667WszystkieSztuki.Name = "DB667WszystkieSztuki";
+            DB667WszystkieSztuki.Size = new System.Drawing.Size(77, 20);
+            DB667WszystkieSztuki.TabIndex = 175;
+            DB667WszystkieSztuki.Tag = "";
+            DB667WszystkieSztuki.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox3
+            // DB667SztukiNOK
             // 
-            textBox3.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
-            textBox3.Enabled = false;
-            textBox3.Location = new System.Drawing.Point(999, 52);
-            textBox3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            textBox3.Multiline = true;
-            textBox3.Name = "textBox3";
-            textBox3.Size = new System.Drawing.Size(77, 15);
-            textBox3.TabIndex = 174;
-            textBox3.Tag = "";
+            DB667SztukiNOK.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            DB667SztukiNOK.Enabled = false;
+            DB667SztukiNOK.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 238);
+            DB667SztukiNOK.Location = new System.Drawing.Point(999, 50);
+            DB667SztukiNOK.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            DB667SztukiNOK.Multiline = true;
+            DB667SztukiNOK.Name = "DB667SztukiNOK";
+            DB667SztukiNOK.Size = new System.Drawing.Size(77, 20);
+            DB667SztukiNOK.TabIndex = 174;
+            DB667SztukiNOK.Tag = "";
+            DB667SztukiNOK.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox2
+            // DB667SztukiOK
             // 
-            textBox2.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
-            textBox2.Enabled = false;
-            textBox2.Location = new System.Drawing.Point(999, 32);
-            textBox2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            textBox2.Multiline = true;
-            textBox2.Name = "textBox2";
-            textBox2.Size = new System.Drawing.Size(77, 15);
-            textBox2.TabIndex = 173;
-            textBox2.Tag = "";
+            DB667SztukiOK.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            DB667SztukiOK.Enabled = false;
+            DB667SztukiOK.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 238);
+            DB667SztukiOK.Location = new System.Drawing.Point(999, 29);
+            DB667SztukiOK.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            DB667SztukiOK.Multiline = true;
+            DB667SztukiOK.Name = "DB667SztukiOK";
+            DB667SztukiOK.Size = new System.Drawing.Size(77, 20);
+            DB667SztukiOK.TabIndex = 173;
+            DB667SztukiOK.Tag = "";
+            DB667SztukiOK.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label_Wszystkie
             // 
             label_Wszystkie.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
             label_Wszystkie.AutoSize = true;
             label_Wszystkie.BackColor = System.Drawing.Color.White;
-            label_Wszystkie.Location = new System.Drawing.Point(890, 68);
+            label_Wszystkie.Location = new System.Drawing.Point(890, 69);
             label_Wszystkie.Name = "label_Wszystkie";
             label_Wszystkie.Size = new System.Drawing.Size(79, 21);
             label_Wszystkie.TabIndex = 172;
@@ -2559,7 +2612,7 @@
             label_SztukiNOK.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
             label_SztukiNOK.AutoSize = true;
             label_SztukiNOK.BackColor = System.Drawing.Color.White;
-            label_SztukiNOK.Location = new System.Drawing.Point(890, 46);
+            label_SztukiNOK.Location = new System.Drawing.Point(889, 48);
             label_SztukiNOK.Name = "label_SztukiNOK";
             label_SztukiNOK.Size = new System.Drawing.Size(89, 21);
             label_SztukiNOK.TabIndex = 171;
@@ -2570,7 +2623,7 @@
             label_SztukiOK.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
             label_SztukiOK.AutoSize = true;
             label_SztukiOK.BackColor = System.Drawing.Color.White;
-            label_SztukiOK.Location = new System.Drawing.Point(890, 27);
+            label_SztukiOK.Location = new System.Drawing.Point(890, 28);
             label_SztukiOK.Name = "label_SztukiOK";
             label_SztukiOK.Size = new System.Drawing.Size(77, 21);
             label_SztukiOK.TabIndex = 170;
@@ -2599,9 +2652,9 @@
             label_CzasCyklu.Location = new System.Drawing.Point(1090, 4);
             label_CzasCyklu.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label_CzasCyklu.Name = "label_CzasCyklu";
-            label_CzasCyklu.Size = new System.Drawing.Size(67, 17);
+            label_CzasCyklu.Size = new System.Drawing.Size(85, 17);
             label_CzasCyklu.TabIndex = 167;
-            label_CzasCyklu.Text = "Czas cyklu";
+            label_CzasCyklu.Text = "Czas cyklu [s]";
             // 
             // label10
             // 
@@ -2891,6 +2944,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBoxMachineImages).EndInit();
             tabPage1.ResumeLayout(false);
             tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             tabControl1.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
@@ -2918,13 +2972,13 @@
         public System.Windows.Forms.Label label63;
         public System.Windows.Forms.Timer OdliczaSekunde;
         private System.Windows.Forms.Label label48;
-        public System.Windows.Forms.TextBox textBox8;
+        public System.Windows.Forms.TextBox DB667Serwo16U2Poz;
         private System.Windows.Forms.Label label49;
-        public System.Windows.Forms.TextBox textBox9;
+        public System.Windows.Forms.TextBox DB667Serwo18U1Poz;
         private System.Windows.Forms.Label label64;
-        public System.Windows.Forms.TextBox textBox10;
+        public System.Windows.Forms.TextBox DB667AktSila;
         private System.Windows.Forms.Label label65;
-        public System.Windows.Forms.TextBox textBox13;
+        public System.Windows.Forms.TextBox DB667AktSmar;
         private System.Windows.Forms.TabPage tabPage7;
         public System.Windows.Forms.ListView listView_AlarmsArchive;
         public System.Windows.Forms.ColumnHeader columnHeader1;
@@ -3059,9 +3113,9 @@
         private System.Windows.Forms.Label label_EdycjaUzytkownikow;
         private System.Windows.Forms.Label label_SztukiNOK;
         private System.Windows.Forms.Label label_Wszystkie;
-        public System.Windows.Forms.TextBox textBox2;
-        public System.Windows.Forms.TextBox textBox3;
-        public System.Windows.Forms.TextBox textBox14;
+        public System.Windows.Forms.TextBox DB667SztukiOK;
+        public System.Windows.Forms.TextBox DB667SztukiNOK;
+        public System.Windows.Forms.TextBox DB667WszystkieSztuki;
         private System.Windows.Forms.Label Label_AktualneDane;
         private System.Windows.Forms.Label label_StatusyLogowania;
         private System.Windows.Forms.Label label_DodanieUzytkownikow;
@@ -3117,10 +3171,12 @@
         private System.Windows.Forms.Label label23;
         public System.Windows.Forms.CheckBox checkBox1;
         public System.Windows.Forms.CheckBox checkBox2;
-        public System.Windows.Forms.TextBox textBox19;
+        public System.Windows.Forms.TextBox DB667CzasCyklu;
         private System.Windows.Forms.Label label5;
         public System.Windows.Forms.TextBox textBox1;
         public System.Windows.Forms.CheckBox checkBox3;
+        public System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
     }
 }
 
