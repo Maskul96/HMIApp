@@ -78,15 +78,18 @@ namespace HMIApp
                                 return true;
                             }
                             Form1._Form1.textBox4.Text = ($"Error connecting to PLC: {libnodave.daveStrerror(num)} ");
-                            Form1._Form1.label84.BackColor = System.Drawing.Color.IndianRed;
+                            Form1._Form1.HMIStatus.BackColor = System.Drawing.Color.IndianRed;
+                            MessageBox.Show($"Error connecting to PLC: {libnodave.daveStrerror(num)} ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             return false;
                         }
                         Form1._Form1.textBox4.Text = ($"Error initAdapter socket,IP: {IP} port: {Port}");
-                        Form1._Form1.label84.BackColor = System.Drawing.Color.IndianRed;
+                        Form1._Form1.HMIStatus.BackColor = System.Drawing.Color.IndianRed;
+                        MessageBox.Show($"Error initAdapter socket,IP: {IP} port: {Port}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return false;
                     }
                     Form1._Form1.textBox4.Text = ("Error opening socket, IP: {IP} port: {Port}");
-                    Form1._Form1.label84.BackColor = System.Drawing.Color.IndianRed;
+                    Form1._Form1.HMIStatus.BackColor = System.Drawing.Color.IndianRed;
+                    MessageBox.Show($"Error opening socket, IP: {IP} port: {Port}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
                 Form1._Form1.textBox4.Text = ("Already connected");
@@ -95,6 +98,7 @@ namespace HMIApp
             catch (Exception ex)
             {
                 Form1._Form1.textBox4.Text = ($"{ex.ToString()}");
+                MessageBox.Show($"{ex.ToString()}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
         }

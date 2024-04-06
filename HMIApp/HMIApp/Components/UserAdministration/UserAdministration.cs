@@ -37,32 +37,32 @@ namespace HMIApp.Components.UserAdministration
         {
             if ( UserIsLoggedIn )
             {
-                Form1._Form1.button1.Enabled = true;
-                Form1._Form1.button2.Enabled = true;
-                Form1._Form1.button3.Enabled = true;
-                Form1._Form1.button6.Enabled = true;
-                Form1._Form1.button7.Enabled = true;
-                Form1._Form1.button13.Enabled = true;
-                Form1._Form1.button10.Enabled = true;
+                Form1._Form1.buttonZapiszRef.Enabled = true;
+                Form1._Form1.buttonUsunRef.Enabled = true;
+                Form1._Form1.button_ZamknijApke.Enabled = true;
+                Form1._Form1.buttonDodajUzytkownika.Enabled = true;
+                Form1._Form1.buttonEdytujUzytkownika.Enabled = true;
+                Form1._Form1.buttonDodajNowaRef.Enabled = true;
+                Form1._Form1.buttonWczytajRef.Enabled = true;
             }
             else
             {
-                Form1._Form1.button1.Enabled = false;
-                Form1._Form1.button2.Enabled = false;
-                Form1._Form1.button3.Enabled = false;
-                Form1._Form1.button6.Enabled = false;
-                Form1._Form1.button7.Enabled = false;
-                Form1._Form1.button13.Enabled = false;
-                Form1._Form1.button10.Enabled = false;
+                Form1._Form1.buttonZapiszRef.Enabled = false;
+                Form1._Form1.buttonUsunRef.Enabled = false;
+                Form1._Form1.button_ZamknijApke.Enabled = false;
+                Form1._Form1.buttonDodajUzytkownika.Enabled = false;
+                Form1._Form1.buttonEdytujUzytkownika.Enabled = false;
+                Form1._Form1.buttonDodajNowaRef.Enabled = false;
+                Form1._Form1.buttonWczytajRef.Enabled = false;
             }
 
         }
 
         public void ClearUserFromDisplay()
         {
-            Form1._Form1.label60.Text = "";
-            Form1._Form1.label61.Text = "";
-            Form1._Form1.label62.Text = "";
+            Form1._Form1.label_Imie.Text = "";
+            Form1._Form1.label_NrKarty.Text = "";
+            Form1._Form1.label_Uprawnienia.Text = "";
             UserIsLoggedIn = false;
         }
 
@@ -72,7 +72,7 @@ namespace HMIApp.Components.UserAdministration
             XDocument document = LoadFromXML("document.xml");
 
             //Dane wejsciowe 
-            NrofCard = Form1._Form1.textBox6.Text;
+            NrofCard = Form1._Form1.textBox_MiejsceNaNrKarty_Zaloguj.Text;
 
             if (NrofCard != "")
             {
@@ -83,21 +83,21 @@ namespace HMIApp.Components.UserAdministration
 
                 UserIsLoggedIn = (names != null) ? true : false;
 
-                Form1._Form1.label60.Text = names.Attribute("Numer_karty").Value;
-                Form1._Form1.label61.Text = names.Attribute("Nazwa_użytkownika").Value;
+                Form1._Form1.label_Imie.Text = names.Attribute("Numer_karty").Value;
+                Form1._Form1.label_NrKarty.Text = names.Attribute("Nazwa_użytkownika").Value;
                 switch (names.Attribute("Uprawnienia").Value)
                 {
                     case "0":
-                        Form1._Form1.label62.Text = "Operator";
+                        Form1._Form1.label_Uprawnienia.Text = "Operator";
                         break;
                     case "1":
-                        Form1._Form1.label62.Text = "Lider";
+                        Form1._Form1.label_Uprawnienia.Text = "Lider";
                         break;
                     case "2":
-                        Form1._Form1.label62.Text = "Technolog";
+                        Form1._Form1.label_Uprawnienia.Text = "Technolog";
                         break;
                     default:
-                        Form1._Form1.label62.Text = "Operator";
+                        Form1._Form1.label_Uprawnienia.Text = "Operator";
                         break;
                 }
                 //Obsluga odliczania czasu do wylogowania
@@ -117,9 +117,9 @@ namespace HMIApp.Components.UserAdministration
 
             id = document.Element("Użytkownicy").Elements("Użytkownik").Count();
             id += 1;
-            NrofCard = Form1._Form1.textBox11.Text;
-            Name = Form1._Form1.textBox12.Text;
-            UserRights = Form1._Form1.comboBox3.SelectedIndex.ToString();
+            NrofCard = Form1._Form1.textbox_NumerKarty_DodajUzytk.Text;
+            Name = Form1._Form1.textBoxImie_DodajUzytk.Text;
+            UserRights = Form1._Form1.comboBox_ListaUprawnien_DodajUzytk.SelectedIndex.ToString();
             if (NrofCard != "" && Name != "" && UserRights != "")
             {
                 //Zabezpieczenie przed dodanie usera o tym samym numerze karty
@@ -139,7 +139,7 @@ namespace HMIApp.Components.UserAdministration
                     //Zapis ppliku
                     document.Save("document.xml");
                     //Komunikat dla usera
-                    Form1._Form1.listBox2.Items.Add("Użytkownik dodany");
+                    Form1._Form1.listBoxStatusyLogowania.Items.Add("Użytkownik dodany");
 
                     //Wyczyszczenie i nastepnie update listy w combobox
                     ClearListInComboBox();
@@ -148,13 +148,13 @@ namespace HMIApp.Components.UserAdministration
                 else
                 {
                     //Komunikat dla usera
-                    Form1._Form1.listBox2.Items.Add("Użytkownik już istnieje!");
+                    Form1._Form1.listBoxStatusyLogowania.Items.Add("Użytkownik już istnieje!");
                 }
             }
             else
             {
                 //Komunikat dla usera
-                Form1._Form1.listBox2.Items.Add("Niepoprawne dane");
+                Form1._Form1.listBoxStatusyLogowania.Items.Add("Niepoprawne dane");
             }
 
             Form1._Form1.CzyszczenieStatusówLogowania.Enabled = true;
@@ -167,10 +167,10 @@ namespace HMIApp.Components.UserAdministration
             XDocument document = LoadFromXML("document.xml");
 
             //Dane wejsciowe do edycji
-            NrofCard = Form1._Form1.textBox16.Text;
-            Name = Form1._Form1.textBox15.Text;
-            UserRights = Form1._Form1.comboBox4.SelectedIndex.ToString();
-            int.TryParse(Form1._Form1.textBox1.Text, out id);
+            NrofCard = Form1._Form1.textBox_NumerKarty_Edycja.Text;
+            Name = Form1._Form1.textBox_Imie_Edycja.Text;
+            UserRights = Form1._Form1.comboBox_ListaUprawnien_Edycja.SelectedIndex.ToString();
+            int.TryParse(Form1._Form1.textBox_ID_Edycja.Text, out id);
             if (NrofCard != "" && Name != "" && UserRights != "")
             {
                 //Edytowanie danych użytkownika
@@ -178,15 +178,15 @@ namespace HMIApp.Components.UserAdministration
             .Elements("Użytkownik")
             .Where(x => x.Attribute("ID")?.Value == id.ToString())
             .Single();
-                names.Attribute("Numer_karty").Value = Form1._Form1.textBox16.Text;
-                names.Attribute("Nazwa_użytkownika").Value = Form1._Form1.textBox15.Text;
-                names.Attribute("Uprawnienia").Value = Form1._Form1.comboBox4.SelectedIndex.ToString();
+                names.Attribute("Numer_karty").Value = Form1._Form1.textBox_NumerKarty_Edycja.Text;
+                names.Attribute("Nazwa_użytkownika").Value = Form1._Form1.textBox_Imie_Edycja.Text;
+                names.Attribute("Uprawnienia").Value = Form1._Form1.comboBox_ListaUprawnien_Edycja.SelectedIndex.ToString();
 
                 //Zapis ppliku
                 document.Save("document.xml");
 
                 //Komunikat dla usera
-                Form1._Form1.listBox2.Items.Add("Użytkownik zedytowany");
+                Form1._Form1.listBoxStatusyLogowania.Items.Add("Użytkownik zedytowany");
 
                 //Wyczyszczenie i nastepnie update listy w combobox
                 ClearListInComboBox();
@@ -195,7 +195,7 @@ namespace HMIApp.Components.UserAdministration
             else
             {
                 //Komunikat dla usera
-                Form1._Form1.listBox2.Items.Add("Niepoprawne dane");
+                Form1._Form1.listBoxStatusyLogowania.Items.Add("Niepoprawne dane");
             }
             Form1._Form1.CzyszczenieStatusówLogowania.Enabled = true;
 
@@ -209,7 +209,7 @@ namespace HMIApp.Components.UserAdministration
         //kasowanie listy celem pozniejszego update'u
         public void ClearListInComboBox()
         {
-            Form1._Form1.comboBox2.Items.Clear();
+            Form1._Form1.comboBox_ListaUzytkWBazie.Items.Clear();
         }
 
         //Metoda do wysietlania wybranego uzytkownika do edycji z parametrem opcjonalnym string
@@ -222,7 +222,7 @@ namespace HMIApp.Components.UserAdministration
                 .Select(x => x.Attribute("Nazwa_użytkownika")?.Value);
                 foreach (var item in names)
                 {
-                        Form1._Form1.comboBox2.Items.Add(item);
+                        Form1._Form1.comboBox_ListaUzytkWBazie.Items.Add(item);
                 }
             }
             if (Name != "")
@@ -233,7 +233,7 @@ namespace HMIApp.Components.UserAdministration
                 .Select(x => x.Attribute("ID")?.Value);
                 foreach (var item in names)
                 {
-                    Form1._Form1.textBox1.Text = item;
+                    Form1._Form1.textBox_ID_Edycja.Text = item;
                 }
 
                 names = document.Element("Użytkownicy")?
@@ -242,7 +242,7 @@ namespace HMIApp.Components.UserAdministration
                 .Select(x => x.Attribute("Numer_karty")?.Value);
                 foreach (var item in names)
                 {
-                    Form1._Form1.textBox16.Text = item;
+                    Form1._Form1.textBox_NumerKarty_Edycja.Text = item;
                 }
 
                 names = document.Element("Użytkownicy")?
@@ -252,7 +252,7 @@ namespace HMIApp.Components.UserAdministration
                 foreach (var item in names)
                 {
                     int test = Convert.ToInt16(item);
-                    Form1._Form1.comboBox4.SelectedIndex = test;
+                    Form1._Form1.comboBox_ListaUprawnien_Edycja.SelectedIndex = test;
                 }
             }
         }

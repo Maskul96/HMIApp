@@ -1,5 +1,4 @@
-﻿using HMIApp.Components.CSVReader;
-using HMIApp.Components;
+﻿using HMIApp.Components;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Drawing;
@@ -7,8 +6,7 @@ using System.Windows.Forms;
 using HMIApp.Components.UserAdministration;
 using HMIApp.Data;
 using Microsoft.EntityFrameworkCore;
-using Humanizer;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
+using HMIApp.Components.RFIDCardReader;
 
 
 
@@ -24,6 +22,7 @@ namespace HMIApp
         //Services do dependency injection
         ServiceCollection services = new ServiceCollection();
         ServiceProvider serviceProvider;
+        SerialPortReader serialPortReader = new SerialPortReader();
 
         //konstruktor Form1
         public Form1()
@@ -48,7 +47,7 @@ namespace HMIApp
             Users.Run();
 
             OdczytDB.Enabled = true;
-            listBox1.DrawItem += new System.Windows.Forms.DrawItemEventHandler(App.listBox1_DrawItem);
+            listBoxWarningsView.DrawItem += new System.Windows.Forms.DrawItemEventHandler(App.listBox1_DrawItem);
             label13.Text = "";
             Users.EnabledObjects();
 
@@ -58,7 +57,8 @@ namespace HMIApp
 
             App.CreateStaticPlot();
 
-
+            serialPortReader.InitializeSerialPort();
+            serialPortReader.Run();
         }
         //statyczna zmienna typu Form1 zeby dostac sie z poziomu innej klasy do obiektow wewnatrz Form1
         public static Form1 _Form1;
@@ -70,9 +70,9 @@ namespace HMIApp
             var database = serviceProvider.GetService<iDataBase>();
             database.SelectFromDbToComboBox();
             //Najpierw odczyt z combobox zeby potem moc odczytac z bazy danych pierwszy element na starcie
-            if (comboBox5.Items.Count > 0)
+            if (comboBoxListaReferencji.Items.Count > 0)
             {
-                database.SelectFromDataBase(comboBox5.Items[0].ToString());
+                database.SelectFromDataBase(comboBoxListaReferencji.Items[0].ToString());
             }
             else
             {
@@ -85,10 +85,10 @@ namespace HMIApp
         //Zapisz referencje do bazy danych
         private void button1_Click(object sender, EventArgs e)
         {
-            if (comboBox5.Text != null && comboBox5.Text != "")
+            if (comboBoxListaReferencji.Text != null && comboBoxListaReferencji.Text != "")
             {
                 var database = serviceProvider.GetService<iDataBase>();
-                database.UpdateDb(comboBox5.SelectedItem.ToString());
+                database.UpdateDb(comboBoxListaReferencji.SelectedItem.ToString());
             }
             formsPlot1.Plot.Clear();
             App.CreateStaticPlot();
@@ -97,7 +97,7 @@ namespace HMIApp
         //wczytaj referencje do PLC
         private void button10_Click(object sender, EventArgs e)
         {
-            if (comboBox5.Text != null && comboBox5.Text != "")
+            if (comboBoxListaReferencji.Text != null && comboBoxListaReferencji.Text != "")
             {
                 App.WriteToDB(DB666Tag0.Checked.ToString(), DB666Tag0.Tag.ToString());
                 App.WriteToDB(DB666Tag1.Checked.ToString(), DB666Tag1.Tag.ToString());
@@ -131,7 +131,7 @@ namespace HMIApp
 
         }
 
-        //Timer co 10ms do oczytywania danych - sprobowac skrocic czas
+        //Timer co 10ms do oczytywania danych 
         private void timer1_Tick(object sender, EventArgs e)
         {
             //zakomentuj ponizsze dwie metody do odpalenia apki bez PLC
@@ -141,54 +141,7 @@ namespace HMIApp
             App.CreatePlot();
             //aktualizacja daty i godziny
             this.Text = DateTime.Now.ToString();
-            label57.Text = this.Text;
-        }
-
-        //Zamkniecie aplikacji
-        private void button3_Click(object sender, EventArgs e)
-        {
-            App.ClosePLCConnection();
-            Close();
-        }
-
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-
-            checkBox1.BackColor = Color.LightGreen;
-
-
-        }
-
-        //Metoda do zmiany koloru buttona do sterowania w trybie recznym
-        int index = 0;
-        private void ChangeColorOfButton(Control button)
-        {
-            if (index == 0)
-            {
-                button.BackColor = Color.LightGreen;
-                index += 1;
-            }
-            else
-            {
-                button.BackColor = Color.Transparent;
-                index = 0;
-            }
-        }
-
-        //Testowy przycisk z karty Manual do wyslania komendy
-        private void button4_Click(object sender, EventArgs e)
-        {
-            App.WriteToDB("15", button4.Tag.ToString(), 1);
-            ChangeColorOfButton(button4);
-            pictureBox2.Image = new Bitmap(Properties.Resources.Serwo_18U1);
-        }
-
-        //Testowy przycisk z karty Manual do wyslania komendy
-        private void button5_Click(object sender, EventArgs e)
-        {
-            App.WriteToDB("11", button5.Tag.ToString(), 1);
-            ChangeColorOfButton(button5);
-            pictureBox2.Image = new Bitmap(Properties.Resources.Serwo_20U1);
+            label_DataIGodzina.Text = this.Text;
         }
 
         //Przycisk wyzwalajacy zapis uzytkownika
@@ -200,14 +153,14 @@ namespace HMIApp
         //Wyczyszczenie statusu karty Użytkownicy
         private void timer2_Tick(object sender, EventArgs e)
         {
-            listBox2.Items.Clear();
+            listBoxStatusyLogowania.Items.Clear();
         }
 
         //Wyswietlenie uzytkownikow z bazy
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            textBox15.Text = comboBox2.SelectedItem.ToString();
-            Users.DisplayValuesFromXML(Users.LoadFromXML("document.xml"), textBox15.Text);
+            textBox_Imie_Edycja.Text = comboBox_ListaUzytkWBazie.SelectedItem.ToString();
+            Users.DisplayValuesFromXML(Users.LoadFromXML("document.xml"), textBox_Imie_Edycja.Text);
 
         }
 
@@ -259,17 +212,20 @@ namespace HMIApp
         private void comboBox5_SelectedIndexChanged(object sender, EventArgs e)
         {
             var database = serviceProvider.GetService<iDataBase>();
-            database.SelectFromDataBase(comboBox5.Text);
+            database.SelectFromDataBase(comboBoxListaReferencji.Text);
         }
         //Usuwanie wybranej referencji
         private void button2_Click_1(object sender, EventArgs e)
         {
             var database = serviceProvider.GetService<iDataBase>();
-            if (comboBox5.Text != null && comboBox5.Text != "")
+            if (MessageBox.Show("Czy na pewno chcesz usunąć referencję?", "Potwierdź", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                database.Delete(comboBox5.Text);
-                App.ClearAllValueInForm1("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_0.csv");
-            }
+                if (comboBoxListaReferencji.Text != null && comboBoxListaReferencji.Text != "")
+                {
+                    database.Delete(comboBoxListaReferencji.Text);
+                    App.ClearAllValueInForm1("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_0.csv");
+                }
+            };
         }
 
         //Zamiana kropki na przecinek
@@ -302,22 +258,52 @@ namespace HMIApp
 
         private void button8_Click(object sender, EventArgs e)
         {
-            label21.Visible = false;
-            listView2.Visible = false;
-            button8.Visible = false;
+            label_BackGroundPopUpAlarms.Visible = false;
+            listViewPopUpAlarms.Visible = false;
+            ButtonOKClosePopUpAlarms.Visible = false;
         }
 
-        private void checkBox2_Click(object sender, EventArgs e)
+        private void checkBox2_Checked(object sender, EventArgs e)
         {
-            checkBox1.Checked = false;
-         
-            checkBox1.FlatAppearance.CheckedBackColor = Color.White;
 
+            App.WriteToDB("15", checkBox2.Tag.ToString(), 1);
+            pictureBoxMachineImages.Image = new Bitmap(Properties.Resources.Serwo_18U1);
         }
-        private void checkBox1_Click(object sender, EventArgs e)
+        private void checkBox2_CheckedStateChanged(object sender, EventArgs e)
         {
-            checkBox2.Checked = false;
-            checkBox2.FlatAppearance.CheckedBackColor = Color.White;
+            if (checkBox2.Checked)
+            {
+                checkBox1.Checked = false;
+            }
         }
+        private void checkBox1_Checked(object sender, EventArgs e)
+        {
+
+            App.WriteToDB("11", checkBox1.Tag.ToString(), 1);
+            pictureBoxMachineImages.Image = new Bitmap(Properties.Resources.Serwo_20U1);
+        }
+        private void checkBox1_CheckedStateChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked)
+            {
+                checkBox2.Checked = false;
+            }
+        }
+
+        private void Form1Closing(object sender, FormClosingEventArgs e)
+        {
+            App.ClosePLCConnection();
+            serialPortReader.Close();
+        }
+
+
+        //Zamkniecie aplikacji
+        private void button3_Click(object sender, EventArgs e)
+        {
+            App.ClosePLCConnection();
+            serialPortReader.Close();
+            Close();
+        }
+
     }
 }

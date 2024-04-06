@@ -169,17 +169,17 @@ namespace HMIApp.Data
             var References = _hmiAppDbContext.References.ToList();
             foreach(var Reference in References)
             {
-                if (!Form1._Form1.comboBox5.Items.Contains(Reference.ReferenceNumber))
+                if (!Form1._Form1.comboBoxListaReferencji.Items.Contains(Reference.ReferenceNumber))
                 {
-                    Form1._Form1.comboBox5.Items.Add(Reference.ReferenceNumber);
+                    Form1._Form1.comboBoxListaReferencji.Items.Add(Reference.ReferenceNumber);
                 }
             }
         }
 
         public void ClearCombobox()
         {
-            Form1._Form1.comboBox5.Items.Clear();
-            Form1._Form1.comboBox5.Text = "";
+            Form1._Form1.comboBoxListaReferencji.Items.Clear();
+            Form1._Form1.comboBoxListaReferencji.Text = "";
         }
         //Update danych "?" zezwala na null - operator warunkowego dostepu
         //Metoda do zwrocenia wyszukiwanego przez nas pola w bazie
