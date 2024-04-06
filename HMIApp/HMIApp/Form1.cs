@@ -1,6 +1,7 @@
 ﻿using HMIApp.Components;
 using Microsoft.Extensions.DependencyInjection;
 using System;
+using System.IO;
 using System.Drawing;
 using System.Windows.Forms;
 using HMIApp.Components.UserAdministration;
@@ -28,6 +29,8 @@ namespace HMIApp
         public Form1()
         {
             InitializeComponent();
+
+
             _Form1 = this;
             //zakomentuj ponizsze cztery metody do odpalenia apki bez PLC
             App.RunInitPLC();
