@@ -44,7 +44,7 @@ namespace HMIApp.Components.RFIDCardReader
 
         public void Close()
         {
-            if(_serialPort.IsOpen) { _serialPort.Close(); } 
+            if(_serialPort.IsOpen)  _serialPort.Close();  
         }
 
         public void SerialPort_DataReceived(object sender, SerialDataReceivedEventArgs e)
