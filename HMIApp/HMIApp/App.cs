@@ -1,7 +1,9 @@
 ﻿using HMIApp.Components.CSVReader;
 using ScottPlot;
 using System;
+using System.Buffers;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Windows.Forms;
 
@@ -23,7 +25,7 @@ namespace HMIApp
         public int DBread_EndDB;
         public int DBread_NrOfByteinDB;
 
-        public int ClearPlot { get; set; } 
+        public int ClearPlot { get; set; }
         public int ForceMin { get; set; }
         public int ForceMax { get; set; }
         public byte StartChart { get; set; }
@@ -280,7 +282,7 @@ namespace HMIApp
                 CreateStaticPlot();
             }
             WriteSpecifiedValueFromReference();
-            if (StartChart == 1 && EndOfMeasuring == false && ActValX > FastMovement+10.0)
+            if (StartChart == 1 && EndOfMeasuring == false && ActValX > FastMovement + 10.0)
             {
 
                 ActX[index10] = ActValX;
@@ -290,7 +292,7 @@ namespace HMIApp
 
                 if (ActValX >= EndPoint && EndOfMeasuring == false)
                 {
-                    for(int i= index10; i < 1000; i++)
+                    for (int i = index10; i < 1000; i++)
                     {
                         ActX[i] = ActX[i - 1];
                         ActY[i] = ActY[i - 1];
@@ -335,9 +337,9 @@ namespace HMIApp
             hs1.Color = Colors.White;
             var hs2 = Form1._Form1.formsPlot1.Plot.Add.Scatter(EndReading, 0);
             hs2.Color = Colors.White;
-             hs.LineStyle.Pattern = LinePattern.Dashed;
-             hs.LineStyle.Width = 1;
-             hs.FillStyle.Color = Colors.Blue.WithOpacity(0.2f);
+            hs.LineStyle.Pattern = LinePattern.Dashed;
+            hs.LineStyle.Width = 1;
+            hs.FillStyle.Color = Colors.Blue.WithOpacity(0.2f);
             Form1._Form1.formsPlot1.Plot.Title("Wykres siły");
             Form1._Form1.formsPlot1.Refresh();
         }
@@ -920,7 +922,6 @@ namespace HMIApp
                 DBReadAlarm_TagName = dbTag.TagName;
                 DBReadAlarm_DataTypeofTag = dbTag.DataTypeOfTag;
                 bool[] values = new bool[8];
-
                 switch (DBReadAlarm_DataTypeofTag.ToUpper())
                 {
                     case "BOOL":
@@ -934,37 +935,42 @@ namespace HMIApp
                                     //Dodanie alarmu tylko wtedy jeśli nie ma go juz w liscie
                                     if (Form1._Form1.listAlarmView.FindItemWithText(DBReadAlarm_AlarmName) == null)
                                     {
-                                        
+
                                         item.Text = DBReadAlarm_AlarmName;
-                                        item.ForeColor = System.Drawing.Color.Red; 
+                                        item.ForeColor = System.Drawing.Color.Red;
                                         Form1._Form1.listAlarmView.Items.Add(item);
                                         index[0] = Form1._Form1.listAlarmView.Items.IndexOf(item);
-
-                                    }
-                                    //Dodanie alarmu tylko wtedy jeśli nie ma go juz w liscie
-                                    if (Form1._Form1.listViewPopUpAlarms.FindItemWithText(DBReadAlarm_AlarmName) == null)
-                                    {
-
-                                        itempopup.Text = DBReadAlarm_AlarmName;
-                                        itempopup.ForeColor = System.Drawing.Color.Red;
-                                        Form1._Form1.listViewPopUpAlarms.Items.Add(itempopup);
-                                        index[0] = Form1._Form1.listViewPopUpAlarms.Items.IndexOf(itempopup);
-                                        Form1._Form1.dataGridView1.Rows[0].Cells[0].Value = DBReadAlarm_AlarmName;
-                                        Form1._Form1.listViewPopUpAlarms.Visible = true;
+                                        Form1._Form1.dataGridView1.Visible = true;
                                         Form1._Form1.ButtonOKClosePopUpAlarms.Visible = true;
-                                        Form1._Form1.label_BackGroundPopUpAlarms.Visible = true;
-                                        
-
                                     }
 
+                                    //z uzyciem LINQ
+                                    try
+                                    {
+                                        int rowIndex = -1;
+                                        bool tempAllowUserToAddRows = Form1._Form1.dataGridView1.AllowUserToAddRows;
+                                        Form1._Form1.dataGridView1.AllowUserToAddRows = false;
+                                        DataGridViewRow row = Form1._Form1.dataGridView1.Rows
+                                            .Cast<DataGridViewRow>()
+                                            .Where(r => r.Cells[0].Value.ToString().Equals(DBReadAlarm_AlarmName))
+                                            .First();
+
+                                        rowIndex = row.Index;
+                                        Form1._Form1.dataGridView1.AllowUserToAddRows = tempAllowUserToAddRows;
+
+                                    }
+                                    catch (InvalidOperationException)
+                                    {
+                                        Form1._Form1.dataGridView1.Rows.Add(DBReadAlarm_AlarmName);
+                                    }
                                     if (blockade[0] == false)
-                                        {
-                                            itemArchive = MakeList(DateTime.Now.ToString(), DBReadAlarm_TagName, DBReadAlarm_AlarmName);
-                                            itemArchive.BackColor = System.Drawing.Color.Red; itemArchive.ForeColor = System.Drawing.Color.Black;
-                                            Form1._Form1.listView_AlarmsArchive.Items.Add(itemArchive);
-                                            index1[0] = Form1._Form1.listView_AlarmsArchive.Items.IndexOf(itemArchive);
-                                            blockade[0] = true;
-                                        }
+                                    {
+                                        itemArchive = MakeList(DateTime.Now.ToString(), DBReadAlarm_TagName, DBReadAlarm_AlarmName);
+                                        itemArchive.BackColor = System.Drawing.Color.Red; itemArchive.ForeColor = System.Drawing.Color.Black;
+                                        Form1._Form1.listView_AlarmsArchive.Items.Add(itemArchive);
+                                        index1[0] = Form1._Form1.listView_AlarmsArchive.Items.IndexOf(itemArchive);
+                                        blockade[0] = true;
+                                    }
 
                                 }
                                 else
@@ -978,14 +984,26 @@ namespace HMIApp
                                             Form1._Form1.listAlarmView.Items.Remove(item);
                                         }
                                     }
-                                    //Zabezpieczenie zeby to sie nie wykonywalo jak bedzie pusta lista
-                                    if (Form1._Form1.listViewPopUpAlarms.FindItemWithText(DBReadAlarm_AlarmName) != null)
+                                    foreach (DataGridViewRow row in Form1._Form1.dataGridView1.Rows)
                                     {
-                                        if (Form1._Form1.listViewPopUpAlarms.Items.Count > 0)
+                                        if (row.Cells[0].Value != null)
                                         {
-                                            Form1._Form1.listViewPopUpAlarms.Items.Remove(itempopup);
+                                            if (row.Cells[0].Value.ToString().Equals(DBReadAlarm_AlarmName))
+                                            {
+                                                Form1._Form1.dataGridView1.Rows.Remove(row);
+                                            }
                                         }
+                                        //z uzyciem LINQ
+                                        //int rowIndex = -1;
+
+                                        //DataGridViewRow row = Form1._Form1.dataGridView1.Rows
+                                        //    .Cast<DataGridViewRow>()
+                                        //    .Where(r => r.Cells[0].Value.ToString().Equals(DBReadAlarm_AlarmName))
+                                        //    .First();
+
+                                        //rowIndex = row.Index;
                                     }
+
                                     //Kasowanie archiwum alarmów po 100 alarmach
                                     if (Form1._Form1.listView_AlarmsArchive.FindItemWithText(DBReadAlarm_AlarmName) != null)
                                     {
@@ -1007,18 +1025,27 @@ namespace HMIApp
                                         item1.ForeColor = System.Drawing.Color.Red;
                                         Form1._Form1.listAlarmView.Items.Add(item1);
                                         index[1] = Form1._Form1.listAlarmView.Items.IndexOf(item1);
-                                    }
-                                    //Dodanie alarmu tylko wtedy jeśli nie ma go juz w liscie
-                                    if (Form1._Form1.listViewPopUpAlarms.FindItemWithText(DBReadAlarm_AlarmName) == null)
-                                    {
-
-                                        itempopup1.Text = DBReadAlarm_AlarmName;
-                                        itempopup1.ForeColor = System.Drawing.Color.Red;
-                                        Form1._Form1.listViewPopUpAlarms.Items.Add(itempopup1);
-                                        index[1] = Form1._Form1.listViewPopUpAlarms.Items.IndexOf(itempopup1);
-                                        Form1._Form1.listViewPopUpAlarms.Visible = true;
+                                        Form1._Form1.dataGridView1.Visible = true;
                                         Form1._Form1.ButtonOKClosePopUpAlarms.Visible = true;
-                                        Form1._Form1.label_BackGroundPopUpAlarms.Visible = true;
+                                    }
+                                    //z uzyciem LINQ
+                                    try
+                                    {
+                                        int rowIndex = -1;
+                                        bool tempAllowUserToAddRows = Form1._Form1.dataGridView1.AllowUserToAddRows;
+                                        Form1._Form1.dataGridView1.AllowUserToAddRows = false;
+                                        DataGridViewRow row = Form1._Form1.dataGridView1.Rows
+                                            .Cast<DataGridViewRow>()
+                                            .Where(r => r.Cells[0].Value.ToString().Equals(DBReadAlarm_AlarmName))
+                                            .First();
+
+                                        rowIndex = row.Index;
+                                        Form1._Form1.dataGridView1.AllowUserToAddRows = tempAllowUserToAddRows;
+                   
+                                    }
+                                    catch (InvalidOperationException)
+                                    {
+                                        Form1._Form1.dataGridView1.Rows.Add(DBReadAlarm_AlarmName);
                                     }
                                     if (blockade[1] == false)
                                     {
@@ -1039,13 +1066,24 @@ namespace HMIApp
                                             Form1._Form1.listAlarmView.Items.Remove(item1);
                                         }
                                     }
-                                    //Zabezpieczenie zeby to sie nie wykonywalo jak bedzie pusta lista
-                                    if (Form1._Form1.listViewPopUpAlarms.FindItemWithText(DBReadAlarm_AlarmName) != null)
+                                    foreach (DataGridViewRow row in Form1._Form1.dataGridView1.Rows)
                                     {
-                                        if (Form1._Form1.listViewPopUpAlarms.Items.Count > 0)
+                                        if (row.Cells[0].Value != null)
                                         {
-                                            Form1._Form1.listViewPopUpAlarms.Items.Remove(itempopup1);
+                                            if (row.Cells[0].Value.ToString().Equals(DBReadAlarm_AlarmName))
+                                            {
+                                                Form1._Form1.dataGridView1.Rows.Remove(row);
+                                            }
                                         }
+                                        //z uzyciem LINQ
+                                        //int rowIndex = -1;
+
+                                        //DataGridViewRow row = Form1._Form1.dataGridView1.Rows
+                                        //    .Cast<DataGridViewRow>()
+                                        //    .Where(r => r.Cells[0].Value.ToString().Equals(DBReadAlarm_AlarmName))
+                                        //    .First();
+
+                                        //rowIndex = row.Index;
                                     }
                                     if (Form1._Form1.listView_AlarmsArchive.FindItemWithText(DBReadAlarm_AlarmName) != null)
                                     {
@@ -1063,19 +1101,30 @@ namespace HMIApp
                                     if (Form1._Form1.listAlarmView.FindItemWithText(DBReadAlarm_AlarmName) == null)
                                     {
                                         item2.Text = DBReadAlarm_AlarmName;
-                                        item2.ForeColor = System.Drawing.Color.Red; 
+                                        item2.ForeColor = System.Drawing.Color.Red;
                                         Form1._Form1.listAlarmView.Items.Add(item2);
                                         index[2] = Form1._Form1.listAlarmView.Items.IndexOf(item2);
-                                    }
-                                    if (Form1._Form1.listViewPopUpAlarms.FindItemWithText(DBReadAlarm_AlarmName) == null)
-                                    {
-                                        itempopup2.Text = DBReadAlarm_AlarmName;
-                                        itempopup2.ForeColor = System.Drawing.Color.Red;
-                                        Form1._Form1.listViewPopUpAlarms.Items.Add(itempopup2);
-                                        index[2] = Form1._Form1.listViewPopUpAlarms.Items.IndexOf(itempopup2);
-                                        Form1._Form1.listViewPopUpAlarms.Visible = true;
+                                        Form1._Form1.dataGridView1.Visible = true;
                                         Form1._Form1.ButtonOKClosePopUpAlarms.Visible = true;
-                                        Form1._Form1.label_BackGroundPopUpAlarms.Visible = true;
+                                    }
+                                    //z uzyciem LINQ
+                                    try
+                                    {
+                                        int rowIndex = -1;
+                                        bool tempAllowUserToAddRows = Form1._Form1.dataGridView1.AllowUserToAddRows;
+                                        Form1._Form1.dataGridView1.AllowUserToAddRows = false;
+                                        DataGridViewRow row = Form1._Form1.dataGridView1.Rows
+                                            .Cast<DataGridViewRow>()
+                                            .Where(r => r.Cells[0].Value.ToString().Equals(DBReadAlarm_AlarmName))
+                                            .First();
+
+                                        rowIndex = row.Index;
+
+                                        Form1._Form1.dataGridView1.AllowUserToAddRows = tempAllowUserToAddRows;
+                                    }
+                                    catch (InvalidOperationException)
+                                    {
+                                        Form1._Form1.dataGridView1.Rows.Add(DBReadAlarm_AlarmName);
                                     }
                                     if (blockade[2] == false)
                                     {
@@ -1096,13 +1145,24 @@ namespace HMIApp
                                             Form1._Form1.listAlarmView.Items.Remove(item2);
                                         }
                                     }
-                                    //Zabezpieczenie zeby to sie nie wykonywalo jak bedzie pusta lista
-                                    if (Form1._Form1.listViewPopUpAlarms.FindItemWithText(DBReadAlarm_AlarmName) != null)
+                                    foreach (DataGridViewRow row in Form1._Form1.dataGridView1.Rows)
                                     {
-                                        if (Form1._Form1.listViewPopUpAlarms.Items.Count > 0)
+                                        if (row.Cells[0].Value != null)
                                         {
-                                            Form1._Form1.listViewPopUpAlarms.Items.Remove(itempopup2);
+                                            if (row.Cells[0].Value.ToString().Equals(DBReadAlarm_AlarmName))
+                                            {
+                                                Form1._Form1.dataGridView1.Rows.Remove(row);
+                                            }
                                         }
+                                        //z uzyciem LINQ
+                                        //int rowIndex = -1;
+
+                                        //DataGridViewRow row = Form1._Form1.dataGridView1.Rows
+                                        //    .Cast<DataGridViewRow>()
+                                        //    .Where(r => r.Cells[0].Value.ToString().Equals(DBReadAlarm_AlarmName))
+                                        //    .First();
+
+                                        //rowIndex = row.Index;
                                     }
                                     if (Form1._Form1.listView_AlarmsArchive.FindItemWithText(DBReadAlarm_AlarmName) != null)
                                     {
@@ -1123,16 +1183,27 @@ namespace HMIApp
                                         item3.ForeColor = System.Drawing.Color.Red;
                                         Form1._Form1.listAlarmView.Items.Add(item3);
                                         index[3] = Form1._Form1.listAlarmView.Items.IndexOf(item3);
-                                    }
-                                    if (Form1._Form1.listViewPopUpAlarms.FindItemWithText(DBReadAlarm_AlarmName) == null)
-                                    {
-                                        itempopup3.Text = DBReadAlarm_AlarmName;
-                                        itempopup3.ForeColor = System.Drawing.Color.Red;
-                                        Form1._Form1.listViewPopUpAlarms.Items.Add(itempopup3);
-                                        index[3] = Form1._Form1.listViewPopUpAlarms.Items.IndexOf(itempopup3);
-                                        Form1._Form1.listViewPopUpAlarms.Visible = true;
+                                        Form1._Form1.dataGridView1.Visible = true;
                                         Form1._Form1.ButtonOKClosePopUpAlarms.Visible = true;
-                                        Form1._Form1.label_BackGroundPopUpAlarms.Visible = true;
+                                    }
+                                    //z uzyciem LINQ
+                                    try
+                                    {
+                                        int rowIndex = -1;
+                                        bool tempAllowUserToAddRows = Form1._Form1.dataGridView1.AllowUserToAddRows;
+                                        Form1._Form1.dataGridView1.AllowUserToAddRows = false;
+                                        DataGridViewRow row = Form1._Form1.dataGridView1.Rows
+                                            .Cast<DataGridViewRow>()
+                                            .Where(r => r.Cells[0].Value.ToString().Equals(DBReadAlarm_AlarmName))
+                                            .First();
+
+                                        rowIndex = row.Index;
+                                        Form1._Form1.dataGridView1.AllowUserToAddRows = tempAllowUserToAddRows;
+           
+                                    }
+                                    catch (InvalidOperationException)
+                                    {
+                                        Form1._Form1.dataGridView1.Rows.Add(DBReadAlarm_AlarmName);
                                     }
                                     if (blockade[3] == false)
                                     {
@@ -1153,13 +1224,24 @@ namespace HMIApp
                                             Form1._Form1.listAlarmView.Items.Remove(item3);
                                         }
                                     }
-                                    //Zabezpieczenie zeby to sie nie wykonywalo jak bedzie pusta lista
-                                    if (Form1._Form1.listViewPopUpAlarms.FindItemWithText(DBReadAlarm_AlarmName) != null)
+                                    foreach (DataGridViewRow row in Form1._Form1.dataGridView1.Rows)
                                     {
-                                        if (Form1._Form1.listViewPopUpAlarms.Items.Count > 0)
+                                        if (row.Cells[0].Value != null)
                                         {
-                                            Form1._Form1.listViewPopUpAlarms.Items.Remove(itempopup3);
+                                            if (row.Cells[0].Value.ToString().Equals(DBReadAlarm_AlarmName))
+                                            {
+                                                Form1._Form1.dataGridView1.Rows.Remove(row);
+                                            }
                                         }
+                                        //z uzyciem LINQ
+                                        //int rowIndex = -1;
+
+                                        //DataGridViewRow row = Form1._Form1.dataGridView1.Rows
+                                        //    .Cast<DataGridViewRow>()
+                                        //    .Where(r => r.Cells[0].Value.ToString().Equals(DBReadAlarm_AlarmName))
+                                        //    .First();
+
+                                        //rowIndex = row.Index;
                                     }
                                     if (Form1._Form1.listView_AlarmsArchive.FindItemWithText(DBReadAlarm_AlarmName) != null)
                                     {
@@ -1177,19 +1259,30 @@ namespace HMIApp
                                     if (Form1._Form1.listAlarmView.FindItemWithText(DBReadAlarm_AlarmName) == null)
                                     {
                                         item4.Text = DBReadAlarm_AlarmName;
-                                        item4.ForeColor = System.Drawing.Color.Red; 
+                                        item4.ForeColor = System.Drawing.Color.Red;
                                         Form1._Form1.listAlarmView.Items.Add(item4);
                                         index[4] = Form1._Form1.listAlarmView.Items.IndexOf(item4);
-                                    }
-                                    if (Form1._Form1.listViewPopUpAlarms.FindItemWithText(DBReadAlarm_AlarmName) == null)
-                                    {
-                                        itempopup4.Text = DBReadAlarm_AlarmName;
-                                        itempopup4.ForeColor = System.Drawing.Color.Red;
-                                        Form1._Form1.listViewPopUpAlarms.Items.Add(itempopup4);
-                                        index[4] = Form1._Form1.listViewPopUpAlarms.Items.IndexOf(itempopup4);
-                                        Form1._Form1.listViewPopUpAlarms.Visible = true;
+                                        Form1._Form1.dataGridView1.Visible = true;
                                         Form1._Form1.ButtonOKClosePopUpAlarms.Visible = true;
-                                        Form1._Form1.label_BackGroundPopUpAlarms.Visible = true;
+                                    }
+                                    //z uzyciem LINQ
+                                    try
+                                    {
+                                        int rowIndex = -1;
+                                        bool tempAllowUserToAddRows = Form1._Form1.dataGridView1.AllowUserToAddRows;
+                                        Form1._Form1.dataGridView1.AllowUserToAddRows = false;
+                                        DataGridViewRow row = Form1._Form1.dataGridView1.Rows
+                                            .Cast<DataGridViewRow>()
+                                            .Where(r => r.Cells[0].Value.ToString().Equals(DBReadAlarm_AlarmName))
+                                            .First();
+
+                                        rowIndex = row.Index;
+                                        Form1._Form1.dataGridView1.AllowUserToAddRows = tempAllowUserToAddRows;
+
+                                    }
+                                    catch (InvalidOperationException)
+                                    {
+                                        Form1._Form1.dataGridView1.Rows.Add(DBReadAlarm_AlarmName);
                                     }
                                     if (blockade[4] == false)
                                     {
@@ -1210,13 +1303,24 @@ namespace HMIApp
                                             Form1._Form1.listAlarmView.Items.Remove(item4);
                                         }
                                     }
-                                    //Zabezpieczenie zeby to sie nie wykonywalo jak bedzie pusta lista
-                                    if (Form1._Form1.listViewPopUpAlarms.FindItemWithText(DBReadAlarm_AlarmName) != null)
+                                    foreach (DataGridViewRow row in Form1._Form1.dataGridView1.Rows)
                                     {
-                                        if (Form1._Form1.listViewPopUpAlarms.Items.Count > 0)
+                                        if (row.Cells[0].Value != null)
                                         {
-                                            Form1._Form1.listViewPopUpAlarms.Items.Remove(itempopup4);
+                                            if (row.Cells[0].Value.ToString().Equals(DBReadAlarm_AlarmName))
+                                            {
+                                                Form1._Form1.dataGridView1.Rows.Remove(row);
+                                            }
                                         }
+                                        //z uzyciem LINQ
+                                        //int rowIndex = -1;
+
+                                        //DataGridViewRow row = Form1._Form1.dataGridView1.Rows
+                                        //    .Cast<DataGridViewRow>()
+                                        //    .Where(r => r.Cells[0].Value.ToString().Equals(DBReadAlarm_AlarmName))
+                                        //    .First();
+
+                                        //rowIndex = row.Index;
                                     }
                                     if (Form1._Form1.listView_AlarmsArchive.FindItemWithText(DBReadAlarm_AlarmName) != null)
                                     {
@@ -1234,19 +1338,30 @@ namespace HMIApp
                                     if (Form1._Form1.listAlarmView.FindItemWithText(DBReadAlarm_AlarmName) == null)
                                     {
                                         item5.Text = DBReadAlarm_AlarmName;
-                                        item5.ForeColor = System.Drawing.Color.Red; 
+                                        item5.ForeColor = System.Drawing.Color.Red;
                                         Form1._Form1.listAlarmView.Items.Add(item5);
                                         index[5] = Form1._Form1.listAlarmView.Items.IndexOf(item5);
-                                    }
-                                    if (Form1._Form1.listViewPopUpAlarms.FindItemWithText(DBReadAlarm_AlarmName) == null)
-                                    {
-                                        itempopup5.Text = DBReadAlarm_AlarmName;
-                                        itempopup5.ForeColor = System.Drawing.Color.Red;
-                                        Form1._Form1.listViewPopUpAlarms.Items.Add(itempopup5);
-                                        index[5] = Form1._Form1.listViewPopUpAlarms.Items.IndexOf(itempopup5);
-                                        Form1._Form1.listViewPopUpAlarms.Visible = true;
+                                        Form1._Form1.dataGridView1.Visible = true;
                                         Form1._Form1.ButtonOKClosePopUpAlarms.Visible = true;
-                                        Form1._Form1.label_BackGroundPopUpAlarms.Visible = true;
+                                    }
+                                    //z uzyciem LINQ
+                                    try
+                                    {
+                                        int rowIndex = -1;
+                                        bool tempAllowUserToAddRows = Form1._Form1.dataGridView1.AllowUserToAddRows;
+                                        Form1._Form1.dataGridView1.AllowUserToAddRows = false;
+                                        DataGridViewRow row = Form1._Form1.dataGridView1.Rows
+                                            .Cast<DataGridViewRow>()
+                                            .Where(r => r.Cells[0].Value.ToString().Equals(DBReadAlarm_AlarmName))
+                                            .First();
+
+                                        rowIndex = row.Index;
+                                        Form1._Form1.dataGridView1.AllowUserToAddRows = tempAllowUserToAddRows;
+
+                                    }
+                                    catch (InvalidOperationException)
+                                    {
+                                        Form1._Form1.dataGridView1.Rows.Add(DBReadAlarm_AlarmName);
                                     }
                                     if (blockade[5] == false)
                                     {
@@ -1267,13 +1382,25 @@ namespace HMIApp
                                             Form1._Form1.listAlarmView.Items.Remove(item5);
                                         }
                                     }
-                                    //Zabezpieczenie zeby to sie nie wykonywalo jak bedzie pusta lista
-                                    if (Form1._Form1.listViewPopUpAlarms.FindItemWithText(DBReadAlarm_AlarmName) != null)
+
+                                    foreach (DataGridViewRow row in Form1._Form1.dataGridView1.Rows)
                                     {
-                                        if (Form1._Form1.listViewPopUpAlarms.Items.Count > 0)
+                                        if (row.Cells[0].Value != null)
                                         {
-                                            Form1._Form1.listViewPopUpAlarms.Items.Remove(itempopup5);
+                                            if (row.Cells[0].Value.ToString().Equals(DBReadAlarm_AlarmName))
+                                            {
+                                                Form1._Form1.dataGridView1.Rows.Remove(row);
+                                            }
                                         }
+                                        //z uzyciem LINQ
+                                        //int rowIndex = -1;
+
+                                        //DataGridViewRow row = Form1._Form1.dataGridView1.Rows
+                                        //    .Cast<DataGridViewRow>()
+                                        //    .Where(r => r.Cells[0].Value.ToString().Equals(DBReadAlarm_AlarmName))
+                                        //    .First();
+
+                                        //rowIndex = row.Index;
                                     }
                                     if (Form1._Form1.listView_AlarmsArchive.FindItemWithText(DBReadAlarm_AlarmName) != null)
                                     {
@@ -1294,16 +1421,26 @@ namespace HMIApp
                                         item6.ForeColor = System.Drawing.Color.Red;
                                         Form1._Form1.listAlarmView.Items.Add(item6);
                                         index[6] = Form1._Form1.listAlarmView.Items.IndexOf(item6);
-                                    }
-                                    if (Form1._Form1.listViewPopUpAlarms.FindItemWithText(DBReadAlarm_AlarmName) == null)
-                                    {
-                                        itempopup6.Text = DBReadAlarm_AlarmName;
-                                        itempopup6.ForeColor = System.Drawing.Color.Red;
-                                        Form1._Form1.listViewPopUpAlarms.Items.Add(itempopup6);
-                                        index[6] = Form1._Form1.listViewPopUpAlarms.Items.IndexOf(itempopup6);
-                                        Form1._Form1.listViewPopUpAlarms.Visible = true;
+                                        Form1._Form1.dataGridView1.Visible = true;
                                         Form1._Form1.ButtonOKClosePopUpAlarms.Visible = true;
-                                        Form1._Form1.label_BackGroundPopUpAlarms.Visible = true;
+                                    }
+                                    //z uzyciem LINQ
+                                    try
+                                    {
+                                        int rowIndex = -1;
+                                        bool tempAllowUserToAddRows = Form1._Form1.dataGridView1.AllowUserToAddRows;
+                                        Form1._Form1.dataGridView1.AllowUserToAddRows = false;
+                                        DataGridViewRow row = Form1._Form1.dataGridView1.Rows
+                                            .Cast<DataGridViewRow>()
+                                            .Where(r => r.Cells[0].Value.ToString().Equals(DBReadAlarm_AlarmName))
+                                            .First();
+
+                                        rowIndex = row.Index;
+                                        Form1._Form1.dataGridView1.AllowUserToAddRows = tempAllowUserToAddRows;
+                                    }
+                                    catch (InvalidOperationException)
+                                    {
+                                        Form1._Form1.dataGridView1.Rows.Add(DBReadAlarm_AlarmName);
                                     }
                                     if (blockade[6] == false)
                                     {
@@ -1315,8 +1452,8 @@ namespace HMIApp
                                     }
                                 }
                                 else
-                                    blockade[6] = false;
                                 {
+                                    blockade[6] = false;
                                     if (Form1._Form1.listAlarmView.FindItemWithText(DBReadAlarm_AlarmName) != null)
                                     {
                                         if (Form1._Form1.listAlarmView.Items.Count > 0)
@@ -1324,13 +1461,25 @@ namespace HMIApp
                                             Form1._Form1.listAlarmView.Items.Remove(item6);
                                         }
                                     }
-                                    //Zabezpieczenie zeby to sie nie wykonywalo jak bedzie pusta lista
-                                    if (Form1._Form1.listViewPopUpAlarms.FindItemWithText(DBReadAlarm_AlarmName) != null)
+
+                                    foreach (DataGridViewRow row in Form1._Form1.dataGridView1.Rows)
                                     {
-                                        if (Form1._Form1.listViewPopUpAlarms.Items.Count > 0)
+                                        if (row.Cells[0].Value != null)
                                         {
-                                            Form1._Form1.listViewPopUpAlarms.Items.Remove(itempopup6);
+                                            if (row.Cells[0].Value.ToString().Equals(DBReadAlarm_AlarmName))
+                                            {
+                                                Form1._Form1.dataGridView1.Rows.Remove(row);
+                                            }
                                         }
+                                        //z uzyciem LINQ
+                                        //int rowIndex = -1;
+
+                                        //DataGridViewRow row = Form1._Form1.dataGridView1.Rows
+                                        //    .Cast<DataGridViewRow>()
+                                        //    .Where(r => r.Cells[0].Value.ToString().Equals(DBReadAlarm_AlarmName))
+                                        //    .First();
+
+                                        //rowIndex = row.Index;
                                     }
                                     if (Form1._Form1.listView_AlarmsArchive.FindItemWithText(DBReadAlarm_AlarmName) != null)
                                     {
@@ -1348,27 +1497,36 @@ namespace HMIApp
                                     if (Form1._Form1.listAlarmView.FindItemWithText(DBReadAlarm_AlarmName) == null)
                                     {
                                         item7.Text = DBReadAlarm_AlarmName;
-                                        
-                                        item7.ForeColor = System.Drawing.Color.Red; 
+                                        item7.ForeColor = System.Drawing.Color.Red;
                                         Form1._Form1.listAlarmView.Items.Add(item7);
                                         index[7] = Form1._Form1.listAlarmView.Items.IndexOf(item7);
-                                    }
-                                    if (Form1._Form1.listViewPopUpAlarms.FindItemWithText(DBReadAlarm_AlarmName) == null)
-                                    {
-                                        itempopup7.Text = DBReadAlarm_AlarmName;
-
-                                        itempopup7.ForeColor = System.Drawing.Color.Red;
-                                        Form1._Form1.listViewPopUpAlarms.Items.Add(itempopup7);
-                                        index[7] = Form1._Form1.listViewPopUpAlarms.Items.IndexOf(itempopup7);
-                                        Form1._Form1.listViewPopUpAlarms.Visible = true;
+                                        Form1._Form1.dataGridView1.Visible = true;
                                         Form1._Form1.ButtonOKClosePopUpAlarms.Visible = true;
-                                        Form1._Form1.label_BackGroundPopUpAlarms.Visible = true;
                                     }
+                                    //z uzyciem LINQ
+                                    try
+                                    {
+                                        int rowIndex = -1;
+                                        bool tempAllowUserToAddRows = Form1._Form1.dataGridView1.AllowUserToAddRows;
+                                        Form1._Form1.dataGridView1.AllowUserToAddRows = false;
+                                        DataGridViewRow row = Form1._Form1.dataGridView1.Rows
+                                            .Cast<DataGridViewRow>()
+                                            .Where(r => r.Cells[0].Value.ToString().Equals(DBReadAlarm_AlarmName))
+                                            .First();
+
+                                        rowIndex = row.Index;
+                                        Form1._Form1.dataGridView1.AllowUserToAddRows = tempAllowUserToAddRows;
+                                    }
+                                    catch (InvalidOperationException)
+                                    {
+                                        Form1._Form1.dataGridView1.Rows.Add(DBReadAlarm_AlarmName);
+                                    }
+
                                     if (blockade[7] == false)
                                     {
                                         itemArchive7 = MakeList(DateTime.Now.ToString(), DBReadAlarm_TagName, DBReadAlarm_AlarmName);
                                         itemArchive7.BackColor = System.Drawing.Color.Red; itemArchive7.ForeColor = System.Drawing.Color.Black;
-                                        Form1._Form1.listView_AlarmsArchive.Items.Add(itemArchive);
+                                        Form1._Form1.listView_AlarmsArchive.Items.Add(itemArchive7);
                                         index1[7] = Form1._Form1.listView_AlarmsArchive.Items.IndexOf(itemArchive7);
                                         blockade[7] = true;
                                     }
@@ -1383,13 +1541,24 @@ namespace HMIApp
                                             Form1._Form1.listAlarmView.Items.Remove(item7);
                                         }
                                     }
-                                    //Zabezpieczenie zeby to sie nie wykonywalo jak bedzie pusta lista
-                                    if (Form1._Form1.listViewPopUpAlarms.FindItemWithText(DBReadAlarm_AlarmName) != null)
+                                    foreach (DataGridViewRow row in Form1._Form1.dataGridView1.Rows)
                                     {
-                                        if (Form1._Form1.listViewPopUpAlarms.Items.Count > 0)
+                                        if (row.Cells[0].Value != null)
                                         {
-                                            Form1._Form1.listViewPopUpAlarms.Items.Remove(itempopup7);
+                                            if (row.Cells[0].Value.ToString().Equals(DBReadAlarm_AlarmName))
+                                            {
+                                                Form1._Form1.dataGridView1.Rows.Remove(row);
+                                            }
                                         }
+                                        //z uzyciem LINQ
+                                        //int rowIndex = -1;
+
+                                        //DataGridViewRow row = Form1._Form1.dataGridView1.Rows
+                                        //    .Cast<DataGridViewRow>()
+                                        //    .Where(r => r.Cells[0].Value.ToString().Equals(DBReadAlarm_AlarmName))
+                                        //    .First();
+
+                                        //rowIndex = row.Index;
                                     }
                                     if (Form1._Form1.listView_AlarmsArchive.FindItemWithText(DBReadAlarm_AlarmName) != null)
                                     {
@@ -1399,14 +1568,14 @@ namespace HMIApp
                                         }
                                     }
                                 }
-                                if (Form1._Form1.listViewPopUpAlarms.Items.Count == 0)
-                                {
-                                    Form1._Form1.label_BackGroundPopUpAlarms.Visible = false;
-                                    Form1._Form1.listViewPopUpAlarms.Visible = false;
-                                    Form1._Form1.ButtonOKClosePopUpAlarms.Visible = false;
-                                }
+
                                 break;
-                                
+
+                        }
+                        if (Form1._Form1.dataGridView1.Rows.Count == 0 )
+                        {
+                            Form1._Form1.dataGridView1.Visible = false;
+                            Form1._Form1.ButtonOKClosePopUpAlarms.Visible = false;
                         }
                         break;
                     case "INT":

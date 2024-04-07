@@ -272,8 +272,8 @@ namespace HMIApp
 
         private void button8_Click(object sender, EventArgs e)
         {
-            label_BackGroundPopUpAlarms.Visible = false;
-            listViewPopUpAlarms.Visible = false;
+
+            dataGridView1.Visible = false;
             ButtonOKClosePopUpAlarms.Visible = false;
         }
 

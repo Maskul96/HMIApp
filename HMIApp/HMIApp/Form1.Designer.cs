@@ -32,8 +32,6 @@
             System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             OdczytDB = new System.Windows.Forms.Timer(components);
             label_Uzytkownik = new System.Windows.Forms.Label();
             pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -223,12 +221,9 @@
             textBox7 = new System.Windows.Forms.TextBox();
             label23 = new System.Windows.Forms.Label();
             tabPage1 = new System.Windows.Forms.TabPage();
-            dataGridView1 = new System.Windows.Forms.DataGridView();
-            Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            listViewPopUpAlarms = new System.Windows.Forms.ListView();
-            columnHeader5 = new System.Windows.Forms.ColumnHeader();
             ButtonOKClosePopUpAlarms = new System.Windows.Forms.Button();
-            label_BackGroundPopUpAlarms = new System.Windows.Forms.Label();
+            dataGridView1 = new System.Windows.Forms.DataGridView();
+            Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             DB667CzasCyklu = new System.Windows.Forms.TextBox();
             formsPlot1 = new ScottPlot.WinForms.FormsPlot();
             Label_AktualneDane = new System.Windows.Forms.Label();
@@ -383,7 +378,7 @@
             listAlarmView.Alignment = System.Windows.Forms.ListViewAlignment.Default;
             listAlarmView.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             listAlarmView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { columnHeader4 });
-            listAlarmView.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 238);
+            listAlarmView.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 238);
             listAlarmView.Location = new System.Drawing.Point(0, 733);
             listAlarmView.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             listAlarmView.MultiSelect = false;
@@ -2061,7 +2056,7 @@
             label7.Location = new System.Drawing.Point(7, 66);
             label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label7.Name = "label7";
-            label7.Size = new System.Drawing.Size(220, 291);
+            label7.Size = new System.Drawing.Size(220, 333);
             label7.TabIndex = 157;
             label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -2203,7 +2198,7 @@
             label86.Location = new System.Drawing.Point(235, 102);
             label86.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label86.Name = "label86";
-            label86.Size = new System.Drawing.Size(1004, 255);
+            label86.Size = new System.Drawing.Size(1004, 297);
             label86.TabIndex = 158;
             label86.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -2394,10 +2389,8 @@
             // 
             // tabPage1
             // 
-            tabPage1.Controls.Add(dataGridView1);
-            tabPage1.Controls.Add(listViewPopUpAlarms);
             tabPage1.Controls.Add(ButtonOKClosePopUpAlarms);
-            tabPage1.Controls.Add(label_BackGroundPopUpAlarms);
+            tabPage1.Controls.Add(dataGridView1);
             tabPage1.Controls.Add(DB667CzasCyklu);
             tabPage1.Controls.Add(formsPlot1);
             tabPage1.Controls.Add(Label_AktualneDane);
@@ -2429,90 +2422,48 @@
             tabPage1.Text = "AUTO";
             tabPage1.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
-            // 
-            dataGridView1.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Red;
-            dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridView1.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 238);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.ButtonHighlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.ColumnHeadersVisible = false;
-            dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { Column1 });
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 238);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            dataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
-            dataGridView1.Enabled = false;
-            dataGridView1.Location = new System.Drawing.Point(553, 143);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersVisible = false;
-            dataGridView1.Size = new System.Drawing.Size(183, 150);
-            dataGridView1.TabIndex = 189;
-            // 
-            // Column1
-            // 
-            Column1.HeaderText = "";
-            Column1.Name = "Column1";
-            Column1.Width = 21;
-            // 
-            // listViewPopUpAlarms
-            // 
-            listViewPopUpAlarms.Alignment = System.Windows.Forms.ListViewAlignment.Default;
-            listViewPopUpAlarms.AllowColumnReorder = true;
-            listViewPopUpAlarms.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
-            listViewPopUpAlarms.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { columnHeader5 });
-            listViewPopUpAlarms.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 238);
-            listViewPopUpAlarms.Location = new System.Drawing.Point(146, 132);
-            listViewPopUpAlarms.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            listViewPopUpAlarms.MultiSelect = false;
-            listViewPopUpAlarms.Name = "listViewPopUpAlarms";
-            listViewPopUpAlarms.Size = new System.Drawing.Size(604, 177);
-            listViewPopUpAlarms.Sorting = System.Windows.Forms.SortOrder.Descending;
-            listViewPopUpAlarms.TabIndex = 177;
-            listViewPopUpAlarms.TileSize = new System.Drawing.Size(1000, 40);
-            listViewPopUpAlarms.UseCompatibleStateImageBehavior = false;
-            listViewPopUpAlarms.View = System.Windows.Forms.View.Tile;
-            // 
-            // columnHeader5
-            // 
-            columnHeader5.Text = "";
-            columnHeader5.Width = 600;
-            // 
             // ButtonOKClosePopUpAlarms
             // 
             ButtonOKClosePopUpAlarms.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             ButtonOKClosePopUpAlarms.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            ButtonOKClosePopUpAlarms.Location = new System.Drawing.Point(356, 321);
+            ButtonOKClosePopUpAlarms.Location = new System.Drawing.Point(361, 333);
             ButtonOKClosePopUpAlarms.Name = "ButtonOKClosePopUpAlarms";
             ButtonOKClosePopUpAlarms.Size = new System.Drawing.Size(166, 39);
             ButtonOKClosePopUpAlarms.TabIndex = 187;
             ButtonOKClosePopUpAlarms.Text = "OK";
             ButtonOKClosePopUpAlarms.UseVisualStyleBackColor = true;
+            ButtonOKClosePopUpAlarms.Visible = false;
             ButtonOKClosePopUpAlarms.Click += button8_Click;
             // 
-            // label_BackGroundPopUpAlarms
+            // dataGridView1
             // 
-            label_BackGroundPopUpAlarms.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
-            label_BackGroundPopUpAlarms.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            label_BackGroundPopUpAlarms.Location = new System.Drawing.Point(126, 116);
-            label_BackGroundPopUpAlarms.Name = "label_BackGroundPopUpAlarms";
-            label_BackGroundPopUpAlarms.Size = new System.Drawing.Size(644, 256);
-            label_BackGroundPopUpAlarms.TabIndex = 186;
-            label_BackGroundPopUpAlarms.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            dataGridView1.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            dataGridView1.BackgroundColor = System.Drawing.Color.White;
+            dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.ColumnHeadersVisible = false;
+            dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { Column2 });
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 238);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridView1.Location = new System.Drawing.Point(137, 128);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersVisible = false;
+            dataGridView1.RowHeadersWidth = 40;
+            dataGridView1.RowTemplate.Height = 50;
+            dataGridView1.Size = new System.Drawing.Size(621, 206);
+            dataGridView1.TabIndex = 190;
+            dataGridView1.Visible = false;
+            // 
+            // Column2
+            // 
+            Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            Column2.HeaderText = "Column2";
+            Column2.Name = "Column2";
             // 
             // DB667CzasCyklu
             // 
@@ -3159,9 +3110,6 @@
         private System.Windows.Forms.Label label107;
         public System.Windows.Forms.Label HMIStatus;
         public System.Windows.Forms.Button ButtonOKClosePopUpAlarms;
-        public System.Windows.Forms.Label label_BackGroundPopUpAlarms;
-        public System.Windows.Forms.ColumnHeader columnHeader5;
-        public System.Windows.Forms.ListView listViewPopUpAlarms;
         public System.Windows.Forms.PictureBox pictureBoxMachineImages;
         public System.Windows.Forms.TextBox DB667Auto;
         public System.Windows.Forms.TextBox DB667Man;
@@ -3176,7 +3124,7 @@
         public System.Windows.Forms.TextBox textBox1;
         public System.Windows.Forms.CheckBox checkBox3;
         public System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
     }
 }
 

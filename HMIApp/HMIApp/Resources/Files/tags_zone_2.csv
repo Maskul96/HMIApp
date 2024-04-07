@@ -5,6 +5,6 @@ DB668.Alarm2,Bool,0,2,0,Nazwa Alarmu 2 - B³¹d przekroczenia pozycji koñca monta¿
 DB668.Alarm3,Bool,0,3,0,Nazwa Alarmu 3 - TraceUp Sztuka NOK lub NOK na poprzedniej operacji
 DB668.Alarm4,Bool,0,4,0,Nazwa Alarmu 4
 DB668.Alarm5,Bool,0,5,0,Nazwa Alarmu 5
-DB668.Alarm6,Bool,0,6,0,Nazwa alarmu 6
+DB668.Alarm6,Bool,0,6,0,Nazwa Alarmu 6
 DB668.Alarm7,Bool,0,7,0,Nazwa Alarmu 7
 DB668.NrOfMessage,Int,2,0,2,Numer Komunikatu
