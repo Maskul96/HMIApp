@@ -318,7 +318,9 @@ namespace HMIApp
                     var mainplot = Form1._Form1.formsPlot1.Plot.Add.Scatter(ActX, ActY);
                     mainplot.Color = Colors.Red;
                     mainplot.LineStyle.Width = 2;
-
+                    //Wrzucenie tekstu na wykres z dokladnymi odczytami punktow i siły
+                    Form1._Form1.formsPlot1.Plot.Add.Text($"({EndPoint},{ForceMax})", EndPoint, ForceMax);
+                    Form1._Form1.formsPlot1.Plot.Add.Text($"({StartReading},{ForceMin})", StartReading, ForceMin);
                     Form1._Form1.formsPlot1.Refresh();
                 }
             }

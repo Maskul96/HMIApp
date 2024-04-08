@@ -364,6 +364,11 @@ namespace HMIApp
             {
                 textBox2.AppendText(message + Environment.NewLine);
             }
+
+            if(textBox2.Lines.Length > 100)
+            {
+                textBox2.Clear();
+            }
         }
     }
 }
