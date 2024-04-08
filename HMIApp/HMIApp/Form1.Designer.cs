@@ -113,6 +113,7 @@
             DB669Output1 = new System.Windows.Forms.TextBox();
             DB669Output0 = new System.Windows.Forms.TextBox();
             tabPage6 = new System.Windows.Forms.TabPage();
+            textBox2 = new System.Windows.Forms.TextBox();
             textBox4 = new System.Windows.Forms.TextBox();
             label1 = new System.Windows.Forms.Label();
             button_ZamknijApke = new System.Windows.Forms.Button();
@@ -1099,6 +1100,7 @@
             // 
             // tabPage6
             // 
+            tabPage6.Controls.Add(textBox2);
             tabPage6.Controls.Add(textBox4);
             tabPage6.Controls.Add(label1);
             tabPage6.Controls.Add(button_ZamknijApke);
@@ -1110,6 +1112,15 @@
             tabPage6.TabIndex = 5;
             tabPage6.Text = "SERWIS";
             tabPage6.UseVisualStyleBackColor = true;
+            // 
+            // textBox2
+            // 
+            textBox2.Location = new System.Drawing.Point(10, 83);
+            textBox2.Multiline = true;
+            textBox2.Name = "textBox2";
+            textBox2.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            textBox2.Size = new System.Drawing.Size(515, 297);
+            textBox2.TabIndex = 3;
             // 
             // textBox4
             // 
@@ -1246,6 +1257,7 @@
             textBoxImie_DodajUzytk.Name = "textBoxImie_DodajUzytk";
             textBoxImie_DodajUzytk.Size = new System.Drawing.Size(230, 29);
             textBoxImie_DodajUzytk.TabIndex = 5;
+            textBoxImie_DodajUzytk.Click += TextBox_Click;
             // 
             // textBox_Imie_Edycja
             // 
@@ -1254,6 +1266,7 @@
             textBox_Imie_Edycja.Name = "textBox_Imie_Edycja";
             textBox_Imie_Edycja.Size = new System.Drawing.Size(230, 29);
             textBox_Imie_Edycja.TabIndex = 14;
+            textBox_Imie_Edycja.Click += TextBox_Click;
             // 
             // label_Imie_Edycja
             // 
@@ -1273,6 +1286,7 @@
             textBox_NumerKarty_Edycja.Name = "textBox_NumerKarty_Edycja";
             textBox_NumerKarty_Edycja.Size = new System.Drawing.Size(230, 29);
             textBox_NumerKarty_Edycja.TabIndex = 13;
+            textBox_NumerKarty_Edycja.Click += TextBox_Click;
             // 
             // textbox_NumerKarty_DodajUzytk
             // 
@@ -1281,6 +1295,7 @@
             textbox_NumerKarty_DodajUzytk.Name = "textbox_NumerKarty_DodajUzytk";
             textbox_NumerKarty_DodajUzytk.Size = new System.Drawing.Size(230, 29);
             textbox_NumerKarty_DodajUzytk.TabIndex = 4;
+            textbox_NumerKarty_DodajUzytk.Click += TextBox_Click;
             // 
             // label_Uprawnienia_DodajUzytk
             // 
@@ -1399,6 +1414,7 @@
             textBox_MiejsceNaNrKarty_Zaloguj.Name = "textBox_MiejsceNaNrKarty_Zaloguj";
             textBox_MiejsceNaNrKarty_Zaloguj.Size = new System.Drawing.Size(196, 29);
             textBox_MiejsceNaNrKarty_Zaloguj.TabIndex = 81;
+            textBox_MiejsceNaNrKarty_Zaloguj.Click += TextBox_Click;
             // 
             // label59
             // 
@@ -1599,6 +1615,7 @@
             DB666Tag21.Size = new System.Drawing.Size(75, 29);
             DB666Tag21.TabIndex = 147;
             DB666Tag21.Tag = "DB666.Tag21";
+            DB666Tag21.Click += TextBox_Click;
             // 
             // label72
             // 
@@ -1641,6 +1658,7 @@
             DB666Tag20.Size = new System.Drawing.Size(75, 29);
             DB666Tag20.TabIndex = 146;
             DB666Tag20.Tag = "DB666.Tag20";
+            DB666Tag20.Click += TextBox_Click;
             // 
             // label102
             // 
@@ -1674,6 +1692,7 @@
             DB666Tag22.Size = new System.Drawing.Size(75, 29);
             DB666Tag22.TabIndex = 150;
             DB666Tag22.Tag = "DB666.Tag22";
+            DB666Tag22.Click += TextBox_Click;
             // 
             // label73
             // 
@@ -1694,6 +1713,7 @@
             DB666Tag2.Size = new System.Drawing.Size(75, 29);
             DB666Tag2.TabIndex = 56;
             DB666Tag2.Tag = "DB666.Tag2";
+            DB666Tag2.Click += TextBox_Click;
             // 
             // label32
             // 
@@ -1714,6 +1734,7 @@
             DB666Tag19.Size = new System.Drawing.Size(75, 29);
             DB666Tag19.TabIndex = 149;
             DB666Tag19.Tag = "DB666.Tag19";
+            DB666Tag19.Click += TextBox_Click;
             // 
             // label75
             // 
@@ -1745,6 +1766,7 @@
             DB666Tag18.Size = new System.Drawing.Size(75, 29);
             DB666Tag18.TabIndex = 148;
             DB666Tag18.Tag = "DB666.Tag18";
+            DB666Tag18.Click += TextBox_Click;
             // 
             // DB666Tag14
             // 
@@ -1754,6 +1776,7 @@
             DB666Tag14.Size = new System.Drawing.Size(75, 29);
             DB666Tag14.TabIndex = 135;
             DB666Tag14.Tag = "DB666.Tag14";
+            DB666Tag14.Click += TextBox_Click;
             // 
             // DB666Tag12
             // 
@@ -1785,6 +1808,7 @@
             DB666Tag3.Size = new System.Drawing.Size(75, 29);
             DB666Tag3.TabIndex = 61;
             DB666Tag3.Tag = "DB666.Tag3";
+            DB666Tag3.Click += TextBox_Click;
             // 
             // DB666Tag11
             // 
@@ -1816,6 +1840,7 @@
             DB666Tag7.Size = new System.Drawing.Size(75, 29);
             DB666Tag7.TabIndex = 133;
             DB666Tag7.Tag = "DB666.Tag7";
+            DB666Tag7.Click += TextBox_Click;
             // 
             // DB666Tag10
             // 
@@ -1858,6 +1883,7 @@
             DB666Tag15.Size = new System.Drawing.Size(75, 29);
             DB666Tag15.TabIndex = 63;
             DB666Tag15.Tag = "DB666.Tag15";
+            DB666Tag15.Click += TextBox_Click;
             // 
             // DB666Tag8
             // 
@@ -1889,6 +1915,7 @@
             DB666Tag5.Size = new System.Drawing.Size(75, 29);
             DB666Tag5.TabIndex = 62;
             DB666Tag5.Tag = "DB666.Tag5";
+            DB666Tag5.Click += TextBox_Click;
             // 
             // DB666Tag6
             // 
@@ -1898,6 +1925,7 @@
             DB666Tag6.Size = new System.Drawing.Size(75, 29);
             DB666Tag6.TabIndex = 130;
             DB666Tag6.Tag = "DB666.Tag6";
+            DB666Tag6.Click += TextBox_Click;
             // 
             // DB666Tag4
             // 
@@ -1907,6 +1935,7 @@
             DB666Tag4.Size = new System.Drawing.Size(75, 29);
             DB666Tag4.TabIndex = 57;
             DB666Tag4.Tag = "DB666.Tag4";
+            DB666Tag4.Click += TextBox_Click;
             // 
             // DB666Tag0
             // 
@@ -2037,7 +2066,7 @@
             label7.Location = new System.Drawing.Point(7, 66);
             label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label7.Name = "label7";
-            label7.Size = new System.Drawing.Size(220, 327);
+            label7.Size = new System.Drawing.Size(220, 407);
             label7.TabIndex = 157;
             label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -2087,6 +2116,7 @@
             DB666Tag17.Size = new System.Drawing.Size(225, 23);
             DB666Tag17.TabIndex = 95;
             DB666Tag17.Tag = "DB666.Tag17";
+            DB666Tag17.Click += TextBox_Click;
             // 
             // DB666Tag16
             // 
@@ -2097,6 +2127,7 @@
             DB666Tag16.Size = new System.Drawing.Size(725, 22);
             DB666Tag16.TabIndex = 94;
             DB666Tag16.Tag = "DB666.Tag16";
+            DB666Tag16.Click += TextBox_Click;
             // 
             // comboBoxListaReferencji
             // 
@@ -2179,7 +2210,7 @@
             label86.Location = new System.Drawing.Point(235, 102);
             label86.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label86.Name = "label86";
-            label86.Size = new System.Drawing.Size(1004, 291);
+            label86.Size = new System.Drawing.Size(1004, 371);
             label86.TabIndex = 158;
             label86.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -3141,6 +3172,7 @@
         public System.Windows.Forms.ColumnHeader columnHeader5;
         public System.Windows.Forms.ColumnHeader columnHeader6;
         public System.Windows.Forms.ColumnHeader columnHeader7;
+        public System.Windows.Forms.TextBox textBox2;
     }
 }
 

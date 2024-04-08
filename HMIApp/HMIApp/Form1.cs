@@ -10,6 +10,7 @@ using Microsoft.EntityFrameworkCore;
 using HMIApp.Components.RFIDCardReader;
 using Microsoft.Win32;
 using System.Diagnostics;
+using ScottPlot.Colormaps;
 
 
 
@@ -31,15 +32,15 @@ namespace HMIApp
         public Form1()
         {
             InitializeComponent();
-
+            InitializeLogging();
 
             _Form1 = this;
             //zakomentuj ponizsze cztery metody do odpalenia apki bez PLC
-            App.RunInitPLC();
-            App.ReadAlarmsFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_2.csv");
-            App.ReadIOFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_3.csv");
-            App.ReadActualValueFromDBChart_Simplified("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_4.csv");
-            App.ReadActualValueFromDBReferenceOrProcessData("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_1.csv");
+            //App.RunInitPLC();
+            //App.ReadAlarmsFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_2.csv");
+            //App.ReadIOFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_3.csv");
+            //App.ReadActualValueFromDBChart_Simplified("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_4.csv");
+            //App.ReadActualValueFromDBReferenceOrProcessData("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_1.csv");
 
             DataBase.Run();
             //Services do dependency injection
@@ -58,6 +59,7 @@ namespace HMIApp
 
             CommaReplaceDotTextBox(this);
 
+
             PassedValueControls.Run();
 
             App.CreateStaticPlot();
@@ -68,7 +70,7 @@ namespace HMIApp
         //statyczna zmienna typu Form1 zeby dostac sie z poziomu innej klasy do obiektow wewnatrz Form1
         public static Form1 _Form1;
 
-
+      
 
         //METODA DO ODCZYTU DANYCH Z BAZY przy starcie aplikacji
         public void ReadFromDbWhenAppIsStarting()
@@ -145,17 +147,21 @@ namespace HMIApp
 
         }
 
+
+
         //Timer co 10ms do oczytywania danych 
         private void timer1_Tick(object sender, EventArgs e)
         {
             //zakomentuj ponizsze dwie metody do odpalenia apki bez PLC
-            App.ReadAlarmsFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_2.csv");
-            App.ReadIOFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_3.csv");
-            App.ReadActualValueFromDBReferenceOrProcessData("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_1.csv");
-            App.CreatePlot();
+            //App.ReadAlarmsFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_2.csv");
+            //App.ReadIOFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_3.csv");
+            //App.ReadActualValueFromDBReferenceOrProcessData("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_1.csv");
+            //App.CreatePlot();
             //aktualizacja daty i godziny
             this.Text = DateTime.Now.ToString();
             label_DataIGodzina.Text = this.Text;
+            
+
         }
 
         //Przycisk wyzwalajacy zapis uzytkownika
@@ -242,6 +248,7 @@ namespace HMIApp
             };
         }
 
+
         //Zamiana kropki na przecinek
         private void CommaReplaceDotTextBox(Control control)
         {
@@ -260,14 +267,27 @@ namespace HMIApp
             }
         }
 
+
         private void TextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
+
             TextBox textBox = (TextBox)sender;
             // Jeśli naciśnięto kropkę, zamień na przecinek
             if (e.KeyChar == '.')
             {
                 e.KeyChar = ',';
             }
+        }
+
+        private void TextBox_Click(object sender, EventArgs e)
+        {
+            Process[] oslProcessArry = Process.GetProcessesByName("TabTip");
+            foreach (Process oslProcess in oslProcessArry)
+            {
+                oslProcess.Kill();
+            }
+            string progFiles = @"C:\Program Files\Common Files\Microsoft Shared\Ink\TabTip.exe";
+            Process.Start(progFiles);
         }
 
         private void button8_Click(object sender, EventArgs e)
@@ -319,5 +339,31 @@ namespace HMIApp
             Close();
         }
 
+        private void InitializeLogging()
+        {
+          LogMessage();
+        }
+
+        //Logować tutaj różne błędy z aplikacji wraz z errorami z komunikacji z PLC
+        private void LogMessage(string message = "")
+        {
+            textBox2.AppendText($"{DateTime.Now}: " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString());
+            textBox2.AppendText("CC: " + System.Threading.Thread.CurrentThread.CurrentCulture.ToString());
+            textBox2.AppendText("CUIC: " + System.Threading.Thread.CurrentThread.CurrentUICulture.ToString());
+            textBox2.AppendText(Environment.NewLine);
+            textBox2.AppendText(System.Threading.Thread.CurrentThread.ExecutionContext.ToString());
+
+            if (textBox2.InvokeRequired)
+            {
+                textBox2.BeginInvoke(new Action(() =>
+                {
+                    textBox2.AppendText(message + Environment.NewLine);
+                }));
+            }
+            else
+            {
+                textBox2.AppendText(message + Environment.NewLine);
+            }
+        }
     }
 }
