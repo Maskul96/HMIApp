@@ -32,6 +32,7 @@
             System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("");
             OdczytDB = new System.Windows.Forms.Timer(components);
             label_Uzytkownik = new System.Windows.Forms.Label();
             pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -41,8 +42,6 @@
             label_NazwaReferencji = new System.Windows.Forms.Label();
             label8 = new System.Windows.Forms.Label();
             label_CzasDoWylogowania = new System.Windows.Forms.Label();
-            listAlarmView = new System.Windows.Forms.ListView();
-            columnHeader4 = new System.Windows.Forms.ColumnHeader();
             label_DataIGodzina = new System.Windows.Forms.Label();
             listBoxWarningsView = new System.Windows.Forms.ListBox();
             CzyszczenieStatusówLogowania = new System.Windows.Forms.Timer(components);
@@ -253,6 +252,10 @@
             DB667Safety = new System.Windows.Forms.TextBox();
             DB667Kurtyna = new System.Windows.Forms.TextBox();
             DB667PozWyj = new System.Windows.Forms.TextBox();
+            listView_Alarms = new System.Windows.Forms.ListView();
+            columnHeader5 = new System.Windows.Forms.ColumnHeader();
+            columnHeader6 = new System.Windows.Forms.ColumnHeader();
+            columnHeader7 = new System.Windows.Forms.ColumnHeader();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             tabPage7.SuspendLayout();
             tabPage9.SuspendLayout();
@@ -372,28 +375,6 @@
             label_CzasDoWylogowania.Size = new System.Drawing.Size(134, 17);
             label_CzasDoWylogowania.TabIndex = 103;
             label_CzasDoWylogowania.Text = "Czas do wylogowania";
-            // 
-            // listAlarmView
-            // 
-            listAlarmView.Alignment = System.Windows.Forms.ListViewAlignment.Default;
-            listAlarmView.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
-            listAlarmView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { columnHeader4 });
-            listAlarmView.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 238);
-            listAlarmView.Location = new System.Drawing.Point(0, 733);
-            listAlarmView.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            listAlarmView.MultiSelect = false;
-            listAlarmView.Name = "listAlarmView";
-            listAlarmView.Size = new System.Drawing.Size(1280, 67);
-            listAlarmView.Sorting = System.Windows.Forms.SortOrder.Descending;
-            listAlarmView.TabIndex = 104;
-            listAlarmView.TileSize = new System.Drawing.Size(1200, 50);
-            listAlarmView.UseCompatibleStateImageBehavior = false;
-            listAlarmView.View = System.Windows.Forms.View.Tile;
-            // 
-            // columnHeader4
-            // 
-            columnHeader4.Text = "";
-            columnHeader4.Width = 1000;
             // 
             // label_DataIGodzina
             // 
@@ -2056,7 +2037,7 @@
             label7.Location = new System.Drawing.Point(7, 66);
             label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label7.Name = "label7";
-            label7.Size = new System.Drawing.Size(220, 333);
+            label7.Size = new System.Drawing.Size(220, 327);
             label7.TabIndex = 157;
             label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -2198,7 +2179,7 @@
             label86.Location = new System.Drawing.Point(235, 102);
             label86.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label86.Name = "label86";
-            label86.Size = new System.Drawing.Size(1004, 297);
+            label86.Size = new System.Drawing.Size(1004, 291);
             label86.TabIndex = 158;
             label86.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -2835,6 +2816,39 @@
             DB667PozWyj.Text = "POZ. WYJ.";
             DB667PozWyj.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // listView_Alarms
+            // 
+            listView_Alarms.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { columnHeader5, columnHeader6, columnHeader7 });
+            listView_Alarms.Dock = System.Windows.Forms.DockStyle.Bottom;
+            listView_Alarms.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 238);
+            listView_Alarms.ForeColor = System.Drawing.SystemColors.InfoText;
+            listView_Alarms.FullRowSelect = true;
+            listView_Alarms.GridLines = true;
+            listView_Alarms.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
+            listView_Alarms.Items.AddRange(new System.Windows.Forms.ListViewItem[] { listViewItem2 });
+            listView_Alarms.Location = new System.Drawing.Point(0, 740);
+            listView_Alarms.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            listView_Alarms.Name = "listView_Alarms";
+            listView_Alarms.Size = new System.Drawing.Size(1280, 60);
+            listView_Alarms.TabIndex = 191;
+            listView_Alarms.UseCompatibleStateImageBehavior = false;
+            listView_Alarms.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader5
+            // 
+            columnHeader5.Text = "";
+            columnHeader5.Width = 250;
+            // 
+            // columnHeader6
+            // 
+            columnHeader6.Text = "PLC TAG";
+            columnHeader6.Width = 200;
+            // 
+            // columnHeader7
+            // 
+            columnHeader7.Text = "NAZWA ALARMU";
+            columnHeader7.Width = 800;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -2842,6 +2856,7 @@
             AutoSize = true;
             AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             ClientSize = new System.Drawing.Size(1280, 800);
+            Controls.Add(listView_Alarms);
             Controls.Add(DB667PozWyj);
             Controls.Add(DB667Kurtyna);
             Controls.Add(DB667Safety);
@@ -2851,7 +2866,6 @@
             Controls.Add(label_Imie);
             Controls.Add(label_NrKarty);
             Controls.Add(label_Uprawnienia);
-            Controls.Add(listAlarmView);
             Controls.Add(listBoxWarningsView);
             Controls.Add(HMIStatus);
             Controls.Add(label_Uzytkownik);
@@ -2910,10 +2924,8 @@
         private System.Windows.Forms.Label label_NazwaKlienta;
         private System.Windows.Forms.Label label_NazwaReferencji;
         private System.Windows.Forms.Label label8;
-        public System.Windows.Forms.ListView listAlarmView;
         public System.Windows.Forms.Label label_DataIGodzina;
         public System.Windows.Forms.ListBox listBoxWarningsView;
-        public System.Windows.Forms.ColumnHeader columnHeader4;
         public System.Windows.Forms.Timer CzyszczenieStatusówLogowania;
         public System.Windows.Forms.Label label_CzasDoWylogowania;
         public System.Windows.Forms.Label label_Imie;
@@ -3125,6 +3137,10 @@
         public System.Windows.Forms.CheckBox checkBox3;
         public System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        public System.Windows.Forms.ListView listView_Alarms;
+        public System.Windows.Forms.ColumnHeader columnHeader5;
+        public System.Windows.Forms.ColumnHeader columnHeader6;
+        public System.Windows.Forms.ColumnHeader columnHeader7;
     }
 }
 
