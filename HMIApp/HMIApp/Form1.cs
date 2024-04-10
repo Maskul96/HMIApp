@@ -70,7 +70,7 @@ namespace HMIApp
         //statyczna zmienna typu Form1 zeby dostac sie z poziomu innej klasy do obiektow wewnatrz Form1
         public static Form1 _Form1;
 
-      
+
 
         //METODA DO ODCZYTU DANYCH Z BAZY przy starcie aplikacji
         public void ReadFromDbWhenAppIsStarting()
@@ -160,7 +160,7 @@ namespace HMIApp
             //aktualizacja daty i godziny
             this.Text = DateTime.Now.ToString();
             label_DataIGodzina.Text = this.Text;
-            
+
 
         }
 
@@ -173,7 +173,7 @@ namespace HMIApp
         //Wyczyszczenie statusu karty Użytkownicy
         private void timer2_Tick(object sender, EventArgs e)
         {
-            listBoxStatusyLogowania.Items.Clear();
+            StatusyLogowania.Items.Clear();
         }
 
         //Wyswietlenie uzytkownikow z bazy
@@ -341,7 +341,7 @@ namespace HMIApp
 
         private void InitializeLogging()
         {
-          LogMessage();
+            LogMessage();
         }
 
         //Logować tutaj różne błędy z aplikacji wraz z errorami z komunikacji z PLC
@@ -365,10 +365,20 @@ namespace HMIApp
                 textBox2.AppendText(message + Environment.NewLine);
             }
 
-            if(textBox2.Lines.Length > 100)
+            if (textBox2.Lines.Length > 100)
             {
                 textBox2.Clear();
             }
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

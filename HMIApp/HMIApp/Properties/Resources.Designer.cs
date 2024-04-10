@@ -102,5 +102,53 @@ namespace HMIApp.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        internal static System.Drawing.Bitmap ChwytakGorny
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("ChwytakGorny", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        internal static System.Drawing.Bitmap ChwytakDolny
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("ChwytakDolny", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        internal static System.Drawing.Bitmap GlowicaSmarujaca
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("GlwoicaSmarujaca", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        internal static System.Drawing.Bitmap SzczekiOslonki
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("SzczekiOslonki", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        internal static System.Drawing.Bitmap UkladPodnoszenia
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("UkladPodnoszenia", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        internal static System.Drawing.Bitmap ZaciskTulipa
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("ZaciskTulipa", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

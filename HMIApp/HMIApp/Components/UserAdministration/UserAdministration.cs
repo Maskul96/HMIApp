@@ -139,7 +139,7 @@ namespace HMIApp.Components.UserAdministration
                     //Zapis ppliku
                     document.Save("document.xml");
                     //Komunikat dla usera
-                    Form1._Form1.listBoxStatusyLogowania.Items.Add("Użytkownik dodany");
+                    Form1._Form1.StatusyLogowania.Items.Add("Użytkownik dodany");
 
                     //Wyczyszczenie i nastepnie update listy w combobox
                     ClearListInComboBox();
@@ -148,13 +148,13 @@ namespace HMIApp.Components.UserAdministration
                 else
                 {
                     //Komunikat dla usera
-                    Form1._Form1.listBoxStatusyLogowania.Items.Add("Użytkownik już istnieje!");
+                    Form1._Form1.StatusyLogowania.Items.Add("Użytkownik już istnieje!");
                 }
             }
             else
             {
                 //Komunikat dla usera
-                Form1._Form1.listBoxStatusyLogowania.Items.Add("Niepoprawne dane");
+                Form1._Form1.StatusyLogowania.Items.Add("Niepoprawne dane");
             }
 
             Form1._Form1.CzyszczenieStatusówLogowania.Enabled = true;
@@ -186,7 +186,7 @@ namespace HMIApp.Components.UserAdministration
                 document.Save("document.xml");
 
                 //Komunikat dla usera
-                Form1._Form1.listBoxStatusyLogowania.Items.Add("Użytkownik zedytowany");
+                Form1._Form1.StatusyLogowania.Items.Add("Użytkownik zedytowany");
 
                 //Wyczyszczenie i nastepnie update listy w combobox
                 ClearListInComboBox();
@@ -195,7 +195,7 @@ namespace HMIApp.Components.UserAdministration
             else
             {
                 //Komunikat dla usera
-                Form1._Form1.listBoxStatusyLogowania.Items.Add("Niepoprawne dane");
+                Form1._Form1.StatusyLogowania.Items.Add("Niepoprawne dane");
             }
             Form1._Form1.CzyszczenieStatusówLogowania.Enabled = true;
 
