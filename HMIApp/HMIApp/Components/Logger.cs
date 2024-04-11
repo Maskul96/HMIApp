@@ -1,33 +1,41 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Controls;
-using System.IO;
 
 namespace HMIApp.Components
 {
     public class Logger
     {
-        public TextBox _logTextBox;
         public Form1 obj;
         public Logger(Form1 obj)
         {
             this.obj = obj;
         }
 
-        public Logger(TextBox logTextBox)
+        public Logger()
         {
-            _logTextBox = logTextBox;
         }
 
-        public void Log(string message)
+
+        //Logować tutaj różne błędy z aplikacji wraz z errorami z komunikacji z PLC
+        public void LogMessage(string message = "")
         {
-            string formattedMessage = $"{DateTime.Now}: {message}\n";
 
+            if (Form1._Form1.textBox_StuatusyAplikacji.InvokeRequired)
+            {
+                Form1._Form1.textBox_StuatusyAplikacji.BeginInvoke(new Action(() =>
+                {
+                    Form1._Form1.textBox_StuatusyAplikacji.AppendText(message + Environment.NewLine);
+                }));
+            }
+            else
+            {
+                Form1._Form1.textBox_StuatusyAplikacji.AppendText(message + Environment.NewLine);
+            }
 
-
+            if (Form1._Form1.textBox_StuatusyAplikacji.Lines.Length > 100)
+            {
+                Form1._Form1.textBox_StuatusyAplikacji.Clear();
+            }
         }
     }
 }

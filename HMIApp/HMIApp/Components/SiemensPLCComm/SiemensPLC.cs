@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HMIApp.Components;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -41,6 +42,8 @@ namespace HMIApp
             this.obj = obj;
         }
 
+        Logger _logger = new Logger();
+
         //konstruktor parametrowy
         public SiemensPLC(string IP, int Port, int Rack, int Slot, int Timeout_ms)
         {
@@ -74,31 +77,28 @@ namespace HMIApp
                             {
                                 //MessageBox.Show($"CONNECTED,IP: {IP} port: {Port} ");
                                 Form1._Form1.textBox4.Text = $"CONNECTED,IP: {IP} port: {Port} ";
+                                _logger.LogMessage($"CONNECTED,IP: {IP} port: {Port} ");
                                 connected_ = true;
                                 return true;
                             }
                             Form1._Form1.textBox4.Text = ($"Error connecting to PLC: {libnodave.daveStrerror(num)} ");
-                            Form1._Form1.HMIStatus.BackColor = System.Drawing.Color.IndianRed;
+                            _logger.LogMessage($"Error connecting to PLC: {libnodave.daveStrerror(num)} ");
                             MessageBox.Show($"Error connecting to PLC: {libnodave.daveStrerror(num)} ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             return false;
                         }
-                        Form1._Form1.textBox4.Text = ($"Error initAdapter socket,IP: {IP} port: {Port}");
-                        Form1._Form1.HMIStatus.BackColor = System.Drawing.Color.IndianRed;
-                        MessageBox.Show($"Error initAdapter socket,IP: {IP} port: {Port}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        _logger.LogMessage($"Error initAdapter socket,IP: {IP} port: {Port} ");
                         return false;
                     }
-                    Form1._Form1.textBox4.Text = ("Error opening socket, IP: {IP} port: {Port}");
-                    Form1._Form1.HMIStatus.BackColor = System.Drawing.Color.IndianRed;
-                    MessageBox.Show($"Error opening socket, IP: {IP} port: {Port}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    _logger.LogMessage($"Error opening socket, IP: {IP} port: {Port} ");
                     return false;
                 }
-                Form1._Form1.textBox4.Text = ("Already connected");
+                _logger.LogMessage($"Already connected");
                 return false;
             }
             catch (Exception ex)
             {
-                Form1._Form1.textBox4.Text = ($"{ex.ToString()}");
                 MessageBox.Show($"{ex.ToString()}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                _logger.LogMessage($"{ex.ToString()}");
                 return false;
             }
         }
@@ -117,15 +117,15 @@ namespace HMIApp
                         connected_ = false;
                         return true;
                     }
-                    Form1._Form1.textBox4.Text = ("Error in disconnect with PLC");
+                    _logger.LogMessage("Error in disconnect with PLC");
                     return false;
                 }
-                Form1._Form1.textBox4.Text = ("PLC not connected");
+                _logger.LogMessage("PLC not connected");
                 return false;
             }
             catch (Exception ex)
             {
-                Form1._Form1.textBox4.Text = ($"{ex.ToString()}");
+                _logger.LogMessage($"{ex.ToString()}");
                 return false;
             }
         }
@@ -148,15 +148,14 @@ namespace HMIApp
                         return true;
                     }
                     AddContinuousReadingErrors();
-                    Form1._Form1.textBox4.Text = ($"Error reading: DB: {db}, start: {start}, len: {len}, Error: {libnodave.daveStrerror(num)}");
-
+                    _logger.LogMessage($"Error reading: DB: {db}, start: {start}, len: {len}, Error: {libnodave.daveStrerror(num)}");
                     return false;
                 }
             }
             catch (Exception ex)
             {
                 AddContinuousReadingErrors();
-                Form1._Form1.textBox4.Text = ($"{ex.ToString()}");
+                _logger.LogMessage($"{ex.ToString()}");
                 return false;
             }
         }
@@ -177,16 +176,14 @@ namespace HMIApp
                         return true;
                     }
                     AddContinuousWritingErrors();
-                    Form1._Form1.textBox4.Text = ($"Error writing: DB: {db}, start: {start}, len: {len}, Error: {libnodave.daveStrerror(num)}");
-
+                    _logger.LogMessage($"Error writing: DB: {db}, start: {start}, len: {len}, Error: {libnodave.daveStrerror(num)}");
                     return false;
                 }
             }
             catch (Exception ex)
             {
-                Form1._Form1.textBox4.Text = ("Blad tutaj");
                 AddContinuousWritingErrors();
-                Form1._Form1.textBox4.Text = ($"{ex.ToString()}");
+                _logger.LogMessage($"{ex.ToString()}");
                 return false;
             }
         }

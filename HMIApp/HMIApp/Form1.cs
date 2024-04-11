@@ -19,23 +19,23 @@ namespace HMIApp
 {
     public partial class Form1 : Form
     {
-
         App App = new App();
         UserAdministration Users = new UserAdministration();
         DataBase DataBase = new DataBase();
+        Logger _logger = new Logger();
         //Services do dependency injection
         ServiceCollection services = new ServiceCollection();
         ServiceProvider serviceProvider;
         SerialPortReader serialPortReader = new SerialPortReader();
 
-        //konstruktor Form1
         public Form1()
         {
             InitializeComponent();
-            InitializeLogging();
-
+            _logger.LogMessage($"{DateTime.Now}: " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString());
             _Form1 = this;
             //zakomentuj ponizsze cztery metody do odpalenia apki bez PLC
+            //Ponizszy kod zakomentowany mozna sprobowac wywalic zeby apka sie odpalala i nie robila najpierw komunikacji z PLC
+            //komunikacje bedzie odpalac Timer i Apka sie odpali i zainicjuje sama komunikacje - przetestowac to
             //App.RunInitPLC();
             //App.ReadAlarmsFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_2.csv");
             //App.ReadIOFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_3.csv");
@@ -58,19 +58,13 @@ namespace HMIApp
             Users.EnabledObjects();
 
             CommaReplaceDotTextBox(this);
-
-
             PassedValueControls.Run();
-
             App.CreateStaticPlot();
-
             //serialPortReader.InitializeSerialPort();
             // serialPortReader.Run();
         }
         //statyczna zmienna typu Form1 zeby dostac sie z poziomu innej klasy do obiektow wewnatrz Form1
         public static Form1 _Form1;
-
-
 
         //METODA DO ODCZYTU DANYCH Z BAZY przy starcie aplikacji
         public void ReadFromDbWhenAppIsStarting()
@@ -86,9 +80,7 @@ namespace HMIApp
             {
                 // MessageBox.Show("Nie znaleziono referencji");
             }
-
         }
-
 
         //Zapisz referencje do bazy danych
         private void button1_Click(object sender, EventArgs e)
@@ -99,7 +91,7 @@ namespace HMIApp
                 database.UpdateDb(comboBoxListaReferencji.SelectedItem.ToString());
             }
             else
-            {
+            {//komunikat dla usera
                 MessageBox.Show("Nie wybrano referencji do zapisania");
             }
             formsPlot1.Plot.Clear();
@@ -138,16 +130,13 @@ namespace HMIApp
                 App.WriteSpecifiedValueFromReference();
             }
             else
-            {
+            {//komunikat dla usera
                 MessageBox.Show("Nie wybrano referencji do wczytania");
             }
             formsPlot1.Plot.Clear();
             App.CreateStaticPlot();
             formsPlot1.Refresh();
-
         }
-
-
 
         //Timer co 10ms do oczytywania danych 
         private void timer1_Tick(object sender, EventArgs e)
@@ -160,8 +149,6 @@ namespace HMIApp
             //aktualizacja daty i godziny
             this.Text = DateTime.Now.ToString();
             label_DataIGodzina.Text = this.Text;
-
-
         }
 
         //Przycisk wyzwalajacy zapis uzytkownika
@@ -267,7 +254,7 @@ namespace HMIApp
             }
         }
 
-
+        //Obsluga zamiany kropki na przecinek
         private void TextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
 
@@ -278,7 +265,7 @@ namespace HMIApp
                 e.KeyChar = ',';
             }
         }
-
+        // Obsluga OnScreenKeyboard po wcisnieciu TextBoxa
         private void TextBox_Click(object sender, EventArgs e)
         {
             Process[] oslProcessArry = Process.GetProcessesByName("TabTip");
@@ -290,6 +277,7 @@ namespace HMIApp
             Process.Start(progFiles);
         }
 
+        //Przycisk OK z okna PopUp Alarmów - zamyka okno po potwierdzeniu
         private void button8_Click(object sender, EventArgs e)
         {
 
@@ -297,39 +285,119 @@ namespace HMIApp
             ButtonOKClosePopUpAlarms.Visible = false;
         }
 
-        private void checkBox2_Checked(object sender, EventArgs e)
+        //Obsluga ToggleButtonow w zakładce Tryb Reczny
+        #region obsluga ToggleButtonow - Tryb Reczny
+        private void checkBox_Serwo18U1_Checked(object sender, EventArgs e)
         {
 
-            App.WriteToDB("15", checkBox2.Tag.ToString(), 1);
+            App.WriteToDB("15", checkBox_Serwo18U1.Tag.ToString(), 1);
             pictureBoxMachineImages.Image = new Bitmap(Properties.Resources.Serwo_18U1);
         }
-        private void checkBox2_CheckedStateChanged(object sender, EventArgs e)
+        private void checkBox_Serwo18U1_CheckedStateChanged(object sender, EventArgs e)
         {
-            if (checkBox2.Checked)
+            if (checkBox_Serwo18U1.Checked)
             {
-                checkBox1.Checked = false;
+                checkBox_Serwo20U1.Checked = false;
             }
         }
-        private void checkBox1_Checked(object sender, EventArgs e)
+        private void checkBox_Serwo20U1_Checked(object sender, EventArgs e)
         {
 
-            App.WriteToDB("11", checkBox1.Tag.ToString(), 1);
+            App.WriteToDB("11", checkBox_Serwo20U1.Tag.ToString(), 1);
             pictureBoxMachineImages.Image = new Bitmap(Properties.Resources.Serwo_20U1);
         }
-        private void checkBox1_CheckedStateChanged(object sender, EventArgs e)
+        private void checkBox_Serwo20U1_CheckedStateChanged(object sender, EventArgs e)
         {
-            if (checkBox1.Checked)
+            if (checkBox_Serwo20U1.Checked)
             {
-                checkBox2.Checked = false;
+                checkBox_Serwo18U1.Checked = false;
             }
         }
+        private void checkBox_Serwo16U2_Checked(object sender, EventArgs e)
+        {
 
+            App.WriteToDB("12", checkBox_Serwo20U1.Tag.ToString(), 1);
+            pictureBoxMachineImages.Image = new Bitmap(Properties.Resources.Serwo_16U2);
+        }
+        private void checkBox_Serwo16U2_CheckedStateChanged(object sender, EventArgs e)
+        {
+            if (checkBox_Serwo16U2.Checked)
+            {
+                checkBox_Serwo16U2.Checked = false;
+            }
+        }
+        private void checkBox_UkladPodnoszenia_Checked(object sender, EventArgs e)
+        {
+
+            App.WriteToDB("13", checkBox_Serwo20U1.Tag.ToString(), 1);
+            pictureBoxMachineImages.Image = new Bitmap(Properties.Resources.UkladPodnoszenia);
+        }
+        private void checkBox_UkladPodnoszenia_CheckedStateChanged(object sender, EventArgs e)
+        {
+            if (checkBox_UkladPodnoszenia.Checked)
+            {
+                checkBox_UkladPodnoszenia.Checked = false;
+            }
+        }
+        private void checkBox_ChwytakGorny_Checked(object sender, EventArgs e)
+        {
+
+            App.WriteToDB("14", checkBox_Serwo20U1.Tag.ToString(), 1);
+            pictureBoxMachineImages.Image = new Bitmap(Properties.Resources.ChwytakGorny);
+        }
+        private void checkBox_ChwytakGorny_CheckedStateChanged(object sender, EventArgs e)
+        {
+            if (checkBox_ChwytakGorny.Checked)
+            {
+                checkBox_ChwytakGorny.Checked = false;
+            }
+        }
+        private void checkBox_ChwytakDolny_Checked(object sender, EventArgs e)
+        {
+
+            App.WriteToDB("16", checkBox_Serwo20U1.Tag.ToString(), 1);
+            pictureBoxMachineImages.Image = new Bitmap(Properties.Resources.ChwytakDolny);
+        }
+        private void checkBox_ChwytakDolny_CheckedStateChanged(object sender, EventArgs e)
+        {
+            if (checkBox_ChwytakDolny.Checked)
+            {
+                checkBox_ChwytakDolny.Checked = false;
+            }
+        }
+        private void checkBox_ZaciskTulipa_Checked(object sender, EventArgs e)
+        {
+
+            App.WriteToDB("17", checkBox_Serwo20U1.Tag.ToString(), 1);
+            pictureBoxMachineImages.Image = new Bitmap(Properties.Resources.ZaciskTulipa);
+        }
+        private void checkBox_ZaciskTulipa_CheckedStateChanged(object sender, EventArgs e)
+        {
+            if (checkBox_ZaciskTulipa.Checked)
+            {
+                checkBox_ZaciskTulipa.Checked = false;
+            }
+        }
+        private void checkBox_SzczekiOslonki_Checked(object sender, EventArgs e)
+        {
+
+            App.WriteToDB("18", checkBox_Serwo20U1.Tag.ToString(), 1);
+            pictureBoxMachineImages.Image = new Bitmap(Properties.Resources.SzczekiOslonki);
+        }
+        private void checkBox_SzczekiOslonki_CheckedStateChanged(object sender, EventArgs e)
+        {
+            if (checkBox_SzczekiOslonki.Checked)
+            {
+                checkBox_SzczekiOslonki.Checked = false;
+            }
+        }
+        #endregion
+        //Zamkniecie aplikacji
         private void Form1Closing(object sender, FormClosingEventArgs e)
         {
             App.ClosePLCConnection();
             //serialPortReader.Close();
         }
-
 
         //Zamkniecie aplikacji
         private void button3_Click(object sender, EventArgs e)
@@ -337,48 +405,6 @@ namespace HMIApp
             App.ClosePLCConnection();
             //serialPortReader.Close();
             Close();
-        }
-
-        private void InitializeLogging()
-        {
-            LogMessage();
-        }
-
-        //Logować tutaj różne błędy z aplikacji wraz z errorami z komunikacji z PLC
-        private void LogMessage(string message = "")
-        {
-            textBox2.AppendText($"{DateTime.Now}: " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString());
-            textBox2.AppendText("CC: " + System.Threading.Thread.CurrentThread.CurrentCulture.ToString());
-            textBox2.AppendText("CUIC: " + System.Threading.Thread.CurrentThread.CurrentUICulture.ToString());
-            textBox2.AppendText(Environment.NewLine);
-            textBox2.AppendText(System.Threading.Thread.CurrentThread.ExecutionContext.ToString());
-
-            if (textBox2.InvokeRequired)
-            {
-                textBox2.BeginInvoke(new Action(() =>
-                {
-                    textBox2.AppendText(message + Environment.NewLine);
-                }));
-            }
-            else
-            {
-                textBox2.AppendText(message + Environment.NewLine);
-            }
-
-            if (textBox2.Lines.Length > 100)
-            {
-                textBox2.Clear();
-            }
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

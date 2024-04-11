@@ -1,4 +1,5 @@
-﻿using HMIApp.Components.DataBase;
+﻿using HMIApp.Components;
+using HMIApp.Components.DataBase;
 using Mono.TextTemplating;
 using System.Configuration;
 using System.Linq;
@@ -31,6 +32,7 @@ namespace HMIApp.Data
             this.obj = obj;
         }
 
+        Logger _logger = new Logger();
 
         //Odczyt pliku konfiguracyjnego z connection stringiem
         public string ReadConfFile(string filepath)
@@ -42,6 +44,7 @@ namespace HMIApp.Data
             else
             {
                 MessageBox.Show("Nie mozna otworzyć pliku konfiguracyjnego bazy danych");
+                _logger.LogMessage("Nie mozna otworzyc pliku konfiguracyjnego bazy danych");
             }
             return ConnectionString;
         }
@@ -90,7 +93,7 @@ namespace HMIApp.Data
                 SelectFromDbToComboBox();
             }
             else
-            {
+            {//komunikat dla usera
                 MessageBox.Show("Istnieje juz taka referencja");
             }
         }
@@ -99,7 +102,7 @@ namespace HMIApp.Data
         public void SelectFromDataBase(string referencenumber)
         {
             if(referencenumber == "")
-            {
+            {//komunikat dla usera
                 MessageBox.Show("Nie podano referencji");
             }
             if (referencenumber != "")

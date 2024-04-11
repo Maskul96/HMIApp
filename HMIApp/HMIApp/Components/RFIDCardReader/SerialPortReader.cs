@@ -17,6 +17,8 @@ namespace HMIApp.Components.RFIDCardReader
             
         }
 
+        Logger _logger = new Logger();
+
         public void InitializeSerialPort()
         {
            _serialPort = new SerialPort();
@@ -38,7 +40,7 @@ namespace HMIApp.Components.RFIDCardReader
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                _logger.LogMessage(ex.ToString());
             }
         }
 
