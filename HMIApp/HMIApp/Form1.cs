@@ -31,7 +31,6 @@ namespace HMIApp
         public Form1()
         {
             InitializeComponent();
-            _logger.LogMessage($"{DateTime.Now}: " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString());
             _Form1 = this;
             //zakomentuj ponizsze cztery metody do odpalenia apki bez PLC
             //Ponizszy kod zakomentowany mozna sprobowac wywalic zeby apka sie odpalala i nie robila najpierw komunikacji z PLC
@@ -405,6 +404,16 @@ namespace HMIApp
             App.ClosePLCConnection();
             //serialPortReader.Close();
             Close();
+        }
+
+        private void label65_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel4_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

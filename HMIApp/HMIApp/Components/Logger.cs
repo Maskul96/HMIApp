@@ -20,18 +20,8 @@ namespace HMIApp.Components
         public void LogMessage(string message = "")
         {
 
-            if (Form1._Form1.textBox_StuatusyAplikacji.InvokeRequired)
-            {
-                Form1._Form1.textBox_StuatusyAplikacji.BeginInvoke(new Action(() =>
-                {
-                    Form1._Form1.textBox_StuatusyAplikacji.AppendText(message + Environment.NewLine);
-                }));
-            }
-            else
-            {
-                Form1._Form1.textBox_StuatusyAplikacji.AppendText(message + Environment.NewLine);
-            }
-
+             Form1._Form1.textBox_StuatusyAplikacji.AppendText(message + Environment.NewLine);
+           
             if (Form1._Form1.textBox_StuatusyAplikacji.Lines.Length > 100)
             {
                 Form1._Form1.textBox_StuatusyAplikacji.Clear();

@@ -58,6 +58,7 @@ namespace HMIApp
         private int DBRead_EndDB;
         private int DBRead_NrOfByteinDB;
         private int DBRead_NrOfBitinByte;
+        private int DBRead_LengthOfDataType;
         private string DBRead_TagName;
         #endregion
 
@@ -73,13 +74,10 @@ namespace HMIApp
         #region Zmienne do DBka do odczytu Alarmów i komunikatow
         private int DBReadAlarm_position;
         private string DBReadAlarm_NumberOfDB;
-        private int DBReadAlarm_position1;
-        private string DBReadAlarm_NameofTagWithoutNumberofDB;
         private int DBReadAlarm_StartDB;
         private int DBReadAlarm_EndDB;
         private int DBReadAlarm_NrOfByteinDB;
         private int DBReadAlarm_NrOfBitinByte;
-        private int DBReadAlarm_LengthOfDataType;
         private string DBReadAlarm_AlarmName;
         private string DBReadAlarm_TagName;
         private string DBReadAlarm_DataTypeofTag;
@@ -95,13 +93,10 @@ namespace HMIApp
         private int DBReadIO_position;
         private string DBReadIO_NumberOfDB;
         private int DBReadIO_position1;
-        private string DBReadIO_NameofTagWithoutNumberofDB;
         private int DBReadIO_StartDB;
         private int DBReadIO_EndDB;
         private int DBReadIO_NrOfByteinDB;
         private int DBReadIO_NrOfBitinByte;
-        private int DBReadIO_LengthOfDataType;
-        private string DBReadIO_AlarmName;
         private string DBReadIO_TagName;
         private string DBReadIO_DataTypeofTag;
         #endregion
