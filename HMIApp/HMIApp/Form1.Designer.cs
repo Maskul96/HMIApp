@@ -30,7 +30,7 @@
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             OdczytDB = new System.Windows.Forms.Timer(components);
             label_Uzytkownik = new System.Windows.Forms.Label();
             pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -169,7 +169,6 @@
             buttonUsunRef = new System.Windows.Forms.Button();
             tableLayoutPanel13 = new System.Windows.Forms.TableLayoutPanel();
             panel3 = new System.Windows.Forms.Panel();
-            label_FunkcjeProcesoweDane = new System.Windows.Forms.Label();
             label40 = new System.Windows.Forms.Label();
             label39 = new System.Windows.Forms.Label();
             DB666Tag10 = new System.Windows.Forms.CheckBox();
@@ -187,7 +186,6 @@
             DB666Tag11 = new System.Windows.Forms.CheckBox();
             DB666Tag13 = new System.Windows.Forms.CheckBox();
             panel4 = new System.Windows.Forms.Panel();
-            label_ParametryProcesoweDane = new System.Windows.Forms.Label();
             DB666Tag17 = new System.Windows.Forms.TextBox();
             DB666Tag21 = new System.Windows.Forms.TextBox();
             DB666Tag16 = new System.Windows.Forms.TextBox();
@@ -270,6 +268,48 @@
             tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
             TimerDoKoloruDataGridView = new System.Windows.Forms.Timer(components);
             TimerDoKoloruDataGridView1 = new System.Windows.Forms.Timer(components);
+            label5 = new System.Windows.Forms.Label();
+            checkBox1 = new System.Windows.Forms.CheckBox();
+            label6 = new System.Windows.Forms.Label();
+            checkBox2 = new System.Windows.Forms.CheckBox();
+            label7 = new System.Windows.Forms.Label();
+            checkBox3 = new System.Windows.Forms.CheckBox();
+            label8 = new System.Windows.Forms.Label();
+            checkBox4 = new System.Windows.Forms.CheckBox();
+            label9 = new System.Windows.Forms.Label();
+            textBox1 = new System.Windows.Forms.TextBox();
+            textBox2 = new System.Windows.Forms.TextBox();
+            label11 = new System.Windows.Forms.Label();
+            label14 = new System.Windows.Forms.Label();
+            textBox3 = new System.Windows.Forms.TextBox();
+            label15 = new System.Windows.Forms.Label();
+            textBox5 = new System.Windows.Forms.TextBox();
+            textBox6 = new System.Windows.Forms.TextBox();
+            label16 = new System.Windows.Forms.Label();
+            label17 = new System.Windows.Forms.Label();
+            textBox7 = new System.Windows.Forms.TextBox();
+            textBox8 = new System.Windows.Forms.TextBox();
+            label18 = new System.Windows.Forms.Label();
+            label19 = new System.Windows.Forms.Label();
+            textBox9 = new System.Windows.Forms.TextBox();
+            comboBox1 = new System.Windows.Forms.ComboBox();
+            label22 = new System.Windows.Forms.Label();
+            label23 = new System.Windows.Forms.Label();
+            tabControl4 = new System.Windows.Forms.TabControl();
+            Przeciskanie = new System.Windows.Forms.TabPage();
+            Oslonka = new System.Windows.Forms.TabPage();
+            DyszaWahliwa = new System.Windows.Forms.TabPage();
+            Smary = new System.Windows.Forms.TabPage();
+            RFID = new System.Windows.Forms.TabPage();
+            tabPage19 = new System.Windows.Forms.TabPage();
+            label20 = new System.Windows.Forms.Label();
+            textBox10 = new System.Windows.Forms.TextBox();
+            textBox12 = new System.Windows.Forms.TextBox();
+            textBox13 = new System.Windows.Forms.TextBox();
+            textBox14 = new System.Windows.Forms.TextBox();
+            label24 = new System.Windows.Forms.Label();
+            label26 = new System.Windows.Forms.Label();
+            label41 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             tabPage7.SuspendLayout();
             tabPage9.SuspendLayout();
@@ -316,6 +356,13 @@
             tableLayoutPanel8.SuspendLayout();
             tableLayoutPanel9.SuspendLayout();
             tableLayoutPanel10.SuspendLayout();
+            tabControl4.SuspendLayout();
+            Przeciskanie.SuspendLayout();
+            Oslonka.SuspendLayout();
+            DyszaWahliwa.SuspendLayout();
+            Smary.SuspendLayout();
+            RFID.SuspendLayout();
+            tabPage19.SuspendLayout();
             SuspendLayout();
             // 
             // OdczytDB
@@ -1212,7 +1259,14 @@
             // 
             // panel3
             // 
-            panel3.Controls.Add(label_FunkcjeProcesoweDane);
+            panel3.Controls.Add(label8);
+            panel3.Controls.Add(checkBox4);
+            panel3.Controls.Add(label7);
+            panel3.Controls.Add(checkBox3);
+            panel3.Controls.Add(label6);
+            panel3.Controls.Add(checkBox2);
+            panel3.Controls.Add(label5);
+            panel3.Controls.Add(checkBox1);
             panel3.Controls.Add(label40);
             panel3.Controls.Add(label39);
             panel3.Controls.Add(DB666Tag10);
@@ -1231,14 +1285,6 @@
             panel3.Controls.Add(DB666Tag13);
             resources.ApplyResources(panel3, "panel3");
             panel3.Name = "panel3";
-            // 
-            // label_FunkcjeProcesoweDane
-            // 
-            label_FunkcjeProcesoweDane.BackColor = System.Drawing.Color.SteelBlue;
-            label_FunkcjeProcesoweDane.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            resources.ApplyResources(label_FunkcjeProcesoweDane, "label_FunkcjeProcesoweDane");
-            label_FunkcjeProcesoweDane.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            label_FunkcjeProcesoweDane.Name = "label_FunkcjeProcesoweDane";
             // 
             // label40
             // 
@@ -1338,48 +1384,15 @@
             // 
             // panel4
             // 
-            panel4.Controls.Add(label_ParametryProcesoweDane);
+            panel4.Controls.Add(tabControl4);
             panel4.Controls.Add(DB666Tag17);
-            panel4.Controls.Add(DB666Tag21);
             panel4.Controls.Add(DB666Tag16);
-            panel4.Controls.Add(label31);
             panel4.Controls.Add(label_NazwaKlientaDane);
-            panel4.Controls.Add(label72);
             panel4.Controls.Add(label_NazwaReferencjiDane);
             panel4.Controls.Add(label45);
-            panel4.Controls.Add(label30);
-            panel4.Controls.Add(label74);
-            panel4.Controls.Add(label29);
-            panel4.Controls.Add(DB666Tag20);
-            panel4.Controls.Add(label28);
-            panel4.Controls.Add(label102);
-            panel4.Controls.Add(DB666Tag4);
-            panel4.Controls.Add(DB666Tag22);
-            panel4.Controls.Add(DB666Tag6);
-            panel4.Controls.Add(DB666Tag2);
-            panel4.Controls.Add(label32);
-            panel4.Controls.Add(label73);
-            panel4.Controls.Add(DB666Tag19);
-            panel4.Controls.Add(DB666Tag5);
-            panel4.Controls.Add(label75);
-            panel4.Controls.Add(DB666Tag15);
-            panel4.Controls.Add(DB666Tag18);
-            panel4.Controls.Add(label27);
-            panel4.Controls.Add(label76);
-            panel4.Controls.Add(DB666Tag3);
-            panel4.Controls.Add(label4);
-            panel4.Controls.Add(DB666Tag7);
-            panel4.Controls.Add(DB666Tag14);
             resources.ApplyResources(panel4, "panel4");
             panel4.Name = "panel4";
-            // 
-            // label_ParametryProcesoweDane
-            // 
-            label_ParametryProcesoweDane.BackColor = System.Drawing.Color.SteelBlue;
-            label_ParametryProcesoweDane.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            resources.ApplyResources(label_ParametryProcesoweDane, "label_ParametryProcesoweDane");
-            label_ParametryProcesoweDane.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            label_ParametryProcesoweDane.Name = "label_ParametryProcesoweDane";
+            panel4.Paint += panel4_Paint;
             // 
             // DB666Tag17
             // 
@@ -1426,11 +1439,12 @@
             // 
             // label45
             // 
-            resources.ApplyResources(label45, "label45");
-            label45.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            label45.BackColor = System.Drawing.Color.White;
             label45.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            resources.ApplyResources(label45, "label45");
             label45.Name = "label45";
             label45.Tag = "DB667.Tag2223";
+            label45.Click += label45_Click;
             // 
             // label30
             // 
@@ -1453,6 +1467,7 @@
             DB666Tag20.Name = "DB666Tag20";
             DB666Tag20.Tag = "DB666.Tag20";
             DB666Tag20.Click += TextBox_Click;
+            DB666Tag20.TextChanged += DB666Tag20_TextChanged;
             // 
             // label28
             // 
@@ -1903,14 +1918,14 @@
             dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.ColumnHeadersVisible = false;
             dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { Column2 });
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            dataGridView1.DefaultCellStyle = dataGridViewCellStyle4;
             resources.ApplyResources(dataGridView1, "dataGridView1");
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersVisible = false;
@@ -2007,6 +2022,310 @@
             TimerDoKoloruDataGridView1.Interval = 750;
             TimerDoKoloruDataGridView1.Tick += TimerDoKoloruDataGridView1_Tick;
             // 
+            // label5
+            // 
+            resources.ApplyResources(label5, "label5");
+            label5.Name = "label5";
+            // 
+            // checkBox1
+            // 
+            resources.ApplyResources(checkBox1, "checkBox1");
+            checkBox1.Name = "checkBox1";
+            checkBox1.Tag = "DB666.Tag13";
+            checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // label6
+            // 
+            resources.ApplyResources(label6, "label6");
+            label6.Name = "label6";
+            // 
+            // checkBox2
+            // 
+            resources.ApplyResources(checkBox2, "checkBox2");
+            checkBox2.Name = "checkBox2";
+            checkBox2.Tag = "DB666.Tag13";
+            checkBox2.UseVisualStyleBackColor = true;
+            // 
+            // label7
+            // 
+            resources.ApplyResources(label7, "label7");
+            label7.Name = "label7";
+            // 
+            // checkBox3
+            // 
+            resources.ApplyResources(checkBox3, "checkBox3");
+            checkBox3.Name = "checkBox3";
+            checkBox3.Tag = "DB666.Tag13";
+            checkBox3.UseVisualStyleBackColor = true;
+            // 
+            // label8
+            // 
+            resources.ApplyResources(label8, "label8");
+            label8.Name = "label8";
+            // 
+            // checkBox4
+            // 
+            resources.ApplyResources(checkBox4, "checkBox4");
+            checkBox4.Name = "checkBox4";
+            checkBox4.Tag = "DB666.Tag13";
+            checkBox4.UseVisualStyleBackColor = true;
+            // 
+            // label9
+            // 
+            resources.ApplyResources(label9, "label9");
+            label9.Name = "label9";
+            // 
+            // textBox1
+            // 
+            resources.ApplyResources(textBox1, "textBox1");
+            textBox1.Name = "textBox1";
+            textBox1.Tag = "DB666.Tag22";
+            // 
+            // textBox2
+            // 
+            resources.ApplyResources(textBox2, "textBox2");
+            textBox2.Name = "textBox2";
+            textBox2.Tag = "DB666.Tag19";
+            // 
+            // label11
+            // 
+            resources.ApplyResources(label11, "label11");
+            label11.Name = "label11";
+            // 
+            // label14
+            // 
+            resources.ApplyResources(label14, "label14");
+            label14.Name = "label14";
+            // 
+            // textBox3
+            // 
+            resources.ApplyResources(textBox3, "textBox3");
+            textBox3.Name = "textBox3";
+            textBox3.Tag = "DB666.Tag22";
+            // 
+            // label15
+            // 
+            resources.ApplyResources(label15, "label15");
+            label15.Name = "label15";
+            // 
+            // textBox5
+            // 
+            resources.ApplyResources(textBox5, "textBox5");
+            textBox5.Name = "textBox5";
+            textBox5.Tag = "DB666.Tag22";
+            // 
+            // textBox6
+            // 
+            resources.ApplyResources(textBox6, "textBox6");
+            textBox6.Name = "textBox6";
+            textBox6.Tag = "DB666.Tag21";
+            // 
+            // label16
+            // 
+            resources.ApplyResources(label16, "label16");
+            label16.Name = "label16";
+            // 
+            // label17
+            // 
+            resources.ApplyResources(label17, "label17");
+            label17.Name = "label17";
+            // 
+            // textBox7
+            // 
+            resources.ApplyResources(textBox7, "textBox7");
+            textBox7.Name = "textBox7";
+            textBox7.Tag = "DB666.Tag20";
+            // 
+            // textBox8
+            // 
+            resources.ApplyResources(textBox8, "textBox8");
+            textBox8.Name = "textBox8";
+            textBox8.Tag = "DB666.Tag21";
+            // 
+            // label18
+            // 
+            resources.ApplyResources(label18, "label18");
+            label18.Name = "label18";
+            // 
+            // label19
+            // 
+            resources.ApplyResources(label19, "label19");
+            label19.Name = "label19";
+            // 
+            // textBox9
+            // 
+            resources.ApplyResources(textBox9, "textBox9");
+            textBox9.Name = "textBox9";
+            textBox9.Tag = "DB666.Tag20";
+            // 
+            // comboBox1
+            // 
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Items.AddRange(new object[] { resources.GetString("comboBox1.Items"), resources.GetString("comboBox1.Items1") });
+            resources.ApplyResources(comboBox1, "comboBox1");
+            comboBox1.Name = "comboBox1";
+            // 
+            // label22
+            // 
+            label22.BackColor = System.Drawing.Color.White;
+            label22.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            label22.ForeColor = System.Drawing.SystemColors.ControlText;
+            resources.ApplyResources(label22, "label22");
+            label22.Name = "label22";
+            // 
+            // label23
+            // 
+            label23.BackColor = System.Drawing.Color.White;
+            label23.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            label23.ForeColor = System.Drawing.SystemColors.ControlText;
+            resources.ApplyResources(label23, "label23");
+            label23.Name = "label23";
+            // 
+            // tabControl4
+            // 
+            tabControl4.Controls.Add(Przeciskanie);
+            tabControl4.Controls.Add(Oslonka);
+            tabControl4.Controls.Add(DyszaWahliwa);
+            tabControl4.Controls.Add(Smary);
+            tabControl4.Controls.Add(RFID);
+            tabControl4.Controls.Add(tabPage19);
+            resources.ApplyResources(tabControl4, "tabControl4");
+            tabControl4.Name = "tabControl4";
+            tabControl4.SelectedIndex = 0;
+            // 
+            // Przeciskanie
+            // 
+            Przeciskanie.Controls.Add(label31);
+            Przeciskanie.Controls.Add(DB666Tag3);
+            Przeciskanie.Controls.Add(label27);
+            Przeciskanie.Controls.Add(DB666Tag15);
+            Przeciskanie.Controls.Add(DB666Tag5);
+            Przeciskanie.Controls.Add(DB666Tag6);
+            Przeciskanie.Controls.Add(DB666Tag4);
+            Przeciskanie.Controls.Add(label28);
+            Przeciskanie.Controls.Add(label29);
+            Przeciskanie.Controls.Add(label30);
+            resources.ApplyResources(Przeciskanie, "Przeciskanie");
+            Przeciskanie.Name = "Przeciskanie";
+            Przeciskanie.UseVisualStyleBackColor = true;
+            // 
+            // Oslonka
+            // 
+            Oslonka.Controls.Add(label4);
+            Oslonka.Controls.Add(DB666Tag14);
+            Oslonka.Controls.Add(DB666Tag7);
+            Oslonka.Controls.Add(label76);
+            Oslonka.Controls.Add(DB666Tag18);
+            Oslonka.Controls.Add(label73);
+            Oslonka.Controls.Add(label32);
+            Oslonka.Controls.Add(DB666Tag2);
+            resources.ApplyResources(Oslonka, "Oslonka");
+            Oslonka.Name = "Oslonka";
+            Oslonka.UseVisualStyleBackColor = true;
+            // 
+            // DyszaWahliwa
+            // 
+            DyszaWahliwa.Controls.Add(label20);
+            DyszaWahliwa.Controls.Add(textBox10);
+            DyszaWahliwa.Controls.Add(textBox12);
+            DyszaWahliwa.Controls.Add(textBox13);
+            DyszaWahliwa.Controls.Add(textBox14);
+            DyszaWahliwa.Controls.Add(label24);
+            DyszaWahliwa.Controls.Add(label26);
+            DyszaWahliwa.Controls.Add(label41);
+            resources.ApplyResources(DyszaWahliwa, "DyszaWahliwa");
+            DyszaWahliwa.Name = "DyszaWahliwa";
+            DyszaWahliwa.UseVisualStyleBackColor = true;
+            // 
+            // Smary
+            // 
+            Smary.Controls.Add(comboBox1);
+            Smary.Controls.Add(label15);
+            Smary.Controls.Add(textBox5);
+            Smary.Controls.Add(label75);
+            Smary.Controls.Add(label14);
+            Smary.Controls.Add(DB666Tag19);
+            Smary.Controls.Add(textBox3);
+            Smary.Controls.Add(DB666Tag22);
+            Smary.Controls.Add(label9);
+            Smary.Controls.Add(label102);
+            Smary.Controls.Add(textBox1);
+            Smary.Controls.Add(label11);
+            Smary.Controls.Add(textBox2);
+            Smary.Controls.Add(label22);
+            Smary.Controls.Add(label23);
+            resources.ApplyResources(Smary, "Smary");
+            Smary.Name = "Smary";
+            Smary.UseVisualStyleBackColor = true;
+            // 
+            // RFID
+            // 
+            RFID.Controls.Add(textBox9);
+            RFID.Controls.Add(textBox8);
+            RFID.Controls.Add(textBox7);
+            RFID.Controls.Add(label18);
+            RFID.Controls.Add(label17);
+            RFID.Controls.Add(label19);
+            RFID.Controls.Add(label16);
+            RFID.Controls.Add(textBox6);
+            resources.ApplyResources(RFID, "RFID");
+            RFID.Name = "RFID";
+            RFID.UseVisualStyleBackColor = true;
+            // 
+            // tabPage19
+            // 
+            tabPage19.Controls.Add(DB666Tag21);
+            tabPage19.Controls.Add(label72);
+            tabPage19.Controls.Add(DB666Tag20);
+            tabPage19.Controls.Add(label74);
+            resources.ApplyResources(tabPage19, "tabPage19");
+            tabPage19.Name = "tabPage19";
+            tabPage19.UseVisualStyleBackColor = true;
+            // 
+            // label20
+            // 
+            resources.ApplyResources(label20, "label20");
+            label20.Name = "label20";
+            // 
+            // textBox10
+            // 
+            resources.ApplyResources(textBox10, "textBox10");
+            textBox10.Name = "textBox10";
+            textBox10.Tag = "DB666.Tag3";
+            // 
+            // textBox12
+            // 
+            resources.ApplyResources(textBox12, "textBox12");
+            textBox12.Name = "textBox12";
+            textBox12.Tag = "DB666.Tag5";
+            // 
+            // textBox13
+            // 
+            resources.ApplyResources(textBox13, "textBox13");
+            textBox13.Name = "textBox13";
+            textBox13.Tag = "DB666.Tag6";
+            // 
+            // textBox14
+            // 
+            resources.ApplyResources(textBox14, "textBox14");
+            textBox14.Name = "textBox14";
+            textBox14.Tag = "DB666.Tag4";
+            // 
+            // label24
+            // 
+            resources.ApplyResources(label24, "label24");
+            label24.Name = "label24";
+            // 
+            // label26
+            // 
+            resources.ApplyResources(label26, "label26");
+            label26.Name = "label26";
+            // 
+            // label41
+            // 
+            resources.ApplyResources(label41, "label41");
+            label41.Name = "label41";
+            // 
             // Form1
             // 
             resources.ApplyResources(this, "$this");
@@ -2083,6 +2402,19 @@
             tableLayoutPanel9.PerformLayout();
             tableLayoutPanel10.ResumeLayout(false);
             tableLayoutPanel10.PerformLayout();
+            tabControl4.ResumeLayout(false);
+            Przeciskanie.ResumeLayout(false);
+            Przeciskanie.PerformLayout();
+            Oslonka.ResumeLayout(false);
+            Oslonka.PerformLayout();
+            DyszaWahliwa.ResumeLayout(false);
+            DyszaWahliwa.PerformLayout();
+            Smary.ResumeLayout(false);
+            Smary.PerformLayout();
+            RFID.ResumeLayout(false);
+            RFID.PerformLayout();
+            tabPage19.ResumeLayout(false);
+            tabPage19.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -2210,7 +2542,6 @@
         private System.Windows.Forms.Label label74;
         public System.Windows.Forms.TextBox DB666Tag20;
         private System.Windows.Forms.Label label102;
-        private System.Windows.Forms.Label label_ParametryProcesoweDane;
         public System.Windows.Forms.TextBox DB666Tag22;
         private System.Windows.Forms.Label label73;
         public System.Windows.Forms.TextBox DB666Tag2;
@@ -2253,7 +2584,6 @@
         public System.Windows.Forms.TextBox DB666Tag16;
         public System.Windows.Forms.ComboBox comboBoxListaReferencji;
         public System.Windows.Forms.Button buttonZapiszRef;
-        private System.Windows.Forms.Label label_FunkcjeProcesoweDane;
         private System.Windows.Forms.Label label_NazwaKlientaDane;
         private System.Windows.Forms.Label label_NazwaReferencjiDane;
         private System.Windows.Forms.Label label45;
@@ -2329,6 +2659,47 @@
         private System.Windows.Forms.Label label3;
         public System.Windows.Forms.Timer TimerDoKoloruDataGridView;
         public System.Windows.Forms.Timer TimerDoKoloruDataGridView1;
+        private System.Windows.Forms.Label label8;
+        public System.Windows.Forms.CheckBox checkBox4;
+        private System.Windows.Forms.Label label7;
+        public System.Windows.Forms.CheckBox checkBox3;
+        private System.Windows.Forms.Label label6;
+        public System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.Label label5;
+        public System.Windows.Forms.CheckBox checkBox1;
+        public System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label19;
+        public System.Windows.Forms.TextBox textBox9;
+        public System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label17;
+        public System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label14;
+        public System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Label label9;
+        public System.Windows.Forms.TextBox textBox1;
+        public System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.TabControl tabControl4;
+        private System.Windows.Forms.TabPage Przeciskanie;
+        private System.Windows.Forms.TabPage Oslonka;
+        private System.Windows.Forms.TabPage DyszaWahliwa;
+        private System.Windows.Forms.TabPage Smary;
+        private System.Windows.Forms.TabPage RFID;
+        private System.Windows.Forms.TabPage tabPage19;
+        private System.Windows.Forms.Label label20;
+        public System.Windows.Forms.TextBox textBox10;
+        public System.Windows.Forms.TextBox textBox12;
+        public System.Windows.Forms.TextBox textBox13;
+        public System.Windows.Forms.TextBox textBox14;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Label label41;
     }
 }
 

@@ -408,5 +408,20 @@ namespace HMIApp
         {
             dataGridView1.BackColor = Color.White;
         }
+
+        private void panel4_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void DB666Tag20_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label45_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
