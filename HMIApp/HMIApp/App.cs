@@ -907,16 +907,14 @@ namespace HMIApp
                                 if (values[0].ToString().ToUpper() == "TRUE")
                                 {
                                     //Dodanie alarmu tylko wtedy jeśli nie ma go juz w liscie
-                                    if (Form1._Form1.listView_Alarms.FindItemWithText(DBReadAlarm_AlarmName) == null)
-                                    {
+                                    //if (Form1._Form1.listView_Alarms.FindItemWithText(DBReadAlarm_AlarmName) == null)
+                                    //{
 
-                                        item[0] = MakeList(DateTime.Now.ToString(), DBReadAlarm_TagName, DBReadAlarm_AlarmName);
-                                        item[0].ForeColor = System.Drawing.Color.Red;
-                                        Form1._Form1.listView_Alarms.Items.Add(item[0]);
-                                        index[0] = Form1._Form1.listView_Alarms.Items.IndexOf(item[0]);
-                                        Form1._Form1.dataGridView1.Visible = true;
-                                        Form1._Form1.ButtonOKClosePopUpAlarms.Visible = true;
-                                    }
+                                    //    item[0] = MakeList(DateTime.Now.ToString(), DBReadAlarm_TagName, DBReadAlarm_AlarmName);
+                                    //    item[0].ForeColor = System.Drawing.Color.Red;
+                                    //    Form1._Form1.listView_Alarms.Items.Add(item[0]);
+                                    //    index[0] = Form1._Form1.listView_Alarms.Items.IndexOf(item[0]);
+                                    //}
 
                                     //z uzyciem LINQ
                                     try
@@ -945,19 +943,18 @@ namespace HMIApp
                                         index1[0] = Form1._Form1.listView_AlarmsArchive.Items.IndexOf(itemArchive[0]);
                                         blockade[0] = true;
                                     }
-
                                 }
                                 else
                                 {
                                     blockade[0] = false;
-                                    //Zabezpieczenie zeby to sie nie wykonywalo jak bedzie pusta lista
-                                    if (Form1._Form1.listView_Alarms.FindItemWithText(DBReadAlarm_AlarmName) != null)
-                                    {
-                                        if (Form1._Form1.listView_Alarms.Items.Count > 0)
-                                        {
-                                            Form1._Form1.listView_Alarms.Items.Remove(item[0]);
-                                        }
-                                    }
+                                    ////Zabezpieczenie zeby to sie nie wykonywalo jak bedzie pusta lista
+                                    //if (Form1._Form1.listView_Alarms.FindItemWithText(DBReadAlarm_AlarmName) != null)
+                                    //{
+                                    //    if (Form1._Form1.listView_Alarms.Items.Count > 0)
+                                    //    {
+                                    //        Form1._Form1.listView_Alarms.Items.Remove(item[0]);
+                                    //    }
+                                    //}
                                     foreach (DataGridViewRow row in Form1._Form1.dataGridView1.Rows)
                                     {
                                         if (row.Cells[0].Value != null)
@@ -984,15 +981,6 @@ namespace HMIApp
 
                                 if (values[1].ToString().ToUpper() == "TRUE")
                                 {
-                                    if (Form1._Form1.listView_Alarms.FindItemWithText(DBReadAlarm_AlarmName) == null)
-                                    {
-                                        item[1] = MakeList(DateTime.Now.ToString(), DBReadAlarm_TagName, DBReadAlarm_AlarmName);
-                                        item[1].ForeColor = System.Drawing.Color.Red;
-                                        Form1._Form1.listView_Alarms.Items.Add(item[1]);
-                                        index[1] = Form1._Form1.listView_Alarms.Items.IndexOf(item[1]);
-                                        Form1._Form1.dataGridView1.Visible = true;
-                                        Form1._Form1.ButtonOKClosePopUpAlarms.Visible = true;
-                                    }
                                     //z uzyciem LINQ
                                     try
                                     {
@@ -1024,13 +1012,6 @@ namespace HMIApp
                                 else
                                 {
                                     blockade[1] = false;
-                                    if (Form1._Form1.listView_Alarms.FindItemWithText(DBReadAlarm_AlarmName) != null)
-                                    {
-                                        if (Form1._Form1.listView_Alarms.Items.Count > 0)
-                                        {
-                                            Form1._Form1.listView_Alarms.Items.Remove(item[1]);
-                                        }
-                                    }
                                     foreach (DataGridViewRow row in Form1._Form1.dataGridView1.Rows)
                                     {
                                         if (row.Cells[0].Value != null)
@@ -1054,15 +1035,6 @@ namespace HMIApp
                                 values[2] = GetBit(DB[DBReadAlarm_NrOfByteinDB], 2);
                                 if (values[2].ToString().ToUpper() == "TRUE")
                                 {
-                                    if (Form1._Form1.listView_Alarms.FindItemWithText(DBReadAlarm_AlarmName) == null)
-                                    {
-                                        item[2] = MakeList(DateTime.Now.ToString(), DBReadAlarm_TagName, DBReadAlarm_AlarmName);
-                                        item[2].ForeColor = System.Drawing.Color.Red;
-                                        Form1._Form1.listView_Alarms.Items.Add(item[2]);
-                                        index[2] = Form1._Form1.listView_Alarms.Items.IndexOf(item[2]);
-                                        Form1._Form1.dataGridView1.Visible = true;
-                                        Form1._Form1.ButtonOKClosePopUpAlarms.Visible = true;
-                                    }
                                     //z uzyciem LINQ
                                     try
                                     {
@@ -1094,13 +1066,6 @@ namespace HMIApp
                                 else
                                 {
                                     blockade[2] = false;
-                                    if (Form1._Form1.listView_Alarms.FindItemWithText(DBReadAlarm_AlarmName) != null)
-                                    {
-                                        if (Form1._Form1.listView_Alarms.Items.Count > 0)
-                                        {
-                                            Form1._Form1.listView_Alarms.Items.Remove(item[2]);
-                                        }
-                                    }
                                     foreach (DataGridViewRow row in Form1._Form1.dataGridView1.Rows)
                                     {
                                         if (row.Cells[0].Value != null)
@@ -1124,15 +1089,6 @@ namespace HMIApp
                                 values[3] = GetBit(DB[DBReadAlarm_NrOfByteinDB], 3);
                                 if (values[3].ToString().ToUpper() == "TRUE")
                                 {
-                                    if (Form1._Form1.listView_Alarms.FindItemWithText(DBReadAlarm_AlarmName) == null)
-                                    {
-                                        item[3] = MakeList(DateTime.Now.ToString(), DBReadAlarm_TagName, DBReadAlarm_AlarmName);
-                                        item[3].ForeColor = System.Drawing.Color.Red;
-                                        Form1._Form1.listView_Alarms.Items.Add(item[3]);
-                                        index[3] = Form1._Form1.listView_Alarms.Items.IndexOf(item[3]);
-                                        Form1._Form1.dataGridView1.Visible = true;
-                                        Form1._Form1.ButtonOKClosePopUpAlarms.Visible = true;
-                                    }
                                     //z uzyciem LINQ
                                     try
                                     {
@@ -1164,13 +1120,6 @@ namespace HMIApp
                                 else
                                 {
                                     blockade[3] = false;
-                                    if (Form1._Form1.listView_Alarms.FindItemWithText(DBReadAlarm_AlarmName) != null)
-                                    {
-                                        if (Form1._Form1.listView_Alarms.Items.Count > 0)
-                                        {
-                                            Form1._Form1.listView_Alarms.Items.Remove(item[3]);
-                                        }
-                                    }
                                     foreach (DataGridViewRow row in Form1._Form1.dataGridView1.Rows)
                                     {
                                         if (row.Cells[0].Value != null)
@@ -1194,15 +1143,6 @@ namespace HMIApp
                                 values[4] = GetBit(DB[DBReadAlarm_NrOfByteinDB], 4);
                                 if (values[4].ToString().ToUpper() == "TRUE")
                                 {
-                                    if (Form1._Form1.listView_Alarms.FindItemWithText(DBReadAlarm_AlarmName) == null)
-                                    {
-                                        item[4] = MakeList(DateTime.Now.ToString(), DBReadAlarm_TagName, DBReadAlarm_AlarmName);
-                                        item[4].ForeColor = System.Drawing.Color.Red;
-                                        Form1._Form1.listView_Alarms.Items.Add(item[4]);
-                                        index[4] = Form1._Form1.listView_Alarms.Items.IndexOf(item[4]);
-                                        Form1._Form1.dataGridView1.Visible = true;
-                                        Form1._Form1.ButtonOKClosePopUpAlarms.Visible = true;
-                                    }
                                     //z uzyciem LINQ
                                     try
                                     {
@@ -1234,13 +1174,6 @@ namespace HMIApp
                                 else
                                 {
                                     blockade[4] = false;
-                                    if (Form1._Form1.listView_Alarms.FindItemWithText(DBReadAlarm_AlarmName) != null)
-                                    {
-                                        if (Form1._Form1.listView_Alarms.Items.Count > 0)
-                                        {
-                                            Form1._Form1.listView_Alarms.Items.Remove(item[4]);
-                                        }
-                                    }
                                     foreach (DataGridViewRow row in Form1._Form1.dataGridView1.Rows)
                                     {
                                         if (row.Cells[0].Value != null)
@@ -1264,15 +1197,6 @@ namespace HMIApp
                                 values[5] = GetBit(DB[DBReadAlarm_NrOfByteinDB], 5);
                                 if (values[5].ToString().ToUpper() == "TRUE")
                                 {
-                                    if (Form1._Form1.listView_Alarms.FindItemWithText(DBReadAlarm_AlarmName) == null)
-                                    {
-                                        item[5] = MakeList(DateTime.Now.ToString(), DBReadAlarm_TagName, DBReadAlarm_AlarmName);
-                                        item[5].ForeColor = System.Drawing.Color.Red;
-                                        Form1._Form1.listView_Alarms.Items.Add(item[5]);
-                                        index[5] = Form1._Form1.listView_Alarms.Items.IndexOf(item[5]);
-                                        Form1._Form1.dataGridView1.Visible = true;
-                                        Form1._Form1.ButtonOKClosePopUpAlarms.Visible = true;
-                                    }
                                     //z uzyciem LINQ
                                     try
                                     {
@@ -1304,14 +1228,6 @@ namespace HMIApp
                                 else
                                 {
                                     blockade[5] = false;
-                                    if (Form1._Form1.listView_Alarms.FindItemWithText(DBReadAlarm_AlarmName) != null)
-                                    {
-                                        if (Form1._Form1.listView_Alarms.Items.Count > 0)
-                                        {
-                                            Form1._Form1.listView_Alarms.Items.Remove(item[5]);
-                                        }
-                                    }
-
                                     foreach (DataGridViewRow row in Form1._Form1.dataGridView1.Rows)
                                     {
                                         if (row.Cells[0].Value != null)
@@ -1335,15 +1251,6 @@ namespace HMIApp
                                 values[6] = GetBit(DB[DBReadAlarm_NrOfByteinDB], 6);
                                 if (values[6].ToString().ToUpper() == "TRUE")
                                 {
-                                    if (Form1._Form1.listView_Alarms.FindItemWithText(DBReadAlarm_AlarmName) == null)
-                                    {
-                                        item[6] = MakeList(DateTime.Now.ToString(), DBReadAlarm_TagName, DBReadAlarm_AlarmName);
-                                        item[6].ForeColor = System.Drawing.Color.Red;
-                                        Form1._Form1.listView_Alarms.Items.Add(item[6]);
-                                        index[6] = Form1._Form1.listView_Alarms.Items.IndexOf(item[6]);
-                                        Form1._Form1.dataGridView1.Visible = true;
-                                        Form1._Form1.ButtonOKClosePopUpAlarms.Visible = true;
-                                    }
                                     //z uzyciem LINQ
                                     try
                                     {
@@ -1374,14 +1281,6 @@ namespace HMIApp
                                 else
                                 {
                                     blockade[6] = false;
-                                    if (Form1._Form1.listView_Alarms.FindItemWithText(DBReadAlarm_AlarmName) != null)
-                                    {
-                                        if (Form1._Form1.listView_Alarms.Items.Count > 0)
-                                        {
-                                            Form1._Form1.listView_Alarms.Items.Remove(item[6]);
-                                        }
-                                    }
-
                                     foreach (DataGridViewRow row in Form1._Form1.dataGridView1.Rows)
                                     {
                                         if (row.Cells[0].Value != null)
@@ -1405,15 +1304,6 @@ namespace HMIApp
                                 values[7] = GetBit(DB[DBReadAlarm_NrOfByteinDB], 7);
                                 if (values[7].ToString().ToUpper() == "TRUE")
                                 {
-                                    if (Form1._Form1.listView_Alarms.FindItemWithText(DBReadAlarm_AlarmName) == null)
-                                    {
-                                        item[7] = MakeList(DateTime.Now.ToString(), DBReadAlarm_TagName, DBReadAlarm_AlarmName);
-                                        item[7].ForeColor = System.Drawing.Color.Red;
-                                        Form1._Form1.listView_Alarms.Items.Add(item[7]);
-                                        index[7] = Form1._Form1.listView_Alarms.Items.IndexOf(item[7]);
-                                        Form1._Form1.dataGridView1.Visible = true;
-                                        Form1._Form1.ButtonOKClosePopUpAlarms.Visible = true;
-                                    }
                                     //z uzyciem LINQ
                                     try
                                     {
@@ -1445,13 +1335,6 @@ namespace HMIApp
                                 else
                                 {
                                     blockade[7] = false;
-                                    if (Form1._Form1.listView_Alarms.FindItemWithText(DBReadAlarm_AlarmName) != null)
-                                    {
-                                        if (Form1._Form1.listView_Alarms.Items.Count > 0)
-                                        {
-                                            Form1._Form1.listView_Alarms.Items.Remove(item[7]);
-                                        }
-                                    }
                                     foreach (DataGridViewRow row in Form1._Form1.dataGridView1.Rows)
                                     {
                                         if (row.Cells[0].Value != null)
@@ -1470,14 +1353,17 @@ namespace HMIApp
                                         }
                                     }
                                 }
-
                                 break;
-
                         }
-                        if (Form1._Form1.dataGridView1.Rows.Count == 0 )
+                        //Uruchomienie timerów do koloru datagrid view
+                        if(Form1._Form1.dataGridView1.Rows.Count > 1)
                         {
-                            Form1._Form1.dataGridView1.Visible = false;
-                            Form1._Form1.ButtonOKClosePopUpAlarms.Visible = false;
+                            Form1._Form1.TimerDoKoloruDataGridView.Enabled = true;
+                        }
+                        else if(Form1._Form1.dataGridView1.Rows.Count <= 1)
+                        {
+                            Form1._Form1.TimerDoKoloruDataGridView.Enabled = false;
+                            Form1._Form1.TimerDoKoloruDataGridView1.Enabled = false;
                         }
                         break;
                     case "INT":

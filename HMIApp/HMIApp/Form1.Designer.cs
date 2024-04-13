@@ -30,7 +30,7 @@
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             OdczytDB = new System.Windows.Forms.Timer(components);
             label_Uzytkownik = new System.Windows.Forms.Label();
             pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -59,10 +59,6 @@
             DB667Safety = new System.Windows.Forms.TextBox();
             DB667Kurtyna = new System.Windows.Forms.TextBox();
             DB667PozWyj = new System.Windows.Forms.TextBox();
-            listView_Alarms = new System.Windows.Forms.ListView();
-            columnHeader5 = new System.Windows.Forms.ColumnHeader();
-            columnHeader6 = new System.Windows.Forms.ColumnHeader();
-            columnHeader7 = new System.Windows.Forms.ColumnHeader();
             tabPage7 = new System.Windows.Forms.TabPage();
             listView_AlarmsArchive = new System.Windows.Forms.ListView();
             columnHeader1 = new System.Windows.Forms.ColumnHeader();
@@ -73,6 +69,18 @@
             tabPage10 = new System.Windows.Forms.TabPage();
             tableLayoutPanel17 = new System.Windows.Forms.TableLayoutPanel();
             panel9 = new System.Windows.Forms.Panel();
+            label3 = new System.Windows.Forms.Label();
+            DB669Input9 = new System.Windows.Forms.TextBox();
+            label96 = new System.Windows.Forms.Label();
+            label94 = new System.Windows.Forms.Label();
+            DB669Input10 = new System.Windows.Forms.TextBox();
+            DB669Input7 = new System.Windows.Forms.TextBox();
+            label93 = new System.Windows.Forms.Label();
+            DB669Input8 = new System.Windows.Forms.TextBox();
+            label92 = new System.Windows.Forms.Label();
+            label91 = new System.Windows.Forms.Label();
+            DB669Input6 = new System.Windows.Forms.TextBox();
+            DB669Input5 = new System.Windows.Forms.TextBox();
             DB669Input0 = new System.Windows.Forms.TextBox();
             DB669Input1 = new System.Windows.Forms.TextBox();
             DB669Input2 = new System.Windows.Forms.TextBox();
@@ -84,19 +92,8 @@
             label88 = new System.Windows.Forms.Label();
             label89 = new System.Windows.Forms.Label();
             panel10 = new System.Windows.Forms.Panel();
-            DB669Input5 = new System.Windows.Forms.TextBox();
-            DB669Input6 = new System.Windows.Forms.TextBox();
-            DB669Input7 = new System.Windows.Forms.TextBox();
-            label94 = new System.Windows.Forms.Label();
-            DB669Input8 = new System.Windows.Forms.TextBox();
-            label93 = new System.Windows.Forms.Label();
-            label91 = new System.Windows.Forms.Label();
-            label92 = new System.Windows.Forms.Label();
             panel11 = new System.Windows.Forms.Panel();
-            label96 = new System.Windows.Forms.Label();
-            DB669Input10 = new System.Windows.Forms.TextBox();
             label95 = new System.Windows.Forms.Label();
-            DB669Input9 = new System.Windows.Forms.TextBox();
             tabPage11 = new System.Windows.Forms.TabPage();
             tableLayoutPanel18 = new System.Windows.Forms.TableLayoutPanel();
             panel12 = new System.Windows.Forms.Panel();
@@ -123,7 +120,6 @@
             label98 = new System.Windows.Forms.Label();
             DB669Output8 = new System.Windows.Forms.TextBox();
             label97 = new System.Windows.Forms.Label();
-            DB669Output9 = new System.Windows.Forms.TextBox();
             tabPage6 = new System.Windows.Forms.TabPage();
             tableLayoutPanel16 = new System.Windows.Forms.TableLayoutPanel();
             label1 = new System.Windows.Forms.Label();
@@ -227,14 +223,6 @@
             tabControl2 = new System.Windows.Forms.TabControl();
             tabPage12 = new System.Windows.Forms.TabPage();
             tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            pictureBoxMachineImages = new System.Windows.Forms.PictureBox();
-            panel1 = new System.Windows.Forms.Panel();
-            textBox17 = new System.Windows.Forms.TextBox();
-            label5 = new System.Windows.Forms.Label();
-            textBox18 = new System.Windows.Forms.TextBox();
-            textBox1 = new System.Windows.Forms.TextBox();
-            label47 = new System.Windows.Forms.Label();
-            textBox7 = new System.Windows.Forms.TextBox();
             panel2 = new System.Windows.Forms.Panel();
             checkBox_ChwytakDolny = new System.Windows.Forms.CheckBox();
             checkBox_UkladPodnoszenia = new System.Windows.Forms.CheckBox();
@@ -244,12 +232,10 @@
             checkBox_Serwo20U1 = new System.Windows.Forms.CheckBox();
             checkBox_SzczekiOslonki = new System.Windows.Forms.CheckBox();
             checkBox_Serwo16U2 = new System.Windows.Forms.CheckBox();
+            pictureBoxMachineImages = new System.Windows.Forms.PictureBox();
             tabPage3 = new System.Windows.Forms.TabPage();
             tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             tabPage1 = new System.Windows.Forms.TabPage();
-            ButtonOKClosePopUpAlarms = new System.Windows.Forms.Button();
-            dataGridView1 = new System.Windows.Forms.DataGridView();
-            Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             formsPlot1 = new ScottPlot.WinForms.FormsPlot();
             tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             panel6 = new System.Windows.Forms.Panel();
@@ -257,7 +243,6 @@
             button1 = new System.Windows.Forms.Button();
             Label_AktualneDane = new System.Windows.Forms.Label();
             label49 = new System.Windows.Forms.Label();
-            DB667WszystkieSztuki = new System.Windows.Forms.TextBox();
             DB667Serwo16U2Poz = new System.Windows.Forms.TextBox();
             label_CzasCyklu = new System.Windows.Forms.Label();
             label65 = new System.Windows.Forms.Label();
@@ -273,7 +258,8 @@
             DB667AktSmar = new System.Windows.Forms.TextBox();
             label_SztukiNOK = new System.Windows.Forms.Label();
             label10 = new System.Windows.Forms.Label();
-            label_Wszystkie = new System.Windows.Forms.Label();
+            dataGridView1 = new System.Windows.Forms.DataGridView();
+            Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             tabControl1 = new System.Windows.Forms.TabControl();
             tabPage13 = new System.Windows.Forms.TabPage();
             label2 = new System.Windows.Forms.Label();
@@ -282,6 +268,8 @@
             tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
             tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
             tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
+            TimerDoKoloruDataGridView = new System.Windows.Forms.Timer(components);
+            TimerDoKoloruDataGridView1 = new System.Windows.Forms.Timer(components);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             tabPage7.SuspendLayout();
             tabPage9.SuspendLayout();
@@ -289,8 +277,6 @@
             tabPage10.SuspendLayout();
             tableLayoutPanel17.SuspendLayout();
             panel9.SuspendLayout();
-            panel10.SuspendLayout();
-            panel11.SuspendLayout();
             tabPage11.SuspendLayout();
             tableLayoutPanel18.SuspendLayout();
             panel12.SuspendLayout();
@@ -316,14 +302,13 @@
             tabControl2.SuspendLayout();
             tabPage12.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBoxMachineImages).BeginInit();
-            panel1.SuspendLayout();
             panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxMachineImages).BeginInit();
             tabPage3.SuspendLayout();
             tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             tableLayoutPanel5.SuspendLayout();
             panel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             tabControl1.SuspendLayout();
             tabPage13.SuspendLayout();
             tableLayoutPanel6.SuspendLayout();
@@ -430,7 +415,7 @@
             // TimeoutWylogowania
             // 
             TimeoutWylogowania.Interval = 100000;
-            TimeoutWylogowania.Tick += timer3_Tick;
+            TimeoutWylogowania.Tick += TimeoutWylogowania_Tick;
             // 
             // label63
             // 
@@ -440,7 +425,7 @@
             // OdliczaSekunde
             // 
             OdliczaSekunde.Interval = 1000;
-            OdliczaSekunde.Tick += timer4_Tick;
+            OdliczaSekunde.Tick += OdliczaSekunde_Tick;
             // 
             // HMIStatus
             // 
@@ -506,31 +491,6 @@
             resources.ApplyResources(DB667PozWyj, "DB667PozWyj");
             DB667PozWyj.Name = "DB667PozWyj";
             // 
-            // listView_Alarms
-            // 
-            listView_Alarms.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { columnHeader5, columnHeader6, columnHeader7 });
-            resources.ApplyResources(listView_Alarms, "listView_Alarms");
-            listView_Alarms.ForeColor = System.Drawing.SystemColors.InfoText;
-            listView_Alarms.FullRowSelect = true;
-            listView_Alarms.GridLines = true;
-            listView_Alarms.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
-            listView_Alarms.Items.AddRange(new System.Windows.Forms.ListViewItem[] { (System.Windows.Forms.ListViewItem)resources.GetObject("listView_Alarms.Items") });
-            listView_Alarms.Name = "listView_Alarms";
-            listView_Alarms.UseCompatibleStateImageBehavior = false;
-            listView_Alarms.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeader5
-            // 
-            resources.ApplyResources(columnHeader5, "columnHeader5");
-            // 
-            // columnHeader6
-            // 
-            resources.ApplyResources(columnHeader6, "columnHeader6");
-            // 
-            // columnHeader7
-            // 
-            resources.ApplyResources(columnHeader7, "columnHeader7");
-            // 
             // tabPage7
             // 
             tabPage7.Controls.Add(listView_AlarmsArchive);
@@ -581,7 +541,6 @@
             // 
             tabPage10.Controls.Add(tableLayoutPanel17);
             tabPage10.Controls.Add(label95);
-            tabPage10.Controls.Add(DB669Input9);
             resources.ApplyResources(tabPage10, "tabPage10");
             tabPage10.Name = "tabPage10";
             tabPage10.UseVisualStyleBackColor = true;
@@ -598,6 +557,18 @@
             // panel9
             // 
             panel9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            panel9.Controls.Add(label3);
+            panel9.Controls.Add(DB669Input9);
+            panel9.Controls.Add(label96);
+            panel9.Controls.Add(label94);
+            panel9.Controls.Add(DB669Input10);
+            panel9.Controls.Add(DB669Input7);
+            panel9.Controls.Add(label93);
+            panel9.Controls.Add(DB669Input8);
+            panel9.Controls.Add(label92);
+            panel9.Controls.Add(label91);
+            panel9.Controls.Add(DB669Input6);
+            panel9.Controls.Add(DB669Input5);
             panel9.Controls.Add(DB669Input0);
             panel9.Controls.Add(DB669Input1);
             panel9.Controls.Add(DB669Input2);
@@ -610,6 +581,66 @@
             panel9.Controls.Add(label89);
             resources.ApplyResources(panel9, "panel9");
             panel9.Name = "panel9";
+            // 
+            // label3
+            // 
+            resources.ApplyResources(label3, "label3");
+            label3.Name = "label3";
+            // 
+            // DB669Input9
+            // 
+            resources.ApplyResources(DB669Input9, "DB669Input9");
+            DB669Input9.Name = "DB669Input9";
+            // 
+            // label96
+            // 
+            resources.ApplyResources(label96, "label96");
+            label96.Name = "label96";
+            // 
+            // label94
+            // 
+            resources.ApplyResources(label94, "label94");
+            label94.Name = "label94";
+            // 
+            // DB669Input10
+            // 
+            resources.ApplyResources(DB669Input10, "DB669Input10");
+            DB669Input10.Name = "DB669Input10";
+            // 
+            // DB669Input7
+            // 
+            resources.ApplyResources(DB669Input7, "DB669Input7");
+            DB669Input7.Name = "DB669Input7";
+            // 
+            // label93
+            // 
+            resources.ApplyResources(label93, "label93");
+            label93.Name = "label93";
+            // 
+            // DB669Input8
+            // 
+            resources.ApplyResources(DB669Input8, "DB669Input8");
+            DB669Input8.Name = "DB669Input8";
+            // 
+            // label92
+            // 
+            resources.ApplyResources(label92, "label92");
+            label92.Name = "label92";
+            // 
+            // label91
+            // 
+            resources.ApplyResources(label91, "label91");
+            label91.Name = "label91";
+            // 
+            // DB669Input6
+            // 
+            resources.ApplyResources(DB669Input6, "DB669Input6");
+            DB669Input6.Name = "DB669Input6";
+            // 
+            // DB669Input5
+            // 
+            resources.ApplyResources(DB669Input5, "DB669Input5");
+            DB669Input5.Name = "DB669Input5";
             // 
             // DB669Input0
             // 
@@ -664,90 +695,24 @@
             // panel10
             // 
             panel10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            panel10.Controls.Add(DB669Input5);
-            panel10.Controls.Add(DB669Input6);
-            panel10.Controls.Add(DB669Input7);
-            panel10.Controls.Add(label94);
-            panel10.Controls.Add(DB669Input8);
-            panel10.Controls.Add(label93);
-            panel10.Controls.Add(label91);
-            panel10.Controls.Add(label92);
             resources.ApplyResources(panel10, "panel10");
             panel10.Name = "panel10";
-            // 
-            // DB669Input5
-            // 
-            resources.ApplyResources(DB669Input5, "DB669Input5");
-            DB669Input5.Name = "DB669Input5";
-            // 
-            // DB669Input6
-            // 
-            resources.ApplyResources(DB669Input6, "DB669Input6");
-            DB669Input6.Name = "DB669Input6";
-            // 
-            // DB669Input7
-            // 
-            resources.ApplyResources(DB669Input7, "DB669Input7");
-            DB669Input7.Name = "DB669Input7";
-            // 
-            // label94
-            // 
-            resources.ApplyResources(label94, "label94");
-            label94.Name = "label94";
-            // 
-            // DB669Input8
-            // 
-            resources.ApplyResources(DB669Input8, "DB669Input8");
-            DB669Input8.Name = "DB669Input8";
-            // 
-            // label93
-            // 
-            resources.ApplyResources(label93, "label93");
-            label93.Name = "label93";
-            // 
-            // label91
-            // 
-            resources.ApplyResources(label91, "label91");
-            label91.Name = "label91";
-            // 
-            // label92
-            // 
-            resources.ApplyResources(label92, "label92");
-            label92.Name = "label92";
             // 
             // panel11
             // 
             panel11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            panel11.Controls.Add(label96);
-            panel11.Controls.Add(DB669Input10);
             resources.ApplyResources(panel11, "panel11");
             panel11.Name = "panel11";
-            // 
-            // label96
-            // 
-            resources.ApplyResources(label96, "label96");
-            label96.Name = "label96";
-            // 
-            // DB669Input10
-            // 
-            resources.ApplyResources(DB669Input10, "DB669Input10");
-            DB669Input10.Name = "DB669Input10";
             // 
             // label95
             // 
             resources.ApplyResources(label95, "label95");
             label95.Name = "label95";
             // 
-            // DB669Input9
-            // 
-            resources.ApplyResources(DB669Input9, "DB669Input9");
-            DB669Input9.Name = "DB669Input9";
-            // 
             // tabPage11
             // 
             tabPage11.Controls.Add(tableLayoutPanel18);
             tabPage11.Controls.Add(label97);
-            tabPage11.Controls.Add(DB669Output9);
             resources.ApplyResources(tabPage11, "tabPage11");
             tabPage11.Name = "tabPage11";
             tabPage11.UseVisualStyleBackColor = true;
@@ -902,11 +867,6 @@
             // 
             resources.ApplyResources(label97, "label97");
             label97.Name = "label97";
-            // 
-            // DB669Output9
-            // 
-            resources.ApplyResources(DB669Output9, "DB669Output9");
-            DB669Output9.Name = "DB669Output9";
             // 
             // tabPage6
             // 
@@ -1212,9 +1172,11 @@
             // buttonWczytajRef
             // 
             resources.ApplyResources(buttonWczytajRef, "buttonWczytajRef");
+            buttonWczytajRef.BackColor = System.Drawing.Color.Gainsboro;
+            buttonWczytajRef.ForeColor = System.Drawing.SystemColors.ControlText;
             buttonWczytajRef.Name = "buttonWczytajRef";
             buttonWczytajRef.Tag = "";
-            buttonWczytajRef.UseVisualStyleBackColor = true;
+            buttonWczytajRef.UseVisualStyleBackColor = false;
             buttonWczytajRef.Click += button10_Click;
             // 
             // buttonZapiszRef
@@ -1634,62 +1596,9 @@
             // tableLayoutPanel1
             // 
             resources.ApplyResources(tableLayoutPanel1, "tableLayoutPanel1");
-            tableLayoutPanel1.Controls.Add(pictureBoxMachineImages, 2, 0);
-            tableLayoutPanel1.Controls.Add(panel1, 1, 0);
             tableLayoutPanel1.Controls.Add(panel2, 0, 0);
+            tableLayoutPanel1.Controls.Add(pictureBoxMachineImages, 1, 0);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
-            // 
-            // pictureBoxMachineImages
-            // 
-            resources.ApplyResources(pictureBoxMachineImages, "pictureBoxMachineImages");
-            pictureBoxMachineImages.BackColor = System.Drawing.Color.Transparent;
-            pictureBoxMachineImages.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            pictureBoxMachineImages.Name = "pictureBoxMachineImages";
-            pictureBoxMachineImages.TabStop = false;
-            // 
-            // panel1
-            // 
-            panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            panel1.Controls.Add(textBox17);
-            panel1.Controls.Add(label5);
-            panel1.Controls.Add(textBox18);
-            panel1.Controls.Add(textBox1);
-            panel1.Controls.Add(label47);
-            panel1.Controls.Add(textBox7);
-            resources.ApplyResources(panel1, "panel1");
-            panel1.Name = "panel1";
-            // 
-            // textBox17
-            // 
-            resources.ApplyResources(textBox17, "textBox17");
-            textBox17.Name = "textBox17";
-            // 
-            // label5
-            // 
-            resources.ApplyResources(label5, "label5");
-            label5.Name = "label5";
-            // 
-            // textBox18
-            // 
-            resources.ApplyResources(textBox18, "textBox18");
-            textBox18.Name = "textBox18";
-            // 
-            // textBox1
-            // 
-            resources.ApplyResources(textBox1, "textBox1");
-            textBox1.Name = "textBox1";
-            textBox1.Tag = "";
-            // 
-            // label47
-            // 
-            resources.ApplyResources(label47, "label47");
-            label47.Name = "label47";
-            // 
-            // textBox7
-            // 
-            resources.ApplyResources(textBox7, "textBox7");
-            textBox7.Name = "textBox7";
-            textBox7.Tag = "";
             // 
             // panel2
             // 
@@ -1801,6 +1710,14 @@
             checkBox_Serwo16U2.CheckedChanged += checkBox_Serwo16U2_Checked;
             checkBox_Serwo16U2.CheckStateChanged += checkBox_Serwo16U2_CheckedStateChanged;
             // 
+            // pictureBoxMachineImages
+            // 
+            pictureBoxMachineImages.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(pictureBoxMachineImages, "pictureBoxMachineImages");
+            pictureBoxMachineImages.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            pictureBoxMachineImages.Name = "pictureBoxMachineImages";
+            pictureBoxMachineImages.TabStop = false;
+            // 
             // tabPage3
             // 
             tabPage3.Controls.Add(tableLayoutPanel2);
@@ -1815,45 +1732,12 @@
             // 
             // tabPage1
             // 
-            tabPage1.Controls.Add(ButtonOKClosePopUpAlarms);
-            tabPage1.Controls.Add(dataGridView1);
+            tabPage1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             tabPage1.Controls.Add(formsPlot1);
             tabPage1.Controls.Add(tableLayoutPanel5);
             resources.ApplyResources(tabPage1, "tabPage1");
             tabPage1.Name = "tabPage1";
             tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // ButtonOKClosePopUpAlarms
-            // 
-            resources.ApplyResources(ButtonOKClosePopUpAlarms, "ButtonOKClosePopUpAlarms");
-            ButtonOKClosePopUpAlarms.Name = "ButtonOKClosePopUpAlarms";
-            ButtonOKClosePopUpAlarms.UseVisualStyleBackColor = true;
-            ButtonOKClosePopUpAlarms.Click += button8_Click;
-            // 
-            // dataGridView1
-            // 
-            resources.ApplyResources(dataGridView1, "dataGridView1");
-            dataGridView1.BackgroundColor = System.Drawing.Color.White;
-            dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.ColumnHeadersVisible = false;
-            dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { Column2 });
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersVisible = false;
-            dataGridView1.RowTemplate.Height = 50;
-            // 
-            // Column2
-            // 
-            Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            resources.ApplyResources(Column2, "Column2");
-            Column2.Name = "Column2";
             // 
             // formsPlot1
             // 
@@ -1877,7 +1761,6 @@
             panel6.Controls.Add(button1);
             panel6.Controls.Add(Label_AktualneDane);
             panel6.Controls.Add(label49);
-            panel6.Controls.Add(DB667WszystkieSztuki);
             panel6.Controls.Add(DB667Serwo16U2Poz);
             panel6.Controls.Add(label_CzasCyklu);
             panel6.Controls.Add(label65);
@@ -1893,7 +1776,6 @@
             panel6.Controls.Add(DB667AktSmar);
             panel6.Controls.Add(label_SztukiNOK);
             panel6.Controls.Add(label10);
-            panel6.Controls.Add(label_Wszystkie);
             resources.ApplyResources(panel6, "panel6");
             panel6.Name = "panel6";
             // 
@@ -1923,12 +1805,6 @@
             label49.BackColor = System.Drawing.Color.White;
             label49.Name = "label49";
             // 
-            // DB667WszystkieSztuki
-            // 
-            resources.ApplyResources(DB667WszystkieSztuki, "DB667WszystkieSztuki");
-            DB667WszystkieSztuki.Name = "DB667WszystkieSztuki";
-            DB667WszystkieSztuki.Tag = "";
-            // 
             // DB667Serwo16U2Poz
             // 
             resources.ApplyResources(DB667Serwo16U2Poz, "DB667Serwo16U2Poz");
@@ -1946,7 +1822,6 @@
             resources.ApplyResources(label65, "label65");
             label65.BackColor = System.Drawing.Color.White;
             label65.Name = "label65";
-            label65.Click += label65_Click;
             // 
             // DB667SztukiNOK
             // 
@@ -2022,11 +1897,30 @@
             resources.ApplyResources(label10, "label10");
             label10.Name = "label10";
             // 
-            // label_Wszystkie
+            // dataGridView1
             // 
-            resources.ApplyResources(label_Wszystkie, "label_Wszystkie");
-            label_Wszystkie.BackColor = System.Drawing.Color.White;
-            label_Wszystkie.Name = "label_Wszystkie";
+            dataGridView1.BackgroundColor = System.Drawing.Color.White;
+            dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.ColumnHeadersVisible = false;
+            dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { Column2 });
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
+            resources.ApplyResources(dataGridView1, "dataGridView1");
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersVisible = false;
+            dataGridView1.RowTemplate.Height = 50;
+            // 
+            // Column2
+            // 
+            Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            resources.ApplyResources(Column2, "Column2");
+            Column2.Name = "Column2";
             // 
             // tabControl1
             // 
@@ -2103,12 +1997,22 @@
             tableLayoutPanel10.Controls.Add(DB666Tag17PassedValue, 3, 0);
             tableLayoutPanel10.Name = "tableLayoutPanel10";
             // 
+            // TimerDoKoloruDataGridView
+            // 
+            TimerDoKoloruDataGridView.Interval = 750;
+            TimerDoKoloruDataGridView.Tick += TimerDoKoloruDataGridView_Tick;
+            // 
+            // TimerDoKoloruDataGridView1
+            // 
+            TimerDoKoloruDataGridView1.Interval = 750;
+            TimerDoKoloruDataGridView1.Tick += TimerDoKoloruDataGridView1_Tick;
+            // 
             // Form1
             // 
             resources.ApplyResources(this, "$this");
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            Controls.Add(dataGridView1);
             Controls.Add(tableLayoutPanel10);
-            Controls.Add(listView_Alarms);
             Controls.Add(tableLayoutPanel6);
             Controls.Add(listBoxWarningsView);
             Controls.Add(label63);
@@ -2125,10 +2029,6 @@
             tableLayoutPanel17.ResumeLayout(false);
             panel9.ResumeLayout(false);
             panel9.PerformLayout();
-            panel10.ResumeLayout(false);
-            panel10.PerformLayout();
-            panel11.ResumeLayout(false);
-            panel11.PerformLayout();
             tabPage11.ResumeLayout(false);
             tabPage11.PerformLayout();
             tableLayoutPanel18.ResumeLayout(false);
@@ -2165,17 +2065,14 @@
             tabControl2.ResumeLayout(false);
             tabPage12.ResumeLayout(false);
             tableLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pictureBoxMachineImages).EndInit();
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
             panel2.ResumeLayout(false);
-            panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxMachineImages).EndInit();
             tabPage3.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             tableLayoutPanel5.ResumeLayout(false);
             panel6.ResumeLayout(false);
             panel6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             tabControl1.ResumeLayout(false);
             tabPage13.ResumeLayout(false);
             tableLayoutPanel6.ResumeLayout(false);
@@ -2221,10 +2118,6 @@
         public System.Windows.Forms.TextBox DB667Safety;
         public System.Windows.Forms.TextBox DB667Kurtyna;
         public System.Windows.Forms.TextBox DB667PozWyj;
-        public System.Windows.Forms.ListView listView_Alarms;
-        public System.Windows.Forms.ColumnHeader columnHeader5;
-        public System.Windows.Forms.ColumnHeader columnHeader6;
-        public System.Windows.Forms.ColumnHeader columnHeader7;
         private System.Windows.Forms.TabPage tabPage7;
         public System.Windows.Forms.ListView listView_AlarmsArchive;
         public System.Windows.Forms.ColumnHeader columnHeader1;
@@ -2245,7 +2138,6 @@
         private System.Windows.Forms.Label label87;
         private System.Windows.Forms.Label Input0;
         public System.Windows.Forms.TextBox DB669Input10;
-        public System.Windows.Forms.TextBox DB669Input9;
         public System.Windows.Forms.TextBox DB669Input8;
         public System.Windows.Forms.TextBox DB669Input7;
         public System.Windows.Forms.TextBox DB669Input6;
@@ -2268,7 +2160,6 @@
         private System.Windows.Forms.Label label106;
         private System.Windows.Forms.Label label107;
         public System.Windows.Forms.TextBox DB669Output10;
-        public System.Windows.Forms.TextBox DB669Output9;
         public System.Windows.Forms.TextBox DB669Output8;
         public System.Windows.Forms.TextBox DB669Output7;
         public System.Windows.Forms.TextBox DB669Output6;
@@ -2368,24 +2259,16 @@
         private System.Windows.Forms.Label label45;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage1;
-        public System.Windows.Forms.Button ButtonOKClosePopUpAlarms;
         public System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabControl tabControl2;
         private System.Windows.Forms.TabPage tabPage12;
-        private System.Windows.Forms.Label label5;
-        public System.Windows.Forms.TextBox textBox1;
-        public System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.Label label47;
         public System.Windows.Forms.PictureBox pictureBoxMachineImages;
-        public System.Windows.Forms.TextBox textBox17;
-        public System.Windows.Forms.TextBox textBox18;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TabPage tabPage13;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Panel panel1;
         public System.Windows.Forms.CheckBox checkBox_UkladPodnoszenia;
         public System.Windows.Forms.CheckBox checkBox_ChwytakDolny;
         public System.Windows.Forms.CheckBox checkBox_Serwo18U1;
@@ -2401,7 +2284,6 @@
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Label Label_AktualneDane;
         private System.Windows.Forms.Label label49;
-        public System.Windows.Forms.TextBox DB667WszystkieSztuki;
         public System.Windows.Forms.TextBox DB667Serwo16U2Poz;
         public System.Windows.Forms.Label label_CzasCyklu;
         private System.Windows.Forms.Label label65;
@@ -2417,7 +2299,6 @@
         public System.Windows.Forms.TextBox DB667AktSmar;
         private System.Windows.Forms.Label label_SztukiNOK;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label_Wszystkie;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
@@ -2444,6 +2325,10 @@
         private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
+        public System.Windows.Forms.TextBox DB669Input9;
+        private System.Windows.Forms.Label label3;
+        public System.Windows.Forms.Timer TimerDoKoloruDataGridView;
+        public System.Windows.Forms.Timer TimerDoKoloruDataGridView1;
     }
 }
 

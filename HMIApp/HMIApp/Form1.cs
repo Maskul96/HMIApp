@@ -185,7 +185,7 @@ namespace HMIApp
         }
 
         //Wylogowanie uzytkownika po uplywie czasu
-        private void timer3_Tick(object sender, EventArgs e)
+        private void TimeoutWylogowania_Tick(object sender, EventArgs e)
         {
             Users.ClearUserFromDisplay();
             TimeoutWylogowania.Enabled = false;
@@ -193,7 +193,7 @@ namespace HMIApp
         }
 
         //Obsluga odliczania czasu do wylogowania
-        private void timer4_Tick(object sender, EventArgs e)
+        private void OdliczaSekunde_Tick(object sender, EventArgs e)
         {
             if (TimeoutWylogowania.Enabled)
             {
@@ -274,14 +274,6 @@ namespace HMIApp
             }
             string progFiles = @"C:\Program Files\Common Files\Microsoft Shared\Ink\TabTip.exe";
             Process.Start(progFiles);
-        }
-
-        //Przycisk OK z okna PopUp Alarmów - zamyka okno po potwierdzeniu
-        private void button8_Click(object sender, EventArgs e)
-        {
-
-            dataGridView1.Visible = false;
-            ButtonOKClosePopUpAlarms.Visible = false;
         }
 
         //Obsluga ToggleButtonow w zakładce Tryb Reczny
@@ -406,14 +398,15 @@ namespace HMIApp
             Close();
         }
 
-        private void label65_Click(object sender, EventArgs e)
+        private void TimerDoKoloruDataGridView_Tick(object sender, EventArgs e)
         {
-
+            dataGridView1.BackColor = Color.Red;
+            TimerDoKoloruDataGridView1.Enabled = true;
         }
 
-        private void panel4_Paint(object sender, PaintEventArgs e)
+        private void TimerDoKoloruDataGridView1_Tick(object sender, EventArgs e)
         {
-
+            dataGridView1.BackColor = Color.White;
         }
     }
 }
