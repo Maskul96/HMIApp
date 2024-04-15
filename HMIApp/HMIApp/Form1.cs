@@ -32,15 +32,6 @@ namespace HMIApp
         {
             InitializeComponent();
             _Form1 = this;
-            //zakomentuj ponizsze cztery metody do odpalenia apki bez PLC
-            //Ponizszy kod zakomentowany mozna sprobowac wywalic zeby apka sie odpalala i nie robila najpierw komunikacji z PLC
-            //komunikacje bedzie odpalac Timer i Apka sie odpali i zainicjuje sama komunikacje - przetestowac to
-            //App.RunInitPLC();
-            //App.ReadAlarmsFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_2.csv");
-            //App.ReadIOFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_3.csv");
-            //App.ReadActualValueFromDBChart_Simplified("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_4.csv");
-            //App.ReadActualValueFromDBReferenceOrProcessData("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_1.csv");
-
             DataBase.Run();
             //Services do dependency injection
             services.AddSingleton<iDataBase, DataBase>();
@@ -64,6 +55,25 @@ namespace HMIApp
         }
         //statyczna zmienna typu Form1 zeby dostac sie z poziomu innej klasy do obiektow wewnatrz Form1
         public static Form1 _Form1;
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            App.RunInitPLC();
+            PróbyUruchomieniaKomunikacjizPLC.Enabled = true;
+            //zakomentuj ponizsze cztery metody do odpalenia apki bez PLC
+            //App.ReadAlarmsFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_2.csv");
+            //App.ReadIOFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_3.csv");
+            //App.ReadActualValueFromDBChart_Simplified("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_4.csv");
+            //App.ReadActualValueFromDBReferenceOrProcessData("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_1.csv");
+        }
+        //Timer do prób uruchomienia komunikacji z PLC
+        private void Timer1_Tick_1(object sender, EventArgs e)
+        {
+            if (App.RunInitPLC() == false)
+            {
+                App.RunInitPLC();
+            }
+        }
 
         //METODA DO ODCZYTU DANYCH Z BAZY przy starcie aplikacji
         public void ReadFromDbWhenAppIsStarting()
@@ -401,7 +411,6 @@ namespace HMIApp
         private void TimerDoKoloruDataGridView_Tick(object sender, EventArgs e)
         {
             dataGridView1.BackColor = Color.Red;
-            TimerDoKoloruDataGridView1.Enabled = true;
         }
 
         private void TimerDoKoloruDataGridView1_Tick(object sender, EventArgs e)
@@ -409,39 +418,5 @@ namespace HMIApp
             dataGridView1.BackColor = Color.White;
         }
 
-        private void panel4_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void DB666Tag20_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label45_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void textBox20_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

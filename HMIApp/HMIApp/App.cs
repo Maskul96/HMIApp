@@ -1,4 +1,7 @@
 ﻿using HMIApp.Components.CSVReader;
+using HMIApp.Data;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Identity.Client;
 using ScottPlot;
 using System;
 using System.Buffers;
@@ -14,6 +17,7 @@ namespace HMIApp
     //Klasa do obsługi komunikacji z PLC oraz odczytu/zapisu danych z DB i do rysowania wykresu
     public class App : iApp
     {
+        DataBase _database = new DataBase();
         public Form1 obj;
 
         private int[] DB_Position = new int[8];
@@ -113,7 +117,8 @@ namespace HMIApp
 
 
         //Stworzenie obiektu z konfiguracja sterownika
-        SiemensPLC PLC = new SiemensPLC("192.168.2.1", 102, 0, 1, 1000);
+        SiemensPLC PLC = new SiemensPLC("192.168.2.1", 102, 0, 1, 1);
+        
 
         //Stworzenie obiektu CSVReader do odczytu z pliku
         CSVReader CSVReader = new CSVReader();
@@ -125,9 +130,24 @@ namespace HMIApp
         }
 
         //Metoda uruchamiająca komunikacje z PLC
-        public void RunInitPLC()
+        public bool RunInitPLC()
         {
-            PLC.Init();
+            bool _connected = false;
+            if(PLC.connected_)
+            {
+                _connected = true;
+                return _connected;
+            }
+            else
+            {
+                _connected = false;
+                PLC.Init();
+                if (PLC.connected_)
+                {
+                    _connected = true;
+                }
+                return _connected;
+            }
         }
 
         public void ClosePLCConnection()
@@ -539,7 +559,10 @@ namespace HMIApp
                         DBRead_position1 = dbTag.TagName.IndexOf(".");
                         DBRead_TagName = dbTag.TagName.Remove(DBRead_position1, 1);
                         DBRead_NrOfByteinDB = dbTag.NumberOfByteInDB;
-
+                        //if(DBRead_TagName.Contains("Kolor"))
+                        //{
+                        //    DBRead_TagName.Skip(5);
+                        //}
                         txt = Form1._Form1.Controls.Find($"{DBRead_TagName}", true).FirstOrDefault() as TextBox;
                         if (txt == null)
                         {
@@ -550,6 +573,9 @@ namespace HMIApp
                         {
                             txt.Text = Convert.ToString(DB[DBRead_NrOfByteinDB]);
                         }
+                        //zrobic moze logike ze jak w DBRead_TagName znajdziemy slowo Kolor to potem wycinamy z DBRead_TagName slowo kolor 
+                        //i mozemy wtedy szukac textboxa spowrotem po jego nazwie i jak znajdziemy textboxa to w zaleznosci od wartosci byte'a 
+                        //ustawiamy kolory textboxa
                         break;
                     case "INT":
                         //Wyszukanie samej nazwy Taga, która odpowiada 1:1 nazwie TextBoxa
@@ -851,6 +877,18 @@ namespace HMIApp
                     break;
 
             }
+        }
+
+        //Zrobic moze funkcje ktora porownuje np textboxy z zakladki dane i z zakladki auto aktualne dane odpala wtedy textbox na zielono
+        public void test()
+        {
+            //na przyklad
+            double db666tag16 = Convert.ToDouble(Form1._Form1.DB666Tag16.Text);
+            if(db666tag16 == Convert.ToDouble(Form1._Form1.DB667AktSmar.Text))
+            {
+                //Form1._Form1.DB667AktSmar.Color = Green;
+            }
+         //albo zastanowic sie jak to zrobic zeby przesylac kolor przez dbka
         }
 
         //ALARMY
@@ -1359,6 +1397,7 @@ namespace HMIApp
                         if(Form1._Form1.dataGridView1.Rows.Count > 1)
                         {
                             Form1._Form1.TimerDoKoloruDataGridView.Enabled = true;
+                            Form1._Form1.TimerDoKoloruDataGridView1.Enabled = true;
                         }
                         else if(Form1._Form1.dataGridView1.Rows.Count <= 1)
                         {

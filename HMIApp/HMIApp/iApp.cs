@@ -4,7 +4,7 @@ namespace HMIApp
 {
     public interface iApp
     {
-        void RunInitPLC();
+        bool RunInitPLC();
         void listBox1_DrawItem(object sender, DrawItemEventArgs e);
         void ClosePLCConnection();
         void ReadActualValueFromDBReferenceOrProcessData(string filepath);

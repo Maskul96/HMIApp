@@ -19,10 +19,11 @@ namespace HMIApp
         public int Port { get; private set; }
         public int Timeout_ms { get; private set; }
 
+        public bool connected_ { get; set; }
 
         //zmienne
         private const int kMaxErrorsToReset = 10000;
-        private bool connected_;
+        //public bool connected_;
         private int continuous_reading_errors_;
         private int continuous_writing_errors_;
         private libnodave.daveOSserialType dave_serial_;
@@ -87,9 +88,11 @@ namespace HMIApp
                             return false;
                         }
                         _logger.LogMessage($"Error initAdapter socket,IP: {IP} port: {Port} ");
+                        MessageBox.Show($"Error initAdapter socket,IP: {IP} port: {Port} ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return false;
                     }
                     _logger.LogMessage($"Error opening socket, IP: {IP} port: {Port} ");
+                    MessageBox.Show($"Error opening socket, IP: {IP} port: {Port} ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
                 _logger.LogMessage($"Already connected");
