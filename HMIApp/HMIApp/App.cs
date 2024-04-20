@@ -341,11 +341,11 @@ namespace HMIApp
         //Ponizsza metoda do wywolania dopiero jak zaczyta sie jakakolwiek referencja
         public void WriteSpecifiedValueFromReference()
         {
-            FastMovement = Convert.ToDouble(Form1._Form1.DB666Tag4.Text);
-            StartReading = Convert.ToDouble(Form1._Form1.DB666Tag5.Text);
-            EndReading = Convert.ToDouble(Form1._Form1.DB666Tag6.Text);
-            EndPoint = Convert.ToDouble(Form1._Form1.DB666Tag15.Text);
-            ForceMaxfromRef = Convert.ToInt16(Form1._Form1.DB666Tag18.Text);
+            FastMovement = Convert.ToDouble(Form1._Form1.DB666SilaMax__Przeciskanie.Text);
+            StartReading = Convert.ToDouble(Form1._Form1.DB666PozStartowa__Przeciskanie.Text);
+            EndReading = Convert.ToDouble(Form1._Form1.DB666PoczCzytSily__Przeciskanie.Text);
+            EndPoint = Convert.ToDouble(Form1._Form1.DB666KoniecCzytSily__Przeciskanie.Text);
+            ForceMaxfromRef = Convert.ToInt16(Form1._Form1.DB666PozPowrotu_Oslonka.Text);
 
         }
 
@@ -573,9 +573,6 @@ namespace HMIApp
                         {
                             txt.Text = Convert.ToString(DB[DBRead_NrOfByteinDB]);
                         }
-                        //zrobic moze logike ze jak w DBRead_TagName znajdziemy slowo Kolor to potem wycinamy z DBRead_TagName slowo kolor 
-                        //i mozemy wtedy szukac textboxa spowrotem po jego nazwie i jak znajdziemy textboxa to w zaleznosci od wartosci byte'a 
-                        //ustawiamy kolory textboxa
                         break;
                     case "INT":
                         //Wyszukanie samej nazwy Taga, która odpowiada 1:1 nazwie TextBoxa
@@ -589,6 +586,9 @@ namespace HMIApp
                         txt = Form1._Form1.Controls.Find($"{DBRead_TagName}", true).FirstOrDefault() as TextBox;
                         if (txt == null)
                         {
+                            //zrobic moze logike ze jak w DBRead_TagName znajdziemy slowo Kolor to potem wycinamy z DBRead_TagName slowo kolor 
+                            //i mozemy wtedy szukac textboxa spowrotem po jego nazwie i jak znajdziemy textboxa to w zaleznosci od wartosci byte'a 
+                            //ustawiamy kolory textboxa
                             //Wyjscie z case'a jesli nie znajdzie textboxa i bedzie nullem
                             break;
                         }
@@ -883,8 +883,8 @@ namespace HMIApp
         public void test()
         {
             //na przyklad
-            double db666tag16 = Convert.ToDouble(Form1._Form1.DB666Tag16.Text);
-            if(db666tag16 == Convert.ToDouble(Form1._Form1.DB667AktSmar.Text))
+            double db666tag16 = Convert.ToDouble(Form1._Form1.DB666NrReference.Text);
+            if(db666tag16 == Convert.ToDouble(Form1._Form1.DB667AktDawkaTulip.Text))
             {
                 //Form1._Form1.DB667AktSmar.Color = Green;
             }

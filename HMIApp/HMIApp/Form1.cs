@@ -112,29 +112,29 @@ namespace HMIApp
         {
             if (comboBoxListaReferencji.Text != null && comboBoxListaReferencji.Text != "")
             {
-                App.WriteToDB(DB666Tag0.Checked.ToString(), DB666Tag0.Tag.ToString());
-                App.WriteToDB(DB666Tag1.Checked.ToString(), DB666Tag1.Tag.ToString());
-                App.WriteToDB(DB666Tag8.Checked.ToString(), DB666Tag8.Tag.ToString());
-                App.WriteToDB(DB666Tag9.Checked.ToString(), DB666Tag9.Tag.ToString());
-                App.WriteToDB(DB666Tag10.Checked.ToString(), DB666Tag10.Tag.ToString());
-                App.WriteToDB(DB666Tag11.Checked.ToString(), DB666Tag11.Tag.ToString());
-                App.WriteToDB(DB666Tag12.Checked.ToString(), DB666Tag12.Tag.ToString());
-                App.WriteToDB(DB666Tag13.Checked.ToString(), DB666Tag13.Tag.ToString());
-                App.WriteToDB(DB666Tag2.Text, DB666Tag2.Tag.ToString());
-                App.WriteToDB(DB666Tag4.Text, DB666Tag4.Tag.ToString());
-                App.WriteToDB(DB666Tag6.Text, DB666Tag6.Tag.ToString());
-                App.WriteToDB(DB666Tag16.Text, DB666Tag16.Tag.ToString());
-                App.WriteToDB(DB666Tag17.Text, DB666Tag17.Tag.ToString());
-                App.WriteToDB(DB666Tag3.Text, DB666Tag3.Tag.ToString());
-                App.WriteToDB(DB666Tag5.Text, DB666Tag5.Tag.ToString());
-                App.WriteToDB(DB666Tag15.Text, DB666Tag15.Tag.ToString());
-                App.WriteToDB(DB666Tag7.Text, DB666Tag7.Tag.ToString());
-                App.WriteToDB(DB666Tag14.Text, DB666Tag14.Tag.ToString());
-                App.WriteToDB(DB666Tag18.Text, DB666Tag18.Tag.ToString());
-                App.WriteToDB(DB666Tag19.Text, DB666Tag19.Tag.ToString());
-                App.WriteToDB(DB666Tag20.Text, DB666Tag20.Tag.ToString());
-                App.WriteToDB(DB666Tag21.Text, DB666Tag21.Tag.ToString());
-                App.WriteToDB(DB666Tag22.Text, DB666Tag22.Tag.ToString());
+                App.WriteToDB(DB666PrzeciskanieP1.Checked.ToString(), DB666PrzeciskanieP1.Tag.ToString());
+                App.WriteToDB(DB666MontazOslonkiP2.Checked.ToString(), DB666MontazOslonkiP2.Tag.ToString());
+                App.WriteToDB(DB666OetickerP3.Checked.ToString(), DB666OetickerP3.Tag.ToString());
+                App.WriteToDB(DB666DyszaWahliwaP4.Checked.ToString(), DB666DyszaWahliwaP4.Tag.ToString());
+                App.WriteToDB(DB666SmarTulipP5.Checked.ToString(), DB666SmarTulipP5.Tag.ToString());
+                App.WriteToDB(DB666SmarPrzegubP6.Checked.ToString(), DB666SmarPrzegubP6.Tag.ToString());
+                App.WriteToDB(DB666TraceUpP7.Checked.ToString(), DB666TraceUpP7.Tag.ToString());
+                App.WriteToDB(DB666RFIDGlowicaGornaP9.Checked.ToString(), DB666RFIDGlowicaGornaP9.Tag.ToString());
+                App.WriteToDB(DB666PozNakladania_Oslonka.Text, DB666PozNakladania_Oslonka.Tag.ToString());
+                App.WriteToDB(DB666SilaMax__Przeciskanie.Text, DB666SilaMax__Przeciskanie.Tag.ToString());
+                App.WriteToDB(DB666PoczCzytSily__Przeciskanie.Text, DB666PoczCzytSily__Przeciskanie.Tag.ToString());
+                App.WriteToDB(DB666NrReference.Text, DB666NrReference.Tag.ToString());
+                App.WriteToDB(DB666NameOfClient.Text, DB666NameOfClient.Tag.ToString());
+                App.WriteToDB(DB666SilaMin_Przeciskanie.Text, DB666SilaMin_Przeciskanie.Tag.ToString());
+                App.WriteToDB(DB666PozStartowa__Przeciskanie.Text, DB666PozStartowa__Przeciskanie.Tag.ToString());
+                App.WriteToDB(DB666KoniecCzytSily__Przeciskanie.Text, DB666KoniecCzytSily__Przeciskanie.Tag.ToString());
+                App.WriteToDB(DB666PozStartowa_Oslonka.Text, DB666PozStartowa_Oslonka.Tag.ToString());
+                App.WriteToDB(DB666PozSmarowania_Oslonka.Text, DB666PozSmarowania_Oslonka.Tag.ToString());
+                App.WriteToDB(DB666PozPowrotu_Oslonka.Text, DB666PozPowrotu_Oslonka.Tag.ToString());
+                App.WriteToDB(DB666DawkaPrzegub.Text, DB666DawkaPrzegub.Tag.ToString());
+                App.WriteToDB(DB666PozOetickera.Text, DB666PozOetickera.Tag.ToString());
+                App.WriteToDB(DB666PozwyjeciaOsi.Text, DB666PozwyjeciaOsi.Tag.ToString());
+                App.WriteToDB(DB666TolDawkiPrzegub.Text, DB666TolDawkiPrzegub.Tag.ToString());
                 //Przepisanie wartosci do wygenerowania okna czytania sily w wykresie
                 App.WriteSpecifiedValueFromReference();
             }
@@ -418,5 +418,9 @@ namespace HMIApp
             dataGridView1.BackColor = Color.White;
         }
 
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            label51.Text = comboBox1.SelectedIndex.ToString();
+        }
     }
 }

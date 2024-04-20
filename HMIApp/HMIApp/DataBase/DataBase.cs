@@ -58,34 +58,57 @@ namespace HMIApp.Data
         //Metoda inserta do bazy
         public void InsertToDataBase()
         {
-            var query = _hmiAppDbContext.References.Where(x => x.ReferenceNumber == Form1._Form1.DB666Tag16.Text).SingleOrDefault();
+            var query = _hmiAppDbContext.References.Where(x => x.ReferenceNumber == Form1._Form1.DB666NrReference.Text).SingleOrDefault();
             if (query == null)
             {
                 _hmiAppDbContext.References.Add(new Reference()
                 {
-                    ReferenceNumber = Form1._Form1.DB666Tag16.Text,
-                    NameOfClient = Form1._Form1.DB666Tag17.Text,
-                    ParameterCyklC1 = Form1._Form1.DB666Tag0.Checked,
-                    ParameterCyklC2 = Form1._Form1.DB666Tag1.Checked,
-                    ParameterCyklC3 = Form1._Form1.DB666Tag8.Checked,
-                    ParameterCyklC4 = Form1._Form1.DB666Tag9.Checked,
-                    ParameterCyklC5 = Form1._Form1.DB666Tag10.Checked,
-                    ParameterCyklC6 = Form1._Form1.DB666Tag11.Checked,
-                    ParameterCyklC7 = Form1._Form1.DB666Tag12.Checked,
-                    ParameterCyklC8 = Form1._Form1.DB666Tag13.Checked,
-                    ParameterP1 = float.Parse(Form1._Form1.DB666Tag2.Text),
-                    ParameterP2 = float.Parse(Form1._Form1.DB666Tag3.Text),
-                    ParameterP3 = float.Parse(Form1._Form1.DB666Tag4.Text),
-                    ParameterP4 = float.Parse(Form1._Form1.DB666Tag5.Text),
-                    ParameterP5 = float.Parse(Form1._Form1.DB666Tag6.Text),
-                    ParameterP6 = float.Parse(Form1._Form1.DB666Tag15.Text),
-                    ParameterP7 = float.Parse(Form1._Form1.DB666Tag7.Text),
-                    ParameterP8 = float.Parse(Form1._Form1.DB666Tag14.Text),
-                    ForceF1 = int.Parse(Form1._Form1.DB666Tag18.Text),
-                    ForceF2 = int.Parse(Form1._Form1.DB666Tag19.Text),
-                    ForceF3 = int.Parse(Form1._Form1.DB666Tag20.Text),
-                    ForceF4 = int.Parse(Form1._Form1.DB666Tag21.Text),
-                    ForceF5 = int.Parse(Form1._Form1.DB666Tag22.Text)
+                    //Parametry
+                    ReferenceNumber = Form1._Form1.DB666NrReference.Text,
+                    NameOfClient = Form1._Form1.DB666NameOfClient.Text,
+                    PrzeciskanieP1 = Form1._Form1.DB666PrzeciskanieP1.Checked,
+                    MontazOslonkiP2 = Form1._Form1.DB666MontazOslonkiP2.Checked,
+                    OetickerP3 = Form1._Form1.DB666OetickerP3.Checked,
+                    DyszaWahliwaP4 = Form1._Form1.DB666DyszaWahliwaP4.Checked,
+                    SmarTulipP5 = Form1._Form1.DB666SmarTulipP5.Checked,
+                    SmarPrzegubP6 = Form1._Form1.DB666SmarPrzegubP6.Checked,
+                    TraceUpP7 = Form1._Form1.DB666TraceUpP7.Checked,
+                    TraceUpZapisP8 = Form1._Form1.DB666TraceUpZapisP8.Checked,
+                    RFIDGlowicaGornaP9 = Form1._Form1.DB666RFIDGlowicaGornaP9.Checked,
+                    RFIDPlytaSmarujacaP10 = Form1._Form1.DB666RFIDPlytaSmarujacaP10.Checked,
+                    RFIDSzczekiOslonkiP11 = Form1._Form1.DB666RFIDSzczekiOslonkiP11.Checked,
+                    RFIDGniazdoPrzegubuP12 = Form1._Form1.DB666RFIDGniazdoPrzegubuP12.Checked,
+                    //Inne
+                    PozwyjeciaOsi = int.Parse(Form1._Form1.DB666PozwyjeciaOsi.Text),
+                    PozOetickera = int.Parse(Form1._Form1.DB666PozOetickera.Text),
+                    //Przeciskanie
+                    Przeciskanie_PozStartowa = float.Parse(Form1._Form1.DB666PozStartowa__Przeciskanie.Text),
+                    Przeciskanie_PoczCzytSily = float.Parse(Form1._Form1.DB666PoczCzytSily__Przeciskanie.Text),
+                    Przeciskanie_KoniecCzytSily = float.Parse(Form1._Form1.DB666KoniecCzytSily__Przeciskanie.Text),
+                    Przeciskanie_SilaMin = int.Parse(Form1._Form1.DB666SilaMin_Przeciskanie.Text),
+                    Przeciskanie_SilaMax = int.Parse(Form1._Form1.DB666SilaMax__Przeciskanie.Text),
+                    //Oslonka
+                    Oslonka_PozStartowa = float.Parse(Form1._Form1.DB666PozStartowa_Oslonka.Text),
+                    Oslonka_PozSmarowania = float.Parse(Form1._Form1.DB666PozSmarowania_Oslonka.Text),
+                    Oslonka_PozNakladania = float.Parse(Form1._Form1.DB666PozNakladania_Oslonka.Text),
+                    Oslonka_PozPowrotu = int.Parse(Form1._Form1.DB666PozPowrotu_Oslonka.Text),
+                    //Dysza Wahliwa
+                    DyszaWahliwa_PozPionowa = float.Parse(Form1._Form1.DB666PozPionowa_DyszaWahliwa.Text),
+                    DyszaWahliwa_PozPozioma = float.Parse(Form1._Form1.DB666PozPozioma_DyszaWahliwa.Text),
+                    DyszaWahliwa_PozdyszywOslonce = float.Parse(Form1._Form1.DB666PozDyszyWOslonce_DyszaWahliwa.Text),
+                    DyszaWahliwa_PozZjazduOslonkiSmarowanie = int.Parse(Form1._Form1.DB666PozZjazduOslonkiSmarowanie_DyszaWahliwa.Text),
+                    //Smarowania
+                    Smarowanie_DawkaPrzegub = float.Parse(Form1._Form1.DB666DawkaPrzegub.Text),
+                    Smarowanie_TolDawkiPrzegub = float.Parse(Form1._Form1.DB666TolDawkiPrzegub.Text),
+                    Smarowanie_RodzajSmaruPrzegub = int.Parse(Form1._Form1.DB666RodzajSmaruPrzegub.Text),
+                    Smarowanie_DawkaTulip = float.Parse(Form1._Form1.DB666DawkaTulip.Text),
+                    Smarowanie_TolDawkiTulip = float.Parse(Form1._Form1.DB666TolDawkiTulip.Text),
+                    Smarowanie_RodzajSmaruTulip = int.Parse(Form1._Form1.DB666RodzajSmaruTulip.Text),
+                    //RFID
+                    TagRFID_GlowicaGorna = int.Parse(Form1._Form1.DB666TagRFIDGlowicaGorna.Text),
+                    TagRFID_PlytaSmar = int.Parse(Form1._Form1.DB666TagRFIDPlytaSmar.Text),
+                    TagRFID_SzczekiOslonki = int.Parse(Form1._Form1.DB666TagRFIDSzczekiOslonki.Text),
+                    TagRFID_Przegub = int.Parse(Form1._Form1.DB666TagRFIDPrzegub.Text)
                 });
 
                 _hmiAppDbContext.SaveChanges();
@@ -112,55 +135,98 @@ namespace HMIApp.Data
                     {
                         x.ReferenceNumber,
                         x.NameOfClient,
-                        x.ParameterCyklC1,
-                        x.ParameterCyklC2,
-                        x.ParameterCyklC3,
-                        x.ParameterCyklC4,
-                        x.ParameterCyklC5,
-                        x.ParameterCyklC6,
-                        x.ParameterCyklC7,
-                        x.ParameterCyklC8,
-                        x.ParameterP1,
-                        x.ParameterP2,
-                        x.ParameterP3,
-                        x.ParameterP4,
-                        x.ParameterP5,
-                        x.ParameterP6,
-                        x.ParameterP7,
-                        x.ParameterP8,
-                        x.ForceF1,
-                        x.ForceF2,
-                        x.ForceF3,
-                        x.ForceF4,
-                        x.ForceF5
+                        x.PrzeciskanieP1,
+                        x.MontazOslonkiP2,
+                        x.OetickerP3,
+                        x.DyszaWahliwaP4,
+                        x.SmarTulipP5,
+                        x.SmarPrzegubP6,
+                        x.TraceUpP7,
+                        x.TraceUpZapisP8,
+                        x.RFIDGlowicaGornaP9,
+                        x.RFIDPlytaSmarujacaP10,
+                        x.RFIDSzczekiOslonkiP11,
+                        x.RFIDGniazdoPrzegubuP12,
+                        x.SpareP13,
+                        x.SpareP14,
+                        x.SpareP15,
+                        x.SpareP16,
+                        x.PozwyjeciaOsi,
+                        x.PozOetickera,
+                        x.Przeciskanie_PozStartowa,
+                        x.Przeciskanie_PoczCzytSily,
+                        x.Przeciskanie_KoniecCzytSily,
+                        x.Przeciskanie_SilaMin,
+                        x.Przeciskanie_SilaMax,
+                        x.Oslonka_PozStartowa,
+                        x.Oslonka_PozSmarowania,
+                        x.Oslonka_PozNakladania,
+                        x.Oslonka_PozPowrotu,
+                        x.DyszaWahliwa_PozPionowa,
+                        x.DyszaWahliwa_PozPozioma,
+                        x.DyszaWahliwa_PozdyszywOslonce,
+                        x.DyszaWahliwa_PozZjazduOslonkiSmarowanie,
+                        x.Smarowanie_DawkaPrzegub,
+                        x.Smarowanie_TolDawkiPrzegub,
+                        x.Smarowanie_RodzajSmaruPrzegub,
+                        x.Smarowanie_DawkaTulip,
+                        x.Smarowanie_TolDawkiTulip,
+                        x.Smarowanie_RodzajSmaruTulip,
+                        x.TagRFID_GlowicaGorna,
+                        x.TagRFID_PlytaSmar,
+                        x.TagRFID_SzczekiOslonki,
+                        x.TagRFID_Przegub,
                     })
                         .ToList();
 
                 foreach (var item in query)
                 {
-                    Form1._Form1.DB666Tag16.Text = item.ReferenceNumber;
-                    Form1._Form1.DB666Tag17.Text = item.NameOfClient;
-                    Form1._Form1.DB666Tag0.Checked = item.ParameterCyklC1;
-                    Form1._Form1.DB666Tag1.Checked = item.ParameterCyklC2;
-                    Form1._Form1.DB666Tag8.Checked = item.ParameterCyklC3;
-                    Form1._Form1.DB666Tag9.Checked = item.ParameterCyklC4;
-                    Form1._Form1.DB666Tag10.Checked = item.ParameterCyklC5;
-                    Form1._Form1.DB666Tag11.Checked = item.ParameterCyklC6;
-                    Form1._Form1.DB666Tag12.Checked = item.ParameterCyklC7;
-                    Form1._Form1.DB666Tag13.Checked = item.ParameterCyklC8;
-                    Form1._Form1.DB666Tag2.Text = item.ParameterP1.ToString();
-                    Form1._Form1.DB666Tag3.Text = item.ParameterP2.ToString();
-                    Form1._Form1.DB666Tag4.Text = item.ParameterP3.ToString();
-                    Form1._Form1.DB666Tag5.Text = item.ParameterP4.ToString();
-                    Form1._Form1.DB666Tag6.Text = item.ParameterP5.ToString();
-                    Form1._Form1.DB666Tag15.Text = item.ParameterP6.ToString();
-                    Form1._Form1.DB666Tag7.Text = item.ParameterP7.ToString();
-                    Form1._Form1.DB666Tag14.Text = item.ParameterP8.ToString();
-                    Form1._Form1.DB666Tag18.Text = item.ForceF1.ToString();
-                    Form1._Form1.DB666Tag19.Text = item.ForceF2.ToString();
-                    Form1._Form1.DB666Tag20.Text = item.ForceF3.ToString();
-                    Form1._Form1.DB666Tag21.Text = item.ForceF4.ToString();
-                    Form1._Form1.DB666Tag22.Text = item.ForceF5.ToString();
+                    //Parametry
+                    Form1._Form1.DB666NrReference.Text = item.ReferenceNumber;
+                    Form1._Form1.DB666NameOfClient.Text = item.NameOfClient;
+                    Form1._Form1.DB666PrzeciskanieP1.Checked = item.PrzeciskanieP1;
+                    Form1._Form1.DB666MontazOslonkiP2.Checked = item.MontazOslonkiP2;
+                    Form1._Form1.DB666OetickerP3.Checked = item.OetickerP3;
+                    Form1._Form1.DB666DyszaWahliwaP4.Checked = item.DyszaWahliwaP4;
+                    Form1._Form1.DB666SmarTulipP5.Checked = item.SmarTulipP5;
+                    Form1._Form1.DB666SmarPrzegubP6.Checked = item.SmarPrzegubP6;
+                    Form1._Form1.DB666TraceUpP7.Checked = item.TraceUpP7;
+                    Form1._Form1.DB666TraceUpZapisP8.Checked = item.TraceUpZapisP8;
+                    Form1._Form1.DB666RFIDGlowicaGornaP9.Checked = item.RFIDGlowicaGornaP9;
+                    Form1._Form1.DB666RFIDPlytaSmarujacaP10.Checked = item.RFIDPlytaSmarujacaP10;
+                    Form1._Form1.DB666RFIDSzczekiOslonkiP11.Checked = item.RFIDSzczekiOslonkiP11;
+                    Form1._Form1.DB666RFIDGniazdoPrzegubuP12.Checked = item.RFIDGniazdoPrzegubuP12;
+                    //Inne
+                    Form1._Form1.DB666PozwyjeciaOsi.Text = item.PozwyjeciaOsi.ToString();
+                    Form1._Form1.DB666PozOetickera.Text = item.PozOetickera.ToString();
+                    //Przeciskanie
+                    Form1._Form1.DB666PozStartowa__Przeciskanie.Text = item.Przeciskanie_PozStartowa.ToString();
+                    Form1._Form1.DB666PoczCzytSily__Przeciskanie.Text = item.Przeciskanie_PoczCzytSily.ToString();
+                    Form1._Form1.DB666KoniecCzytSily__Przeciskanie.Text = item.Przeciskanie_KoniecCzytSily.ToString();
+                    Form1._Form1.DB666SilaMin_Przeciskanie.Text = item.Przeciskanie_SilaMin.ToString();
+                    Form1._Form1.DB666SilaMax__Przeciskanie.Text = item.Przeciskanie_SilaMax.ToString();
+                    //Oslonka
+                    Form1._Form1.DB666PozStartowa_Oslonka.Text = item.Oslonka_PozStartowa.ToString();
+                    Form1._Form1.DB666PozSmarowania_Oslonka.Text = item.Oslonka_PozSmarowania.ToString();
+                    Form1._Form1.DB666PozNakladania_Oslonka.Text = item.Oslonka_PozNakladania.ToString();
+                    Form1._Form1.DB666PozPowrotu_Oslonka.Text = item.Oslonka_PozPowrotu.ToString();
+                    //Dysza Wahliwa
+                    Form1._Form1.DB666PozPionowa_DyszaWahliwa.Text = item.DyszaWahliwa_PozPionowa.ToString();
+                    Form1._Form1.DB666PozPozioma_DyszaWahliwa.Text = item.DyszaWahliwa_PozPozioma.ToString();
+                    Form1._Form1.DB666PozDyszyWOslonce_DyszaWahliwa.Text = item.DyszaWahliwa_PozdyszywOslonce.ToString();
+                    Form1._Form1.DB666PozZjazduOslonkiSmarowanie_DyszaWahliwa.Text = item.DyszaWahliwa_PozZjazduOslonkiSmarowanie.ToString();
+                    //Smarowania
+                    Form1._Form1.DB666DawkaPrzegub.Text = item.Smarowanie_DawkaPrzegub.ToString();
+                    Form1._Form1.DB666TolDawkiPrzegub.Text = item.Smarowanie_TolDawkiPrzegub.ToString();
+                    Form1._Form1.DB666RodzajSmaruPrzegub.Text = item.Smarowanie_RodzajSmaruPrzegub.ToString();
+                    Form1._Form1.DB666DawkaTulip.Text = item.Smarowanie_DawkaTulip.ToString();
+                    Form1._Form1.DB666TolDawkiTulip.Text = item.Smarowanie_TolDawkiTulip.ToString();
+                    Form1._Form1.DB666RodzajSmaruTulip.Text = item.Smarowanie_RodzajSmaruTulip.ToString();
+                    //RFID
+                    Form1._Form1.DB666TagRFIDGlowicaGorna.Text = item.TagRFID_GlowicaGorna.ToString();
+                    Form1._Form1.DB666TagRFIDPlytaSmar.Text = item.TagRFID_PlytaSmar.ToString();
+                    Form1._Form1.DB666TagRFIDSzczekiOslonki.Text = item.TagRFID_SzczekiOslonki.ToString();
+                    Form1._Form1.DB666TagRFIDPrzegub.Text = item.TagRFID_Przegub.ToString();
 
                 }
             }
@@ -198,33 +264,56 @@ namespace HMIApp.Data
             bool blockade = false;
             //    ////Update danych cd
             var ref1 = ReadFirst(referencenumber);
-            if(referencenumber == Form1._Form1.DB666Tag16.Text)
+            if(referencenumber == Form1._Form1.DB666NrReference.Text)
             {
                 blockade = true;
             }
-            ref1.ReferenceNumber = Form1._Form1.DB666Tag16.Text;
-            ref1.NameOfClient = Form1._Form1.DB666Tag17.Text;
-            ref1.ParameterCyklC1 = Form1._Form1.DB666Tag0.Checked;
-            ref1.ParameterCyklC2 = Form1._Form1.DB666Tag1.Checked;
-            ref1.ParameterCyklC3 = Form1._Form1.DB666Tag8.Checked;
-            ref1.ParameterCyklC4 = Form1._Form1.DB666Tag9.Checked;
-            ref1.ParameterCyklC5 = Form1._Form1.DB666Tag10.Checked;
-            ref1.ParameterCyklC6 = Form1._Form1.DB666Tag11.Checked;
-            ref1.ParameterCyklC7 = Form1._Form1.DB666Tag12.Checked;
-            ref1.ParameterCyklC8 = Form1._Form1.DB666Tag13.Checked;
-            ref1.ParameterP1 = float.Parse(Form1._Form1.DB666Tag2.Text);
-            ref1.ParameterP2 = float.Parse(Form1._Form1.DB666Tag3.Text);
-            ref1.ParameterP3 = float.Parse(Form1._Form1.DB666Tag4.Text);
-            ref1.ParameterP4 = float.Parse(Form1._Form1.DB666Tag5.Text);
-            ref1.ParameterP5 = float.Parse(Form1._Form1.DB666Tag6.Text);
-            ref1.ParameterP6 = float.Parse(Form1._Form1.DB666Tag15.Text);
-            ref1.ParameterP7 = float.Parse(Form1._Form1.DB666Tag7.Text);
-            ref1.ParameterP8 = float.Parse(Form1._Form1.DB666Tag14.Text);
-            ref1.ForceF1 = int.Parse(Form1._Form1.DB666Tag18.Text);
-            ref1.ForceF2 = int.Parse(Form1._Form1.DB666Tag19.Text);
-            ref1.ForceF3 = int.Parse(Form1._Form1.DB666Tag20.Text);
-            ref1.ForceF4 = int.Parse(Form1._Form1.DB666Tag21.Text);
-            ref1.ForceF5 = int.Parse(Form1._Form1.DB666Tag22.Text);
+            //Parametry
+            ref1.ReferenceNumber = Form1._Form1.DB666NrReference.Text;
+            ref1.NameOfClient = Form1._Form1.DB666NameOfClient.Text;
+            ref1.PrzeciskanieP1 = Form1._Form1.DB666PrzeciskanieP1.Checked;
+            ref1.MontazOslonkiP2 = Form1._Form1.DB666MontazOslonkiP2.Checked;
+            ref1.OetickerP3 = Form1._Form1.DB666OetickerP3.Checked;
+            ref1.DyszaWahliwaP4 = Form1._Form1.DB666DyszaWahliwaP4.Checked;
+            ref1.SmarTulipP5 = Form1._Form1.DB666SmarTulipP5.Checked;
+            ref1.SmarPrzegubP6 = Form1._Form1.DB666SmarPrzegubP6.Checked;
+            ref1.TraceUpP7 = Form1._Form1.DB666TraceUpP7.Checked;
+            ref1.TraceUpZapisP8 = Form1._Form1.DB666TraceUpZapisP8.Checked;
+            ref1.RFIDGlowicaGornaP9 = Form1._Form1.DB666RFIDGlowicaGornaP9.Checked;
+            ref1.RFIDPlytaSmarujacaP10 = Form1._Form1.DB666RFIDPlytaSmarujacaP10.Checked;
+            ref1.RFIDSzczekiOslonkiP11 = Form1._Form1.DB666RFIDSzczekiOslonkiP11.Checked;
+            ref1.RFIDGniazdoPrzegubuP12 = Form1._Form1.DB666RFIDGniazdoPrzegubuP12.Checked;
+            //Inne
+            ref1.PozwyjeciaOsi = int.Parse(Form1._Form1.DB666PozwyjeciaOsi.Text);
+            ref1.PozOetickera = int.Parse(Form1._Form1.DB666PozOetickera.Text);
+            //Przeciskanie
+            ref1.Przeciskanie_PozStartowa = float.Parse(Form1._Form1.DB666PozStartowa__Przeciskanie.Text);
+            ref1.Przeciskanie_PoczCzytSily = float.Parse(Form1._Form1.DB666PoczCzytSily__Przeciskanie.Text);
+            ref1.Przeciskanie_KoniecCzytSily = float.Parse(Form1._Form1.DB666KoniecCzytSily__Przeciskanie.Text);
+            ref1.Przeciskanie_SilaMin = int.Parse(Form1._Form1.DB666SilaMin_Przeciskanie.Text);
+            ref1.Przeciskanie_SilaMax = int.Parse(Form1._Form1.DB666SilaMax__Przeciskanie.Text);
+            //Oslonka
+            ref1.Oslonka_PozStartowa = float.Parse(Form1._Form1.DB666PozStartowa_Oslonka.Text);
+            ref1.Oslonka_PozSmarowania = float.Parse(Form1._Form1.DB666PozSmarowania_Oslonka.Text);
+            ref1.Oslonka_PozNakladania = float.Parse(Form1._Form1.DB666PozNakladania_Oslonka.Text);
+            ref1.Oslonka_PozPowrotu = int.Parse(Form1._Form1.DB666PozPowrotu_Oslonka.Text);
+            //Dysza Wahliwa
+            ref1.DyszaWahliwa_PozPionowa = float.Parse(Form1._Form1.DB666PozPionowa_DyszaWahliwa.Text);
+            ref1.DyszaWahliwa_PozPozioma = float.Parse(Form1._Form1.DB666PozPozioma_DyszaWahliwa.Text);
+            ref1.DyszaWahliwa_PozdyszywOslonce = float.Parse(Form1._Form1.DB666PozDyszyWOslonce_DyszaWahliwa.Text);
+            ref1.DyszaWahliwa_PozZjazduOslonkiSmarowanie = int.Parse(Form1._Form1.DB666PozZjazduOslonkiSmarowanie_DyszaWahliwa.Text);
+            //Smarowania
+            ref1.Smarowanie_DawkaPrzegub = float.Parse(Form1._Form1.DB666DawkaPrzegub.Text);
+            ref1.Smarowanie_TolDawkiPrzegub = float.Parse(Form1._Form1.DB666TolDawkiPrzegub.Text);
+            ref1.Smarowanie_RodzajSmaruPrzegub = int.Parse(Form1._Form1.DB666RodzajSmaruPrzegub.Text);
+            ref1.Smarowanie_DawkaTulip = float.Parse(Form1._Form1.DB666DawkaTulip.Text);
+            ref1.Smarowanie_TolDawkiTulip = float.Parse(Form1._Form1.DB666TolDawkiTulip.Text);
+            ref1.Smarowanie_RodzajSmaruTulip = int.Parse(Form1._Form1.DB666RodzajSmaruTulip.Text);
+            //RFID
+            ref1.TagRFID_GlowicaGorna = int.Parse(Form1._Form1.DB666TagRFIDGlowicaGorna.Text);
+            ref1.TagRFID_PlytaSmar = int.Parse(Form1._Form1.DB666TagRFIDPlytaSmar.Text);
+            ref1.TagRFID_SzczekiOslonki = int.Parse(Form1._Form1.DB666TagRFIDSzczekiOslonki.Text);
+            ref1.TagRFID_Przegub = int.Parse(Form1._Form1.DB666TagRFIDPrzegub.Text);
             _hmiAppDbContext.SaveChanges();
             //Dorobić taką opcję, że czyscimy comboboxa tylko wtedy kiedy zmienimy samą nazwe
             if(blockade == false)
