@@ -183,18 +183,9 @@
             DB669Output22 = new System.Windows.Forms.TextBox();
             DB669Output21 = new System.Windows.Forms.TextBox();
             label189 = new System.Windows.Forms.Label();
-            this.DB669Output12 = new System.Windows.Forms.TextBox();
             label190 = new System.Windows.Forms.Label();
-            this.DB669Output13 = new System.Windows.Forms.TextBox();
-            this.DB669Output20 = new System.Windows.Forms.TextBox();
-            this.DB669Output16 = new System.Windows.Forms.TextBox();
             label191 = new System.Windows.Forms.Label();
-            this.DB669Output19 = new System.Windows.Forms.TextBox();
-            this.DB669Output18 = new System.Windows.Forms.TextBox();
-            this.DB669Output17 = new System.Windows.Forms.TextBox();
             label192 = new System.Windows.Forms.Label();
-            this.DB669Output14 = new System.Windows.Forms.TextBox();
-            this.DB669Output15 = new System.Windows.Forms.TextBox();
             label193 = new System.Windows.Forms.Label();
             label194 = new System.Windows.Forms.Label();
             label195 = new System.Windows.Forms.Label();
@@ -277,7 +268,20 @@
             tabPage14 = new System.Windows.Forms.TabPage();
             tableLayoutPanel22 = new System.Windows.Forms.TableLayoutPanel();
             panel17 = new System.Windows.Forms.Panel();
-            label222 = new System.Windows.Forms.Label();
+            label133 = new System.Windows.Forms.Label();
+            DB669Input24PassedValue = new System.Windows.Forms.TextBox();
+            label134 = new System.Windows.Forms.Label();
+            DB669Input22PassedValue = new System.Windows.Forms.TextBox();
+            label135 = new System.Windows.Forms.Label();
+            DB669Input23PassedValue = new System.Windows.Forms.TextBox();
+            label136 = new System.Windows.Forms.Label();
+            DB669Input19PassedValue = new System.Windows.Forms.TextBox();
+            DB669Input14PassedValue = new System.Windows.Forms.TextBox();
+            DB669Input15PassedValue = new System.Windows.Forms.TextBox();
+            label137 = new System.Windows.Forms.Label();
+            label138 = new System.Windows.Forms.Label();
+            label132 = new System.Windows.Forms.Label();
+            DB669Input10PassedValue = new System.Windows.Forms.TextBox();
             tabPage6 = new System.Windows.Forms.TabPage();
             tableLayoutPanel16 = new System.Windows.Forms.TableLayoutPanel();
             label1 = new System.Windows.Forms.Label();
@@ -400,7 +404,6 @@
             label11 = new System.Windows.Forms.Label();
             DB666DawkaTulip = new System.Windows.Forms.TextBox();
             label22 = new System.Windows.Forms.Label();
-            label23 = new System.Windows.Forms.Label();
             RFID = new System.Windows.Forms.TabPage();
             DB666TagRFIDGlowicaGorna = new System.Windows.Forms.TextBox();
             DB666TagRFIDPlytaSmar = new System.Windows.Forms.TextBox();
@@ -420,7 +423,24 @@
             tabPage12 = new System.Windows.Forms.TabPage();
             tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             panel2 = new System.Windows.Forms.Panel();
-            checkBox_TestLampek = new System.Windows.Forms.CheckBox();
+            DB667PozycjaOslonki_PassedValue = new System.Windows.Forms.TextBox();
+            label228 = new System.Windows.Forms.Label();
+            DB667PozycjaOslonkiLinial = new System.Windows.Forms.TextBox();
+            label227 = new System.Windows.Forms.Label();
+            label226 = new System.Windows.Forms.Label();
+            DB667PozycjaGniazdoDolne_PassedValue = new System.Windows.Forms.TextBox();
+            label225 = new System.Windows.Forms.Label();
+            DB667PozycjaGniazdoDolneLinial = new System.Windows.Forms.TextBox();
+            label224 = new System.Windows.Forms.Label();
+            DB667PozycjaPrzeciskanie_PassedValue = new System.Windows.Forms.TextBox();
+            label223 = new System.Windows.Forms.Label();
+            DB667PozycjaPrzeciskanieLinial = new System.Windows.Forms.TextBox();
+            DB667AktSila_PassedValue = new System.Windows.Forms.TextBox();
+            label57 = new System.Windows.Forms.Label();
+            label52 = new System.Windows.Forms.Label();
+            DB667PozycjadyszaPozioma_PassedValue = new System.Windows.Forms.TextBox();
+            label55 = new System.Windows.Forms.Label();
+            DB667PozycjaDyszaPionowa_PassedValue = new System.Windows.Forms.TextBox();
             checkBox6 = new System.Windows.Forms.CheckBox();
             checkBox5 = new System.Windows.Forms.CheckBox();
             checkBox_ChwytakDolny = new System.Windows.Forms.CheckBox();
@@ -435,15 +455,16 @@
             tabPage3 = new System.Windows.Forms.TabPage();
             tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             panel11 = new System.Windows.Forms.Panel();
-            textBox23 = new System.Windows.Forms.TextBox();
+            DB669Input49PassedValue = new System.Windows.Forms.TextBox();
             label50 = new System.Windows.Forms.Label();
             label54 = new System.Windows.Forms.Label();
             checkBox_DawkaTestowaPrzegub = new System.Windows.Forms.CheckBox();
             panel14 = new System.Windows.Forms.Panel();
-            textBox22 = new System.Windows.Forms.TextBox();
+            DB669Input50PassedValue = new System.Windows.Forms.TextBox();
             label53 = new System.Windows.Forms.Label();
             checkBox_DawkaTestowaTulip = new System.Windows.Forms.CheckBox();
             label47 = new System.Windows.Forms.Label();
+            checkBox_TestLampek = new System.Windows.Forms.CheckBox();
             tabPage1 = new System.Windows.Forms.TabPage();
             formsPlot1 = new ScottPlot.WinForms.FormsPlot();
             panel6 = new System.Windows.Forms.Panel();
@@ -494,38 +515,16 @@
             tableLayoutPanel19 = new System.Windows.Forms.TableLayoutPanel();
             tableLayoutPanel20 = new System.Windows.Forms.TableLayoutPanel();
             PróbyUruchomieniaKomunikacjizPLC = new System.Windows.Forms.Timer(components);
-            label52 = new System.Windows.Forms.Label();
-            DB667PozycjadyszaPozioma_PassedValue = new System.Windows.Forms.TextBox();
-            label55 = new System.Windows.Forms.Label();
-            DB667PozycjaDyszaPionowa_PassedValue = new System.Windows.Forms.TextBox();
-            DB667AktSila_PassedValue = new System.Windows.Forms.TextBox();
-            label57 = new System.Windows.Forms.Label();
-            label223 = new System.Windows.Forms.Label();
-            DB667PozycjaPrzeciskanieLinial = new System.Windows.Forms.TextBox();
-            label224 = new System.Windows.Forms.Label();
-            DB667PozycjaPrzeciskanie_PassedValue = new System.Windows.Forms.TextBox();
-            label225 = new System.Windows.Forms.Label();
-            DB667PozycjaGniazdoDolneLinial = new System.Windows.Forms.TextBox();
-            label226 = new System.Windows.Forms.Label();
-            DB667PozycjaGniazdoDolne_PassedValue = new System.Windows.Forms.TextBox();
-            DB667PozycjaOslonkiLinial = new System.Windows.Forms.TextBox();
-            label227 = new System.Windows.Forms.Label();
-            DB667PozycjaOslonki_PassedValue = new System.Windows.Forms.TextBox();
-            label228 = new System.Windows.Forms.Label();
-            label132 = new System.Windows.Forms.Label();
-            textBox1 = new System.Windows.Forms.TextBox();
-            label133 = new System.Windows.Forms.Label();
-            textBox2 = new System.Windows.Forms.TextBox();
-            label134 = new System.Windows.Forms.Label();
-            textBox3 = new System.Windows.Forms.TextBox();
-            label135 = new System.Windows.Forms.Label();
-            textBox5 = new System.Windows.Forms.TextBox();
-            label136 = new System.Windows.Forms.Label();
-            textBox6 = new System.Windows.Forms.TextBox();
-            textBox7 = new System.Windows.Forms.TextBox();
-            textBox8 = new System.Windows.Forms.TextBox();
-            label137 = new System.Windows.Forms.Label();
-            label138 = new System.Windows.Forms.Label();
+            label23 = new System.Windows.Forms.Label();
+            DB669Output12 = new System.Windows.Forms.TextBox();
+            DB669Output13 = new System.Windows.Forms.TextBox();
+            DB669Output20 = new System.Windows.Forms.TextBox();
+            DB669Output16 = new System.Windows.Forms.TextBox();
+            DB669Output19 = new System.Windows.Forms.TextBox();
+            DB669Output18 = new System.Windows.Forms.TextBox();
+            DB669Output17 = new System.Windows.Forms.TextBox();
+            DB669Output14 = new System.Windows.Forms.TextBox();
+            DB669Output15 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             tabPage7.SuspendLayout();
             tabPage9.SuspendLayout();
@@ -1470,6 +1469,15 @@
             // panel12
             // 
             panel12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            panel12.Controls.Add(DB669Output12);
+            panel12.Controls.Add(DB669Output13);
+            panel12.Controls.Add(DB669Output20);
+            panel12.Controls.Add(DB669Output16);
+            panel12.Controls.Add(DB669Output19);
+            panel12.Controls.Add(DB669Output18);
+            panel12.Controls.Add(DB669Output17);
+            panel12.Controls.Add(DB669Output14);
+            panel12.Controls.Add(DB669Output15);
             panel12.Controls.Add(label186);
             panel12.Controls.Add(DB669Output23);
             panel12.Controls.Add(label187);
@@ -1477,18 +1485,9 @@
             panel12.Controls.Add(DB669Output22);
             panel12.Controls.Add(DB669Output21);
             panel12.Controls.Add(label189);
-            panel12.Controls.Add(this.DB669Output12);
             panel12.Controls.Add(label190);
-            panel12.Controls.Add(this.DB669Output13);
-            panel12.Controls.Add(this.DB669Output20);
-            panel12.Controls.Add(this.DB669Output16);
             panel12.Controls.Add(label191);
-            panel12.Controls.Add(this.DB669Output19);
-            panel12.Controls.Add(this.DB669Output18);
-            panel12.Controls.Add(this.DB669Output17);
             panel12.Controls.Add(label192);
-            panel12.Controls.Add(this.DB669Output14);
-            panel12.Controls.Add(this.DB669Output15);
             panel12.Controls.Add(label193);
             panel12.Controls.Add(label194);
             panel12.Controls.Add(label195);
@@ -1556,65 +1555,20 @@
             resources.ApplyResources(label189, "label189");
             label189.Name = "label189";
             // 
-            // DB669Output12
-            // 
-            resources.ApplyResources(this.DB669Output12, "DB669Output12");
-            this.DB669Output12.Name = "DB669Output12";
-            // 
             // label190
             // 
             resources.ApplyResources(label190, "label190");
             label190.Name = "label190";
-            // 
-            // DB669Output13
-            // 
-            resources.ApplyResources(this.DB669Output13, "DB669Output13");
-            this.DB669Output13.Name = "DB669Output13";
-            // 
-            // DB669Output20
-            // 
-            resources.ApplyResources(this.DB669Output20, "DB669Output20");
-            this.DB669Output20.Name = "DB669Output20";
-            // 
-            // DB669Output16
-            // 
-            resources.ApplyResources(this.DB669Output16, "DB669Output16");
-            this.DB669Output16.Name = "DB669Output16";
             // 
             // label191
             // 
             resources.ApplyResources(label191, "label191");
             label191.Name = "label191";
             // 
-            // DB669Output19
-            // 
-            resources.ApplyResources(this.DB669Output19, "DB669Output19");
-            this.DB669Output19.Name = "DB669Output19";
-            // 
-            // DB669Output18
-            // 
-            resources.ApplyResources(this.DB669Output18, "DB669Output18");
-            this.DB669Output18.Name = "DB669Output18";
-            // 
-            // DB669Output17
-            // 
-            resources.ApplyResources(this.DB669Output17, "DB669Output17");
-            this.DB669Output17.Name = "DB669Output17";
-            // 
             // label192
             // 
             resources.ApplyResources(label192, "label192");
             label192.Name = "label192";
-            // 
-            // DB669Output14
-            // 
-            resources.ApplyResources(this.DB669Output14, "DB669Output14");
-            this.DB669Output14.Name = "DB669Output14";
-            // 
-            // DB669Output15
-            // 
-            resources.ApplyResources(this.DB669Output15, "DB669Output15");
-            this.DB669Output15.Name = "DB669Output15";
             // 
             // label193
             // 
@@ -2076,27 +2030,91 @@
             // panel17
             // 
             panel17.Controls.Add(label133);
-            panel17.Controls.Add(textBox2);
+            panel17.Controls.Add(DB669Input24PassedValue);
             panel17.Controls.Add(label134);
-            panel17.Controls.Add(textBox3);
+            panel17.Controls.Add(DB669Input22PassedValue);
             panel17.Controls.Add(label135);
-            panel17.Controls.Add(textBox5);
+            panel17.Controls.Add(DB669Input23PassedValue);
             panel17.Controls.Add(label136);
-            panel17.Controls.Add(textBox6);
-            panel17.Controls.Add(textBox7);
-            panel17.Controls.Add(textBox8);
+            panel17.Controls.Add(DB669Input19PassedValue);
+            panel17.Controls.Add(DB669Input14PassedValue);
+            panel17.Controls.Add(DB669Input15PassedValue);
             panel17.Controls.Add(label137);
             panel17.Controls.Add(label138);
             panel17.Controls.Add(label132);
-            panel17.Controls.Add(textBox1);
-            panel17.Controls.Add(label222);
+            panel17.Controls.Add(DB669Input10PassedValue);
             resources.ApplyResources(panel17, "panel17");
             panel17.Name = "panel17";
             // 
-            // label222
+            // label133
             // 
-            resources.ApplyResources(label222, "label222");
-            label222.Name = "label222";
+            resources.ApplyResources(label133, "label133");
+            label133.Name = "label133";
+            // 
+            // DB669Input24PassedValue
+            // 
+            resources.ApplyResources(DB669Input24PassedValue, "DB669Input24PassedValue");
+            DB669Input24PassedValue.Name = "DB669Input24PassedValue";
+            // 
+            // label134
+            // 
+            resources.ApplyResources(label134, "label134");
+            label134.Name = "label134";
+            // 
+            // DB669Input22PassedValue
+            // 
+            resources.ApplyResources(DB669Input22PassedValue, "DB669Input22PassedValue");
+            DB669Input22PassedValue.Name = "DB669Input22PassedValue";
+            // 
+            // label135
+            // 
+            resources.ApplyResources(label135, "label135");
+            label135.Name = "label135";
+            // 
+            // DB669Input23PassedValue
+            // 
+            resources.ApplyResources(DB669Input23PassedValue, "DB669Input23PassedValue");
+            DB669Input23PassedValue.Name = "DB669Input23PassedValue";
+            // 
+            // label136
+            // 
+            resources.ApplyResources(label136, "label136");
+            label136.Name = "label136";
+            // 
+            // DB669Input19PassedValue
+            // 
+            resources.ApplyResources(DB669Input19PassedValue, "DB669Input19PassedValue");
+            DB669Input19PassedValue.Name = "DB669Input19PassedValue";
+            // 
+            // DB669Input14PassedValue
+            // 
+            resources.ApplyResources(DB669Input14PassedValue, "DB669Input14PassedValue");
+            DB669Input14PassedValue.Name = "DB669Input14PassedValue";
+            // 
+            // DB669Input15PassedValue
+            // 
+            resources.ApplyResources(DB669Input15PassedValue, "DB669Input15PassedValue");
+            DB669Input15PassedValue.Name = "DB669Input15PassedValue";
+            // 
+            // label137
+            // 
+            resources.ApplyResources(label137, "label137");
+            label137.Name = "label137";
+            // 
+            // label138
+            // 
+            resources.ApplyResources(label138, "label138");
+            label138.Name = "label138";
+            // 
+            // label132
+            // 
+            resources.ApplyResources(label132, "label132");
+            label132.Name = "label132";
+            // 
+            // DB669Input10PassedValue
+            // 
+            resources.ApplyResources(DB669Input10PassedValue, "DB669Input10PassedValue");
+            DB669Input10PassedValue.Name = "DB669Input10PassedValue";
             // 
             // tabPage6
             // 
@@ -2951,18 +2969,9 @@
             // label22
             // 
             label22.BackColor = System.Drawing.Color.White;
-            label22.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             label22.ForeColor = System.Drawing.SystemColors.ControlText;
             resources.ApplyResources(label22, "label22");
             label22.Name = "label22";
-            // 
-            // label23
-            // 
-            label23.BackColor = System.Drawing.Color.White;
-            label23.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            label23.ForeColor = System.Drawing.SystemColors.ControlText;
-            resources.ApplyResources(label23, "label23");
-            label23.Name = "label23";
             // 
             // RFID
             // 
@@ -3118,15 +3127,113 @@
             resources.ApplyResources(panel2, "panel2");
             panel2.Name = "panel2";
             // 
-            // checkBox_TestLampek
+            // DB667PozycjaOslonki_PassedValue
             // 
-            resources.ApplyResources(checkBox_TestLampek, "checkBox_TestLampek");
-            checkBox_TestLampek.BackColor = System.Drawing.Color.Transparent;
-            checkBox_TestLampek.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            checkBox_TestLampek.FlatAppearance.CheckedBackColor = System.Drawing.Color.Lime;
-            checkBox_TestLampek.Name = "checkBox_TestLampek";
-            checkBox_TestLampek.Tag = "DB667.NrOfDeviceToControl";
-            checkBox_TestLampek.UseVisualStyleBackColor = false;
+            resources.ApplyResources(DB667PozycjaOslonki_PassedValue, "DB667PozycjaOslonki_PassedValue");
+            DB667PozycjaOslonki_PassedValue.Name = "DB667PozycjaOslonki_PassedValue";
+            DB667PozycjaOslonki_PassedValue.Tag = "";
+            // 
+            // label228
+            // 
+            resources.ApplyResources(label228, "label228");
+            label228.BackColor = System.Drawing.Color.White;
+            label228.Name = "label228";
+            // 
+            // DB667PozycjaOslonkiLinial
+            // 
+            resources.ApplyResources(DB667PozycjaOslonkiLinial, "DB667PozycjaOslonkiLinial");
+            DB667PozycjaOslonkiLinial.Name = "DB667PozycjaOslonkiLinial";
+            DB667PozycjaOslonkiLinial.Tag = "";
+            // 
+            // label227
+            // 
+            resources.ApplyResources(label227, "label227");
+            label227.BackColor = System.Drawing.Color.White;
+            label227.Name = "label227";
+            // 
+            // label226
+            // 
+            resources.ApplyResources(label226, "label226");
+            label226.BackColor = System.Drawing.Color.White;
+            label226.Name = "label226";
+            // 
+            // DB667PozycjaGniazdoDolne_PassedValue
+            // 
+            resources.ApplyResources(DB667PozycjaGniazdoDolne_PassedValue, "DB667PozycjaGniazdoDolne_PassedValue");
+            DB667PozycjaGniazdoDolne_PassedValue.Name = "DB667PozycjaGniazdoDolne_PassedValue";
+            DB667PozycjaGniazdoDolne_PassedValue.Tag = "";
+            // 
+            // label225
+            // 
+            resources.ApplyResources(label225, "label225");
+            label225.BackColor = System.Drawing.Color.White;
+            label225.Name = "label225";
+            // 
+            // DB667PozycjaGniazdoDolneLinial
+            // 
+            resources.ApplyResources(DB667PozycjaGniazdoDolneLinial, "DB667PozycjaGniazdoDolneLinial");
+            DB667PozycjaGniazdoDolneLinial.Name = "DB667PozycjaGniazdoDolneLinial";
+            DB667PozycjaGniazdoDolneLinial.Tag = "";
+            // 
+            // label224
+            // 
+            resources.ApplyResources(label224, "label224");
+            label224.BackColor = System.Drawing.Color.White;
+            label224.Name = "label224";
+            // 
+            // DB667PozycjaPrzeciskanie_PassedValue
+            // 
+            resources.ApplyResources(DB667PozycjaPrzeciskanie_PassedValue, "DB667PozycjaPrzeciskanie_PassedValue");
+            DB667PozycjaPrzeciskanie_PassedValue.Name = "DB667PozycjaPrzeciskanie_PassedValue";
+            DB667PozycjaPrzeciskanie_PassedValue.Tag = "";
+            // 
+            // label223
+            // 
+            resources.ApplyResources(label223, "label223");
+            label223.BackColor = System.Drawing.Color.White;
+            label223.Name = "label223";
+            // 
+            // DB667PozycjaPrzeciskanieLinial
+            // 
+            resources.ApplyResources(DB667PozycjaPrzeciskanieLinial, "DB667PozycjaPrzeciskanieLinial");
+            DB667PozycjaPrzeciskanieLinial.Name = "DB667PozycjaPrzeciskanieLinial";
+            DB667PozycjaPrzeciskanieLinial.Tag = "";
+            // 
+            // DB667AktSila_PassedValue
+            // 
+            resources.ApplyResources(DB667AktSila_PassedValue, "DB667AktSila_PassedValue");
+            DB667AktSila_PassedValue.Name = "DB667AktSila_PassedValue";
+            DB667AktSila_PassedValue.Tag = "";
+            // 
+            // label57
+            // 
+            resources.ApplyResources(label57, "label57");
+            label57.BackColor = System.Drawing.Color.White;
+            label57.Name = "label57";
+            // 
+            // label52
+            // 
+            resources.ApplyResources(label52, "label52");
+            label52.BackColor = System.Drawing.Color.White;
+            label52.Name = "label52";
+            // 
+            // DB667PozycjadyszaPozioma_PassedValue
+            // 
+            resources.ApplyResources(DB667PozycjadyszaPozioma_PassedValue, "DB667PozycjadyszaPozioma_PassedValue");
+            DB667PozycjadyszaPozioma_PassedValue.Name = "DB667PozycjadyszaPozioma_PassedValue";
+            DB667PozycjadyszaPozioma_PassedValue.Tag = "";
+            // 
+            // label55
+            // 
+            resources.ApplyResources(label55, "label55");
+            label55.BackColor = System.Drawing.Color.White;
+            label55.Name = "label55";
+            // 
+            // DB667PozycjaDyszaPionowa_PassedValue
+            // 
+            resources.ApplyResources(DB667PozycjaDyszaPionowa_PassedValue, "DB667PozycjaDyszaPionowa_PassedValue");
+            DB667PozycjaDyszaPionowa_PassedValue.Name = "DB667PozycjaDyszaPionowa_PassedValue";
+            DB667PozycjaDyszaPionowa_PassedValue.Tag = "";
             // 
             // checkBox6
             // 
@@ -3269,17 +3376,17 @@
             // panel11
             // 
             panel11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            panel11.Controls.Add(textBox23);
+            panel11.Controls.Add(DB669Input49PassedValue);
             panel11.Controls.Add(label50);
             panel11.Controls.Add(label54);
             panel11.Controls.Add(checkBox_DawkaTestowaPrzegub);
             resources.ApplyResources(panel11, "panel11");
             panel11.Name = "panel11";
             // 
-            // textBox23
+            // DB669Input49PassedValue
             // 
-            resources.ApplyResources(textBox23, "textBox23");
-            textBox23.Name = "textBox23";
+            resources.ApplyResources(DB669Input49PassedValue, "DB669Input49PassedValue");
+            DB669Input49PassedValue.Name = "DB669Input49PassedValue";
             // 
             // label50
             // 
@@ -3306,17 +3413,17 @@
             // panel14
             // 
             panel14.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            panel14.Controls.Add(textBox22);
+            panel14.Controls.Add(DB669Input50PassedValue);
             panel14.Controls.Add(label53);
             panel14.Controls.Add(checkBox_DawkaTestowaTulip);
             panel14.Controls.Add(label47);
             resources.ApplyResources(panel14, "panel14");
             panel14.Name = "panel14";
             // 
-            // textBox22
+            // DB669Input50PassedValue
             // 
-            resources.ApplyResources(textBox22, "textBox22");
-            textBox22.Name = "textBox22";
+            resources.ApplyResources(DB669Input50PassedValue, "DB669Input50PassedValue");
+            DB669Input50PassedValue.Name = "DB669Input50PassedValue";
             // 
             // label53
             // 
@@ -3339,6 +3446,16 @@
             resources.ApplyResources(label47, "label47");
             label47.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             label47.Name = "label47";
+            // 
+            // checkBox_TestLampek
+            // 
+            resources.ApplyResources(checkBox_TestLampek, "checkBox_TestLampek");
+            checkBox_TestLampek.BackColor = System.Drawing.Color.Transparent;
+            checkBox_TestLampek.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            checkBox_TestLampek.FlatAppearance.CheckedBackColor = System.Drawing.Color.Lime;
+            checkBox_TestLampek.Name = "checkBox_TestLampek";
+            checkBox_TestLampek.Tag = "DB667.NrOfDeviceToControl";
+            checkBox_TestLampek.UseVisualStyleBackColor = false;
             // 
             // tabPage1
             // 
@@ -3719,183 +3836,57 @@
             PróbyUruchomieniaKomunikacjizPLC.Interval = 2000;
             PróbyUruchomieniaKomunikacjizPLC.Tick += Timer1_Tick_1;
             // 
-            // label52
+            // label23
             // 
-            resources.ApplyResources(label52, "label52");
-            label52.BackColor = System.Drawing.Color.White;
-            label52.Name = "label52";
+            label23.BackColor = System.Drawing.Color.White;
+            label23.ForeColor = System.Drawing.SystemColors.ControlText;
+            resources.ApplyResources(label23, "label23");
+            label23.Name = "label23";
             // 
-            // DB667PozycjadyszaPozioma_PassedValue
+            // DB669Output12
             // 
-            resources.ApplyResources(DB667PozycjadyszaPozioma_PassedValue, "DB667PozycjadyszaPozioma_PassedValue");
-            DB667PozycjadyszaPozioma_PassedValue.Name = "DB667PozycjadyszaPozioma_PassedValue";
-            DB667PozycjadyszaPozioma_PassedValue.Tag = "";
+            resources.ApplyResources(DB669Output12, "DB669Output12");
+            DB669Output12.Name = "DB669Output12";
             // 
-            // label55
+            // DB669Output13
             // 
-            resources.ApplyResources(label55, "label55");
-            label55.BackColor = System.Drawing.Color.White;
-            label55.Name = "label55";
+            resources.ApplyResources(DB669Output13, "DB669Output13");
+            DB669Output13.Name = "DB669Output13";
             // 
-            // DB667PozycjaDyszaPionowa_PassedValue
+            // DB669Output20
             // 
-            resources.ApplyResources(DB667PozycjaDyszaPionowa_PassedValue, "DB667PozycjaDyszaPionowa_PassedValue");
-            DB667PozycjaDyszaPionowa_PassedValue.Name = "DB667PozycjaDyszaPionowa_PassedValue";
-            DB667PozycjaDyszaPionowa_PassedValue.Tag = "";
+            resources.ApplyResources(DB669Output20, "DB669Output20");
+            DB669Output20.Name = "DB669Output20";
             // 
-            // DB667AktSila_PassedValue
+            // DB669Output16
             // 
-            resources.ApplyResources(DB667AktSila_PassedValue, "DB667AktSila_PassedValue");
-            DB667AktSila_PassedValue.Name = "DB667AktSila_PassedValue";
-            DB667AktSila_PassedValue.Tag = "";
+            resources.ApplyResources(DB669Output16, "DB669Output16");
+            DB669Output16.Name = "DB669Output16";
             // 
-            // label57
+            // DB669Output19
             // 
-            resources.ApplyResources(label57, "label57");
-            label57.BackColor = System.Drawing.Color.White;
-            label57.Name = "label57";
+            resources.ApplyResources(DB669Output19, "DB669Output19");
+            DB669Output19.Name = "DB669Output19";
             // 
-            // label223
+            // DB669Output18
             // 
-            resources.ApplyResources(label223, "label223");
-            label223.BackColor = System.Drawing.Color.White;
-            label223.Name = "label223";
+            resources.ApplyResources(DB669Output18, "DB669Output18");
+            DB669Output18.Name = "DB669Output18";
             // 
-            // DB667PozycjaPrzeciskanieLinial
+            // DB669Output17
             // 
-            resources.ApplyResources(DB667PozycjaPrzeciskanieLinial, "DB667PozycjaPrzeciskanieLinial");
-            DB667PozycjaPrzeciskanieLinial.Name = "DB667PozycjaPrzeciskanieLinial";
-            DB667PozycjaPrzeciskanieLinial.Tag = "";
+            resources.ApplyResources(DB669Output17, "DB669Output17");
+            DB669Output17.Name = "DB669Output17";
             // 
-            // label224
+            // DB669Output14
             // 
-            resources.ApplyResources(label224, "label224");
-            label224.BackColor = System.Drawing.Color.White;
-            label224.Name = "label224";
+            resources.ApplyResources(DB669Output14, "DB669Output14");
+            DB669Output14.Name = "DB669Output14";
             // 
-            // DB667PozycjaPrzeciskanie_PassedValue
+            // DB669Output15
             // 
-            resources.ApplyResources(DB667PozycjaPrzeciskanie_PassedValue, "DB667PozycjaPrzeciskanie_PassedValue");
-            DB667PozycjaPrzeciskanie_PassedValue.Name = "DB667PozycjaPrzeciskanie_PassedValue";
-            DB667PozycjaPrzeciskanie_PassedValue.Tag = "";
-            // 
-            // label225
-            // 
-            resources.ApplyResources(label225, "label225");
-            label225.BackColor = System.Drawing.Color.White;
-            label225.Name = "label225";
-            // 
-            // DB667PozycjaGniazdoDolneLinial
-            // 
-            resources.ApplyResources(DB667PozycjaGniazdoDolneLinial, "DB667PozycjaGniazdoDolneLinial");
-            DB667PozycjaGniazdoDolneLinial.Name = "DB667PozycjaGniazdoDolneLinial";
-            DB667PozycjaGniazdoDolneLinial.Tag = "";
-            // 
-            // label226
-            // 
-            resources.ApplyResources(label226, "label226");
-            label226.BackColor = System.Drawing.Color.White;
-            label226.Name = "label226";
-            // 
-            // DB667PozycjaGniazdoDolne_PassedValue
-            // 
-            resources.ApplyResources(DB667PozycjaGniazdoDolne_PassedValue, "DB667PozycjaGniazdoDolne_PassedValue");
-            DB667PozycjaGniazdoDolne_PassedValue.Name = "DB667PozycjaGniazdoDolne_PassedValue";
-            DB667PozycjaGniazdoDolne_PassedValue.Tag = "";
-            // 
-            // DB667PozycjaOslonkiLinial
-            // 
-            resources.ApplyResources(DB667PozycjaOslonkiLinial, "DB667PozycjaOslonkiLinial");
-            DB667PozycjaOslonkiLinial.Name = "DB667PozycjaOslonkiLinial";
-            DB667PozycjaOslonkiLinial.Tag = "";
-            // 
-            // label227
-            // 
-            resources.ApplyResources(label227, "label227");
-            label227.BackColor = System.Drawing.Color.White;
-            label227.Name = "label227";
-            // 
-            // DB667PozycjaOslonki_PassedValue
-            // 
-            resources.ApplyResources(DB667PozycjaOslonki_PassedValue, "DB667PozycjaOslonki_PassedValue");
-            DB667PozycjaOslonki_PassedValue.Name = "DB667PozycjaOslonki_PassedValue";
-            DB667PozycjaOslonki_PassedValue.Tag = "";
-            // 
-            // label228
-            // 
-            resources.ApplyResources(label228, "label228");
-            label228.BackColor = System.Drawing.Color.White;
-            label228.Name = "label228";
-            // 
-            // label132
-            // 
-            resources.ApplyResources(label132, "label132");
-            label132.Name = "label132";
-            // 
-            // textBox1
-            // 
-            resources.ApplyResources(textBox1, "textBox1");
-            textBox1.Name = "textBox1";
-            // 
-            // label133
-            // 
-            resources.ApplyResources(label133, "label133");
-            label133.Name = "label133";
-            // 
-            // textBox2
-            // 
-            resources.ApplyResources(textBox2, "textBox2");
-            textBox2.Name = "textBox2";
-            // 
-            // label134
-            // 
-            resources.ApplyResources(label134, "label134");
-            label134.Name = "label134";
-            // 
-            // textBox3
-            // 
-            resources.ApplyResources(textBox3, "textBox3");
-            textBox3.Name = "textBox3";
-            // 
-            // label135
-            // 
-            resources.ApplyResources(label135, "label135");
-            label135.Name = "label135";
-            // 
-            // textBox5
-            // 
-            resources.ApplyResources(textBox5, "textBox5");
-            textBox5.Name = "textBox5";
-            // 
-            // label136
-            // 
-            resources.ApplyResources(label136, "label136");
-            label136.Name = "label136";
-            // 
-            // textBox6
-            // 
-            resources.ApplyResources(textBox6, "textBox6");
-            textBox6.Name = "textBox6";
-            // 
-            // textBox7
-            // 
-            resources.ApplyResources(textBox7, "textBox7");
-            textBox7.Name = "textBox7";
-            // 
-            // textBox8
-            // 
-            resources.ApplyResources(textBox8, "textBox8");
-            textBox8.Name = "textBox8";
-            // 
-            // label137
-            // 
-            resources.ApplyResources(label137, "label137");
-            label137.Name = "label137";
-            // 
-            // label138
-            // 
-            resources.ApplyResources(label138, "label138");
-            label138.Name = "label138";
+            resources.ApplyResources(DB669Output15, "DB669Output15");
+            DB669Output15.Name = "DB669Output15";
             // 
             // Form1
             // 
@@ -4256,7 +4247,6 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Label label23;
         private System.Windows.Forms.TabControl tabControl4;
         private System.Windows.Forms.TabPage Przeciskanie;
         private System.Windows.Forms.TabPage Oslonka;
@@ -4298,10 +4288,10 @@
         private System.Windows.Forms.Panel panel14;
         public System.Windows.Forms.CheckBox checkBox_DawkaTestowaTulip;
         private System.Windows.Forms.Label label47;
-        public System.Windows.Forms.TextBox textBox23;
+        public System.Windows.Forms.TextBox DB669Input49PassedValue;
         private System.Windows.Forms.Label label54;
         public System.Windows.Forms.CheckBox checkBox_DawkaTestowaPrzegub;
-        public System.Windows.Forms.TextBox textBox22;
+        public System.Windows.Forms.TextBox DB669Input50PassedValue;
         private System.Windows.Forms.Label label53;
         private System.Windows.Forms.Label label61;
         public System.Windows.Forms.TextBox DB669Input24;
@@ -4463,7 +4453,6 @@
         private System.Windows.Forms.TabPage tabPage14;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel22;
         private System.Windows.Forms.Panel panel17;
-        private System.Windows.Forms.Label label222;
         private System.Windows.Forms.Timer PróbyUruchomieniaKomunikacjizPLC;
         private System.Windows.Forms.Label label51;
         public System.Windows.Forms.TextBox DB666TolDawkiTulip;
@@ -4487,19 +4476,29 @@
         public System.Windows.Forms.TextBox DB667PozycjaOslonkiLinial;
         private System.Windows.Forms.Label label227;
         private System.Windows.Forms.Label label133;
-        public System.Windows.Forms.TextBox textBox2;
+        public System.Windows.Forms.TextBox DB669Input24PassedValue;
         private System.Windows.Forms.Label label134;
-        public System.Windows.Forms.TextBox textBox3;
+        public System.Windows.Forms.TextBox DB669Input22PassedValue;
         private System.Windows.Forms.Label label135;
-        public System.Windows.Forms.TextBox textBox5;
+        public System.Windows.Forms.TextBox DB669Input23PassedValue;
         private System.Windows.Forms.Label label136;
-        public System.Windows.Forms.TextBox textBox6;
-        public System.Windows.Forms.TextBox textBox7;
-        public System.Windows.Forms.TextBox textBox8;
+        public System.Windows.Forms.TextBox DB669Input19PassedValue;
+        public System.Windows.Forms.TextBox DB669Input14PassedValue;
+        public System.Windows.Forms.TextBox DB669Input15PassedValue;
         private System.Windows.Forms.Label label137;
         private System.Windows.Forms.Label label138;
         private System.Windows.Forms.Label label132;
-        public System.Windows.Forms.TextBox textBox1;
+        public System.Windows.Forms.TextBox DB669Input10PassedValue;
+        public System.Windows.Forms.TextBox DB669Output12;
+        public System.Windows.Forms.TextBox DB669Output13;
+        public System.Windows.Forms.TextBox DB669Output20;
+        public System.Windows.Forms.TextBox DB669Output16;
+        public System.Windows.Forms.TextBox DB669Output19;
+        public System.Windows.Forms.TextBox DB669Output18;
+        public System.Windows.Forms.TextBox DB669Output17;
+        public System.Windows.Forms.TextBox DB669Output14;
+        public System.Windows.Forms.TextBox DB669Output15;
+        private System.Windows.Forms.Label label23;
     }
 }
 

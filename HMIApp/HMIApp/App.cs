@@ -411,7 +411,8 @@ namespace HMIApp
                                     }
                                     else
                                     {
-                                        txt.BackColor = System.Drawing.Color.OrangeRed;
+                                        if (DBRead_TagName.Contains("Safety") || DBRead_TagName.Contains("Kurtyna")) txt.BackColor = System.Drawing.Color.OrangeRed;
+                                        else txt.BackColor = System.Drawing.Color.White;
                                     }
                                 }
                                 break;
@@ -430,7 +431,8 @@ namespace HMIApp
                                     }
                                     else
                                     {
-                                        txt.BackColor = System.Drawing.Color.OrangeRed;
+                                        if (DBRead_TagName.Contains("Safety") || DBRead_TagName.Contains("Kurtyna")) txt.BackColor = System.Drawing.Color.OrangeRed;
+                                        else txt.BackColor = System.Drawing.Color.White;
                                     }
                                 }
                                 break;
@@ -449,7 +451,8 @@ namespace HMIApp
                                     }
                                     else
                                     {
-                                        txt.BackColor = System.Drawing.Color.OrangeRed;
+                                        if (DBRead_TagName.Contains("Safety") || DBRead_TagName.Contains("Kurtyna")) txt.BackColor = System.Drawing.Color.OrangeRed;
+                                        else txt.BackColor = System.Drawing.Color.White;
                                     }
                                 }
                                 break;
@@ -468,7 +471,8 @@ namespace HMIApp
                                     }
                                     else
                                     {
-                                        txt.BackColor = System.Drawing.Color.OrangeRed;
+                                        if (DBRead_TagName.Contains("Safety") || DBRead_TagName.Contains("Kurtyna")) txt.BackColor = System.Drawing.Color.OrangeRed;
+                                        else txt.BackColor = System.Drawing.Color.White;
                                     }
                                 }
                                 break;
@@ -487,7 +491,8 @@ namespace HMIApp
                                     }
                                     else
                                     {
-                                        txt.BackColor = System.Drawing.Color.OrangeRed;
+                                        if (DBRead_TagName.Contains("Safety") || DBRead_TagName.Contains("Kurtyna")) txt.BackColor = System.Drawing.Color.OrangeRed;
+                                        else txt.BackColor = System.Drawing.Color.White;
                                     }
                                 }
                                 break;
@@ -506,7 +511,8 @@ namespace HMIApp
                                     }
                                     else
                                     {
-                                        txt.BackColor = System.Drawing.Color.OrangeRed;
+                                        if (DBRead_TagName.Contains("Safety") || DBRead_TagName.Contains("Kurtyna")) txt.BackColor = System.Drawing.Color.OrangeRed;
+                                        else txt.BackColor = System.Drawing.Color.White;
                                     }
                                 }
                                 break;
@@ -525,7 +531,8 @@ namespace HMIApp
                                     }
                                     else
                                     {
-                                        txt.BackColor = System.Drawing.Color.OrangeRed;
+                                        if (DBRead_TagName.Contains("Safety") || DBRead_TagName.Contains("Kurtyna")) txt.BackColor = System.Drawing.Color.OrangeRed;
+                                        else txt.BackColor = System.Drawing.Color.White;
                                     }
                                 }
                                 break;
@@ -544,7 +551,8 @@ namespace HMIApp
                                     }
                                     else
                                     {
-                                        txt.BackColor = System.Drawing.Color.OrangeRed;
+                                        if (DBRead_TagName.Contains("Safety") || DBRead_TagName.Contains("Kurtyna")) txt.BackColor = System.Drawing.Color.OrangeRed;
+                                        else txt.BackColor = System.Drawing.Color.White;
                                     }
                                 }
                                 break;
@@ -576,20 +584,30 @@ namespace HMIApp
                         break;
                     case "INT":
                         //Wyszukanie samej nazwy Taga, która odpowiada 1:1 nazwie TextBoxa
-                        //DBRead_position1 = dbTag.TagName.IndexOf(".") + 1;
-                        //DBRead_NameofTagWithoutNumberofDB = dbTag.TagName.Substring(DBRead_position1);
-                        //DBRead_TagName = dbTag.TagName;
                         DBRead_position1 = dbTag.TagName.IndexOf(".");
                         DBRead_TagName = dbTag.TagName.Remove(DBRead_position1, 1);
                         DBRead_NrOfByteinDB = dbTag.NumberOfByteInDB;
-
+                        
                         txt = Form1._Form1.Controls.Find($"{DBRead_TagName}", true).FirstOrDefault() as TextBox;
                         if (txt == null)
                         {
-                            //zrobic moze logike ze jak w DBRead_TagName znajdziemy slowo Kolor to potem wycinamy z DBRead_TagName slowo kolor 
-                            //i mozemy wtedy szukac textboxa spowrotem po jego nazwie i jak znajdziemy textboxa to w zaleznosci od wartosci byte'a 
-                            //ustawiamy kolory textboxa
-                            //Wyjscie z case'a jesli nie znajdzie textboxa i bedzie nullem
+                            if(DBRead_TagName.Contains("Kolor"))
+                            {
+                                var ValueOfColor = libnodave.getS16from(DB, DBRead_NrOfByteinDB);
+                                var DBRead_TagNameSkip = DBRead_TagName.Skip(5);
+                                if (ValueOfColor == 1)
+                                {                                    
+                                    txt = Form1._Form1.Controls.Find($"{DBRead_TagNameSkip}", true).FirstOrDefault() as TextBox;
+                                    if (txt == null) break;
+                                    else txt.BackColor = System.Drawing.Color.LawnGreen;
+                                }
+                                else if(ValueOfColor == 2)
+                                {
+                                    txt = Form1._Form1.Controls.Find($"{DBRead_TagNameSkip}", true).FirstOrDefault() as TextBox;
+                                    if (txt == null) break;
+                                    else txt.BackColor = System.Drawing.Color.OrangeRed;
+                                }
+                            }
                             break;
                         }
                         else
@@ -599,9 +617,6 @@ namespace HMIApp
                         break;
                     case "REAL":
                         //Wyszukanie samej nazwy Taga, która odpowiada 1:1 nazwie TextBoxa
-                        //DBRead_position1 = dbTag.TagName.IndexOf(".") + 1;
-                        //DBRead_NameofTagWithoutNumberofDB = dbTag.TagName.Substring(DBRead_position1);
-                        //DBRead_TagName = dbTag.TagName;
                         DBRead_position1 = dbTag.TagName.IndexOf(".");
                         DBRead_TagName = dbTag.TagName.Remove(DBRead_position1, 1);
                         DBRead_NrOfByteinDB = dbTag.NumberOfByteInDB;
@@ -620,9 +635,6 @@ namespace HMIApp
                         break;
                     case "DINT":
                         //Wyszukanie samej nazwy Taga, która odpowiada 1:1 nazwie TextBoxa
-                        //DBRead_position1 = dbTag.TagName.IndexOf(".") + 1;
-                        //DBRead_NameofTagWithoutNumberofDB = dbTag.TagName.Substring(DBRead_position1);
-                        //DBRead_TagName = dbTag.TagName;
                         DBRead_position1 = dbTag.TagName.IndexOf(".");
                         DBRead_TagName = dbTag.TagName.Remove(DBRead_position1, 1);
                         DBRead_NrOfByteinDB = dbTag.NumberOfByteInDB;
@@ -638,12 +650,7 @@ namespace HMIApp
                         }
                         break;
                     case "STRING":
-                        //Pierwszy bajt stringa - oznacza calkowita długosc
-                        //Drugi bajt stringa oznacza dlugosc obecnie wpisanego ciagu znaków
                         //Wyszukanie samej nazwy Taga, która odpowiada 1:1 nazwie TextBoxa
-                        //DBRead_position1 = dbTag.TagName.IndexOf(".") + 1;
-                        //DBRead_NameofTagWithoutNumberofDB = dbTag.TagName.Substring(DBRead_position1);
-                        //DBRead_TagName = dbTag.TagName;
                         DBRead_position1 = dbTag.TagName.IndexOf(".");
                         DBRead_TagName = dbTag.TagName.Remove(DBRead_position1, 1);
                         DBRead_NrOfByteinDB = dbTag.NumberOfByteInDB;
@@ -879,17 +886,6 @@ namespace HMIApp
             }
         }
 
-        //Zrobic moze funkcje ktora porownuje np textboxy z zakladki dane i z zakladki auto aktualne dane odpala wtedy textbox na zielono
-        public void test()
-        {
-            //na przyklad
-            double db666tag16 = Convert.ToDouble(Form1._Form1.DB666NrReference.Text);
-            if(db666tag16 == Convert.ToDouble(Form1._Form1.DB667AktDawkaTulip.Text))
-            {
-                //Form1._Form1.DB667AktSmar.Color = Green;
-            }
-         //albo zastanowic sie jak to zrobic zeby przesylac kolor przez dbka
-        }
 
         //ALARMY
         public void ReadAlarmsFromDB(string filepath)
@@ -944,17 +940,6 @@ namespace HMIApp
                                 values[0] = GetBit(DB[DBReadAlarm_NrOfByteinDB], 0);
                                 if (values[0].ToString().ToUpper() == "TRUE")
                                 {
-                                    //Dodanie alarmu tylko wtedy jeśli nie ma go juz w liscie
-                                    //if (Form1._Form1.listView_Alarms.FindItemWithText(DBReadAlarm_AlarmName) == null)
-                                    //{
-
-                                    //    item[0] = MakeList(DateTime.Now.ToString(), DBReadAlarm_TagName, DBReadAlarm_AlarmName);
-                                    //    item[0].ForeColor = System.Drawing.Color.Red;
-                                    //    Form1._Form1.listView_Alarms.Items.Add(item[0]);
-                                    //    index[0] = Form1._Form1.listView_Alarms.Items.IndexOf(item[0]);
-                                    //}
-
-                                    //z uzyciem LINQ
                                     try
                                     {
                                         int rowIndex = -1;
@@ -985,14 +970,6 @@ namespace HMIApp
                                 else
                                 {
                                     blockade[0] = false;
-                                    ////Zabezpieczenie zeby to sie nie wykonywalo jak bedzie pusta lista
-                                    //if (Form1._Form1.listView_Alarms.FindItemWithText(DBReadAlarm_AlarmName) != null)
-                                    //{
-                                    //    if (Form1._Form1.listView_Alarms.Items.Count > 0)
-                                    //    {
-                                    //        Form1._Form1.listView_Alarms.Items.Remove(item[0]);
-                                    //    }
-                                    //}
                                     foreach (DataGridViewRow row in Form1._Form1.dataGridView1.Rows)
                                     {
                                         if (row.Cells[0].Value != null)
