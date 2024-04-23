@@ -1,5 +1,6 @@
 ﻿using HMIApp.Components.CSVReader;
 using HMIApp.Data;
+using Humanizer;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Identity.Client;
 using ScottPlot;
@@ -7,6 +8,7 @@ using System;
 using System.Buffers;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Net;
 using System.Text;
 using System.Windows.Forms;
 
@@ -47,10 +49,10 @@ namespace HMIApp
         public double offset = 2.0;
 
         //Przepisanie wartosci z referencji
+        public double StartPoint;
         public double FastMovement;
         public double StartReading;
         public double EndReading;
-        public double EndPoint;
         public int ForceMaxfromRef;
         #endregion
 
@@ -64,6 +66,9 @@ namespace HMIApp
         private int DBRead_NrOfBitinByte;
         private int DBRead_LengthOfDataType;
         private string DBRead_TagName;
+        private int DBRead_TagNamePos;
+        private int ValueOfColor;
+        private string DBRead_TagNameSkip;
         #endregion
 
         #region Zmienne do DBka do zapisu
@@ -161,7 +166,7 @@ namespace HMIApp
             return (b & (1 << bitNumber)) != 0;
         }
 
-        //Kasowanie zakladki Dane po uzyciu metody usuniecia referencji z bazy danych z klasy DataBase.cs
+        //Kasowanie zakladki Dane po uzyciu metody usuniecia referencji z bazy danych z klasy DataBase.cs - OGARNAC BO TO TEZ NIE DZIALA POPRAWNIE
         public void ClearAllValueInForm1(string filepath)
         {
             var dbtags = CSVReader.DBStructure(filepath);
@@ -177,11 +182,12 @@ namespace HMIApp
 
                     case "BOOL":
                         chk = Form1._Form1.Controls.Find($"{DBRead_TagName}", true).FirstOrDefault() as CheckBox;
-                        chk.Checked = false;
+                        if(chk != null) chk.Checked = false;
                         break;
                     default:
                         txt = Form1._Form1.Controls.Find($"{DBRead_TagName}", true).FirstOrDefault() as TextBox;
-                        txt.Text = "";
+                        if(txt != null && DBRead_TagName != "DB666NrReference" && DBRead_TagName != "DB666NameOfClient") txt.Text = "0";
+                        if (txt != null && DBRead_TagName == "DB666NrReference" || DBRead_TagName == "DB666NameOfClient") txt.Text = "";
                         break;
                 }
             }
@@ -261,7 +267,7 @@ namespace HMIApp
         public void CreatePlot()
         {
             ReadActualValueFromDBChart_Simplified("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_4.csv");
-            Form1._Form1.formsPlot1.Plot.Axes.SetLimits(FastMovement, EndPoint + 2.5, -500, ForceMaxfromRef);
+            Form1._Form1.formsPlot1.Plot.Axes.SetLimits(FastMovement, EndReading + 5.0, -500, ForceMaxfromRef);
             if (StartChart == 0)
             {
                 Form1._Form1.formsPlot1.Refresh();
@@ -282,7 +288,7 @@ namespace HMIApp
                 index10 += 1;
 
 
-                if (ActValX >= EndPoint && EndOfMeasuring == false)
+                if (ActValX >= (EndReading+1.0) && EndOfMeasuring == false)
                 {
                     for (int i = index10; i < 1000; i++)
                     {
@@ -291,9 +297,9 @@ namespace HMIApp
                     }
 
                     EndOfMeasuring = true;
-                    double[] dataXForceMin = { FastMovement, EndPoint };
+                    double[] dataXForceMin = { FastMovement, EndReading };
                     int[] dataYForceMin = { ForceMin, ForceMin };
-                    double[] dataXForceMax = { EndReading, EndPoint };
+                    double[] dataXForceMax = { StartReading,EndReading };
                     int[] dataYForceMax = { ForceMax, ForceMax };
 
                     //Plot sila minimalna
@@ -311,7 +317,7 @@ namespace HMIApp
                     mainplot.Color = Colors.Red;
                     mainplot.LineStyle.Width = 2;
                     //Wrzucenie tekstu na wykres z dokladnymi odczytami punktow i siły
-                    Form1._Form1.formsPlot1.Plot.Add.Text($"({EndPoint},{ForceMax})", EndPoint, ForceMax);
+                    Form1._Form1.formsPlot1.Plot.Add.Text($"({EndReading},{ForceMax})", EndReading, ForceMax);
                     Form1._Form1.formsPlot1.Plot.Add.Text($"({StartReading},{ForceMin})", StartReading, ForceMin);
                     Form1._Form1.formsPlot1.Refresh();
                 }
@@ -341,11 +347,11 @@ namespace HMIApp
         //Ponizsza metoda do wywolania dopiero jak zaczyta sie jakakolwiek referencja
         public void WriteSpecifiedValueFromReference()
         {
-            FastMovement = Convert.ToDouble(Form1._Form1.DB666SilaMax__Przeciskanie.Text);
-            StartReading = Convert.ToDouble(Form1._Form1.DB666PozStartowa__Przeciskanie.Text);
-            EndReading = Convert.ToDouble(Form1._Form1.DB666PoczCzytSily__Przeciskanie.Text);
-            EndPoint = Convert.ToDouble(Form1._Form1.DB666KoniecCzytSily__Przeciskanie.Text);
-            ForceMaxfromRef = Convert.ToInt16(Form1._Form1.DB666PozPowrotu_Oslonka.Text);
+            StartPoint = Convert.ToDouble(Form1._Form1.DB666PozStartowa__Przeciskanie.Text);
+            FastMovement = Convert.ToDouble(Form1._Form1.DB666DojazdWolny_Przeciskanie.Text);
+            StartReading = Convert.ToDouble(Form1._Form1.DB666PoczCzytSily__Przeciskanie.Text);
+            EndReading = Convert.ToDouble(Form1._Form1.DB666KoniecCzytSily__Przeciskanie.Text);
+            ForceMaxfromRef = Convert.ToInt16(Form1._Form1.DB666SilaMax__Przeciskanie.Text);
 
         }
 
@@ -388,11 +394,10 @@ namespace HMIApp
                         DBRead_NrOfByteinDB = dbTag.NumberOfByteInDB;
                         bool[] values = new bool[8];
                         //Wyszukanie samej nazwy Taga, która odpowiada 1:1 nazwie TextBoxa
-                        //DBRead_position1 = dbTag.TagName.IndexOf(".") + 1;
-                        //DBRead_NameofTagWithoutNumberofDB = dbTag.TagName.Substring(DBRead_position1);
                         DBRead_position1 = dbTag.TagName.IndexOf(".");
                         DBRead_TagName = dbTag.TagName.Remove(DBRead_position1, 1);
                         TextBox txt;
+                        ComboBox cb;
                         switch (DBRead_NrOfBitinByte)
                         {
                             case 0:
@@ -407,7 +412,7 @@ namespace HMIApp
                                 {
                                     if (values[0])
                                     {
-                                        txt.BackColor = System.Drawing.Color.LawnGreen;
+                                        txt.BackColor = System.Drawing.Color.LimeGreen;
                                     }
                                     else
                                     {
@@ -427,7 +432,7 @@ namespace HMIApp
                                 {
                                     if (values[1])
                                     {
-                                        txt.BackColor = System.Drawing.Color.LawnGreen;
+                                        txt.BackColor = System.Drawing.Color.LimeGreen;
                                     }
                                     else
                                     {
@@ -447,7 +452,7 @@ namespace HMIApp
                                 {
                                     if (values[2])
                                     {
-                                        txt.BackColor = System.Drawing.Color.LawnGreen;
+                                        txt.BackColor = System.Drawing.Color.LimeGreen;
                                     }
                                     else
                                     {
@@ -467,7 +472,7 @@ namespace HMIApp
                                 {
                                     if (values[3])
                                     {
-                                        txt.BackColor = System.Drawing.Color.LawnGreen;
+                                        txt.BackColor = System.Drawing.Color.LimeGreen;
                                     }
                                     else
                                     {
@@ -487,7 +492,7 @@ namespace HMIApp
                                 {
                                     if (values[4])
                                     {
-                                        txt.BackColor = System.Drawing.Color.LawnGreen;
+                                        txt.BackColor = System.Drawing.Color.LimeGreen;
                                     }
                                     else
                                     {
@@ -507,7 +512,7 @@ namespace HMIApp
                                 {
                                     if (values[5])
                                     {
-                                        txt.BackColor = System.Drawing.Color.LawnGreen;
+                                        txt.BackColor = System.Drawing.Color.LimeGreen;
                                     }
                                     else
                                     {
@@ -527,7 +532,7 @@ namespace HMIApp
                                 {
                                     if (values[6])
                                     {
-                                        txt.BackColor = System.Drawing.Color.LawnGreen;
+                                        txt.BackColor = System.Drawing.Color.LimeGreen;
                                     }
                                     else
                                     {
@@ -547,7 +552,7 @@ namespace HMIApp
                                 {
                                     if (values[7])
                                     {
-                                        txt.BackColor = System.Drawing.Color.LawnGreen;
+                                        txt.BackColor = System.Drawing.Color.LimeGreen;
                                     }
                                     else
                                     {
@@ -560,17 +565,9 @@ namespace HMIApp
                         break;
                     case "BYTE":
                         //Wyszukanie samej nazwy Taga, która odpowiada 1:1 nazwie TextBoxa
-                        //DBRead_position1 = dbTag.TagName.IndexOf(".")+1;
-                        //DBRead_NameofTagWithoutNumberofDB = dbTag.TagName.Substring(DBRead_position1);
-                        //DBRead_TagName = dbTag.TagName;
-                        //PONIZEJ LINIA DO WYRZUCENIA KROPKI ZZA NUMERU DBKA
                         DBRead_position1 = dbTag.TagName.IndexOf(".");
                         DBRead_TagName = dbTag.TagName.Remove(DBRead_position1, 1);
                         DBRead_NrOfByteinDB = dbTag.NumberOfByteInDB;
-                        //if(DBRead_TagName.Contains("Kolor"))
-                        //{
-                        //    DBRead_TagName.Skip(5);
-                        //}
                         txt = Form1._Form1.Controls.Find($"{DBRead_TagName}", true).FirstOrDefault() as TextBox;
                         if (txt == null)
                         {
@@ -587,25 +584,34 @@ namespace HMIApp
                         DBRead_position1 = dbTag.TagName.IndexOf(".");
                         DBRead_TagName = dbTag.TagName.Remove(DBRead_position1, 1);
                         DBRead_NrOfByteinDB = dbTag.NumberOfByteInDB;
-                        
+                        cb = Form1._Form1.Controls.Find($"{DBRead_TagName}", true).FirstOrDefault() as ComboBox;
                         txt = Form1._Form1.Controls.Find($"{DBRead_TagName}", true).FirstOrDefault() as TextBox;
                         if (txt == null)
                         {
                             if(DBRead_TagName.Contains("Kolor"))
                             {
-                                var ValueOfColor = libnodave.getS16from(DB, DBRead_NrOfByteinDB);
-                                var DBRead_TagNameSkip = DBRead_TagName.Skip(5);
+                                
+                                DBRead_TagNamePos = DBRead_TagName.IndexOf("Kolor");
+                                ValueOfColor = libnodave.getS16from(DB, DBRead_NrOfByteinDB);
+                                DBRead_TagNameSkip = DBRead_TagName.Remove(DBRead_TagNamePos, 5);
+                                
                                 if (ValueOfColor == 1)
                                 {                                    
                                     txt = Form1._Form1.Controls.Find($"{DBRead_TagNameSkip}", true).FirstOrDefault() as TextBox;
                                     if (txt == null) break;
-                                    else txt.BackColor = System.Drawing.Color.LawnGreen;
+                                    else txt.BackColor = System.Drawing.Color.LimeGreen;
                                 }
                                 else if(ValueOfColor == 2)
                                 {
                                     txt = Form1._Form1.Controls.Find($"{DBRead_TagNameSkip}", true).FirstOrDefault() as TextBox;
                                     if (txt == null) break;
                                     else txt.BackColor = System.Drawing.Color.OrangeRed;
+                                }
+                                else
+                                {
+                                    txt = Form1._Form1.Controls.Find($"{DBRead_TagNameSkip}", true).FirstOrDefault() as TextBox;
+                                    if (txt == null) break;
+                                    else txt.BackColor = System.Drawing.Color.White;
                                 }
                             }
                             break;
@@ -614,6 +620,9 @@ namespace HMIApp
                         {
                             txt.Text = Convert.ToString(libnodave.getS16from(DB, DBRead_NrOfByteinDB));
                         }
+                       // if (cb == null) break;
+                        //else cb.SelectedItem = libnodave.getS16from(DB, DBRead_NrOfByteinDB);
+
                         break;
                     case "REAL":
                         //Wyszukanie samej nazwy Taga, która odpowiada 1:1 nazwie TextBoxa
@@ -1452,7 +1461,7 @@ namespace HMIApp
                         {
                             if (values[0] == true)
                             {
-                                txt.BackColor = System.Drawing.Color.Green;
+                                txt.BackColor = System.Drawing.Color.LimeGreen;
                             }
                             else
                             {
@@ -1468,7 +1477,7 @@ namespace HMIApp
                         {
                             if (values[1])
                             {
-                                txt.BackColor = System.Drawing.Color.Green;
+                                txt.BackColor = System.Drawing.Color.LimeGreen;
                             }
                             else
                             {
@@ -1484,7 +1493,7 @@ namespace HMIApp
                         {
                             if (values[2])
                             {
-                                txt.BackColor = System.Drawing.Color.Green;
+                                txt.BackColor = System.Drawing.Color.LimeGreen;
                             }
                             else
                             {
@@ -1500,7 +1509,7 @@ namespace HMIApp
                         {
                             if (values[3])
                             {
-                                txt.BackColor = System.Drawing.Color.Green;
+                                txt.BackColor = System.Drawing.Color.LimeGreen;
                             }
                             else
                             {
@@ -1516,7 +1525,7 @@ namespace HMIApp
                         {
                             if (values[4])
                             {
-                                txt.BackColor = System.Drawing.Color.Green;
+                                txt.BackColor = System.Drawing.Color.LimeGreen;
                             }
                             else
                             {
@@ -1532,7 +1541,7 @@ namespace HMIApp
                         {
                             if (values[5])
                             {
-                                txt.BackColor = System.Drawing.Color.Green;
+                                txt.BackColor = System.Drawing.Color.LimeGreen;
                             }
                             else
                             {
@@ -1548,7 +1557,7 @@ namespace HMIApp
                         {
                             if (values[6])
                             {
-                                txt.BackColor = System.Drawing.Color.Green;
+                                txt.BackColor = System.Drawing.Color.LimeGreen;
                             }
                             else
                             {
@@ -1564,7 +1573,7 @@ namespace HMIApp
                         {
                             if (values[7])
                             {
-                                txt.BackColor = System.Drawing.Color.Green;
+                                txt.BackColor = System.Drawing.Color.LimeGreen;
                             }
                             else
                             {

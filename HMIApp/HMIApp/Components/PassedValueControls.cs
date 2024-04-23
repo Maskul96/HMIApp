@@ -17,14 +17,19 @@ namespace HMIApp.Components
         public static void Run()
         {
             //przepisywanie numeru referencji i klienta do wyswietlenia dla operatora
-            Form1._Form1.DB666NrReferencePassedValue.Text = Form1._Form1.DB666NrReference.Text;
-            Form1._Form1.DB666NameOfClientPassedValue.Text = Form1._Form1.DB666NameOfClient.Text;
+            if (Form1._Form1.comboBoxListaReferencji.Items.Count > 0)
+            {
+                Form1._Form1.DB666NrReferencePassedValue.Text = Form1._Form1.DB666NrReference.Text;
+                Form1._Form1.DB666NameOfClientPassedValue.Text = Form1._Form1.DB666NameOfClient.Text;
+            }
+
             //
             Form1._Form1.DB667PozycjaOslonki_PassedValue.Text = Form1._Form1.DB667PozycjaOslonki.Text;
             Form1._Form1.DB667PozycjaGniazdoDolne_PassedValue.Text = Form1._Form1.DB667PozycjaGniazdoDolne.Text;
             Form1._Form1.DB667AktSila_PassedValue.Text = Form1._Form1.DB667AktSila.Text; 
             Form1._Form1.DB667PozycjaPrzeciskanie_PassedValue.Text = Form1._Form1.DB667PozycjaPrzeciskanie.Text;
-
+            Form1._Form1.DB667PozycjaDyszaPionowa_PassedValue.Text = Form1._Form1.DB667PozycjaDyszaPionowa.Text;
+            Form1._Form1.DB667PozycjadyszaPozioma_PassedValue.Text = Form1._Form1.DB667PozycjadyszaPozioma.Text;
             //IO
             Form1._Form1.DB669Input49PassedValue.BackColor = Form1._Form1.DB669Input49.BackColor;
             Form1._Form1.DB669Input50PassedValue.BackColor = Form1._Form1.DB669Input50.BackColor;

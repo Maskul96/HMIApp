@@ -78,11 +78,16 @@ namespace HMIApp.Data
                     RFIDPlytaSmarujacaP10 = Form1._Form1.DB666RFIDPlytaSmarujacaP10.Checked,
                     RFIDSzczekiOslonkiP11 = Form1._Form1.DB666RFIDSzczekiOslonkiP11.Checked,
                     RFIDGniazdoPrzegubuP12 = Form1._Form1.DB666RFIDGniazdoPrzegubuP12.Checked,
+                    SpareP13 = false,
+                    SpareP14 = false,
+                    SpareP15    = false,
+                    SpareP16 = false,
                     //Inne
-                    PozwyjeciaOsi = int.Parse(Form1._Form1.DB666PozwyjeciaOsi.Text),
-                    PozOetickera = int.Parse(Form1._Form1.DB666PozOetickera.Text),
+                    PozwyjeciaOsi = float.Parse(Form1._Form1.DB666PozwyjeciaOsi.Text),
+                    PozOetickera = float.Parse(Form1._Form1.DB666PozOetickera.Text),
                     //Przeciskanie
                     Przeciskanie_PozStartowa = float.Parse(Form1._Form1.DB666PozStartowa__Przeciskanie.Text),
+                    Przeciskanie_DojazdWolny = float.Parse(Form1._Form1.DB666DojazdWolny_Przeciskanie.Text),
                     Przeciskanie_PoczCzytSily = float.Parse(Form1._Form1.DB666PoczCzytSily__Przeciskanie.Text),
                     Przeciskanie_KoniecCzytSily = float.Parse(Form1._Form1.DB666KoniecCzytSily__Przeciskanie.Text),
                     Przeciskanie_SilaMin = int.Parse(Form1._Form1.DB666SilaMin_Przeciskanie.Text),
@@ -91,12 +96,12 @@ namespace HMIApp.Data
                     Oslonka_PozStartowa = float.Parse(Form1._Form1.DB666PozStartowa_Oslonka.Text),
                     Oslonka_PozSmarowania = float.Parse(Form1._Form1.DB666PozSmarowania_Oslonka.Text),
                     Oslonka_PozNakladania = float.Parse(Form1._Form1.DB666PozNakladania_Oslonka.Text),
-                    Oslonka_PozPowrotu = int.Parse(Form1._Form1.DB666PozPowrotu_Oslonka.Text),
+                    Oslonka_PozPowrotu = float.Parse(Form1._Form1.DB666PozPowrotu_Oslonka.Text),
                     //Dysza Wahliwa
                     DyszaWahliwa_PozPionowa = float.Parse(Form1._Form1.DB666PozPionowa_DyszaWahliwa.Text),
                     DyszaWahliwa_PozPozioma = float.Parse(Form1._Form1.DB666PozPozioma_DyszaWahliwa.Text),
                     DyszaWahliwa_PozdyszywOslonce = float.Parse(Form1._Form1.DB666PozDyszyWOslonce_DyszaWahliwa.Text),
-                    DyszaWahliwa_PozZjazduOslonkiSmarowanie = int.Parse(Form1._Form1.DB666PozZjazduOslonkiSmarowanie_DyszaWahliwa.Text),
+                    DyszaWahliwa_PozZjazduOslonkiSmarowanie = float.Parse(Form1._Form1.DB666PozZjazduOslonkiSmarowanie_DyszaWahliwa.Text),
                     //Smarowania
                     Smarowanie_DawkaPrzegub = float.Parse(Form1._Form1.DB666DawkaPrzegub.Text),
                     Smarowanie_TolDawkiPrzegub = float.Parse(Form1._Form1.DB666TolDawkiPrzegub.Text),
@@ -154,6 +159,7 @@ namespace HMIApp.Data
                         x.PozwyjeciaOsi,
                         x.PozOetickera,
                         x.Przeciskanie_PozStartowa,
+                        x.Przeciskanie_DojazdWolny,
                         x.Przeciskanie_PoczCzytSily,
                         x.Przeciskanie_KoniecCzytSily,
                         x.Przeciskanie_SilaMin,
@@ -201,6 +207,7 @@ namespace HMIApp.Data
                     Form1._Form1.DB666PozOetickera.Text = item.PozOetickera.ToString();
                     //Przeciskanie
                     Form1._Form1.DB666PozStartowa__Przeciskanie.Text = item.Przeciskanie_PozStartowa.ToString();
+                    Form1._Form1.DB666DojazdWolny_Przeciskanie.Text = item.Przeciskanie_DojazdWolny.ToString();
                     Form1._Form1.DB666PoczCzytSily__Przeciskanie.Text = item.Przeciskanie_PoczCzytSily.ToString();
                     Form1._Form1.DB666KoniecCzytSily__Przeciskanie.Text = item.Przeciskanie_KoniecCzytSily.ToString();
                     Form1._Form1.DB666SilaMin_Przeciskanie.Text = item.Przeciskanie_SilaMin.ToString();
@@ -284,10 +291,11 @@ namespace HMIApp.Data
             ref1.RFIDSzczekiOslonkiP11 = Form1._Form1.DB666RFIDSzczekiOslonkiP11.Checked;
             ref1.RFIDGniazdoPrzegubuP12 = Form1._Form1.DB666RFIDGniazdoPrzegubuP12.Checked;
             //Inne
-            ref1.PozwyjeciaOsi = int.Parse(Form1._Form1.DB666PozwyjeciaOsi.Text);
-            ref1.PozOetickera = int.Parse(Form1._Form1.DB666PozOetickera.Text);
+            ref1.PozwyjeciaOsi = float.Parse(Form1._Form1.DB666PozwyjeciaOsi.Text);
+            ref1.PozOetickera = float.Parse(Form1._Form1.DB666PozOetickera.Text);
             //Przeciskanie
             ref1.Przeciskanie_PozStartowa = float.Parse(Form1._Form1.DB666PozStartowa__Przeciskanie.Text);
+            ref1.Przeciskanie_DojazdWolny = float.Parse(Form1._Form1.DB666DojazdWolny_Przeciskanie.Text);
             ref1.Przeciskanie_PoczCzytSily = float.Parse(Form1._Form1.DB666PoczCzytSily__Przeciskanie.Text);
             ref1.Przeciskanie_KoniecCzytSily = float.Parse(Form1._Form1.DB666KoniecCzytSily__Przeciskanie.Text);
             ref1.Przeciskanie_SilaMin = int.Parse(Form1._Form1.DB666SilaMin_Przeciskanie.Text);
@@ -296,12 +304,12 @@ namespace HMIApp.Data
             ref1.Oslonka_PozStartowa = float.Parse(Form1._Form1.DB666PozStartowa_Oslonka.Text);
             ref1.Oslonka_PozSmarowania = float.Parse(Form1._Form1.DB666PozSmarowania_Oslonka.Text);
             ref1.Oslonka_PozNakladania = float.Parse(Form1._Form1.DB666PozNakladania_Oslonka.Text);
-            ref1.Oslonka_PozPowrotu = int.Parse(Form1._Form1.DB666PozPowrotu_Oslonka.Text);
+            ref1.Oslonka_PozPowrotu = float.Parse(Form1._Form1.DB666PozPowrotu_Oslonka.Text);
             //Dysza Wahliwa
             ref1.DyszaWahliwa_PozPionowa = float.Parse(Form1._Form1.DB666PozPionowa_DyszaWahliwa.Text);
             ref1.DyszaWahliwa_PozPozioma = float.Parse(Form1._Form1.DB666PozPozioma_DyszaWahliwa.Text);
             ref1.DyszaWahliwa_PozdyszywOslonce = float.Parse(Form1._Form1.DB666PozDyszyWOslonce_DyszaWahliwa.Text);
-            ref1.DyszaWahliwa_PozZjazduOslonkiSmarowanie = int.Parse(Form1._Form1.DB666PozZjazduOslonkiSmarowanie_DyszaWahliwa.Text);
+            ref1.DyszaWahliwa_PozZjazduOslonkiSmarowanie = float.Parse(Form1._Form1.DB666PozZjazduOslonkiSmarowanie_DyszaWahliwa.Text);
             //Smarowania
             ref1.Smarowanie_DawkaPrzegub = float.Parse(Form1._Form1.DB666DawkaPrzegub.Text);
             ref1.Smarowanie_TolDawkiPrzegub = float.Parse(Form1._Form1.DB666TolDawkiPrzegub.Text);

@@ -29,6 +29,7 @@ namespace HMIApp.Components.DataBase
 
         //Przeciskanie
         public float Przeciskanie_PozStartowa { get; set; }
+        public float Przeciskanie_DojazdWolny { get; set; }
         public float Przeciskanie_PoczCzytSily { get; set; }
         public float Przeciskanie_KoniecCzytSily { get; set; }
         public int Przeciskanie_SilaMin { get; set; }

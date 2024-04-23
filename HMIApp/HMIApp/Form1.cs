@@ -43,13 +43,15 @@ namespace HMIApp
             Users.Run();
 
             OdczytDB.Enabled = true;
+            CzyszczenieStatusówLogowania.Enabled = true; 
+
             listBoxWarningsView.DrawItem += new System.Windows.Forms.DrawItemEventHandler(App.listBox1_DrawItem);
             label13.Text = "";
             Users.EnabledObjects();
 
             CommaReplaceDotTextBox(this);
             PassedValueControls.Run();
-            App.CreateStaticPlot();
+
             //serialPortReader.InitializeSerialPort();
             // serialPortReader.Run();
         }
@@ -61,10 +63,10 @@ namespace HMIApp
             App.RunInitPLC();
             PróbyUruchomieniaKomunikacjizPLC.Enabled = true;
             //zakomentuj ponizsze cztery metody do odpalenia apki bez PLC
-            //App.ReadAlarmsFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_2.csv");
-            //App.ReadIOFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_3.csv");
-            //App.ReadActualValueFromDBChart_Simplified("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_4.csv");
-            //App.ReadActualValueFromDBReferenceOrProcessData("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_1.csv");
+            App.ReadAlarmsFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_2.csv");
+            App.ReadIOFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_3.csv");
+            App.ReadActualValueFromDBChart_Simplified("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_4.csv");
+            App.ReadActualValueFromDBReferenceOrProcessData("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_1.csv");
         }
         //Timer do prób uruchomienia komunikacji z PLC
         private void Timer1_Tick_1(object sender, EventArgs e)
@@ -107,7 +109,7 @@ namespace HMIApp
             App.CreateStaticPlot();
             formsPlot1.Refresh();
         }
-        //wczytaj referencje do PLC
+        //wczytaj referencje do PLC - DOROBIC ZAPIS POZOSTALYCH PARAMETROW REFERENCJI
         private void button10_Click(object sender, EventArgs e)
         {
             if (comboBoxListaReferencji.Text != null && comboBoxListaReferencji.Text != "")
@@ -151,10 +153,15 @@ namespace HMIApp
         private void timer1_Tick(object sender, EventArgs e)
         {
             //zakomentuj ponizsze dwie metody do odpalenia apki bez PLC
-            //App.ReadAlarmsFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_2.csv");
-            //App.ReadIOFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_3.csv");
-            //App.ReadActualValueFromDBReferenceOrProcessData("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_1.csv");
-            //App.CreatePlot();
+            App.ReadAlarmsFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_2.csv");
+            App.ReadIOFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_3.csv");
+            App.ReadActualValueFromDBReferenceOrProcessData("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_1.csv");
+            //ZROBIC TUTAJ ZE DOPIERO PO EVENCIE ZACZYTANIA REFERENCJI DO PLC ODPALAMY METODE CREATE PLOT
+            if (comboBoxListaReferencji.Items.Count > 0 && DB666NrReferencePassedValue.Text != "")
+            {
+               // App.CreatePlot();
+            }
+            PassedValueControls.Run();
             //aktualizacja daty i godziny
             this.Text = DateTime.Now.ToString();
             label_DataIGodzina.Text = this.Text;
@@ -169,7 +176,7 @@ namespace HMIApp
         //Wyczyszczenie statusu karty Użytkownicy
         private void timer2_Tick(object sender, EventArgs e)
         {
-            StatusyLogowania.Items.Clear();
+            StatusyLogowania.Text = "";
         }
 
         //Wyswietlenie uzytkownikow z bazy
@@ -188,8 +195,12 @@ namespace HMIApp
         }
 
         //Przycisk zastepujacy event przyłożenia karty RFID do czytnika
-        private void button9_Click_1(object sender, EventArgs e)
+        private void buttonZalogujUzytk(object sender, EventArgs e)
         {
+            Users.ClearUserFromDisplay();
+            OdliczaSekunde.Enabled = false;
+            Users.Interval = 100000 / 1000;
+            label13.Text = Users.Interval.ToString();
             Users.FindUserinXML();
             Users.EnabledObjects();
         }
@@ -200,7 +211,9 @@ namespace HMIApp
             Users.ClearUserFromDisplay();
             TimeoutWylogowania.Enabled = false;
             Users.EnabledObjects();
+            StatusyLogowania.Text = "Uzytkownik wylogowany automatycznie";
         }
+
 
         //Obsluga odliczania czasu do wylogowania
         private void OdliczaSekunde_Tick(object sender, EventArgs e)
@@ -218,18 +231,23 @@ namespace HMIApp
             }
         }
 
+
         // PRZYCISK WYZWALAJACY ZAPIS referencji
         private void button13_Click(object sender, EventArgs e)
         {
             var database = serviceProvider.GetService<iDataBase>();
             database.InsertToDataBase();
         }
+
+
         //Wyrzucenie referencji po rozwinieciu comboboxa
         private void comboBox5_SelectedIndexChanged(object sender, EventArgs e)
         {
             var database = serviceProvider.GetService<iDataBase>();
             database.SelectFromDataBase(comboBoxListaReferencji.Text);
         }
+
+
         //Usuwanie wybranej referencji
         private void button2_Click_1(object sender, EventArgs e)
         {
@@ -263,6 +281,7 @@ namespace HMIApp
             }
         }
 
+
         //Obsluga zamiany kropki na przecinek
         private void TextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -274,125 +293,231 @@ namespace HMIApp
                 e.KeyChar = ',';
             }
         }
-        // Obsluga OnScreenKeyboard po wcisnieciu TextBoxa
+
+
+        // Obsluga OnScreenKeyboard po wcisnieciu TextBoxa - OGARNAC ZEBY NIE WYSWIETLALA SIE JAK JUZ JEST NA EKRANIE
         private void TextBox_Click(object sender, EventArgs e)
         {
             Process[] oslProcessArry = Process.GetProcessesByName("TabTip");
+            // if (oslProcessArry.Length == 0)
+            // {
             foreach (Process oslProcess in oslProcessArry)
             {
                 oslProcess.Kill();
             }
             string progFiles = @"C:\Program Files\Common Files\Microsoft Shared\Ink\TabTip.exe";
-            Process.Start(progFiles);
+                Process.Start(progFiles);
+           // }
         }
+
 
         //Obsluga ToggleButtonow w zakładce Tryb Reczny
         #region obsluga ToggleButtonow - Tryb Reczny
         private void checkBox_Serwo18U1_Checked(object sender, EventArgs e)
         {
-
             App.WriteToDB("15", checkBox_Serwo18U1.Tag.ToString(), 1);
-            pictureBoxMachineImages.Image = new Bitmap(Properties.Resources.Serwo_18U1);
         }
         private void checkBox_Serwo18U1_CheckedStateChanged(object sender, EventArgs e)
         {
             if (checkBox_Serwo18U1.Checked)
             {
                 checkBox_Serwo20U1.Checked = false;
+                checkBox_Serwo16U2.Checked = false;
+                checkBox_UkladPodnoszenia.Checked = false;
+                checkBox_ChwytakGorny.Checked = false;
+                checkBox_ChwytakDolny.Checked = false;
+                checkBox_ZaciskTulipa.Checked = false;
+                checkBox_SzczekiOslonki.Checked = false;
+                checkBox_DyszaPionowa.Checked = false;
+                checkBox_DyszaPozioma.Checked = false;
+                pictureBoxMachineImages.Image = new Bitmap(Properties.Resources.Serwo_18U1);
             }
         }
         private void checkBox_Serwo20U1_Checked(object sender, EventArgs e)
         {
-
             App.WriteToDB("11", checkBox_Serwo20U1.Tag.ToString(), 1);
-            pictureBoxMachineImages.Image = new Bitmap(Properties.Resources.Serwo_20U1);
         }
         private void checkBox_Serwo20U1_CheckedStateChanged(object sender, EventArgs e)
         {
             if (checkBox_Serwo20U1.Checked)
             {
                 checkBox_Serwo18U1.Checked = false;
+                checkBox_Serwo16U2.Checked = false;
+                checkBox_UkladPodnoszenia.Checked = false;
+                checkBox_ChwytakGorny.Checked = false;
+                checkBox_ChwytakDolny.Checked = false;
+                checkBox_ZaciskTulipa.Checked = false;
+                checkBox_SzczekiOslonki.Checked = false;
+                checkBox_DyszaPionowa.Checked = false;
+                checkBox_DyszaPozioma.Checked = false;
+                pictureBoxMachineImages.Image = new Bitmap(Properties.Resources.Serwo_20U1);
             }
         }
         private void checkBox_Serwo16U2_Checked(object sender, EventArgs e)
         {
-
             App.WriteToDB("12", checkBox_Serwo20U1.Tag.ToString(), 1);
-            pictureBoxMachineImages.Image = new Bitmap(Properties.Resources.Serwo_16U2);
         }
         private void checkBox_Serwo16U2_CheckedStateChanged(object sender, EventArgs e)
         {
             if (checkBox_Serwo16U2.Checked)
             {
-                checkBox_Serwo16U2.Checked = false;
+                checkBox_Serwo20U1.Checked = false;
+                checkBox_Serwo18U1.Checked = false;
+                checkBox_UkladPodnoszenia.Checked = false;
+                checkBox_ChwytakGorny.Checked = false;
+                checkBox_ChwytakDolny.Checked = false;
+                checkBox_ZaciskTulipa.Checked = false;
+                checkBox_SzczekiOslonki.Checked = false;
+                checkBox_DyszaPionowa.Checked = false;
+                checkBox_DyszaPozioma.Checked = false;
+                pictureBoxMachineImages.Image = new Bitmap(Properties.Resources.Serwo_16U2);
             }
         }
         private void checkBox_UkladPodnoszenia_Checked(object sender, EventArgs e)
         {
-
             App.WriteToDB("13", checkBox_Serwo20U1.Tag.ToString(), 1);
-            pictureBoxMachineImages.Image = new Bitmap(Properties.Resources.UkladPodnoszenia);
         }
         private void checkBox_UkladPodnoszenia_CheckedStateChanged(object sender, EventArgs e)
         {
             if (checkBox_UkladPodnoszenia.Checked)
             {
-                checkBox_UkladPodnoszenia.Checked = false;
+                checkBox_Serwo20U1.Checked = false;
+                checkBox_Serwo16U2.Checked = false;
+                checkBox_Serwo18U1.Checked = false;
+                checkBox_ChwytakGorny.Checked = false;
+                checkBox_ChwytakDolny.Checked = false;
+                checkBox_ZaciskTulipa.Checked = false;
+                checkBox_SzczekiOslonki.Checked = false;
+                checkBox_DyszaPionowa.Checked = false;
+                checkBox_DyszaPozioma.Checked = false;
+                pictureBoxMachineImages.Image = new Bitmap(Properties.Resources.UkladPodnoszenia);
             }
         }
         private void checkBox_ChwytakGorny_Checked(object sender, EventArgs e)
         {
-
             App.WriteToDB("14", checkBox_Serwo20U1.Tag.ToString(), 1);
-            pictureBoxMachineImages.Image = new Bitmap(Properties.Resources.ChwytakGorny);
         }
         private void checkBox_ChwytakGorny_CheckedStateChanged(object sender, EventArgs e)
         {
             if (checkBox_ChwytakGorny.Checked)
             {
-                checkBox_ChwytakGorny.Checked = false;
+                checkBox_Serwo20U1.Checked = false;
+                checkBox_Serwo16U2.Checked = false;
+                checkBox_Serwo18U1.Checked = false;
+                checkBox_UkladPodnoszenia.Checked = false;
+                checkBox_ChwytakDolny.Checked = false;
+                checkBox_ZaciskTulipa.Checked = false;
+                checkBox_SzczekiOslonki.Checked = false;
+                checkBox_DyszaPionowa.Checked = false;
+                checkBox_DyszaPozioma.Checked = false;
+                pictureBoxMachineImages.Image = new Bitmap(Properties.Resources.ChwytakGorny);
             }
         }
         private void checkBox_ChwytakDolny_Checked(object sender, EventArgs e)
         {
-
             App.WriteToDB("16", checkBox_Serwo20U1.Tag.ToString(), 1);
-            pictureBoxMachineImages.Image = new Bitmap(Properties.Resources.ChwytakDolny);
         }
         private void checkBox_ChwytakDolny_CheckedStateChanged(object sender, EventArgs e)
         {
             if (checkBox_ChwytakDolny.Checked)
             {
-                checkBox_ChwytakDolny.Checked = false;
+                checkBox_Serwo20U1.Checked = false;
+                checkBox_Serwo16U2.Checked = false;
+                checkBox_Serwo18U1.Checked = false;
+                checkBox_ChwytakGorny.Checked = false;
+                checkBox_UkladPodnoszenia.Checked = false;
+                checkBox_ZaciskTulipa.Checked = false;
+                checkBox_SzczekiOslonki.Checked = false;
+                checkBox_DyszaPionowa.Checked = false;
+                checkBox_DyszaPozioma.Checked = false;
+                pictureBoxMachineImages.Image = new Bitmap(Properties.Resources.ChwytakDolny);
             }
         }
         private void checkBox_ZaciskTulipa_Checked(object sender, EventArgs e)
         {
-
             App.WriteToDB("17", checkBox_Serwo20U1.Tag.ToString(), 1);
-            pictureBoxMachineImages.Image = new Bitmap(Properties.Resources.ZaciskTulipa);
         }
         private void checkBox_ZaciskTulipa_CheckedStateChanged(object sender, EventArgs e)
         {
             if (checkBox_ZaciskTulipa.Checked)
             {
-                checkBox_ZaciskTulipa.Checked = false;
+                checkBox_Serwo20U1.Checked = false;
+                checkBox_Serwo16U2.Checked = false;
+                checkBox_Serwo18U1.Checked = false;
+                checkBox_ChwytakGorny.Checked = false;
+                checkBox_ChwytakDolny.Checked = false;
+                checkBox_UkladPodnoszenia.Checked = false;
+                checkBox_SzczekiOslonki.Checked = false;
+                checkBox_DyszaPionowa.Checked = false;
+                checkBox_DyszaPozioma.Checked = false;
+                pictureBoxMachineImages.Image = new Bitmap(Properties.Resources.ZaciskTulipa);
             }
         }
         private void checkBox_SzczekiOslonki_Checked(object sender, EventArgs e)
         {
-
-            App.WriteToDB("18", checkBox_Serwo20U1.Tag.ToString(), 1);
-            pictureBoxMachineImages.Image = new Bitmap(Properties.Resources.SzczekiOslonki);
+            App.WriteToDB("18", checkBox_SzczekiOslonki.Tag.ToString(), 1);
         }
         private void checkBox_SzczekiOslonki_CheckedStateChanged(object sender, EventArgs e)
         {
             if (checkBox_SzczekiOslonki.Checked)
             {
+                checkBox_Serwo20U1.Checked = false;
+                checkBox_Serwo16U2.Checked = false;
+                checkBox_Serwo18U1.Checked = false;
+                checkBox_ChwytakGorny.Checked = false;
+                checkBox_ChwytakDolny.Checked = false;
+                checkBox_ZaciskTulipa.Checked = false;
+                checkBox_UkladPodnoszenia.Checked = false;
+                checkBox_DyszaPionowa.Checked = false;
+                checkBox_DyszaPozioma.Checked = false;
+                pictureBoxMachineImages.Image = new Bitmap(Properties.Resources.SzczekiOslonki);
+            }
+        }
+
+        private void checkBox_DyszaPionowa_Checked(object sender, EventArgs e)
+        {
+            App.WriteToDB("19", checkBox_DyszaPionowa.Tag.ToString(), 1);
+        }
+        private void checkBox_DyszaPionowa_CheckedStateChanged(object sender, EventArgs e)
+        {
+            if (checkBox_DyszaPionowa.Checked)
+            {
+                checkBox_Serwo20U1.Checked = false;
+                checkBox_Serwo16U2.Checked = false;
+                checkBox_Serwo18U1.Checked = false;
+                checkBox_ChwytakGorny.Checked = false;
+                checkBox_ChwytakDolny.Checked = false;
+                checkBox_ZaciskTulipa.Checked = false;
+                checkBox_UkladPodnoszenia.Checked = false;
+                checkBox_DyszaPozioma.Checked = false;
                 checkBox_SzczekiOslonki.Checked = false;
+                pictureBoxMachineImages.Image = new Bitmap(Properties.Resources.Main);
+            }
+        }
+
+        private void checkBox_DyszaPozioma_Checked(object sender, EventArgs e)
+        {
+            App.WriteToDB("20", checkBox_DyszaPozioma.Tag.ToString(), 1);
+        }
+        private void checkBox_DyszaPozioma_CheckedStateChanged(object sender, EventArgs e)
+        {
+            if (checkBox_DyszaPozioma.Checked)
+            {
+                checkBox_Serwo20U1.Checked = false;
+                checkBox_Serwo16U2.Checked = false;
+                checkBox_Serwo18U1.Checked = false;
+                checkBox_ChwytakGorny.Checked = false;
+                checkBox_ChwytakDolny.Checked = false;
+                checkBox_ZaciskTulipa.Checked = false;
+                checkBox_UkladPodnoszenia.Checked = false;
+                checkBox_DyszaPionowa.Checked = false;
+                checkBox_SzczekiOslonki.Checked = false;
+                pictureBoxMachineImages.Image = new Bitmap(Properties.Resources.Main);
             }
         }
         #endregion
+
+
         //Zamkniecie aplikacji
         private void Form1Closing(object sender, FormClosingEventArgs e)
         {
@@ -400,7 +525,8 @@ namespace HMIApp
             //serialPortReader.Close();
         }
 
-        //Zamkniecie aplikacji
+
+        //Zamkniecie aplikacji z przycisku
         private void button3_Click(object sender, EventArgs e)
         {
             App.ClosePLCConnection();
@@ -421,6 +547,36 @@ namespace HMIApp
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             label51.Text = comboBox1.SelectedIndex.ToString();
+        }
+
+        private void StatusyLogowania_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Button_Rework_Click(object sender, EventArgs e)
+        {
+            App.WriteToDB("57", Button_Rework.Tag.ToString(), 1);
+        }
+
+        private void Button_ResetSztukNOK_Click(object sender, EventArgs e)
+        {
+            App.WriteToDB("58", Button_ResetSztukNOK.Tag.ToString(), 1);
+        }
+
+        private void Button_ResetSztukOK_Click(object sender, EventArgs e)
+        {
+            App.WriteToDB("59", Button_ResetSztukOK.Tag.ToString(), 1);
+        }
+
+        private void Button_DawkaTestowaPrzegub_Click(object sender, EventArgs e)
+        {
+            App.WriteToDB("56", Button_DawkaTestowaPrzegub.Tag.ToString(), 1);
+        }
+
+        private void Button_DawkaTestowaTulip_Click(object sender, EventArgs e)
+        {
+            App.WriteToDB("55", Button_DawkaTestowaTulip.Tag.ToString(), 1);
         }
     }
 }

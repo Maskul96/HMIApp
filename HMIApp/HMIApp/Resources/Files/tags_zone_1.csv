@@ -10,9 +10,9 @@ DB667.Spare0,Bool,0,7,1
 DB667.SztukiOK,Int,2,0,2
 DB667.SztukiNOK,Int,4,0,2
 DB667.CzasCyklu,Real,6,0,4
-DB667.AktDawkaTulip,Real,10,0,4
+DB667.DawkaTulip,Real,10,0,4
 DB667.KolorDawkaTulip,Int,14,0,2
-DB667.AktDawkaPrzegub,Real,16,0,4
+DB667.DawkaPrzegub,Real,16,0,4
 DB667.KolorDawkaPrzegub,Int,20,0,2
 DB667.AktSila,Int,22,0,2
 DB667.SilaWOknie,Int,24,0,2

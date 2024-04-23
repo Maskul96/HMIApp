@@ -30,7 +30,7 @@
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             OdczytDB = new System.Windows.Forms.Timer(components);
             label_Uzytkownik = new System.Windows.Forms.Label();
             pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -176,6 +176,15 @@
             tabPage11 = new System.Windows.Forms.TabPage();
             tableLayoutPanel18 = new System.Windows.Forms.TableLayoutPanel();
             panel12 = new System.Windows.Forms.Panel();
+            DB669Output12 = new System.Windows.Forms.TextBox();
+            DB669Output13 = new System.Windows.Forms.TextBox();
+            DB669Output20 = new System.Windows.Forms.TextBox();
+            DB669Output16 = new System.Windows.Forms.TextBox();
+            DB669Output19 = new System.Windows.Forms.TextBox();
+            DB669Output18 = new System.Windows.Forms.TextBox();
+            DB669Output17 = new System.Windows.Forms.TextBox();
+            DB669Output14 = new System.Windows.Forms.TextBox();
+            DB669Output15 = new System.Windows.Forms.TextBox();
             label186 = new System.Windows.Forms.Label();
             DB669Output23 = new System.Windows.Forms.TextBox();
             label187 = new System.Windows.Forms.Label();
@@ -291,7 +300,6 @@
             textBox4 = new System.Windows.Forms.TextBox();
             tabPage5 = new System.Windows.Forms.TabPage();
             tableLayoutPanel14 = new System.Windows.Forms.TableLayoutPanel();
-            StatusyLogowania = new System.Windows.Forms.ListBox();
             label_EdycjaUzytkownikow = new System.Windows.Forms.Label();
             label_DodanieUzytkownikow = new System.Windows.Forms.Label();
             panel5 = new System.Windows.Forms.Panel();
@@ -318,6 +326,7 @@
             tableLayoutPanel15 = new System.Windows.Forms.TableLayoutPanel();
             textBox_MiejsceNaNrKarty_Zaloguj = new System.Windows.Forms.TextBox();
             button_ZalogujUzytk = new System.Windows.Forms.Button();
+            StatusyLogowania = new System.Windows.Forms.TextBox();
             label56 = new System.Windows.Forms.Label();
             tabPage4 = new System.Windows.Forms.TabPage();
             tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
@@ -360,6 +369,8 @@
             label72 = new System.Windows.Forms.Label();
             tabControl4 = new System.Windows.Forms.TabControl();
             Przeciskanie = new System.Windows.Forms.TabPage();
+            DB666DojazdWolny_Przeciskanie = new System.Windows.Forms.TextBox();
+            label120 = new System.Windows.Forms.Label();
             label31 = new System.Windows.Forms.Label();
             DB666SilaMin_Przeciskanie = new System.Windows.Forms.TextBox();
             label27 = new System.Windows.Forms.Label();
@@ -404,6 +415,7 @@
             label11 = new System.Windows.Forms.Label();
             DB666DawkaTulip = new System.Windows.Forms.TextBox();
             label22 = new System.Windows.Forms.Label();
+            label23 = new System.Windows.Forms.Label();
             RFID = new System.Windows.Forms.TabPage();
             DB666TagRFIDGlowicaGorna = new System.Windows.Forms.TextBox();
             DB666TagRFIDPlytaSmar = new System.Windows.Forms.TextBox();
@@ -441,8 +453,8 @@
             DB667PozycjadyszaPozioma_PassedValue = new System.Windows.Forms.TextBox();
             label55 = new System.Windows.Forms.Label();
             DB667PozycjaDyszaPionowa_PassedValue = new System.Windows.Forms.TextBox();
-            checkBox6 = new System.Windows.Forms.CheckBox();
-            checkBox5 = new System.Windows.Forms.CheckBox();
+            checkBox_DyszaPionowa = new System.Windows.Forms.CheckBox();
+            checkBox_DyszaPozioma = new System.Windows.Forms.CheckBox();
             checkBox_ChwytakDolny = new System.Windows.Forms.CheckBox();
             checkBox_UkladPodnoszenia = new System.Windows.Forms.CheckBox();
             checkBox_Serwo18U1 = new System.Windows.Forms.CheckBox();
@@ -455,14 +467,14 @@
             tabPage3 = new System.Windows.Forms.TabPage();
             tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             panel11 = new System.Windows.Forms.Panel();
+            Button_DawkaTestowaPrzegub = new System.Windows.Forms.Button();
             DB669Input49PassedValue = new System.Windows.Forms.TextBox();
             label50 = new System.Windows.Forms.Label();
             label54 = new System.Windows.Forms.Label();
-            checkBox_DawkaTestowaPrzegub = new System.Windows.Forms.CheckBox();
             panel14 = new System.Windows.Forms.Panel();
+            Button_DawkaTestowaTulip = new System.Windows.Forms.Button();
             DB669Input50PassedValue = new System.Windows.Forms.TextBox();
             label53 = new System.Windows.Forms.Label();
-            checkBox_DawkaTestowaTulip = new System.Windows.Forms.CheckBox();
             label47 = new System.Windows.Forms.Label();
             checkBox_TestLampek = new System.Windows.Forms.CheckBox();
             tabPage1 = new System.Windows.Forms.TabPage();
@@ -479,12 +491,12 @@
             label44 = new System.Windows.Forms.Label();
             DB667SilaWOknie = new System.Windows.Forms.TextBox();
             label43 = new System.Windows.Forms.Label();
-            DB667AktDawkaPrzegub = new System.Windows.Forms.TextBox();
+            DB667DawkaPrzegub = new System.Windows.Forms.TextBox();
             label65 = new System.Windows.Forms.Label();
             label42 = new System.Windows.Forms.Label();
             DB667PozycjadyszaPozioma = new System.Windows.Forms.TextBox();
             label25 = new System.Windows.Forms.Label();
-            DB667AktDawkaTulip = new System.Windows.Forms.TextBox();
+            DB667DawkaTulip = new System.Windows.Forms.TextBox();
             DB667PozycjaDyszaPionowa = new System.Windows.Forms.TextBox();
             label21 = new System.Windows.Forms.Label();
             DB667PozycjaGniazdoDolne = new System.Windows.Forms.TextBox();
@@ -515,16 +527,6 @@
             tableLayoutPanel19 = new System.Windows.Forms.TableLayoutPanel();
             tableLayoutPanel20 = new System.Windows.Forms.TableLayoutPanel();
             PróbyUruchomieniaKomunikacjizPLC = new System.Windows.Forms.Timer(components);
-            label23 = new System.Windows.Forms.Label();
-            DB669Output12 = new System.Windows.Forms.TextBox();
-            DB669Output13 = new System.Windows.Forms.TextBox();
-            DB669Output20 = new System.Windows.Forms.TextBox();
-            DB669Output16 = new System.Windows.Forms.TextBox();
-            DB669Output19 = new System.Windows.Forms.TextBox();
-            DB669Output18 = new System.Windows.Forms.TextBox();
-            DB669Output17 = new System.Windows.Forms.TextBox();
-            DB669Output14 = new System.Windows.Forms.TextBox();
-            DB669Output15 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             tabPage7.SuspendLayout();
             tabPage9.SuspendLayout();
@@ -646,7 +648,7 @@
             // listBoxWarningsView
             // 
             listBoxWarningsView.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
-            listBoxWarningsView.BackColor = System.Drawing.Color.LimeGreen;
+            listBoxWarningsView.BackColor = System.Drawing.SystemColors.Control;
             resources.ApplyResources(listBoxWarningsView, "listBoxWarningsView");
             listBoxWarningsView.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             listBoxWarningsView.ForeColor = System.Drawing.SystemColors.Desktop;
@@ -736,28 +738,38 @@
             // 
             // DB667Auto
             // 
+            DB667Auto.BackColor = System.Drawing.Color.White;
             resources.ApplyResources(DB667Auto, "DB667Auto");
             DB667Auto.Name = "DB667Auto";
+            DB667Auto.ReadOnly = true;
             // 
             // DB667Man
             // 
+            DB667Man.BackColor = System.Drawing.Color.White;
             resources.ApplyResources(DB667Man, "DB667Man");
             DB667Man.Name = "DB667Man";
+            DB667Man.ReadOnly = true;
             // 
             // DB667Safety
             // 
+            DB667Safety.BackColor = System.Drawing.Color.White;
             resources.ApplyResources(DB667Safety, "DB667Safety");
             DB667Safety.Name = "DB667Safety";
+            DB667Safety.ReadOnly = true;
             // 
             // DB667Kurtyna
             // 
+            DB667Kurtyna.BackColor = System.Drawing.Color.White;
             resources.ApplyResources(DB667Kurtyna, "DB667Kurtyna");
             DB667Kurtyna.Name = "DB667Kurtyna";
+            DB667Kurtyna.ReadOnly = true;
             // 
             // DB667PozWyj
             // 
+            DB667PozWyj.BackColor = System.Drawing.Color.White;
             resources.ApplyResources(DB667PozWyj, "DB667PozWyj");
             DB667PozWyj.Name = "DB667PozWyj";
+            DB667PozWyj.ReadOnly = true;
             // 
             // tabPage7
             // 
@@ -1520,6 +1532,51 @@
             resources.ApplyResources(panel12, "panel12");
             panel12.Name = "panel12";
             // 
+            // DB669Output12
+            // 
+            resources.ApplyResources(DB669Output12, "DB669Output12");
+            DB669Output12.Name = "DB669Output12";
+            // 
+            // DB669Output13
+            // 
+            resources.ApplyResources(DB669Output13, "DB669Output13");
+            DB669Output13.Name = "DB669Output13";
+            // 
+            // DB669Output20
+            // 
+            resources.ApplyResources(DB669Output20, "DB669Output20");
+            DB669Output20.Name = "DB669Output20";
+            // 
+            // DB669Output16
+            // 
+            resources.ApplyResources(DB669Output16, "DB669Output16");
+            DB669Output16.Name = "DB669Output16";
+            // 
+            // DB669Output19
+            // 
+            resources.ApplyResources(DB669Output19, "DB669Output19");
+            DB669Output19.Name = "DB669Output19";
+            // 
+            // DB669Output18
+            // 
+            resources.ApplyResources(DB669Output18, "DB669Output18");
+            DB669Output18.Name = "DB669Output18";
+            // 
+            // DB669Output17
+            // 
+            resources.ApplyResources(DB669Output17, "DB669Output17");
+            DB669Output17.Name = "DB669Output17";
+            // 
+            // DB669Output14
+            // 
+            resources.ApplyResources(DB669Output14, "DB669Output14");
+            DB669Output14.Name = "DB669Output14";
+            // 
+            // DB669Output15
+            // 
+            resources.ApplyResources(DB669Output15, "DB669Output15");
+            DB669Output15.Name = "DB669Output15";
+            // 
             // label186
             // 
             resources.ApplyResources(label186, "label186");
@@ -2172,20 +2229,13 @@
             // 
             tableLayoutPanel14.BackColor = System.Drawing.Color.White;
             resources.ApplyResources(tableLayoutPanel14, "tableLayoutPanel14");
-            tableLayoutPanel14.Controls.Add(StatusyLogowania, 1, 0);
             tableLayoutPanel14.Controls.Add(label_EdycjaUzytkownikow, 1, 1);
             tableLayoutPanel14.Controls.Add(label_DodanieUzytkownikow, 0, 1);
             tableLayoutPanel14.Controls.Add(panel5, 0, 2);
             tableLayoutPanel14.Controls.Add(panel7, 1, 2);
             tableLayoutPanel14.Controls.Add(panel8, 0, 0);
+            tableLayoutPanel14.Controls.Add(StatusyLogowania, 1, 0);
             tableLayoutPanel14.Name = "tableLayoutPanel14";
-            // 
-            // StatusyLogowania
-            // 
-            resources.ApplyResources(StatusyLogowania, "StatusyLogowania");
-            StatusyLogowania.BackColor = System.Drawing.Color.Gold;
-            StatusyLogowania.FormattingEnabled = true;
-            StatusyLogowania.Name = "StatusyLogowania";
             // 
             // label_EdycjaUzytkownikow
             // 
@@ -2364,7 +2414,12 @@
             resources.ApplyResources(button_ZalogujUzytk, "button_ZalogujUzytk");
             button_ZalogujUzytk.Name = "button_ZalogujUzytk";
             button_ZalogujUzytk.UseVisualStyleBackColor = true;
-            button_ZalogujUzytk.Click += button9_Click_1;
+            button_ZalogujUzytk.Click += buttonZalogujUzytk;
+            // 
+            // StatusyLogowania
+            // 
+            resources.ApplyResources(StatusyLogowania, "StatusyLogowania");
+            StatusyLogowania.Name = "StatusyLogowania";
             // 
             // label56
             // 
@@ -2669,6 +2724,8 @@
             // 
             // Przeciskanie
             // 
+            Przeciskanie.Controls.Add(DB666DojazdWolny_Przeciskanie);
+            Przeciskanie.Controls.Add(label120);
             Przeciskanie.Controls.Add(label31);
             Przeciskanie.Controls.Add(DB666SilaMin_Przeciskanie);
             Przeciskanie.Controls.Add(label27);
@@ -2682,6 +2739,17 @@
             resources.ApplyResources(Przeciskanie, "Przeciskanie");
             Przeciskanie.Name = "Przeciskanie";
             Przeciskanie.UseVisualStyleBackColor = true;
+            // 
+            // DB666DojazdWolny_Przeciskanie
+            // 
+            resources.ApplyResources(DB666DojazdWolny_Przeciskanie, "DB666DojazdWolny_Przeciskanie");
+            DB666DojazdWolny_Przeciskanie.Name = "DB666DojazdWolny_Przeciskanie";
+            DB666DojazdWolny_Przeciskanie.Tag = "DB666.DojazdWolny";
+            // 
+            // label120
+            // 
+            resources.ApplyResources(label120, "label120");
+            label120.Name = "label120";
             // 
             // label31
             // 
@@ -2973,6 +3041,13 @@
             resources.ApplyResources(label22, "label22");
             label22.Name = "label22";
             // 
+            // label23
+            // 
+            label23.BackColor = System.Drawing.Color.White;
+            label23.ForeColor = System.Drawing.SystemColors.ControlText;
+            resources.ApplyResources(label23, "label23");
+            label23.Name = "label23";
+            // 
             // RFID
             // 
             RFID.Controls.Add(DB666TagRFIDGlowicaGorna);
@@ -3114,8 +3189,8 @@
             panel2.Controls.Add(DB667PozycjadyszaPozioma_PassedValue);
             panel2.Controls.Add(label55);
             panel2.Controls.Add(DB667PozycjaDyszaPionowa_PassedValue);
-            panel2.Controls.Add(checkBox6);
-            panel2.Controls.Add(checkBox5);
+            panel2.Controls.Add(checkBox_DyszaPionowa);
+            panel2.Controls.Add(checkBox_DyszaPozioma);
             panel2.Controls.Add(checkBox_ChwytakDolny);
             panel2.Controls.Add(checkBox_UkladPodnoszenia);
             panel2.Controls.Add(checkBox_Serwo18U1);
@@ -3129,8 +3204,10 @@
             // 
             // DB667PozycjaOslonki_PassedValue
             // 
+            DB667PozycjaOslonki_PassedValue.BackColor = System.Drawing.SystemColors.Window;
             resources.ApplyResources(DB667PozycjaOslonki_PassedValue, "DB667PozycjaOslonki_PassedValue");
             DB667PozycjaOslonki_PassedValue.Name = "DB667PozycjaOslonki_PassedValue";
+            DB667PozycjaOslonki_PassedValue.ReadOnly = true;
             DB667PozycjaOslonki_PassedValue.Tag = "";
             // 
             // label228
@@ -3141,8 +3218,10 @@
             // 
             // DB667PozycjaOslonkiLinial
             // 
+            DB667PozycjaOslonkiLinial.BackColor = System.Drawing.SystemColors.Window;
             resources.ApplyResources(DB667PozycjaOslonkiLinial, "DB667PozycjaOslonkiLinial");
             DB667PozycjaOslonkiLinial.Name = "DB667PozycjaOslonkiLinial";
+            DB667PozycjaOslonkiLinial.ReadOnly = true;
             DB667PozycjaOslonkiLinial.Tag = "";
             // 
             // label227
@@ -3159,8 +3238,10 @@
             // 
             // DB667PozycjaGniazdoDolne_PassedValue
             // 
+            DB667PozycjaGniazdoDolne_PassedValue.BackColor = System.Drawing.SystemColors.Window;
             resources.ApplyResources(DB667PozycjaGniazdoDolne_PassedValue, "DB667PozycjaGniazdoDolne_PassedValue");
             DB667PozycjaGniazdoDolne_PassedValue.Name = "DB667PozycjaGniazdoDolne_PassedValue";
+            DB667PozycjaGniazdoDolne_PassedValue.ReadOnly = true;
             DB667PozycjaGniazdoDolne_PassedValue.Tag = "";
             // 
             // label225
@@ -3171,8 +3252,10 @@
             // 
             // DB667PozycjaGniazdoDolneLinial
             // 
+            DB667PozycjaGniazdoDolneLinial.BackColor = System.Drawing.SystemColors.Window;
             resources.ApplyResources(DB667PozycjaGniazdoDolneLinial, "DB667PozycjaGniazdoDolneLinial");
             DB667PozycjaGniazdoDolneLinial.Name = "DB667PozycjaGniazdoDolneLinial";
+            DB667PozycjaGniazdoDolneLinial.ReadOnly = true;
             DB667PozycjaGniazdoDolneLinial.Tag = "";
             // 
             // label224
@@ -3183,8 +3266,10 @@
             // 
             // DB667PozycjaPrzeciskanie_PassedValue
             // 
+            DB667PozycjaPrzeciskanie_PassedValue.BackColor = System.Drawing.SystemColors.Window;
             resources.ApplyResources(DB667PozycjaPrzeciskanie_PassedValue, "DB667PozycjaPrzeciskanie_PassedValue");
             DB667PozycjaPrzeciskanie_PassedValue.Name = "DB667PozycjaPrzeciskanie_PassedValue";
+            DB667PozycjaPrzeciskanie_PassedValue.ReadOnly = true;
             DB667PozycjaPrzeciskanie_PassedValue.Tag = "";
             // 
             // label223
@@ -3195,14 +3280,18 @@
             // 
             // DB667PozycjaPrzeciskanieLinial
             // 
+            DB667PozycjaPrzeciskanieLinial.BackColor = System.Drawing.SystemColors.Window;
             resources.ApplyResources(DB667PozycjaPrzeciskanieLinial, "DB667PozycjaPrzeciskanieLinial");
             DB667PozycjaPrzeciskanieLinial.Name = "DB667PozycjaPrzeciskanieLinial";
+            DB667PozycjaPrzeciskanieLinial.ReadOnly = true;
             DB667PozycjaPrzeciskanieLinial.Tag = "";
             // 
             // DB667AktSila_PassedValue
             // 
+            DB667AktSila_PassedValue.BackColor = System.Drawing.SystemColors.Window;
             resources.ApplyResources(DB667AktSila_PassedValue, "DB667AktSila_PassedValue");
             DB667AktSila_PassedValue.Name = "DB667AktSila_PassedValue";
+            DB667AktSila_PassedValue.ReadOnly = true;
             DB667AktSila_PassedValue.Tag = "";
             // 
             // label57
@@ -3219,8 +3308,10 @@
             // 
             // DB667PozycjadyszaPozioma_PassedValue
             // 
+            DB667PozycjadyszaPozioma_PassedValue.BackColor = System.Drawing.SystemColors.Window;
             resources.ApplyResources(DB667PozycjadyszaPozioma_PassedValue, "DB667PozycjadyszaPozioma_PassedValue");
             DB667PozycjadyszaPozioma_PassedValue.Name = "DB667PozycjadyszaPozioma_PassedValue";
+            DB667PozycjadyszaPozioma_PassedValue.ReadOnly = true;
             DB667PozycjadyszaPozioma_PassedValue.Tag = "";
             // 
             // label55
@@ -3231,29 +3322,35 @@
             // 
             // DB667PozycjaDyszaPionowa_PassedValue
             // 
+            DB667PozycjaDyszaPionowa_PassedValue.BackColor = System.Drawing.SystemColors.Window;
             resources.ApplyResources(DB667PozycjaDyszaPionowa_PassedValue, "DB667PozycjaDyszaPionowa_PassedValue");
             DB667PozycjaDyszaPionowa_PassedValue.Name = "DB667PozycjaDyszaPionowa_PassedValue";
+            DB667PozycjaDyszaPionowa_PassedValue.ReadOnly = true;
             DB667PozycjaDyszaPionowa_PassedValue.Tag = "";
             // 
-            // checkBox6
+            // checkBox_DyszaPionowa
             // 
-            resources.ApplyResources(checkBox6, "checkBox6");
-            checkBox6.BackColor = System.Drawing.Color.Transparent;
-            checkBox6.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            checkBox6.FlatAppearance.CheckedBackColor = System.Drawing.Color.Lime;
-            checkBox6.Name = "checkBox6";
-            checkBox6.Tag = "DB667.NrOfDeviceToControl";
-            checkBox6.UseVisualStyleBackColor = false;
+            resources.ApplyResources(checkBox_DyszaPionowa, "checkBox_DyszaPionowa");
+            checkBox_DyszaPionowa.BackColor = System.Drawing.Color.Transparent;
+            checkBox_DyszaPionowa.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            checkBox_DyszaPionowa.FlatAppearance.CheckedBackColor = System.Drawing.Color.Lime;
+            checkBox_DyszaPionowa.Name = "checkBox_DyszaPionowa";
+            checkBox_DyszaPionowa.Tag = "DB667.NrOfDeviceToControl";
+            checkBox_DyszaPionowa.UseVisualStyleBackColor = false;
+            checkBox_DyszaPionowa.CheckedChanged += checkBox_DyszaPionowa_Checked;
+            checkBox_DyszaPionowa.CheckStateChanged += checkBox_DyszaPionowa_CheckedStateChanged;
             // 
-            // checkBox5
+            // checkBox_DyszaPozioma
             // 
-            resources.ApplyResources(checkBox5, "checkBox5");
-            checkBox5.BackColor = System.Drawing.Color.Transparent;
-            checkBox5.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            checkBox5.FlatAppearance.CheckedBackColor = System.Drawing.Color.Lime;
-            checkBox5.Name = "checkBox5";
-            checkBox5.Tag = "DB667.NrOfDeviceToControl";
-            checkBox5.UseVisualStyleBackColor = false;
+            resources.ApplyResources(checkBox_DyszaPozioma, "checkBox_DyszaPozioma");
+            checkBox_DyszaPozioma.BackColor = System.Drawing.Color.Transparent;
+            checkBox_DyszaPozioma.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            checkBox_DyszaPozioma.FlatAppearance.CheckedBackColor = System.Drawing.Color.Lime;
+            checkBox_DyszaPozioma.Name = "checkBox_DyszaPozioma";
+            checkBox_DyszaPozioma.Tag = "DB667.NrOfDeviceToControl";
+            checkBox_DyszaPozioma.UseVisualStyleBackColor = false;
+            checkBox_DyszaPozioma.CheckedChanged += checkBox_DyszaPozioma_Checked;
+            checkBox_DyszaPozioma.CheckStateChanged += checkBox_DyszaPozioma_CheckedStateChanged;
             // 
             // checkBox_ChwytakDolny
             // 
@@ -3376,12 +3473,20 @@
             // panel11
             // 
             panel11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            panel11.Controls.Add(Button_DawkaTestowaPrzegub);
             panel11.Controls.Add(DB669Input49PassedValue);
             panel11.Controls.Add(label50);
             panel11.Controls.Add(label54);
-            panel11.Controls.Add(checkBox_DawkaTestowaPrzegub);
             resources.ApplyResources(panel11, "panel11");
             panel11.Name = "panel11";
+            // 
+            // Button_DawkaTestowaPrzegub
+            // 
+            resources.ApplyResources(Button_DawkaTestowaPrzegub, "Button_DawkaTestowaPrzegub");
+            Button_DawkaTestowaPrzegub.Name = "Button_DawkaTestowaPrzegub";
+            Button_DawkaTestowaPrzegub.Tag = "DB667.NrOfDeviceToControl";
+            Button_DawkaTestowaPrzegub.UseVisualStyleBackColor = true;
+            Button_DawkaTestowaPrzegub.Click += Button_DawkaTestowaPrzegub_Click;
             // 
             // DB669Input49PassedValue
             // 
@@ -3400,25 +3505,23 @@
             resources.ApplyResources(label54, "label54");
             label54.Name = "label54";
             // 
-            // checkBox_DawkaTestowaPrzegub
-            // 
-            resources.ApplyResources(checkBox_DawkaTestowaPrzegub, "checkBox_DawkaTestowaPrzegub");
-            checkBox_DawkaTestowaPrzegub.BackColor = System.Drawing.Color.Transparent;
-            checkBox_DawkaTestowaPrzegub.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            checkBox_DawkaTestowaPrzegub.FlatAppearance.CheckedBackColor = System.Drawing.Color.Lime;
-            checkBox_DawkaTestowaPrzegub.Name = "checkBox_DawkaTestowaPrzegub";
-            checkBox_DawkaTestowaPrzegub.Tag = "DB667.NrOfDeviceToControl";
-            checkBox_DawkaTestowaPrzegub.UseVisualStyleBackColor = false;
-            // 
             // panel14
             // 
             panel14.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            panel14.Controls.Add(Button_DawkaTestowaTulip);
             panel14.Controls.Add(DB669Input50PassedValue);
             panel14.Controls.Add(label53);
-            panel14.Controls.Add(checkBox_DawkaTestowaTulip);
             panel14.Controls.Add(label47);
             resources.ApplyResources(panel14, "panel14");
             panel14.Name = "panel14";
+            // 
+            // Button_DawkaTestowaTulip
+            // 
+            resources.ApplyResources(Button_DawkaTestowaTulip, "Button_DawkaTestowaTulip");
+            Button_DawkaTestowaTulip.Name = "Button_DawkaTestowaTulip";
+            Button_DawkaTestowaTulip.Tag = "DB667.NrOfDeviceToControl";
+            Button_DawkaTestowaTulip.UseVisualStyleBackColor = true;
+            Button_DawkaTestowaTulip.Click += Button_DawkaTestowaTulip_Click;
             // 
             // DB669Input50PassedValue
             // 
@@ -3429,16 +3532,6 @@
             // 
             resources.ApplyResources(label53, "label53");
             label53.Name = "label53";
-            // 
-            // checkBox_DawkaTestowaTulip
-            // 
-            resources.ApplyResources(checkBox_DawkaTestowaTulip, "checkBox_DawkaTestowaTulip");
-            checkBox_DawkaTestowaTulip.BackColor = System.Drawing.Color.Transparent;
-            checkBox_DawkaTestowaTulip.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            checkBox_DawkaTestowaTulip.FlatAppearance.CheckedBackColor = System.Drawing.Color.Lime;
-            checkBox_DawkaTestowaTulip.Name = "checkBox_DawkaTestowaTulip";
-            checkBox_DawkaTestowaTulip.Tag = "DB667.NrOfDeviceToControl";
-            checkBox_DawkaTestowaTulip.UseVisualStyleBackColor = false;
             // 
             // label47
             // 
@@ -3505,12 +3598,12 @@
             panel1.Controls.Add(label44);
             panel1.Controls.Add(DB667SilaWOknie);
             panel1.Controls.Add(label43);
-            panel1.Controls.Add(DB667AktDawkaPrzegub);
+            panel1.Controls.Add(DB667DawkaPrzegub);
             panel1.Controls.Add(label65);
             panel1.Controls.Add(label42);
             panel1.Controls.Add(DB667PozycjadyszaPozioma);
             panel1.Controls.Add(label25);
-            panel1.Controls.Add(DB667AktDawkaTulip);
+            panel1.Controls.Add(DB667DawkaTulip);
             panel1.Controls.Add(DB667PozycjaDyszaPionowa);
             panel1.Controls.Add(label21);
             panel1.Controls.Add(DB667PozycjaGniazdoDolne);
@@ -3534,6 +3627,7 @@
             Button_Rework.Name = "Button_Rework";
             Button_Rework.Tag = "DB667.NrOfDeviceToControl";
             Button_Rework.UseVisualStyleBackColor = true;
+            Button_Rework.Click += Button_Rework_Click;
             // 
             // Button_ResetSztukNOK
             // 
@@ -3541,6 +3635,7 @@
             Button_ResetSztukNOK.Name = "Button_ResetSztukNOK";
             Button_ResetSztukNOK.Tag = "DB667.NrOfDeviceToControl";
             Button_ResetSztukNOK.UseVisualStyleBackColor = true;
+            Button_ResetSztukNOK.Click += Button_ResetSztukNOK_Click;
             // 
             // label46
             // 
@@ -3554,11 +3649,14 @@
             Button_ResetSztukOK.Name = "Button_ResetSztukOK";
             Button_ResetSztukOK.Tag = "DB667.NrOfDeviceToControl";
             Button_ResetSztukOK.UseVisualStyleBackColor = true;
+            Button_ResetSztukOK.Click += Button_ResetSztukOK_Click;
             // 
             // DB667KodEtykiety
             // 
+            DB667KodEtykiety.BackColor = System.Drawing.SystemColors.Window;
             resources.ApplyResources(DB667KodEtykiety, "DB667KodEtykiety");
             DB667KodEtykiety.Name = "DB667KodEtykiety";
+            DB667KodEtykiety.ReadOnly = true;
             DB667KodEtykiety.Tag = "";
             // 
             // label44
@@ -3569,8 +3667,10 @@
             // 
             // DB667SilaWOknie
             // 
+            DB667SilaWOknie.BackColor = System.Drawing.SystemColors.Window;
             resources.ApplyResources(DB667SilaWOknie, "DB667SilaWOknie");
             DB667SilaWOknie.Name = "DB667SilaWOknie";
+            DB667SilaWOknie.ReadOnly = true;
             DB667SilaWOknie.Tag = "";
             // 
             // label43
@@ -3579,11 +3679,13 @@
             label43.BackColor = System.Drawing.Color.White;
             label43.Name = "label43";
             // 
-            // DB667AktDawkaPrzegub
+            // DB667DawkaPrzegub
             // 
-            resources.ApplyResources(DB667AktDawkaPrzegub, "DB667AktDawkaPrzegub");
-            DB667AktDawkaPrzegub.Name = "DB667AktDawkaPrzegub";
-            DB667AktDawkaPrzegub.Tag = "";
+            DB667DawkaPrzegub.BackColor = System.Drawing.SystemColors.Window;
+            resources.ApplyResources(DB667DawkaPrzegub, "DB667DawkaPrzegub");
+            DB667DawkaPrzegub.Name = "DB667DawkaPrzegub";
+            DB667DawkaPrzegub.ReadOnly = true;
+            DB667DawkaPrzegub.Tag = "";
             // 
             // label65
             // 
@@ -3599,8 +3701,10 @@
             // 
             // DB667PozycjadyszaPozioma
             // 
+            DB667PozycjadyszaPozioma.BackColor = System.Drawing.SystemColors.Window;
             resources.ApplyResources(DB667PozycjadyszaPozioma, "DB667PozycjadyszaPozioma");
             DB667PozycjadyszaPozioma.Name = "DB667PozycjadyszaPozioma";
+            DB667PozycjadyszaPozioma.ReadOnly = true;
             DB667PozycjadyszaPozioma.Tag = "";
             // 
             // label25
@@ -3609,16 +3713,20 @@
             label25.BackColor = System.Drawing.Color.White;
             label25.Name = "label25";
             // 
-            // DB667AktDawkaTulip
+            // DB667DawkaTulip
             // 
-            resources.ApplyResources(DB667AktDawkaTulip, "DB667AktDawkaTulip");
-            DB667AktDawkaTulip.Name = "DB667AktDawkaTulip";
-            DB667AktDawkaTulip.Tag = "";
+            DB667DawkaTulip.BackColor = System.Drawing.SystemColors.Window;
+            resources.ApplyResources(DB667DawkaTulip, "DB667DawkaTulip");
+            DB667DawkaTulip.Name = "DB667DawkaTulip";
+            DB667DawkaTulip.ReadOnly = true;
+            DB667DawkaTulip.Tag = "";
             // 
             // DB667PozycjaDyszaPionowa
             // 
+            DB667PozycjaDyszaPionowa.BackColor = System.Drawing.SystemColors.Window;
             resources.ApplyResources(DB667PozycjaDyszaPionowa, "DB667PozycjaDyszaPionowa");
             DB667PozycjaDyszaPionowa.Name = "DB667PozycjaDyszaPionowa";
+            DB667PozycjaDyszaPionowa.ReadOnly = true;
             DB667PozycjaDyszaPionowa.Tag = "";
             // 
             // label21
@@ -3629,14 +3737,18 @@
             // 
             // DB667PozycjaGniazdoDolne
             // 
+            DB667PozycjaGniazdoDolne.BackColor = System.Drawing.SystemColors.Window;
             resources.ApplyResources(DB667PozycjaGniazdoDolne, "DB667PozycjaGniazdoDolne");
             DB667PozycjaGniazdoDolne.Name = "DB667PozycjaGniazdoDolne";
+            DB667PozycjaGniazdoDolne.ReadOnly = true;
             DB667PozycjaGniazdoDolne.Tag = "";
             // 
             // DB667AktSila
             // 
+            DB667AktSila.BackColor = System.Drawing.SystemColors.Window;
             resources.ApplyResources(DB667AktSila, "DB667AktSila");
             DB667AktSila.Name = "DB667AktSila";
+            DB667AktSila.ReadOnly = true;
             DB667AktSila.Tag = "";
             // 
             // label_SztukiOK
@@ -3653,8 +3765,10 @@
             // 
             // DB667PozycjaOslonki
             // 
+            DB667PozycjaOslonki.BackColor = System.Drawing.SystemColors.Window;
             resources.ApplyResources(DB667PozycjaOslonki, "DB667PozycjaOslonki");
             DB667PozycjaOslonki.Name = "DB667PozycjaOslonki";
+            DB667PozycjaOslonki.ReadOnly = true;
             DB667PozycjaOslonki.Tag = "";
             // 
             // label48
@@ -3665,8 +3779,10 @@
             // 
             // DB667PozycjaPrzeciskanie
             // 
+            DB667PozycjaPrzeciskanie.BackColor = System.Drawing.SystemColors.Window;
             resources.ApplyResources(DB667PozycjaPrzeciskanie, "DB667PozycjaPrzeciskanie");
             DB667PozycjaPrzeciskanie.Name = "DB667PozycjaPrzeciskanie";
+            DB667PozycjaPrzeciskanie.ReadOnly = true;
             DB667PozycjaPrzeciskanie.Tag = "";
             // 
             // label_SztukiNOK
@@ -3684,13 +3800,17 @@
             // DB667SztukiNOK
             // 
             resources.ApplyResources(DB667SztukiNOK, "DB667SztukiNOK");
+            DB667SztukiNOK.BackColor = System.Drawing.SystemColors.Window;
             DB667SztukiNOK.Name = "DB667SztukiNOK";
+            DB667SztukiNOK.ReadOnly = true;
             DB667SztukiNOK.Tag = "";
             // 
             // DB667SztukiOK
             // 
             resources.ApplyResources(DB667SztukiOK, "DB667SztukiOK");
+            DB667SztukiOK.BackColor = System.Drawing.SystemColors.Window;
             DB667SztukiOK.Name = "DB667SztukiOK";
+            DB667SztukiOK.ReadOnly = true;
             DB667SztukiOK.Tag = "";
             // 
             // Label_AktualneDane
@@ -3714,18 +3834,18 @@
             dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.ColumnHeadersVisible = false;
             dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { Column2 });
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            dataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.OrangeRed;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 238);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.OrangeRed;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
             resources.ApplyResources(dataGridView1, "dataGridView1");
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersVisible = false;
-            dataGridView1.RowTemplate.Height = 50;
+            dataGridView1.RowTemplate.Height = 33;
             // 
             // Column2
             // 
@@ -3815,7 +3935,7 @@
             // 
             // TimerDoKoloruDataGridView1
             // 
-            TimerDoKoloruDataGridView1.Interval = 500;
+            TimerDoKoloruDataGridView1.Interval = 1500;
             TimerDoKoloruDataGridView1.Tick += TimerDoKoloruDataGridView1_Tick;
             // 
             // tableLayoutPanel19
@@ -3835,58 +3955,6 @@
             // 
             PróbyUruchomieniaKomunikacjizPLC.Interval = 2000;
             PróbyUruchomieniaKomunikacjizPLC.Tick += Timer1_Tick_1;
-            // 
-            // label23
-            // 
-            label23.BackColor = System.Drawing.Color.White;
-            label23.ForeColor = System.Drawing.SystemColors.ControlText;
-            resources.ApplyResources(label23, "label23");
-            label23.Name = "label23";
-            // 
-            // DB669Output12
-            // 
-            resources.ApplyResources(DB669Output12, "DB669Output12");
-            DB669Output12.Name = "DB669Output12";
-            // 
-            // DB669Output13
-            // 
-            resources.ApplyResources(DB669Output13, "DB669Output13");
-            DB669Output13.Name = "DB669Output13";
-            // 
-            // DB669Output20
-            // 
-            resources.ApplyResources(DB669Output20, "DB669Output20");
-            DB669Output20.Name = "DB669Output20";
-            // 
-            // DB669Output16
-            // 
-            resources.ApplyResources(DB669Output16, "DB669Output16");
-            DB669Output16.Name = "DB669Output16";
-            // 
-            // DB669Output19
-            // 
-            resources.ApplyResources(DB669Output19, "DB669Output19");
-            DB669Output19.Name = "DB669Output19";
-            // 
-            // DB669Output18
-            // 
-            resources.ApplyResources(DB669Output18, "DB669Output18");
-            DB669Output18.Name = "DB669Output18";
-            // 
-            // DB669Output17
-            // 
-            resources.ApplyResources(DB669Output17, "DB669Output17");
-            DB669Output17.Name = "DB669Output17";
-            // 
-            // DB669Output14
-            // 
-            resources.ApplyResources(DB669Output14, "DB669Output14");
-            DB669Output14.Name = "DB669Output14";
-            // 
-            // DB669Output15
-            // 
-            resources.ApplyResources(DB669Output15, "DB669Output15");
-            DB669Output15.Name = "DB669Output15";
             // 
             // Form1
             // 
@@ -3930,6 +3998,7 @@
             tabPage5.ResumeLayout(false);
             tabPage5.PerformLayout();
             tableLayoutPanel14.ResumeLayout(false);
+            tableLayoutPanel14.PerformLayout();
             panel5.ResumeLayout(false);
             panel5.PerformLayout();
             panel7.ResumeLayout(false);
@@ -4102,7 +4171,6 @@
         private System.Windows.Forms.Label label_ObecniUzytkWBazie;
         private System.Windows.Forms.Label label59;
         public System.Windows.Forms.Button button_ZalogujUzytk;
-        public System.Windows.Forms.ListBox StatusyLogowania;
         private System.Windows.Forms.Label label56;
         public System.Windows.Forms.Button buttonDodajUzytkownika;
         private System.Windows.Forms.TabPage tabPage4;
@@ -4193,7 +4261,7 @@
         public System.Windows.Forms.TextBox DB667CzasCyklu;
         private System.Windows.Forms.Label label48;
         public System.Windows.Forms.TextBox DB667SztukiOK;
-        public System.Windows.Forms.TextBox DB667AktDawkaTulip;
+        public System.Windows.Forms.TextBox DB667DawkaTulip;
         private System.Windows.Forms.Label label_SztukiNOK;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
@@ -4273,24 +4341,22 @@
         private System.Windows.Forms.Label label44;
         public System.Windows.Forms.TextBox DB667SilaWOknie;
         private System.Windows.Forms.Label label43;
-        public System.Windows.Forms.TextBox DB667AktDawkaPrzegub;
+        public System.Windows.Forms.TextBox DB667DawkaPrzegub;
         private System.Windows.Forms.Label label42;
         public System.Windows.Forms.TextBox DB667PozycjadyszaPozioma;
         private System.Windows.Forms.Label label25;
         public System.Windows.Forms.TextBox DB667PozycjaDyszaPionowa;
         private System.Windows.Forms.Label label21;
         public System.Windows.Forms.TextBox DB667PozycjaGniazdoDolne;
-        public System.Windows.Forms.CheckBox checkBox5;
-        public System.Windows.Forms.CheckBox checkBox6;
+        public System.Windows.Forms.CheckBox checkBox_DyszaPozioma;
+        public System.Windows.Forms.CheckBox checkBox_DyszaPionowa;
         public System.Windows.Forms.CheckBox checkBox_TestLampek;
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.Label label50;
         private System.Windows.Forms.Panel panel14;
-        public System.Windows.Forms.CheckBox checkBox_DawkaTestowaTulip;
         private System.Windows.Forms.Label label47;
         public System.Windows.Forms.TextBox DB669Input49PassedValue;
         private System.Windows.Forms.Label label54;
-        public System.Windows.Forms.CheckBox checkBox_DawkaTestowaPrzegub;
         public System.Windows.Forms.TextBox DB669Input50PassedValue;
         private System.Windows.Forms.Label label53;
         private System.Windows.Forms.Label label61;
@@ -4499,6 +4565,10 @@
         public System.Windows.Forms.TextBox DB669Output14;
         public System.Windows.Forms.TextBox DB669Output15;
         private System.Windows.Forms.Label label23;
+        public System.Windows.Forms.TextBox DB666DojazdWolny_Przeciskanie;
+        public System.Windows.Forms.Button Button_DawkaTestowaPrzegub;
+        public System.Windows.Forms.Button Button_DawkaTestowaTulip;
+        public System.Windows.Forms.TextBox StatusyLogowania;
     }
 }
 

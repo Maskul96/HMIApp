@@ -100,6 +100,7 @@ namespace HMIApp.Components.UserAdministration
                         Form1._Form1.label_Uprawnienia.Text = "Operator";
                         break;
                 }
+                Form1._Form1.StatusyLogowania.Text = "Użytkownik zalogowany";
                 //Obsluga odliczania czasu do wylogowania
                 Form1._Form1.TimeoutWylogowania.Enabled = true;
                 Form1._Form1.label13.Text = Interval.ToString();
@@ -139,7 +140,7 @@ namespace HMIApp.Components.UserAdministration
                     //Zapis ppliku
                     document.Save("document.xml");
                     //Komunikat dla usera
-                    Form1._Form1.StatusyLogowania.Items.Add("Użytkownik dodany");
+                    Form1._Form1.StatusyLogowania.Text = ("Użytkownik dodany");
 
                     //Wyczyszczenie i nastepnie update listy w combobox
                     ClearListInComboBox();
@@ -148,13 +149,13 @@ namespace HMIApp.Components.UserAdministration
                 else
                 {
                     //Komunikat dla usera
-                    Form1._Form1.StatusyLogowania.Items.Add("Użytkownik już istnieje!");
+                    Form1._Form1.StatusyLogowania.Text = ("Użytkownik już istnieje!");
                 }
             }
             else
             {
                 //Komunikat dla usera
-                Form1._Form1.StatusyLogowania.Items.Add("Niepoprawne dane");
+                Form1._Form1.StatusyLogowania.Text = ("Niepoprawne dane");
             }
 
             Form1._Form1.CzyszczenieStatusówLogowania.Enabled = true;
@@ -186,7 +187,7 @@ namespace HMIApp.Components.UserAdministration
                 document.Save("document.xml");
 
                 //Komunikat dla usera
-                Form1._Form1.StatusyLogowania.Items.Add("Użytkownik zedytowany");
+                Form1._Form1.StatusyLogowania.Text = ("Użytkownik zedytowany");
 
                 //Wyczyszczenie i nastepnie update listy w combobox
                 ClearListInComboBox();
@@ -195,7 +196,7 @@ namespace HMIApp.Components.UserAdministration
             else
             {
                 //Komunikat dla usera
-                Form1._Form1.StatusyLogowania.Items.Add("Niepoprawne dane");
+                Form1._Form1.StatusyLogowania.Text = ("Niepoprawne dane");
             }
             Form1._Form1.CzyszczenieStatusówLogowania.Enabled = true;
 
