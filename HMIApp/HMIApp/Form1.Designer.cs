@@ -333,9 +333,8 @@
             tableLayoutPanel12 = new System.Windows.Forms.TableLayoutPanel();
             comboBoxListaReferencji = new System.Windows.Forms.ComboBox();
             buttonWczytajRef = new System.Windows.Forms.Button();
-            buttonZapiszRef = new System.Windows.Forms.Button();
-            buttonDodajNowaRef = new System.Windows.Forms.Button();
             buttonUsunRef = new System.Windows.Forms.Button();
+            buttonDodajNowaRef = new System.Windows.Forms.Button();
             tableLayoutPanel13 = new System.Windows.Forms.TableLayoutPanel();
             panel3 = new System.Windows.Forms.Panel();
             label8 = new System.Windows.Forms.Label();
@@ -400,14 +399,12 @@
             label26 = new System.Windows.Forms.Label();
             label41 = new System.Windows.Forms.Label();
             Smary = new System.Windows.Forms.TabPage();
-            label51 = new System.Windows.Forms.Label();
-            comboBox1 = new System.Windows.Forms.ComboBox();
+            DB666RodzajSmaruTulip = new System.Windows.Forms.ComboBox();
+            DB666RodzajSmaruPrzegub = new System.Windows.Forms.ComboBox();
             label15 = new System.Windows.Forms.Label();
-            DB666RodzajSmaruTulip = new System.Windows.Forms.TextBox();
             label75 = new System.Windows.Forms.Label();
             label14 = new System.Windows.Forms.Label();
             DB666DawkaPrzegub = new System.Windows.Forms.TextBox();
-            DB666RodzajSmaruPrzegub = new System.Windows.Forms.TextBox();
             DB666TolDawkiPrzegub = new System.Windows.Forms.TextBox();
             label9 = new System.Windows.Forms.Label();
             label102 = new System.Windows.Forms.Label();
@@ -522,8 +519,6 @@
             tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
             tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
             tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
-            TimerDoKoloruDataGridView = new System.Windows.Forms.Timer(components);
-            TimerDoKoloruDataGridView1 = new System.Windows.Forms.Timer(components);
             tableLayoutPanel19 = new System.Windows.Forms.TableLayoutPanel();
             tableLayoutPanel20 = new System.Windows.Forms.TableLayoutPanel();
             PróbyUruchomieniaKomunikacjizPLC = new System.Windows.Forms.Timer(components);
@@ -2446,9 +2441,8 @@
             resources.ApplyResources(tableLayoutPanel12, "tableLayoutPanel12");
             tableLayoutPanel12.Controls.Add(comboBoxListaReferencji, 0, 0);
             tableLayoutPanel12.Controls.Add(buttonWczytajRef, 1, 0);
-            tableLayoutPanel12.Controls.Add(buttonZapiszRef, 2, 0);
-            tableLayoutPanel12.Controls.Add(buttonDodajNowaRef, 3, 0);
-            tableLayoutPanel12.Controls.Add(buttonUsunRef, 4, 0);
+            tableLayoutPanel12.Controls.Add(buttonUsunRef, 3, 0);
+            tableLayoutPanel12.Controls.Add(buttonDodajNowaRef, 2, 0);
             tableLayoutPanel12.Name = "tableLayoutPanel12";
             // 
             // comboBoxListaReferencji
@@ -2468,13 +2462,13 @@
             buttonWczytajRef.UseVisualStyleBackColor = false;
             buttonWczytajRef.Click += button10_Click;
             // 
-            // buttonZapiszRef
+            // buttonUsunRef
             // 
-            resources.ApplyResources(buttonZapiszRef, "buttonZapiszRef");
-            buttonZapiszRef.Name = "buttonZapiszRef";
-            buttonZapiszRef.Tag = "";
-            buttonZapiszRef.UseVisualStyleBackColor = true;
-            buttonZapiszRef.Click += button1_Click;
+            resources.ApplyResources(buttonUsunRef, "buttonUsunRef");
+            buttonUsunRef.Name = "buttonUsunRef";
+            buttonUsunRef.Tag = "";
+            buttonUsunRef.UseVisualStyleBackColor = true;
+            buttonUsunRef.Click += button2_Click_1;
             // 
             // buttonDodajNowaRef
             // 
@@ -2483,14 +2477,6 @@
             buttonDodajNowaRef.Tag = "";
             buttonDodajNowaRef.UseVisualStyleBackColor = true;
             buttonDodajNowaRef.Click += button13_Click;
-            // 
-            // buttonUsunRef
-            // 
-            resources.ApplyResources(buttonUsunRef, "buttonUsunRef");
-            buttonUsunRef.Name = "buttonUsunRef";
-            buttonUsunRef.Tag = "";
-            buttonUsunRef.UseVisualStyleBackColor = true;
-            buttonUsunRef.Click += button2_Click_1;
             // 
             // tableLayoutPanel13
             // 
@@ -2933,14 +2919,12 @@
             // 
             // Smary
             // 
-            Smary.Controls.Add(label51);
-            Smary.Controls.Add(comboBox1);
-            Smary.Controls.Add(label15);
             Smary.Controls.Add(DB666RodzajSmaruTulip);
+            Smary.Controls.Add(DB666RodzajSmaruPrzegub);
+            Smary.Controls.Add(label15);
             Smary.Controls.Add(label75);
             Smary.Controls.Add(label14);
             Smary.Controls.Add(DB666DawkaPrzegub);
-            Smary.Controls.Add(DB666RodzajSmaruPrzegub);
             Smary.Controls.Add(DB666TolDawkiPrzegub);
             Smary.Controls.Add(label9);
             Smary.Controls.Add(label102);
@@ -2953,29 +2937,26 @@
             Smary.Name = "Smary";
             Smary.UseVisualStyleBackColor = true;
             // 
-            // label51
+            // DB666RodzajSmaruTulip
             // 
-            resources.ApplyResources(label51, "label51");
-            label51.Name = "label51";
+            DB666RodzajSmaruTulip.FormattingEnabled = true;
+            DB666RodzajSmaruTulip.Items.AddRange(new object[] { resources.GetString("DB666RodzajSmaruTulip.Items"), resources.GetString("DB666RodzajSmaruTulip.Items1"), resources.GetString("DB666RodzajSmaruTulip.Items2") });
+            resources.ApplyResources(DB666RodzajSmaruTulip, "DB666RodzajSmaruTulip");
+            DB666RodzajSmaruTulip.Name = "DB666RodzajSmaruTulip";
+            DB666RodzajSmaruTulip.Tag = "DB666.RodzajSmaruTulip";
             // 
-            // comboBox1
+            // DB666RodzajSmaruPrzegub
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { resources.GetString("comboBox1.Items"), resources.GetString("comboBox1.Items1") });
-            resources.ApplyResources(comboBox1, "comboBox1");
-            comboBox1.Name = "comboBox1";
-            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
+            DB666RodzajSmaruPrzegub.FormattingEnabled = true;
+            DB666RodzajSmaruPrzegub.Items.AddRange(new object[] { resources.GetString("DB666RodzajSmaruPrzegub.Items"), resources.GetString("DB666RodzajSmaruPrzegub.Items1"), resources.GetString("DB666RodzajSmaruPrzegub.Items2") });
+            resources.ApplyResources(DB666RodzajSmaruPrzegub, "DB666RodzajSmaruPrzegub");
+            DB666RodzajSmaruPrzegub.Name = "DB666RodzajSmaruPrzegub";
+            DB666RodzajSmaruPrzegub.Tag = "DB666.RodzajSmaruPrzegub";
             // 
             // label15
             // 
             resources.ApplyResources(label15, "label15");
             label15.Name = "label15";
-            // 
-            // DB666RodzajSmaruTulip
-            // 
-            resources.ApplyResources(DB666RodzajSmaruTulip, "DB666RodzajSmaruTulip");
-            DB666RodzajSmaruTulip.Name = "DB666RodzajSmaruTulip";
-            DB666RodzajSmaruTulip.Tag = "DB666.RodzajSmaruTulip";
             // 
             // label75
             // 
@@ -2993,12 +2974,6 @@
             DB666DawkaPrzegub.Name = "DB666DawkaPrzegub";
             DB666DawkaPrzegub.Tag = "DB666.DawkaPrzegub";
             DB666DawkaPrzegub.Click += TextBox_Click;
-            // 
-            // DB666RodzajSmaruPrzegub
-            // 
-            resources.ApplyResources(DB666RodzajSmaruPrzegub, "DB666RodzajSmaruPrzegub");
-            DB666RodzajSmaruPrzegub.Name = "DB666RodzajSmaruPrzegub";
-            DB666RodzajSmaruPrzegub.Tag = "DB666.RodzajSmaruPrzegub";
             // 
             // DB666TolDawkiPrzegub
             // 
@@ -3835,10 +3810,10 @@
             dataGridView1.ColumnHeadersVisible = false;
             dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { Column2 });
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.OrangeRed;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 238);
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.OrangeRed;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
@@ -3927,16 +3902,6 @@
             tableLayoutPanel10.Controls.Add(label_NazwaKlienta, 2, 0);
             tableLayoutPanel10.Controls.Add(DB666NameOfClientPassedValue, 3, 0);
             tableLayoutPanel10.Name = "tableLayoutPanel10";
-            // 
-            // TimerDoKoloruDataGridView
-            // 
-            TimerDoKoloruDataGridView.Interval = 1000;
-            TimerDoKoloruDataGridView.Tick += TimerDoKoloruDataGridView_Tick;
-            // 
-            // TimerDoKoloruDataGridView1
-            // 
-            TimerDoKoloruDataGridView1.Interval = 1500;
-            TimerDoKoloruDataGridView1.Tick += TimerDoKoloruDataGridView1_Tick;
             // 
             // tableLayoutPanel19
             // 
@@ -4080,7 +4045,6 @@
         public System.Windows.Forms.Label label63;
         public System.Windows.Forms.Timer OdliczaSekunde;
         private System.Windows.Forms.Label label2;
-        public System.Windows.Forms.TextBox DB666RodzajSmaruTulip;
         public System.Windows.Forms.Label label13;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Label label68;
@@ -4222,7 +4186,6 @@
         public System.Windows.Forms.TextBox DB666NameOfClient;
         public System.Windows.Forms.TextBox DB666NrReference;
         public System.Windows.Forms.ComboBox comboBoxListaReferencji;
-        public System.Windows.Forms.Button buttonZapiszRef;
         private System.Windows.Forms.Label label_NazwaKlientaDane;
         private System.Windows.Forms.Label label_NazwaReferencjiDane;
         private System.Windows.Forms.TabPage tabPage2;
@@ -4288,8 +4251,6 @@
         private System.Windows.Forms.Panel panel13;
         public System.Windows.Forms.TextBox DB669Input9;
         private System.Windows.Forms.Label label3;
-        public System.Windows.Forms.Timer TimerDoKoloruDataGridView;
-        public System.Windows.Forms.Timer TimerDoKoloruDataGridView1;
         private System.Windows.Forms.Label label8;
         public System.Windows.Forms.CheckBox DB666TraceUpZapisP8;
         private System.Windows.Forms.Label label7;
@@ -4308,12 +4269,10 @@
         public System.Windows.Forms.TextBox DB666TagRFIDSzczekiOslonki;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;
-        public System.Windows.Forms.TextBox DB666RodzajSmaruPrzegub;
         private System.Windows.Forms.Label label9;
         public System.Windows.Forms.TextBox DB666;
         public System.Windows.Forms.TextBox DB666DawkaTulip;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.TabControl tabControl4;
         private System.Windows.Forms.TabPage Przeciskanie;
@@ -4569,6 +4528,8 @@
         public System.Windows.Forms.Button Button_DawkaTestowaPrzegub;
         public System.Windows.Forms.Button Button_DawkaTestowaTulip;
         public System.Windows.Forms.TextBox StatusyLogowania;
+        public System.Windows.Forms.ComboBox DB666RodzajSmaruPrzegub;
+        public System.Windows.Forms.ComboBox DB666RodzajSmaruTulip;
     }
 }
 

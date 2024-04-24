@@ -9016,7 +9016,7 @@
     <value>InsetDouble</value>
   </data>
   <data name="tableLayoutPanel12.ColumnCount" type="System.Int32, mscorlib">
-    <value>5</value>
+    <value>4</value>
   </data>
   <data name="comboBoxListaReferencji.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -9034,7 +9034,7 @@
     <value>4, 8, 4, 3</value>
   </data>
   <data name="comboBoxListaReferencji.Size" type="System.Drawing.Size, System.Drawing">
-    <value>369, 29</value>
+    <value>406, 29</value>
   </data>
   <data name="comboBoxListaReferencji.TabIndex" type="System.Int32, mscorlib">
     <value>131</value>
@@ -9061,13 +9061,13 @@
     <value>Segoe UI, 9.75pt</value>
   </data>
   <data name="buttonWczytajRef.Location" type="System.Drawing.Point, System.Drawing">
-    <value>387, 6</value>
+    <value>424, 6</value>
   </data>
   <data name="buttonWczytajRef.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>
   </data>
   <data name="buttonWczytajRef.Size" type="System.Drawing.Size, System.Drawing">
-    <value>138, 41</value>
+    <value>147, 41</value>
   </data>
   <data name="buttonWczytajRef.TabIndex" type="System.Int32, mscorlib">
     <value>159</value>
@@ -9087,40 +9087,37 @@
   <data name="&gt;&gt;buttonWczytajRef.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="buttonZapiszRef.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
-    <value>GrowAndShrink</value>
-  </data>
-  <data name="buttonZapiszRef.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+  <data name="buttonUsunRef.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <data name="buttonZapiszRef.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="buttonUsunRef.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 9.75pt</value>
   </data>
-  <data name="buttonZapiszRef.Location" type="System.Drawing.Point, System.Drawing">
-    <value>536, 6</value>
+  <data name="buttonUsunRef.Location" type="System.Drawing.Point, System.Drawing">
+    <value>740, 6</value>
   </data>
-  <data name="buttonZapiszRef.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+  <data name="buttonUsunRef.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>
   </data>
-  <data name="buttonZapiszRef.Size" type="System.Drawing.Size, System.Drawing">
-    <value>102, 41</value>
+  <data name="buttonUsunRef.Size" type="System.Drawing.Size, System.Drawing">
+    <value>126, 41</value>
   </data>
-  <data name="buttonZapiszRef.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="buttonUsunRef.TabIndex" type="System.Int32, mscorlib">
+    <value>156</value>
   </data>
-  <data name="buttonZapiszRef.Text" xml:space="preserve">
-    <value>Zapisz Zmiany</value>
+  <data name="buttonUsunRef.Text" xml:space="preserve">
+    <value>Usuń Referencję</value>
   </data>
-  <data name="&gt;&gt;buttonZapiszRef.Name" xml:space="preserve">
-    <value>buttonZapiszRef</value>
+  <data name="&gt;&gt;buttonUsunRef.Name" xml:space="preserve">
+    <value>buttonUsunRef</value>
   </data>
-  <data name="&gt;&gt;buttonZapiszRef.Type" xml:space="preserve">
+  <data name="&gt;&gt;buttonUsunRef.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;buttonZapiszRef.Parent" xml:space="preserve">
+  <data name="&gt;&gt;buttonUsunRef.Parent" xml:space="preserve">
     <value>tableLayoutPanel12</value>
   </data>
-  <data name="&gt;&gt;buttonZapiszRef.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;buttonUsunRef.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
   <data name="buttonDodajNowaRef.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
@@ -9130,19 +9127,19 @@
     <value>Segoe UI, 9.75pt</value>
   </data>
   <data name="buttonDodajNowaRef.Location" type="System.Drawing.Point, System.Drawing">
-    <value>649, 6</value>
+    <value>582, 6</value>
   </data>
   <data name="buttonDodajNowaRef.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>
   </data>
   <data name="buttonDodajNowaRef.Size" type="System.Drawing.Size, System.Drawing">
-    <value>102, 41</value>
+    <value>147, 41</value>
   </data>
   <data name="buttonDodajNowaRef.TabIndex" type="System.Int32, mscorlib">
     <value>155</value>
   </data>
   <data name="buttonDodajNowaRef.Text" xml:space="preserve">
-    <value>Dodaj ref.</value>
+    <value>Dodaj Referencję</value>
   </data>
   <data name="&gt;&gt;buttonDodajNowaRef.Name" xml:space="preserve">
     <value>buttonDodajNowaRef</value>
@@ -9155,39 +9152,6 @@
   </data>
   <data name="&gt;&gt;buttonDodajNowaRef.ZOrder" xml:space="preserve">
     <value>3</value>
-  </data>
-  <data name="buttonUsunRef.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="buttonUsunRef.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9.75pt</value>
-  </data>
-  <data name="buttonUsunRef.Location" type="System.Drawing.Point, System.Drawing">
-    <value>762, 6</value>
-  </data>
-  <data name="buttonUsunRef.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 3, 4, 3</value>
-  </data>
-  <data name="buttonUsunRef.Size" type="System.Drawing.Size, System.Drawing">
-    <value>104, 41</value>
-  </data>
-  <data name="buttonUsunRef.TabIndex" type="System.Int32, mscorlib">
-    <value>156</value>
-  </data>
-  <data name="buttonUsunRef.Text" xml:space="preserve">
-    <value>Usuń ref.</value>
-  </data>
-  <data name="&gt;&gt;buttonUsunRef.Name" xml:space="preserve">
-    <value>buttonUsunRef</value>
-  </data>
-  <data name="&gt;&gt;buttonUsunRef.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;buttonUsunRef.Parent" xml:space="preserve">
-    <value>tableLayoutPanel12</value>
-  </data>
-  <data name="&gt;&gt;buttonUsunRef.ZOrder" xml:space="preserve">
-    <value>4</value>
   </data>
   <data name="tableLayoutPanel12.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -9217,7 +9181,7 @@
     <value>0</value>
   </data>
   <data name="tableLayoutPanel12.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="comboBoxListaReferencji" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="buttonWczytajRef" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="buttonZapiszRef" Row="0" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="buttonDodajNowaRef" Row="0" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="buttonUsunRef" Row="0" RowSpan="1" Column="4" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,43,793102,Percent,17,011494,Percent,12,820513,Percent,12,820513,Percent,12,820513" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="comboBoxListaReferencji" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="buttonWczytajRef" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="buttonUsunRef" Row="0" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="buttonDodajNowaRef" Row="0" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,48,297215,Percent,18,111456,Percent,18,111456,Percent,15,4798765" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="tableLayoutPanel13.CellBorderStyle" type="System.Windows.Forms.TableLayoutPanelCellBorderStyle, System.Windows.Forms">
     <value>InsetDouble</value>
@@ -11067,58 +11031,64 @@
   <data name="&gt;&gt;DyszaWahliwa.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="label51.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="DB666RodzajSmaruTulip.Items" xml:space="preserve">
+    <value />
   </data>
-  <data name="label51.Location" type="System.Drawing.Point, System.Drawing">
-    <value>233, 185</value>
-  </data>
-  <data name="label51.Size" type="System.Drawing.Size, System.Drawing">
-    <value>61, 21</value>
-  </data>
-  <data name="label51.TabIndex" type="System.Int32, mscorlib">
-    <value>176</value>
-  </data>
-  <data name="label51.Text" xml:space="preserve">
-    <value>label51</value>
-  </data>
-  <data name="&gt;&gt;label51.Name" xml:space="preserve">
-    <value>label51</value>
-  </data>
-  <data name="&gt;&gt;label51.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label51.Parent" xml:space="preserve">
-    <value>Smary</value>
-  </data>
-  <data name="&gt;&gt;label51.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="comboBox1.Items" xml:space="preserve">
+  <data name="DB666RodzajSmaruTulip.Items1" xml:space="preserve">
     <value>SMAR1</value>
   </data>
-  <data name="comboBox1.Items1" xml:space="preserve">
+  <data name="DB666RodzajSmaruTulip.Items2" xml:space="preserve">
     <value>SMAR2</value>
   </data>
-  <data name="comboBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>54, 177</value>
+  <data name="DB666RodzajSmaruTulip.Location" type="System.Drawing.Point, System.Drawing">
+    <value>406, 110</value>
   </data>
-  <data name="comboBox1.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="DB666RodzajSmaruTulip.Size" type="System.Drawing.Size, System.Drawing">
     <value>104, 29</value>
   </data>
-  <data name="comboBox1.TabIndex" type="System.Int32, mscorlib">
-    <value>171</value>
+  <data name="DB666RodzajSmaruTulip.TabIndex" type="System.Int32, mscorlib">
+    <value>176</value>
   </data>
-  <data name="&gt;&gt;comboBox1.Name" xml:space="preserve">
-    <value>comboBox1</value>
+  <data name="&gt;&gt;DB666RodzajSmaruTulip.Name" xml:space="preserve">
+    <value>DB666RodzajSmaruTulip</value>
   </data>
-  <data name="&gt;&gt;comboBox1.Type" xml:space="preserve">
+  <data name="&gt;&gt;DB666RodzajSmaruTulip.Type" xml:space="preserve">
     <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;comboBox1.Parent" xml:space="preserve">
+  <data name="&gt;&gt;DB666RodzajSmaruTulip.Parent" xml:space="preserve">
     <value>Smary</value>
   </data>
-  <data name="&gt;&gt;comboBox1.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;DB666RodzajSmaruTulip.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="DB666RodzajSmaruPrzegub.Items" xml:space="preserve">
+    <value />
+  </data>
+  <data name="DB666RodzajSmaruPrzegub.Items1" xml:space="preserve">
+    <value>SMAR1</value>
+  </data>
+  <data name="DB666RodzajSmaruPrzegub.Items2" xml:space="preserve">
+    <value>SMAR2</value>
+  </data>
+  <data name="DB666RodzajSmaruPrzegub.Location" type="System.Drawing.Point, System.Drawing">
+    <value>142, 108</value>
+  </data>
+  <data name="DB666RodzajSmaruPrzegub.Size" type="System.Drawing.Size, System.Drawing">
+    <value>111, 29</value>
+  </data>
+  <data name="DB666RodzajSmaruPrzegub.TabIndex" type="System.Int32, mscorlib">
+    <value>171</value>
+  </data>
+  <data name="&gt;&gt;DB666RodzajSmaruPrzegub.Name" xml:space="preserve">
+    <value>DB666RodzajSmaruPrzegub</value>
+  </data>
+  <data name="&gt;&gt;DB666RodzajSmaruPrzegub.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;DB666RodzajSmaruPrzegub.Parent" xml:space="preserve">
+    <value>Smary</value>
+  </data>
+  <data name="&gt;&gt;DB666RodzajSmaruPrzegub.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
   <data name="label15.AutoSize" type="System.Boolean, mscorlib">
@@ -11131,7 +11101,7 @@
     <value>NoControl</value>
   </data>
   <data name="label15.Location" type="System.Drawing.Point, System.Drawing">
-    <value>308, 112</value>
+    <value>297, 112</value>
   </data>
   <data name="label15.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 0, 4, 0</value>
@@ -11156,30 +11126,6 @@
   </data>
   <data name="&gt;&gt;label15.ZOrder" xml:space="preserve">
     <value>2</value>
-  </data>
-  <data name="DB666RodzajSmaruTulip.Location" type="System.Drawing.Point, System.Drawing">
-    <value>431, 108</value>
-  </data>
-  <data name="DB666RodzajSmaruTulip.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 3, 4, 3</value>
-  </data>
-  <data name="DB666RodzajSmaruTulip.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 29</value>
-  </data>
-  <data name="DB666RodzajSmaruTulip.TabIndex" type="System.Int32, mscorlib">
-    <value>162</value>
-  </data>
-  <data name="&gt;&gt;DB666RodzajSmaruTulip.Name" xml:space="preserve">
-    <value>DB666RodzajSmaruTulip</value>
-  </data>
-  <data name="&gt;&gt;DB666RodzajSmaruTulip.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;DB666RodzajSmaruTulip.Parent" xml:space="preserve">
-    <value>Smary</value>
-  </data>
-  <data name="&gt;&gt;DB666RodzajSmaruTulip.ZOrder" xml:space="preserve">
-    <value>3</value>
   </data>
   <data name="label75.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -11212,7 +11158,7 @@
     <value>Smary</value>
   </data>
   <data name="&gt;&gt;label75.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>3</value>
   </data>
   <data name="label14.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -11248,7 +11194,7 @@
     <value>Smary</value>
   </data>
   <data name="&gt;&gt;label14.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>4</value>
   </data>
   <data name="DB666DawkaPrzegub.Location" type="System.Drawing.Point, System.Drawing">
     <value>162, 41</value>
@@ -11257,7 +11203,7 @@
     <value>4, 3, 4, 3</value>
   </data>
   <data name="DB666DawkaPrzegub.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 29</value>
+    <value>91, 29</value>
   </data>
   <data name="DB666DawkaPrzegub.TabIndex" type="System.Int32, mscorlib">
     <value>149</value>
@@ -11275,31 +11221,7 @@
     <value>Smary</value>
   </data>
   <data name="&gt;&gt;DB666DawkaPrzegub.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="DB666RodzajSmaruPrzegub.Location" type="System.Drawing.Point, System.Drawing">
-    <value>162, 106</value>
-  </data>
-  <data name="DB666RodzajSmaruPrzegub.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 3, 4, 3</value>
-  </data>
-  <data name="DB666RodzajSmaruPrzegub.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 29</value>
-  </data>
-  <data name="DB666RodzajSmaruPrzegub.TabIndex" type="System.Int32, mscorlib">
-    <value>160</value>
-  </data>
-  <data name="&gt;&gt;DB666RodzajSmaruPrzegub.Name" xml:space="preserve">
-    <value>DB666RodzajSmaruPrzegub</value>
-  </data>
-  <data name="&gt;&gt;DB666RodzajSmaruPrzegub.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;DB666RodzajSmaruPrzegub.Parent" xml:space="preserve">
-    <value>Smary</value>
-  </data>
-  <data name="&gt;&gt;DB666RodzajSmaruPrzegub.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>5</value>
   </data>
   <data name="DB666TolDawkiPrzegub.Location" type="System.Drawing.Point, System.Drawing">
     <value>162, 73</value>
@@ -11308,7 +11230,7 @@
     <value>4, 3, 4, 3</value>
   </data>
   <data name="DB666TolDawkiPrzegub.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 29</value>
+    <value>91, 29</value>
   </data>
   <data name="DB666TolDawkiPrzegub.TabIndex" type="System.Int32, mscorlib">
     <value>150</value>
@@ -11326,7 +11248,7 @@
     <value>Smary</value>
   </data>
   <data name="&gt;&gt;DB666TolDawkiPrzegub.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>6</value>
   </data>
   <data name="label9.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -11338,7 +11260,7 @@
     <value>NoControl</value>
   </data>
   <data name="label9.Location" type="System.Drawing.Point, System.Drawing">
-    <value>307, 79</value>
+    <value>296, 79</value>
   </data>
   <data name="label9.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 0, 4, 0</value>
@@ -11362,7 +11284,7 @@
     <value>Smary</value>
   </data>
   <data name="&gt;&gt;label9.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>7</value>
   </data>
   <data name="label102.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -11395,16 +11317,16 @@
     <value>Smary</value>
   </data>
   <data name="&gt;&gt;label102.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>8</value>
   </data>
   <data name="DB666TolDawkiTulip.Location" type="System.Drawing.Point, System.Drawing">
-    <value>431, 75</value>
+    <value>420, 75</value>
   </data>
   <data name="DB666TolDawkiTulip.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>
   </data>
   <data name="DB666TolDawkiTulip.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 29</value>
+    <value>90, 29</value>
   </data>
   <data name="DB666TolDawkiTulip.TabIndex" type="System.Int32, mscorlib">
     <value>157</value>
@@ -11422,7 +11344,7 @@
     <value>Smary</value>
   </data>
   <data name="&gt;&gt;DB666TolDawkiTulip.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>9</value>
   </data>
   <data name="label11.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -11434,7 +11356,7 @@
     <value>NoControl</value>
   </data>
   <data name="label11.Location" type="System.Drawing.Point, System.Drawing">
-    <value>307, 46</value>
+    <value>296, 46</value>
   </data>
   <data name="label11.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 0, 4, 0</value>
@@ -11458,16 +11380,16 @@
     <value>Smary</value>
   </data>
   <data name="&gt;&gt;label11.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>10</value>
   </data>
   <data name="DB666DawkaTulip.Location" type="System.Drawing.Point, System.Drawing">
-    <value>431, 42</value>
+    <value>420, 42</value>
   </data>
   <data name="DB666DawkaTulip.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>
   </data>
   <data name="DB666DawkaTulip.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 29</value>
+    <value>90, 29</value>
   </data>
   <data name="DB666DawkaTulip.TabIndex" type="System.Int32, mscorlib">
     <value>156</value>
@@ -11485,7 +11407,7 @@
     <value>Smary</value>
   </data>
   <data name="&gt;&gt;DB666DawkaTulip.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>11</value>
   </data>
   <data name="label22.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -11494,7 +11416,7 @@
     <value>17, 18</value>
   </data>
   <data name="label22.Size" type="System.Drawing.Size, System.Drawing">
-    <value>227, 123</value>
+    <value>247, 123</value>
   </data>
   <data name="label22.TabIndex" type="System.Int32, mscorlib">
     <value>174</value>
@@ -11515,16 +11437,16 @@
     <value>Smary</value>
   </data>
   <data name="&gt;&gt;label22.ZOrder" xml:space="preserve">
-    <value>14</value>
+    <value>12</value>
   </data>
   <data name="label23.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="label23.Location" type="System.Drawing.Point, System.Drawing">
-    <value>303, 18</value>
+    <value>292, 18</value>
   </data>
   <data name="label23.Size" type="System.Drawing.Size, System.Drawing">
-    <value>209, 123</value>
+    <value>222, 123</value>
   </data>
   <data name="label23.TabIndex" type="System.Int32, mscorlib">
     <value>175</value>
@@ -11545,7 +11467,7 @@
     <value>Smary</value>
   </data>
   <data name="&gt;&gt;label23.ZOrder" xml:space="preserve">
-    <value>15</value>
+    <value>13</value>
   </data>
   <data name="Smary.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 30</value>
@@ -17159,12 +17081,6 @@
   <data name="tableLayoutPanel10.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
     <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="label_NazwaReferencji" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="DB666NrReferencePassedValue" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="label_NazwaKlienta" Row="0" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="DB666NameOfClientPassedValue" Row="0" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,20,Percent,40,Percent,15,Percent,25" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
-  <metadata name="TimerDoKoloruDataGridView.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>190, 49</value>
-  </metadata>
-  <metadata name="TimerDoKoloruDataGridView1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>395, 49</value>
-  </metadata>
   <data name="tableLayoutPanel19.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
   </data>
@@ -17299,18 +17215,6 @@
   </data>
   <data name="&gt;&gt;Column2.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TimerDoKoloruDataGridView.Name" xml:space="preserve">
-    <value>TimerDoKoloruDataGridView</value>
-  </data>
-  <data name="&gt;&gt;TimerDoKoloruDataGridView.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Timer, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TimerDoKoloruDataGridView1.Name" xml:space="preserve">
-    <value>TimerDoKoloruDataGridView1</value>
-  </data>
-  <data name="&gt;&gt;TimerDoKoloruDataGridView1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Timer, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;PróbyUruchomieniaKomunikacjizPLC.Name" xml:space="preserve">
     <value>PróbyUruchomieniaKomunikacjizPLC</value>

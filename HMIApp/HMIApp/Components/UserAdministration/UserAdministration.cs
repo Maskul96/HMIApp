@@ -37,7 +37,6 @@ namespace HMIApp.Components.UserAdministration
         {
             if ( UserIsLoggedIn )
             {
-                Form1._Form1.buttonZapiszRef.Enabled = true;
                 Form1._Form1.buttonUsunRef.Enabled = true;
                 Form1._Form1.button_ZamknijApke.Enabled = true;
                 Form1._Form1.buttonDodajUzytkownika.Enabled = true;
@@ -47,7 +46,6 @@ namespace HMIApp.Components.UserAdministration
             }
             else
             {
-                Form1._Form1.buttonZapiszRef.Enabled = false;
                 Form1._Form1.buttonUsunRef.Enabled = false;
                 Form1._Form1.button_ZamknijApke.Enabled = false;
                 Form1._Form1.buttonDodajUzytkownika.Enabled = false;

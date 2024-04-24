@@ -27,7 +27,7 @@ namespace HMIApp
         ServiceCollection services = new ServiceCollection();
         ServiceProvider serviceProvider;
         SerialPortReader serialPortReader = new SerialPortReader();
-
+        public bool blockade;
         public Form1()
         {
             InitializeComponent();
@@ -43,7 +43,6 @@ namespace HMIApp
             Users.Run();
 
             OdczytDB.Enabled = true;
-            CzyszczenieStatusówLogowania.Enabled = true; 
 
             listBoxWarningsView.DrawItem += new System.Windows.Forms.DrawItemEventHandler(App.listBox1_DrawItem);
             label13.Text = "";
@@ -67,7 +66,16 @@ namespace HMIApp
             App.ReadIOFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_3.csv");
             App.ReadActualValueFromDBChart_Simplified("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_4.csv");
             App.ReadActualValueFromDBReferenceOrProcessData("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_1.csv");
+
+            //Blokada rysowania wykresu dopoki nie zaczytasz referencji
+            blockade = false;
+
+            CzyszczenieStatusówLogowania.Enabled = true;
+
+
         }
+
+
         //Timer do prób uruchomienia komunikacji z PLC
         private void Timer1_Tick_1(object sender, EventArgs e)
         {
@@ -93,27 +101,20 @@ namespace HMIApp
             }
         }
 
-        //Zapisz referencje do bazy danych
-        private void button1_Click(object sender, EventArgs e)
-        {
-            if (comboBoxListaReferencji.Text != null && comboBoxListaReferencji.Text != "")
-            {
-                var database = serviceProvider.GetService<iDataBase>();
-                database.UpdateDb(comboBoxListaReferencji.SelectedItem.ToString());
-            }
-            else
-            {//komunikat dla usera
-                MessageBox.Show("Nie wybrano referencji do zapisania");
-            }
-            formsPlot1.Plot.Clear();
-            App.CreateStaticPlot();
-            formsPlot1.Refresh();
-        }
         //wczytaj referencje do PLC - DOROBIC ZAPIS POZOSTALYCH PARAMETROW REFERENCJI
         private void button10_Click(object sender, EventArgs e)
         {
             if (comboBoxListaReferencji.Text != null && comboBoxListaReferencji.Text != "")
             {
+                //Zapisz referencje do bazy danych
+                var database = serviceProvider.GetService<iDataBase>();
+                database.UpdateDb(comboBoxListaReferencji.SelectedItem.ToString());
+
+                //Wczytaj parametry referencji do PLC
+                //Nr referencji i klient
+                App.WriteToDB(DB666NrReference.Text, DB666NrReference.Tag.ToString());
+                App.WriteToDB(DB666NameOfClient.Text, DB666NameOfClient.Tag.ToString());
+                //CheckBoxy
                 App.WriteToDB(DB666PrzeciskanieP1.Checked.ToString(), DB666PrzeciskanieP1.Tag.ToString());
                 App.WriteToDB(DB666MontazOslonkiP2.Checked.ToString(), DB666MontazOslonkiP2.Tag.ToString());
                 App.WriteToDB(DB666OetickerP3.Checked.ToString(), DB666OetickerP3.Tag.ToString());
@@ -121,22 +122,48 @@ namespace HMIApp
                 App.WriteToDB(DB666SmarTulipP5.Checked.ToString(), DB666SmarTulipP5.Tag.ToString());
                 App.WriteToDB(DB666SmarPrzegubP6.Checked.ToString(), DB666SmarPrzegubP6.Tag.ToString());
                 App.WriteToDB(DB666TraceUpP7.Checked.ToString(), DB666TraceUpP7.Tag.ToString());
+                App.WriteToDB(DB666TraceUpZapisP8.Checked.ToString(), DB666TraceUpZapisP8.Tag.ToString());
                 App.WriteToDB(DB666RFIDGlowicaGornaP9.Checked.ToString(), DB666RFIDGlowicaGornaP9.Tag.ToString());
-                App.WriteToDB(DB666PozNakladania_Oslonka.Text, DB666PozNakladania_Oslonka.Tag.ToString());
+                App.WriteToDB(DB666RFIDPlytaSmarujacaP10.Checked.ToString(), DB666RFIDPlytaSmarujacaP10.Tag.ToString());
+                App.WriteToDB(DB666RFIDSzczekiOslonkiP11.Checked.ToString(), DB666RFIDSzczekiOslonkiP11.Tag.ToString());
+                App.WriteToDB(DB666RFIDGniazdoPrzegubuP12.Checked.ToString(), DB666RFIDGniazdoPrzegubuP12.Tag.ToString());
+                //Inne
+                App.WriteToDB(DB666PozwyjeciaOsi.Text, DB666PozwyjeciaOsi.Tag.ToString());
+                App.WriteToDB(DB666PozOetickera.Text, DB666PozOetickera.Tag.ToString());
+                //Przeciskanie
+                App.WriteToDB(DB666PozStartowa__Przeciskanie.Text, DB666PozStartowa__Przeciskanie.Tag.ToString());
+                App.WriteToDB(DB666DojazdWolny_Przeciskanie.Text, DB666DojazdWolny_Przeciskanie.Tag.ToString());
+                App.WriteToDB(DB666SilaMin_Przeciskanie.Text, DB666SilaMin_Przeciskanie.Tag.ToString());
                 App.WriteToDB(DB666SilaMax__Przeciskanie.Text, DB666SilaMax__Przeciskanie.Tag.ToString());
                 App.WriteToDB(DB666PoczCzytSily__Przeciskanie.Text, DB666PoczCzytSily__Przeciskanie.Tag.ToString());
-                App.WriteToDB(DB666NrReference.Text, DB666NrReference.Tag.ToString());
-                App.WriteToDB(DB666NameOfClient.Text, DB666NameOfClient.Tag.ToString());
-                App.WriteToDB(DB666SilaMin_Przeciskanie.Text, DB666SilaMin_Przeciskanie.Tag.ToString());
-                App.WriteToDB(DB666PozStartowa__Przeciskanie.Text, DB666PozStartowa__Przeciskanie.Tag.ToString());
                 App.WriteToDB(DB666KoniecCzytSily__Przeciskanie.Text, DB666KoniecCzytSily__Przeciskanie.Tag.ToString());
+                //Oslonka
                 App.WriteToDB(DB666PozStartowa_Oslonka.Text, DB666PozStartowa_Oslonka.Tag.ToString());
                 App.WriteToDB(DB666PozSmarowania_Oslonka.Text, DB666PozSmarowania_Oslonka.Tag.ToString());
+                App.WriteToDB(DB666PozNakladania_Oslonka.Text, DB666PozNakladania_Oslonka.Tag.ToString());
                 App.WriteToDB(DB666PozPowrotu_Oslonka.Text, DB666PozPowrotu_Oslonka.Tag.ToString());
+                //Dysza Wahliwa
+                App.WriteToDB(DB666PozPionowa_DyszaWahliwa.Text, DB666PozPionowa_DyszaWahliwa.Tag.ToString());
+                App.WriteToDB(DB666PozPozioma_DyszaWahliwa.Text, DB666PozPozioma_DyszaWahliwa.Tag.ToString());
+                App.WriteToDB(DB666PozDyszyWOslonce_DyszaWahliwa.Text, DB666PozDyszyWOslonce_DyszaWahliwa.Tag.ToString());
+                App.WriteToDB(DB666PozZjazduOslonkiSmarowanie_DyszaWahliwa.Text, DB666PozZjazduOslonkiSmarowanie_DyszaWahliwa.Tag.ToString());
+                //Smarowanie
                 App.WriteToDB(DB666DawkaPrzegub.Text, DB666DawkaPrzegub.Tag.ToString());
-                App.WriteToDB(DB666PozOetickera.Text, DB666PozOetickera.Tag.ToString());
-                App.WriteToDB(DB666PozwyjeciaOsi.Text, DB666PozwyjeciaOsi.Tag.ToString());
                 App.WriteToDB(DB666TolDawkiPrzegub.Text, DB666TolDawkiPrzegub.Tag.ToString());
+                App.WriteToDB(DB666RodzajSmaruPrzegub.SelectedIndex.ToString(), DB666RodzajSmaruPrzegub.Tag.ToString());
+                App.WriteToDB(DB666DawkaTulip.Text, DB666DawkaTulip.Tag.ToString());
+                App.WriteToDB(DB666TolDawkiTulip.Text, DB666TolDawkiTulip.Tag.ToString());
+                App.WriteToDB(DB666RodzajSmaruTulip.SelectedIndex.ToString(), DB666RodzajSmaruTulip.Tag.ToString());
+                //RFID
+                App.WriteToDB(DB666TagRFIDGlowicaGorna.Text, DB666TagRFIDGlowicaGorna.Tag.ToString());
+                App.WriteToDB(DB666TagRFIDPlytaSmar.Text, DB666TagRFIDPlytaSmar.Tag.ToString());
+                App.WriteToDB(DB666TagRFIDSzczekiOslonki.Text, DB666TagRFIDSzczekiOslonki.Tag.ToString());
+                App.WriteToDB(DB666TagRFIDPrzegub.Text, DB666TagRFIDPrzegub.Tag.ToString());
+
+                //przepisywanie numeru referencji i klienta do wyswietlenia dla operatora
+                PassedValueControls.StringOfReference();
+
+                blockade = true;
                 //Przepisanie wartosci do wygenerowania okna czytania sily w wykresie
                 App.WriteSpecifiedValueFromReference();
             }
@@ -156,10 +183,10 @@ namespace HMIApp
             App.ReadAlarmsFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_2.csv");
             App.ReadIOFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_3.csv");
             App.ReadActualValueFromDBReferenceOrProcessData("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_1.csv");
-            //ZROBIC TUTAJ ZE DOPIERO PO EVENCIE ZACZYTANIA REFERENCJI DO PLC ODPALAMY METODE CREATE PLOT
-            if (comboBoxListaReferencji.Items.Count > 0 && DB666NrReferencePassedValue.Text != "")
+
+            if (blockade)
             {
-               // App.CreatePlot();
+               App.CreatePlot();
             }
             PassedValueControls.Run();
             //aktualizacja daty i godziny
@@ -308,6 +335,7 @@ namespace HMIApp
             string progFiles = @"C:\Program Files\Common Files\Microsoft Shared\Ink\TabTip.exe";
                 Process.Start(progFiles);
            // }
+           
         }
 
 
@@ -534,46 +562,31 @@ namespace HMIApp
             Close();
         }
 
-        private void TimerDoKoloruDataGridView_Tick(object sender, EventArgs e)
-        {
-            dataGridView1.BackColor = Color.Red;
-        }
-
-        private void TimerDoKoloruDataGridView1_Tick(object sender, EventArgs e)
-        {
-            dataGridView1.BackColor = Color.White;
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            label51.Text = comboBox1.SelectedIndex.ToString();
-        }
-
-        private void StatusyLogowania_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
+        //Przycisk Rework Event
         private void Button_Rework_Click(object sender, EventArgs e)
         {
             App.WriteToDB("57", Button_Rework.Tag.ToString(), 1);
         }
 
+        //Przycisk Reset NOK event
         private void Button_ResetSztukNOK_Click(object sender, EventArgs e)
         {
             App.WriteToDB("58", Button_ResetSztukNOK.Tag.ToString(), 1);
         }
 
+        //Przycisk Reset OK event
         private void Button_ResetSztukOK_Click(object sender, EventArgs e)
         {
             App.WriteToDB("59", Button_ResetSztukOK.Tag.ToString(), 1);
         }
 
+        //Przycisk Dawka testowa przegub event
         private void Button_DawkaTestowaPrzegub_Click(object sender, EventArgs e)
         {
             App.WriteToDB("56", Button_DawkaTestowaPrzegub.Tag.ToString(), 1);
         }
 
+        //Przycisk Dawka testowa tulip event
         private void Button_DawkaTestowaTulip_Click(object sender, EventArgs e)
         {
             App.WriteToDB("55", Button_DawkaTestowaTulip.Tag.ToString(), 1);

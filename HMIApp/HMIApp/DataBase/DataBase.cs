@@ -80,7 +80,7 @@ namespace HMIApp.Data
                     RFIDGniazdoPrzegubuP12 = Form1._Form1.DB666RFIDGniazdoPrzegubuP12.Checked,
                     SpareP13 = false,
                     SpareP14 = false,
-                    SpareP15    = false,
+                    SpareP15 = false,
                     SpareP16 = false,
                     //Inne
                     PozwyjeciaOsi = float.Parse(Form1._Form1.DB666PozwyjeciaOsi.Text),
@@ -105,10 +105,10 @@ namespace HMIApp.Data
                     //Smarowania
                     Smarowanie_DawkaPrzegub = float.Parse(Form1._Form1.DB666DawkaPrzegub.Text),
                     Smarowanie_TolDawkiPrzegub = float.Parse(Form1._Form1.DB666TolDawkiPrzegub.Text),
-                    Smarowanie_RodzajSmaruPrzegub = int.Parse(Form1._Form1.DB666RodzajSmaruPrzegub.Text),
+                    Smarowanie_RodzajSmaruPrzegub = Form1._Form1.DB666RodzajSmaruPrzegub.SelectedIndex,
                     Smarowanie_DawkaTulip = float.Parse(Form1._Form1.DB666DawkaTulip.Text),
                     Smarowanie_TolDawkiTulip = float.Parse(Form1._Form1.DB666TolDawkiTulip.Text),
-                    Smarowanie_RodzajSmaruTulip = int.Parse(Form1._Form1.DB666RodzajSmaruTulip.Text),
+                    Smarowanie_RodzajSmaruTulip = Form1._Form1.DB666RodzajSmaruTulip.SelectedIndex,
                     //RFID
                     TagRFID_GlowicaGorna = int.Parse(Form1._Form1.DB666TagRFIDGlowicaGorna.Text),
                     TagRFID_PlytaSmar = int.Parse(Form1._Form1.DB666TagRFIDPlytaSmar.Text),
@@ -225,10 +225,10 @@ namespace HMIApp.Data
                     //Smarowania
                     Form1._Form1.DB666DawkaPrzegub.Text = item.Smarowanie_DawkaPrzegub.ToString();
                     Form1._Form1.DB666TolDawkiPrzegub.Text = item.Smarowanie_TolDawkiPrzegub.ToString();
-                    Form1._Form1.DB666RodzajSmaruPrzegub.Text = item.Smarowanie_RodzajSmaruPrzegub.ToString();
+                    Form1._Form1.DB666RodzajSmaruPrzegub.SelectedIndex = item.Smarowanie_RodzajSmaruPrzegub;
                     Form1._Form1.DB666DawkaTulip.Text = item.Smarowanie_DawkaTulip.ToString();
                     Form1._Form1.DB666TolDawkiTulip.Text = item.Smarowanie_TolDawkiTulip.ToString();
-                    Form1._Form1.DB666RodzajSmaruTulip.Text = item.Smarowanie_RodzajSmaruTulip.ToString();
+                    Form1._Form1.DB666RodzajSmaruTulip.SelectedIndex = item.Smarowanie_RodzajSmaruTulip;
                     //RFID
                     Form1._Form1.DB666TagRFIDGlowicaGorna.Text = item.TagRFID_GlowicaGorna.ToString();
                     Form1._Form1.DB666TagRFIDPlytaSmar.Text = item.TagRFID_PlytaSmar.ToString();
@@ -257,6 +257,7 @@ namespace HMIApp.Data
             Form1._Form1.comboBoxListaReferencji.Items.Clear();
             Form1._Form1.comboBoxListaReferencji.Text = "";
         }
+
         //Update danych "?" zezwala na null - operator warunkowego dostepu
         //Metoda do zwrocenia wyszukiwanego przez nas pola w bazie
 #nullable enable
@@ -313,10 +314,10 @@ namespace HMIApp.Data
             //Smarowania
             ref1.Smarowanie_DawkaPrzegub = float.Parse(Form1._Form1.DB666DawkaPrzegub.Text);
             ref1.Smarowanie_TolDawkiPrzegub = float.Parse(Form1._Form1.DB666TolDawkiPrzegub.Text);
-            ref1.Smarowanie_RodzajSmaruPrzegub = int.Parse(Form1._Form1.DB666RodzajSmaruPrzegub.Text);
+            ref1.Smarowanie_RodzajSmaruPrzegub =Form1._Form1.DB666RodzajSmaruPrzegub.SelectedIndex;
             ref1.Smarowanie_DawkaTulip = float.Parse(Form1._Form1.DB666DawkaTulip.Text);
             ref1.Smarowanie_TolDawkiTulip = float.Parse(Form1._Form1.DB666TolDawkiTulip.Text);
-            ref1.Smarowanie_RodzajSmaruTulip = int.Parse(Form1._Form1.DB666RodzajSmaruTulip.Text);
+            ref1.Smarowanie_RodzajSmaruTulip = Form1._Form1.DB666RodzajSmaruTulip.SelectedIndex;
             //RFID
             ref1.TagRFID_GlowicaGorna = int.Parse(Form1._Form1.DB666TagRFIDGlowicaGorna.Text);
             ref1.TagRFID_PlytaSmar = int.Parse(Form1._Form1.DB666TagRFIDPlytaSmar.Text);

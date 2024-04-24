@@ -16,12 +16,6 @@ namespace HMIApp.Components
         //metoda statyczna do wywolywania przepisania danych
         public static void Run()
         {
-            //przepisywanie numeru referencji i klienta do wyswietlenia dla operatora
-            if (Form1._Form1.comboBoxListaReferencji.Items.Count > 0)
-            {
-                Form1._Form1.DB666NrReferencePassedValue.Text = Form1._Form1.DB666NrReference.Text;
-                Form1._Form1.DB666NameOfClientPassedValue.Text = Form1._Form1.DB666NameOfClient.Text;
-            }
 
             //
             Form1._Form1.DB667PozycjaOslonki_PassedValue.Text = Form1._Form1.DB667PozycjaOslonki.Text;
@@ -41,6 +35,14 @@ namespace HMIApp.Components
             Form1._Form1.DB669Input23PassedValue.BackColor = Form1._Form1.DB669Input23.BackColor;
             Form1._Form1.DB669Input24PassedValue.BackColor = Form1._Form1.DB669Input24.BackColor;
         }
-
+        public static void StringOfReference()
+        {
+            //przepisywanie numeru referencji i klienta do wyswietlenia dla operatora
+            if (Form1._Form1.comboBoxListaReferencji.Items.Count > 0)
+            {
+                Form1._Form1.DB666NrReferencePassedValue.Text = Form1._Form1.DB666NrReference.Text;
+                Form1._Form1.DB666NameOfClientPassedValue.Text = Form1._Form1.DB666NameOfClient.Text;
+            }
+        }
     }
 }

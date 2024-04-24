@@ -1,6 +1,7 @@
 ﻿using HMIApp.Components.CSVReader;
 using HMIApp.Data;
 using Humanizer;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Identity.Client;
 using ScottPlot;
@@ -177,6 +178,7 @@ namespace HMIApp
                 DBRead_TagName = dbTag.TagName.Remove(DBRead_position1, 1);
                 TextBox txt;
                 CheckBox chk;
+                ComboBox cb;
                 switch (dbTag.DataTypeOfTag.ToUpper())
                 {
 
@@ -188,6 +190,8 @@ namespace HMIApp
                         txt = Form1._Form1.Controls.Find($"{DBRead_TagName}", true).FirstOrDefault() as TextBox;
                         if(txt != null && DBRead_TagName != "DB666NrReference" && DBRead_TagName != "DB666NameOfClient") txt.Text = "0";
                         if (txt != null && DBRead_TagName == "DB666NrReference" || DBRead_TagName == "DB666NameOfClient") txt.Text = "";
+                        cb = Form1._Form1.Controls.Find($"{DBRead_TagName}", true).FirstOrDefault() as ComboBox;
+                        if (cb != null) cb.SelectedIndex = 0;
                         break;
                 }
             }
@@ -620,8 +624,9 @@ namespace HMIApp
                         {
                             txt.Text = Convert.ToString(libnodave.getS16from(DB, DBRead_NrOfByteinDB));
                         }
-                       // if (cb == null) break;
-                        //else cb.SelectedItem = libnodave.getS16from(DB, DBRead_NrOfByteinDB);
+                        //ComboBox z rodzajem smaru
+                        if (cb == null) break;
+                        else cb.SelectedIndex = libnodave.getS16from(DB, DBRead_NrOfByteinDB);
 
                         break;
                     case "REAL":
@@ -961,7 +966,7 @@ namespace HMIApp
 
                                         rowIndex = row.Index;
                                         Form1._Form1.dataGridView1.AllowUserToAddRows = tempAllowUserToAddRows;
-
+                                        Form1._Form1.dataGridView1.DefaultCellStyle.BackColor = System.Drawing.Color.OrangeRed; Form1._Form1.dataGridView1.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.OrangeRed;
                                     }
                                     catch (InvalidOperationException)
                                     {
@@ -1018,7 +1023,7 @@ namespace HMIApp
 
                                         rowIndex = row.Index;
                                         Form1._Form1.dataGridView1.AllowUserToAddRows = tempAllowUserToAddRows;
-                   
+                                        Form1._Form1.dataGridView1.DefaultCellStyle.BackColor = System.Drawing.Color.OrangeRed; Form1._Form1.dataGridView1.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.OrangeRed;
                                     }
                                     catch (InvalidOperationException)
                                     {
@@ -1071,7 +1076,7 @@ namespace HMIApp
                                             .First();
 
                                         rowIndex = row.Index;
-
+                                        Form1._Form1.dataGridView1.DefaultCellStyle.BackColor = System.Drawing.Color.OrangeRed; Form1._Form1.dataGridView1.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.OrangeRed;
                                         Form1._Form1.dataGridView1.AllowUserToAddRows = tempAllowUserToAddRows;
                                     }
                                     catch (InvalidOperationException)
@@ -1126,7 +1131,7 @@ namespace HMIApp
 
                                         rowIndex = row.Index;
                                         Form1._Form1.dataGridView1.AllowUserToAddRows = tempAllowUserToAddRows;
-           
+                                        Form1._Form1.dataGridView1.DefaultCellStyle.BackColor = System.Drawing.Color.OrangeRed; Form1._Form1.dataGridView1.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.OrangeRed;
                                     }
                                     catch (InvalidOperationException)
                                     {
@@ -1180,7 +1185,7 @@ namespace HMIApp
 
                                         rowIndex = row.Index;
                                         Form1._Form1.dataGridView1.AllowUserToAddRows = tempAllowUserToAddRows;
-
+                                        Form1._Form1.dataGridView1.DefaultCellStyle.BackColor = System.Drawing.Color.OrangeRed; Form1._Form1.dataGridView1.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.OrangeRed;
                                     }
                                     catch (InvalidOperationException)
                                     {
@@ -1234,7 +1239,7 @@ namespace HMIApp
 
                                         rowIndex = row.Index;
                                         Form1._Form1.dataGridView1.AllowUserToAddRows = tempAllowUserToAddRows;
-
+                                        Form1._Form1.dataGridView1.DefaultCellStyle.BackColor = System.Drawing.Color.OrangeRed; Form1._Form1.dataGridView1.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.OrangeRed;
                                     }
                                     catch (InvalidOperationException)
                                     {
@@ -1288,6 +1293,7 @@ namespace HMIApp
 
                                         rowIndex = row.Index;
                                         Form1._Form1.dataGridView1.AllowUserToAddRows = tempAllowUserToAddRows;
+                                        Form1._Form1.dataGridView1.DefaultCellStyle.BackColor = System.Drawing.Color.OrangeRed; Form1._Form1.dataGridView1.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.OrangeRed;
                                     }
                                     catch (InvalidOperationException)
                                     {
@@ -1341,6 +1347,7 @@ namespace HMIApp
 
                                         rowIndex = row.Index;
                                         Form1._Form1.dataGridView1.AllowUserToAddRows = tempAllowUserToAddRows;
+                                        Form1._Form1.dataGridView1.DefaultCellStyle.BackColor = System.Drawing.Color.OrangeRed; Form1._Form1.dataGridView1.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.OrangeRed;
                                     }
                                     catch (InvalidOperationException)
                                     {
@@ -1378,17 +1385,6 @@ namespace HMIApp
                                     }
                                 }
                                 break;
-                        }
-                        //Uruchomienie timerów do koloru datagrid view
-                        if(Form1._Form1.dataGridView1.Rows.Count > 1)
-                        {
-                            Form1._Form1.TimerDoKoloruDataGridView.Enabled = true;
-                            Form1._Form1.TimerDoKoloruDataGridView1.Enabled = true;
-                        }
-                        else if(Form1._Form1.dataGridView1.Rows.Count <= 1)
-                        {
-                            Form1._Form1.TimerDoKoloruDataGridView.Enabled = false;
-                            Form1._Form1.TimerDoKoloruDataGridView1.Enabled = false;
                         }
                         break;
                     case "INT":
