@@ -5,6 +5,7 @@ using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Identity.Client;
 using ScottPlot;
+using ScottPlot.WinForms;
 using System;
 using System.Buffers;
 using System.Linq;
@@ -265,13 +266,15 @@ namespace HMIApp
             }
         }
 
+
         //Tworzenie glownego wykresu
         double[] ActX = new double[1000];
         double[] ActY = new double[1000];
         public void CreatePlot()
         {
             ReadActualValueFromDBChart_Simplified("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_4.csv");
-            Form1._Form1.formsPlot1.Plot.Axes.SetLimits(FastMovement, EndReading + 5.0, -500, ForceMaxfromRef);
+            Form1._Form1.formsPlot1.Plot.Axes.SetLimits(FastMovement, EndReading + 5.0, -1000, ForceMaxfromRef);
+
             if (StartChart == 0)
             {
                 Form1._Form1.formsPlot1.Refresh();
@@ -304,6 +307,7 @@ namespace HMIApp
                     mainplot.LinePattern = LinePattern.Solid;
                     mainplot.MarkerStyle.IsVisible = false;
                     mainplot.Smooth = true;
+          
                     Form1._Form1.formsPlot1.Refresh();
                 }
                 if (ActValX >= (EndReading) && EndOfMeasuring == false)
