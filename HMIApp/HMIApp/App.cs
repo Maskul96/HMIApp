@@ -124,7 +124,7 @@ namespace HMIApp
 
         //Stworzenie obiektu z konfiguracja sterownika
         SiemensPLC PLC = new SiemensPLC("192.168.2.1", 102, 0, 1, 1);
-        
+
 
         //Stworzenie obiektu CSVReader do odczytu z pliku
         CSVReader CSVReader = new CSVReader();
@@ -139,7 +139,7 @@ namespace HMIApp
         public bool RunInitPLC()
         {
             bool _connected = false;
-            if(PLC.connected_)
+            if (PLC.connected_)
             {
                 _connected = true;
                 return _connected;
@@ -184,11 +184,11 @@ namespace HMIApp
 
                     case "BOOL":
                         chk = Form1._Form1.Controls.Find($"{DBRead_TagName}", true).FirstOrDefault() as CheckBox;
-                        if(chk != null) chk.Checked = false;
+                        if (chk != null) chk.Checked = false;
                         break;
                     default:
                         txt = Form1._Form1.Controls.Find($"{DBRead_TagName}", true).FirstOrDefault() as TextBox;
-                        if(txt != null && DBRead_TagName != "DB666NrReference" && DBRead_TagName != "DB666NameOfClient") txt.Text = "0";
+                        if (txt != null && DBRead_TagName != "DB666NrReference" && DBRead_TagName != "DB666NameOfClient") txt.Text = "0";
                         if (txt != null && DBRead_TagName == "DB666NrReference" || DBRead_TagName == "DB666NameOfClient") txt.Text = "";
                         cb = Form1._Form1.Controls.Find($"{DBRead_TagName}", true).FirstOrDefault() as ComboBox;
                         if (cb != null) cb.SelectedIndex = 0;
@@ -290,22 +290,34 @@ namespace HMIApp
                 ActX[index10] = ActValX;
                 ActY[index10] = ActValY;
                 index10 += 1;
-
-
-                if (ActValX >= (EndReading) && EndOfMeasuring == false)
+                //Ponizszy if i for - generowanie nowego wykresu co iteracje licznika "index10" zeby zasymulowac generowanie wykresu na żywo
+                if (index10 >= 2)
                 {
                     for (int i = index10; i < 1000; i++)
                     {
                         ActX[i] = ActX[i - 1];
                         ActY[i] = ActY[i - 1];
                     }
-
-                    EndOfMeasuring = true;
+                    var mainplot = Form1._Form1.formsPlot1.Plot.Add.Scatter(ActX, ActY);
+                    mainplot.Color = Colors.Red;
+                    mainplot.LineStyle.Width = 1;
+                    mainplot.LinePattern = LinePattern.Solid;
+                    mainplot.MarkerStyle.IsVisible = false;
+                    mainplot.Smooth = true;
+                    Form1._Form1.formsPlot1.Refresh();
+                }
+                if (ActValX >= (EndReading) && EndOfMeasuring == false)
+                {//dopelnienie tablicy wartoscia ostatniego punktu
+                    for (int i = index10; i < 1000; i++)
+                    {
+                        ActX[i] = ActX[i - 1];
+                        ActY[i] = ActY[i - 1];
+                    }
                     double[] dataXForceMin = { FastMovement, EndReading };
                     int[] dataYForceMin = { ForceMin, ForceMin };
-                    double[] dataXForceMax = { StartReading,EndReading };
+                    double[] dataXForceMax = { StartReading, EndReading };
                     int[] dataYForceMax = { ForceMax, ForceMax };
-
+                    EndOfMeasuring = true;
                     //Plot sila minimalna
                     var fmin = Form1._Form1.formsPlot1.Plot.Add.Scatter(dataXForceMin, dataYForceMin);
                     fmin.Color = Colors.Black;
@@ -316,14 +328,17 @@ namespace HMIApp
                     fmax.Color = Colors.Black;
                     fmax.LineStyle.Pattern = LinePattern.Dashed;
                     fmax.LineStyle.Width = 1;
-
-                    var mainplot = Form1._Form1.formsPlot1.Plot.Add.Scatter(ActX, ActY);
-                    mainplot.Color = Colors.Red;
-                    mainplot.LineStyle.Width = 2;
+                    //Wyrysowanie ostatniego punktu
+                    var mainplot1 = Form1._Form1.formsPlot1.Plot.Add.Scatter(ActX, ActY);
+                    mainplot1.Color = Colors.Red;
+                    mainplot1.LineStyle.Width = 1;
+                    mainplot1.MarkerStyle.IsVisible = false;
                     //Wrzucenie tekstu na wykres z dokladnymi odczytami punktow i siły
                     Form1._Form1.formsPlot1.Plot.Add.Text($"({EndReading},{ForceMax})", EndReading, ForceMax);
                     Form1._Form1.formsPlot1.Plot.Add.Text($"({StartReading},{ForceMin})", StartReading, ForceMin);
                     Form1._Form1.formsPlot1.Refresh();
+                    //Wykasowanie Measure - zakonczenie rysowania wykresu
+                    WriteToDB("0", "DB665.Measure", 2);
                 }
             }
 
@@ -592,20 +607,20 @@ namespace HMIApp
                         txt = Form1._Form1.Controls.Find($"{DBRead_TagName}", true).FirstOrDefault() as TextBox;
                         if (txt == null)
                         {
-                            if(DBRead_TagName.Contains("Kolor"))
+                            if (DBRead_TagName.Contains("Kolor"))
                             {
-                                
+
                                 DBRead_TagNamePos = DBRead_TagName.IndexOf("Kolor");
                                 ValueOfColor = libnodave.getS16from(DB, DBRead_NrOfByteinDB);
                                 DBRead_TagNameSkip = DBRead_TagName.Remove(DBRead_TagNamePos, 5);
-                                
+
                                 if (ValueOfColor == 1)
-                                {                                    
+                                {
                                     txt = Form1._Form1.Controls.Find($"{DBRead_TagNameSkip}", true).FirstOrDefault() as TextBox;
                                     if (txt == null) break;
                                     else txt.BackColor = System.Drawing.Color.LimeGreen;
                                 }
-                                else if(ValueOfColor == 2)
+                                else if (ValueOfColor == 2)
                                 {
                                     txt = Form1._Form1.Controls.Find($"{DBRead_TagNameSkip}", true).FirstOrDefault() as TextBox;
                                     if (txt == null) break;
@@ -696,7 +711,7 @@ namespace HMIApp
         }
 
         //Zapis danych do DB i odczyt pliku z zapisywaniem
-        //Index = 0 zapis do DB666, index = 1 zapis do DB667
+        //Index = 0 zapis do DB666, index = 1 zapis do DB667, index = 2 zapis do DB665
         public void WriteToDB(string valuetoWrite, string NameofTaginDB, int filenameIndex = 0)
         {
             string filename = "";
@@ -707,6 +722,10 @@ namespace HMIApp
             else if (filenameIndex == 1)
             {
                 filename = "D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_1.csv";
+            }
+            else if (filenameIndex == 2)
+            {
+                filename = "D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_4.csv";
             }
             //Odczyt listy z tagami do zapisu
             var dbtags = CSVReader.DBStructure(filename);
@@ -1403,8 +1422,7 @@ namespace HMIApp
         {
             TextFormatFlags flags = TextFormatFlags.HorizontalCenter | TextFormatFlags.VerticalCenter;
             var textRect = e.Bounds;
-            var textColor = e.ForeColor;
-            textColor = System.Drawing.Color.Black;
+            var textColor = System.Drawing.Color.Black;
             string itemText = Form1._Form1.listBoxWarningsView.Items[e.Index].ToString();
             TextRenderer.DrawText(e.Graphics, itemText, e.Font, textRect, textColor, flags);
         }
