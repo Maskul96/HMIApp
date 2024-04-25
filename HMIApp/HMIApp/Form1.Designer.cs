@@ -3628,8 +3628,8 @@
             // 
             // DB667KodEtykiety
             // 
-            DB667KodEtykiety.BackColor = System.Drawing.SystemColors.Window;
             resources.ApplyResources(DB667KodEtykiety, "DB667KodEtykiety");
+            DB667KodEtykiety.BackColor = System.Drawing.SystemColors.Window;
             DB667KodEtykiety.Name = "DB667KodEtykiety";
             DB667KodEtykiety.ReadOnly = true;
             DB667KodEtykiety.Tag = "";
@@ -3834,11 +3834,11 @@
             tabControl1.Controls.Add(tabPage1);
             tabControl1.Controls.Add(tabPage2);
             tabControl1.Controls.Add(tabPage4);
-            tabControl1.Controls.Add(tabPage5);
-            tabControl1.Controls.Add(tabPage6);
             tabControl1.Controls.Add(tabPage9);
             tabControl1.Controls.Add(tabPage7);
+            tabControl1.Controls.Add(tabPage5);
             tabControl1.Controls.Add(tabPage13);
+            tabControl1.Controls.Add(tabPage6);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
             // 

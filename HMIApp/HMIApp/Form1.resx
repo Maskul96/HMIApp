@@ -1057,7 +1057,7 @@
     <value>tabControl1</value>
   </data>
   <data name="&gt;&gt;tabPage7.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>4</value>
   </data>
   <data name="tableLayoutPanel17.CellBorderStyle" type="System.Windows.Forms.TableLayoutPanelCellBorderStyle, System.Windows.Forms">
     <value>Single</value>
@@ -2656,7 +2656,7 @@
     <value>4, 4</value>
   </data>
   <data name="panel9.Size" type="System.Drawing.Size, System.Drawing">
-    <value>438, 424</value>
+    <value>427, 424</value>
   </data>
   <data name="panel9.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -4231,10 +4231,10 @@
     <value>Fill</value>
   </data>
   <data name="panel10.Location" type="System.Drawing.Point, System.Drawing">
-    <value>449, 4</value>
+    <value>438, 4</value>
   </data>
   <data name="panel10.Size" type="System.Drawing.Size, System.Drawing">
-    <value>416, 424</value>
+    <value>427, 424</value>
   </data>
   <data name="panel10.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -4279,7 +4279,7 @@
     <value>0</value>
   </data>
   <data name="tableLayoutPanel17.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="panel9" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="panel10" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,50,Absolute,422" /&gt;&lt;Rows Styles="Percent,50" /&gt;&lt;/TableLayoutSettings&gt;</value>
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="panel9" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="panel10" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,50,Percent,50" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="label95.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -7897,7 +7897,7 @@
     <value>tabControl1</value>
   </data>
   <data name="&gt;&gt;tabPage9.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>3</value>
   </data>
   <data name="tableLayoutPanel16.ColumnCount" type="System.Int32, mscorlib">
     <value>3</value>
@@ -8116,7 +8116,7 @@
     <value>tabControl1</value>
   </data>
   <data name="&gt;&gt;tabPage6.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>7</value>
   </data>
   <data name="tableLayoutPanel14.CellBorderStyle" type="System.Windows.Forms.TableLayoutPanelCellBorderStyle, System.Windows.Forms">
     <value>InsetDouble</value>
@@ -8131,13 +8131,13 @@
     <value>Segoe UI, 11.25pt</value>
   </data>
   <data name="label_EdycjaUzytkownikow.Location" type="System.Drawing.Point, System.Drawing">
-    <value>448, 64</value>
+    <value>448, 62</value>
   </data>
   <data name="label_EdycjaUzytkownikow.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 0, 4, 0</value>
   </data>
   <data name="label_EdycjaUzytkownikow.Size" type="System.Drawing.Size, System.Drawing">
-    <value>430, 24</value>
+    <value>430, 28</value>
   </data>
   <data name="label_EdycjaUzytkownikow.TabIndex" type="System.Int32, mscorlib">
     <value>176</value>
@@ -8167,13 +8167,13 @@
     <value>Segoe UI, 11.25pt</value>
   </data>
   <data name="label_DodanieUzytkownikow.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 64</value>
+    <value>7, 62</value>
   </data>
   <data name="label_DodanieUzytkownikow.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 0, 4, 0</value>
   </data>
   <data name="label_DodanieUzytkownikow.Size" type="System.Drawing.Size, System.Drawing">
-    <value>430, 24</value>
+    <value>430, 28</value>
   </data>
   <data name="label_DodanieUzytkownikow.TabIndex" type="System.Int32, mscorlib">
     <value>177</value>
@@ -8401,10 +8401,10 @@
     <value>Fill</value>
   </data>
   <data name="panel5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 94</value>
+    <value>6, 96</value>
   </data>
   <data name="panel5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>432, 372</value>
+    <value>432, 370</value>
   </data>
   <data name="panel5.TabIndex" type="System.Int32, mscorlib">
     <value>180</value>
@@ -8755,10 +8755,10 @@
     <value>Fill</value>
   </data>
   <data name="panel7.Location" type="System.Drawing.Point, System.Drawing">
-    <value>447, 94</value>
+    <value>447, 96</value>
   </data>
   <data name="panel7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>432, 372</value>
+    <value>432, 370</value>
   </data>
   <data name="panel7.TabIndex" type="System.Int32, mscorlib">
     <value>181</value>
@@ -8824,7 +8824,7 @@
     <value>4, 3, 4, 3</value>
   </data>
   <data name="button_ZalogujUzytk.Size" type="System.Drawing.Size, System.Drawing">
-    <value>145, 38</value>
+    <value>145, 36</value>
   </data>
   <data name="button_ZalogujUzytk.TabIndex" type="System.Int32, mscorlib">
     <value>79</value>
@@ -8854,7 +8854,7 @@
     <value>1</value>
   </data>
   <data name="tableLayoutPanel15.Size" type="System.Drawing.Size, System.Drawing">
-    <value>430, 50</value>
+    <value>430, 48</value>
   </data>
   <data name="tableLayoutPanel15.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -8872,7 +8872,7 @@
     <value>0</value>
   </data>
   <data name="tableLayoutPanel15.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="textBox_MiejsceNaNrKarty_Zaloguj" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="button_ZalogujUzytk" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,63,820225,Percent,36,179775" /&gt;&lt;Rows Styles="Percent,50" /&gt;&lt;/TableLayoutSettings&gt;</value>
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="textBox_MiejsceNaNrKarty_Zaloguj" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="button_ZalogujUzytk" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,63,820225,Percent,36,179775" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="panel8.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -8881,7 +8881,7 @@
     <value>6, 6</value>
   </data>
   <data name="panel8.Size" type="System.Drawing.Size, System.Drawing">
-    <value>432, 52</value>
+    <value>432, 50</value>
   </data>
   <data name="panel8.TabIndex" type="System.Int32, mscorlib">
     <value>182</value>
@@ -8947,7 +8947,7 @@
     <value>0</value>
   </data>
   <data name="tableLayoutPanel14.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="label_EdycjaUzytkownikow" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="label_DodanieUzytkownikow" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="panel5" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="panel7" Row="2" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="panel8" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="StatusyLogowania" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,50,Percent,50" /&gt;&lt;Rows Styles="Percent,70,731705,Percent,29,268293,Absolute,377" /&gt;&lt;/TableLayoutSettings&gt;</value>
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="label_EdycjaUzytkownikow" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="label_DodanieUzytkownikow" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="panel5" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="panel7" Row="2" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="panel8" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="StatusyLogowania" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,50,Percent,50" /&gt;&lt;Rows Styles="Percent,12,244899,Percent,6,1224494,Percent,81,63265" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="label56.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -9004,7 +9004,7 @@
     <value>tabControl1</value>
   </data>
   <data name="&gt;&gt;tabPage5.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>5</value>
   </data>
   <data name="tableLayoutPanel11.CellBorderStyle" type="System.Windows.Forms.TableLayoutPanelCellBorderStyle, System.Windows.Forms">
     <value>InsetDouble</value>
@@ -15668,6 +15668,9 @@
   <data name="&gt;&gt;tabPage2.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <data name="checkBox_TestLampek.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
+  </data>
   <data name="checkBox_TestLampek.Appearance" type="System.Windows.Forms.Appearance, System.Windows.Forms">
     <value>Button</value>
   </data>
@@ -15675,7 +15678,7 @@
     <value>Flat</value>
   </data>
   <data name="checkBox_TestLampek.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 11.25pt</value>
+    <value>Segoe UI, 9.75pt</value>
   </data>
   <data name="checkBox_TestLampek.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -15684,13 +15687,16 @@
     <value>8, 350</value>
   </data>
   <data name="checkBox_TestLampek.Size" type="System.Drawing.Size, System.Drawing">
-    <value>104, 46</value>
+    <value>80, 46</value>
   </data>
   <data name="checkBox_TestLampek.TabIndex" type="System.Int32, mscorlib">
     <value>208</value>
   </data>
   <data name="checkBox_TestLampek.Text" xml:space="preserve">
     <value>Test Lampek</value>
+  </data>
+  <data name="checkBox_TestLampek.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
   </data>
   <data name="&gt;&gt;checkBox_TestLampek.Name" xml:space="preserve">
     <value>checkBox_TestLampek</value>
@@ -15816,10 +15822,10 @@
     <value>NoControl</value>
   </data>
   <data name="Button_Rework.Location" type="System.Drawing.Point, System.Drawing">
-    <value>251, 349</value>
+    <value>256, 348</value>
   </data>
   <data name="Button_Rework.Size" type="System.Drawing.Size, System.Drawing">
-    <value>80, 50</value>
+    <value>75, 50</value>
   </data>
   <data name="Button_Rework.TabIndex" type="System.Int32, mscorlib">
     <value>191</value>
@@ -15849,10 +15855,10 @@
     <value>NoControl</value>
   </data>
   <data name="Button_ResetSztukNOK.Location" type="System.Drawing.Point, System.Drawing">
-    <value>252, 403</value>
+    <value>175, 348</value>
   </data>
   <data name="Button_ResetSztukNOK.Size" type="System.Drawing.Size, System.Drawing">
-    <value>80, 50</value>
+    <value>75, 50</value>
   </data>
   <data name="Button_ResetSztukNOK.TabIndex" type="System.Int32, mscorlib">
     <value>190</value>
@@ -15912,10 +15918,10 @@
     <value>Segoe UI, 11.25pt</value>
   </data>
   <data name="Button_ResetSztukOK.Location" type="System.Drawing.Point, System.Drawing">
-    <value>177, 403</value>
+    <value>94, 348</value>
   </data>
   <data name="Button_ResetSztukOK.Size" type="System.Drawing.Size, System.Drawing">
-    <value>74, 50</value>
+    <value>75, 50</value>
   </data>
   <data name="Button_ResetSztukOK.TabIndex" type="System.Int32, mscorlib">
     <value>189</value>
@@ -15934,6 +15940,9 @@
   </data>
   <data name="&gt;&gt;Button_ResetSztukOK.ZOrder" xml:space="preserve">
     <value>3</value>
+  </data>
+  <data name="DB667KodEtykiety.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
   </data>
   <data name="DB667KodEtykiety.Location" type="System.Drawing.Point, System.Drawing">
     <value>8, 321</value>
@@ -16872,7 +16881,7 @@
     <value>tabControl1</value>
   </data>
   <data name="&gt;&gt;tabPage13.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>6</value>
   </data>
   <data name="tabControl1.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 12pt</value>
@@ -17154,7 +17163,7 @@
     <value>True</value>
   </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>164</value>
+    <value>97</value>
   </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>7, 15</value>

@@ -292,7 +292,7 @@ namespace HMIApp
                 index10 += 1;
 
 
-                if (ActValX >= (EndReading+1.0) && EndOfMeasuring == false)
+                if (ActValX >= (EndReading) && EndOfMeasuring == false)
                 {
                     for (int i = index10; i < 1000; i++)
                     {

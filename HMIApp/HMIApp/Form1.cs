@@ -71,8 +71,6 @@ namespace HMIApp
             blockade = false;
 
             CzyszczenieStatusówLogowania.Enabled = true;
-
-
         }
 
 
@@ -211,7 +209,6 @@ namespace HMIApp
         {
             textBox_Imie_Edycja.Text = comboBox_ListaUzytkWBazie.SelectedItem.ToString();
             Users.DisplayValuesFromXML(Users.LoadFromXML("document.xml"), textBox_Imie_Edycja.Text);
-
         }
 
         //Przycisk wyzwalający edycje użytkownika
