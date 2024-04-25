@@ -30,7 +30,7 @@
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             OdczytDB = new System.Windows.Forms.Timer(components);
             label_Uzytkownik = new System.Windows.Forms.Label();
             pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -2731,6 +2731,7 @@
             resources.ApplyResources(DB666DojazdWolny_Przeciskanie, "DB666DojazdWolny_Przeciskanie");
             DB666DojazdWolny_Przeciskanie.Name = "DB666DojazdWolny_Przeciskanie";
             DB666DojazdWolny_Przeciskanie.Tag = "DB666.DojazdWolny";
+            DB666DojazdWolny_Przeciskanie.Click += TextBox_Click;
             // 
             // label120
             // 
@@ -2883,24 +2884,28 @@
             resources.ApplyResources(DB666PozPionowa_DyszaWahliwa, "DB666PozPionowa_DyszaWahliwa");
             DB666PozPionowa_DyszaWahliwa.Name = "DB666PozPionowa_DyszaWahliwa";
             DB666PozPionowa_DyszaWahliwa.Tag = "DB666.PozPionowa";
+            DB666PozPionowa_DyszaWahliwa.Click += TextBox_Click;
             // 
             // DB666PozDyszyWOslonce_DyszaWahliwa
             // 
             resources.ApplyResources(DB666PozDyszyWOslonce_DyszaWahliwa, "DB666PozDyszyWOslonce_DyszaWahliwa");
             DB666PozDyszyWOslonce_DyszaWahliwa.Name = "DB666PozDyszyWOslonce_DyszaWahliwa";
             DB666PozDyszyWOslonce_DyszaWahliwa.Tag = "DB666.PozDyszyWOslonce";
+            DB666PozDyszyWOslonce_DyszaWahliwa.Click += TextBox_Click;
             // 
             // DB666PozZjazduOslonkiSmarowanie_DyszaWahliwa
             // 
             resources.ApplyResources(DB666PozZjazduOslonkiSmarowanie_DyszaWahliwa, "DB666PozZjazduOslonkiSmarowanie_DyszaWahliwa");
             DB666PozZjazduOslonkiSmarowanie_DyszaWahliwa.Name = "DB666PozZjazduOslonkiSmarowanie_DyszaWahliwa";
             DB666PozZjazduOslonkiSmarowanie_DyszaWahliwa.Tag = "DB666.PozZjazduOslonkiSmarowanie";
+            DB666PozZjazduOslonkiSmarowanie_DyszaWahliwa.Click += TextBox_Click;
             // 
             // DB666PozPozioma_DyszaWahliwa
             // 
             resources.ApplyResources(DB666PozPozioma_DyszaWahliwa, "DB666PozPozioma_DyszaWahliwa");
             DB666PozPozioma_DyszaWahliwa.Name = "DB666PozPozioma_DyszaWahliwa";
             DB666PozPozioma_DyszaWahliwa.Tag = "DB666.PozPozioma";
+            DB666PozPozioma_DyszaWahliwa.Click += TextBox_Click;
             // 
             // label24
             // 
@@ -2997,6 +3002,7 @@
             resources.ApplyResources(DB666TolDawkiTulip, "DB666TolDawkiTulip");
             DB666TolDawkiTulip.Name = "DB666TolDawkiTulip";
             DB666TolDawkiTulip.Tag = "DB666.TolDawkiTulip";
+            DB666TolDawkiTulip.Click += TextBox_Click;
             // 
             // label11
             // 
@@ -3008,6 +3014,7 @@
             resources.ApplyResources(DB666DawkaTulip, "DB666DawkaTulip");
             DB666DawkaTulip.Name = "DB666DawkaTulip";
             DB666DawkaTulip.Tag = "DB666.DawkaTulip";
+            DB666DawkaTulip.Click += TextBox_Click;
             // 
             // label22
             // 
@@ -3042,18 +3049,21 @@
             resources.ApplyResources(DB666TagRFIDGlowicaGorna, "DB666TagRFIDGlowicaGorna");
             DB666TagRFIDGlowicaGorna.Name = "DB666TagRFIDGlowicaGorna";
             DB666TagRFIDGlowicaGorna.Tag = "DB666.TagRFIDGlowicaGorna";
+            DB666TagRFIDGlowicaGorna.Click += TextBox_Click;
             // 
             // DB666TagRFIDPlytaSmar
             // 
             resources.ApplyResources(DB666TagRFIDPlytaSmar, "DB666TagRFIDPlytaSmar");
             DB666TagRFIDPlytaSmar.Name = "DB666TagRFIDPlytaSmar";
             DB666TagRFIDPlytaSmar.Tag = "DB666.TagRFIDPlytaSmar";
+            DB666TagRFIDPlytaSmar.Click += TextBox_Click;
             // 
             // DB666TagRFIDSzczekiOslonki
             // 
             resources.ApplyResources(DB666TagRFIDSzczekiOslonki, "DB666TagRFIDSzczekiOslonki");
             DB666TagRFIDSzczekiOslonki.Name = "DB666TagRFIDSzczekiOslonki";
             DB666TagRFIDSzczekiOslonki.Tag = "DB666.TagRFIDSzczekiOslonki";
+            DB666TagRFIDSzczekiOslonki.Click += TextBox_Click;
             // 
             // label18
             // 
@@ -3080,6 +3090,7 @@
             resources.ApplyResources(DB666TagRFIDPrzegub, "DB666TagRFIDPrzegub");
             DB666TagRFIDPrzegub.Name = "DB666TagRFIDPrzegub";
             DB666TagRFIDPrzegub.Tag = "DB666.TagRFIDPrzegub";
+            DB666TagRFIDPrzegub.Click += TextBox_Click;
             // 
             // DB666NameOfClient
             // 
@@ -3809,14 +3820,14 @@
             dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.ColumnHeadersVisible = false;
             dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { Column2 });
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 238);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 238);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            dataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
             resources.ApplyResources(dataGridView1, "dataGridView1");
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersVisible = false;

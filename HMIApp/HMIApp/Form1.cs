@@ -323,16 +323,12 @@ namespace HMIApp
         private void TextBox_Click(object sender, EventArgs e)
         {
             Process[] oslProcessArry = Process.GetProcessesByName("TabTip");
-            // if (oslProcessArry.Length == 0)
-            // {
             foreach (Process oslProcess in oslProcessArry)
             {
                 oslProcess.Kill();
             }
             string progFiles = @"C:\Program Files\Common Files\Microsoft Shared\Ink\TabTip.exe";
                 Process.Start(progFiles);
-           // }
-           
         }
 
 
