@@ -268,8 +268,8 @@ namespace HMIApp
 
 
         //Tworzenie glownego wykresu
-        double[] ActX = new double[1000];
-        double[] ActY = new double[1000];
+        double[] ActX = new double[200];
+        double[] ActY = new double[200];
         public void CreatePlot()
         {
             ReadActualValueFromDBChart_Simplified("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_4.csv");
@@ -278,7 +278,6 @@ namespace HMIApp
             if (StartChart == 0)
             {
                 Form1._Form1.formsPlot1.Refresh();
-                EndOfMeasuring = false;
                 index10 = 0;
             }
             if (ClearPlot == 1)
@@ -287,7 +286,7 @@ namespace HMIApp
                 CreateStaticPlot();
             }
             WriteSpecifiedValueFromReference();
-            if (StartChart == 1 && EndOfMeasuring == false && ActValX > FastMovement + 10.0)
+            if (StartChart == 1 )
             {
 
                 ActX[index10] = ActValX;
@@ -296,7 +295,7 @@ namespace HMIApp
                 //Ponizszy if i for - generowanie nowego wykresu co iteracje licznika "index10" zeby zasymulowac generowanie wykresu na żywo
                 if (index10 >= 2)
                 {
-                    for (int i = index10; i < 1000; i++)
+                    for (int i = index10; i < 200; i++)
                     {
                         ActX[i] = ActX[i - 1];
                         ActY[i] = ActY[i - 1];
@@ -310,9 +309,9 @@ namespace HMIApp
           
                     Form1._Form1.formsPlot1.Refresh();
                 }
-                if (ActValX >= (EndReading) && EndOfMeasuring == false)
+                if (ActValX >= EndReading )
                 {//dopelnienie tablicy wartoscia ostatniego punktu
-                    for (int i = index10; i < 1000; i++)
+                    for (int i = index10; i < 200; i++)
                     {
                         ActX[i] = ActX[i - 1];
                         ActY[i] = ActY[i - 1];
@@ -321,7 +320,6 @@ namespace HMIApp
                     int[] dataYForceMin = { ForceMin, ForceMin };
                     double[] dataXForceMax = { StartReading, EndReading };
                     int[] dataYForceMax = { ForceMax, ForceMax };
-                    EndOfMeasuring = true;
                     //Plot sila minimalna
                     var fmin = Form1._Form1.formsPlot1.Plot.Add.Scatter(dataXForceMin, dataYForceMin);
                     fmin.Color = Colors.Black;
