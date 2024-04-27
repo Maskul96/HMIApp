@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.CodeAnalysis.CSharp.Syntax;
+using System;
 using System.Linq;
 using System.Xml.Linq;
 
@@ -22,9 +23,10 @@ namespace HMIApp.Components.UserAdministration
         public string Name;
         public string UserRights;
         public int id=1;
-        public bool UserIsLoggedIn;
+       // public bool UserIsLoggedIn;
         public int Interval = 100000/1000;
 
+        public bool UserIsLoggedIn { get; set; }
 
         public void Run()
         {
@@ -74,35 +76,42 @@ namespace HMIApp.Components.UserAdministration
 
             if (NrofCard != "")
             {
-                var names = document.Element("Użytkownicy")?
-                .Elements("Użytkownik")
-                .Where(x => x.Attribute("Numer_karty")?.Value == NrofCard)
-                .Single();
-
-                UserIsLoggedIn = (names != null) ? true : false;
-
-                Form1._Form1.label_Imie.Text = names.Attribute("Numer_karty").Value;
-                Form1._Form1.label_NrKarty.Text = names.Attribute("Nazwa_użytkownika").Value;
-                switch (names.Attribute("Uprawnienia").Value)
+                try
                 {
-                    case "0":
-                        Form1._Form1.label_Uprawnienia.Text = "Operator";
-                        break;
-                    case "1":
-                        Form1._Form1.label_Uprawnienia.Text = "Lider";
-                        break;
-                    case "2":
-                        Form1._Form1.label_Uprawnienia.Text = "Technolog";
-                        break;
-                    default:
-                        Form1._Form1.label_Uprawnienia.Text = "Operator";
-                        break;
+                    var names = document.Element("Użytkownicy")?
+                    .Elements("Użytkownik")
+                    .Where(x => x.Attribute("Numer_karty")?.Value == NrofCard)
+                    .Single();
+
+                    UserIsLoggedIn = (names != null) ? true : false;
+
+                    Form1._Form1.label_Imie.Text = names.Attribute("Numer_karty").Value;
+                    Form1._Form1.label_NrKarty.Text = names.Attribute("Nazwa_użytkownika").Value;
+                    switch (names.Attribute("Uprawnienia").Value)
+                    {
+                        case "0":
+                            Form1._Form1.label_Uprawnienia.Text = "Operator";
+                            break;
+                        case "1":
+                            Form1._Form1.label_Uprawnienia.Text = "Lider";
+                            break;
+                        case "2":
+                            Form1._Form1.label_Uprawnienia.Text = "Technolog";
+                            break;
+                        default:
+                            Form1._Form1.label_Uprawnienia.Text = "Operator";
+                            break;
+                    }
+                    Form1._Form1.StatusyLogowania.Text = "Użytkownik zalogowany";
+                    //Obsluga odliczania czasu do wylogowania
+                    Form1._Form1.TimeoutWylogowania.Enabled = true;
+                    Form1._Form1.label13.Text = Interval.ToString();
+                    Form1._Form1.OdliczaSekunde.Enabled = true;
                 }
-                Form1._Form1.StatusyLogowania.Text = "Użytkownik zalogowany";
-                //Obsluga odliczania czasu do wylogowania
-                Form1._Form1.TimeoutWylogowania.Enabled = true;
-                Form1._Form1.label13.Text = Interval.ToString();
-                Form1._Form1.OdliczaSekunde.Enabled = true;
+                catch (Exception e)
+                {
+                    Form1._Form1.StatusyLogowania.Text = "Nie znaleziono takiego użytkownika";                    
+                }
             }
             else
             {

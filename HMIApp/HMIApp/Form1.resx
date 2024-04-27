@@ -15708,7 +15708,7 @@
     <value>panel1</value>
   </data>
   <data name="&gt;&gt;checkBox_TestLampek.ZOrder" xml:space="preserve">
-    <value>18</value>
+    <value>20</value>
   </data>
   <data name="formsPlot1.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
     <value>GrowAndShrink</value>
@@ -15812,6 +15812,63 @@
   <data name="tableLayoutPanel5.ColumnCount" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
+  <data name="label139.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label139.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label139.Location" type="System.Drawing.Point, System.Drawing">
+    <value>280, 432</value>
+  </data>
+  <data name="label139.Size" type="System.Drawing.Size, System.Drawing">
+    <value>50, 15</value>
+  </data>
+  <data name="label139.TabIndex" type="System.Int32, mscorlib">
+    <value>210</value>
+  </data>
+  <data name="label139.Text" xml:space="preserve">
+    <value>label139</value>
+  </data>
+  <data name="&gt;&gt;label139.Name" xml:space="preserve">
+    <value>label139</value>
+  </data>
+  <data name="&gt;&gt;label139.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label139.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;label139.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="label51.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label51.Location" type="System.Drawing.Point, System.Drawing">
+    <value>208, 414</value>
+  </data>
+  <data name="label51.Size" type="System.Drawing.Size, System.Drawing">
+    <value>44, 15</value>
+  </data>
+  <data name="label51.TabIndex" type="System.Int32, mscorlib">
+    <value>209</value>
+  </data>
+  <data name="label51.Text" xml:space="preserve">
+    <value>label51</value>
+  </data>
+  <data name="&gt;&gt;label51.Name" xml:space="preserve">
+    <value>label51</value>
+  </data>
+  <data name="&gt;&gt;label51.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label51.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;label51.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
   <data name="Button_Rework.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left</value>
   </data>
@@ -15843,7 +15900,7 @@
     <value>panel1</value>
   </data>
   <data name="&gt;&gt;Button_Rework.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>2</value>
   </data>
   <data name="Button_ResetSztukNOK.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left</value>
@@ -15876,7 +15933,7 @@
     <value>panel1</value>
   </data>
   <data name="&gt;&gt;Button_ResetSztukNOK.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>3</value>
   </data>
   <data name="label46.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -15909,7 +15966,7 @@
     <value>panel1</value>
   </data>
   <data name="&gt;&gt;label46.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>4</value>
   </data>
   <data name="Button_ResetSztukOK.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left</value>
@@ -15939,7 +15996,7 @@
     <value>panel1</value>
   </data>
   <data name="&gt;&gt;Button_ResetSztukOK.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>5</value>
   </data>
   <data name="DB667KodEtykiety.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
@@ -15966,7 +16023,7 @@
     <value>panel1</value>
   </data>
   <data name="&gt;&gt;DB667KodEtykiety.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>6</value>
   </data>
   <data name="label44.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -15999,7 +16056,7 @@
     <value>panel1</value>
   </data>
   <data name="&gt;&gt;label44.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>7</value>
   </data>
   <data name="DB667SilaWOknie.Location" type="System.Drawing.Point, System.Drawing">
     <value>186, 268</value>
@@ -16023,7 +16080,7 @@
     <value>panel1</value>
   </data>
   <data name="&gt;&gt;DB667SilaWOknie.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>8</value>
   </data>
   <data name="label43.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -16056,7 +16113,7 @@
     <value>panel1</value>
   </data>
   <data name="&gt;&gt;label43.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>9</value>
   </data>
   <data name="DB667DawkaPrzegub.Location" type="System.Drawing.Point, System.Drawing">
     <value>186, 234</value>
@@ -16080,7 +16137,7 @@
     <value>panel1</value>
   </data>
   <data name="&gt;&gt;DB667DawkaPrzegub.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>10</value>
   </data>
   <data name="label65.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -16113,7 +16170,7 @@
     <value>panel1</value>
   </data>
   <data name="&gt;&gt;label65.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>11</value>
   </data>
   <data name="label42.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -16146,7 +16203,7 @@
     <value>panel1</value>
   </data>
   <data name="&gt;&gt;label42.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>12</value>
   </data>
   <data name="DB667PozycjadyszaPozioma.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 9.75pt</value>
@@ -16173,7 +16230,7 @@
     <value>panel1</value>
   </data>
   <data name="&gt;&gt;DB667PozycjadyszaPozioma.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>13</value>
   </data>
   <data name="label25.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -16206,7 +16263,7 @@
     <value>panel1</value>
   </data>
   <data name="&gt;&gt;label25.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>14</value>
   </data>
   <data name="DB667DawkaTulip.Location" type="System.Drawing.Point, System.Drawing">
     <value>186, 202</value>
@@ -16230,7 +16287,7 @@
     <value>panel1</value>
   </data>
   <data name="&gt;&gt;DB667DawkaTulip.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>15</value>
   </data>
   <data name="DB667PozycjaDyszaPionowa.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 9.75pt</value>
@@ -16257,7 +16314,7 @@
     <value>panel1</value>
   </data>
   <data name="&gt;&gt;DB667PozycjaDyszaPionowa.ZOrder" xml:space="preserve">
-    <value>14</value>
+    <value>16</value>
   </data>
   <data name="label21.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -16290,7 +16347,7 @@
     <value>panel1</value>
   </data>
   <data name="&gt;&gt;label21.ZOrder" xml:space="preserve">
-    <value>15</value>
+    <value>17</value>
   </data>
   <data name="DB667PozycjaGniazdoDolne.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 9.75pt</value>
@@ -16317,7 +16374,7 @@
     <value>panel1</value>
   </data>
   <data name="&gt;&gt;DB667PozycjaGniazdoDolne.ZOrder" xml:space="preserve">
-    <value>16</value>
+    <value>18</value>
   </data>
   <data name="DB667AktSila.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 9.75pt</value>
@@ -16344,7 +16401,7 @@
     <value>panel1</value>
   </data>
   <data name="&gt;&gt;DB667AktSila.ZOrder" xml:space="preserve">
-    <value>17</value>
+    <value>19</value>
   </data>
   <data name="label_SztukiOK.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left</value>
@@ -16380,7 +16437,7 @@
     <value>panel1</value>
   </data>
   <data name="&gt;&gt;label_SztukiOK.ZOrder" xml:space="preserve">
-    <value>19</value>
+    <value>21</value>
   </data>
   <data name="label64.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -16413,7 +16470,7 @@
     <value>panel1</value>
   </data>
   <data name="&gt;&gt;label64.ZOrder" xml:space="preserve">
-    <value>20</value>
+    <value>22</value>
   </data>
   <data name="DB667PozycjaOslonki.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 9.75pt</value>
@@ -16440,7 +16497,7 @@
     <value>panel1</value>
   </data>
   <data name="&gt;&gt;DB667PozycjaOslonki.ZOrder" xml:space="preserve">
-    <value>21</value>
+    <value>23</value>
   </data>
   <data name="label48.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -16473,7 +16530,7 @@
     <value>panel1</value>
   </data>
   <data name="&gt;&gt;label48.ZOrder" xml:space="preserve">
-    <value>22</value>
+    <value>24</value>
   </data>
   <data name="DB667PozycjaPrzeciskanie.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 9.75pt</value>
@@ -16500,7 +16557,7 @@
     <value>panel1</value>
   </data>
   <data name="&gt;&gt;DB667PozycjaPrzeciskanie.ZOrder" xml:space="preserve">
-    <value>23</value>
+    <value>25</value>
   </data>
   <data name="label_SztukiNOK.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left</value>
@@ -16536,7 +16593,7 @@
     <value>panel1</value>
   </data>
   <data name="&gt;&gt;label_SztukiNOK.ZOrder" xml:space="preserve">
-    <value>24</value>
+    <value>26</value>
   </data>
   <data name="label49.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -16569,7 +16626,7 @@
     <value>panel1</value>
   </data>
   <data name="&gt;&gt;label49.ZOrder" xml:space="preserve">
-    <value>25</value>
+    <value>27</value>
   </data>
   <data name="DB667SztukiNOK.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left</value>
@@ -16605,7 +16662,7 @@
     <value>panel1</value>
   </data>
   <data name="&gt;&gt;DB667SztukiNOK.ZOrder" xml:space="preserve">
-    <value>26</value>
+    <value>28</value>
   </data>
   <data name="DB667SztukiOK.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left</value>
@@ -16641,7 +16698,7 @@
     <value>panel1</value>
   </data>
   <data name="&gt;&gt;DB667SztukiOK.ZOrder" xml:space="preserve">
-    <value>27</value>
+    <value>29</value>
   </data>
   <data name="panel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>

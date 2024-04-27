@@ -163,7 +163,7 @@ namespace HMIApp
         }
 
         //Metoda wyciagająca dany bit z całego Byte'a
-        private bool GetBit(byte b, int bitNumber)
+        public bool GetBit(byte b, int bitNumber)
         {
             return (b & (1 << bitNumber)) != 0;
         }
@@ -295,11 +295,13 @@ namespace HMIApp
                 //Ponizszy if i for - generowanie nowego wykresu co iteracje licznika "index10" zeby zasymulowac generowanie wykresu na żywo
                 if (index10 >= 2)
                 {
+                    //Sprobowac to uproscic zeby nie trzeba bylo co iterator wypelniac calej tablicy
                     for (int i = index10; i < 200; i++)
                     {
                         ActX[i] = ActX[i - 1];
                         ActY[i] = ActY[i - 1];
                     }
+
                     var mainplot = Form1._Form1.formsPlot1.Plot.Add.Scatter(ActX, ActY);
                     mainplot.Color = Colors.Red;
                     mainplot.LineStyle.Width = 1;
@@ -402,6 +404,7 @@ namespace HMIApp
             //Read DB
             PLC.Read(int.Parse(DBRead_NumberOfDB), DBRead_StartDB, DBRead_EndDB, DB);
 
+            //udostepnienie DBka do archiwizacji danych - z DB trzeba wyciagnac na sztywno bezposrednio informacje o stanie Auto/Manual
 
             foreach (var dbTag in dbtags)
             {

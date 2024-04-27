@@ -3,6 +3,7 @@ namespace HMIApp.Components.UserAdministration
 {
     public interface iUserAdministration
     {
+        bool UserIsLoggedIn { get; }
         void Run();
         void SaveToXML();
         void LoadFromXML();

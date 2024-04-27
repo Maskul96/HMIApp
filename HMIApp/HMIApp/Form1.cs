@@ -5,6 +5,7 @@ using System.IO;
 using System.Drawing;
 using System.Windows.Forms;
 using HMIApp.Components.UserAdministration;
+using HMIApp.Archivizations;
 using HMIApp.Data;
 using Microsoft.EntityFrameworkCore;
 using HMIApp.Components.RFIDCardReader;
@@ -19,6 +20,7 @@ namespace HMIApp
 {
     public partial class Form1 : Form
     {
+        Archivization _Archive = new Archivization();
         App App = new App();
         UserAdministration Users = new UserAdministration();
         DataBase DataBase = new DataBase();
@@ -51,12 +53,21 @@ namespace HMIApp
             CommaReplaceDotTextBox(this);
             PassedValueControls.Run();
 
+            //Odpalamy metode MethodAfterLogInEvent jak event sie zadzieje
+            _Archive.TriggerAfterLogInEvent += MethodAfterLogInEvent;
+
             //serialPortReader.InitializeSerialPort();
             // serialPortReader.Run();
         }
         //statyczna zmienna typu Form1 zeby dostac sie z poziomu innej klasy do obiektow wewnatrz Form1
         public static Form1 _Form1;
 
+        public void MethodAfterLogInEvent(object sender, EventArgs args)
+        {
+            MessageBox.Show("Wejscie w metode MethodAfterLogInEvent");
+            label51.Text = label_DataIGodzina.Text;
+            label139.Text = textBox_MiejsceNaNrKarty_Zaloguj.Text;
+        }
         private void Form1_Load(object sender, EventArgs e)
         {
             App.RunInitPLC();
@@ -72,6 +83,9 @@ namespace HMIApp
 
             CzyszczenieStatusówLogowania.Enabled = true;
         }
+
+
+
 
 
         //Timer do prób uruchomienia komunikacji z PLC
@@ -190,6 +204,7 @@ namespace HMIApp
             //aktualizacja daty i godziny
             this.Text = DateTime.Now.ToString();
             label_DataIGodzina.Text = this.Text;
+
         }
 
         //Przycisk wyzwalajacy zapis uzytkownika
@@ -226,7 +241,14 @@ namespace HMIApp
             Users.Interval = 100000 / 1000;
             label13.Text = Users.Interval.ToString();
             Users.FindUserinXML();
+            //Po zalogowaniu uruchamiamy metode OnLogInTrigger - jak bedzie subscriber podpiety pod event to odpali ona Event
+            if(Users.UserIsLoggedIn)
+            {
+                _Archive.OnLogInTrigger();
+            }
             Users.EnabledObjects();
+
+
         }
 
         //Wylogowanie uzytkownika po uplywie czasu

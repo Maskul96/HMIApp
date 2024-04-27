@@ -480,6 +480,8 @@
             DB667CzasCyklu = new System.Windows.Forms.TextBox();
             tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             panel1 = new System.Windows.Forms.Panel();
+            label139 = new System.Windows.Forms.Label();
+            label51 = new System.Windows.Forms.Label();
             Button_Rework = new System.Windows.Forms.Button();
             Button_ResetSztukNOK = new System.Windows.Forms.Button();
             label46 = new System.Windows.Forms.Label();
@@ -3576,6 +3578,8 @@
             // 
             // panel1
             // 
+            panel1.Controls.Add(label139);
+            panel1.Controls.Add(label51);
             panel1.Controls.Add(Button_Rework);
             panel1.Controls.Add(Button_ResetSztukNOK);
             panel1.Controls.Add(label46);
@@ -3606,6 +3610,16 @@
             panel1.Controls.Add(DB667SztukiOK);
             resources.ApplyResources(panel1, "panel1");
             panel1.Name = "panel1";
+            // 
+            // label139
+            // 
+            resources.ApplyResources(label139, "label139");
+            label139.Name = "label139";
+            // 
+            // label51
+            // 
+            resources.ApplyResources(label51, "label51");
+            label51.Name = "label51";
             // 
             // Button_Rework
             // 
@@ -4540,6 +4554,8 @@
         public System.Windows.Forms.TextBox StatusyLogowania;
         public System.Windows.Forms.ComboBox DB666RodzajSmaruPrzegub;
         public System.Windows.Forms.ComboBox DB666RodzajSmaruTulip;
+        public System.Windows.Forms.Label label139;
+        public System.Windows.Forms.Label label51;
     }
 }
 

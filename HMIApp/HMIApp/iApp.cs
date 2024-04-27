@@ -17,6 +17,8 @@ namespace HMIApp
         void CreatePlot();
         void CreateStaticPlot();
 
+        bool GetBit(byte b, int bitNumber);
+
         void WriteSpecifiedValueFromReference();
          int ClearPlot { get; set; } 
          int ForceMin { get; set; }
