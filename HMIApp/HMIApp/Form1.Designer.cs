@@ -480,6 +480,7 @@
             DB667CzasCyklu = new System.Windows.Forms.TextBox();
             tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             panel1 = new System.Windows.Forms.Panel();
+            label140 = new System.Windows.Forms.Label();
             label139 = new System.Windows.Forms.Label();
             label51 = new System.Windows.Forms.Label();
             Button_Rework = new System.Windows.Forms.Button();
@@ -739,6 +740,7 @@
             resources.ApplyResources(DB667Auto, "DB667Auto");
             DB667Auto.Name = "DB667Auto";
             DB667Auto.ReadOnly = true;
+            DB667Auto.BackColorChanged += BackColor_ColorChanged;
             // 
             // DB667Man
             // 
@@ -746,6 +748,7 @@
             resources.ApplyResources(DB667Man, "DB667Man");
             DB667Man.Name = "DB667Man";
             DB667Man.ReadOnly = true;
+            DB667Man.BackColorChanged += BackColor_ColorChanged;
             // 
             // DB667Safety
             // 
@@ -3578,6 +3581,7 @@
             // 
             // panel1
             // 
+            panel1.Controls.Add(label140);
             panel1.Controls.Add(label139);
             panel1.Controls.Add(label51);
             panel1.Controls.Add(Button_Rework);
@@ -3610,6 +3614,11 @@
             panel1.Controls.Add(DB667SztukiOK);
             resources.ApplyResources(panel1, "panel1");
             panel1.Name = "panel1";
+            // 
+            // label140
+            // 
+            resources.ApplyResources(label140, "label140");
+            label140.Name = "label140";
             // 
             // label139
             // 
@@ -4556,6 +4565,7 @@
         public System.Windows.Forms.ComboBox DB666RodzajSmaruTulip;
         public System.Windows.Forms.Label label139;
         public System.Windows.Forms.Label label51;
+        public System.Windows.Forms.Label label140;
     }
 }
 

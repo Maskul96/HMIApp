@@ -1,4 +1,6 @@
-﻿using HMIApp.Components.CSVReader;
+﻿using HMIApp.Archivizations;
+using HMIApp.Components.CSVReader;
+using HMIApp.Components.CSVReader.Models;
 using HMIApp.Data;
 using Humanizer;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
@@ -22,6 +24,7 @@ namespace HMIApp
     public class App : iApp
     {
         DataBase _database = new DataBase();
+
         public Form1 obj;
 
         private int[] DB_Position = new int[8];
@@ -381,6 +384,7 @@ namespace HMIApp
         //Odczyt z pliku CSV i od razu odczyt danych z DBka Referencji 
         public void ReadActualValueFromDBReferenceOrProcessData(string filepath)
         {
+
             var dbtags = CSVReader.DBStructure(filepath);
 
             foreach (var dbTag in dbtags)
@@ -437,6 +441,7 @@ namespace HMIApp
                                     if (values[0])
                                     {
                                         txt.BackColor = System.Drawing.Color.LimeGreen;
+
                                     }
                                     else
                                     {
@@ -714,6 +719,7 @@ namespace HMIApp
 
             }
         }
+
 
         //Zapis danych do DB i odczyt pliku z zapisywaniem
         //Index = 0 zapis do DB666, index = 1 zapis do DB667, index = 2 zapis do DB665

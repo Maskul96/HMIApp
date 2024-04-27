@@ -46,28 +46,35 @@ namespace HMIApp
 
             OdczytDB.Enabled = true;
 
-            listBoxWarningsView.DrawItem += new System.Windows.Forms.DrawItemEventHandler(App.listBox1_DrawItem);
+            listBoxWarningsView.DrawItem += new DrawItemEventHandler(App.listBox1_DrawItem);
             label13.Text = "";
             Users.EnabledObjects();
 
             CommaReplaceDotTextBox(this);
             PassedValueControls.Run();
 
-            //Odpalamy metode MethodAfterLogInEvent jak event sie zadzieje
-            _Archive.TriggerAfterLogInEvent += MethodAfterLogInEvent;
-
+            _Archive.Run();
             //serialPortReader.InitializeSerialPort();
             // serialPortReader.Run();
+
         }
+
+        //Event zmiany koloru - wyzwala metode uruchmiajaca Event przejscia w Auto/Man
+        public void BackColor_ColorChanged(object sender, EventArgs e)
+        {
+            if (DB667Auto.BackColor.Name == "LimeGreen")
+            {
+                _Archive.OnArchiveEventsMethod("Event - Przejście w Auto");
+            }
+            else if (DB667Man.BackColor.Name == "LimeGreen")
+            {
+                _Archive.OnArchiveEventsMethod("Event - Przejście w Man");
+            }
+        }
+
         //statyczna zmienna typu Form1 zeby dostac sie z poziomu innej klasy do obiektow wewnatrz Form1
         public static Form1 _Form1;
 
-        public void MethodAfterLogInEvent(object sender, EventArgs args)
-        {
-            MessageBox.Show("Wejscie w metode MethodAfterLogInEvent");
-            label51.Text = label_DataIGodzina.Text;
-            label139.Text = textBox_MiejsceNaNrKarty_Zaloguj.Text;
-        }
         private void Form1_Load(object sender, EventArgs e)
         {
             App.RunInitPLC();
@@ -83,9 +90,6 @@ namespace HMIApp
 
             CzyszczenieStatusówLogowania.Enabled = true;
         }
-
-
-
 
 
         //Timer do prób uruchomienia komunikacji z PLC
@@ -178,6 +182,8 @@ namespace HMIApp
                 blockade = true;
                 //Przepisanie wartosci do wygenerowania okna czytania sily w wykresie
                 App.WriteSpecifiedValueFromReference();
+                //Event 
+                _Archive.OnArchiveEventsMethod("Event - Przezbrojenie");
             }
             else
             {//komunikat dla usera
@@ -230,7 +236,6 @@ namespace HMIApp
         private void button7_Click(object sender, EventArgs e)
         {
             Users.EditXML();
-
         }
 
         //Przycisk zastepujacy event przyłożenia karty RFID do czytnika
@@ -241,10 +246,10 @@ namespace HMIApp
             Users.Interval = 100000 / 1000;
             label13.Text = Users.Interval.ToString();
             Users.FindUserinXML();
-            //Po zalogowaniu uruchamiamy metode OnLogInTrigger - jak bedzie subscriber podpiety pod event to odpali ona Event
-            if(Users.UserIsLoggedIn)
+            //Po zalogowaniu uruchamiamy metode OnArchiveEventsMethod - jak bedzie subscriber podpiety pod event to odpali ona Event
+            if (Users.UserIsLoggedIn)
             {
-                _Archive.OnLogInTrigger();
+                _Archive.OnArchiveEventsMethod("Event - Logowanie użytkownika");
             }
             Users.EnabledObjects();
 
@@ -283,6 +288,7 @@ namespace HMIApp
         {
             var database = serviceProvider.GetService<iDataBase>();
             database.InsertToDataBase();
+
         }
 
 
