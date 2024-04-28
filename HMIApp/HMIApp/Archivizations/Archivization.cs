@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
+using System.Text;
 using System.Windows;
 using System.Windows.Documents;
 using CsvHelper;
+using CsvHelper.Configuration;
+using CsvHelper.TypeConversion;
 using HMIApp.Archivizations.Models;
 using HMIApp.Components.UserAdministration;
 using SkiaSharp;
@@ -16,7 +19,7 @@ namespace HMIApp.Archivizations
     {
         public Form1 obj;
         public List<ArchivizationModel> _archivizationmodels = new List<ArchivizationModel>();
-        public int Id = 0;
+        //public int Id = 0;
         public Archivization(Form1 obj)
         {
             this.obj = obj;
@@ -43,11 +46,11 @@ namespace HMIApp.Archivizations
             Form1._Form1.label51.Text = Form1._Form1.label_DataIGodzina.Text;
             Form1._Form1.label139.Text = Form1._Form1.textBox_MiejsceNaNrKarty_Zaloguj.Text;
             Form1._Form1.label140.Text = message;
-            this.Id = this.Id + 1;
+            //this.Id = this.Id + 1;
             var archivizationmodels = new ArchivizationModel
             {
-                Id = this.Id,
-                DateTime = Form1._Form1.label_DataIGodzina.Text,
+               // Id = this.Id,
+                DateTime = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss"),
                 NrOfCard = Form1._Form1.textBox_MiejsceNaNrKarty_Zaloguj.Text,
                 Message = message
                 //dorobic logowanie parametrow - najprosciej to mozna by bylo w trakcie wywolania eventu zrobic po prosu selecta z bazy z aktualna referencja i ja dopisac?
@@ -55,15 +58,45 @@ namespace HMIApp.Archivizations
 
             _archivizationmodels.Add(archivizationmodels);
 
+            ArchivizationCsvFileHandling();
 
-            using var writer = new StreamWriter("Archivization.csv");
-            using var csv = new CsvWriter(writer, CultureInfo.InvariantCulture);
-            csv.WriteRecords(_archivizationmodels);
+            ClearList();
+        }
 
+        public void ArchivizationCsvFileHandling()
+        {
+            var configEventsWhenFileExist = new CsvConfiguration(CultureInfo.InvariantCulture)
+            {
+                Delimiter = ";",
+                HasHeaderRecord = false,
+                Encoding = Encoding.UTF8,
 
+            };
+            var configEventsWhenFileNOTExist = new CsvConfiguration(CultureInfo.InvariantCulture)
+            {
+                Delimiter = ";",
+                HasHeaderRecord = true,
+                Encoding = Encoding.UTF8
+            };
+            //ZROBIC TAK ZE CSV GENERUJE SIE CO KAZDA ZMIANE CZYLI CO 8H I JEGO NAZWA JEST INDEKSOWANA DATĄ I KTORA TO ZMIANA
+            //ZROBIC DODATKOWO MODUŁ, KTORY ZAPISUJE DO BAZY DANYCH TE PARAMETRY I NP ZA POMOCA PRZYCISKU WYKORZYSTUJE CSVHELPER DO EXPORTU DANYCH DO CSV
+            if (File.Exists("Archivization.csv"))
+            {
+                using var stream = File.Open("Archivization.csv", FileMode.Append);
+                using var writer = new StreamWriter(stream);
+                using var csv = new CsvWriter(writer, configEventsWhenFileExist);
+                csv.Context.RegisterClassMap<ArchivizationModelMap>();
+                csv.WriteRecords(_archivizationmodels);
+            }
+            else if (!File.Exists("Archivization.csv"))
+            {
+                using var writer = new StreamWriter("Archivization.csv");
+                using var csv = new CsvWriter(writer, configEventsWhenFileNOTExist);
+                csv.Context.RegisterClassMap<ArchivizationModelMap>();
+                csv.WriteRecords(_archivizationmodels);
+            }
         }
        
-        //jak skonczy sie zmiana to auto export do csv i czyszczenie listy lub po przezbrojeniu
         public void ClearList()
         {
             _archivizationmodels.Clear();

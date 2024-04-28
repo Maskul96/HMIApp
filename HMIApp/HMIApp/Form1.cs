@@ -208,7 +208,7 @@ namespace HMIApp
             }
             PassedValueControls.Run();
             //aktualizacja daty i godziny
-            this.Text = DateTime.Now.ToString();
+            this.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
             label_DataIGodzina.Text = this.Text;
 
         }
