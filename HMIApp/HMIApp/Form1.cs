@@ -77,13 +77,14 @@ namespace HMIApp
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            App.RunInitPLC();
-            PróbyUruchomieniaKomunikacjizPLC.Enabled = true;
             //zakomentuj ponizsze cztery metody do odpalenia apki bez PLC
-            App.ReadAlarmsFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_2.csv");
-            App.ReadIOFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_3.csv");
-            App.ReadActualValueFromDBChart_Simplified("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_4.csv");
-            App.ReadActualValueFromDBReferenceOrProcessData("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_1.csv");
+            //App.RunInitPLC();
+            //  PróbyUruchomieniaKomunikacjizPLC.Enabled = true;
+
+            //App.ReadAlarmsFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_2.csv");
+            //App.ReadIOFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_3.csv");
+            //App.ReadActualValueFromDBChart_Simplified("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_4.csv");
+            //App.ReadActualValueFromDBReferenceOrProcessData("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_1.csv");
 
             //Blokada rysowania wykresu dopoki nie zaczytasz referencji
             blockade = false;
@@ -95,10 +96,11 @@ namespace HMIApp
         //Timer do prób uruchomienia komunikacji z PLC
         private void Timer1_Tick_1(object sender, EventArgs e)
         {
-            if (App.RunInitPLC() == false)
-            {
-                App.RunInitPLC();
-            }
+            //zakomentuj ponizsze cztery metody do odpalenia apki bez PLC
+            //if (App.RunInitPLC() == false)
+            //{
+            //    App.RunInitPLC();
+            //}
         }
 
         //METODA DO ODCZYTU DANYCH Z BAZY przy starcie aplikacji
@@ -198,9 +200,9 @@ namespace HMIApp
         private void timer1_Tick(object sender, EventArgs e)
         {
             //zakomentuj ponizsze dwie metody do odpalenia apki bez PLC
-            App.ReadAlarmsFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_2.csv");
-            App.ReadIOFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_3.csv");
-            App.ReadActualValueFromDBReferenceOrProcessData("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_1.csv");
+            //App.ReadAlarmsFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_2.csv");
+            //App.ReadIOFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_3.csv");
+            //App.ReadActualValueFromDBReferenceOrProcessData("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_1.csv");
 
             if (blockade)
             {

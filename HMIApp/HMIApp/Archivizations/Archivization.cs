@@ -78,23 +78,47 @@ namespace HMIApp.Archivizations
                 HasHeaderRecord = true,
                 Encoding = Encoding.UTF8
             };
-            //ZROBIC TAK ZE CSV GENERUJE SIE CO KAZDA ZMIANE CZYLI CO 8H I JEGO NAZWA JEST INDEKSOWANA DATĄ I KTORA TO ZMIANA
+
             //ZROBIC DODATKOWO MODUŁ, KTORY ZAPISUJE DO BAZY DANYCH TE PARAMETRY I NP ZA POMOCA PRZYCISKU WYKORZYSTUJE CSVHELPER DO EXPORTU DANYCH DO CSV
-            if (File.Exists("Archivization.csv"))
+
+            var NumberOfShifts = NumberOfProductionShift();
+            var LocationOfArchivizationFolder = "D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\Archivizations\\";
+
+            if (File.Exists(LocationOfArchivizationFolder + $"Archivization_NrZmiany{NumberOfShifts}_Data{DateTime.Now.ToString("d")}.csv"))
             {
-                using var stream = File.Open("Archivization.csv", FileMode.Append);
+                using var stream = File.Open(LocationOfArchivizationFolder+$"HMIApp\\Resources\\Files\\Archivizations\\Archivization_NrZmiany{NumberOfShifts}_Data{DateTime.Now.ToString("d")}.csv", FileMode.Append);
                 using var writer = new StreamWriter(stream);
                 using var csv = new CsvWriter(writer, configEventsWhenFileExist);
                 csv.Context.RegisterClassMap<ArchivizationModelMap>();
                 csv.WriteRecords(_archivizationmodels);
             }
-            else if (!File.Exists("Archivization.csv"))
+            else if (!File.Exists(LocationOfArchivizationFolder+$"HMIApp\\Resources\\Files\\Archivizations\\Archivization_NrZmiany{NumberOfShifts}_Data{DateTime.Now.ToString("d")}.csv"))
             {
-                using var writer = new StreamWriter("Archivization.csv");
+                using var writer = new StreamWriter(LocationOfArchivizationFolder+$"HMIApp\\Resources\\Files\\Archivizations\\Archivization_NrZmiany{NumberOfShifts}_Data{DateTime.Now.ToString("d")}.csv");
                 using var csv = new CsvWriter(writer, configEventsWhenFileNOTExist);
                 csv.Context.RegisterClassMap<ArchivizationModelMap>();
                 csv.WriteRecords(_archivizationmodels);
             }
+        }
+
+        public int NumberOfProductionShift()
+        {
+            int NumberOfShift=0;
+            int HourOfDay = DateTime.Now.Hour;
+
+            if(HourOfDay>=6)
+            {
+                NumberOfShift = 1;
+            }
+            else if(HourOfDay >= 14)
+            {
+                NumberOfShift = 2;
+            }
+            else if(HourOfDay >= 24)
+            {
+                NumberOfShift = 3;
+            }
+            return NumberOfShift;
         }
        
         public void ClearList()

@@ -17,17 +17,17 @@ namespace HMIApp.Archivizations.Models
                // .Name("Id");
 
             Map(x => x.DateTime)
-                .Index(0)
+                .Index(2)
                 .TypeConverterOption.Format("dd/MM/yyyy HH:mm:ss")
                 .Name("Data i Godzina DD-MM-YY H:M");
                 
 
             Map(x => x.NrOfCard)
-                .Index(2)
+                .Index(1)
                  .Name("Numer karty");
 
             Map(x => x.Message)
-                 .Index(1)
+                 .Index(0)
                  .Name("Opis zdarzenia");
         }
 
