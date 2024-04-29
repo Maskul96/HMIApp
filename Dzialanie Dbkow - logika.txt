@@ -2,7 +2,7 @@ Dzialanie wysylania dBkow
 
 DB666 - DB tylko i wylacznie do parametrow procesowych:
 z bazy danych zaczytujemy te dane i wpisujemy do apki do aktualnych danych 
-	dodatkowo w zakladce dane modyfikowalne mozemy ta recepture zedytowac i zapisac co rownowazy sie z zapisem do DBka, do Bazy i do wyswietlenia tego jako aktualne dane
+	dodatkowo w zakladce dane mozemy ta recepture zedytowac i zapisac co rownowazy sie z zapisem do DBka, do Bazy i do wyswietlenia tego jako aktualne dane
 
 DB667 - DB tylko do wysylania pozostalych potrzebnych danych tj.:
 Wysylanie sterowan w trybie recznym lub wysylanie aktualnych danych procesowych na bieżąco z maszyny
@@ -10,3 +10,4 @@ Wysylanie sterowan w trybie recznym lub wysylanie aktualnych danych procesowych 
 
 I dodatkowo osobny DB do wysylania IO's
 I osobny DB do wysylania alarmow i komunikatow
+I osobny DB do generowania wykresu
