@@ -1,5 +1,6 @@
 ﻿using HMIApp.Components;
 using HMIApp.Components.DataBase;
+using HMIApp.Data;
 using System.Configuration;
 using System.Linq;
 using System.Reflection.Metadata;
@@ -31,7 +32,7 @@ namespace HMIApp.Data
             this.obj = obj;
         }
 
-        Logger _logger = new Logger();
+        public Logger _logger = new Logger();
 
         //Odczyt pliku konfiguracyjnego z connection stringiem
         public string ReadConfFile(string filepath)

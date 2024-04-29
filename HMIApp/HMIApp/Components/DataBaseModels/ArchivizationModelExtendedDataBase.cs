@@ -24,11 +24,6 @@ namespace HMIApp.Components.DataBase
         public bool RFIDPlytaSmarujacaP10 { get; set; }
         public bool RFIDSzczekiOslonkiP11 { get; set; }
         public bool RFIDGniazdoPrzegubuP12 { get; set; }
-        public bool SpareP13 { get; set; }
-        public bool SpareP14 { get; set; }
-        public bool SpareP15 { get; set; }
-        public bool SpareP16 { get; set; }
-
 
         public float PozwyjeciaOsi { get; set; }
         public float PozOetickera { get; set; }

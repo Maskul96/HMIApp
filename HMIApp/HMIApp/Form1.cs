@@ -24,6 +24,7 @@ namespace HMIApp
         App App = new App();
         UserAdministration Users = new UserAdministration();
         DataBase DataBase = new DataBase();
+        DataBaseArchivization DataBaseArchivization = new DataBaseArchivization();
         Logger _logger = new Logger();
         //Services do dependency injection
         ServiceCollection services = new ServiceCollection();
@@ -35,13 +36,21 @@ namespace HMIApp
             InitializeComponent();
             _Form1 = this;
             DataBase.Run();
+            DataBaseArchivization.Run();
             //Services do dependency injection
             services.AddSingleton<iDataBase, DataBase>();
             //ZArejestrowanie DBContextu - Stworzenie połączenia do bazy danych i service providera
             services.AddDbContext<HMIAppDBContext>(options => options
             .UseSqlServer(DataBase.ConnectionString));
             serviceProvider = services.BuildServiceProvider();
+
+//            services.AddSingleton<iDataBaseArchivization, DataBaseArchivization>();
+//            services.AddDbContext<HMIAppDBContextArchivization>(options1 => options1
+//.UseSqlServer(DataBaseArchivization.ConnectionString));
+//            serviceProvider = services.BuildServiceProvider();
+
             ReadFromDbWhenAppIsStarting();
+
             Users.Run();
 
             OdczytDB.Enabled = true;

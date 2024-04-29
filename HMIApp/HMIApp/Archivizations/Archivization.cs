@@ -11,6 +11,7 @@ using CsvHelper.Configuration;
 using CsvHelper.TypeConversion;
 using HMIApp.Archivizations.Models;
 using HMIApp.Components.UserAdministration;
+using HMIApp.Data;
 using SkiaSharp;
 
 namespace HMIApp.Archivizations
@@ -18,6 +19,7 @@ namespace HMIApp.Archivizations
 
     public class Archivization : iArchivization
     {
+        public DataBaseArchivization _databaseArchive;
         public Form1 obj;
         public List<ArchivizationModelBasic> _archivizationmodelsbasic = new List<ArchivizationModelBasic>();
         public List<ArchivizationModelExtended> _archivizationmodelextended = new List<ArchivizationModelExtended>();
@@ -124,6 +126,9 @@ namespace HMIApp.Archivizations
                 _archivizationmodelextended.Add(archivizationmodelsextended);
                 ArchivizationCsvFileHandlingForExtendedModel();
             //}
+
+            //Wywolanie metody inserta referencji i danych z eventu do bazy
+            //_databaseArchive.InsertToDataBase(message);
 
         }
 
