@@ -20,7 +20,7 @@
     <PackageReference Include="Microsoft.IdentityModel.Protocols" Version="7.4.0" />
     <PackageReference Include="Microsoft.IdentityModel.Protocols.OpenIdConnect" Version="7.4.0" />
     <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="7.4.0" />
-    <PackageReference Include="ScottPlot.WinForms" Version="5.0.23" />
+    <PackageReference Include="ScottPlot.WinForms" Version="5.0.31" />
     <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
     <PackageReference Include="Microsoft.Bcl.AsyncInterfaces" Version="8.0.0" />
     <PackageReference Include="Microsoft.Bcl.HashCode" Version="1.1.1" />
