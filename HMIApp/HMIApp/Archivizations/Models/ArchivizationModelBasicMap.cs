@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace HMIApp.Archivizations.Models
 {
-    public class ArchivizationModelMap :ClassMap<ArchivizationModel>
+    public class ArchivizationModelBasicMap :ClassMap<ArchivizationModelBasic>
     {
-        public ArchivizationModelMap() 
+        public ArchivizationModelBasicMap() 
         {
            // Map(x => x.Id)
               //  .Index(0)

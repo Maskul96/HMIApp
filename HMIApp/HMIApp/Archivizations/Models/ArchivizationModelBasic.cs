@@ -2,7 +2,7 @@
 
 namespace HMIApp.Archivizations.Models
 {
-    public class ArchivizationModel 
+    public class ArchivizationModelBasic 
     {
        // public int Id { get; set; }
 

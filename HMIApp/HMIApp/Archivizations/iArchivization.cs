@@ -12,7 +12,14 @@ namespace HMIApp.Archivizations
 
         void Run();
         void _Archive_ArchiveEvent(object sender, EventArgs args, string message);
+
+        void ArchivizationCsvFileHandlingForBasicModel();
+        void ArchivizationCsvFileHandlingForExtendedModel();
+        int NumberOfProductionShift();
+        void ClearListArchivizationModelBasic();
+        void ClearListArchivizationModelExtended();
         void OnArchiveEventsMethod(string message);
-        void ClearList();
+
+
     }
 }
