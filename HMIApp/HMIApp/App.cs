@@ -2,8 +2,6 @@
 using HMIApp.Components.CSVReader;
 using HMIApp.Components.CSVReader.Models;
 using HMIApp.Data;
-using Humanizer;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Identity.Client;
 using ScottPlot;

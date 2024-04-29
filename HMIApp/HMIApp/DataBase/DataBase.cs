@@ -1,6 +1,5 @@
 ﻿using HMIApp.Components;
 using HMIApp.Components.DataBase;
-using Mono.TextTemplating;
 using System.Configuration;
 using System.Linq;
 using System.Reflection.Metadata;
