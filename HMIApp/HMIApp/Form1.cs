@@ -231,7 +231,7 @@ namespace HMIApp
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
             textBox_Imie_Edycja.Text = comboBox_ListaUzytkWBazie.SelectedItem.ToString();
-            Users.DisplayValuesFromXML(Users.LoadFromXML("document.xml"), textBox_Imie_Edycja.Text);
+            Users.DisplayValuesFromXML(Users.LoadFromXML("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\UserData.xml"), textBox_Imie_Edycja.Text);
         }
 
         //Przycisk wyzwalający edycje użytkownika

@@ -30,7 +30,7 @@ namespace HMIApp.Components.UserAdministration
 
         public void Run()
         {
-            XDocument document = LoadFromXML("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\document.xml");
+            XDocument document = LoadFromXML("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\UserData.xml");
             DisplayValuesFromXML(document);
             FindUserinXML();
         }
@@ -69,7 +69,7 @@ namespace HMIApp.Components.UserAdministration
         public void FindUserinXML()
         {
             //Załaduj plik przed sprawdzeniem czy jest uzytkownik w nim
-            XDocument document = LoadFromXML("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\document.xml");
+            XDocument document = LoadFromXML("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\UserData.xml");
 
             //Dane wejsciowe 
             NrofCard = Form1._Form1.textBox_MiejsceNaNrKarty_Zaloguj.Text;
@@ -108,7 +108,7 @@ namespace HMIApp.Components.UserAdministration
                     Form1._Form1.label13.Text = Interval.ToString();
                     Form1._Form1.OdliczaSekunde.Enabled = true;
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
                     Form1._Form1.StatusyLogowania.Text = "Nie znaleziono takiego użytkownika";                    
                 }
@@ -121,7 +121,7 @@ namespace HMIApp.Components.UserAdministration
         public void SaveToXML()
         {
             //Załaduj plik przed dodaniem nowych danych i zapisaniem
-            XDocument document = LoadFromXML("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\document.xml");
+            XDocument document = LoadFromXML("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\UserData.xml");
 
             id = document.Element("Użytkownicy").Elements("Użytkownik").Count();
             id += 1;
@@ -172,7 +172,7 @@ namespace HMIApp.Components.UserAdministration
         public void EditXML()
         {
             //Załaduj plik przed dodaniem nowych danych i zapisaniem
-            XDocument document = LoadFromXML("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\document.xml");
+            XDocument document = LoadFromXML("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\UserData.xml");
 
             //Dane wejsciowe do edycji
             NrofCard = Form1._Form1.textBox_NumerKarty_Edycja.Text;
