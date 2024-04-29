@@ -54,7 +54,8 @@ namespace HMIApp.Data
 
         }
 
-        //Metoda inserta do bazy
+        #region OBSLUGA BAZY DANYCH DLA REFERENCJI
+        //Metoda inserta do bazy parametrów referencji
         public void InsertToDataBase()
         {
             var query = _hmiAppDbContext.References.Where(x => x.ReferenceNumber == Form1._Form1.DB666NrReference.Text).SingleOrDefault();
@@ -125,7 +126,7 @@ namespace HMIApp.Data
             }
         }
 
-        //metoda select z uzyciem LINQ
+        //metoda select z uzyciem LINQ parametrów referencji z bazy danych
         public void SelectFromDataBase(string referencenumber)
         {
             if(referencenumber == "")
@@ -266,6 +267,7 @@ namespace HMIApp.Data
 #nullable disable
         }
 
+        //Update parametrów referencji w bazie danych
         public void UpdateDb(string referencenumber)
         {
             bool blockade = false;
@@ -331,7 +333,8 @@ namespace HMIApp.Data
             SelectFromDbToComboBox();
             blockade = false;
         }
-
+        
+        //Usunięcie referencji z bazy danych 
         public void Delete(string referencenumber)
         {
 
@@ -345,5 +348,7 @@ namespace HMIApp.Data
             ClearCombobox();
             SelectFromDbToComboBox();
         }
+        #endregion
+
     }
 }
