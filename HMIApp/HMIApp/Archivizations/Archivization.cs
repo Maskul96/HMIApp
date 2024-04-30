@@ -10,6 +10,7 @@ using CsvHelper;
 using CsvHelper.Configuration;
 using CsvHelper.TypeConversion;
 using HMIApp.Archivizations.Models;
+using HMIApp.Components.DataBase;
 using HMIApp.Components.UserAdministration;
 using HMIApp.Data;
 using Microsoft.EntityFrameworkCore;
@@ -25,6 +26,7 @@ namespace HMIApp.Archivizations
         public Form1 obj;
         public List<ArchivizationModelBasic> _archivizationmodelsbasic = new List<ArchivizationModelBasic>();
         public List<ArchivizationModelExtended> _archivizationmodelextended = new List<ArchivizationModelExtended>();
+        public List<ArchivizationModelExtendedDataBase> _archivizationmodelextendeddatabase = new List<ArchivizationModelExtendedDataBase>();
         public ServiceCollection services = new ServiceCollection();
         public ServiceProvider serviceProvider;
         public Archivization(Form1 obj)
@@ -40,6 +42,7 @@ namespace HMIApp.Archivizations
         public delegate void ArchiveEvents(object sender, EventArgs args, string message);
         public event ArchiveEvents ArchiveEvent;
 
+        //Metoda Run do uruchomienia bazy danych do archiwizacji
         public void Run()
         {
             _databaseArchive.Run();
@@ -141,6 +144,46 @@ namespace HMIApp.Archivizations
             databaseArchive.InsertToDataBase(message);
             //Liczenie rekordów bazy i usuniecie po przekroczeniu 100k wpisów
             databaseArchive.CountRowsAndDeleteAllData();
+
+            //OGARNAC W TEJ METODZIE WPISYWANIE DATY DO EXPORTU DO BAZY
+            _archivizationmodelextendeddatabase = databaseArchive.SelectFromDataBase("","");
+        }
+
+        public void ArchivizationCsvFileHandlingForDataBaseModel()
+        {
+            var configEventsWhenFileExist = new CsvConfiguration(CultureInfo.InvariantCulture)
+            {
+                Delimiter = ";",
+                HasHeaderRecord = false,
+                Encoding = Encoding.UTF8,
+
+            };
+            var configEventsWhenFileNOTExist = new CsvConfiguration(CultureInfo.InvariantCulture)
+            {
+                Delimiter = ";",
+                HasHeaderRecord = true,
+                Encoding = Encoding.UTF8
+            };
+
+            var NumberOfShifts = NumberOfProductionShift();
+            var LocationOfArchivizationFolder = "D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\ArchivizationsFromDataBase\\";
+
+            if (File.Exists(LocationOfArchivizationFolder + $"ArchivizationExtended_NrZmiany{NumberOfShifts}_Data{DateTime.Now.ToString("d")}.csv"))
+            {
+                using var stream = File.Open(LocationOfArchivizationFolder + $"ArchivizationExtended_NrZmiany{NumberOfShifts}_Data{DateTime.Now.ToString("d")}.csv", FileMode.Append);
+                using var writer = new StreamWriter(stream);
+                using var csv = new CsvWriter(writer, configEventsWhenFileExist);
+                csv.Context.RegisterClassMap<ArchivizationModelBasicMap>();
+                csv.WriteRecords(_archivizationmodelextendeddatabase);
+            }
+            else if (!File.Exists(LocationOfArchivizationFolder + $"ArchivizationExtended_NrZmiany{NumberOfShifts}_Data{DateTime.Now.ToString("d")}.csv"))
+            {
+                using var writer = new StreamWriter(LocationOfArchivizationFolder + $"ArchivizationExtended_NrZmiany{NumberOfShifts}_Data{DateTime.Now.ToString("d")}.csv");
+                using var csv = new CsvWriter(writer, configEventsWhenFileNOTExist);
+                csv.Context.RegisterClassMap<ArchivizationModelBasicMap>();
+                csv.WriteRecords(_archivizationmodelextendeddatabase);
+            }
+
         }
 
         public void ArchivizationCsvFileHandlingForBasicModel()
@@ -160,7 +203,7 @@ namespace HMIApp.Archivizations
                 Encoding = Encoding.UTF8
             };
 
-            //ZROBIC DODATKOWO MODUŁ, KTORY ZAPISUJE DO BAZY DANYCH TE PARAMETRY I NP ZA POMOCA PRZYCISKU WYKORZYSTUJE CSVHELPER DO EXPORTU DANYCH DO CSV
+
 
             var NumberOfShifts = NumberOfProductionShift();
             var LocationOfArchivizationFolder = "D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\Archivizations\\";
@@ -200,7 +243,6 @@ namespace HMIApp.Archivizations
                 Encoding = Encoding.UTF8
             };
 
-            //ZROBIC DODATKOWO MODUŁ, KTORY ZAPISUJE DO BAZY DANYCH TE PARAMETRY I NP ZA POMOCA PRZYCISKU WYKORZYSTUJE CSVHELPER DO EXPORTU DANYCH DO CSV
 
             var NumberOfShifts = NumberOfProductionShift();
             var LocationOfArchivizationFolder = "D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\ArchivizationsExtended\\";

@@ -1,5 +1,6 @@
 ﻿
 using HMIApp.Components.DataBase;
+using System.Collections.Generic;
 
 namespace HMIApp.Data
 {
@@ -13,7 +14,7 @@ namespace HMIApp.Data
 #nullable enable
         ArchivizationModelExtendedDataBase? ReadFirst();
 #nullable disable
-        void SelectFromDataBase(string DateTimeStart, string DateTimeEnd);
+        List<ArchivizationModelExtendedDataBase> SelectFromDataBase(string DateTimeStart, string DateTimeEnd);
         void Delete();
 
     }
