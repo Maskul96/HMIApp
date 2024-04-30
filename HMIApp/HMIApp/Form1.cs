@@ -24,34 +24,26 @@ namespace HMIApp
         App App = new App();
         UserAdministration Users = new UserAdministration();
         DataBase DataBase = new DataBase();
-        DataBaseArchivization DataBaseArchivization = new DataBaseArchivization();
         Logger _logger = new Logger();
         //Services do dependency injection
-        ServiceCollection services = new ServiceCollection();
-        ServiceProvider serviceProvider;
-        ServiceCollection servicesArchivization = new ServiceCollection();
-        ServiceProvider serviceProviderArchivization;
-        SerialPortReader serialPortReader = new SerialPortReader();
+        public ServiceCollection services = new ServiceCollection();
+        public ServiceProvider serviceProvider;
+        public SerialPortReader serialPortReader = new SerialPortReader();
         public bool blockade;
         public Form1()
         {
             InitializeComponent();
             _Form1 = this;
             DataBase.Run();
-            DataBaseArchivization.Run();
             //Services do dependency injection
             services.AddSingleton<iDataBase, DataBase>();
             //ZArejestrowanie DBContextu - Stworzenie połączenia do bazy danych i service providera
             services.AddDbContext<HMIAppDBContext>(options => options
             .UseSqlServer(DataBase.ConnectionString));
+
             serviceProvider = services.BuildServiceProvider();
 
-            servicesArchivization.AddSingleton<iDataBaseArchivization, DataBaseArchivization>();
-            servicesArchivization.AddDbContext<HMIAppDBContextArchivization>(options => options
-            .UseSqlServer(DataBaseArchivization.ConnectionString));
-            serviceProviderArchivization = servicesArchivization.BuildServiceProvider();
-            var databaseArchive = serviceProviderArchivization.GetService<iDataBaseArchivization>();
-            databaseArchive.InsertToDataBase("");
+
             ReadFromDbWhenAppIsStarting();
 
             Users.Run();
@@ -66,6 +58,7 @@ namespace HMIApp
             PassedValueControls.Run();
 
             _Archive.Run();
+            _Archive.ArchiveEventRun();
             //serialPortReader.InitializeSerialPort();
             // serialPortReader.Run();
 

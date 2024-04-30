@@ -7,14 +7,14 @@ namespace HMIApp.Data
     {
         string ReadConfFile(string filepath);
         void Run();
-
+        void CountRowsAndDeleteAllData();
         void InsertToDataBase(string message);
 
 #nullable enable
-        ArchivizationModelExtendedDataBase? ReadFirst(string referencenumber);
+        ArchivizationModelExtendedDataBase? ReadFirst();
 #nullable disable
-
-        void Delete(string referencenumber);
+        void SelectFromDataBase(string DateTimeStart, string DateTimeEnd);
+        void Delete();
 
     }
 }

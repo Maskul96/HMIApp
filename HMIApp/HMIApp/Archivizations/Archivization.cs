@@ -12,6 +12,8 @@ using CsvHelper.TypeConversion;
 using HMIApp.Archivizations.Models;
 using HMIApp.Components.UserAdministration;
 using HMIApp.Data;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using SkiaSharp;
 
 namespace HMIApp.Archivizations
@@ -23,7 +25,8 @@ namespace HMIApp.Archivizations
         public Form1 obj;
         public List<ArchivizationModelBasic> _archivizationmodelsbasic = new List<ArchivizationModelBasic>();
         public List<ArchivizationModelExtended> _archivizationmodelextended = new List<ArchivizationModelExtended>();
-
+        public ServiceCollection services = new ServiceCollection();
+        public ServiceProvider serviceProvider;
         public Archivization(Form1 obj)
         {
             this.obj = obj;
@@ -39,6 +42,18 @@ namespace HMIApp.Archivizations
 
         public void Run()
         {
+            _databaseArchive.Run();
+            //Services do dependency injection
+            services.AddSingleton<iDataBaseArchivization, DataBaseArchivization>();
+            //ZArejestrowanie DBContextu - Stworzenie połączenia do bazy danych i service providera
+            services.AddDbContext<HMIAppDBContextArchivization>(options => options
+            .UseSqlServer(_databaseArchive.ConnectionString));
+
+            serviceProvider = services.BuildServiceProvider();
+        }
+
+        public void ArchiveEventRun()
+        {
             //Odpalamy metode _Archive_ArchiveEvent jak event sie zadzieje
             ArchiveEvent += _Archive_ArchiveEvent;
         }
@@ -47,7 +62,6 @@ namespace HMIApp.Archivizations
         public void _Archive_ArchiveEvent(object sender, EventArgs args, string message)
         {
             //Ponizszy kod testowo do wyswietlenia na HMI 
-            System.Windows.MessageBox.Show("Odpaliłeś event");
             Form1._Form1.label51.Text = Form1._Form1.label_DataIGodzina.Text;
             Form1._Form1.label139.Text = Form1._Form1.textBox_MiejsceNaNrKarty_Zaloguj.Text;
             Form1._Form1.label140.Text = message;
@@ -121,6 +135,12 @@ namespace HMIApp.Archivizations
                 };
             _archivizationmodelextended.Add(archivizationmodelsextended);
             ArchivizationCsvFileHandlingForExtendedModel();
+
+            //Logowanie do bazy danych
+            var databaseArchive = serviceProvider.GetService<iDataBaseArchivization>();
+            databaseArchive.InsertToDataBase(message);
+            //Liczenie rekordów bazy i usuniecie po przekroczeniu 100k wpisów
+            databaseArchive.CountRowsAndDeleteAllData();
         }
 
         public void ArchivizationCsvFileHandlingForBasicModel()
@@ -233,6 +253,7 @@ namespace HMIApp.Archivizations
         {
             _archivizationmodelextended.Clear();
         }
+
 
         public void OnArchiveEventsMethod(string message)
         {
