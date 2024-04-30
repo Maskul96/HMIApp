@@ -51,7 +51,7 @@ namespace HMIApp.Data
 
         public void Run()
         {
-            ReadConfFile("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\DataBaseConfiguration.txt");
+            ReadConfFile("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\DataBaseReferenceConfiguration.txt");
 
         }
 

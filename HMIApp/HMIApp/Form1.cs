@@ -29,6 +29,8 @@ namespace HMIApp
         //Services do dependency injection
         ServiceCollection services = new ServiceCollection();
         ServiceProvider serviceProvider;
+        ServiceCollection servicesArchivization = new ServiceCollection();
+        ServiceProvider serviceProviderArchivization;
         SerialPortReader serialPortReader = new SerialPortReader();
         public bool blockade;
         public Form1()
@@ -44,11 +46,12 @@ namespace HMIApp
             .UseSqlServer(DataBase.ConnectionString));
             serviceProvider = services.BuildServiceProvider();
 
-//            services.AddSingleton<iDataBaseArchivization, DataBaseArchivization>();
-//            services.AddDbContext<HMIAppDBContextArchivization>(options1 => options1
-//.UseSqlServer(DataBaseArchivization.ConnectionString));
-//            serviceProvider = services.BuildServiceProvider();
-
+            servicesArchivization.AddSingleton<iDataBaseArchivization, DataBaseArchivization>();
+            servicesArchivization.AddDbContext<HMIAppDBContextArchivization>(options => options
+            .UseSqlServer(DataBaseArchivization.ConnectionString));
+            serviceProviderArchivization = servicesArchivization.BuildServiceProvider();
+            var databaseArchive = serviceProviderArchivization.GetService<iDataBaseArchivization>();
+            databaseArchive.InsertToDataBase("");
             ReadFromDbWhenAppIsStarting();
 
             Users.Run();

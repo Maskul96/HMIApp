@@ -19,11 +19,11 @@ namespace HMIApp.Archivizations
 
     public class Archivization : iArchivization
     {
-        public DataBaseArchivization _databaseArchive;
+        public DataBaseArchivization _databaseArchive = new DataBaseArchivization();
         public Form1 obj;
         public List<ArchivizationModelBasic> _archivizationmodelsbasic = new List<ArchivizationModelBasic>();
         public List<ArchivizationModelExtended> _archivizationmodelextended = new List<ArchivizationModelExtended>();
-        //public int Id = 0;
+
         public Archivization(Form1 obj)
         {
             this.obj = obj;
@@ -52,22 +52,18 @@ namespace HMIApp.Archivizations
             Form1._Form1.label139.Text = Form1._Form1.textBox_MiejsceNaNrKarty_Zaloguj.Text;
             Form1._Form1.label140.Text = message;
 
-            //this.Id = this.Id + 1;
             var archivizationmodelsbasic = new ArchivizationModelBasic
             {
-                // Id = this.Id,
                 DateTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),
                 NrOfCard = Form1._Form1.textBox_MiejsceNaNrKarty_Zaloguj.Text,
                 Message = message
-                //dorobic logowanie parametrow - najprosciej to mozna by bylo w trakcie wywolania eventu zrobic po prosu selecta z bazy z aktualna referencja i ja dopisac?
+
             };
             _archivizationmodelsbasic.Add(archivizationmodelsbasic);
             ArchivizationCsvFileHandlingForBasicModel();
 
-            //Uruchomienie tego typu archiwizacji czyli razem z parametrami dopiero jak bedzie wczytana referencja
-            //if (Form1._Form1.DB666NrReferencePassedValue.Text != "")
-            //{
-                var archivizationmodelsextended = new ArchivizationModelExtended
+            //Logowanie razem z parametrami
+            var archivizationmodelsextended = new ArchivizationModelExtended
                 {
                     // Id = this.Id,
                     DateTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),
@@ -123,13 +119,8 @@ namespace HMIApp.Archivizations
 
                     //dorobic logowanie parametrow - najprosciej to mozna by bylo w trakcie wywolania eventu zrobic po prosu selecta z bazy z aktualna referencja i ja dopisac?
                 };
-                _archivizationmodelextended.Add(archivizationmodelsextended);
-                ArchivizationCsvFileHandlingForExtendedModel();
-            //}
-
-            //Wywolanie metody inserta referencji i danych z eventu do bazy
-            //_databaseArchive.InsertToDataBase(message);
-
+            _archivizationmodelextended.Add(archivizationmodelsextended);
+            ArchivizationCsvFileHandlingForExtendedModel();
         }
 
         public void ArchivizationCsvFileHandlingForBasicModel()
