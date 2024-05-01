@@ -1,10 +1,11 @@
 ﻿using HMIApp.Components.DataBase.Entities;
+using System;
 
 namespace HMIApp.Components.DataBase
 {
     public class ArchivizationModelExtendedDataBase : EntityBase
     {
-        public string DateTime { get; set; }
+        public DateTime DateAndTime { get; set; }
 
         public string NrOfCard { get; set; }
 

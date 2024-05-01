@@ -14,7 +14,7 @@ namespace HMIApp.Data
 #nullable enable
         ArchivizationModelExtendedDataBase? ReadFirst();
 #nullable disable
-        List<ArchivizationModelExtendedDataBase> SelectFromDataBase(string DateTimeStart, string DateTimeEnd);
+        List<ArchivizationModelExtendedDataBase> SelectFromDataBase(string DateTimeStart, int HourStart, string DateTimeEnd, int HourEnd);
         void Delete();
 
     }

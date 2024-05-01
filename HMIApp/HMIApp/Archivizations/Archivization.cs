@@ -145,8 +145,9 @@ namespace HMIApp.Archivizations
             //Liczenie rekordów bazy i usuniecie po przekroczeniu 100k wpisów
             databaseArchive.CountRowsAndDeleteAllData();
 
-            //OGARNAC W TEJ METODZIE WPISYWANIE DATY DO EXPORTU DO BAZY
-            _archivizationmodelextendeddatabase = databaseArchive.SelectFromDataBase("","");
+            //PODPIAC POD METODE SELECT JUZ PRZYCISKI Z FORMULARZA
+            _archivizationmodelextendeddatabase = databaseArchive.SelectFromDataBase("2024-05-01",10, "2024-05-01",11);
+            ArchivizationCsvFileHandlingForDataBaseModel();
         }
 
         public void ArchivizationCsvFileHandlingForDataBaseModel()
@@ -165,20 +166,18 @@ namespace HMIApp.Archivizations
                 Encoding = Encoding.UTF8
             };
 
-            var NumberOfShifts = NumberOfProductionShift();
             var LocationOfArchivizationFolder = "D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\ArchivizationsFromDataBase\\";
 
-            if (File.Exists(LocationOfArchivizationFolder + $"ArchivizationExtended_NrZmiany{NumberOfShifts}_Data{DateTime.Now.ToString("d")}.csv"))
+            if (File.Exists(LocationOfArchivizationFolder + $"ArchivizationFromDataBase_DataGeneracjiPliku{DateTime.Now.ToString("yyyy-MM-dd HH-mm-ss")}.csv"))
             {
-                using var stream = File.Open(LocationOfArchivizationFolder + $"ArchivizationExtended_NrZmiany{NumberOfShifts}_Data{DateTime.Now.ToString("d")}.csv", FileMode.Append);
-                using var writer = new StreamWriter(stream);
+                using var writer = new StreamWriter(LocationOfArchivizationFolder + $"ArchivizationFromDataBase_DataGeneracjiPliku{DateTime.Now.ToString("yyyy-MM-dd HH-mm-ss")}.csv");
                 using var csv = new CsvWriter(writer, configEventsWhenFileExist);
                 csv.Context.RegisterClassMap<ArchivizationModelBasicMap>();
                 csv.WriteRecords(_archivizationmodelextendeddatabase);
             }
-            else if (!File.Exists(LocationOfArchivizationFolder + $"ArchivizationExtended_NrZmiany{NumberOfShifts}_Data{DateTime.Now.ToString("d")}.csv"))
+            else if (!File.Exists(LocationOfArchivizationFolder + $"ArchivizationFromDataBase_DataGeneracjiPliku{DateTime.Now.ToString("yyyy-MM-dd HH-mm-ss")}.csv"))
             {
-                using var writer = new StreamWriter(LocationOfArchivizationFolder + $"ArchivizationExtended_NrZmiany{NumberOfShifts}_Data{DateTime.Now.ToString("d")}.csv");
+                using var writer = new StreamWriter(LocationOfArchivizationFolder + $"ArchivizationFromDataBase_DataGeneracjiPliku{DateTime.Now.ToString("yyyy-MM-dd HH-mm-ss")}.csv");
                 using var csv = new CsvWriter(writer, configEventsWhenFileNOTExist);
                 csv.Context.RegisterClassMap<ArchivizationModelBasicMap>();
                 csv.WriteRecords(_archivizationmodelextendeddatabase);

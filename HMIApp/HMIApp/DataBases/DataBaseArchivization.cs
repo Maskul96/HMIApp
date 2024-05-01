@@ -1,4 +1,5 @@
-﻿using HMIApp.Archivizations.Models;
+﻿using HMIApp.Archivizations;
+using HMIApp.Archivizations.Models;
 using HMIApp.Components;
 using HMIApp.Components.DataBase;
 using Microsoft.EntityFrameworkCore;
@@ -66,7 +67,7 @@ namespace HMIApp.Data
 
                 _hmiAppDbContextArchivization?.ArchivizationsForParameters.Add(new ArchivizationModelExtendedDataBase()
                 {
-                    DateTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),
+                    DateAndTime = DateTime.Now,
                     NrOfCard = Form1._Form1.textBox_MiejsceNaNrKarty_Zaloguj.Text,
                     Message = message,
                     //Parametry
@@ -121,17 +122,16 @@ namespace HMIApp.Data
                 _hmiAppDbContextArchivization.SaveChanges();
             
         }
-
-        //OGARNAC JAK ZROBIC SELECTA Z BAZY NAWET KILKUTYSIECY REKORDOW I DO CZEGO TO SENSOWNIE ZAPISAC
-        public List<ArchivizationModelExtendedDataBase> SelectFromDataBase(string DateTimeStart,string DateTimeEnd)
+        public List<ArchivizationModelExtendedDataBase> SelectFromDataBase(string DateTimeStart,int HourStart,string DateTimeEnd, int HourEnd)
         {
             _archivizationmodelextendeddatabase.Clear();
-            if (DateTimeStart != "" && DateTimeEnd!= "")
+            if (DateTimeStart != "" && DateTimeEnd != "")
             {
-                var query = _hmiAppDbContextArchivization.ArchivizationsForParameters.Where(x => x.DateTime.Contains(DateTimeStart))// && x.DateTime.Contains(DateTimeEnd))
-                    .Select(x => new 
+                    var query = _hmiAppDbContextArchivization.ArchivizationsForParameters.Where(x => x.DateAndTime.Date >= Convert.ToDateTime(DateTimeStart) && x.DateAndTime.Date <= Convert.ToDateTime(DateTimeEnd))
+                    .Where(x => x.DateAndTime.Hour >= HourStart && x.DateAndTime.Hour <= HourEnd)
+                    .Select(x => new
                     {
-                        x.DateTime,
+                        x.DateAndTime,
                         x.NrOfCard,
                         x.Message,
                         x.ReferenceNumber,
@@ -182,9 +182,9 @@ namespace HMIApp.Data
                     //Parametry
                     var _ArchivizationModelExtendedDataBase = new ArchivizationModelExtendedDataBase
                     {
-                        DateTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),
-                        NrOfCard = Form1._Form1.textBox_MiejsceNaNrKarty_Zaloguj.Text,
-                        Message = "message",
+                        DateAndTime = item.DateAndTime,
+                        NrOfCard = item.NrOfCard,
+                        Message = item.Message,
                         ReferenceNumber = item.ReferenceNumber,
                         NameOfClient = item.NameOfClient,
                         PrzeciskanieP1 = item.PrzeciskanieP1,
