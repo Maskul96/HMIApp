@@ -205,7 +205,7 @@ namespace HMIApp.Archivizations
 
 
             var NumberOfShifts = NumberOfProductionShift();
-            var LocationOfArchivizationFolder = "D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\Archivizations\\";
+            var LocationOfArchivizationFolder = "D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\ArchivizationsBasic\\";
 
             if (File.Exists(LocationOfArchivizationFolder + $"Archivization_NrZmiany{NumberOfShifts}_Data{DateTime.Now.ToString("d")}.csv"))
             {
