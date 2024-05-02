@@ -53,6 +53,8 @@ namespace HMIApp.Archivizations
             .UseSqlServer(_databaseArchive.ConnectionString));
 
             serviceProvider = services.BuildServiceProvider();
+
+            AddingYearToComboBoxArchivizationToCSVForm1();
         }
 
         public void ArchiveEventRun()
@@ -61,12 +63,12 @@ namespace HMIApp.Archivizations
             ArchiveEvent += _Archive_ArchiveEvent;
         }
 
+        
+
         //Metoda uruchamiająca się jak odpalimy event
         public void _Archive_ArchiveEvent(object sender, EventArgs args, string message)
         {
-            //Ponizszy kod testowo do wyswietlenia na HMI 
-            Form1._Form1.label51.Text = Form1._Form1.label_DataIGodzina.Text;
-            Form1._Form1.label139.Text = Form1._Form1.textBox_MiejsceNaNrKarty_Zaloguj.Text;
+            //statusy archiwizacji do wyswietlenia na HMI 
             Form1._Form1.label140.Text = message;
 
             var archivizationmodelsbasic = new ArchivizationModelBasic
@@ -145,9 +147,47 @@ namespace HMIApp.Archivizations
             //Liczenie rekordów bazy i usuniecie po przekroczeniu 100k wpisów
             databaseArchive.CountRowsAndDeleteAllData();
 
-            //PODPIAC POD METODE SELECT JUZ PRZYCISKI Z FORMULARZA + DORZUCIC DO GIT IGNORE TE PLIKI CSV CO SIE GENERUJA
-            _archivizationmodelextendeddatabase = databaseArchive.SelectFromDataBase("2024-05-01",10, "2024-05-01",11);
-            ArchivizationCsvFileHandlingForDataBaseModel();
+
+        }
+
+        public void AddingYearToComboBoxArchivizationToCSVForm1()
+        {
+            var FindYear = Form1._Form1.comboBox1.FindString($"{DateTime.Now.Year}");
+            if(FindYear== -1 )
+            {
+                Form1._Form1.comboBox1.Items.Add(DateTime.Now.Year);
+                Form1._Form1.comboBox8.Items.Add(DateTime.Now.Year);
+            }
+        }
+
+        public void ExportToCSVButtonFromForm1()
+        {
+            var databaseArchive = serviceProvider.GetService<iDataBaseArchivization>();
+            var StartYear = Form1._Form1.comboBox1.SelectedItem.ToString();
+            var StartMonth = Form1._Form1.comboBox2.SelectedItem.ToString();
+            var StartDay = Form1._Form1.comboBox3.SelectedItem.ToString();
+
+            var StartHourToString = Convert.ToString(Form1._Form1.comboBox4.SelectedItem);
+            var StartHour = 0;
+            if (StartHourToString != "")
+            {
+                var StartHourIndexOfColon = StartHourToString.IndexOf(":");
+                StartHour = Convert.ToInt16(StartHourToString.Remove(StartHourIndexOfColon));
+            }
+
+            var EndYear = Form1._Form1.comboBox8.SelectedItem.ToString();
+            var EndMonth = Form1._Form1.comboBox7.SelectedItem.ToString();
+            var EndDay = Form1._Form1.comboBox6.SelectedItem.ToString();
+            var EndHourToString = Convert.ToString(Form1._Form1.comboBox5.SelectedItem);
+            var EndHour = 0;
+            if(EndHourToString !="")
+            {
+                var EndHourIndexOfColon = EndHourToString.IndexOf(":");
+                EndHour = Convert.ToInt16(EndHourToString.Remove(EndHourIndexOfColon));
+            }
+
+            _archivizationmodelextendeddatabase = databaseArchive.SelectFromDataBase($"{StartYear}-{StartMonth}-{StartDay}",  $"{EndYear}-{EndMonth}-{EndDay}", StartHour, EndHour);
+            if(_archivizationmodelextendeddatabase.Count != 0) ArchivizationCsvFileHandlingForDataBaseModel();
         }
 
         public void ArchivizationCsvFileHandlingForDataBaseModel()
@@ -174,6 +214,7 @@ namespace HMIApp.Archivizations
                 using var csv = new CsvWriter(writer, configEventsWhenFileExist);
                 csv.Context.RegisterClassMap<ArchivizationModelBasicMap>();
                 csv.WriteRecords(_archivizationmodelextendeddatabase);
+                Form1._Form1.label140.Text = "Wygenerowano plik CSV z bazy danych";
             }
             else if (!File.Exists(LocationOfArchivizationFolder + $"ArchivizationFromDataBase_DataGeneracjiPliku{DateTime.Now.ToString("yyyy-MM-dd HH-mm-ss")}.csv"))
             {
@@ -181,6 +222,7 @@ namespace HMIApp.Archivizations
                 using var csv = new CsvWriter(writer, configEventsWhenFileNOTExist);
                 csv.Context.RegisterClassMap<ArchivizationModelBasicMap>();
                 csv.WriteRecords(_archivizationmodelextendeddatabase);
+                Form1._Form1.label140.Text = "Wygenerowano plik CSV z bazy danych";
             }
 
         }
@@ -214,6 +256,7 @@ namespace HMIApp.Archivizations
                 using var csv = new CsvWriter(writer, configEventsWhenFileExist);
                 csv.Context.RegisterClassMap<ArchivizationModelBasicMap>();
                 csv.WriteRecords(_archivizationmodelsbasic);
+                Form1._Form1.label140.Text = "Wygenerowano plik CSV z eventami bez parametrów";
             }
             else if (!File.Exists(LocationOfArchivizationFolder+$"Archivization_NrZmiany{NumberOfShifts}_Data{DateTime.Now.ToString("d")}.csv"))
             {
@@ -221,6 +264,7 @@ namespace HMIApp.Archivizations
                 using var csv = new CsvWriter(writer, configEventsWhenFileNOTExist);
                 csv.Context.RegisterClassMap<ArchivizationModelBasicMap>();
                 csv.WriteRecords(_archivizationmodelsbasic);
+                Form1._Form1.label140.Text = "Wygenerowano plik CSV z eventami bez parametrów";
             }
 
             ClearListArchivizationModelBasic();
@@ -253,6 +297,7 @@ namespace HMIApp.Archivizations
                 using var csv = new CsvWriter(writer, configEventsWhenFileExist);
                 csv.Context.RegisterClassMap<ArchivizationModelBasicMap>();
                 csv.WriteRecords(_archivizationmodelextended);
+                Form1._Form1.label140.Text = "Wygenerowano plik CSV z eventami i z  parametrami";
             }
             else if (!File.Exists(LocationOfArchivizationFolder + $"ArchivizationExtended_NrZmiany{NumberOfShifts}_Data{DateTime.Now.ToString("d")}.csv"))
             {
@@ -260,6 +305,7 @@ namespace HMIApp.Archivizations
                 using var csv = new CsvWriter(writer, configEventsWhenFileNOTExist);
                 csv.Context.RegisterClassMap<ArchivizationModelBasicMap>();
                 csv.WriteRecords(_archivizationmodelextended);
+                Form1._Form1.label140.Text = "Wygenerowano plik CSV z eventami i z  parametrami";
             }
 
             ClearListArchivizationModelExtended();

@@ -480,9 +480,6 @@
             DB667CzasCyklu = new System.Windows.Forms.TextBox();
             tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             panel1 = new System.Windows.Forms.Panel();
-            label140 = new System.Windows.Forms.Label();
-            label139 = new System.Windows.Forms.Label();
-            label51 = new System.Windows.Forms.Label();
             Button_Rework = new System.Windows.Forms.Button();
             Button_ResetSztukNOK = new System.Windows.Forms.Button();
             label46 = new System.Windows.Forms.Label();
@@ -512,11 +509,35 @@
             DB667SztukiOK = new System.Windows.Forms.TextBox();
             Label_AktualneDane = new System.Windows.Forms.Label();
             label10 = new System.Windows.Forms.Label();
+            label140 = new System.Windows.Forms.Label();
             dataGridView1 = new System.Windows.Forms.DataGridView();
             Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             tabControl1 = new System.Windows.Forms.TabControl();
             tabPage13 = new System.Windows.Forms.TabPage();
+            tableLayoutPanel21 = new System.Windows.Forms.TableLayoutPanel();
+            Btn_ExportToCSVArchiwizacja = new System.Windows.Forms.Button();
             label2 = new System.Windows.Forms.Label();
+            panel15 = new System.Windows.Forms.Panel();
+            panel16 = new System.Windows.Forms.Panel();
+            label51 = new System.Windows.Forms.Label();
+            label141 = new System.Windows.Forms.Label();
+            comboBox1 = new System.Windows.Forms.ComboBox();
+            label144 = new System.Windows.Forms.Label();
+            comboBox4 = new System.Windows.Forms.ComboBox();
+            label143 = new System.Windows.Forms.Label();
+            comboBox3 = new System.Windows.Forms.ComboBox();
+            comboBox2 = new System.Windows.Forms.ComboBox();
+            label142 = new System.Windows.Forms.Label();
+            panel18 = new System.Windows.Forms.Panel();
+            label139 = new System.Windows.Forms.Label();
+            label148 = new System.Windows.Forms.Label();
+            comboBox8 = new System.Windows.Forms.ComboBox();
+            comboBox7 = new System.Windows.Forms.ComboBox();
+            label145 = new System.Windows.Forms.Label();
+            label147 = new System.Windows.Forms.Label();
+            comboBox5 = new System.Windows.Forms.ComboBox();
+            comboBox6 = new System.Windows.Forms.ComboBox();
+            label146 = new System.Windows.Forms.Label();
             tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
@@ -525,6 +546,7 @@
             tableLayoutPanel19 = new System.Windows.Forms.TableLayoutPanel();
             tableLayoutPanel20 = new System.Windows.Forms.TableLayoutPanel();
             PróbyUruchomieniaKomunikacjizPLC = new System.Windows.Forms.Timer(components);
+            CzyszczenieStatusowArchiwizacji = new System.Windows.Forms.Timer(components);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             tabPage7.SuspendLayout();
             tabPage9.SuspendLayout();
@@ -577,6 +599,10 @@
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             tabControl1.SuspendLayout();
             tabPage13.SuspendLayout();
+            tableLayoutPanel21.SuspendLayout();
+            panel15.SuspendLayout();
+            panel16.SuspendLayout();
+            panel18.SuspendLayout();
             tableLayoutPanel6.SuspendLayout();
             tableLayoutPanel7.SuspendLayout();
             tableLayoutPanel8.SuspendLayout();
@@ -3581,9 +3607,6 @@
             // 
             // panel1
             // 
-            panel1.Controls.Add(label140);
-            panel1.Controls.Add(label139);
-            panel1.Controls.Add(label51);
             panel1.Controls.Add(Button_Rework);
             panel1.Controls.Add(Button_ResetSztukNOK);
             panel1.Controls.Add(label46);
@@ -3614,21 +3637,6 @@
             panel1.Controls.Add(DB667SztukiOK);
             resources.ApplyResources(panel1, "panel1");
             panel1.Name = "panel1";
-            // 
-            // label140
-            // 
-            resources.ApplyResources(label140, "label140");
-            label140.Name = "label140";
-            // 
-            // label139
-            // 
-            resources.ApplyResources(label139, "label139");
-            label139.Name = "label139";
-            // 
-            // label51
-            // 
-            resources.ApplyResources(label51, "label51");
-            label51.Name = "label51";
             // 
             // Button_Rework
             // 
@@ -3837,6 +3845,11 @@
             resources.ApplyResources(label10, "label10");
             label10.Name = "label10";
             // 
+            // label140
+            // 
+            resources.ApplyResources(label140, "label140");
+            label140.Name = "label140";
+            // 
             // dataGridView1
             // 
             dataGridView1.BackgroundColor = System.Drawing.Color.White;
@@ -3878,15 +3891,192 @@
             // 
             // tabPage13
             // 
-            tabPage13.Controls.Add(label2);
+            tabPage13.Controls.Add(tableLayoutPanel21);
             resources.ApplyResources(tabPage13, "tabPage13");
             tabPage13.Name = "tabPage13";
             tabPage13.UseVisualStyleBackColor = true;
             // 
+            // tableLayoutPanel21
+            // 
+            resources.ApplyResources(tableLayoutPanel21, "tableLayoutPanel21");
+            tableLayoutPanel21.Controls.Add(Btn_ExportToCSVArchiwizacja, 1, 0);
+            tableLayoutPanel21.Controls.Add(label2, 0, 0);
+            tableLayoutPanel21.Controls.Add(panel15, 0, 1);
+            tableLayoutPanel21.Controls.Add(panel18, 0, 2);
+            tableLayoutPanel21.Controls.Add(label140, 1, 1);
+            tableLayoutPanel21.Name = "tableLayoutPanel21";
+            // 
+            // Btn_ExportToCSVArchiwizacja
+            // 
+            resources.ApplyResources(Btn_ExportToCSVArchiwizacja, "Btn_ExportToCSVArchiwizacja");
+            Btn_ExportToCSVArchiwizacja.Name = "Btn_ExportToCSVArchiwizacja";
+            Btn_ExportToCSVArchiwizacja.Tag = "";
+            Btn_ExportToCSVArchiwizacja.UseVisualStyleBackColor = true;
+            Btn_ExportToCSVArchiwizacja.Click += Btn_ExportToCSVArchiwizacja_Click;
+            // 
             // label2
             // 
             resources.ApplyResources(label2, "label2");
+            label2.BackColor = System.Drawing.Color.White;
             label2.Name = "label2";
+            // 
+            // panel15
+            // 
+            panel15.Controls.Add(panel16);
+            resources.ApplyResources(panel15, "panel15");
+            panel15.Name = "panel15";
+            // 
+            // panel16
+            // 
+            panel16.Controls.Add(label51);
+            panel16.Controls.Add(label141);
+            panel16.Controls.Add(comboBox1);
+            panel16.Controls.Add(label144);
+            panel16.Controls.Add(comboBox4);
+            panel16.Controls.Add(label143);
+            panel16.Controls.Add(comboBox3);
+            panel16.Controls.Add(comboBox2);
+            panel16.Controls.Add(label142);
+            resources.ApplyResources(panel16, "panel16");
+            panel16.Name = "panel16";
+            // 
+            // label51
+            // 
+            resources.ApplyResources(label51, "label51");
+            label51.BackColor = System.Drawing.Color.White;
+            label51.Name = "label51";
+            // 
+            // label141
+            // 
+            resources.ApplyResources(label141, "label141");
+            label141.BackColor = System.Drawing.Color.White;
+            label141.Name = "label141";
+            // 
+            // comboBox1
+            // 
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Items.AddRange(new object[] { resources.GetString("comboBox1.Items") });
+            resources.ApplyResources(comboBox1, "comboBox1");
+            comboBox1.Name = "comboBox1";
+            comboBox1.Tag = "";
+            // 
+            // label144
+            // 
+            resources.ApplyResources(label144, "label144");
+            label144.BackColor = System.Drawing.Color.White;
+            label144.Name = "label144";
+            // 
+            // comboBox4
+            // 
+            comboBox4.FormattingEnabled = true;
+            comboBox4.Items.AddRange(new object[] { resources.GetString("comboBox4.Items"), resources.GetString("comboBox4.Items1"), resources.GetString("comboBox4.Items2"), resources.GetString("comboBox4.Items3"), resources.GetString("comboBox4.Items4"), resources.GetString("comboBox4.Items5"), resources.GetString("comboBox4.Items6"), resources.GetString("comboBox4.Items7"), resources.GetString("comboBox4.Items8"), resources.GetString("comboBox4.Items9"), resources.GetString("comboBox4.Items10"), resources.GetString("comboBox4.Items11"), resources.GetString("comboBox4.Items12"), resources.GetString("comboBox4.Items13"), resources.GetString("comboBox4.Items14"), resources.GetString("comboBox4.Items15"), resources.GetString("comboBox4.Items16"), resources.GetString("comboBox4.Items17"), resources.GetString("comboBox4.Items18"), resources.GetString("comboBox4.Items19"), resources.GetString("comboBox4.Items20"), resources.GetString("comboBox4.Items21"), resources.GetString("comboBox4.Items22"), resources.GetString("comboBox4.Items23") });
+            resources.ApplyResources(comboBox4, "comboBox4");
+            comboBox4.Name = "comboBox4";
+            comboBox4.Tag = "";
+            // 
+            // label143
+            // 
+            resources.ApplyResources(label143, "label143");
+            label143.BackColor = System.Drawing.Color.White;
+            label143.Name = "label143";
+            // 
+            // comboBox3
+            // 
+            comboBox3.FormattingEnabled = true;
+            comboBox3.Items.AddRange(new object[] { resources.GetString("comboBox3.Items"), resources.GetString("comboBox3.Items1"), resources.GetString("comboBox3.Items2"), resources.GetString("comboBox3.Items3"), resources.GetString("comboBox3.Items4"), resources.GetString("comboBox3.Items5"), resources.GetString("comboBox3.Items6"), resources.GetString("comboBox3.Items7"), resources.GetString("comboBox3.Items8"), resources.GetString("comboBox3.Items9"), resources.GetString("comboBox3.Items10"), resources.GetString("comboBox3.Items11"), resources.GetString("comboBox3.Items12"), resources.GetString("comboBox3.Items13"), resources.GetString("comboBox3.Items14"), resources.GetString("comboBox3.Items15"), resources.GetString("comboBox3.Items16"), resources.GetString("comboBox3.Items17"), resources.GetString("comboBox3.Items18"), resources.GetString("comboBox3.Items19"), resources.GetString("comboBox3.Items20"), resources.GetString("comboBox3.Items21"), resources.GetString("comboBox3.Items22"), resources.GetString("comboBox3.Items23"), resources.GetString("comboBox3.Items24"), resources.GetString("comboBox3.Items25"), resources.GetString("comboBox3.Items26"), resources.GetString("comboBox3.Items27"), resources.GetString("comboBox3.Items28"), resources.GetString("comboBox3.Items29"), resources.GetString("comboBox3.Items30") });
+            resources.ApplyResources(comboBox3, "comboBox3");
+            comboBox3.Name = "comboBox3";
+            comboBox3.Tag = "";
+            // 
+            // comboBox2
+            // 
+            comboBox2.FormattingEnabled = true;
+            comboBox2.Items.AddRange(new object[] { resources.GetString("comboBox2.Items"), resources.GetString("comboBox2.Items1"), resources.GetString("comboBox2.Items2"), resources.GetString("comboBox2.Items3"), resources.GetString("comboBox2.Items4"), resources.GetString("comboBox2.Items5"), resources.GetString("comboBox2.Items6"), resources.GetString("comboBox2.Items7"), resources.GetString("comboBox2.Items8"), resources.GetString("comboBox2.Items9"), resources.GetString("comboBox2.Items10"), resources.GetString("comboBox2.Items11") });
+            resources.ApplyResources(comboBox2, "comboBox2");
+            comboBox2.Name = "comboBox2";
+            comboBox2.Tag = "";
+            // 
+            // label142
+            // 
+            resources.ApplyResources(label142, "label142");
+            label142.BackColor = System.Drawing.Color.White;
+            label142.Name = "label142";
+            // 
+            // panel18
+            // 
+            panel18.Controls.Add(label139);
+            panel18.Controls.Add(label148);
+            panel18.Controls.Add(comboBox8);
+            panel18.Controls.Add(comboBox7);
+            panel18.Controls.Add(label145);
+            panel18.Controls.Add(label147);
+            panel18.Controls.Add(comboBox5);
+            panel18.Controls.Add(comboBox6);
+            panel18.Controls.Add(label146);
+            resources.ApplyResources(panel18, "panel18");
+            panel18.Name = "panel18";
+            // 
+            // label139
+            // 
+            resources.ApplyResources(label139, "label139");
+            label139.BackColor = System.Drawing.Color.White;
+            label139.Name = "label139";
+            // 
+            // label148
+            // 
+            resources.ApplyResources(label148, "label148");
+            label148.BackColor = System.Drawing.Color.White;
+            label148.Name = "label148";
+            // 
+            // comboBox8
+            // 
+            comboBox8.FormattingEnabled = true;
+            comboBox8.Items.AddRange(new object[] { resources.GetString("comboBox8.Items") });
+            resources.ApplyResources(comboBox8, "comboBox8");
+            comboBox8.Name = "comboBox8";
+            comboBox8.Tag = "";
+            // 
+            // comboBox7
+            // 
+            comboBox7.FormattingEnabled = true;
+            comboBox7.Items.AddRange(new object[] { resources.GetString("comboBox7.Items"), resources.GetString("comboBox7.Items1"), resources.GetString("comboBox7.Items2"), resources.GetString("comboBox7.Items3"), resources.GetString("comboBox7.Items4"), resources.GetString("comboBox7.Items5"), resources.GetString("comboBox7.Items6"), resources.GetString("comboBox7.Items7"), resources.GetString("comboBox7.Items8"), resources.GetString("comboBox7.Items9"), resources.GetString("comboBox7.Items10"), resources.GetString("comboBox7.Items11") });
+            resources.ApplyResources(comboBox7, "comboBox7");
+            comboBox7.Name = "comboBox7";
+            comboBox7.Tag = "";
+            // 
+            // label145
+            // 
+            resources.ApplyResources(label145, "label145");
+            label145.BackColor = System.Drawing.Color.White;
+            label145.Name = "label145";
+            // 
+            // label147
+            // 
+            resources.ApplyResources(label147, "label147");
+            label147.BackColor = System.Drawing.Color.White;
+            label147.Name = "label147";
+            // 
+            // comboBox5
+            // 
+            comboBox5.FormattingEnabled = true;
+            comboBox5.Items.AddRange(new object[] { resources.GetString("comboBox5.Items"), resources.GetString("comboBox5.Items1"), resources.GetString("comboBox5.Items2"), resources.GetString("comboBox5.Items3"), resources.GetString("comboBox5.Items4"), resources.GetString("comboBox5.Items5"), resources.GetString("comboBox5.Items6"), resources.GetString("comboBox5.Items7"), resources.GetString("comboBox5.Items8"), resources.GetString("comboBox5.Items9"), resources.GetString("comboBox5.Items10"), resources.GetString("comboBox5.Items11"), resources.GetString("comboBox5.Items12"), resources.GetString("comboBox5.Items13"), resources.GetString("comboBox5.Items14"), resources.GetString("comboBox5.Items15"), resources.GetString("comboBox5.Items16"), resources.GetString("comboBox5.Items17"), resources.GetString("comboBox5.Items18"), resources.GetString("comboBox5.Items19"), resources.GetString("comboBox5.Items20"), resources.GetString("comboBox5.Items21"), resources.GetString("comboBox5.Items22"), resources.GetString("comboBox5.Items23") });
+            resources.ApplyResources(comboBox5, "comboBox5");
+            comboBox5.Name = "comboBox5";
+            comboBox5.Tag = "";
+            // 
+            // comboBox6
+            // 
+            comboBox6.FormattingEnabled = true;
+            comboBox6.Items.AddRange(new object[] { resources.GetString("comboBox6.Items"), resources.GetString("comboBox6.Items1"), resources.GetString("comboBox6.Items2"), resources.GetString("comboBox6.Items3"), resources.GetString("comboBox6.Items4"), resources.GetString("comboBox6.Items5"), resources.GetString("comboBox6.Items6"), resources.GetString("comboBox6.Items7"), resources.GetString("comboBox6.Items8"), resources.GetString("comboBox6.Items9"), resources.GetString("comboBox6.Items10"), resources.GetString("comboBox6.Items11"), resources.GetString("comboBox6.Items12"), resources.GetString("comboBox6.Items13"), resources.GetString("comboBox6.Items14"), resources.GetString("comboBox6.Items15"), resources.GetString("comboBox6.Items16"), resources.GetString("comboBox6.Items17"), resources.GetString("comboBox6.Items18"), resources.GetString("comboBox6.Items19"), resources.GetString("comboBox6.Items20"), resources.GetString("comboBox6.Items21"), resources.GetString("comboBox6.Items22"), resources.GetString("comboBox6.Items23"), resources.GetString("comboBox6.Items24"), resources.GetString("comboBox6.Items25"), resources.GetString("comboBox6.Items26"), resources.GetString("comboBox6.Items27"), resources.GetString("comboBox6.Items28"), resources.GetString("comboBox6.Items29"), resources.GetString("comboBox6.Items30") });
+            resources.ApplyResources(comboBox6, "comboBox6");
+            comboBox6.Name = "comboBox6";
+            comboBox6.Tag = "";
+            // 
+            // label146
+            // 
+            resources.ApplyResources(label146, "label146");
+            label146.BackColor = System.Drawing.Color.White;
+            label146.Name = "label146";
             // 
             // tableLayoutPanel6
             // 
@@ -3954,6 +4144,11 @@
             // 
             PróbyUruchomieniaKomunikacjizPLC.Interval = 2000;
             PróbyUruchomieniaKomunikacjizPLC.Tick += Timer1_Tick_1;
+            // 
+            // CzyszczenieStatusowArchiwizacji
+            // 
+            CzyszczenieStatusowArchiwizacji.Interval = 5000;
+            CzyszczenieStatusowArchiwizacji.Tick += CzyszczenieStatusowArchiwizacji_Tick;
             // 
             // Form1
             // 
@@ -4046,6 +4241,13 @@
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             tabControl1.ResumeLayout(false);
             tabPage13.ResumeLayout(false);
+            tableLayoutPanel21.ResumeLayout(false);
+            tableLayoutPanel21.PerformLayout();
+            panel15.ResumeLayout(false);
+            panel16.ResumeLayout(false);
+            panel16.PerformLayout();
+            panel18.ResumeLayout(false);
+            panel18.PerformLayout();
             tableLayoutPanel6.ResumeLayout(false);
             tableLayoutPanel7.ResumeLayout(false);
             tableLayoutPanel8.ResumeLayout(false);
@@ -4078,7 +4280,6 @@
         public System.Windows.Forms.Timer TimeoutWylogowania;
         public System.Windows.Forms.Label label63;
         public System.Windows.Forms.Timer OdliczaSekunde;
-        private System.Windows.Forms.Label label2;
         public System.Windows.Forms.Label label13;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Label label68;
@@ -4563,9 +4764,32 @@
         public System.Windows.Forms.TextBox StatusyLogowania;
         public System.Windows.Forms.ComboBox DB666RodzajSmaruPrzegub;
         public System.Windows.Forms.ComboBox DB666RodzajSmaruTulip;
-        public System.Windows.Forms.Label label139;
-        public System.Windows.Forms.Label label51;
         public System.Windows.Forms.Label label140;
+        private System.Windows.Forms.Label label145;
+        public System.Windows.Forms.ComboBox comboBox5;
+        private System.Windows.Forms.Label label146;
+        public System.Windows.Forms.ComboBox comboBox6;
+        private System.Windows.Forms.Label label147;
+        public System.Windows.Forms.ComboBox comboBox7;
+        private System.Windows.Forms.Label label148;
+        public System.Windows.Forms.ComboBox comboBox8;
+        private System.Windows.Forms.Label label144;
+        public System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.Label label143;
+        public System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.Label label142;
+        public System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.Label label141;
+        public System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label2;
+        public System.Windows.Forms.Button Btn_ExportToCSVArchiwizacja;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel21;
+        private System.Windows.Forms.Panel panel15;
+        private System.Windows.Forms.Panel panel16;
+        private System.Windows.Forms.Label label51;
+        private System.Windows.Forms.Panel panel18;
+        private System.Windows.Forms.Label label139;
+        public System.Windows.Forms.Timer CzyszczenieStatusowArchiwizacji;
     }
 }
 

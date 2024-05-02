@@ -20,6 +20,9 @@ namespace HMIApp.Archivizations
         void ClearListArchivizationModelExtended();
         void OnArchiveEventsMethod(string message);
 
+        void AddingYearToComboBoxArchivizationToCSVForm1();
+        void ExportToCSVButtonFromForm1();
+
 
     }
 }

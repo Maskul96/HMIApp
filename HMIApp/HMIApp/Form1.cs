@@ -95,6 +95,7 @@ namespace HMIApp
             blockade = false;
 
             CzyszczenieStatusówLogowania.Enabled = true;
+            CzyszczenieStatusowArchiwizacji.Enabled = true; 
         }
 
 
@@ -211,7 +212,7 @@ namespace HMIApp
 
             if (blockade)
             {
-               App.CreatePlot();
+                App.CreatePlot();
             }
             PassedValueControls.Run();
             //aktualizacja daty i godziny
@@ -363,7 +364,7 @@ namespace HMIApp
                 oslProcess.Kill();
             }
             string progFiles = @"C:\Program Files\Common Files\Microsoft Shared\Ink\TabTip.exe";
-                Process.Start(progFiles);
+            Process.Start(progFiles);
         }
 
 
@@ -618,6 +619,16 @@ namespace HMIApp
         private void Button_DawkaTestowaTulip_Click(object sender, EventArgs e)
         {
             App.WriteToDB("55", Button_DawkaTestowaTulip.Tag.ToString(), 1);
+        }
+
+        private void Btn_ExportToCSVArchiwizacja_Click(object sender, EventArgs e)
+        {
+            _Archive.ExportToCSVButtonFromForm1();
+        }
+
+        private void CzyszczenieStatusowArchiwizacji_Tick(object sender, EventArgs e)
+        {
+            label140.Text = "";
         }
     }
 }
