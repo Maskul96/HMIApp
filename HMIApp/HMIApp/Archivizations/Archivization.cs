@@ -145,7 +145,7 @@ namespace HMIApp.Archivizations
             //Liczenie rekordów bazy i usuniecie po przekroczeniu 100k wpisów
             databaseArchive.CountRowsAndDeleteAllData();
 
-            //PODPIAC POD METODE SELECT JUZ PRZYCISKI Z FORMULARZA
+            //PODPIAC POD METODE SELECT JUZ PRZYCISKI Z FORMULARZA + DORZUCIC DO GIT IGNORE TE PLIKI CSV CO SIE GENERUJA
             _archivizationmodelextendeddatabase = databaseArchive.SelectFromDataBase("2024-05-01",10, "2024-05-01",11);
             ArchivizationCsvFileHandlingForDataBaseModel();
         }
