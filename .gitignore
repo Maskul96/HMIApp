@@ -4,9 +4,9 @@
 ## Get latest from https://github.com/github/gitignore/blob/main/VisualStudio.gitignore
 
 #ignore spiecified directory - archivization directory csv
-ArchivizationsBasic
-ArchivizationsExtended
-ArchivizationsFromDataBase
+Archivization_NrZmiany
+ArchivizationExtended_NrZmiany
+ArchivizationFromDataBase
 # User-specific files
 *.rsuser
 *.suo
