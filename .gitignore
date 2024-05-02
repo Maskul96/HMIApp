@@ -3,10 +3,11 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/main/VisualStudio.gitignore
 
-#ignore spiecified directory - archivization directory csv
+#ignore spiecified file which names start with specified string
 Archivization_NrZmiany*
 ArchivizationExtended_NrZmiany*
 ArchivizationFromDataBase*
+
 # User-specific files
 *.rsuser
 *.suo
