@@ -10,6 +10,7 @@ using CsvHelper;
 using CsvHelper.Configuration;
 using CsvHelper.TypeConversion;
 using HMIApp.Archivizations.Models;
+using HMIApp.Components;
 using HMIApp.Components.DataBase;
 using HMIApp.Components.UserAdministration;
 using HMIApp.Data;
@@ -29,6 +30,7 @@ namespace HMIApp.Archivizations
         public List<ArchivizationModelExtendedDataBase> _archivizationmodelextendeddatabase = new List<ArchivizationModelExtendedDataBase>();
         public ServiceCollection services = new ServiceCollection();
         public ServiceProvider serviceProvider;
+        Logger _logger;
         public Archivization(Form1 obj)
         {
             this.obj = obj;
@@ -210,17 +212,21 @@ namespace HMIApp.Archivizations
             {
                 using var writer = new StreamWriter(LocationOfArchivizationFolder + $"ArchivizationFromDataBase_DataGeneracjiPliku{DateTime.Now.ToString("yyyy-MM-dd HH-mm-ss")}.csv");
                 using var csv = new CsvWriter(writer, configEventsWhenFileExist);
-                csv.Context.RegisterClassMap<ArchivizationModelBasicMap>();
+                csv.Context.RegisterClassMap<ArchivizationModelFromDataBaseMap>();
                 csv.WriteRecords(_archivizationmodelextendeddatabase);
+                //Info dla uzytkownika
                 Form1._Form1.label_StatusyArchiwizacji.Text = "Wygenerowano plik CSV z bazy danych";
+                _logger.LogMessage("Wygenerowano plik CSV z bazy danych");
             }
             else if (!File.Exists(LocationOfArchivizationFolder + $"ArchivizationFromDataBase_DataGeneracjiPliku{DateTime.Now.ToString("yyyy-MM-dd HH-mm-ss")}.csv"))
             {
                 using var writer = new StreamWriter(LocationOfArchivizationFolder + $"ArchivizationFromDataBase_DataGeneracjiPliku{DateTime.Now.ToString("yyyy-MM-dd HH-mm-ss")}.csv");
                 using var csv = new CsvWriter(writer, configEventsWhenFileNOTExist);
-                csv.Context.RegisterClassMap<ArchivizationModelBasicMap>();
+                csv.Context.RegisterClassMap<ArchivizationModelFromDataBaseMap>();
                 csv.WriteRecords(_archivizationmodelextendeddatabase);
+                //Info dla uzytkownika
                 Form1._Form1.label_StatusyArchiwizacji.Text = "Wygenerowano plik CSV z bazy danych";
+                _logger.LogMessage("Wygenerowano plik CSV z bazy danych");
             }
 
         }
