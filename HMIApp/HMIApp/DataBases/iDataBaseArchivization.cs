@@ -9,7 +9,7 @@ namespace HMIApp.Data
         string ReadConfFile(string filepath);
         void Run();
         void CountRowsAndDeleteAllData();
-        void InsertToDataBase(string message);
+        void InsertToDataBase(string message, int nrofshift);
 
 #nullable enable
         ArchivizationModelExtendedDataBase? ReadFirst();

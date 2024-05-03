@@ -72,78 +72,81 @@ namespace HMIApp.Archivizations
         {
             //statusy archiwizacji do wyswietlenia na HMI 
             Form1._Form1.label_StatusyArchiwizacji.Text = message;
+            #region archivization model basic - unused
+            //var archivizationmodelsbasic = new ArchivizationModelBasic
+            //{
+            //    DateTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),
+            //    NrOfCard = Form1._Form1.textBox_MiejsceNaNrKarty_Zaloguj.Text,
+            //    Message = message
 
-            var archivizationmodelsbasic = new ArchivizationModelBasic
-            {
-                DateTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),
-                NrOfCard = Form1._Form1.textBox_MiejsceNaNrKarty_Zaloguj.Text,
-                Message = message
-
-            };
-            _archivizationmodelsbasic.Add(archivizationmodelsbasic);
-            ArchivizationCsvFileHandlingForBasicModel();
-
+            //};
+            //_archivizationmodelsbasic.Add(archivizationmodelsbasic);
+            //ArchivizationCsvFileHandlingForBasicModel();
+            #endregion
+            #region archivization model extedended - unused
             //Logowanie razem z parametrami
-            var archivizationmodelsextended = new ArchivizationModelExtended
-                {
-                    DateTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),
-                    NrOfCard = Form1._Form1.textBox_MiejsceNaNrKarty_Zaloguj.Text,
-                    Message = message,
+            //var archivizationmodelsextended = new ArchivizatonModelExtended
+            //    {
+            //        DateTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),
+            //        NrOfCard = Form1._Form1.textBox_MiejsceNaNrKarty_Zaloguj.Text,
+            //        Message = message,
 
-                    ReferenceNumber = Form1._Form1.DB666NrReference.Text,
-                    NameOfClient = Form1._Form1.DB666NameOfClient.Text,
-                    PrzeciskanieP1 = Form1._Form1.DB666PrzeciskanieP1.Checked,
-                    MontazOslonkiP2 = Form1._Form1.DB666MontazOslonkiP2.Checked,
-                    OetickerP3 = Form1._Form1.DB666OetickerP3.Checked,
-                    DyszaWahliwaP4 = Form1._Form1.DB666DyszaWahliwaP4.Checked,
-                    SmarTulipP5 = Form1._Form1.DB666SmarTulipP5.Checked,
-                    SmarPrzegubP6 = Form1._Form1.DB666SmarPrzegubP6.Checked,
-                    TraceUpP7 = Form1._Form1.DB666TraceUpP7.Checked,
-                    TraceUpZapisP8 = Form1._Form1.DB666TraceUpZapisP8.Checked,
-                    RFIDGlowicaGornaP9 = Form1._Form1.DB666RFIDGlowicaGornaP9.Checked,
-                    RFIDPlytaSmarujacaP10 = Form1._Form1.DB666RFIDPlytaSmarujacaP10.Checked,
-                    RFIDSzczekiOslonkiP11 = Form1._Form1.DB666RFIDSzczekiOslonkiP11.Checked,
-                    RFIDGniazdoPrzegubuP12 = Form1._Form1.DB666RFIDGniazdoPrzegubuP12.Checked,
-                    //Inne
-                    PozwyjeciaOsi = float.Parse(Form1._Form1.DB666PozwyjeciaOsi.Text),
-                    PozOetickera = float.Parse(Form1._Form1.DB666PozOetickera.Text),
-                    //Przeciskanie
-                    Przeciskanie_PozStartowa = float.Parse(Form1._Form1.DB666PozStartowa__Przeciskanie.Text),
-                    Przeciskanie_DojazdWolny = float.Parse(Form1._Form1.DB666DojazdWolny_Przeciskanie.Text),
-                    Przeciskanie_PoczCzytSily = float.Parse(Form1._Form1.DB666PoczCzytSily__Przeciskanie.Text),
-                    Przeciskanie_KoniecCzytSily = float.Parse(Form1._Form1.DB666KoniecCzytSily__Przeciskanie.Text),
-                    Przeciskanie_SilaMin = int.Parse(Form1._Form1.DB666SilaMin_Przeciskanie.Text),
-                    Przeciskanie_SilaMax = int.Parse(Form1._Form1.DB666SilaMax__Przeciskanie.Text),
-                    //Oslonka
-                    Oslonka_PozStartowa = float.Parse(Form1._Form1.DB666PozStartowa_Oslonka.Text),
-                    Oslonka_PozSmarowania = float.Parse(Form1._Form1.DB666PozSmarowania_Oslonka.Text),
-                    Oslonka_PozNakladania = float.Parse(Form1._Form1.DB666PozNakladania_Oslonka.Text),
-                    Oslonka_PozPowrotu = float.Parse(Form1._Form1.DB666PozPowrotu_Oslonka.Text),
-                    //Dysza Wahliwa
-                    DyszaWahliwa_PozPionowa = float.Parse(Form1._Form1.DB666PozPionowa_DyszaWahliwa.Text),
-                    DyszaWahliwa_PozPozioma = float.Parse(Form1._Form1.DB666PozPozioma_DyszaWahliwa.Text),
-                    DyszaWahliwa_PozdyszywOslonce = float.Parse(Form1._Form1.DB666PozDyszyWOslonce_DyszaWahliwa.Text),
-                    DyszaWahliwa_PozZjazduOslonkiSmarowanie = float.Parse(Form1._Form1.DB666PozZjazduOslonkiSmarowanie_DyszaWahliwa.Text),
-                    //Smarowania
-                    Smarowanie_DawkaPrzegub = float.Parse(Form1._Form1.DB666DawkaPrzegub.Text),
-                    Smarowanie_TolDawkiPrzegub = float.Parse(Form1._Form1.DB666TolDawkiPrzegub.Text),
-                    Smarowanie_RodzajSmaruPrzegub = Form1._Form1.DB666RodzajSmaruPrzegub.SelectedIndex,
-                    Smarowanie_DawkaTulip = float.Parse(Form1._Form1.DB666DawkaTulip.Text),
-                    Smarowanie_TolDawkiTulip = float.Parse(Form1._Form1.DB666TolDawkiTulip.Text),
-                    Smarowanie_RodzajSmaruTulip = Form1._Form1.DB666RodzajSmaruTulip.SelectedIndex,
-                    //RFID
-                    TagRFID_GlowicaGorna = int.Parse(Form1._Form1.DB666TagRFIDGlowicaGorna.Text),
-                    TagRFID_PlytaSmar = int.Parse(Form1._Form1.DB666TagRFIDPlytaSmar.Text),
-                    TagRFID_SzczekiOslonki = int.Parse(Form1._Form1.DB666TagRFIDSzczekiOslonki.Text),
-                    TagRFID_Przegub = int.Parse(Form1._Form1.DB666TagRFIDPrzegub.Text)
+            //        ReferenceNumber = Form1._Form1.DB666NrReference.Text,
+            //        NameOfClient = Form1._Form1.DB666NameOfClient.Text,
+            //        PrzeciskanieP1 = Form1._Form1.DB666PrzeciskanieP1.Checked,
+            //        MontazOslonkiP2 = Form1._Form1.DB666MontazOslonkiP2.Checked,
+            //        OetickerP3 = Form1._Form1.DB666OetickerP3.Checked,
+            //        DyszaWahliwaP4 = Form1._Form1.DB666DyszaWahliwaP4.Checked,
+            //        SmarTulipP5 = Form1._Form1.DB666SmarTulipP5.Checked,
+            //        SmarPrzegubP6 = Form1._Form1.DB666SmarPrzegubP6.Checked,
+            //        TraceUpP7 = Form1._Form1.DB666TraceUpP7.Checked,
+            //        TraceUpZapisP8 = Form1._Form1.DB666TraceUpZapisP8.Checked,
+            //        RFIDGlowicaGornaP9 = Form1._Form1.DB666RFIDGlowicaGornaP9.Checked,
+            //        RFIDPlytaSmarujacaP10 = Form1._Form1.DB666RFIDPlytaSmarujacaP10.Checked,
+            //        RFIDSzczekiOslonkiP11 = Form1._Form1.DB666RFIDSzczekiOslonkiP11.Checked,
+            //        RFIDGniazdoPrzegubuP12 = Form1._Form1.DB666RFIDGniazdoPrzegubuP12.Checked,
+            //        //Inne
+            //        PozwyjeciaOsi = float.Parse(Form1._Form1.DB666PozwyjeciaOsi.Text),
+            //        PozOetickera = float.Parse(Form1._Form1.DB666PozOetickera.Text),
+            //        //Przeciskanie
+            //        Przeciskanie_PozStartowa = float.Parse(Form1._Form1.DB666PozStartowa__Przeciskanie.Text),
+            //        Przeciskanie_DojazdWolny = float.Parse(Form1._Form1.DB666DojazdWolny_Przeciskanie.Text),
+            //        Przeciskanie_PoczCzytSily = float.Parse(Form1._Form1.DB666PoczCzytSily__Przeciskanie.Text),
+            //        Przeciskanie_KoniecCzytSily = float.Parse(Form1._Form1.DB666KoniecCzytSily__Przeciskanie.Text),
+            //        Przeciskanie_SilaMin = int.Parse(Form1._Form1.DB666SilaMin_Przeciskanie.Text),
+            //        Przeciskanie_SilaMax = int.Parse(Form1._Form1.DB666SilaMax__Przeciskanie.Text),
+            //        //Oslonka
+            //        Oslonka_PozStartowa = float.Parse(Form1._Form1.DB666PozStartowa_Oslonka.Text),
+            //        Oslonka_PozSmarowania = float.Parse(Form1._Form1.DB666PozSmarowania_Oslonka.Text),
+            //        Oslonka_PozNakladania = float.Parse(Form1._Form1.DB666PozNakladania_Oslonka.Text),
+            //        Oslonka_PozPowrotu = float.Parse(Form1._Form1.DB666PozPowrotu_Oslonka.Text),
+            //        //Dysza Wahliwa
+            //        DyszaWahliwa_PozPionowa = float.Parse(Form1._Form1.DB666PozPionowa_DyszaWahliwa.Text),
+            //        DyszaWahliwa_PozPozioma = float.Parse(Form1._Form1.DB666PozPozioma_DyszaWahliwa.Text),
+            //        DyszaWahliwa_PozdyszywOslonce = float.Parse(Form1._Form1.DB666PozDyszyWOslonce_DyszaWahliwa.Text),
+            //        DyszaWahliwa_PozZjazduOslonkiSmarowanie = float.Parse(Form1._Form1.DB666PozZjazduOslonkiSmarowanie_DyszaWahliwa.Text),
+            //        //Smarowania
+            //        Smarowanie_DawkaPrzegub = float.Parse(Form1._Form1.DB666DawkaPrzegub.Text),
+            //        Smarowanie_TolDawkiPrzegub = float.Parse(Form1._Form1.DB666TolDawkiPrzegub.Text),
+            //        Smarowanie_RodzajSmaruPrzegub = Form1._Form1.DB666RodzajSmaruPrzegub.SelectedIndex,
+            //        Smarowanie_DawkaTulip = float.Parse(Form1._Form1.DB666DawkaTulip.Text),
+            //        Smarowanie_TolDawkiTulip = float.Parse(Form1._Form1.DB666TolDawkiTulip.Text),
+            //        Smarowanie_RodzajSmaruTulip = Form1._Form1.DB666RodzajSmaruTulip.SelectedIndex,
+            //        //RFID
+            //        TagRFID_GlowicaGorna = int.Parse(Form1._Form1.DB666TagRFIDGlowicaGorna.Text),
+            //        TagRFID_PlytaSmar = int.Parse(Form1._Form1.DB666TagRFIDPlytaSmar.Text),
+            //        TagRFID_SzczekiOslonki = int.Parse(Form1._Form1.DB666TagRFIDSzczekiOslonki.Text),
+            //        TagRFID_Przegub = int.Parse(Form1._Form1.DB666TagRFIDPrzegub.Text)
+                    
 
-                    };
-            _archivizationmodelextended.Add(archivizationmodelsextended);
-            ArchivizationCsvFileHandlingForExtendedModel();
-
+            //        };
+            //_archivizationmodelextended.Add(archivizationmodelsextended);
+            //ArchivizationCsvFileHandlingForExtendedModel();
+            #endregion
             //Logowanie do bazy danych
+            var NrOfSchift = NumberOfProductionShift();
             var databaseArchive = serviceProvider.GetService<iDataBaseArchivization>();
-            databaseArchive.InsertToDataBase(message);
+            databaseArchive.InsertToDataBase(message, NrOfSchift);
             //Liczenie rekordów bazy i usuniecie po przekroczeniu 100k wpisów
             databaseArchive.CountRowsAndDeleteAllData();
 

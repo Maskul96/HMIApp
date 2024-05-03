@@ -30,7 +30,7 @@
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             OdczytDB = new System.Windows.Forms.Timer(components);
             label_Uzytkownik = new System.Windows.Forms.Label();
             pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -515,7 +515,6 @@
             tabControl1 = new System.Windows.Forms.TabControl();
             tabPage13 = new System.Windows.Forms.TabPage();
             tableLayoutPanel21 = new System.Windows.Forms.TableLayoutPanel();
-            Btn_ExportToCSVArchiwizacja = new System.Windows.Forms.Button();
             label2 = new System.Windows.Forms.Label();
             panel15 = new System.Windows.Forms.Panel();
             panel16 = new System.Windows.Forms.Panel();
@@ -538,6 +537,7 @@
             comboBox_EndHour = new System.Windows.Forms.ComboBox();
             comboBox_EndDay = new System.Windows.Forms.ComboBox();
             label146 = new System.Windows.Forms.Label();
+            Btn_ExportToCSVArchiwizacja = new System.Windows.Forms.Button();
             tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
@@ -3856,14 +3856,14 @@
             dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.ColumnHeadersVisible = false;
             dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { Column2 });
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 238);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 238);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
             resources.ApplyResources(dataGridView1, "dataGridView1");
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersVisible = false;
@@ -3905,14 +3905,6 @@
             tableLayoutPanel21.Controls.Add(label_StatusyArchiwizacji, 1, 0);
             tableLayoutPanel21.Controls.Add(Btn_ExportToCSVArchiwizacja, 1, 1);
             tableLayoutPanel21.Name = "tableLayoutPanel21";
-            // 
-            // Btn_ExportToCSVArchiwizacja
-            // 
-            resources.ApplyResources(Btn_ExportToCSVArchiwizacja, "Btn_ExportToCSVArchiwizacja");
-            Btn_ExportToCSVArchiwizacja.Name = "Btn_ExportToCSVArchiwizacja";
-            Btn_ExportToCSVArchiwizacja.Tag = "";
-            Btn_ExportToCSVArchiwizacja.UseVisualStyleBackColor = true;
-            Btn_ExportToCSVArchiwizacja.Click += Btn_ExportToCSVArchiwizacja_Click;
             // 
             // label2
             // 
@@ -4078,6 +4070,14 @@
             resources.ApplyResources(label146, "label146");
             label146.BackColor = System.Drawing.Color.White;
             label146.Name = "label146";
+            // 
+            // Btn_ExportToCSVArchiwizacja
+            // 
+            resources.ApplyResources(Btn_ExportToCSVArchiwizacja, "Btn_ExportToCSVArchiwizacja");
+            Btn_ExportToCSVArchiwizacja.Name = "Btn_ExportToCSVArchiwizacja";
+            Btn_ExportToCSVArchiwizacja.Tag = "";
+            Btn_ExportToCSVArchiwizacja.UseVisualStyleBackColor = true;
+            Btn_ExportToCSVArchiwizacja.Click += Btn_ExportToCSVArchiwizacja_Click;
             // 
             // tableLayoutPanel6
             // 

@@ -63,12 +63,13 @@ namespace HMIApp.Data
         }
 
         //Metoda inserta do bazy parametrow i eventów - ta metode mozna wywolac w momencie odpalenia eventu
-        public void InsertToDataBase(string message="")
+        public void InsertToDataBase(string message="",int nrofshift=0)
         {
 
                 _hmiAppDbContextArchivization?.ArchivizationsForParameters.Add(new ArchivizationModelExtendedDataBase()
                 {
                     DateAndTime = DateTime.Now,
+                    NrOfShift = nrofshift,
                     NrOfCard = Form1._Form1.textBox_MiejsceNaNrKarty_Zaloguj.Text,
                     Message = message,
                     //Parametry
@@ -135,6 +136,7 @@ namespace HMIApp.Data
                         .Select(x => new
                         {
                             x.DateAndTime,
+                            x.NrOfShift,
                             x.NrOfCard,
                             x.Message,
                             x.ReferenceNumber,
@@ -188,6 +190,7 @@ namespace HMIApp.Data
                             var _ArchivizationModelExtendedDataBase = new ArchivizationModelExtendedDataBase
                             {
                                 DateAndTime = item.DateAndTime,
+                                NrOfShift = item.NrOfShift,
                                 NrOfCard = item.NrOfCard,
                                 Message = item.Message,
                                 ReferenceNumber = item.ReferenceNumber,

@@ -7,6 +7,8 @@ namespace HMIApp.Components.DataBase
     {
         public DateTime DateAndTime { get; set; }
 
+        public int NrOfShift { get; set; }
+
         public string NrOfCard { get; set; }
 
         public string Message { get; set; }
