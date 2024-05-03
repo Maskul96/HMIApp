@@ -69,7 +69,7 @@ namespace HMIApp.Archivizations
         public void _Archive_ArchiveEvent(object sender, EventArgs args, string message)
         {
             //statusy archiwizacji do wyswietlenia na HMI 
-            Form1._Form1.label140.Text = message;
+            Form1._Form1.label_StatusyArchiwizacji.Text = message;
 
             var archivizationmodelsbasic = new ArchivizationModelBasic
             {
@@ -84,7 +84,6 @@ namespace HMIApp.Archivizations
             //Logowanie razem z parametrami
             var archivizationmodelsextended = new ArchivizationModelExtended
                 {
-                    // Id = this.Id,
                     DateTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),
                     NrOfCard = Form1._Form1.textBox_MiejsceNaNrKarty_Zaloguj.Text,
                     Message = message,
@@ -136,8 +135,7 @@ namespace HMIApp.Archivizations
                     TagRFID_SzczekiOslonki = int.Parse(Form1._Form1.DB666TagRFIDSzczekiOslonki.Text),
                     TagRFID_Przegub = int.Parse(Form1._Form1.DB666TagRFIDPrzegub.Text)
 
-                    //dorobic logowanie parametrow - najprosciej to mozna by bylo w trakcie wywolania eventu zrobic po prosu selecta z bazy z aktualna referencja i ja dopisac?
-                };
+                    };
             _archivizationmodelextended.Add(archivizationmodelsextended);
             ArchivizationCsvFileHandlingForExtendedModel();
 
@@ -152,22 +150,22 @@ namespace HMIApp.Archivizations
 
         public void AddingYearToComboBoxArchivizationToCSVForm1()
         {
-            var FindYear = Form1._Form1.comboBox1.FindString($"{DateTime.Now.Year}");
+            var FindYear = Form1._Form1.comboBox_StartYear.FindString($"{DateTime.Now.Year}");
             if(FindYear== -1 )
             {
-                Form1._Form1.comboBox1.Items.Add(DateTime.Now.Year);
-                Form1._Form1.comboBox8.Items.Add(DateTime.Now.Year);
+                Form1._Form1.comboBox_StartYear.Items.Add(DateTime.Now.Year);
+                Form1._Form1.comboBox_EndYear.Items.Add(DateTime.Now.Year);
             }
         }
 
         public void ExportToCSVButtonFromForm1()
         {
             var databaseArchive = serviceProvider.GetService<iDataBaseArchivization>();
-            var StartYear = Form1._Form1.comboBox1.SelectedItem.ToString();
-            var StartMonth = Form1._Form1.comboBox2.SelectedItem.ToString();
-            var StartDay = Form1._Form1.comboBox3.SelectedItem.ToString();
+            var StartYear = Form1._Form1.comboBox_StartYear.SelectedItem.ToString();
+            var StartMonth = Form1._Form1.comboBox_StartMonth.SelectedItem.ToString();
+            var StartDay = Form1._Form1.comboBox_StartDay.SelectedItem.ToString();
 
-            var StartHourToString = Convert.ToString(Form1._Form1.comboBox4.SelectedItem);
+            var StartHourToString = Convert.ToString(Form1._Form1.comboBox_StartHour.SelectedItem);
             var StartHour = 0;
             if (StartHourToString != "")
             {
@@ -175,10 +173,10 @@ namespace HMIApp.Archivizations
                 StartHour = Convert.ToInt16(StartHourToString.Remove(StartHourIndexOfColon));
             }
 
-            var EndYear = Form1._Form1.comboBox8.SelectedItem.ToString();
-            var EndMonth = Form1._Form1.comboBox7.SelectedItem.ToString();
-            var EndDay = Form1._Form1.comboBox6.SelectedItem.ToString();
-            var EndHourToString = Convert.ToString(Form1._Form1.comboBox5.SelectedItem);
+            var EndYear = Form1._Form1.comboBox_EndYear.SelectedItem.ToString();
+            var EndMonth = Form1._Form1.comboBox_EndMonth.SelectedItem.ToString();
+            var EndDay = Form1._Form1.comboBox_EndDay.SelectedItem.ToString();
+            var EndHourToString = Convert.ToString(Form1._Form1.comboBox_EndHour.SelectedItem);
             var EndHour = 0;
             if(EndHourToString !="")
             {
@@ -214,7 +212,7 @@ namespace HMIApp.Archivizations
                 using var csv = new CsvWriter(writer, configEventsWhenFileExist);
                 csv.Context.RegisterClassMap<ArchivizationModelBasicMap>();
                 csv.WriteRecords(_archivizationmodelextendeddatabase);
-                Form1._Form1.label140.Text = "Wygenerowano plik CSV z bazy danych";
+                Form1._Form1.label_StatusyArchiwizacji.Text = "Wygenerowano plik CSV z bazy danych";
             }
             else if (!File.Exists(LocationOfArchivizationFolder + $"ArchivizationFromDataBase_DataGeneracjiPliku{DateTime.Now.ToString("yyyy-MM-dd HH-mm-ss")}.csv"))
             {
@@ -222,11 +220,42 @@ namespace HMIApp.Archivizations
                 using var csv = new CsvWriter(writer, configEventsWhenFileNOTExist);
                 csv.Context.RegisterClassMap<ArchivizationModelBasicMap>();
                 csv.WriteRecords(_archivizationmodelextendeddatabase);
-                Form1._Form1.label140.Text = "Wygenerowano plik CSV z bazy danych";
+                Form1._Form1.label_StatusyArchiwizacji.Text = "Wygenerowano plik CSV z bazy danych";
             }
 
         }
+        public int NumberOfProductionShift()
+        {
+            int NumberOfShift=0;
+            int HourOfDay = DateTime.Now.Hour;
 
+            if(HourOfDay>=6)
+            {
+                NumberOfShift = 1;
+            }
+            else if(HourOfDay >= 14)
+            {
+                NumberOfShift = 2;
+            }
+            else if(HourOfDay >= 24)
+            {
+                NumberOfShift = 3;
+            }
+            return NumberOfShift;
+        }
+
+        public void OnArchiveEventsMethod(string message)
+        {
+            //Sprawdzamy w ifie czy ktos z zewnatrz (subscriber) podpiął się pod ten event i jak tak to dopiero odpalamy event
+            if (ArchiveEvent != null)
+            {
+                //odpalenie eventu
+                ArchiveEvent(this, new EventArgs(), message);
+            }
+        }
+
+        #region Metody używane do wcześniejszych archiwizacji bez użycia bazy danych - Obecnie nieużywane
+        #region Metoda archiwizacji do csv tylko daty, eventu i nr karty - UNUSED
         public void ArchivizationCsvFileHandlingForBasicModel()
         {
 
@@ -251,25 +280,26 @@ namespace HMIApp.Archivizations
 
             if (File.Exists(LocationOfArchivizationFolder + $"Archivization_NrZmiany{NumberOfShifts}_Data{DateTime.Now.ToString("d")}.csv"))
             {
-                using var stream = File.Open(LocationOfArchivizationFolder+$"Archivization_NrZmiany{NumberOfShifts}_Data{DateTime.Now.ToString("d")}.csv", FileMode.Append);
+                using var stream = File.Open(LocationOfArchivizationFolder + $"Archivization_NrZmiany{NumberOfShifts}_Data{DateTime.Now.ToString("d")}.csv", FileMode.Append);
                 using var writer = new StreamWriter(stream);
                 using var csv = new CsvWriter(writer, configEventsWhenFileExist);
                 csv.Context.RegisterClassMap<ArchivizationModelBasicMap>();
                 csv.WriteRecords(_archivizationmodelsbasic);
-                Form1._Form1.label140.Text = "Wygenerowano plik CSV z eventami bez parametrów";
+                Form1._Form1.label_StatusyArchiwizacji.Text = "Wygenerowano plik CSV z eventami bez parametrów";
             }
-            else if (!File.Exists(LocationOfArchivizationFolder+$"Archivization_NrZmiany{NumberOfShifts}_Data{DateTime.Now.ToString("d")}.csv"))
+            else if (!File.Exists(LocationOfArchivizationFolder + $"Archivization_NrZmiany{NumberOfShifts}_Data{DateTime.Now.ToString("d")}.csv"))
             {
-                using var writer = new StreamWriter(LocationOfArchivizationFolder+$"Archivization_NrZmiany{NumberOfShifts}_Data{DateTime.Now.ToString("d")}.csv");
+                using var writer = new StreamWriter(LocationOfArchivizationFolder + $"Archivization_NrZmiany{NumberOfShifts}_Data{DateTime.Now.ToString("d")}.csv");
                 using var csv = new CsvWriter(writer, configEventsWhenFileNOTExist);
                 csv.Context.RegisterClassMap<ArchivizationModelBasicMap>();
                 csv.WriteRecords(_archivizationmodelsbasic);
-                Form1._Form1.label140.Text = "Wygenerowano plik CSV z eventami bez parametrów";
+                Form1._Form1.label_StatusyArchiwizacji.Text = "Wygenerowano plik CSV z eventami bez parametrów";
             }
 
             ClearListArchivizationModelBasic();
         }
-
+        #endregion
+        #region Metoda archiwizacji do csv daty, eventu, nr karty i parametrów - UNUSED
         public void ArchivizationCsvFileHandlingForExtendedModel()
         {
             var configEventsWhenFileExist = new CsvConfiguration(CultureInfo.InvariantCulture)
@@ -297,7 +327,7 @@ namespace HMIApp.Archivizations
                 using var csv = new CsvWriter(writer, configEventsWhenFileExist);
                 csv.Context.RegisterClassMap<ArchivizationModelBasicMap>();
                 csv.WriteRecords(_archivizationmodelextended);
-                Form1._Form1.label140.Text = "Wygenerowano plik CSV z eventami i z  parametrami";
+                Form1._Form1.label_StatusyArchiwizacji.Text = "Wygenerowano plik CSV z eventami i z  parametrami";
             }
             else if (!File.Exists(LocationOfArchivizationFolder + $"ArchivizationExtended_NrZmiany{NumberOfShifts}_Data{DateTime.Now.ToString("d")}.csv"))
             {
@@ -305,53 +335,26 @@ namespace HMIApp.Archivizations
                 using var csv = new CsvWriter(writer, configEventsWhenFileNOTExist);
                 csv.Context.RegisterClassMap<ArchivizationModelBasicMap>();
                 csv.WriteRecords(_archivizationmodelextended);
-                Form1._Form1.label140.Text = "Wygenerowano plik CSV z eventami i z  parametrami";
+                Form1._Form1.label_StatusyArchiwizacji.Text = "Wygenerowano plik CSV z eventami i z  parametrami";
             }
 
             ClearListArchivizationModelExtended();
         }
+        #endregion
 
-        public int NumberOfProductionShift()
-        {
-            int NumberOfShift=0;
-            int HourOfDay = DateTime.Now.Hour;
-
-            if(HourOfDay>=6)
-            {
-                NumberOfShift = 1;
-            }
-            else if(HourOfDay >= 14)
-            {
-                NumberOfShift = 2;
-            }
-            else if(HourOfDay >= 24)
-            {
-                NumberOfShift = 3;
-            }
-            return NumberOfShift;
-        }
-       
+        #region Metoda czyszcząca wszystkie dane z Listy dla Modelu Basic - UNUSED
         public void ClearListArchivizationModelBasic()
         {
             _archivizationmodelsbasic.Clear();
         }
-
+        #endregion
+        #region Metoda czyszcząca wszystkie dane z Listy dla Modelu Extended - UNUSED
         public void ClearListArchivizationModelExtended()
         {
             _archivizationmodelextended.Clear();
         }
-
-
-        public void OnArchiveEventsMethod(string message)
-        {
-            //Sprawdzamy w ifie czy ktos z zewnatrz (subscriber) podpiął się pod ten event i jak tak to dopiero odpalamy event
-            if (ArchiveEvent != null)
-            {
-                //odpalenie eventu
-                ArchiveEvent(this, new EventArgs(), message);
-            }
-        }
-
+        #endregion
+        #endregion
     }
 
     //Archiwizacja do bazy danych i moduł pozwalajacy wyciagnac z bazy danych eventy z danego dnia i wyeksportowac do csv

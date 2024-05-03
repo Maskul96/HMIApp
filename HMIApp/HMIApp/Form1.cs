@@ -628,7 +628,7 @@ namespace HMIApp
 
         private void CzyszczenieStatusowArchiwizacji_Tick(object sender, EventArgs e)
         {
-            label140.Text = "";
+            label_StatusyArchiwizacji.Text = "";
         }
     }
 }
