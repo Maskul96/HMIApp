@@ -14,6 +14,9 @@ namespace HMIApp.Archivizations.Models
             .TypeConverterOption.Format("dd/MM/yyyy HH:mm:ss")
             .Name("Data i Godzina DD-MM-YY H:M");
 
+            Map(x => x.NrOfShift)
+                    .Index(3)
+                     .Name("Numer zmiany");
 
             Map(x => x.NrOfCard)
                     .Index(1)

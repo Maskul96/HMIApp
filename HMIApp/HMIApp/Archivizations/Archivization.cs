@@ -30,7 +30,7 @@ namespace HMIApp.Archivizations
         public List<ArchivizationModelExtendedDataBase> _archivizationmodelextendeddatabase = new List<ArchivizationModelExtendedDataBase>();
         public ServiceCollection services = new ServiceCollection();
         public ServiceProvider serviceProvider;
-        Logger _logger;
+        Logger _logger = new Logger();
         public Archivization(Form1 obj)
         {
             this.obj = obj;
@@ -47,12 +47,10 @@ namespace HMIApp.Archivizations
         //Metoda Run do uruchomienia bazy danych do archiwizacji
         public void Run()
         {
-            _databaseArchive.Run();
             //Services do dependency injection
             services.AddSingleton<iDataBaseArchivization, DataBaseArchivization>();
             //ZArejestrowanie DBContextu - Stworzenie połączenia do bazy danych i service providera
-            services.AddDbContext<HMIAppDBContextArchivization>(options => options
-            .UseSqlServer(_databaseArchive.ConnectionString));
+            services.AddDbContext<HMIAppDBContextArchivization>();
 
             serviceProvider = services.BuildServiceProvider();
 
@@ -215,7 +213,8 @@ namespace HMIApp.Archivizations
             {
                 using var writer = new StreamWriter(LocationOfArchivizationFolder + $"ArchivizationFromDataBase_DataGeneracjiPliku{DateTime.Now.ToString("yyyy-MM-dd HH-mm-ss")}.csv");
                 using var csv = new CsvWriter(writer, configEventsWhenFileExist);
-                csv.Context.RegisterClassMap<ArchivizationModelFromDataBaseMap>();
+                //Uzupelnic mapowanie wszystkich zmiennych
+                //csv.Context.RegisterClassMap<ArchivizationModelFromDataBaseMap>();
                 csv.WriteRecords(_archivizationmodelextendeddatabase);
                 //Info dla uzytkownika
                 Form1._Form1.label_StatusyArchiwizacji.Text = "Wygenerowano plik CSV z bazy danych";
@@ -225,7 +224,8 @@ namespace HMIApp.Archivizations
             {
                 using var writer = new StreamWriter(LocationOfArchivizationFolder + $"ArchivizationFromDataBase_DataGeneracjiPliku{DateTime.Now.ToString("yyyy-MM-dd HH-mm-ss")}.csv");
                 using var csv = new CsvWriter(writer, configEventsWhenFileNOTExist);
-                csv.Context.RegisterClassMap<ArchivizationModelFromDataBaseMap>();
+                //Uzupelnic mapowanie wszystkich zmiennych
+               // csv.Context.RegisterClassMap<ArchivizationModelFromDataBaseMap>();
                 csv.WriteRecords(_archivizationmodelextendeddatabase);
                 //Info dla uzytkownika
                 Form1._Form1.label_StatusyArchiwizacji.Text = "Wygenerowano plik CSV z bazy danych";
@@ -238,15 +238,15 @@ namespace HMIApp.Archivizations
             int NumberOfShift=0;
             int HourOfDay = DateTime.Now.Hour;
 
-            if(HourOfDay>=6)
+            if(HourOfDay>=6 && HourOfDay < 14)
             {
                 NumberOfShift = 1;
             }
-            else if(HourOfDay >= 14)
+            else if(HourOfDay >= 14 && HourOfDay < 22)
             {
                 NumberOfShift = 2;
             }
-            else if(HourOfDay >= 24)
+            else if(HourOfDay >= 22 && HourOfDay < 6)
             {
                 NumberOfShift = 3;
             }

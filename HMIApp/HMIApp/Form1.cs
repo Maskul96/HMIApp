@@ -34,15 +34,13 @@ namespace HMIApp
         {
             InitializeComponent();
             _Form1 = this;
-            DataBase.Run();
+            //DataBase.Run();
             //Services do dependency injection
             services.AddSingleton<iDataBase, DataBase>();
             //ZArejestrowanie DBContextu - Stworzenie połączenia do bazy danych i service providera
-            services.AddDbContext<HMIAppDBContext>(options => options
-            .UseSqlServer(DataBase.ConnectionString));
+            services.AddDbContext<HMIAppDBContext>();
 
             serviceProvider = services.BuildServiceProvider();
-
 
             ReadFromDbWhenAppIsStarting();
 
@@ -175,6 +173,7 @@ namespace HMIApp
                 App.WriteToDB(DB666DawkaPrzegub.Text, DB666DawkaPrzegub.Tag.ToString());
                 App.WriteToDB(DB666TolDawkiPrzegub.Text, DB666TolDawkiPrzegub.Tag.ToString());
                 App.WriteToDB(DB666RodzajSmaruPrzegub.SelectedIndex.ToString(), DB666RodzajSmaruPrzegub.Tag.ToString());
+
                 App.WriteToDB(DB666DawkaTulip.Text, DB666DawkaTulip.Tag.ToString());
                 App.WriteToDB(DB666TolDawkiTulip.Text, DB666TolDawkiTulip.Tag.ToString());
                 App.WriteToDB(DB666RodzajSmaruTulip.SelectedIndex.ToString(), DB666RodzajSmaruTulip.Tag.ToString());
@@ -218,6 +217,7 @@ namespace HMIApp
             //aktualizacja daty i godziny
             this.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
             label_DataIGodzina.Text = this.Text;
+
 
         }
 

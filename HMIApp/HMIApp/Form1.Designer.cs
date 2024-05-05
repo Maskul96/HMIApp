@@ -399,6 +399,7 @@
             label26 = new System.Windows.Forms.Label();
             label41 = new System.Windows.Forms.Label();
             Smary = new System.Windows.Forms.TabPage();
+            textBox1 = new System.Windows.Forms.TextBox();
             DB666RodzajSmaruTulip = new System.Windows.Forms.ComboBox();
             DB666RodzajSmaruPrzegub = new System.Windows.Forms.ComboBox();
             label15 = new System.Windows.Forms.Label();
@@ -2955,6 +2956,7 @@
             // 
             // Smary
             // 
+            Smary.Controls.Add(textBox1);
             Smary.Controls.Add(DB666RodzajSmaruTulip);
             Smary.Controls.Add(DB666RodzajSmaruPrzegub);
             Smary.Controls.Add(label15);
@@ -2972,6 +2974,12 @@
             resources.ApplyResources(Smary, "Smary");
             Smary.Name = "Smary";
             Smary.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            resources.ApplyResources(textBox1, "textBox1");
+            textBox1.Name = "textBox1";
+            textBox1.Tag = "";
             // 
             // DB666RodzajSmaruTulip
             // 
@@ -3847,6 +3855,7 @@
             // 
             // label_StatusyArchiwizacji
             // 
+            label_StatusyArchiwizacji.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             resources.ApplyResources(label_StatusyArchiwizacji, "label_StatusyArchiwizacji");
             label_StatusyArchiwizacji.Name = "label_StatusyArchiwizacji";
             // 
@@ -3921,6 +3930,7 @@
             // 
             // panel16
             // 
+            panel16.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             panel16.Controls.Add(label51);
             panel16.Controls.Add(label141);
             panel16.Controls.Add(comboBox_StartYear);
@@ -3947,9 +3957,10 @@
             // 
             // comboBox_StartYear
             // 
+            comboBox_StartYear.DropDownHeight = 50;
             comboBox_StartYear.FormattingEnabled = true;
-            comboBox_StartYear.Items.AddRange(new object[] { resources.GetString("comboBox_StartYear.Items") });
             resources.ApplyResources(comboBox_StartYear, "comboBox_StartYear");
+            comboBox_StartYear.Items.AddRange(new object[] { resources.GetString("comboBox_StartYear.Items") });
             comboBox_StartYear.Name = "comboBox_StartYear";
             comboBox_StartYear.Tag = "";
             // 
@@ -3961,9 +3972,10 @@
             // 
             // comboBox_StartHour
             // 
+            comboBox_StartHour.DropDownHeight = 50;
             comboBox_StartHour.FormattingEnabled = true;
-            comboBox_StartHour.Items.AddRange(new object[] { resources.GetString("comboBox_StartHour.Items"), resources.GetString("comboBox_StartHour.Items1"), resources.GetString("comboBox_StartHour.Items2"), resources.GetString("comboBox_StartHour.Items3"), resources.GetString("comboBox_StartHour.Items4"), resources.GetString("comboBox_StartHour.Items5"), resources.GetString("comboBox_StartHour.Items6"), resources.GetString("comboBox_StartHour.Items7"), resources.GetString("comboBox_StartHour.Items8"), resources.GetString("comboBox_StartHour.Items9"), resources.GetString("comboBox_StartHour.Items10"), resources.GetString("comboBox_StartHour.Items11"), resources.GetString("comboBox_StartHour.Items12"), resources.GetString("comboBox_StartHour.Items13"), resources.GetString("comboBox_StartHour.Items14"), resources.GetString("comboBox_StartHour.Items15"), resources.GetString("comboBox_StartHour.Items16"), resources.GetString("comboBox_StartHour.Items17"), resources.GetString("comboBox_StartHour.Items18"), resources.GetString("comboBox_StartHour.Items19"), resources.GetString("comboBox_StartHour.Items20"), resources.GetString("comboBox_StartHour.Items21"), resources.GetString("comboBox_StartHour.Items22"), resources.GetString("comboBox_StartHour.Items23") });
             resources.ApplyResources(comboBox_StartHour, "comboBox_StartHour");
+            comboBox_StartHour.Items.AddRange(new object[] { resources.GetString("comboBox_StartHour.Items"), resources.GetString("comboBox_StartHour.Items1"), resources.GetString("comboBox_StartHour.Items2"), resources.GetString("comboBox_StartHour.Items3"), resources.GetString("comboBox_StartHour.Items4"), resources.GetString("comboBox_StartHour.Items5"), resources.GetString("comboBox_StartHour.Items6"), resources.GetString("comboBox_StartHour.Items7"), resources.GetString("comboBox_StartHour.Items8"), resources.GetString("comboBox_StartHour.Items9"), resources.GetString("comboBox_StartHour.Items10"), resources.GetString("comboBox_StartHour.Items11"), resources.GetString("comboBox_StartHour.Items12"), resources.GetString("comboBox_StartHour.Items13"), resources.GetString("comboBox_StartHour.Items14"), resources.GetString("comboBox_StartHour.Items15"), resources.GetString("comboBox_StartHour.Items16"), resources.GetString("comboBox_StartHour.Items17"), resources.GetString("comboBox_StartHour.Items18"), resources.GetString("comboBox_StartHour.Items19"), resources.GetString("comboBox_StartHour.Items20"), resources.GetString("comboBox_StartHour.Items21"), resources.GetString("comboBox_StartHour.Items22"), resources.GetString("comboBox_StartHour.Items23") });
             comboBox_StartHour.Name = "comboBox_StartHour";
             comboBox_StartHour.Tag = "";
             // 
@@ -3975,17 +3987,19 @@
             // 
             // comboBox_StartDay
             // 
+            comboBox_StartDay.DropDownHeight = 50;
             comboBox_StartDay.FormattingEnabled = true;
-            comboBox_StartDay.Items.AddRange(new object[] { resources.GetString("comboBox_StartDay.Items"), resources.GetString("comboBox_StartDay.Items1"), resources.GetString("comboBox_StartDay.Items2"), resources.GetString("comboBox_StartDay.Items3"), resources.GetString("comboBox_StartDay.Items4"), resources.GetString("comboBox_StartDay.Items5"), resources.GetString("comboBox_StartDay.Items6"), resources.GetString("comboBox_StartDay.Items7"), resources.GetString("comboBox_StartDay.Items8"), resources.GetString("comboBox_StartDay.Items9"), resources.GetString("comboBox_StartDay.Items10"), resources.GetString("comboBox_StartDay.Items11"), resources.GetString("comboBox_StartDay.Items12"), resources.GetString("comboBox_StartDay.Items13"), resources.GetString("comboBox_StartDay.Items14"), resources.GetString("comboBox_StartDay.Items15"), resources.GetString("comboBox_StartDay.Items16"), resources.GetString("comboBox_StartDay.Items17"), resources.GetString("comboBox_StartDay.Items18"), resources.GetString("comboBox_StartDay.Items19"), resources.GetString("comboBox_StartDay.Items20"), resources.GetString("comboBox_StartDay.Items21"), resources.GetString("comboBox_StartDay.Items22"), resources.GetString("comboBox_StartDay.Items23"), resources.GetString("comboBox_StartDay.Items24"), resources.GetString("comboBox_StartDay.Items25"), resources.GetString("comboBox_StartDay.Items26"), resources.GetString("comboBox_StartDay.Items27"), resources.GetString("comboBox_StartDay.Items28"), resources.GetString("comboBox_StartDay.Items29"), resources.GetString("comboBox_StartDay.Items30") });
             resources.ApplyResources(comboBox_StartDay, "comboBox_StartDay");
+            comboBox_StartDay.Items.AddRange(new object[] { resources.GetString("comboBox_StartDay.Items"), resources.GetString("comboBox_StartDay.Items1"), resources.GetString("comboBox_StartDay.Items2"), resources.GetString("comboBox_StartDay.Items3"), resources.GetString("comboBox_StartDay.Items4"), resources.GetString("comboBox_StartDay.Items5"), resources.GetString("comboBox_StartDay.Items6"), resources.GetString("comboBox_StartDay.Items7"), resources.GetString("comboBox_StartDay.Items8"), resources.GetString("comboBox_StartDay.Items9"), resources.GetString("comboBox_StartDay.Items10"), resources.GetString("comboBox_StartDay.Items11"), resources.GetString("comboBox_StartDay.Items12"), resources.GetString("comboBox_StartDay.Items13"), resources.GetString("comboBox_StartDay.Items14"), resources.GetString("comboBox_StartDay.Items15"), resources.GetString("comboBox_StartDay.Items16"), resources.GetString("comboBox_StartDay.Items17"), resources.GetString("comboBox_StartDay.Items18"), resources.GetString("comboBox_StartDay.Items19"), resources.GetString("comboBox_StartDay.Items20"), resources.GetString("comboBox_StartDay.Items21"), resources.GetString("comboBox_StartDay.Items22"), resources.GetString("comboBox_StartDay.Items23"), resources.GetString("comboBox_StartDay.Items24"), resources.GetString("comboBox_StartDay.Items25"), resources.GetString("comboBox_StartDay.Items26"), resources.GetString("comboBox_StartDay.Items27"), resources.GetString("comboBox_StartDay.Items28"), resources.GetString("comboBox_StartDay.Items29"), resources.GetString("comboBox_StartDay.Items30") });
             comboBox_StartDay.Name = "comboBox_StartDay";
             comboBox_StartDay.Tag = "";
             // 
             // comboBox_StartMonth
             // 
+            comboBox_StartMonth.DropDownHeight = 50;
             comboBox_StartMonth.FormattingEnabled = true;
-            comboBox_StartMonth.Items.AddRange(new object[] { resources.GetString("comboBox_StartMonth.Items"), resources.GetString("comboBox_StartMonth.Items1"), resources.GetString("comboBox_StartMonth.Items2"), resources.GetString("comboBox_StartMonth.Items3"), resources.GetString("comboBox_StartMonth.Items4"), resources.GetString("comboBox_StartMonth.Items5"), resources.GetString("comboBox_StartMonth.Items6"), resources.GetString("comboBox_StartMonth.Items7"), resources.GetString("comboBox_StartMonth.Items8"), resources.GetString("comboBox_StartMonth.Items9"), resources.GetString("comboBox_StartMonth.Items10"), resources.GetString("comboBox_StartMonth.Items11") });
             resources.ApplyResources(comboBox_StartMonth, "comboBox_StartMonth");
+            comboBox_StartMonth.Items.AddRange(new object[] { resources.GetString("comboBox_StartMonth.Items"), resources.GetString("comboBox_StartMonth.Items1"), resources.GetString("comboBox_StartMonth.Items2"), resources.GetString("comboBox_StartMonth.Items3"), resources.GetString("comboBox_StartMonth.Items4"), resources.GetString("comboBox_StartMonth.Items5"), resources.GetString("comboBox_StartMonth.Items6"), resources.GetString("comboBox_StartMonth.Items7"), resources.GetString("comboBox_StartMonth.Items8"), resources.GetString("comboBox_StartMonth.Items9"), resources.GetString("comboBox_StartMonth.Items10"), resources.GetString("comboBox_StartMonth.Items11") });
             comboBox_StartMonth.Name = "comboBox_StartMonth";
             comboBox_StartMonth.Tag = "";
             // 
@@ -3997,6 +4011,7 @@
             // 
             // panel18
             // 
+            panel18.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             panel18.Controls.Add(label139);
             panel18.Controls.Add(label148);
             panel18.Controls.Add(comboBox_EndYear);
@@ -4023,17 +4038,19 @@
             // 
             // comboBox_EndYear
             // 
+            comboBox_EndYear.DropDownHeight = 50;
             comboBox_EndYear.FormattingEnabled = true;
-            comboBox_EndYear.Items.AddRange(new object[] { resources.GetString("comboBox_EndYear.Items") });
             resources.ApplyResources(comboBox_EndYear, "comboBox_EndYear");
+            comboBox_EndYear.Items.AddRange(new object[] { resources.GetString("comboBox_EndYear.Items") });
             comboBox_EndYear.Name = "comboBox_EndYear";
             comboBox_EndYear.Tag = "";
             // 
             // comboBox_EndMonth
             // 
+            comboBox_EndMonth.DropDownHeight = 50;
             comboBox_EndMonth.FormattingEnabled = true;
-            comboBox_EndMonth.Items.AddRange(new object[] { resources.GetString("comboBox_EndMonth.Items"), resources.GetString("comboBox_EndMonth.Items1"), resources.GetString("comboBox_EndMonth.Items2"), resources.GetString("comboBox_EndMonth.Items3"), resources.GetString("comboBox_EndMonth.Items4"), resources.GetString("comboBox_EndMonth.Items5"), resources.GetString("comboBox_EndMonth.Items6"), resources.GetString("comboBox_EndMonth.Items7"), resources.GetString("comboBox_EndMonth.Items8"), resources.GetString("comboBox_EndMonth.Items9"), resources.GetString("comboBox_EndMonth.Items10"), resources.GetString("comboBox_EndMonth.Items11") });
             resources.ApplyResources(comboBox_EndMonth, "comboBox_EndMonth");
+            comboBox_EndMonth.Items.AddRange(new object[] { resources.GetString("comboBox_EndMonth.Items"), resources.GetString("comboBox_EndMonth.Items1"), resources.GetString("comboBox_EndMonth.Items2"), resources.GetString("comboBox_EndMonth.Items3"), resources.GetString("comboBox_EndMonth.Items4"), resources.GetString("comboBox_EndMonth.Items5"), resources.GetString("comboBox_EndMonth.Items6"), resources.GetString("comboBox_EndMonth.Items7"), resources.GetString("comboBox_EndMonth.Items8"), resources.GetString("comboBox_EndMonth.Items9"), resources.GetString("comboBox_EndMonth.Items10"), resources.GetString("comboBox_EndMonth.Items11") });
             comboBox_EndMonth.Name = "comboBox_EndMonth";
             comboBox_EndMonth.Tag = "";
             // 
@@ -4051,16 +4068,17 @@
             // 
             // comboBox_EndHour
             // 
+            comboBox_EndHour.DropDownHeight = 50;
             comboBox_EndHour.FormattingEnabled = true;
-            comboBox_EndHour.Items.AddRange(new object[] { resources.GetString("comboBox_EndHour.Items"), resources.GetString("comboBox_EndHour.Items1"), resources.GetString("comboBox_EndHour.Items2"), resources.GetString("comboBox_EndHour.Items3"), resources.GetString("comboBox_EndHour.Items4"), resources.GetString("comboBox_EndHour.Items5"), resources.GetString("comboBox_EndHour.Items6"), resources.GetString("comboBox_EndHour.Items7"), resources.GetString("comboBox_EndHour.Items8"), resources.GetString("comboBox_EndHour.Items9"), resources.GetString("comboBox_EndHour.Items10"), resources.GetString("comboBox_EndHour.Items11"), resources.GetString("comboBox_EndHour.Items12"), resources.GetString("comboBox_EndHour.Items13"), resources.GetString("comboBox_EndHour.Items14"), resources.GetString("comboBox_EndHour.Items15"), resources.GetString("comboBox_EndHour.Items16"), resources.GetString("comboBox_EndHour.Items17"), resources.GetString("comboBox_EndHour.Items18"), resources.GetString("comboBox_EndHour.Items19"), resources.GetString("comboBox_EndHour.Items20"), resources.GetString("comboBox_EndHour.Items21"), resources.GetString("comboBox_EndHour.Items22"), resources.GetString("comboBox_EndHour.Items23") });
             resources.ApplyResources(comboBox_EndHour, "comboBox_EndHour");
+            comboBox_EndHour.Items.AddRange(new object[] { resources.GetString("comboBox_EndHour.Items"), resources.GetString("comboBox_EndHour.Items1"), resources.GetString("comboBox_EndHour.Items2"), resources.GetString("comboBox_EndHour.Items3"), resources.GetString("comboBox_EndHour.Items4"), resources.GetString("comboBox_EndHour.Items5"), resources.GetString("comboBox_EndHour.Items6"), resources.GetString("comboBox_EndHour.Items7"), resources.GetString("comboBox_EndHour.Items8"), resources.GetString("comboBox_EndHour.Items9"), resources.GetString("comboBox_EndHour.Items10"), resources.GetString("comboBox_EndHour.Items11"), resources.GetString("comboBox_EndHour.Items12"), resources.GetString("comboBox_EndHour.Items13"), resources.GetString("comboBox_EndHour.Items14"), resources.GetString("comboBox_EndHour.Items15"), resources.GetString("comboBox_EndHour.Items16"), resources.GetString("comboBox_EndHour.Items17"), resources.GetString("comboBox_EndHour.Items18"), resources.GetString("comboBox_EndHour.Items19"), resources.GetString("comboBox_EndHour.Items20"), resources.GetString("comboBox_EndHour.Items21"), resources.GetString("comboBox_EndHour.Items22"), resources.GetString("comboBox_EndHour.Items23") });
             comboBox_EndHour.Name = "comboBox_EndHour";
             comboBox_EndHour.Tag = "";
             // 
             // comboBox_EndDay
             // 
+            comboBox_EndDay.DropDownHeight = 50;
             comboBox_EndDay.FormattingEnabled = true;
-            comboBox_EndDay.Items.AddRange(new object[] { resources.GetString("comboBox_EndDay.Items"), resources.GetString("comboBox_EndDay.Items1"), resources.GetString("comboBox_EndDay.Items2"), resources.GetString("comboBox_EndDay.Items3"), resources.GetString("comboBox_EndDay.Items4"), resources.GetString("comboBox_EndDay.Items5"), resources.GetString("comboBox_EndDay.Items6"), resources.GetString("comboBox_EndDay.Items7"), resources.GetString("comboBox_EndDay.Items8"), resources.GetString("comboBox_EndDay.Items9"), resources.GetString("comboBox_EndDay.Items10"), resources.GetString("comboBox_EndDay.Items11"), resources.GetString("comboBox_EndDay.Items12"), resources.GetString("comboBox_EndDay.Items13"), resources.GetString("comboBox_EndDay.Items14"), resources.GetString("comboBox_EndDay.Items15"), resources.GetString("comboBox_EndDay.Items16"), resources.GetString("comboBox_EndDay.Items17"), resources.GetString("comboBox_EndDay.Items18"), resources.GetString("comboBox_EndDay.Items19"), resources.GetString("comboBox_EndDay.Items20"), resources.GetString("comboBox_EndDay.Items21"), resources.GetString("comboBox_EndDay.Items22"), resources.GetString("comboBox_EndDay.Items23"), resources.GetString("comboBox_EndDay.Items24"), resources.GetString("comboBox_EndDay.Items25"), resources.GetString("comboBox_EndDay.Items26"), resources.GetString("comboBox_EndDay.Items27"), resources.GetString("comboBox_EndDay.Items28"), resources.GetString("comboBox_EndDay.Items29"), resources.GetString("comboBox_EndDay.Items30") });
             resources.ApplyResources(comboBox_EndDay, "comboBox_EndDay");
             comboBox_EndDay.Name = "comboBox_EndDay";
             comboBox_EndDay.Tag = "";
@@ -4791,6 +4809,7 @@
         private System.Windows.Forms.Panel panel18;
         private System.Windows.Forms.Label label139;
         public System.Windows.Forms.Timer CzyszczenieStatusowArchiwizacji;
+        public System.Windows.Forms.TextBox textBox1;
     }
 }
 

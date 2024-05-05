@@ -9,6 +9,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Windows;
 using System.Windows.Forms;
+
 namespace HMIApp.Data
 {
     public class DataBaseArchivization :iDataBaseArchivization

@@ -106,6 +106,7 @@ namespace HMIApp.Data
                     //Smarowania
                     Smarowanie_DawkaPrzegub = float.Parse(Form1._Form1.DB666DawkaPrzegub.Text),
                     Smarowanie_TolDawkiPrzegub = float.Parse(Form1._Form1.DB666TolDawkiPrzegub.Text),
+                    // ZEBY PRZEKAZAC STRING A NIE INDEX TO SELECTED TEXT - INDEX WYSYLAMY TYLKO DO PLC
                     Smarowanie_RodzajSmaruPrzegub = Form1._Form1.DB666RodzajSmaruPrzegub.SelectedIndex,
                     Smarowanie_DawkaTulip = float.Parse(Form1._Form1.DB666DawkaTulip.Text),
                     Smarowanie_TolDawkiTulip = float.Parse(Form1._Form1.DB666TolDawkiTulip.Text),

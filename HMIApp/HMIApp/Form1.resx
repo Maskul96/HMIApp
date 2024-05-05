@@ -11031,6 +11031,30 @@
   <data name="&gt;&gt;DyszaWahliwa.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
+  <data name="textBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>145, 179</value>
+  </data>
+  <data name="textBox1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="textBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>91, 29</value>
+  </data>
+  <data name="textBox1.TabIndex" type="System.Int32, mscorlib">
+    <value>177</value>
+  </data>
+  <data name="&gt;&gt;textBox1.Name" xml:space="preserve">
+    <value>textBox1</value>
+  </data>
+  <data name="&gt;&gt;textBox1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;textBox1.Parent" xml:space="preserve">
+    <value>Smary</value>
+  </data>
+  <data name="&gt;&gt;textBox1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="DB666RodzajSmaruTulip.Items" xml:space="preserve">
     <value />
   </data>
@@ -11059,7 +11083,7 @@
     <value>Smary</value>
   </data>
   <data name="&gt;&gt;DB666RodzajSmaruTulip.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="DB666RodzajSmaruPrzegub.Items" xml:space="preserve">
     <value />
@@ -11089,7 +11113,7 @@
     <value>Smary</value>
   </data>
   <data name="&gt;&gt;DB666RodzajSmaruPrzegub.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="label15.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -11125,7 +11149,7 @@
     <value>Smary</value>
   </data>
   <data name="&gt;&gt;label15.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="label75.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -11158,7 +11182,7 @@
     <value>Smary</value>
   </data>
   <data name="&gt;&gt;label75.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="label14.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -11194,7 +11218,7 @@
     <value>Smary</value>
   </data>
   <data name="&gt;&gt;label14.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="DB666DawkaPrzegub.Location" type="System.Drawing.Point, System.Drawing">
     <value>162, 41</value>
@@ -11221,7 +11245,7 @@
     <value>Smary</value>
   </data>
   <data name="&gt;&gt;DB666DawkaPrzegub.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="DB666TolDawkiPrzegub.Location" type="System.Drawing.Point, System.Drawing">
     <value>162, 73</value>
@@ -11248,7 +11272,7 @@
     <value>Smary</value>
   </data>
   <data name="&gt;&gt;DB666TolDawkiPrzegub.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="label9.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -11284,7 +11308,7 @@
     <value>Smary</value>
   </data>
   <data name="&gt;&gt;label9.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>8</value>
   </data>
   <data name="label102.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -11317,7 +11341,7 @@
     <value>Smary</value>
   </data>
   <data name="&gt;&gt;label102.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>9</value>
   </data>
   <data name="DB666TolDawkiTulip.Location" type="System.Drawing.Point, System.Drawing">
     <value>420, 75</value>
@@ -11344,7 +11368,7 @@
     <value>Smary</value>
   </data>
   <data name="&gt;&gt;DB666TolDawkiTulip.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>10</value>
   </data>
   <data name="label11.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -11380,7 +11404,7 @@
     <value>Smary</value>
   </data>
   <data name="&gt;&gt;label11.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>11</value>
   </data>
   <data name="DB666DawkaTulip.Location" type="System.Drawing.Point, System.Drawing">
     <value>420, 42</value>
@@ -11407,7 +11431,7 @@
     <value>Smary</value>
   </data>
   <data name="&gt;&gt;DB666DawkaTulip.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>12</value>
   </data>
   <data name="label22.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -11437,7 +11461,7 @@
     <value>Smary</value>
   </data>
   <data name="&gt;&gt;label22.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>13</value>
   </data>
   <data name="label23.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -11467,7 +11491,7 @@
     <value>Smary</value>
   </data>
   <data name="&gt;&gt;label23.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>14</value>
   </data>
   <data name="Smary.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 30</value>
@@ -13005,7 +13029,7 @@
   <data name="pictureBoxMachineImages.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAWgAAAMZCAYAAAAtBK6YAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wwAADsMBx2+oZAAA/7JJREFUeF7svfWj5Eaarlked0932w22y1W2y1AuRheji5mZ4ZzCU4xmarPdDNPM
+        vAAADrwBlbxySQAA/7JJREFUeF7svfWj5Eaarlked0932w22y1W2y1AuRheji5mZ4ZzCU4xmarPdDNPM
         MM3dM9PDM3v37t27u3+YNp4v9CojlZF48pw6ED+8GVJIIYXo0ZufQqEx3/zZP2VJSUlJSUNPDtB/dQNJ
         SUlJSUNNCdBJSUlJQ1QJ0ElJSUlDVAnQSUlJSUNUCdBJSUlJQ1QJ0ElJSUlDVAnQSUlJSUNUCdBJSUlJ
         Q1QJ0ElJSUlDVAnQSUlJSUNUCdBJSUlJQ1QJ0ElJSUlDVGO+5X6SkpKSkoaeEqCTkpKShqgSoJOSkpKG
@@ -16886,6 +16910,9 @@
   <data name="label2.Text" xml:space="preserve">
     <value>Wybierz przedział czasowy aby wyeksportować zarchiwizowane dane:</value>
   </data>
+  <data name="label2.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
   <data name="&gt;&gt;label2.Name" xml:space="preserve">
     <value>label2</value>
   </data>
@@ -16964,6 +16991,9 @@
   <data name="&gt;&gt;label141.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <data name="comboBox_StartYear.IntegralHeight" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="comboBox_StartYear.Items" xml:space="preserve">
     <value>2023</value>
   </data>
@@ -17020,6 +17050,9 @@
   </data>
   <data name="&gt;&gt;label144.ZOrder" xml:space="preserve">
     <value>3</value>
+  </data>
+  <data name="comboBox_StartHour.IntegralHeight" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="comboBox_StartHour.Items" xml:space="preserve">
     <value>1:00 </value>
@@ -17147,6 +17180,9 @@
   <data name="&gt;&gt;label143.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
+  <data name="comboBox_StartDay.IntegralHeight" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="comboBox_StartDay.Items" xml:space="preserve">
     <value>01</value>
   </data>
@@ -17260,6 +17296,9 @@
   </data>
   <data name="&gt;&gt;comboBox_StartDay.ZOrder" xml:space="preserve">
     <value>6</value>
+  </data>
+  <data name="comboBox_StartMonth.IntegralHeight" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="comboBox_StartMonth.Items" xml:space="preserve">
     <value>01</value>
@@ -17465,6 +17504,9 @@
   <data name="&gt;&gt;label148.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <data name="comboBox_EndYear.IntegralHeight" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="comboBox_EndYear.Items" xml:space="preserve">
     <value>2023</value>
   </data>
@@ -17488,6 +17530,9 @@
   </data>
   <data name="&gt;&gt;comboBox_EndYear.ZOrder" xml:space="preserve">
     <value>2</value>
+  </data>
+  <data name="comboBox_EndMonth.IntegralHeight" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="comboBox_EndMonth.Items" xml:space="preserve">
     <value>01</value>
@@ -17612,6 +17657,9 @@
   <data name="&gt;&gt;label147.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
+  <data name="comboBox_EndHour.IntegralHeight" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="comboBox_EndHour.Items" xml:space="preserve">
     <value>1:00 </value>
   </data>
@@ -17705,98 +17753,8 @@
   <data name="&gt;&gt;comboBox_EndHour.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
-  <data name="comboBox_EndDay.Items" xml:space="preserve">
-    <value>01</value>
-  </data>
-  <data name="comboBox_EndDay.Items1" xml:space="preserve">
-    <value>02</value>
-  </data>
-  <data name="comboBox_EndDay.Items2" xml:space="preserve">
-    <value>03</value>
-  </data>
-  <data name="comboBox_EndDay.Items3" xml:space="preserve">
-    <value>04</value>
-  </data>
-  <data name="comboBox_EndDay.Items4" xml:space="preserve">
-    <value>05</value>
-  </data>
-  <data name="comboBox_EndDay.Items5" xml:space="preserve">
-    <value>06</value>
-  </data>
-  <data name="comboBox_EndDay.Items6" xml:space="preserve">
-    <value>07</value>
-  </data>
-  <data name="comboBox_EndDay.Items7" xml:space="preserve">
-    <value>08</value>
-  </data>
-  <data name="comboBox_EndDay.Items8" xml:space="preserve">
-    <value>09</value>
-  </data>
-  <data name="comboBox_EndDay.Items9" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="comboBox_EndDay.Items10" xml:space="preserve">
-    <value>11</value>
-  </data>
-  <data name="comboBox_EndDay.Items11" xml:space="preserve">
-    <value>12</value>
-  </data>
-  <data name="comboBox_EndDay.Items12" xml:space="preserve">
-    <value>13</value>
-  </data>
-  <data name="comboBox_EndDay.Items13" xml:space="preserve">
-    <value>14</value>
-  </data>
-  <data name="comboBox_EndDay.Items14" xml:space="preserve">
-    <value>15</value>
-  </data>
-  <data name="comboBox_EndDay.Items15" xml:space="preserve">
-    <value>16</value>
-  </data>
-  <data name="comboBox_EndDay.Items16" xml:space="preserve">
-    <value>17</value>
-  </data>
-  <data name="comboBox_EndDay.Items17" xml:space="preserve">
-    <value>18</value>
-  </data>
-  <data name="comboBox_EndDay.Items18" xml:space="preserve">
-    <value>19</value>
-  </data>
-  <data name="comboBox_EndDay.Items19" xml:space="preserve">
-    <value>20</value>
-  </data>
-  <data name="comboBox_EndDay.Items20" xml:space="preserve">
-    <value>21</value>
-  </data>
-  <data name="comboBox_EndDay.Items21" xml:space="preserve">
-    <value>22</value>
-  </data>
-  <data name="comboBox_EndDay.Items22" xml:space="preserve">
-    <value>23</value>
-  </data>
-  <data name="comboBox_EndDay.Items23" xml:space="preserve">
-    <value>24</value>
-  </data>
-  <data name="comboBox_EndDay.Items24" xml:space="preserve">
-    <value>25</value>
-  </data>
-  <data name="comboBox_EndDay.Items25" xml:space="preserve">
-    <value>26</value>
-  </data>
-  <data name="comboBox_EndDay.Items26" xml:space="preserve">
-    <value>27</value>
-  </data>
-  <data name="comboBox_EndDay.Items27" xml:space="preserve">
-    <value>28</value>
-  </data>
-  <data name="comboBox_EndDay.Items28" xml:space="preserve">
-    <value>29</value>
-  </data>
-  <data name="comboBox_EndDay.Items29" xml:space="preserve">
-    <value>30</value>
-  </data>
-  <data name="comboBox_EndDay.Items30" xml:space="preserve">
-    <value>31</value>
+  <data name="comboBox_EndDay.IntegralHeight" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="comboBox_EndDay.Location" type="System.Drawing.Point, System.Drawing">
     <value>334, 52</value>
@@ -18249,7 +18207,7 @@
     <value>True</value>
   </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>97</value>
+    <value>77</value>
   </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>7, 15</value>
