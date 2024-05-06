@@ -3,6 +3,7 @@ using HMIApp.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HMIApp.Migrations
 {
     [DbContext(typeof(HMIAppDBContext))]
-    partial class HMIAppDBContextModelSnapshot : ModelSnapshot
+    [Migration("20240506184536_BeforeChangeRodzajSmaruParameters")]
+    partial class BeforeChangeRodzajSmaruParameters
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -119,11 +122,11 @@ namespace HMIApp.Migrations
                     b.Property<float>("Smarowanie_DawkaTulip")
                         .HasColumnType("real");
 
-                    b.Property<string>("Smarowanie_RodzajSmaruPrzegub")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("Smarowanie_RodzajSmaruPrzegub")
+                        .HasColumnType("int");
 
-                    b.Property<string>("Smarowanie_RodzajSmaruTulip")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("Smarowanie_RodzajSmaruTulip")
+                        .HasColumnType("int");
 
                     b.Property<float>("Smarowanie_TolDawkiPrzegub")
                         .HasColumnType("real");

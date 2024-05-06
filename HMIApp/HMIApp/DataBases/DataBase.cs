@@ -62,6 +62,12 @@ namespace HMIApp.Data
             var query = _hmiAppDbContext.References.Where(x => x.ReferenceNumber == Form1._Form1.DB666NrReference.Text).SingleOrDefault();
             if (query == null)
             {
+                var DB666RodzajSmaruPrzegubItem = "";
+                if (Form1._Form1.DB666RodzajSmaruPrzegub.SelectedIndex == 1) DB666RodzajSmaruPrzegubItem = Form1._Form1.DB666RodzajSmaruPrzegub.Items[1].ToString();
+                else if (Form1._Form1.DB666RodzajSmaruPrzegub.SelectedIndex == 1) DB666RodzajSmaruPrzegubItem = Form1._Form1.DB666RodzajSmaruPrzegub.Items[2].ToString();
+                var DB666RodzajSmaruTulipItem = "";
+                if (Form1._Form1.DB666RodzajSmaruTulip.SelectedIndex == 1) DB666RodzajSmaruTulipItem = Form1._Form1.DB666RodzajSmaruTulip.Items[1].ToString();
+                else if (Form1._Form1.DB666RodzajSmaruTulip.SelectedIndex == 1) DB666RodzajSmaruTulipItem = Form1._Form1.DB666RodzajSmaruTulip.Items[2].ToString();
                 _hmiAppDbContext.References.Add(new Reference()
                 {
                     //Parametry
@@ -106,11 +112,10 @@ namespace HMIApp.Data
                     //Smarowania
                     Smarowanie_DawkaPrzegub = float.Parse(Form1._Form1.DB666DawkaPrzegub.Text),
                     Smarowanie_TolDawkiPrzegub = float.Parse(Form1._Form1.DB666TolDawkiPrzegub.Text),
-                    // ZEBY PRZEKAZAC STRING A NIE INDEX TO SELECTED TEXT - INDEX WYSYLAMY TYLKO DO PLC
-                    Smarowanie_RodzajSmaruPrzegub = Form1._Form1.DB666RodzajSmaruPrzegub.SelectedIndex,
+                    Smarowanie_RodzajSmaruPrzegub = DB666RodzajSmaruPrzegubItem,
                     Smarowanie_DawkaTulip = float.Parse(Form1._Form1.DB666DawkaTulip.Text),
                     Smarowanie_TolDawkiTulip = float.Parse(Form1._Form1.DB666TolDawkiTulip.Text),
-                    Smarowanie_RodzajSmaruTulip = Form1._Form1.DB666RodzajSmaruTulip.SelectedIndex,
+                    Smarowanie_RodzajSmaruTulip = DB666RodzajSmaruTulipItem,
                     //RFID
                     TagRFID_GlowicaGorna = int.Parse(Form1._Form1.DB666TagRFIDGlowicaGorna.Text),
                     TagRFID_PlytaSmar = int.Parse(Form1._Form1.DB666TagRFIDPlytaSmar.Text),
@@ -227,10 +232,14 @@ namespace HMIApp.Data
                     //Smarowania
                     Form1._Form1.DB666DawkaPrzegub.Text = item.Smarowanie_DawkaPrzegub.ToString();
                     Form1._Form1.DB666TolDawkiPrzegub.Text = item.Smarowanie_TolDawkiPrzegub.ToString();
-                    Form1._Form1.DB666RodzajSmaruPrzegub.SelectedIndex = item.Smarowanie_RodzajSmaruPrzegub;
+                    if (item.Smarowanie_RodzajSmaruPrzegub == Form1._Form1.DB666RodzajSmaruPrzegub.Items[1].ToString()) Form1._Form1.DB666RodzajSmaruPrzegub.SelectedIndex = 1;
+                    else if (item.Smarowanie_RodzajSmaruPrzegub == Form1._Form1.DB666RodzajSmaruPrzegub.Items[2].ToString()) Form1._Form1.DB666RodzajSmaruPrzegub.SelectedIndex = 2;
+                    else Form1._Form1.DB666RodzajSmaruPrzegub.SelectedIndex = 0;
                     Form1._Form1.DB666DawkaTulip.Text = item.Smarowanie_DawkaTulip.ToString();
                     Form1._Form1.DB666TolDawkiTulip.Text = item.Smarowanie_TolDawkiTulip.ToString();
-                    Form1._Form1.DB666RodzajSmaruTulip.SelectedIndex = item.Smarowanie_RodzajSmaruTulip;
+                    if (Form1._Form1.DB666RodzajSmaruTulip.Items[1].ToString() == item.Smarowanie_RodzajSmaruTulip) Form1._Form1.DB666RodzajSmaruTulip.SelectedIndex = 1;
+                    else if (Form1._Form1.DB666RodzajSmaruTulip.Items[2].ToString() == item.Smarowanie_RodzajSmaruTulip) Form1._Form1.DB666RodzajSmaruTulip.SelectedIndex = 2;
+                    else Form1._Form1.DB666RodzajSmaruTulip.SelectedIndex = 0;
                     //RFID
                     Form1._Form1.DB666TagRFIDGlowicaGorna.Text = item.TagRFID_GlowicaGorna.ToString();
                     Form1._Form1.DB666TagRFIDPlytaSmar.Text = item.TagRFID_PlytaSmar.ToString();
@@ -317,10 +326,14 @@ namespace HMIApp.Data
             //Smarowania
             ref1.Smarowanie_DawkaPrzegub = float.Parse(Form1._Form1.DB666DawkaPrzegub.Text);
             ref1.Smarowanie_TolDawkiPrzegub = float.Parse(Form1._Form1.DB666TolDawkiPrzegub.Text);
-            ref1.Smarowanie_RodzajSmaruPrzegub =Form1._Form1.DB666RodzajSmaruPrzegub.SelectedIndex;
+            if (Form1._Form1.DB666RodzajSmaruPrzegub.SelectedIndex == 1) ref1.Smarowanie_RodzajSmaruPrzegub = Form1._Form1.DB666RodzajSmaruPrzegub.Items[1].ToString();
+            else if (Form1._Form1.DB666RodzajSmaruPrzegub.SelectedIndex == 2) ref1.Smarowanie_RodzajSmaruPrzegub = Form1._Form1.DB666RodzajSmaruPrzegub.Items[2].ToString();
+            else ref1.Smarowanie_RodzajSmaruPrzegub = "";
             ref1.Smarowanie_DawkaTulip = float.Parse(Form1._Form1.DB666DawkaTulip.Text);
             ref1.Smarowanie_TolDawkiTulip = float.Parse(Form1._Form1.DB666TolDawkiTulip.Text);
-            ref1.Smarowanie_RodzajSmaruTulip = Form1._Form1.DB666RodzajSmaruTulip.SelectedIndex;
+            if (Form1._Form1.DB666RodzajSmaruTulip.SelectedIndex == 1) ref1.Smarowanie_RodzajSmaruTulip = Form1._Form1.DB666RodzajSmaruTulip.Items[1].ToString();
+            else if (Form1._Form1.DB666RodzajSmaruTulip.SelectedIndex == 2) ref1.Smarowanie_RodzajSmaruTulip = Form1._Form1.DB666RodzajSmaruTulip.Items[2].ToString();
+            else ref1.Smarowanie_RodzajSmaruTulip = "";
             //RFID
             ref1.TagRFID_GlowicaGorna = int.Parse(Form1._Form1.DB666TagRFIDGlowicaGorna.Text);
             ref1.TagRFID_PlytaSmar = int.Parse(Form1._Form1.DB666TagRFIDPlytaSmar.Text);

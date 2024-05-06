@@ -399,7 +399,6 @@
             label26 = new System.Windows.Forms.Label();
             label41 = new System.Windows.Forms.Label();
             Smary = new System.Windows.Forms.TabPage();
-            textBox1 = new System.Windows.Forms.TextBox();
             DB666RodzajSmaruTulip = new System.Windows.Forms.ComboBox();
             DB666RodzajSmaruPrzegub = new System.Windows.Forms.ComboBox();
             label15 = new System.Windows.Forms.Label();
@@ -2956,7 +2955,6 @@
             // 
             // Smary
             // 
-            Smary.Controls.Add(textBox1);
             Smary.Controls.Add(DB666RodzajSmaruTulip);
             Smary.Controls.Add(DB666RodzajSmaruPrzegub);
             Smary.Controls.Add(label15);
@@ -2974,12 +2972,6 @@
             resources.ApplyResources(Smary, "Smary");
             Smary.Name = "Smary";
             Smary.UseVisualStyleBackColor = true;
-            // 
-            // textBox1
-            // 
-            resources.ApplyResources(textBox1, "textBox1");
-            textBox1.Name = "textBox1";
-            textBox1.Tag = "";
             // 
             // DB666RodzajSmaruTulip
             // 
@@ -4809,7 +4801,6 @@
         private System.Windows.Forms.Panel panel18;
         private System.Windows.Forms.Label label139;
         public System.Windows.Forms.Timer CzyszczenieStatusowArchiwizacji;
-        public System.Windows.Forms.TextBox textBox1;
     }
 }
 

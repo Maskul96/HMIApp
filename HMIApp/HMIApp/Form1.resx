@@ -11031,30 +11031,6 @@
   <data name="&gt;&gt;DyszaWahliwa.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="textBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>145, 179</value>
-  </data>
-  <data name="textBox1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 3, 4, 3</value>
-  </data>
-  <data name="textBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>91, 29</value>
-  </data>
-  <data name="textBox1.TabIndex" type="System.Int32, mscorlib">
-    <value>177</value>
-  </data>
-  <data name="&gt;&gt;textBox1.Name" xml:space="preserve">
-    <value>textBox1</value>
-  </data>
-  <data name="&gt;&gt;textBox1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;textBox1.Parent" xml:space="preserve">
-    <value>Smary</value>
-  </data>
-  <data name="&gt;&gt;textBox1.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
   <data name="DB666RodzajSmaruTulip.Items" xml:space="preserve">
     <value />
   </data>
@@ -11083,7 +11059,7 @@
     <value>Smary</value>
   </data>
   <data name="&gt;&gt;DB666RodzajSmaruTulip.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>0</value>
   </data>
   <data name="DB666RodzajSmaruPrzegub.Items" xml:space="preserve">
     <value />
@@ -11113,7 +11089,7 @@
     <value>Smary</value>
   </data>
   <data name="&gt;&gt;DB666RodzajSmaruPrzegub.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>1</value>
   </data>
   <data name="label15.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -11149,7 +11125,7 @@
     <value>Smary</value>
   </data>
   <data name="&gt;&gt;label15.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>2</value>
   </data>
   <data name="label75.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -11182,7 +11158,7 @@
     <value>Smary</value>
   </data>
   <data name="&gt;&gt;label75.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>3</value>
   </data>
   <data name="label14.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -11218,7 +11194,7 @@
     <value>Smary</value>
   </data>
   <data name="&gt;&gt;label14.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>4</value>
   </data>
   <data name="DB666DawkaPrzegub.Location" type="System.Drawing.Point, System.Drawing">
     <value>162, 41</value>
@@ -11245,7 +11221,7 @@
     <value>Smary</value>
   </data>
   <data name="&gt;&gt;DB666DawkaPrzegub.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>5</value>
   </data>
   <data name="DB666TolDawkiPrzegub.Location" type="System.Drawing.Point, System.Drawing">
     <value>162, 73</value>
@@ -11272,7 +11248,7 @@
     <value>Smary</value>
   </data>
   <data name="&gt;&gt;DB666TolDawkiPrzegub.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>6</value>
   </data>
   <data name="label9.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -11308,7 +11284,7 @@
     <value>Smary</value>
   </data>
   <data name="&gt;&gt;label9.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>7</value>
   </data>
   <data name="label102.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -11341,7 +11317,7 @@
     <value>Smary</value>
   </data>
   <data name="&gt;&gt;label102.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>8</value>
   </data>
   <data name="DB666TolDawkiTulip.Location" type="System.Drawing.Point, System.Drawing">
     <value>420, 75</value>
@@ -11368,7 +11344,7 @@
     <value>Smary</value>
   </data>
   <data name="&gt;&gt;DB666TolDawkiTulip.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>9</value>
   </data>
   <data name="label11.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -11404,7 +11380,7 @@
     <value>Smary</value>
   </data>
   <data name="&gt;&gt;label11.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>10</value>
   </data>
   <data name="DB666DawkaTulip.Location" type="System.Drawing.Point, System.Drawing">
     <value>420, 42</value>
@@ -11431,7 +11407,7 @@
     <value>Smary</value>
   </data>
   <data name="&gt;&gt;DB666DawkaTulip.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>11</value>
   </data>
   <data name="label22.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -11461,7 +11437,7 @@
     <value>Smary</value>
   </data>
   <data name="&gt;&gt;label22.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>12</value>
   </data>
   <data name="label23.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -11491,7 +11467,7 @@
     <value>Smary</value>
   </data>
   <data name="&gt;&gt;label23.ZOrder" xml:space="preserve">
-    <value>14</value>
+    <value>13</value>
   </data>
   <data name="Smary.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 30</value>

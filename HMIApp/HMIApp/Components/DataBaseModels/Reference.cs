@@ -50,10 +50,10 @@ namespace HMIApp.Components.DataBase
         //Smarowania
         public float Smarowanie_DawkaPrzegub { get; set; }
         public float Smarowanie_TolDawkiPrzegub { get; set; }
-        public int Smarowanie_RodzajSmaruPrzegub { get; set; }
+        public string Smarowanie_RodzajSmaruPrzegub { get; set; }
         public float Smarowanie_DawkaTulip { get; set; }
         public float Smarowanie_TolDawkiTulip { get; set; }
-        public int Smarowanie_RodzajSmaruTulip { get; set; }
+        public string Smarowanie_RodzajSmaruTulip { get; set; }
 
         //RFID
         public int TagRFID_GlowicaGorna { get; set; }
