@@ -16,8 +16,6 @@ namespace HMIApp.Components
         //metoda statyczna do wywolywania przepisania danych
         public static void Run()
         {
-            //PONIZEJ PRZEKAZANIE TESTOWO DO TEXTBOXA
-            Form1._Form1.textBox1.Text = Form1._Form1.DB666RodzajSmaruPrzegub.SelectedText.ToString();
             //
             Form1._Form1.DB667PozycjaOslonki_PassedValue.Text = Form1._Form1.DB667PozycjaOslonki.Text;
             Form1._Form1.DB667PozycjaGniazdoDolne_PassedValue.Text = Form1._Form1.DB667PozycjaGniazdoDolne.Text;

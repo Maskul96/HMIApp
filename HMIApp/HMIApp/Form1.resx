@@ -17105,6 +17105,9 @@
   <data name="comboBox_StartHour.Location" type="System.Drawing.Point, System.Drawing">
     <value>459, 49</value>
   </data>
+  <data name="comboBox_StartHour.MaxDropDownItems" type="System.Int32, mscorlib">
+    <value>20</value>
+  </data>
   <data name="comboBox_StartHour.Size" type="System.Drawing.Size, System.Drawing">
     <value>111, 29</value>
   </data>
@@ -17255,6 +17258,9 @@
   <data name="comboBox_StartDay.Location" type="System.Drawing.Point, System.Drawing">
     <value>334, 49</value>
   </data>
+  <data name="comboBox_StartDay.MaxDropDownItems" type="System.Int32, mscorlib">
+    <value>20</value>
+  </data>
   <data name="comboBox_StartDay.Size" type="System.Drawing.Size, System.Drawing">
     <value>111, 29</value>
   </data>
@@ -17314,6 +17320,9 @@
   </data>
   <data name="comboBox_StartMonth.Location" type="System.Drawing.Point, System.Drawing">
     <value>209, 49</value>
+  </data>
+  <data name="comboBox_StartMonth.MaxDropDownItems" type="System.Int32, mscorlib">
+    <value>20</value>
   </data>
   <data name="comboBox_StartMonth.Size" type="System.Drawing.Size, System.Drawing">
     <value>111, 29</value>
@@ -17414,6 +17423,126 @@
   <data name="&gt;&gt;panel15.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <data name="comboBox_EndDay.IntegralHeight" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="comboBox_EndDay.Items" xml:space="preserve">
+    <value>01</value>
+  </data>
+  <data name="comboBox_EndDay.Items1" xml:space="preserve">
+    <value>02</value>
+  </data>
+  <data name="comboBox_EndDay.Items2" xml:space="preserve">
+    <value>03</value>
+  </data>
+  <data name="comboBox_EndDay.Items3" xml:space="preserve">
+    <value>04</value>
+  </data>
+  <data name="comboBox_EndDay.Items4" xml:space="preserve">
+    <value>05</value>
+  </data>
+  <data name="comboBox_EndDay.Items5" xml:space="preserve">
+    <value>06</value>
+  </data>
+  <data name="comboBox_EndDay.Items6" xml:space="preserve">
+    <value>07</value>
+  </data>
+  <data name="comboBox_EndDay.Items7" xml:space="preserve">
+    <value>08</value>
+  </data>
+  <data name="comboBox_EndDay.Items8" xml:space="preserve">
+    <value>09</value>
+  </data>
+  <data name="comboBox_EndDay.Items9" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="comboBox_EndDay.Items10" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="comboBox_EndDay.Items11" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="comboBox_EndDay.Items12" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <data name="comboBox_EndDay.Items13" xml:space="preserve">
+    <value>14</value>
+  </data>
+  <data name="comboBox_EndDay.Items14" xml:space="preserve">
+    <value>15</value>
+  </data>
+  <data name="comboBox_EndDay.Items15" xml:space="preserve">
+    <value>16</value>
+  </data>
+  <data name="comboBox_EndDay.Items16" xml:space="preserve">
+    <value>17</value>
+  </data>
+  <data name="comboBox_EndDay.Items17" xml:space="preserve">
+    <value>18</value>
+  </data>
+  <data name="comboBox_EndDay.Items18" xml:space="preserve">
+    <value>19</value>
+  </data>
+  <data name="comboBox_EndDay.Items19" xml:space="preserve">
+    <value>20</value>
+  </data>
+  <data name="comboBox_EndDay.Items20" xml:space="preserve">
+    <value>21</value>
+  </data>
+  <data name="comboBox_EndDay.Items21" xml:space="preserve">
+    <value>22</value>
+  </data>
+  <data name="comboBox_EndDay.Items22" xml:space="preserve">
+    <value>23</value>
+  </data>
+  <data name="comboBox_EndDay.Items23" xml:space="preserve">
+    <value>24</value>
+  </data>
+  <data name="comboBox_EndDay.Items24" xml:space="preserve">
+    <value>25</value>
+  </data>
+  <data name="comboBox_EndDay.Items25" xml:space="preserve">
+    <value>26</value>
+  </data>
+  <data name="comboBox_EndDay.Items26" xml:space="preserve">
+    <value>27</value>
+  </data>
+  <data name="comboBox_EndDay.Items27" xml:space="preserve">
+    <value>28</value>
+  </data>
+  <data name="comboBox_EndDay.Items28" xml:space="preserve">
+    <value>29</value>
+  </data>
+  <data name="comboBox_EndDay.Items29" xml:space="preserve">
+    <value>30</value>
+  </data>
+  <data name="comboBox_EndDay.Items30" xml:space="preserve">
+    <value>31</value>
+  </data>
+  <data name="comboBox_EndDay.Location" type="System.Drawing.Point, System.Drawing">
+    <value>334, 52</value>
+  </data>
+  <data name="comboBox_EndDay.MaxDropDownItems" type="System.Int32, mscorlib">
+    <value>20</value>
+  </data>
+  <data name="comboBox_EndDay.Size" type="System.Drawing.Size, System.Drawing">
+    <value>111, 29</value>
+  </data>
+  <data name="comboBox_EndDay.TabIndex" type="System.Int32, mscorlib">
+    <value>220</value>
+  </data>
+  <data name="&gt;&gt;comboBox_EndDay.Name" xml:space="preserve">
+    <value>comboBox_EndDay</value>
+  </data>
+  <data name="&gt;&gt;comboBox_EndDay.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;comboBox_EndDay.Parent" xml:space="preserve">
+    <value>panel18</value>
+  </data>
+  <data name="&gt;&gt;comboBox_EndDay.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="label139.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -17445,7 +17574,7 @@
     <value>panel18</value>
   </data>
   <data name="&gt;&gt;label139.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="label148.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -17478,7 +17607,7 @@
     <value>panel18</value>
   </data>
   <data name="&gt;&gt;label148.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="comboBox_EndYear.IntegralHeight" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -17505,7 +17634,7 @@
     <value>panel18</value>
   </data>
   <data name="&gt;&gt;comboBox_EndYear.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="comboBox_EndMonth.IntegralHeight" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -17549,6 +17678,9 @@
   <data name="comboBox_EndMonth.Location" type="System.Drawing.Point, System.Drawing">
     <value>209, 52</value>
   </data>
+  <data name="comboBox_EndMonth.MaxDropDownItems" type="System.Int32, mscorlib">
+    <value>20</value>
+  </data>
   <data name="comboBox_EndMonth.Size" type="System.Drawing.Size, System.Drawing">
     <value>111, 29</value>
   </data>
@@ -17565,7 +17697,7 @@
     <value>panel18</value>
   </data>
   <data name="&gt;&gt;comboBox_EndMonth.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="label145.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -17598,7 +17730,7 @@
     <value>panel18</value>
   </data>
   <data name="&gt;&gt;label145.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="label147.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -17631,7 +17763,7 @@
     <value>panel18</value>
   </data>
   <data name="&gt;&gt;label147.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="comboBox_EndHour.IntegralHeight" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -17711,6 +17843,9 @@
   <data name="comboBox_EndHour.Location" type="System.Drawing.Point, System.Drawing">
     <value>459, 52</value>
   </data>
+  <data name="comboBox_EndHour.MaxDropDownItems" type="System.Int32, mscorlib">
+    <value>20</value>
+  </data>
   <data name="comboBox_EndHour.Size" type="System.Drawing.Size, System.Drawing">
     <value>111, 29</value>
   </data>
@@ -17727,30 +17862,6 @@
     <value>panel18</value>
   </data>
   <data name="&gt;&gt;comboBox_EndHour.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="comboBox_EndDay.IntegralHeight" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="comboBox_EndDay.Location" type="System.Drawing.Point, System.Drawing">
-    <value>334, 52</value>
-  </data>
-  <data name="comboBox_EndDay.Size" type="System.Drawing.Size, System.Drawing">
-    <value>111, 29</value>
-  </data>
-  <data name="comboBox_EndDay.TabIndex" type="System.Int32, mscorlib">
-    <value>228</value>
-  </data>
-  <data name="&gt;&gt;comboBox_EndDay.Name" xml:space="preserve">
-    <value>comboBox_EndDay</value>
-  </data>
-  <data name="&gt;&gt;comboBox_EndDay.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;comboBox_EndDay.Parent" xml:space="preserve">
-    <value>panel18</value>
-  </data>
-  <data name="&gt;&gt;comboBox_EndDay.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
   <data name="label146.AutoSize" type="System.Boolean, mscorlib">
