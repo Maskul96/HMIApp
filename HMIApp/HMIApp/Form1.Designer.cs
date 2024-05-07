@@ -30,7 +30,7 @@
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             OdczytDB = new System.Windows.Forms.Timer(components);
             label_Uzytkownik = new System.Windows.Forms.Label();
             pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -331,10 +331,10 @@
             tabPage4 = new System.Windows.Forms.TabPage();
             tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
             tableLayoutPanel12 = new System.Windows.Forms.TableLayoutPanel();
-            comboBoxListaReferencji = new System.Windows.Forms.ComboBox();
             buttonWczytajRef = new System.Windows.Forms.Button();
             buttonUsunRef = new System.Windows.Forms.Button();
             buttonDodajNowaRef = new System.Windows.Forms.Button();
+            comboBoxListaReferencji = new System.Windows.Forms.ComboBox();
             tableLayoutPanel13 = new System.Windows.Forms.TableLayoutPanel();
             panel3 = new System.Windows.Forms.Panel();
             label8 = new System.Windows.Forms.Label();
@@ -615,7 +615,7 @@
             // OdczytDB
             // 
             OdczytDB.Interval = 1;
-            OdczytDB.Tick += timer1_Tick;
+            OdczytDB.Tick += timer_Tick_ReadDataFromDB;
             // 
             // label_Uzytkownik
             // 
@@ -683,7 +683,7 @@
             // CzyszczenieStatusówLogowania
             // 
             CzyszczenieStatusówLogowania.Interval = 5000;
-            CzyszczenieStatusówLogowania.Tick += timer2_Tick;
+            CzyszczenieStatusówLogowania.Tick += timer_Tick_CzyszczenieStatusuLogowania;
             // 
             // label_Imie
             // 
@@ -2226,7 +2226,7 @@
             resources.ApplyResources(button_ZamknijApke, "button_ZamknijApke");
             button_ZamknijApke.Name = "button_ZamknijApke";
             button_ZamknijApke.UseVisualStyleBackColor = true;
-            button_ZamknijApke.Click += button3_Click;
+            button_ZamknijApke.Click += button_Click_CloseAPP;
             // 
             // textBox_StuatusyAplikacji
             // 
@@ -2302,7 +2302,7 @@
             resources.ApplyResources(buttonDodajUzytkownika, "buttonDodajUzytkownika");
             buttonDodajUzytkownika.Name = "buttonDodajUzytkownika";
             buttonDodajUzytkownika.UseVisualStyleBackColor = true;
-            buttonDodajUzytkownika.Click += button6_Click;
+            buttonDodajUzytkownika.Click += button_Click_SaveUser;
             // 
             // label_Imie_DodajUzytk
             // 
@@ -2366,7 +2366,7 @@
             resources.ApplyResources(buttonEdytujUzytkownika, "buttonEdytujUzytkownika");
             buttonEdytujUzytkownika.Name = "buttonEdytujUzytkownika";
             buttonEdytujUzytkownika.UseVisualStyleBackColor = true;
-            buttonEdytujUzytkownika.Click += button7_Click;
+            buttonEdytujUzytkownika.Click += button_Click_EditUsers;
             // 
             // label_Imie_Edycja
             // 
@@ -2401,7 +2401,7 @@
             comboBox_ListaUzytkWBazie.FormattingEnabled = true;
             resources.ApplyResources(comboBox_ListaUzytkWBazie, "comboBox_ListaUzytkWBazie");
             comboBox_ListaUzytkWBazie.Name = "comboBox_ListaUzytkWBazie";
-            comboBox_ListaUzytkWBazie.SelectedIndexChanged += comboBox2_SelectedIndexChanged;
+            comboBox_ListaUzytkWBazie.SelectedIndexChanged += comboBox_ShowEditUsers_SelectedIndexChanged;
             // 
             // textBox_Imie_Edycja
             // 
@@ -2470,18 +2470,11 @@
             // 
             tableLayoutPanel12.BackColor = System.Drawing.Color.SteelBlue;
             resources.ApplyResources(tableLayoutPanel12, "tableLayoutPanel12");
-            tableLayoutPanel12.Controls.Add(comboBoxListaReferencji, 0, 0);
             tableLayoutPanel12.Controls.Add(buttonWczytajRef, 1, 0);
             tableLayoutPanel12.Controls.Add(buttonUsunRef, 3, 0);
             tableLayoutPanel12.Controls.Add(buttonDodajNowaRef, 2, 0);
+            tableLayoutPanel12.Controls.Add(comboBoxListaReferencji, 0, 0);
             tableLayoutPanel12.Name = "tableLayoutPanel12";
-            // 
-            // comboBoxListaReferencji
-            // 
-            resources.ApplyResources(comboBoxListaReferencji, "comboBoxListaReferencji");
-            comboBoxListaReferencji.FormattingEnabled = true;
-            comboBoxListaReferencji.Name = "comboBoxListaReferencji";
-            comboBoxListaReferencji.SelectedIndexChanged += comboBox5_SelectedIndexChanged;
             // 
             // buttonWczytajRef
             // 
@@ -2491,7 +2484,7 @@
             buttonWczytajRef.Name = "buttonWczytajRef";
             buttonWczytajRef.Tag = "";
             buttonWczytajRef.UseVisualStyleBackColor = false;
-            buttonWczytajRef.Click += button10_Click;
+            buttonWczytajRef.Click += button_Click_WriteReferenceToPLC;
             // 
             // buttonUsunRef
             // 
@@ -2499,7 +2492,7 @@
             buttonUsunRef.Name = "buttonUsunRef";
             buttonUsunRef.Tag = "";
             buttonUsunRef.UseVisualStyleBackColor = true;
-            buttonUsunRef.Click += button2_Click_1;
+            buttonUsunRef.Click += Button_Click_DeleteReference;
             // 
             // buttonDodajNowaRef
             // 
@@ -2507,7 +2500,14 @@
             buttonDodajNowaRef.Name = "buttonDodajNowaRef";
             buttonDodajNowaRef.Tag = "";
             buttonDodajNowaRef.UseVisualStyleBackColor = true;
-            buttonDodajNowaRef.Click += button13_Click;
+            buttonDodajNowaRef.Click += button_Click_SaveReference;
+            // 
+            // comboBoxListaReferencji
+            // 
+            resources.ApplyResources(comboBoxListaReferencji, "comboBoxListaReferencji");
+            comboBoxListaReferencji.FormattingEnabled = true;
+            comboBoxListaReferencji.Name = "comboBoxListaReferencji";
+            comboBoxListaReferencji.SelectedIndexChanged += comboBoxListaReferencji_SelectedIndexChanged;
             // 
             // tableLayoutPanel13
             // 
@@ -3857,14 +3857,14 @@
             dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.ColumnHeadersVisible = false;
             dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { Column2 });
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 238);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 238);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             resources.ApplyResources(dataGridView1, "dataGridView1");
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersVisible = false;
@@ -4155,7 +4155,7 @@
             // PróbyUruchomieniaKomunikacjizPLC
             // 
             PróbyUruchomieniaKomunikacjizPLC.Interval = 2000;
-            PróbyUruchomieniaKomunikacjizPLC.Tick += Timer1_Tick_1;
+            PróbyUruchomieniaKomunikacjizPLC.Tick += Timer_Tick_TryCommunicateWithPLC;
             // 
             // CzyszczenieStatusowArchiwizacji
             // 

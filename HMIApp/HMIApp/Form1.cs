@@ -89,7 +89,7 @@ namespace HMIApp
 
 
         //Zamkniecie aplikacji z przycisku
-        private void button3_Click(object sender, EventArgs e)
+        private void button_Click_CloseAPP(object sender, EventArgs e)
         {
             App.ClosePLCConnection();
             //serialPortReader.Close();
@@ -98,7 +98,7 @@ namespace HMIApp
 
 
         //Timer do prób uruchomienia komunikacji z PLC
-        private void Timer1_Tick_1(object sender, EventArgs e)
+        private void Timer_Tick_TryCommunicateWithPLC(object sender, EventArgs e)
         {
             //zakomentuj ponizsze cztery metody do odpalenia apki bez PLC
             if (App.RunInitPLC() == false)
@@ -120,7 +120,7 @@ namespace HMIApp
         }
 
         //wczytaj referencje do PLC - DOROBIC ZAPIS POZOSTALYCH PARAMETROW REFERENCJI
-        private void button10_Click(object sender, EventArgs e)
+        private void button_Click_WriteReferenceToPLC(object sender, EventArgs e)
         {
             if (comboBoxListaReferencji.Text != null && comboBoxListaReferencji.Text != "")
             {
@@ -198,7 +198,7 @@ namespace HMIApp
         }
 
         //Timer co 1ms do oczytywania danych 
-        private void timer1_Tick(object sender, EventArgs e)
+        private void timer_Tick_ReadDataFromDB(object sender, EventArgs e)
         {
             //zakomentuj ponizsze dwie metody do odpalenia apki bez PLC
             App.ReadAlarmsFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_2.csv");
@@ -219,20 +219,20 @@ namespace HMIApp
         }
 
         //Przycisk wyzwalajacy zapis uzytkownika
-        private void button6_Click(object sender, EventArgs e)
+        private void button_Click_SaveUser(object sender, EventArgs e)
         {
             Users.SaveToXML();
         }
 
         //Wyswietlenie uzytkownikow z bazy
-        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        private void comboBox_ShowEditUsers_SelectedIndexChanged(object sender, EventArgs e)
         {
             textBox_Imie_Edycja.Text = comboBox_ListaUzytkWBazie.SelectedItem.ToString();
             Users.DisplayValuesFromXML(Users.LoadFromXML("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\UserData.xml"), textBox_Imie_Edycja.Text);
         }
 
         //Przycisk wyzwalający edycje użytkownika
-        private void button7_Click(object sender, EventArgs e)
+        private void button_Click_EditUsers(object sender, EventArgs e)
         {
             Users.EditXML();
         }
@@ -283,14 +283,14 @@ namespace HMIApp
         }
 
         //Wyczyszczenie statusu karty Użytkownicy
-        private void timer2_Tick(object sender, EventArgs e)
+        private void timer_Tick_CzyszczenieStatusuLogowania(object sender, EventArgs e)
         {
             StatusyLogowania.Text = "";
             CzyszczenieStatusówLogowania.Enabled = false;
         }
 
         // PRZYCISK WYZWALAJACY ZAPIS referencji
-        private void button13_Click(object sender, EventArgs e)
+        private void button_Click_SaveReference(object sender, EventArgs e)
         {
             var database = serviceProvider.GetService<iDataBase>();
             database.InsertToDataBase();
@@ -299,7 +299,7 @@ namespace HMIApp
 
 
         //Wyrzucenie referencji po rozwinieciu comboboxa
-        private void comboBox5_SelectedIndexChanged(object sender, EventArgs e)
+        private void comboBoxListaReferencji_SelectedIndexChanged(object sender, EventArgs e)
         {
             var database = serviceProvider.GetService<iDataBase>();
             database.SelectFromDataBase(comboBoxListaReferencji.Text);
@@ -307,7 +307,7 @@ namespace HMIApp
 
 
         //Usuwanie wybranej referencji
-        private void button2_Click_1(object sender, EventArgs e)
+        private void Button_Click_DeleteReference(object sender, EventArgs e)
         {
             var database = serviceProvider.GetService<iDataBase>();
             if (MessageBox.Show("Czy na pewno chcesz usunąć referencję?", "Potwierdź", MessageBoxButtons.YesNo) == DialogResult.Yes)
@@ -379,7 +379,7 @@ namespace HMIApp
         }
 
         //Obsluga ToggleButtonow w zakładce Tryb Reczny
-        #region obsluga ToggleButtonow - Tryb Reczny
+        #region obsluga ToggleButtonow - Tryb Reczny i Przycisków na Ekranie głównym
         private void checkBox_Serwo18U1_Checked(object sender, EventArgs e)
         {
             App.WriteToDB("15", checkBox_Serwo18U1.Tag.ToString(), 1);
@@ -582,7 +582,6 @@ namespace HMIApp
                 pictureBoxMachineImages.Image = new Bitmap(Properties.Resources.Main);
             }
         }
-        #endregion
 
         //Przycisk Rework Event
         private void Button_Rework_Click(object sender, EventArgs e)
@@ -613,13 +612,16 @@ namespace HMIApp
         {
             App.WriteToDB("55", Button_DawkaTestowaTulip.Tag.ToString(), 1);
         }
+        #endregion
 
+
+        //Przycisk exportu danych z archiwizacji do plik ucsv
         private void Btn_ExportToCSVArchiwizacja_Click(object sender, EventArgs e)
         {
             _Archive.ExportToCSVButtonFromForm1();
             CzyszczenieStatusowArchiwizacji.Enabled = true;
         }
-
+        //Czyszczenie info dla uzytkownika - status archiwizacji
         private void CzyszczenieStatusowArchiwizacji_Tick(object sender, EventArgs e)
         {
             label_StatusyArchiwizacji.Text = "";
