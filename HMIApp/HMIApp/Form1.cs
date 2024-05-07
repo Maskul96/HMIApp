@@ -36,7 +36,7 @@ namespace HMIApp
         //statyczna zmienna typu Form1 zeby dostac sie z poziomu innej klasy do obiektow wewnatrz Form1
         public static Form1 _Form1;
         // Określenie ścieżki folderu, który chcemy wyświetlić
-        string folderPath = @"D:\Projekty C#\HMIApp\HMIApp\HMIApp\Resources\Files\ArchivizationsFromDataBase";
+        string folderPath = @"D:\Projekty C#\HMIApp\HMIApp\HMIApp\Resources\Files\ArchivizationsFromDataBaseCSV";
         public Form1()
         {
             InitializeComponent();
@@ -637,6 +637,14 @@ namespace HMIApp
         // Funkcja rekurencyjna do dodawania węzłów do drzewa
         private static void PopulateTreeView(string directory, TreeNodeCollection parentNode)
         {
+            // Dodawanie węzłów reprezentujących foldery
+            string[] subDirectories = Directory.GetDirectories(directory);
+            foreach (string subDirectory in subDirectories)
+            {
+                TreeNode node = new TreeNode(Path.GetFileName(subDirectory));
+                parentNode.Add(node);
+                PopulateTreeView(subDirectory, node.Nodes);
+            }
             // Dodawanie węzłów reprezentujących pliki
             string[] files = Directory.GetFiles(directory);
             foreach (string file in files)

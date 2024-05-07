@@ -208,14 +208,14 @@ namespace HMIApp.Archivizations
                 Encoding = Encoding.UTF8
             };
 
-            var LocationOfArchivizationFolder = "D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\ArchivizationsFromDataBase\\";
+            var LocationOfArchivizationFolder = "D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\ArchivizationsFromDataBaseCSV\\ArchivizationsFromDataBase\\";
 
             if (File.Exists($"{LocationOfArchivizationFolder}ArchivizationFromDataBase_DataGeneracjiPliku{DateTime.Now:yyyy-MM-dd HH-mm-ss}.csv"))
             {
                 using var writer = new StreamWriter($"{LocationOfArchivizationFolder}ArchivizationFromDataBase_DataGeneracjiPliku{DateTime.Now:yyyy-MM-dd HH-mm-ss}.csv");
                 using var csv = new CsvWriter(writer, configEventsWhenFileExist);
                 //Uzupelnic mapowanie wszystkich zmiennych
-                //csv.Context.RegisterClassMap<ArchivizationModelFromDataBaseMap>();
+                csv.Context.RegisterClassMap<ArchivizationModelFromDataBaseMap>();
                 csv.WriteRecords(_archivizationmodelextendeddatabase);
                 //Info dla uzytkownika
                 Form1._Form1.label_StatusyArchiwizacji.Text = "Wygenerowano plik CSV z bazy danych";
@@ -226,7 +226,7 @@ namespace HMIApp.Archivizations
                 using var writer = new StreamWriter($"{LocationOfArchivizationFolder}ArchivizationFromDataBase_DataGeneracjiPliku{DateTime.Now:yyyy-MM-dd HH-mm-ss}.csv");
                 using var csv = new CsvWriter(writer, configEventsWhenFileNOTExist);
                 //Uzupelnic mapowanie wszystkich zmiennych
-               // csv.Context.RegisterClassMap<ArchivizationModelFromDataBaseMap>();
+                csv.Context.RegisterClassMap<ArchivizationModelFromDataBaseMap>();
                 csv.WriteRecords(_archivizationmodelextendeddatabase);
                 //Info dla uzytkownika
                 Form1._Form1.label_StatusyArchiwizacji.Text = "Wygenerowano plik CSV z bazy danych";
@@ -367,5 +367,4 @@ namespace HMIApp.Archivizations
         #endregion
     }
 
-    //Archiwizacja do bazy danych i moduł pozwalajacy wyciagnac z bazy danych eventy z danego dnia i wyeksportowac do csv
 }
