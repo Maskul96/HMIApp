@@ -92,7 +92,7 @@ namespace HMIApp
             blockade = false;
 
             CzyszczenieStatusówLogowania.Enabled = true;
-            CzyszczenieStatusowArchiwizacji.Enabled = true; 
+          //  CzyszczenieStatusowArchiwizacji.Enabled = true; 
         }
 
 
@@ -230,6 +230,7 @@ namespace HMIApp
         private void timer2_Tick(object sender, EventArgs e)
         {
             StatusyLogowania.Text = "";
+            CzyszczenieStatusówLogowania.Enabled = false;
         }
 
         //Wyswietlenie uzytkownikow z bazy
@@ -260,7 +261,7 @@ namespace HMIApp
             }
             Users.EnabledObjects();
 
-
+            CzyszczenieStatusówLogowania.Enabled = true;
         }
 
         //Wylogowanie uzytkownika po uplywie czasu
@@ -270,6 +271,7 @@ namespace HMIApp
             TimeoutWylogowania.Enabled = false;
             Users.EnabledObjects();
             StatusyLogowania.Text = "Uzytkownik wylogowany automatycznie";
+            CzyszczenieStatusówLogowania.Enabled = true;
         }
 
 
@@ -623,11 +625,13 @@ namespace HMIApp
         private void Btn_ExportToCSVArchiwizacja_Click(object sender, EventArgs e)
         {
             _Archive.ExportToCSVButtonFromForm1();
+            CzyszczenieStatusowArchiwizacji.Enabled = true;
         }
 
         private void CzyszczenieStatusowArchiwizacji_Tick(object sender, EventArgs e)
         {
             label_StatusyArchiwizacji.Text = "";
+            CzyszczenieStatusowArchiwizacji.Enabled = false;
         }
     }
 }

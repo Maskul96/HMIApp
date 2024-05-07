@@ -70,6 +70,7 @@ namespace HMIApp.Archivizations
         {
             //statusy archiwizacji do wyswietlenia na HMI 
             Form1._Form1.label_StatusyArchiwizacji.Text = message;
+            Form1._Form1.CzyszczenieStatusowArchiwizacji.Enabled = true;
             #region archivization model basic - unused
             //var archivizationmodelsbasic = new ArchivizationModelBasic
             //{
@@ -135,7 +136,7 @@ namespace HMIApp.Archivizations
             //        TagRFID_PlytaSmar = int.Parse(Form1._Form1.DB666TagRFIDPlytaSmar.Text),
             //        TagRFID_SzczekiOslonki = int.Parse(Form1._Form1.DB666TagRFIDSzczekiOslonki.Text),
             //        TagRFID_Przegub = int.Parse(Form1._Form1.DB666TagRFIDPrzegub.Text)
-                    
+
 
             //        };
             //_archivizationmodelextended.Add(archivizationmodelsextended);
