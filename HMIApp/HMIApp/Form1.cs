@@ -20,25 +20,29 @@ namespace HMIApp
 {
     public partial class Form1 : Form
     {
+        #region obiekty klas
         Archivization _Archive = new Archivization();
         App App = new App();
         UserAdministration Users = new UserAdministration();
         DataBase DataBase = new DataBase();
         Logger _logger = new Logger();
-        //Services do dependency injection
+        #endregion
+# region Services do dependency injection i EF
         public ServiceCollection services = new ServiceCollection();
         public ServiceProvider serviceProvider;
         public SerialPortReader serialPortReader = new SerialPortReader();
+        #endregion
+        //Zmienna do Blokady rysowania wykresu dopoki nie zaczytasz referencji
         public bool blockade;
+        //statyczna zmienna typu Form1 zeby dostac sie z poziomu innej klasy do obiektow wewnatrz Form1
+        public static Form1 _Form1;
         public Form1()
         {
             InitializeComponent();
             _Form1 = this;
-            //Services do dependency injection
-            services.AddSingleton<iDataBase, DataBase>();
-            //ZArejestrowanie DBContextu - Stworzenie połączenia do bazy danych i service providera
-            services.AddDbContext<HMIAppDBContext>();
 
+            services.AddSingleton<iDataBase, DataBase>();
+            services.AddDbContext<HMIAppDBContext>();
             serviceProvider = services.BuildServiceProvider();
 
             ReadFromDbWhenAppIsStarting();
@@ -52,30 +56,14 @@ namespace HMIApp
             Users.EnabledObjects();
 
             CommaReplaceDotTextBox(this);
+
             PassedValueControls.Run();
 
             _Archive.Run();
             _Archive.ArchiveEventRun();
             //serialPortReader.InitializeSerialPort();
             // serialPortReader.Run();
-
         }
-
-        //Event zmiany koloru - wyzwala metode uruchmiajaca Event przejscia w Auto/Man
-        public void BackColor_ColorChanged(object sender, EventArgs e)
-        {
-            if (DB667Auto.BackColor.Name == "LimeGreen")
-            {
-                _Archive.OnArchiveEventsMethod("Event - Przejście w Auto");
-            }
-            else if (DB667Man.BackColor.Name == "LimeGreen")
-            {
-                _Archive.OnArchiveEventsMethod("Event - Przejście w Man");
-            }
-        }
-
-        //statyczna zmienna typu Form1 zeby dostac sie z poziomu innej klasy do obiektow wewnatrz Form1
-        public static Form1 _Form1;
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -90,9 +78,22 @@ namespace HMIApp
 
             //Blokada rysowania wykresu dopoki nie zaczytasz referencji
             blockade = false;
+        }
 
-            CzyszczenieStatusówLogowania.Enabled = true;
-          //  CzyszczenieStatusowArchiwizacji.Enabled = true; 
+        //Zamkniecie aplikacji
+        private void Form1Closing(object sender, FormClosingEventArgs e)
+        {
+            App.ClosePLCConnection();
+            //serialPortReader.Close();
+        }
+
+
+        //Zamkniecie aplikacji z przycisku
+        private void button3_Click(object sender, EventArgs e)
+        {
+            App.ClosePLCConnection();
+            //serialPortReader.Close();
+            Close();
         }
 
 
@@ -115,10 +116,6 @@ namespace HMIApp
             if (comboBoxListaReferencji.Items.Count > 0)
             {
                 database.SelectFromDataBase(comboBoxListaReferencji.Items[0].ToString());
-            }
-            else
-            {
-                // MessageBox.Show("Nie znaleziono referencji");
             }
         }
 
@@ -200,7 +197,7 @@ namespace HMIApp
             formsPlot1.Refresh();
         }
 
-        //Timer co 10ms do oczytywania danych 
+        //Timer co 1ms do oczytywania danych 
         private void timer1_Tick(object sender, EventArgs e)
         {
             //zakomentuj ponizsze dwie metody do odpalenia apki bez PLC
@@ -212,11 +209,12 @@ namespace HMIApp
             {
                 App.CreatePlot();
             }
+
             PassedValueControls.Run();
+
             //aktualizacja daty i godziny
             this.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
             label_DataIGodzina.Text = this.Text;
-
 
         }
 
@@ -224,13 +222,6 @@ namespace HMIApp
         private void button6_Click(object sender, EventArgs e)
         {
             Users.SaveToXML();
-        }
-
-        //Wyczyszczenie statusu karty Użytkownicy
-        private void timer2_Tick(object sender, EventArgs e)
-        {
-            StatusyLogowania.Text = "";
-            CzyszczenieStatusówLogowania.Enabled = false;
         }
 
         //Wyswietlenie uzytkownikow z bazy
@@ -291,6 +282,12 @@ namespace HMIApp
             }
         }
 
+        //Wyczyszczenie statusu karty Użytkownicy
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            StatusyLogowania.Text = "";
+            CzyszczenieStatusówLogowania.Enabled = false;
+        }
 
         // PRZYCISK WYZWALAJACY ZAPIS referencji
         private void button13_Click(object sender, EventArgs e)
@@ -368,6 +365,18 @@ namespace HMIApp
             Process.Start(progFiles);
         }
 
+        //Event zmiany koloru - wyzwala metode uruchmiajaca Event przejscia w Auto/Man
+        public void BackColor_ColorChanged(object sender, EventArgs e)
+        {
+            if (DB667Auto.BackColor.Name == "LimeGreen")
+            {
+                _Archive.OnArchiveEventsMethod("Event - Przejście w Auto");
+            }
+            else if (DB667Man.BackColor.Name == "LimeGreen")
+            {
+                _Archive.OnArchiveEventsMethod("Event - Przejście w Man");
+            }
+        }
 
         //Obsluga ToggleButtonow w zakładce Tryb Reczny
         #region obsluga ToggleButtonow - Tryb Reczny
@@ -574,23 +583,6 @@ namespace HMIApp
             }
         }
         #endregion
-
-
-        //Zamkniecie aplikacji
-        private void Form1Closing(object sender, FormClosingEventArgs e)
-        {
-            App.ClosePLCConnection();
-            //serialPortReader.Close();
-        }
-
-
-        //Zamkniecie aplikacji z przycisku
-        private void button3_Click(object sender, EventArgs e)
-        {
-            App.ClosePLCConnection();
-            //serialPortReader.Close();
-            Close();
-        }
 
         //Przycisk Rework Event
         private void Button_Rework_Click(object sender, EventArgs e)
