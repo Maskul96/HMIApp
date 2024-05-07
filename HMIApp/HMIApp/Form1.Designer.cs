@@ -30,7 +30,7 @@
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             OdczytDB = new System.Windows.Forms.Timer(components);
             label_Uzytkownik = new System.Windows.Forms.Label();
             pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -615,7 +615,7 @@
             // OdczytDB
             // 
             OdczytDB.Interval = 1;
-            OdczytDB.Tick += timer_Tick_ReadDataFromDB;
+            OdczytDB.Tick += Timer_Tick_ReadDataFromDB;
             // 
             // label_Uzytkownik
             // 
@@ -683,7 +683,7 @@
             // CzyszczenieStatusówLogowania
             // 
             CzyszczenieStatusówLogowania.Interval = 5000;
-            CzyszczenieStatusówLogowania.Tick += timer_Tick_CzyszczenieStatusuLogowania;
+            CzyszczenieStatusówLogowania.Tick += Timer_Tick_CzyszczenieStatusuLogowania;
             // 
             // label_Imie
             // 
@@ -2226,7 +2226,7 @@
             resources.ApplyResources(button_ZamknijApke, "button_ZamknijApke");
             button_ZamknijApke.Name = "button_ZamknijApke";
             button_ZamknijApke.UseVisualStyleBackColor = true;
-            button_ZamknijApke.Click += button_Click_CloseAPP;
+            button_ZamknijApke.Click += Button_Click_CloseAPP;
             // 
             // textBox_StuatusyAplikacji
             // 
@@ -2302,7 +2302,7 @@
             resources.ApplyResources(buttonDodajUzytkownika, "buttonDodajUzytkownika");
             buttonDodajUzytkownika.Name = "buttonDodajUzytkownika";
             buttonDodajUzytkownika.UseVisualStyleBackColor = true;
-            buttonDodajUzytkownika.Click += button_Click_SaveUser;
+            buttonDodajUzytkownika.Click += Button_Click_SaveUser;
             // 
             // label_Imie_DodajUzytk
             // 
@@ -2366,7 +2366,7 @@
             resources.ApplyResources(buttonEdytujUzytkownika, "buttonEdytujUzytkownika");
             buttonEdytujUzytkownika.Name = "buttonEdytujUzytkownika";
             buttonEdytujUzytkownika.UseVisualStyleBackColor = true;
-            buttonEdytujUzytkownika.Click += button_Click_EditUsers;
+            buttonEdytujUzytkownika.Click += Button_Click_EditUsers;
             // 
             // label_Imie_Edycja
             // 
@@ -2401,7 +2401,7 @@
             comboBox_ListaUzytkWBazie.FormattingEnabled = true;
             resources.ApplyResources(comboBox_ListaUzytkWBazie, "comboBox_ListaUzytkWBazie");
             comboBox_ListaUzytkWBazie.Name = "comboBox_ListaUzytkWBazie";
-            comboBox_ListaUzytkWBazie.SelectedIndexChanged += comboBox_ShowEditUsers_SelectedIndexChanged;
+            comboBox_ListaUzytkWBazie.SelectedIndexChanged += ComboBox_ShowEditUsers_SelectedIndexChanged;
             // 
             // textBox_Imie_Edycja
             // 
@@ -2440,7 +2440,7 @@
             resources.ApplyResources(button_ZalogujUzytk, "button_ZalogujUzytk");
             button_ZalogujUzytk.Name = "button_ZalogujUzytk";
             button_ZalogujUzytk.UseVisualStyleBackColor = true;
-            button_ZalogujUzytk.Click += buttonZalogujUzytk;
+            button_ZalogujUzytk.Click += ButtonZalogujUzytk;
             // 
             // StatusyLogowania
             // 
@@ -2484,7 +2484,7 @@
             buttonWczytajRef.Name = "buttonWczytajRef";
             buttonWczytajRef.Tag = "";
             buttonWczytajRef.UseVisualStyleBackColor = false;
-            buttonWczytajRef.Click += button_Click_WriteReferenceToPLC;
+            buttonWczytajRef.Click += Button_Click_WriteReferenceToPLC;
             // 
             // buttonUsunRef
             // 
@@ -2500,14 +2500,14 @@
             buttonDodajNowaRef.Name = "buttonDodajNowaRef";
             buttonDodajNowaRef.Tag = "";
             buttonDodajNowaRef.UseVisualStyleBackColor = true;
-            buttonDodajNowaRef.Click += button_Click_SaveReference;
+            buttonDodajNowaRef.Click += Button_Click_SaveReference;
             // 
             // comboBoxListaReferencji
             // 
             resources.ApplyResources(comboBoxListaReferencji, "comboBoxListaReferencji");
             comboBoxListaReferencji.FormattingEnabled = true;
             comboBoxListaReferencji.Name = "comboBoxListaReferencji";
-            comboBoxListaReferencji.SelectedIndexChanged += comboBoxListaReferencji_SelectedIndexChanged;
+            comboBoxListaReferencji.SelectedIndexChanged += ComboBoxListaReferencji_SelectedIndexChanged;
             // 
             // tableLayoutPanel13
             // 
@@ -3354,8 +3354,8 @@
             checkBox_DyszaPionowa.Name = "checkBox_DyszaPionowa";
             checkBox_DyszaPionowa.Tag = "DB667.NrOfDeviceToControl";
             checkBox_DyszaPionowa.UseVisualStyleBackColor = false;
-            checkBox_DyszaPionowa.CheckedChanged += checkBox_DyszaPionowa_Checked;
-            checkBox_DyszaPionowa.CheckStateChanged += checkBox_DyszaPionowa_CheckedStateChanged;
+            checkBox_DyszaPionowa.CheckedChanged += CheckBox_DyszaPionowa_Checked;
+            checkBox_DyszaPionowa.CheckStateChanged += CheckBox_DyszaPionowa_CheckedStateChanged;
             // 
             // checkBox_DyszaPozioma
             // 
@@ -3366,8 +3366,8 @@
             checkBox_DyszaPozioma.Name = "checkBox_DyszaPozioma";
             checkBox_DyszaPozioma.Tag = "DB667.NrOfDeviceToControl";
             checkBox_DyszaPozioma.UseVisualStyleBackColor = false;
-            checkBox_DyszaPozioma.CheckedChanged += checkBox_DyszaPozioma_Checked;
-            checkBox_DyszaPozioma.CheckStateChanged += checkBox_DyszaPozioma_CheckedStateChanged;
+            checkBox_DyszaPozioma.CheckedChanged += CheckBox_DyszaPozioma_Checked;
+            checkBox_DyszaPozioma.CheckStateChanged += CheckBox_DyszaPozioma_CheckedStateChanged;
             // 
             // checkBox_ChwytakDolny
             // 
@@ -3378,8 +3378,8 @@
             checkBox_ChwytakDolny.Name = "checkBox_ChwytakDolny";
             checkBox_ChwytakDolny.Tag = "DB667.NrOfDeviceToControl";
             checkBox_ChwytakDolny.UseVisualStyleBackColor = false;
-            checkBox_ChwytakDolny.CheckedChanged += checkBox_ChwytakDolny_Checked;
-            checkBox_ChwytakDolny.CheckStateChanged += checkBox_ChwytakDolny_CheckedStateChanged;
+            checkBox_ChwytakDolny.CheckedChanged += CheckBox_ChwytakDolny_Checked;
+            checkBox_ChwytakDolny.CheckStateChanged += CheckBox_ChwytakDolny_CheckedStateChanged;
             // 
             // checkBox_UkladPodnoszenia
             // 
@@ -3390,8 +3390,8 @@
             checkBox_UkladPodnoszenia.Name = "checkBox_UkladPodnoszenia";
             checkBox_UkladPodnoszenia.Tag = "DB667.NrOfDeviceToControl";
             checkBox_UkladPodnoszenia.UseVisualStyleBackColor = false;
-            checkBox_UkladPodnoszenia.CheckedChanged += checkBox_UkladPodnoszenia_Checked;
-            checkBox_UkladPodnoszenia.CheckStateChanged += checkBox_UkladPodnoszenia_CheckedStateChanged;
+            checkBox_UkladPodnoszenia.CheckedChanged += CheckBox_UkladPodnoszenia_Checked;
+            checkBox_UkladPodnoszenia.CheckStateChanged += CheckBox_UkladPodnoszenia_CheckedStateChanged;
             // 
             // checkBox_Serwo18U1
             // 
@@ -3402,8 +3402,8 @@
             checkBox_Serwo18U1.Name = "checkBox_Serwo18U1";
             checkBox_Serwo18U1.Tag = "DB667.NrOfDeviceToControl";
             checkBox_Serwo18U1.UseVisualStyleBackColor = false;
-            checkBox_Serwo18U1.CheckedChanged += checkBox_Serwo18U1_Checked;
-            checkBox_Serwo18U1.CheckStateChanged += checkBox_Serwo18U1_CheckedStateChanged;
+            checkBox_Serwo18U1.CheckedChanged += CheckBox_Serwo18U1_Checked;
+            checkBox_Serwo18U1.CheckStateChanged += CheckBox_Serwo18U1_CheckedStateChanged;
             // 
             // checkBox_ZaciskTulipa
             // 
@@ -3414,8 +3414,8 @@
             checkBox_ZaciskTulipa.Name = "checkBox_ZaciskTulipa";
             checkBox_ZaciskTulipa.Tag = "DB667.NrOfDeviceToControl";
             checkBox_ZaciskTulipa.UseVisualStyleBackColor = false;
-            checkBox_ZaciskTulipa.CheckedChanged += checkBox_ZaciskTulipa_Checked;
-            checkBox_ZaciskTulipa.CheckStateChanged += checkBox_ZaciskTulipa_CheckedStateChanged;
+            checkBox_ZaciskTulipa.CheckedChanged += CheckBox_ZaciskTulipa_Checked;
+            checkBox_ZaciskTulipa.CheckStateChanged += CheckBox_ZaciskTulipa_CheckedStateChanged;
             // 
             // checkBox_ChwytakGorny
             // 
@@ -3426,8 +3426,8 @@
             checkBox_ChwytakGorny.Name = "checkBox_ChwytakGorny";
             checkBox_ChwytakGorny.Tag = "DB667.NrOfDeviceToControl";
             checkBox_ChwytakGorny.UseVisualStyleBackColor = false;
-            checkBox_ChwytakGorny.CheckedChanged += checkBox_ChwytakGorny_Checked;
-            checkBox_ChwytakGorny.CheckStateChanged += checkBox_ChwytakGorny_CheckedStateChanged;
+            checkBox_ChwytakGorny.CheckedChanged += CheckBox_ChwytakGorny_Checked;
+            checkBox_ChwytakGorny.CheckStateChanged += CheckBox_ChwytakGorny_CheckedStateChanged;
             // 
             // checkBox_Serwo20U1
             // 
@@ -3438,8 +3438,8 @@
             checkBox_Serwo20U1.Name = "checkBox_Serwo20U1";
             checkBox_Serwo20U1.Tag = "DB667.NrOfDeviceToControl";
             checkBox_Serwo20U1.UseVisualStyleBackColor = false;
-            checkBox_Serwo20U1.CheckedChanged += checkBox_Serwo20U1_Checked;
-            checkBox_Serwo20U1.CheckStateChanged += checkBox_Serwo20U1_CheckedStateChanged;
+            checkBox_Serwo20U1.CheckedChanged += CheckBox_Serwo20U1_Checked;
+            checkBox_Serwo20U1.CheckStateChanged += CheckBox_Serwo20U1_CheckedStateChanged;
             // 
             // checkBox_SzczekiOslonki
             // 
@@ -3450,8 +3450,8 @@
             checkBox_SzczekiOslonki.Name = "checkBox_SzczekiOslonki";
             checkBox_SzczekiOslonki.Tag = "DB667.NrOfDeviceToControl";
             checkBox_SzczekiOslonki.UseVisualStyleBackColor = false;
-            checkBox_SzczekiOslonki.CheckedChanged += checkBox_SzczekiOslonki_Checked;
-            checkBox_SzczekiOslonki.CheckStateChanged += checkBox_SzczekiOslonki_CheckedStateChanged;
+            checkBox_SzczekiOslonki.CheckedChanged += CheckBox_SzczekiOslonki_Checked;
+            checkBox_SzczekiOslonki.CheckStateChanged += CheckBox_SzczekiOslonki_CheckedStateChanged;
             // 
             // checkBox_Serwo16U2
             // 
@@ -3462,8 +3462,8 @@
             checkBox_Serwo16U2.Name = "checkBox_Serwo16U2";
             checkBox_Serwo16U2.Tag = "DB667.NrOfDeviceToControl";
             checkBox_Serwo16U2.UseVisualStyleBackColor = false;
-            checkBox_Serwo16U2.CheckedChanged += checkBox_Serwo16U2_Checked;
-            checkBox_Serwo16U2.CheckStateChanged += checkBox_Serwo16U2_CheckedStateChanged;
+            checkBox_Serwo16U2.CheckedChanged += CheckBox_Serwo16U2_Checked;
+            checkBox_Serwo16U2.CheckStateChanged += CheckBox_Serwo16U2_CheckedStateChanged;
             // 
             // pictureBoxMachineImages
             // 
@@ -3857,14 +3857,14 @@
             dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.ColumnHeadersVisible = false;
             dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { Column2 });
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 238);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 238);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
             resources.ApplyResources(dataGridView1, "dataGridView1");
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersVisible = false;

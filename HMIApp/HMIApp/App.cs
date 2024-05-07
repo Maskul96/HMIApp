@@ -21,7 +21,7 @@ namespace HMIApp
     //Klasa do obsługi komunikacji z PLC oraz odczytu/zapisu danych z DB i do rysowania wykresu
     public class App : iApp
     {
-        DataBase _database = new DataBase();
+        DataBase _database = new();
 
         public Form1 obj;
 
@@ -125,14 +125,14 @@ namespace HMIApp
 
 
         //Stworzenie obiektu z konfiguracja sterownika
-        SiemensPLC PLC = new SiemensPLC("192.168.2.1", 102, 0, 1, 1);
+        SiemensPLC PLC = new("192.168.2.1", 102, 0, 1, 1);
 
 
         //Stworzenie obiektu CSVReader do odczytu z pliku
-        CSVReader CSVReader = new CSVReader();
+        CSVReader CSVReader = new();
 
         //Metoda do tworzenia alarmów z trzema tekstami (data, PLCTag, Nazwa) w listview 
-        private ListViewItem MakeList(string Alarm, string Alarm1, string Alarm2)
+        private static ListViewItem MakeList(string Alarm, string Alarm1, string Alarm2)
         {
             return new ListViewItem(new[] { Alarm, Alarm1, Alarm2 });
         }

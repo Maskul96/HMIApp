@@ -23,14 +23,14 @@ namespace HMIApp.Archivizations
 
     public class Archivization : iArchivization
     {
-        public DataBaseArchivization _databaseArchive = new DataBaseArchivization();
+        public DataBaseArchivization _databaseArchive = new();
         public Form1 obj;
-        public List<ArchivizationModelBasic> _archivizationmodelsbasic = new List<ArchivizationModelBasic>();
-        public List<ArchivizationModelExtended> _archivizationmodelextended = new List<ArchivizationModelExtended>();
-        public List<ArchivizationModelExtendedDataBase> _archivizationmodelextendeddatabase = new List<ArchivizationModelExtendedDataBase>();
-        public ServiceCollection services = new ServiceCollection();
+        public List<ArchivizationModelBasic> _archivizationmodelsbasic = new();
+        public List<ArchivizationModelExtended> _archivizationmodelextended = new();
+        public List<ArchivizationModelExtendedDataBase> _archivizationmodelextendeddatabase = new();
+        public ServiceCollection services = new();
         public ServiceProvider serviceProvider;
-        Logger _logger = new Logger();
+        Logger _logger = new();
         public Archivization(Form1 obj)
         {
             this.obj = obj;

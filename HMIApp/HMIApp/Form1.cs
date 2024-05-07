@@ -21,16 +21,16 @@ namespace HMIApp
     public partial class Form1 : Form
     {
         #region obiekty klas
-        Archivization _Archive = new Archivization();
-        App App = new App();
-        UserAdministration Users = new UserAdministration();
-        DataBase DataBase = new DataBase();
-        Logger _logger = new Logger();
+        Archivization _Archive = new();
+        App App = new();
+        UserAdministration Users = new();
+        DataBase DataBase = new();
+        Logger _logger = new();
         #endregion
 # region Services do dependency injection i EF
-        public ServiceCollection services = new ServiceCollection();
+        public ServiceCollection services = new();
         public ServiceProvider serviceProvider;
-        public SerialPortReader serialPortReader = new SerialPortReader();
+        public SerialPortReader serialPortReader = new();
         #endregion
         //Zmienna do Blokady rysowania wykresu dopoki nie zaczytasz referencji
         public bool blockade;
@@ -89,7 +89,7 @@ namespace HMIApp
 
 
         //Zamkniecie aplikacji z przycisku
-        private void button_Click_CloseAPP(object sender, EventArgs e)
+        private void Button_Click_CloseAPP(object sender, EventArgs e)
         {
             App.ClosePLCConnection();
             //serialPortReader.Close();
@@ -120,7 +120,7 @@ namespace HMIApp
         }
 
         //wczytaj referencje do PLC - DOROBIC ZAPIS POZOSTALYCH PARAMETROW REFERENCJI
-        private void button_Click_WriteReferenceToPLC(object sender, EventArgs e)
+        private void Button_Click_WriteReferenceToPLC(object sender, EventArgs e)
         {
             if (comboBoxListaReferencji.Text != null && comboBoxListaReferencji.Text != "")
             {
@@ -198,7 +198,7 @@ namespace HMIApp
         }
 
         //Timer co 1ms do oczytywania danych 
-        private void timer_Tick_ReadDataFromDB(object sender, EventArgs e)
+        private void Timer_Tick_ReadDataFromDB(object sender, EventArgs e)
         {
             //zakomentuj ponizsze dwie metody do odpalenia apki bez PLC
             App.ReadAlarmsFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_2.csv");
@@ -219,26 +219,26 @@ namespace HMIApp
         }
 
         //Przycisk wyzwalajacy zapis uzytkownika
-        private void button_Click_SaveUser(object sender, EventArgs e)
+        private void Button_Click_SaveUser(object sender, EventArgs e)
         {
             Users.SaveToXML();
         }
 
         //Wyswietlenie uzytkownikow z bazy
-        private void comboBox_ShowEditUsers_SelectedIndexChanged(object sender, EventArgs e)
+        private void ComboBox_ShowEditUsers_SelectedIndexChanged(object sender, EventArgs e)
         {
             textBox_Imie_Edycja.Text = comboBox_ListaUzytkWBazie.SelectedItem.ToString();
             Users.DisplayValuesFromXML(Users.LoadFromXML("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\UserData.xml"), textBox_Imie_Edycja.Text);
         }
 
         //Przycisk wyzwalający edycje użytkownika
-        private void button_Click_EditUsers(object sender, EventArgs e)
+        private void Button_Click_EditUsers(object sender, EventArgs e)
         {
             Users.EditXML();
         }
 
         //Przycisk zastepujacy event przyłożenia karty RFID do czytnika
-        private void buttonZalogujUzytk(object sender, EventArgs e)
+        private void ButtonZalogujUzytk(object sender, EventArgs e)
         {
             Users.ClearUserFromDisplay();
             OdliczaSekunde.Enabled = false;
@@ -283,14 +283,14 @@ namespace HMIApp
         }
 
         //Wyczyszczenie statusu karty Użytkownicy
-        private void timer_Tick_CzyszczenieStatusuLogowania(object sender, EventArgs e)
+        private void Timer_Tick_CzyszczenieStatusuLogowania(object sender, EventArgs e)
         {
             StatusyLogowania.Text = "";
             CzyszczenieStatusówLogowania.Enabled = false;
         }
 
         // PRZYCISK WYZWALAJACY ZAPIS referencji
-        private void button_Click_SaveReference(object sender, EventArgs e)
+        private void Button_Click_SaveReference(object sender, EventArgs e)
         {
             var database = serviceProvider.GetService<iDataBase>();
             database.InsertToDataBase();
@@ -299,7 +299,7 @@ namespace HMIApp
 
 
         //Wyrzucenie referencji po rozwinieciu comboboxa
-        private void comboBoxListaReferencji_SelectedIndexChanged(object sender, EventArgs e)
+        private void ComboBoxListaReferencji_SelectedIndexChanged(object sender, EventArgs e)
         {
             var database = serviceProvider.GetService<iDataBase>();
             database.SelectFromDataBase(comboBoxListaReferencji.Text);
@@ -380,11 +380,11 @@ namespace HMIApp
 
         //Obsluga ToggleButtonow w zakładce Tryb Reczny
         #region obsluga ToggleButtonow - Tryb Reczny i Przycisków na Ekranie głównym
-        private void checkBox_Serwo18U1_Checked(object sender, EventArgs e)
+        private void CheckBox_Serwo18U1_Checked(object sender, EventArgs e)
         {
             App.WriteToDB("15", checkBox_Serwo18U1.Tag.ToString(), 1);
         }
-        private void checkBox_Serwo18U1_CheckedStateChanged(object sender, EventArgs e)
+        private void CheckBox_Serwo18U1_CheckedStateChanged(object sender, EventArgs e)
         {
             if (checkBox_Serwo18U1.Checked)
             {
@@ -400,11 +400,11 @@ namespace HMIApp
                 pictureBoxMachineImages.Image = new Bitmap(Properties.Resources.Serwo_18U1);
             }
         }
-        private void checkBox_Serwo20U1_Checked(object sender, EventArgs e)
+        private void CheckBox_Serwo20U1_Checked(object sender, EventArgs e)
         {
             App.WriteToDB("11", checkBox_Serwo20U1.Tag.ToString(), 1);
         }
-        private void checkBox_Serwo20U1_CheckedStateChanged(object sender, EventArgs e)
+        private void CheckBox_Serwo20U1_CheckedStateChanged(object sender, EventArgs e)
         {
             if (checkBox_Serwo20U1.Checked)
             {
@@ -420,11 +420,11 @@ namespace HMIApp
                 pictureBoxMachineImages.Image = new Bitmap(Properties.Resources.Serwo_20U1);
             }
         }
-        private void checkBox_Serwo16U2_Checked(object sender, EventArgs e)
+        private void CheckBox_Serwo16U2_Checked(object sender, EventArgs e)
         {
             App.WriteToDB("12", checkBox_Serwo20U1.Tag.ToString(), 1);
         }
-        private void checkBox_Serwo16U2_CheckedStateChanged(object sender, EventArgs e)
+        private void CheckBox_Serwo16U2_CheckedStateChanged(object sender, EventArgs e)
         {
             if (checkBox_Serwo16U2.Checked)
             {
@@ -440,11 +440,11 @@ namespace HMIApp
                 pictureBoxMachineImages.Image = new Bitmap(Properties.Resources.Serwo_16U2);
             }
         }
-        private void checkBox_UkladPodnoszenia_Checked(object sender, EventArgs e)
+        private void CheckBox_UkladPodnoszenia_Checked(object sender, EventArgs e)
         {
             App.WriteToDB("13", checkBox_Serwo20U1.Tag.ToString(), 1);
         }
-        private void checkBox_UkladPodnoszenia_CheckedStateChanged(object sender, EventArgs e)
+        private void CheckBox_UkladPodnoszenia_CheckedStateChanged(object sender, EventArgs e)
         {
             if (checkBox_UkladPodnoszenia.Checked)
             {
@@ -460,11 +460,11 @@ namespace HMIApp
                 pictureBoxMachineImages.Image = new Bitmap(Properties.Resources.UkladPodnoszenia);
             }
         }
-        private void checkBox_ChwytakGorny_Checked(object sender, EventArgs e)
+        private void CheckBox_ChwytakGorny_Checked(object sender, EventArgs e)
         {
             App.WriteToDB("14", checkBox_Serwo20U1.Tag.ToString(), 1);
         }
-        private void checkBox_ChwytakGorny_CheckedStateChanged(object sender, EventArgs e)
+        private void CheckBox_ChwytakGorny_CheckedStateChanged(object sender, EventArgs e)
         {
             if (checkBox_ChwytakGorny.Checked)
             {
@@ -480,11 +480,11 @@ namespace HMIApp
                 pictureBoxMachineImages.Image = new Bitmap(Properties.Resources.ChwytakGorny);
             }
         }
-        private void checkBox_ChwytakDolny_Checked(object sender, EventArgs e)
+        private void CheckBox_ChwytakDolny_Checked(object sender, EventArgs e)
         {
             App.WriteToDB("16", checkBox_Serwo20U1.Tag.ToString(), 1);
         }
-        private void checkBox_ChwytakDolny_CheckedStateChanged(object sender, EventArgs e)
+        private void CheckBox_ChwytakDolny_CheckedStateChanged(object sender, EventArgs e)
         {
             if (checkBox_ChwytakDolny.Checked)
             {
@@ -500,11 +500,11 @@ namespace HMIApp
                 pictureBoxMachineImages.Image = new Bitmap(Properties.Resources.ChwytakDolny);
             }
         }
-        private void checkBox_ZaciskTulipa_Checked(object sender, EventArgs e)
+        private void CheckBox_ZaciskTulipa_Checked(object sender, EventArgs e)
         {
             App.WriteToDB("17", checkBox_Serwo20U1.Tag.ToString(), 1);
         }
-        private void checkBox_ZaciskTulipa_CheckedStateChanged(object sender, EventArgs e)
+        private void CheckBox_ZaciskTulipa_CheckedStateChanged(object sender, EventArgs e)
         {
             if (checkBox_ZaciskTulipa.Checked)
             {
@@ -520,11 +520,11 @@ namespace HMIApp
                 pictureBoxMachineImages.Image = new Bitmap(Properties.Resources.ZaciskTulipa);
             }
         }
-        private void checkBox_SzczekiOslonki_Checked(object sender, EventArgs e)
+        private void CheckBox_SzczekiOslonki_Checked(object sender, EventArgs e)
         {
             App.WriteToDB("18", checkBox_SzczekiOslonki.Tag.ToString(), 1);
         }
-        private void checkBox_SzczekiOslonki_CheckedStateChanged(object sender, EventArgs e)
+        private void CheckBox_SzczekiOslonki_CheckedStateChanged(object sender, EventArgs e)
         {
             if (checkBox_SzczekiOslonki.Checked)
             {
@@ -541,11 +541,11 @@ namespace HMIApp
             }
         }
 
-        private void checkBox_DyszaPionowa_Checked(object sender, EventArgs e)
+        private void CheckBox_DyszaPionowa_Checked(object sender, EventArgs e)
         {
             App.WriteToDB("19", checkBox_DyszaPionowa.Tag.ToString(), 1);
         }
-        private void checkBox_DyszaPionowa_CheckedStateChanged(object sender, EventArgs e)
+        private void CheckBox_DyszaPionowa_CheckedStateChanged(object sender, EventArgs e)
         {
             if (checkBox_DyszaPionowa.Checked)
             {
@@ -562,11 +562,11 @@ namespace HMIApp
             }
         }
 
-        private void checkBox_DyszaPozioma_Checked(object sender, EventArgs e)
+        private void CheckBox_DyszaPozioma_Checked(object sender, EventArgs e)
         {
             App.WriteToDB("20", checkBox_DyszaPozioma.Tag.ToString(), 1);
         }
-        private void checkBox_DyszaPozioma_CheckedStateChanged(object sender, EventArgs e)
+        private void CheckBox_DyszaPozioma_CheckedStateChanged(object sender, EventArgs e)
         {
             if (checkBox_DyszaPozioma.Checked)
             {

@@ -13,7 +13,7 @@ namespace HMIApp.Data
         public string ConnectionString = "";
         private readonly HMIAppDBContext _hmiAppDbContext;
         public Form1 obj;
-
+        public Logger _logger = new();
         //konstruktor do wstrzykiwania DBContext
         public DataBase(HMIAppDBContext hmiAppDbContext)
         {
@@ -32,7 +32,6 @@ namespace HMIApp.Data
             this.obj = obj;
         }
 
-        public Logger _logger = new Logger();
 
         //Odczyt pliku konfiguracyjnego z connection stringiem
         public string ReadConfFile(string filepath)
@@ -263,7 +262,7 @@ namespace HMIApp.Data
             }
         }
 
-        public void ClearCombobox()
+        public static void ClearCombobox()
         {
             Form1._Form1.comboBoxListaReferencji.Items.Clear();
             Form1._Form1.comboBoxListaReferencji.Text = "";
