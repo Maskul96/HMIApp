@@ -21,8 +21,6 @@ namespace HMIApp
     //Klasa do obsługi komunikacji z PLC oraz odczytu/zapisu danych z DB i do rysowania wykresu
     public class App : iApp
     {
-        DataBase _database = new();
-
         public Form1 obj;
 
         private int[] DB_Position = new int[8];
@@ -94,10 +92,8 @@ namespace HMIApp
         private string DBReadAlarm_TagName;
         private string DBReadAlarm_DataTypeofTag;
         private int NrOfMessage;
-        private int[] index = new int[8];
         private int[] index1 = new int[8];
         private bool[] blockade = new bool[8];
-        private ListViewItem[] item = new ListViewItem[8];
         private ListViewItem[] itemArchive = new ListViewItem[8];
         #endregion
 
@@ -140,7 +136,7 @@ namespace HMIApp
         //Metoda uruchamiająca komunikacje z PLC
         public bool RunInitPLC()
         {
-            bool _connected = false;
+            bool _connected;
             if (PLC.connected_)
             {
                 _connected = true;
@@ -169,14 +165,14 @@ namespace HMIApp
             return (b & (1 << bitNumber)) != 0;
         }
 
-        //Kasowanie zakladki Dane po uzyciu metody usuniecia referencji z bazy danych z klasy DataBase.cs - OGARNAC BO TO TEZ NIE DZIALA POPRAWNIE
+        //Kasowanie zakladki Dane po uzyciu metody usuniecia referencji z bazy danych z klasy DataBase.cs 
         public void ClearAllValueInForm1(string filepath)
         {
             var dbtags = CSVReader.DBStructure(filepath);
 
             foreach (var dbTag in dbtags)
             {
-                DBRead_position1 = dbTag.TagName.IndexOf(".");
+                DBRead_position1 = dbTag.TagName.IndexOf('.');
                 DBRead_TagName = dbTag.TagName.Remove(DBRead_position1, 1);
                 TextBox txt;
                 CheckBox chk;
@@ -420,7 +416,7 @@ namespace HMIApp
                         DBRead_NrOfByteinDB = dbTag.NumberOfByteInDB;
                         bool[] values = new bool[8];
                         //Wyszukanie samej nazwy Taga, która odpowiada 1:1 nazwie TextBoxa
-                        DBRead_position1 = dbTag.TagName.IndexOf(".");
+                        DBRead_position1 = dbTag.TagName.IndexOf('.');
                         DBRead_TagName = dbTag.TagName.Remove(DBRead_position1, 1);
                         TextBox txt;
                         ComboBox cb;
@@ -592,7 +588,7 @@ namespace HMIApp
                         break;
                     case "BYTE":
                         //Wyszukanie samej nazwy Taga, która odpowiada 1:1 nazwie TextBoxa
-                        DBRead_position1 = dbTag.TagName.IndexOf(".");
+                        DBRead_position1 = dbTag.TagName.IndexOf('.');
                         DBRead_TagName = dbTag.TagName.Remove(DBRead_position1, 1);
                         DBRead_NrOfByteinDB = dbTag.NumberOfByteInDB;
                         txt = Form1._Form1.Controls.Find($"{DBRead_TagName}", true).FirstOrDefault() as TextBox;
@@ -608,7 +604,7 @@ namespace HMIApp
                         break;
                     case "INT":
                         //Wyszukanie samej nazwy Taga, która odpowiada 1:1 nazwie TextBoxa
-                        DBRead_position1 = dbTag.TagName.IndexOf(".");
+                        DBRead_position1 = dbTag.TagName.IndexOf('.');
                         DBRead_TagName = dbTag.TagName.Remove(DBRead_position1, 1);
                         DBRead_NrOfByteinDB = dbTag.NumberOfByteInDB;
                         cb = Form1._Form1.Controls.Find($"{DBRead_TagName}", true).FirstOrDefault() as ComboBox;
@@ -654,7 +650,7 @@ namespace HMIApp
                         break;
                     case "REAL":
                         //Wyszukanie samej nazwy Taga, która odpowiada 1:1 nazwie TextBoxa
-                        DBRead_position1 = dbTag.TagName.IndexOf(".");
+                        DBRead_position1 = dbTag.TagName.IndexOf('.');
                         DBRead_TagName = dbTag.TagName.Remove(DBRead_position1, 1);
                         DBRead_NrOfByteinDB = dbTag.NumberOfByteInDB;
 
@@ -672,7 +668,7 @@ namespace HMIApp
                         break;
                     case "DINT":
                         //Wyszukanie samej nazwy Taga, która odpowiada 1:1 nazwie TextBoxa
-                        DBRead_position1 = dbTag.TagName.IndexOf(".");
+                        DBRead_position1 = dbTag.TagName.IndexOf('.');
                         DBRead_TagName = dbTag.TagName.Remove(DBRead_position1, 1);
                         DBRead_NrOfByteinDB = dbTag.NumberOfByteInDB;
 
@@ -688,7 +684,7 @@ namespace HMIApp
                         break;
                     case "STRING":
                         //Wyszukanie samej nazwy Taga, która odpowiada 1:1 nazwie TextBoxa
-                        DBRead_position1 = dbTag.TagName.IndexOf(".");
+                        DBRead_position1 = dbTag.TagName.IndexOf('.');
                         DBRead_TagName = dbTag.TagName.Remove(DBRead_position1, 1);
                         DBRead_NrOfByteinDB = dbTag.NumberOfByteInDB;
                         DBRead_LengthOfDataType = dbTag.LengthDataType;
@@ -742,7 +738,7 @@ namespace HMIApp
             foreach (var dbTag in dbtags)
             {
                 //Wyciagniecie z nazwy DBka jego numer
-                DBWrite_position = dbTag.TagName.IndexOf(".") - 2;
+                DBWrite_position = dbTag.TagName.IndexOf('.') - 2;
                 DBWrite_NumberOfDB = dbTag.TagName.Substring(2, DBWrite_position);
                 //Przepisanie danych potrzebnych do konfiguracji zapisu odpowiednich danych
                 if (NameofTaginDB == dbTag.TagName)
@@ -759,8 +755,8 @@ namespace HMIApp
                 //ZAPISYWANIE BOOLI 
                 case "BOOL":
                     byte[] DB = new byte[1];
-                    bool values = false;
-                    string valuesToString = "";
+                    bool values;
+                    string valuesToString;
                     int boolValueFromDB = 0;
                     int boolValue = 0;
                     byte[] BoolToSave = new byte[0];
@@ -808,7 +804,7 @@ namespace HMIApp
                             }
 
                             boolValueFromDB = DB[0];
-                            boolValueFromDB = boolValueFromDB - boolValue;
+                            boolValueFromDB -= boolValue;
                             BoolToSave = BitConverter.GetBytes(boolValueFromDB);
                             PLC.Write(int.Parse(DBWrite_NumberOfDB), DBWrite_NrOfByteinDB, DBWrite_LengthofDataType, BoolToSave);
                         }
@@ -850,7 +846,7 @@ namespace HMIApp
                                     break;
                             }
                             boolValueFromDB = DB[0];
-                            boolValueFromDB = boolValueFromDB + boolValue;
+                            boolValueFromDB += boolValue;
                             BoolToSave = BitConverter.GetBytes(boolValueFromDB);
                             PLC.Write(int.Parse(DBWrite_NumberOfDB), DBWrite_NrOfByteinDB, DBWrite_LengthofDataType, BoolToSave);
                         }
@@ -878,7 +874,7 @@ namespace HMIApp
                     break;
                 case "REAL":
                     //Write Float
-                    if (!valuetoWrite.Contains("."))
+                    if (!valuetoWrite.Contains('.'))
                     {
                         if (valuetoWrite != "")
                         {
@@ -1470,7 +1466,7 @@ namespace HMIApp
                 DBReadIO_DataTypeofTag = dbTag.DataTypeOfTag;
                 bool[] values = new bool[8];
                 //Wyszukanie samej nazwy Taga, która odpowiada 1:1 nazwie TextBoxa
-                DBReadIO_position1 = dbTag.TagName.IndexOf(".");
+                DBReadIO_position1 = dbTag.TagName.IndexOf('.');
                 DBReadIO_TagName = dbTag.TagName.Remove(DBReadIO_position1, 1);
                 TextBox txt;
                 switch (DBReadIO_NrOfBitinByte)

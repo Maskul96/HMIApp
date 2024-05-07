@@ -24,18 +24,19 @@ namespace HMIApp
         Archivization _Archive = new();
         App App = new();
         UserAdministration Users = new();
-        DataBase DataBase = new();
-        Logger _logger = new();
+
         #endregion
-# region Services do dependency injection i EF
-        public ServiceCollection services = new();
-        public ServiceProvider serviceProvider;
-        public SerialPortReader serialPortReader = new();
-        #endregion
+        # region Services do dependency injection i EF
+                public ServiceCollection services = new();
+                public ServiceProvider serviceProvider;
+                public SerialPortReader serialPortReader = new();
+                #endregion
         //Zmienna do Blokady rysowania wykresu dopoki nie zaczytasz referencji
         public bool blockade;
         //statyczna zmienna typu Form1 zeby dostac sie z poziomu innej klasy do obiektow wewnatrz Form1
         public static Form1 _Form1;
+        // Określenie ścieżki folderu, który chcemy wyświetlić
+        string folderPath = @"D:\Projekty C#\HMIApp\HMIApp\HMIApp\Resources\Files\ArchivizationsFromDataBase";
         public Form1()
         {
             InitializeComponent();
@@ -78,6 +79,9 @@ namespace HMIApp
 
             //Blokada rysowania wykresu dopoki nie zaczytasz referencji
             blockade = false;
+
+            // Wywołanie funkcji do dodawania węzłów do drzewa
+            PopulateTreeView(folderPath, treeView1.Nodes);
         }
 
         //Zamkniecie aplikacji
@@ -318,51 +322,6 @@ namespace HMIApp
                     App.ClearAllValueInForm1("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_0.csv");
                 }
             };
-        }
-
-
-        //Zamiana kropki na przecinek
-        private void CommaReplaceDotTextBox(Control control)
-        {
-            foreach (Control ctrl in control.Controls)
-            {
-                if (ctrl is TextBox)
-                {
-                    //if(ctrl.Name == "textbox1")
-                    TextBox textBox = (TextBox)ctrl;
-                    textBox.KeyPress += TextBox_KeyPress;
-                }
-                else if (ctrl.HasChildren)
-                {
-                    CommaReplaceDotTextBox(ctrl);
-                }
-            }
-        }
-
-
-        //Obsluga zamiany kropki na przecinek
-        private void TextBox_KeyPress(object sender, KeyPressEventArgs e)
-        {
-
-            TextBox textBox = (TextBox)sender;
-            // Jeśli naciśnięto kropkę, zamień na przecinek
-            if (e.KeyChar == '.')
-            {
-                e.KeyChar = ',';
-            }
-        }
-
-
-        // Obsluga OnScreenKeyboard po wcisnieciu TextBoxa - OGARNAC ZEBY NIE WYSWIETLALA SIE JAK JUZ JEST NA EKRANIE
-        private void TextBox_Click(object sender, EventArgs e)
-        {
-            Process[] oslProcessArry = Process.GetProcessesByName("TabTip");
-            foreach (Process oslProcess in oslProcessArry)
-            {
-                oslProcess.Kill();
-            }
-            string progFiles = @"C:\Program Files\Common Files\Microsoft Shared\Ink\TabTip.exe";
-            Process.Start(progFiles);
         }
 
         //Event zmiany koloru - wyzwala metode uruchmiajaca Event przejscia w Auto/Man
@@ -620,6 +579,8 @@ namespace HMIApp
         {
             _Archive.ExportToCSVButtonFromForm1();
             CzyszczenieStatusowArchiwizacji.Enabled = true;
+            // Wywołanie funkcji do dodawania węzłów do drzewa
+            PopulateTreeView(folderPath, treeView1.Nodes);
         }
         //Czyszczenie info dla uzytkownika - status archiwizacji
         private void CzyszczenieStatusowArchiwizacji_Tick(object sender, EventArgs e)
@@ -627,5 +588,64 @@ namespace HMIApp
             label_StatusyArchiwizacji.Text = "";
             CzyszczenieStatusowArchiwizacji.Enabled = false;
         }
+
+        #region Metody pomocnicze dla Form1
+        //Zamiana kropki na przecinek
+        private void CommaReplaceDotTextBox(Control control)
+        {
+            foreach (Control ctrl in control.Controls)
+            {
+                if (ctrl is TextBox)
+                {
+                    //if(ctrl.Name == "textbox1")
+                    TextBox textBox = (TextBox)ctrl;
+                    textBox.KeyPress += TextBox_KeyPress;
+                }
+                else if (ctrl.HasChildren)
+                {
+                    CommaReplaceDotTextBox(ctrl);
+                }
+            }
+        }
+
+
+        //Obsluga zamiany kropki na przecinek
+        private void TextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+            TextBox textBox = (TextBox)sender;
+            // Jeśli naciśnięto kropkę, zamień na przecinek
+            if (e.KeyChar == '.')
+            {
+                e.KeyChar = ',';
+            }
+        }
+
+
+        // Obsluga OnScreenKeyboard po wcisnieciu TextBoxa - OGARNAC ZEBY NIE WYSWIETLALA SIE JAK JUZ JEST NA EKRANIE
+        private void TextBox_Click(object sender, EventArgs e)
+        {
+            Process[] oslProcessArry = Process.GetProcessesByName("TabTip");
+            foreach (Process oslProcess in oslProcessArry)
+            {
+                oslProcess.Kill();
+            }
+            string progFiles = @"C:\Program Files\Common Files\Microsoft Shared\Ink\TabTip.exe";
+            Process.Start(progFiles);
+        }
+        #endregion
+        #region Obsluga TreeView
+        // Funkcja rekurencyjna do dodawania węzłów do drzewa
+        private void PopulateTreeView(string directory, TreeNodeCollection parentNode)
+        {
+            // Dodawanie węzłów reprezentujących pliki
+            string[] files = Directory.GetFiles(directory);
+            foreach (string file in files)
+            {
+                TreeNode node = new TreeNode(Path.GetFileName(file));
+                parentNode.Add(node);
+            }
+        }
+        #endregion
     }
 }
