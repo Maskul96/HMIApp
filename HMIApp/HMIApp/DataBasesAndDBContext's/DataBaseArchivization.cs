@@ -16,7 +16,7 @@ namespace HMIApp.Data
     {
         private readonly HMIAppDBContextArchivization _hmiAppDbContextArchivization;
         public string ConnectionString = "";
-        Logger _logger;
+        public Logger _logger = new();
         public List<ArchivizationModelExtendedDataBase> _archivizationmodelextendeddatabase = new();
         public DataBaseArchivization()
         {

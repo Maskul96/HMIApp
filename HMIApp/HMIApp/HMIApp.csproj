@@ -12,7 +12,7 @@
     <Content Include="Resources\Logo%27s\logotyp-Controltec.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="CsvHelper" Version="32.0.1" />
+    <PackageReference Include="CsvHelper" Version="32.0.2" />
     <PackageReference Include="DotNetProjects.WpfToolkit.DataVisualization" Version="6.1.94" />
     <PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.0" />
     <PackageReference Include="Microsoft.Identity.Client" Version="4.60.3" />
@@ -21,7 +21,7 @@
     <PackageReference Include="Microsoft.IdentityModel.Protocols" Version="7.5.1" />
     <PackageReference Include="Microsoft.IdentityModel.Protocols.OpenIdConnect" Version="7.5.1" />
     <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="7.5.1" />
-    <PackageReference Include="ScottPlot.WinForms" Version="5.0.31" />
+    <PackageReference Include="ScottPlot.WinForms" Version="5.0.34" />
     <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
     <PackageReference Include="Microsoft.Bcl.AsyncInterfaces" Version="8.0.0" />
     <PackageReference Include="Microsoft.Bcl.HashCode" Version="1.1.1" />

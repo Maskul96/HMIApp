@@ -23,15 +23,6 @@ namespace HMIApp
     {
         public Form1 obj;
 
-        private int[] DB_Position = new int[8];
-        private string[] DB_NumberOfDB = new string[8];
-        private string[] DB_DataTypeOfTag = new string[8];
-        private int[] DB_NrOfByteinDB = new int[8];
-        private int[] DB_NrOfBitinByte = new int[8];
-        private int[] DB_LengthofDataType = new int[8];
-        private string[] DB_TagName = new string[8];
-        private int[] DB_StartDB = new int[8];
-        private int[] DB_EndDB = new int[8];
         #region Zmienne do DBka do odczytu wykresu
         private int DBread_position;
         private string DBread_NumberOfDB;
@@ -766,14 +757,14 @@ namespace HMIApp
                     boolValueFromDB = DB[0];
                     values = GetBit(DB[0], DBWrite_NrOfBitinByte);
                     valuesToString = values.ToString();
-                    if (valuesToString.ToUpper() == "TRUE")
+                    if (valuesToString.Equals("TRUE", StringComparison.CurrentCultureIgnoreCase))
                     {
-                        if (valuetoWrite.ToUpper() == "TRUE" || valuetoWrite.ToUpper() == "")
+                        if (valuetoWrite.Equals("TRUE", StringComparison.CurrentCultureIgnoreCase) || valuetoWrite.Equals("", StringComparison.CurrentCultureIgnoreCase))
                         {
                             boolValueFromDB = DB[0];
                             BoolToSave = BitConverter.GetBytes(boolValueFromDB);
                         }
-                        else if (valuetoWrite.ToUpper() == "FALSE")
+                        else if (valuetoWrite.Equals("FALSE", StringComparison.CurrentCultureIgnoreCase))
                         {
                             switch (DBWrite_NrOfBitinByte)
                             {
@@ -809,14 +800,14 @@ namespace HMIApp
                             PLC.Write(int.Parse(DBWrite_NumberOfDB), DBWrite_NrOfByteinDB, DBWrite_LengthofDataType, BoolToSave);
                         }
                     }
-                    else if (valuesToString.ToUpper() == "FALSE")
+                    else if (valuesToString.Equals("FALSE", StringComparison.CurrentCultureIgnoreCase))
                     {
-                        if (valuetoWrite.ToUpper() == "FALSE" || valuetoWrite.ToUpper() == "")
+                        if (valuetoWrite.Equals("FALSE", StringComparison.CurrentCultureIgnoreCase) || valuetoWrite.Equals("", StringComparison.CurrentCultureIgnoreCase))
                         {
                             boolValueFromDB = DB[0];
                             BoolToSave = BitConverter.GetBytes(boolValueFromDB);
                         }
-                        else if (valuetoWrite.ToUpper() == "TRUE")
+                        else if (valuetoWrite.Equals("TRUE", StringComparison.CurrentCultureIgnoreCase))
                         {
                             switch (DBWrite_NrOfBitinByte)
                             {
@@ -976,7 +967,7 @@ namespace HMIApp
                         {
                             case 0:
                                 values[0] = GetBit(DB[DBReadAlarm_NrOfByteinDB], 0);
-                                if (values[0].ToString().ToUpper() == "TRUE")
+                                if (values[0].ToString().Equals("TRUE", StringComparison.CurrentCultureIgnoreCase))
                                 {
                                     try
                                     {
@@ -1032,7 +1023,7 @@ namespace HMIApp
                             case 1:
                                 values[1] = GetBit(DB[DBReadAlarm_NrOfByteinDB], 1);
 
-                                if (values[1].ToString().ToUpper() == "TRUE")
+                                if (values[1].ToString().Equals("TRUE", StringComparison.CurrentCultureIgnoreCase))
                                 {
                                     //z uzyciem LINQ
                                     try
@@ -1086,7 +1077,7 @@ namespace HMIApp
                                 break;
                             case 2:
                                 values[2] = GetBit(DB[DBReadAlarm_NrOfByteinDB], 2);
-                                if (values[2].ToString().ToUpper() == "TRUE")
+                                if (values[2].ToString().Equals("TRUE", StringComparison.CurrentCultureIgnoreCase))
                                 {
                                     //z uzyciem LINQ
                                     try
@@ -1140,7 +1131,7 @@ namespace HMIApp
                                 break;
                             case 3:
                                 values[3] = GetBit(DB[DBReadAlarm_NrOfByteinDB], 3);
-                                if (values[3].ToString().ToUpper() == "TRUE")
+                                if (values[3].ToString().Equals("TRUE", StringComparison.CurrentCultureIgnoreCase))
                                 {
                                     //z uzyciem LINQ
                                     try
@@ -1194,7 +1185,7 @@ namespace HMIApp
                                 break;
                             case 4:
                                 values[4] = GetBit(DB[DBReadAlarm_NrOfByteinDB], 4);
-                                if (values[4].ToString().ToUpper() == "TRUE")
+                                if (values[4].ToString().Equals("TRUE", StringComparison.CurrentCultureIgnoreCase))
                                 {
                                     //z uzyciem LINQ
                                     try
@@ -1248,7 +1239,7 @@ namespace HMIApp
                                 break;
                             case 5:
                                 values[5] = GetBit(DB[DBReadAlarm_NrOfByteinDB], 5);
-                                if (values[5].ToString().ToUpper() == "TRUE")
+                                if (values[5].ToString().Equals("TRUE", StringComparison.CurrentCultureIgnoreCase))
                                 {
                                     //z uzyciem LINQ
                                     try
@@ -1302,7 +1293,7 @@ namespace HMIApp
                                 break;
                             case 6:
                                 values[6] = GetBit(DB[DBReadAlarm_NrOfByteinDB], 6);
-                                if (values[6].ToString().ToUpper() == "TRUE")
+                                if (values[6].ToString().Equals("TRUE", StringComparison.CurrentCultureIgnoreCase))
                                 {
                                     //z uzyciem LINQ
                                     try
@@ -1356,7 +1347,7 @@ namespace HMIApp
                                 break;
                             case 7:
                                 values[7] = GetBit(DB[DBReadAlarm_NrOfByteinDB], 7);
-                                if (values[7].ToString().ToUpper() == "TRUE")
+                                if (values[7].ToString().Equals("TRUE", StringComparison.CurrentCultureIgnoreCase))
                                 {
                                     //z uzyciem LINQ
                                     try

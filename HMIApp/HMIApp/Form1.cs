@@ -597,7 +597,6 @@ namespace HMIApp
             {
                 if (ctrl is TextBox)
                 {
-                    //if(ctrl.Name == "textbox1")
                     TextBox textBox = (TextBox)ctrl;
                     textBox.KeyPress += TextBox_KeyPress;
                 }
@@ -636,13 +635,13 @@ namespace HMIApp
         #endregion
         #region Obsluga TreeView
         // Funkcja rekurencyjna do dodawania węzłów do drzewa
-        private void PopulateTreeView(string directory, TreeNodeCollection parentNode)
+        private static void PopulateTreeView(string directory, TreeNodeCollection parentNode)
         {
             // Dodawanie węzłów reprezentujących pliki
             string[] files = Directory.GetFiles(directory);
             foreach (string file in files)
             {
-                TreeNode node = new TreeNode(Path.GetFileName(file));
+                TreeNode node = new(Path.GetFileName(file));
                 parentNode.Add(node);
             }
         }
