@@ -152,6 +152,16 @@ namespace HMIApp.Archivizations
 
         }
 
+        public void OnArchiveEventsMethod(string message)
+        {
+            //Sprawdzamy w ifie czy ktos z zewnatrz (subscriber) podpiął się pod ten event i jak tak to dopiero odpalamy event
+            if (ArchiveEvent != null)
+            {
+                //odpalenie eventu
+                ArchiveEvent(this, new EventArgs(), message);
+            }
+        }
+
         public void AddingYearToComboBoxArchivizationToCSVForm1()
         {
             var FindYear = Form1._Form1.comboBox_StartYear.FindString($"{DateTime.Now.Year}");
@@ -252,16 +262,6 @@ namespace HMIApp.Archivizations
                 NumberOfShift = 3;
             }
             return NumberOfShift;
-        }
-
-        public void OnArchiveEventsMethod(string message)
-        {
-            //Sprawdzamy w ifie czy ktos z zewnatrz (subscriber) podpiął się pod ten event i jak tak to dopiero odpalamy event
-            if (ArchiveEvent != null)
-            {
-                //odpalenie eventu
-                ArchiveEvent(this, new EventArgs(), message);
-            }
         }
 
         #region Metody używane do wcześniejszych archiwizacji bez użycia bazy danych - Obecnie nieużywane

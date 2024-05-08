@@ -80,4 +80,6 @@
   <Użytkownik ID="78" Numer_karty="1234561111111" Nazwa_użytkownika="123456111100000" Uprawnienia="1" />
   <Użytkownik ID="79" Numer_karty="123456711111111" Nazwa_użytkownika="12345671110000" Uprawnienia="1" />
   <Użytkownik ID="80" Numer_karty="1234567811111" Nazwa_użytkownika="1234567811110000" Uprawnienia="1" />
+  <Użytkownik ID="81" Numer_karty="qwerty" Nazwa_użytkownika="qwerty" Uprawnienia="2" />
+  <Użytkownik ID="82" Numer_karty="400018CEB4" Nazwa_użytkownika="Kamil Maskulanis" Uprawnienia="2" />
 </Użytkownicy>

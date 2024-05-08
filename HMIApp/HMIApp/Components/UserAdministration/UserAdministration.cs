@@ -21,9 +21,9 @@ namespace HMIApp.Components.UserAdministration
         public string NrofCard;
         public string Name;
         public string UserRights;
-        public int id=1;
-       // public bool UserIsLoggedIn;
-        public int Interval = 100000/1000;
+        public int id = 1;
+        // public bool UserIsLoggedIn;
+        public int Interval = 100000 / 1000;
 
         public bool UserIsLoggedIn { get; set; }
 
@@ -36,7 +36,7 @@ namespace HMIApp.Components.UserAdministration
 
         public void EnabledObjects()
         {
-            if ( UserIsLoggedIn )
+            if (UserIsLoggedIn)
             {
                 Form1._Form1.buttonUsunRef.Enabled = true;
                 Form1._Form1.button_ZamknijApke.Enabled = true;
@@ -109,7 +109,7 @@ namespace HMIApp.Components.UserAdministration
                 }
                 catch (Exception)
                 {
-                    Form1._Form1.StatusyLogowania.Text = "Nie znaleziono takiego użytkownika";                    
+                    Form1._Form1.StatusyLogowania.Text = "Nie znaleziono takiego użytkownika";
                 }
             }
             else
@@ -117,6 +117,7 @@ namespace HMIApp.Components.UserAdministration
                 ClearUserFromDisplay();
             }
         }
+
         public void SaveToXML()
         {
             //Załaduj plik przed dodaniem nowych danych i zapisaniem
@@ -130,33 +131,37 @@ namespace HMIApp.Components.UserAdministration
             if (NrofCard != "" && Name != "" && UserRights != "")
             {
                 //Zabezpieczenie przed dodanie usera o tym samym numerze karty
+
+
                 var names = document.Element("Użytkownicy")?
                 .Elements("Użytkownik")
                 .Where(x => x.Attribute("Numer_karty")?.Value == NrofCard)
-                .Single();
+                .SingleOrDefault();
 
-                if (NrofCard != names.Attribute("Numer_karty").Value)
+                if (names!= null)
                 {
-                    document.Element("Użytkownicy").Add
-                        (new XElement("Użytkownik",
-                        new XAttribute("ID", id),
-                        new XAttribute("Numer_karty", NrofCard),
-                     new XAttribute("Nazwa_użytkownika", Name),
-                     new XAttribute("Uprawnienia", UserRights)));
-                    //Zapis ppliku
-                    document.Save("document.xml");
-                    //Komunikat dla usera
-                    Form1._Form1.StatusyLogowania.Text = ("Użytkownik dodany");
-
-                    //Wyczyszczenie i nastepnie update listy w combobox
-                    ClearListInComboBox();
-                    DisplayValuesFromXML(document);
+                    if (NrofCard == names.Attribute("Numer_karty").Value)
+                    {
+                        Form1._Form1.StatusyLogowania.Text = ("Użytkownik już istnieje!");
+                    }
                 }
                 else
                 {
+
+                    document.Element("Użytkownicy").Add
+                             (new XElement("Użytkownik",
+                             new XAttribute("ID", id),
+                             new XAttribute("Numer_karty", NrofCard),
+                          new XAttribute("Nazwa_użytkownika", Name),
+                          new XAttribute("Uprawnienia", UserRights)));
+                    //Zapis ppliku
+                    document.Save("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\UserData.xml");
                     //Komunikat dla usera
-                    Form1._Form1.StatusyLogowania.Text = ("Użytkownik już istnieje!");
+                    Form1._Form1.StatusyLogowania.Text = ("Użytkownik dodany");
                 }
+                //Wyczyszczenie i nastepnie update listy w combobox
+                ClearListInComboBox();
+                DisplayValuesFromXML(document);
             }
             else
             {
@@ -190,7 +195,7 @@ namespace HMIApp.Components.UserAdministration
                 names.Attribute("Uprawnienia").Value = Form1._Form1.comboBox_ListaUprawnien_Edycja.SelectedIndex.ToString();
 
                 //Zapis ppliku
-                document.Save("document.xml");
+                document.Save("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\UserData.xml");
 
                 //Komunikat dla usera
                 Form1._Form1.StatusyLogowania.Text = ("Użytkownik zedytowany");
@@ -229,7 +234,7 @@ namespace HMIApp.Components.UserAdministration
                 .Select(x => x.Attribute("Nazwa_użytkownika")?.Value);
                 foreach (var item in names)
                 {
-                        Form1._Form1.comboBox_ListaUzytkWBazie.Items.Add(item);
+                    Form1._Form1.comboBox_ListaUzytkWBazie.Items.Add(item);
                 }
             }
             if (Name != "")
@@ -237,10 +242,10 @@ namespace HMIApp.Components.UserAdministration
                 var names = document.Element("Użytkownicy")?
                 .Elements("Użytkownik")
                 .Where(x => x.Attribute("Nazwa_użytkownika")?.Value == Name)
-                .Select(x => x.Attribute("ID")?.Value);
+                .Select(x => x.Attribute("Nazwa_użytkownika")?.Value);
                 foreach (var item in names)
                 {
-                    Form1._Form1.textBox_ID_Edycja.Text = item;
+                    Form1._Form1.textBox_Imie_Edycja.Text = item;
                 }
 
                 names = document.Element("Użytkownicy")?
