@@ -12,6 +12,7 @@ using HMIApp.Components.RFIDCardReader;
 using Microsoft.Win32;
 using System.Diagnostics;
 using ScottPlot.Colormaps;
+using System.IO.Ports;
 
 
 
@@ -24,12 +25,12 @@ namespace HMIApp
         Archivization _Archive = new();
         App App = new();
         UserAdministration Users = new();
+        public SerialPortReader serialPortReader = new();
 
         #endregion
-        # region Services do dependency injection i EF
-                public ServiceCollection services = new();
+        #region Services do dependency injection i EF
+        public ServiceCollection services = new();
                 public ServiceProvider serviceProvider;
-                public SerialPortReader serialPortReader = new();
                 #endregion
         //Zmienna do Blokady rysowania wykresu dopoki nie zaczytasz referencji
         public bool blockade;
@@ -62,8 +63,10 @@ namespace HMIApp
 
             _Archive.Run();
             _Archive.ArchiveEventRun();
-            //serialPortReader.InitializeSerialPort();
-            // serialPortReader.Run();
+
+            serialPortReader.InitializeSerialPort();
+            serialPortReader.Run();
+            
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -88,7 +91,7 @@ namespace HMIApp
         private void Form1Closing(object sender, FormClosingEventArgs e)
         {
             App.ClosePLCConnection();
-            //serialPortReader.Close();
+            serialPortReader.Close();
         }
 
 
@@ -98,6 +101,36 @@ namespace HMIApp
             App.ClosePLCConnection();
             //serialPortReader.Close();
             Close();
+        }
+
+
+        //Przekazanie receivedData z portu szeregowego z klasy SerialPortReader do textboxów
+        //Właściwość ReadSerialPort umożliwia ustawienie TextBox właściwości kontrolki Text na nową wartość.Metoda wykonuje zapytanie InvokeRequired.
+        //Jeśli InvokeRequired zwraca wartość true, ReadSerialPort rekursywnie wywołuje samą siebie, przekazując metodę jako delegata do Invoke metody.
+        //Jeśli InvokeRequired funkcja zwraca false wartość , ReadSerialPort ustawia TextBox.Text wartość bezpośrednio
+        public void ReadSerialPort(string receivedData)
+        {
+            if(textBox_MiejsceNaNrKarty_Zaloguj.InvokeRequired)
+            {
+                Action safewrite = delegate { ReadSerialPort(receivedData); };
+                textBox_MiejsceNaNrKarty_Zaloguj.Invoke(safewrite);
+                //Action buttonZaloguj = delegate { ButtonZalogujUzytk(null, null); };
+                //ButtonZalogujUzytk(null,null).Invoke(buttonZaloguj);
+            }
+            else
+            {
+                textBox_MiejsceNaNrKarty_Zaloguj.Text = receivedData;
+            }
+            if (textbox_NumerKarty_DodajUzytk.InvokeRequired)
+            {
+                Action safewrite = delegate { ReadSerialPort(receivedData); };
+                textbox_NumerKarty_DodajUzytk.Invoke(safewrite);
+            }
+            else
+            {
+                textbox_NumerKarty_DodajUzytk.Text = receivedData;
+            }
+
         }
 
 
@@ -219,7 +252,6 @@ namespace HMIApp
             //aktualizacja daty i godziny
             this.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
             label_DataIGodzina.Text = this.Text;
-
         }
 
         //Przycisk wyzwalajacy zapis uzytkownika
@@ -253,8 +285,8 @@ namespace HMIApp
             if (Users.UserIsLoggedIn)
             {
                 _Archive.OnArchiveEventsMethod("Event - Logowanie użytkownika");
-            }
-            Users.EnabledObjects();
+                Users.EnabledObjects();
+            }          
 
             CzyszczenieStatusówLogowania.Enabled = true;
         }
@@ -267,6 +299,8 @@ namespace HMIApp
             Users.EnabledObjects();
             StatusyLogowania.Text = "Uzytkownik wylogowany automatycznie";
             CzyszczenieStatusówLogowania.Enabled = true;
+            textBox_MiejsceNaNrKarty_Zaloguj.Text = "";
+            textbox_NumerKarty_DodajUzytk.Text = "";
         }
 
 

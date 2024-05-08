@@ -2436,6 +2436,7 @@
             resources.ApplyResources(textBox_MiejsceNaNrKarty_Zaloguj, "textBox_MiejsceNaNrKarty_Zaloguj");
             textBox_MiejsceNaNrKarty_Zaloguj.Name = "textBox_MiejsceNaNrKarty_Zaloguj";
             textBox_MiejsceNaNrKarty_Zaloguj.Click += TextBox_Click;
+            textBox_MiejsceNaNrKarty_Zaloguj.TextChanged += ButtonZalogujUzytk;
             // 
             // button_ZalogujUzytk
             // 

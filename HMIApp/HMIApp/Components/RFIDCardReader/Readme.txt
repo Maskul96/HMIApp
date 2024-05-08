@@ -1,1 +1,1 @@
-W tym folderze utworzyć klase do obsługi czytników RFID po SerialProtocol RS232 podłączone po USB
+Obsługa czytnika RFID Inveo po wirtualnym porcie szeregowym

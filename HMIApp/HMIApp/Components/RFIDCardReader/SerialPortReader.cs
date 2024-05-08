@@ -1,6 +1,8 @@
 ﻿using System;
 using System.IO.Ports;
 using System.Windows.Forms;
+using System.Threading;
+using System.Windows.Documents;
 
 namespace HMIApp.Components.RFIDCardReader
 {
@@ -8,6 +10,7 @@ namespace HMIApp.Components.RFIDCardReader
     {
         public Form1 obj;
         private SerialPort _serialPort;
+
         public SerialPortReader(Form1 obj)
         {
             this.obj = obj;
@@ -17,20 +20,17 @@ namespace HMIApp.Components.RFIDCardReader
             
         }
 
-        Logger _logger = new Logger();
-
         public void InitializeSerialPort()
         {
-           _serialPort = new SerialPort();
-            _serialPort.PortName = "COM1";
+            _serialPort = new SerialPort();
+            _serialPort.PortName = "COM5";
             _serialPort.BaudRate = 9600;
             _serialPort.DataBits = 8;
             _serialPort.Parity = Parity.None;
             _serialPort.StopBits = StopBits.One;
             _serialPort.Handshake = Handshake.None;
-            _serialPort.DataReceived += SerialPort_DataReceived;
+            _serialPort.DataReceived += new SerialDataReceivedEventHandler(SerialPort_DataReceived);
         }
-
 
         public void Run()
         {
@@ -38,10 +38,10 @@ namespace HMIApp.Components.RFIDCardReader
             {
                 _serialPort.Open();
             }
-            catch (Exception ex)
+            catch(Exception)
             {
-                _logger.LogMessage(ex.ToString());
-            }
+                MessageBox.Show("Nie można otworzyć portu szeregowego - sprawdź czy Czytnik RFID jest wpięty w poprawny port COM");
+            }                     
         }
 
         public void Close()
@@ -51,12 +51,13 @@ namespace HMIApp.Components.RFIDCardReader
 
         public void SerialPort_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
+
             SerialPort sp = (SerialPort)sender;
-            string receivedData = sp.ReadLine();
-
-            Form1._Form1.textBox_MiejsceNaNrKarty_Zaloguj.Text = receivedData;
+            string receivedData = sp.ReadExisting();
+            // Poniżej procedura obsługi zdarzeń tworzy nowy wątek i uruchamia metodę ReadSerialPort - z dokumentacji meotdy Invoke
+            var threadParameters = new ThreadStart(delegate { Form1._Form1.ReadSerialPort(receivedData); });
+            var thread2 = new Thread(threadParameters);
+            thread2.Start();
         }
-    }
-
-    
+    }   
 }
