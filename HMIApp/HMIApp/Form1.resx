@@ -8808,42 +8808,6 @@
   <data name="&gt;&gt;textBox_MiejsceNaNrKarty_Zaloguj.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="button_ZalogujUzytk.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
-    <value>GrowAndShrink</value>
-  </data>
-  <data name="button_ZalogujUzytk.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="button_ZalogujUzytk.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 11.25pt</value>
-  </data>
-  <data name="button_ZalogujUzytk.Location" type="System.Drawing.Point, System.Drawing">
-    <value>278, 6</value>
-  </data>
-  <data name="button_ZalogujUzytk.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 3, 4, 3</value>
-  </data>
-  <data name="button_ZalogujUzytk.Size" type="System.Drawing.Size, System.Drawing">
-    <value>145, 30</value>
-  </data>
-  <data name="button_ZalogujUzytk.TabIndex" type="System.Int32, mscorlib">
-    <value>79</value>
-  </data>
-  <data name="button_ZalogujUzytk.Text" xml:space="preserve">
-    <value>ZALOGUJ</value>
-  </data>
-  <data name="&gt;&gt;button_ZalogujUzytk.Name" xml:space="preserve">
-    <value>button_ZalogujUzytk</value>
-  </data>
-  <data name="&gt;&gt;button_ZalogujUzytk.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;button_ZalogujUzytk.Parent" xml:space="preserve">
-    <value>tableLayoutPanel15</value>
-  </data>
-  <data name="&gt;&gt;button_ZalogujUzytk.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
   <data name="tableLayoutPanel15.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
@@ -8872,7 +8836,7 @@
     <value>0</value>
   </data>
   <data name="tableLayoutPanel15.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="textBox_MiejsceNaNrKarty_Zaloguj" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="button_ZalogujUzytk" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,63,820225,Percent,36,179775" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="textBox_MiejsceNaNrKarty_Zaloguj" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,63,820225,Percent,36,179775" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="panel8.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>

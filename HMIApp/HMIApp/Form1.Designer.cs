@@ -325,7 +325,6 @@
             panel8 = new System.Windows.Forms.Panel();
             tableLayoutPanel15 = new System.Windows.Forms.TableLayoutPanel();
             textBox_MiejsceNaNrKarty_Zaloguj = new System.Windows.Forms.TextBox();
-            button_ZalogujUzytk = new System.Windows.Forms.Button();
             StatusyLogowania = new System.Windows.Forms.TextBox();
             label56 = new System.Windows.Forms.Label();
             tabPage4 = new System.Windows.Forms.TabPage();
@@ -2428,7 +2427,6 @@
             // 
             resources.ApplyResources(tableLayoutPanel15, "tableLayoutPanel15");
             tableLayoutPanel15.Controls.Add(textBox_MiejsceNaNrKarty_Zaloguj, 0, 0);
-            tableLayoutPanel15.Controls.Add(button_ZalogujUzytk, 1, 0);
             tableLayoutPanel15.Name = "tableLayoutPanel15";
             // 
             // textBox_MiejsceNaNrKarty_Zaloguj
@@ -2437,13 +2435,6 @@
             textBox_MiejsceNaNrKarty_Zaloguj.Name = "textBox_MiejsceNaNrKarty_Zaloguj";
             textBox_MiejsceNaNrKarty_Zaloguj.Click += TextBox_Click;
             textBox_MiejsceNaNrKarty_Zaloguj.TextChanged += ButtonZalogujUzytk;
-            // 
-            // button_ZalogujUzytk
-            // 
-            resources.ApplyResources(button_ZalogujUzytk, "button_ZalogujUzytk");
-            button_ZalogujUzytk.Name = "button_ZalogujUzytk";
-            button_ZalogujUzytk.UseVisualStyleBackColor = true;
-            button_ZalogujUzytk.Click += ButtonZalogujUzytk;
             // 
             // StatusyLogowania
             // 
@@ -4399,7 +4390,6 @@
         private System.Windows.Forms.Label label58;
         private System.Windows.Forms.Label label_ObecniUzytkWBazie;
         private System.Windows.Forms.Label label59;
-        public System.Windows.Forms.Button button_ZalogujUzytk;
         private System.Windows.Forms.Label label56;
         public System.Windows.Forms.Button buttonDodajUzytkownika;
         private System.Windows.Forms.TabPage tabPage4;
