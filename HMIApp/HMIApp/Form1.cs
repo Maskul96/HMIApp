@@ -85,6 +85,7 @@ namespace HMIApp
 
             // Wywołanie funkcji do dodawania węzłów do drzewa
             PopulateTreeView(folderPath, treeView1.Nodes);
+            label_WczytajReferencje.Visible = true;
         }
 
         //Zamkniecie aplikacji
@@ -218,7 +219,7 @@ namespace HMIApp
 
                 //przepisywanie numeru referencji i klienta do wyswietlenia dla operatora
                 PassedValueControls.StringOfReference();
-
+                label_WczytajReferencje.Visible = false;
                 blockade = true;
                 //Przepisanie wartosci do wygenerowania okna czytania sily w wykresie
                 App.WriteSpecifiedValueFromReference();

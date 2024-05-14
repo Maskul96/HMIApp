@@ -8779,7 +8779,7 @@
     <value>InsetDouble</value>
   </data>
   <data name="tableLayoutPanel15.ColumnCount" type="System.Int32, mscorlib">
-    <value>2</value>
+    <value>1</value>
   </data>
   <data name="textBox_MiejsceNaNrKarty_Zaloguj.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -8791,7 +8791,7 @@
     <value>4, 3, 4, 3</value>
   </data>
   <data name="textBox_MiejsceNaNrKarty_Zaloguj.Size" type="System.Drawing.Size, System.Drawing">
-    <value>260, 29</value>
+    <value>416, 29</value>
   </data>
   <data name="textBox_MiejsceNaNrKarty_Zaloguj.TabIndex" type="System.Int32, mscorlib">
     <value>81</value>
@@ -8836,7 +8836,7 @@
     <value>0</value>
   </data>
   <data name="tableLayoutPanel15.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="textBox_MiejsceNaNrKarty_Zaloguj" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,63,820225,Percent,36,179775" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="textBox_MiejsceNaNrKarty_Zaloguj" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,63,820225" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="panel8.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -15686,6 +15686,36 @@
   <data name="&gt;&gt;checkBox_TestLampek.ZOrder" xml:space="preserve">
     <value>18</value>
   </data>
+  <data name="label_WczytajReferencje.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 14.25pt, style=Bold</value>
+  </data>
+  <data name="label_WczytajReferencje.Location" type="System.Drawing.Point, System.Drawing">
+    <value>306, 180</value>
+  </data>
+  <data name="label_WczytajReferencje.Size" type="System.Drawing.Size, System.Drawing">
+    <value>273, 82</value>
+  </data>
+  <data name="label_WczytajReferencje.TabIndex" type="System.Int32, mscorlib">
+    <value>209</value>
+  </data>
+  <data name="label_WczytajReferencje.Text" xml:space="preserve">
+    <value>WCZYTAJ REFERENCJĘ</value>
+  </data>
+  <data name="label_WczytajReferencje.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="&gt;&gt;label_WczytajReferencje.Name" xml:space="preserve">
+    <value>label_WczytajReferencje</value>
+  </data>
+  <data name="&gt;&gt;label_WczytajReferencje.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label_WczytajReferencje.Parent" xml:space="preserve">
+    <value>tabPage1</value>
+  </data>
+  <data name="&gt;&gt;label_WczytajReferencje.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="formsPlot1.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
     <value>GrowAndShrink</value>
   </data>
@@ -15711,7 +15741,7 @@
     <value>tabPage1</value>
   </data>
   <data name="&gt;&gt;formsPlot1.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="tabPage1.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 30</value>

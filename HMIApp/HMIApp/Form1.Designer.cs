@@ -474,6 +474,7 @@
             label47 = new System.Windows.Forms.Label();
             checkBox_TestLampek = new System.Windows.Forms.CheckBox();
             tabPage1 = new System.Windows.Forms.TabPage();
+            label_WczytajReferencje = new System.Windows.Forms.Label();
             formsPlot1 = new ScottPlot.WinForms.FormsPlot();
             panel6 = new System.Windows.Forms.Panel();
             DB667CzasCyklu = new System.Windows.Forms.TextBox();
@@ -3564,10 +3565,18 @@
             // tabPage1
             // 
             tabPage1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            tabPage1.Controls.Add(label_WczytajReferencje);
             tabPage1.Controls.Add(formsPlot1);
             resources.ApplyResources(tabPage1, "tabPage1");
             tabPage1.Name = "tabPage1";
             tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // label_WczytajReferencje
+            // 
+            label_WczytajReferencje.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            resources.ApplyResources(label_WczytajReferencje, "label_WczytajReferencje");
+            label_WczytajReferencje.ForeColor = System.Drawing.Color.Red;
+            label_WczytajReferencje.Name = "label_WczytajReferencje";
             // 
             // formsPlot1
             // 
@@ -4812,6 +4821,7 @@
         public System.Windows.Forms.ComboBox comboBox_EndDay;
         public System.Windows.Forms.TreeView treeView1;
         private System.Windows.Forms.Label label140;
+        public System.Windows.Forms.Label label_WczytajReferencje;
     }
 }
 

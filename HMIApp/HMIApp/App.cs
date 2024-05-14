@@ -256,8 +256,8 @@ namespace HMIApp
 
 
         //Tworzenie glownego wykresu
-        double[] ActX = new double[200];
-        double[] ActY = new double[200];
+        double[] ActX = new double[2000];
+        double[] ActY = new double[2000];
         public void CreatePlot()
         {
             ReadActualValueFromDBChart_Simplified("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_4.csv");
@@ -276,15 +276,13 @@ namespace HMIApp
             WriteSpecifiedValueFromReference();
             if (StartChart == 1 )
             {
-
                 ActX[index10] = ActValX;
                 ActY[index10] = ActValY;
                 index10 += 1;
                 //Ponizszy if i for - generowanie nowego wykresu co iteracje licznika "index10" zeby zasymulowac generowanie wykresu na żywo
                 if (index10 >= 2)
-                {
-                    //Sprobowac to uproscic zeby nie trzeba bylo co iterator wypelniac calej tablicy
-                    for (int i = index10; i < 200; i++)
+                { 
+                    for (int i = index10; i < 2000; i++)
                     {
                         ActX[i] = ActX[i - 1];
                         ActY[i] = ActY[i - 1];
@@ -295,13 +293,12 @@ namespace HMIApp
                     mainplot.LineStyle.Width = 1;
                     mainplot.LinePattern = LinePattern.Solid;
                     mainplot.MarkerStyle.IsVisible = false;
-                    mainplot.Smooth = true;
-          
+                    mainplot.Smooth = true;         
                     Form1._Form1.formsPlot1.Refresh();
                 }
                 if (ActValX >= EndReading )
                 {//dopelnienie tablicy wartoscia ostatniego punktu
-                    for (int i = index10; i < 200; i++)
+                    for (int i = index10; i < 2000; i++)
                     {
                         ActX[i] = ActX[i - 1];
                         ActY[i] = ActY[i - 1];
@@ -325,7 +322,7 @@ namespace HMIApp
                     mainplot1.Color = Colors.Red;
                     mainplot1.LineStyle.Width = 1;
                     mainplot1.MarkerStyle.IsVisible = false;
-                    //Wrzucenie tekstu na wykres z dokladnymi odczytami punktow i siły
+                    //Wrzucenie tekstu na wykres z dokladnymi odczytami punktow i siły - ForceMax traktujemy jako max w oknie czytania sily
                     Form1._Form1.formsPlot1.Plot.Add.Text($"({EndReading},{ForceMax})", EndReading, ForceMax);
                     Form1._Form1.formsPlot1.Plot.Add.Text($"({StartReading},{ForceMin})", StartReading, ForceMin);
                     Form1._Form1.formsPlot1.Refresh();
