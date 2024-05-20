@@ -74,7 +74,6 @@ namespace HMIApp
             //zakomentuj ponizsze cztery metody do odpalenia apki bez PLC
             App.RunInitPLC();
             PróbyUruchomieniaKomunikacjizPLC.Enabled = true;
-
             App.ReadAlarmsFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_2.csv");
             App.ReadIOFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_3.csv");
             App.ReadActualValueFromDBChart_Simplified("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_4.csv");

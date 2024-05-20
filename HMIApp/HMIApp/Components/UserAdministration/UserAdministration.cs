@@ -52,7 +52,7 @@ namespace HMIApp.Components.UserAdministration
                 Form1._Form1.buttonDodajUzytkownika.Enabled = false;
                 Form1._Form1.buttonEdytujUzytkownika.Enabled = false;
                 Form1._Form1.buttonDodajNowaRef.Enabled = false;
-                Form1._Form1.buttonWczytajRef.Enabled = false;
+                Form1._Form1.buttonWczytajRef.Enabled = true;
             }
 
         }
