@@ -36,8 +36,16 @@ namespace HMIApp
         public bool blockade;
         //statyczna zmienna typu Form1 zeby dostac sie z poziomu innej klasy do obiektow wewnatrz Form1
         public static Form1 _Form1;
-        // Określenie ścieżki folderu, który chcemy wyświetlić
-        string folderPath = @"D:\Projekty C#\HMIApp\HMIApp\HMIApp\Resources\Files\ArchivizationsFromDataBaseCSV\ArchivizationsFromDataBase";
+        #region Względna ścieżka do folderu ArchivizationsFromDataBase
+        // Określenie ścieżki folderu ArchivizationsFromDataBase, który chcemy wyświetlić - Ścieżka względna
+        public static string basePathToHMIAppFolder = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", ".."));
+        public static string basePathToFilesFolder = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory,"..","..","..","..", "Resources","Files"));
+        public static string basePathAndArchivizationsFromDataBaseCSV = Path.Combine(basePathToFilesFolder, "ArchivizationsFromDataBaseCSV");
+        public static string relativePath = "ArchivizationsFromDataBase";
+        public static string absolutePath = Path.Combine(basePathAndArchivizationsFromDataBaseCSV, relativePath);
+        string folderPath = absolutePath;
+        #endregion
+
         public Form1()
         {
             InitializeComponent();
@@ -74,10 +82,10 @@ namespace HMIApp
             //zakomentuj ponizsze cztery metody do odpalenia apki bez PLC
             App.RunInitPLC();
             PróbyUruchomieniaKomunikacjizPLC.Enabled = true;
-            App.ReadAlarmsFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_2.csv");
-            App.ReadIOFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_3.csv");
-            App.ReadActualValueFromDBChart_Simplified("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_4.csv");
-            App.ReadActualValueFromDBReferenceOrProcessData("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_1.csv");
+            App.ReadAlarmsFromDB(Path.Combine(basePathToFilesFolder, "tags_zone_2.csv"));
+            App.ReadIOFromDB(Path.Combine(basePathToFilesFolder, "tags_zone_3.csv"));
+            App.ReadActualValueFromDBChart_Simplified(Path.Combine(basePathToFilesFolder, "tags_zone_4.csv"));
+            App.ReadActualValueFromDBReferenceOrProcessData(Path.Combine(basePathToFilesFolder, "tags_zone_1.csv"));
 
             //Blokada rysowania wykresu dopoki nie zaczytasz referencji
             blockade = false;
@@ -238,9 +246,9 @@ namespace HMIApp
         private void Timer_Tick_ReadDataFromDB(object sender, EventArgs e)
         {
             //zakomentuj ponizsze dwie metody do odpalenia apki bez PLC
-            App.ReadAlarmsFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_2.csv");
-            App.ReadIOFromDB("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_3.csv");
-            App.ReadActualValueFromDBReferenceOrProcessData("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_1.csv");
+            App.ReadAlarmsFromDB(Path.Combine(basePathToFilesFolder, "tags_zone_2.csv"));
+            App.ReadIOFromDB(Path.Combine(basePathToFilesFolder, "tags_zone_3.csv"));
+            App.ReadActualValueFromDBReferenceOrProcessData(Path.Combine(basePathToFilesFolder, "tags_zone_1.csv"));
 
             if (blockade)
             {
@@ -264,7 +272,7 @@ namespace HMIApp
         private void ComboBox_ShowEditUsers_SelectedIndexChanged(object sender, EventArgs e)
         {
             textBox_Imie_Edycja.Text = comboBox_ListaUzytkWBazie.SelectedItem.ToString();
-            Users.DisplayValuesFromXML(Users.LoadFromXML("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\UserData.xml"), textBox_Imie_Edycja.Text);
+            Users.DisplayValuesFromXML(Users.LoadFromXML(Path.Combine(basePathToFilesFolder, "UserData.xml")), textBox_Imie_Edycja.Text);
         }
 
         //Przycisk wyzwalający edycje użytkownika
@@ -353,7 +361,7 @@ namespace HMIApp
                 if (comboBoxListaReferencji.Text != null && comboBoxListaReferencji.Text != "")
                 {
                     database.Delete(comboBoxListaReferencji.Text);
-                    App.ClearAllValueInForm1("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_0.csv");
+                    App.ClearAllValueInForm1(Path.Combine(basePathToFilesFolder, "tags_zone_0.csv"));
                 }
             };
         }

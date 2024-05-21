@@ -5,6 +5,7 @@ using HMIApp.Components.DataBase;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Windows;
@@ -49,7 +50,7 @@ namespace HMIApp.Data
 
         public void Run()
         {
-            ReadConfFile("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\DataBaseArchivizationConfiguration.txt");
+            ReadConfFile(Path.Combine(Form1.basePathToHMIAppFolder, "DataBaseArchivizationConfiguration.txt"));
 
         }
 

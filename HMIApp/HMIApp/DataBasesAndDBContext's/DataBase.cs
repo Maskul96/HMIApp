@@ -2,6 +2,7 @@
 using HMIApp.Components.DataBase;
 using HMIApp.Data;
 using System.Configuration;
+using System.IO;
 using System.Linq;
 using System.Reflection.Metadata;
 using System.Windows.Forms;
@@ -50,7 +51,7 @@ namespace HMIApp.Data
 
         public void Run()
         {
-            ReadConfFile("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\DataBaseReferenceConfiguration.txt");
+            ReadConfFile(Path.Combine(Form1.basePathToHMIAppFolder, "DataBaseReferenceConfiguration.txt"));
 
         }
 

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Linq;
 using System.Xml.Linq;
 
@@ -29,7 +30,7 @@ namespace HMIApp.Components.UserAdministration
 
         public void Run()
         {
-            XDocument document = LoadFromXML("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\UserData.xml");
+            XDocument document = LoadFromXML(Path.Combine(Form1.basePathToFilesFolder,  "UserData.xml"));
             DisplayValuesFromXML(document);
             FindUserinXML();
         }
@@ -68,7 +69,7 @@ namespace HMIApp.Components.UserAdministration
         public void FindUserinXML()
         {
             //Załaduj plik przed sprawdzeniem czy jest uzytkownik w nim
-            XDocument document = LoadFromXML("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\UserData.xml");
+            XDocument document = LoadFromXML(Path.Combine(Form1.basePathToFilesFolder, "UserData.xml"));
 
             //Dane wejsciowe 
             NrofCard = Form1._Form1.textBox_MiejsceNaNrKarty_Zaloguj.Text;
@@ -121,7 +122,7 @@ namespace HMIApp.Components.UserAdministration
         public void SaveToXML()
         {
             //Załaduj plik przed dodaniem nowych danych i zapisaniem
-            XDocument document = LoadFromXML("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\UserData.xml");
+            XDocument document = LoadFromXML(Path.Combine(Form1.basePathToFilesFolder, "UserData.xml"));
 
             id = document.Element("Użytkownicy").Elements("Użytkownik").Count();
             id += 1;
@@ -155,7 +156,7 @@ namespace HMIApp.Components.UserAdministration
                           new XAttribute("Nazwa_użytkownika", Name),
                           new XAttribute("Uprawnienia", UserRights)));
                     //Zapis ppliku
-                    document.Save("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\UserData.xml");
+                    document.Save(Path.Combine(Form1.basePathToFilesFolder, "UserData.xml"));
                     //Komunikat dla usera
                     Form1._Form1.StatusyLogowania.Text = ("Użytkownik dodany");
                 }
@@ -176,7 +177,7 @@ namespace HMIApp.Components.UserAdministration
         public void EditXML()
         {
             //Załaduj plik przed dodaniem nowych danych i zapisaniem
-            XDocument document = LoadFromXML("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\UserData.xml");
+            XDocument document = LoadFromXML(Path.Combine(Form1.basePathToFilesFolder, "UserData.xml"));
 
             //Dane wejsciowe do edycji
             NrofCard = Form1._Form1.textBox_NumerKarty_Edycja.Text;
@@ -195,7 +196,7 @@ namespace HMIApp.Components.UserAdministration
                 names.Attribute("Uprawnienia").Value = Form1._Form1.comboBox_ListaUprawnien_Edycja.SelectedIndex.ToString();
 
                 //Zapis ppliku
-                document.Save("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\UserData.xml");
+                document.Save(Path.Combine(Form1.basePathToFilesFolder, "UserData.xml"));
 
                 //Komunikat dla usera
                 Form1._Form1.StatusyLogowania.Text = ("Użytkownik zedytowany");

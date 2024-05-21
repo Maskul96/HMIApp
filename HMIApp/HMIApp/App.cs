@@ -8,6 +8,7 @@ using ScottPlot;
 using ScottPlot.WinForms;
 using System;
 using System.Buffers;
+using System.IO;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Net;
@@ -260,7 +261,7 @@ namespace HMIApp
         double[] ActY = new double[5000];
         public void CreatePlot()
         {
-            ReadActualValueFromDBChart_Simplified("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_4.csv");
+            ReadActualValueFromDBChart_Simplified(Path.Combine(Form1.basePathToFilesFolder, "tags_zone_4.csv"));
             Form1._Form1.formsPlot1.Plot.Axes.SetLimits(FastMovement, EndReading + 5.0, -1000, ForceMaxfromRef);
 
             if (StartChart == 0)
@@ -711,15 +712,15 @@ namespace HMIApp
             string filename = "";
             if (filenameIndex == 0)
             {
-                filename = "D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_0.csv";
+                filename = Path.Combine(Form1.basePathToFilesFolder, "tags_zone_0.csv");
             }
             else if (filenameIndex == 1)
             {
-                filename = "D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_1.csv";
+                filename = Path.Combine(Form1.basePathToFilesFolder, "tags_zone_1.csv");
             }
             else if (filenameIndex == 2)
             {
-                filename = "D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_4.csv";
+                filename = Path.Combine(Form1.basePathToFilesFolder, "tags_zone_4.csv");
             }
             //Odczyt listy z tagami do zapisu
             var dbtags = CSVReader.DBStructure(filename);
