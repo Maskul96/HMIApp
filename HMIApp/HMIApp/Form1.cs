@@ -383,10 +383,6 @@ namespace HMIApp
         #region obsluga ToggleButtonow - Tryb Reczny i Przycisków na Ekranie głównym
         private void CheckBox_Serwo18U1_Checked(object sender, EventArgs e)
         {
-            App.WriteToDB("15", checkBox_Serwo18U1.Tag.ToString(), 1);
-        }
-        private void CheckBox_Serwo18U1_CheckedStateChanged(object sender, EventArgs e)
-        {
             if (checkBox_Serwo18U1.Checked)
             {
                 checkBox_Serwo20U1.Checked = false;
@@ -400,12 +396,13 @@ namespace HMIApp
                 checkBox_DyszaPozioma.Checked = false;
                 pictureBoxMachineImages.Image = new Bitmap(Properties.Resources.Serwo_18U1);
             }
+
+        }
+        private void CheckBox_Serwo18U1_Click(object sender, EventArgs e)
+        {
+            App.WriteToDB("15", checkBox_Serwo18U1.Tag.ToString(), 1);
         }
         private void CheckBox_Serwo20U1_Checked(object sender, EventArgs e)
-        {
-            App.WriteToDB("11", checkBox_Serwo20U1.Tag.ToString(), 1);
-        }
-        private void CheckBox_Serwo20U1_CheckedStateChanged(object sender, EventArgs e)
         {
             if (checkBox_Serwo20U1.Checked)
             {
@@ -420,12 +417,13 @@ namespace HMIApp
                 checkBox_DyszaPozioma.Checked = false;
                 pictureBoxMachineImages.Image = new Bitmap(Properties.Resources.Serwo_20U1);
             }
+
+        }
+        private void CheckBox_Serwo20U1_Click(object sender, EventArgs e)
+        {
+            App.WriteToDB("11", checkBox_Serwo20U1.Tag.ToString(), 1);
         }
         private void CheckBox_Serwo16U2_Checked(object sender, EventArgs e)
-        {
-            App.WriteToDB("12", checkBox_Serwo20U1.Tag.ToString(), 1);
-        }
-        private void CheckBox_Serwo16U2_CheckedStateChanged(object sender, EventArgs e)
         {
             if (checkBox_Serwo16U2.Checked)
             {
@@ -440,12 +438,13 @@ namespace HMIApp
                 checkBox_DyszaPozioma.Checked = false;
                 pictureBoxMachineImages.Image = new Bitmap(Properties.Resources.Serwo_16U2);
             }
+
+        }
+        private void CheckBox_Serwo16U2_Click(object sender, EventArgs e)
+        {
+            App.WriteToDB("12", checkBox_Serwo16U2.Tag.ToString(), 1);
         }
         private void CheckBox_UkladPodnoszenia_Checked(object sender, EventArgs e)
-        {
-            App.WriteToDB("13", checkBox_Serwo20U1.Tag.ToString(), 1);
-        }
-        private void CheckBox_UkladPodnoszenia_CheckedStateChanged(object sender, EventArgs e)
         {
             if (checkBox_UkladPodnoszenia.Checked)
             {
@@ -461,11 +460,11 @@ namespace HMIApp
                 pictureBoxMachineImages.Image = new Bitmap(Properties.Resources.UkladPodnoszenia);
             }
         }
-        private void CheckBox_ChwytakGorny_Checked(object sender, EventArgs e)
+        private void CheckBox_UkladPodnoszenia_CheckedStateChanged(object sender, EventArgs e)
         {
-            App.WriteToDB("14", checkBox_Serwo20U1.Tag.ToString(), 1);
+            App.WriteToDB("13", checkBox_UkladPodnoszenia.Tag.ToString(), 1);
         }
-        private void CheckBox_ChwytakGorny_CheckedStateChanged(object sender, EventArgs e)
+        private void CheckBox_ChwytakGorny_Checked(object sender, EventArgs e)
         {
             if (checkBox_ChwytakGorny.Checked)
             {
@@ -481,11 +480,11 @@ namespace HMIApp
                 pictureBoxMachineImages.Image = new Bitmap(Properties.Resources.ChwytakGorny);
             }
         }
-        private void CheckBox_ChwytakDolny_Checked(object sender, EventArgs e)
+        private void CheckBox_ChwytakGorny_Click(object sender, EventArgs e)
         {
-            App.WriteToDB("16", checkBox_Serwo20U1.Tag.ToString(), 1);
+            App.WriteToDB("14", checkBox_ChwytakGorny.Tag.ToString(), 1);
         }
-        private void CheckBox_ChwytakDolny_CheckedStateChanged(object sender, EventArgs e)
+        private void CheckBox_ChwytakDolny_Checked(object sender, EventArgs e)
         {
             if (checkBox_ChwytakDolny.Checked)
             {
@@ -500,12 +499,13 @@ namespace HMIApp
                 checkBox_DyszaPozioma.Checked = false;
                 pictureBoxMachineImages.Image = new Bitmap(Properties.Resources.ChwytakDolny);
             }
+
+        }
+        private void CheckBox_ChwytakDolny_Click(object sender, EventArgs e)
+        {
+            App.WriteToDB("16", checkBox_ChwytakDolny.Tag.ToString(), 1);
         }
         private void CheckBox_ZaciskTulipa_Checked(object sender, EventArgs e)
-        {
-            App.WriteToDB("17", checkBox_Serwo20U1.Tag.ToString(), 1);
-        }
-        private void CheckBox_ZaciskTulipa_CheckedStateChanged(object sender, EventArgs e)
         {
             if (checkBox_ZaciskTulipa.Checked)
             {
@@ -520,12 +520,13 @@ namespace HMIApp
                 checkBox_DyszaPozioma.Checked = false;
                 pictureBoxMachineImages.Image = new Bitmap(Properties.Resources.ZaciskTulipa);
             }
+       
+        }
+        private void CheckBox_ZaciskTulipa_Click(object sender, EventArgs e)
+        {
+            App.WriteToDB("17", checkBox_ZaciskTulipa.Tag.ToString(), 1);
         }
         private void CheckBox_SzczekiOslonki_Checked(object sender, EventArgs e)
-        {
-            App.WriteToDB("18", checkBox_SzczekiOslonki.Tag.ToString(), 1);
-        }
-        private void CheckBox_SzczekiOslonki_CheckedStateChanged(object sender, EventArgs e)
         {
             if (checkBox_SzczekiOslonki.Checked)
             {
@@ -540,13 +541,14 @@ namespace HMIApp
                 checkBox_DyszaPozioma.Checked = false;
                 pictureBoxMachineImages.Image = new Bitmap(Properties.Resources.SzczekiOslonki);
             }
+
+        }
+        private void CheckBox_SzczekiOslonki_Click(object sender, EventArgs e)
+        {
+            App.WriteToDB("18", checkBox_SzczekiOslonki.Tag.ToString(), 1);
         }
 
         private void CheckBox_DyszaPionowa_Checked(object sender, EventArgs e)
-        {
-            App.WriteToDB("19", checkBox_DyszaPionowa.Tag.ToString(), 1);
-        }
-        private void CheckBox_DyszaPionowa_CheckedStateChanged(object sender, EventArgs e)
         {
             if (checkBox_DyszaPionowa.Checked)
             {
@@ -561,13 +563,14 @@ namespace HMIApp
                 checkBox_SzczekiOslonki.Checked = false;
                 pictureBoxMachineImages.Image = new Bitmap(Properties.Resources.Main);
             }
+
+        }
+        private void CheckBox_DyszaPionowa_Click(object sender, EventArgs e)
+        {
+            App.WriteToDB("19", checkBox_DyszaPionowa.Tag.ToString(), 1);
         }
 
         private void CheckBox_DyszaPozioma_Checked(object sender, EventArgs e)
-        {
-            App.WriteToDB("20", checkBox_DyszaPozioma.Tag.ToString(), 1);
-        }
-        private void CheckBox_DyszaPozioma_CheckedStateChanged(object sender, EventArgs e)
         {
             if (checkBox_DyszaPozioma.Checked)
             {
@@ -582,6 +585,11 @@ namespace HMIApp
                 checkBox_SzczekiOslonki.Checked = false;
                 pictureBoxMachineImages.Image = new Bitmap(Properties.Resources.Main);
             }
+
+        }
+        private void CheckBox_DyszaPozioma_Click(object sender, EventArgs e)
+        {
+            App.WriteToDB("20", checkBox_DyszaPozioma.Tag.ToString(), 1);
         }
 
         //Przycisk Rework Event

@@ -3350,7 +3350,7 @@
             checkBox_DyszaPionowa.Tag = "DB667.NrOfDeviceToControl";
             checkBox_DyszaPionowa.UseVisualStyleBackColor = false;
             checkBox_DyszaPionowa.CheckedChanged += CheckBox_DyszaPionowa_Checked;
-            checkBox_DyszaPionowa.CheckStateChanged += CheckBox_DyszaPionowa_CheckedStateChanged;
+            checkBox_DyszaPionowa.Click += CheckBox_DyszaPionowa_Click;
             // 
             // checkBox_DyszaPozioma
             // 
@@ -3362,7 +3362,7 @@
             checkBox_DyszaPozioma.Tag = "DB667.NrOfDeviceToControl";
             checkBox_DyszaPozioma.UseVisualStyleBackColor = false;
             checkBox_DyszaPozioma.CheckedChanged += CheckBox_DyszaPozioma_Checked;
-            checkBox_DyszaPozioma.CheckStateChanged += CheckBox_DyszaPozioma_CheckedStateChanged;
+            checkBox_DyszaPozioma.Click += CheckBox_DyszaPozioma_Click;
             // 
             // checkBox_ChwytakDolny
             // 
@@ -3374,7 +3374,7 @@
             checkBox_ChwytakDolny.Tag = "DB667.NrOfDeviceToControl";
             checkBox_ChwytakDolny.UseVisualStyleBackColor = false;
             checkBox_ChwytakDolny.CheckedChanged += CheckBox_ChwytakDolny_Checked;
-            checkBox_ChwytakDolny.CheckStateChanged += CheckBox_ChwytakDolny_CheckedStateChanged;
+            checkBox_ChwytakDolny.Click += CheckBox_ChwytakDolny_Click;
             // 
             // checkBox_UkladPodnoszenia
             // 
@@ -3386,7 +3386,7 @@
             checkBox_UkladPodnoszenia.Tag = "DB667.NrOfDeviceToControl";
             checkBox_UkladPodnoszenia.UseVisualStyleBackColor = false;
             checkBox_UkladPodnoszenia.CheckedChanged += CheckBox_UkladPodnoszenia_Checked;
-            checkBox_UkladPodnoszenia.CheckStateChanged += CheckBox_UkladPodnoszenia_CheckedStateChanged;
+            checkBox_UkladPodnoszenia.Click += CheckBox_UkladPodnoszenia_CheckedStateChanged;
             // 
             // checkBox_Serwo18U1
             // 
@@ -3398,7 +3398,7 @@
             checkBox_Serwo18U1.Tag = "DB667.NrOfDeviceToControl";
             checkBox_Serwo18U1.UseVisualStyleBackColor = false;
             checkBox_Serwo18U1.CheckedChanged += CheckBox_Serwo18U1_Checked;
-            checkBox_Serwo18U1.CheckStateChanged += CheckBox_Serwo18U1_CheckedStateChanged;
+            checkBox_Serwo18U1.Click += CheckBox_Serwo18U1_Click;
             // 
             // checkBox_ZaciskTulipa
             // 
@@ -3410,7 +3410,7 @@
             checkBox_ZaciskTulipa.Tag = "DB667.NrOfDeviceToControl";
             checkBox_ZaciskTulipa.UseVisualStyleBackColor = false;
             checkBox_ZaciskTulipa.CheckedChanged += CheckBox_ZaciskTulipa_Checked;
-            checkBox_ZaciskTulipa.CheckStateChanged += CheckBox_ZaciskTulipa_CheckedStateChanged;
+            checkBox_ZaciskTulipa.Click += CheckBox_ZaciskTulipa_Click;
             // 
             // checkBox_ChwytakGorny
             // 
@@ -3422,7 +3422,7 @@
             checkBox_ChwytakGorny.Tag = "DB667.NrOfDeviceToControl";
             checkBox_ChwytakGorny.UseVisualStyleBackColor = false;
             checkBox_ChwytakGorny.CheckedChanged += CheckBox_ChwytakGorny_Checked;
-            checkBox_ChwytakGorny.CheckStateChanged += CheckBox_ChwytakGorny_CheckedStateChanged;
+            checkBox_ChwytakGorny.Click += CheckBox_ChwytakGorny_Click;
             // 
             // checkBox_Serwo20U1
             // 
@@ -3434,7 +3434,7 @@
             checkBox_Serwo20U1.Tag = "DB667.NrOfDeviceToControl";
             checkBox_Serwo20U1.UseVisualStyleBackColor = false;
             checkBox_Serwo20U1.CheckedChanged += CheckBox_Serwo20U1_Checked;
-            checkBox_Serwo20U1.CheckStateChanged += CheckBox_Serwo20U1_CheckedStateChanged;
+            checkBox_Serwo20U1.Click += CheckBox_Serwo20U1_Click;
             // 
             // checkBox_SzczekiOslonki
             // 
@@ -3446,7 +3446,7 @@
             checkBox_SzczekiOslonki.Tag = "DB667.NrOfDeviceToControl";
             checkBox_SzczekiOslonki.UseVisualStyleBackColor = false;
             checkBox_SzczekiOslonki.CheckedChanged += CheckBox_SzczekiOslonki_Checked;
-            checkBox_SzczekiOslonki.CheckStateChanged += CheckBox_SzczekiOslonki_CheckedStateChanged;
+            checkBox_SzczekiOslonki.Click += CheckBox_SzczekiOslonki_Click;
             // 
             // checkBox_Serwo16U2
             // 
@@ -3458,7 +3458,7 @@
             checkBox_Serwo16U2.Tag = "DB667.NrOfDeviceToControl";
             checkBox_Serwo16U2.UseVisualStyleBackColor = false;
             checkBox_Serwo16U2.CheckedChanged += CheckBox_Serwo16U2_Checked;
-            checkBox_Serwo16U2.CheckStateChanged += CheckBox_Serwo16U2_CheckedStateChanged;
+            checkBox_Serwo16U2.Click += CheckBox_Serwo16U2_Click;
             // 
             // pictureBoxMachineImages
             // 
