@@ -1404,7 +1404,11 @@ namespace HMIApp
                     case "INT":
                         NrOfMessage = libnodave.getS16from(DB, DBReadAlarm_NrOfByteinDB);
                         Form1._Form1.listBoxWarningsView.SelectionMode = SelectionMode.MultiSimple;
-                        Form1._Form1.listBoxWarningsView.SetSelected(NrOfMessage, true);
+                        var countlistboxwarnings = Form1._Form1.listBoxWarningsView.Items.Count;
+                        if(NrOfMessage < countlistboxwarnings) 
+                        {
+                            Form1._Form1.listBoxWarningsView.SetSelected(NrOfMessage, true);
+                        }                       
                         break;
                 }
 

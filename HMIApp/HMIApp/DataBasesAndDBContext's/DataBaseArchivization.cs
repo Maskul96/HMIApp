@@ -58,7 +58,7 @@ namespace HMIApp.Data
         {
             var AllRowsInDataBaseArchive = _hmiAppDbContextArchivization.ArchivizationsForParameters.Count();
             //Kasowanie bazy danych jak jest wiecej niz 100000 tys. wierszy
-            if(AllRowsInDataBaseArchive >= 100000)
+            if(AllRowsInDataBaseArchive >= 1000000)
             {
                 Delete();
             }
