@@ -2495,7 +2495,7 @@
             buttonDodajNowaRef.Name = "buttonDodajNowaRef";
             buttonDodajNowaRef.Tag = "";
             buttonDodajNowaRef.UseVisualStyleBackColor = true;
-            buttonDodajNowaRef.Click += Button_Click_SaveReference;
+            buttonDodajNowaRef.Click += Button_Click_AddAndSaveReference;
             // 
             // comboBoxListaReferencji
             // 

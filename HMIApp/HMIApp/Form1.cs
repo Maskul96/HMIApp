@@ -37,7 +37,7 @@ namespace HMIApp
         //statyczna zmienna typu Form1 zeby dostac sie z poziomu innej klasy do obiektow wewnatrz Form1
         public static Form1 _Form1;
         // Określenie ścieżki folderu, który chcemy wyświetlić
-        string folderPath = @"D:\Projekty C#\HMIApp\HMIApp\HMIApp\Resources\Files\ArchivizationsFromDataBaseCSV";
+        string folderPath = @"D:\Projekty C#\HMIApp\HMIApp\HMIApp\Resources\Files\ArchivizationsFromDataBaseCSV\ArchivizationsFromDataBase";
         public Form1()
         {
             InitializeComponent();
@@ -156,7 +156,7 @@ namespace HMIApp
             }
         }
 
-        //wczytaj referencje do PLC - DOROBIC ZAPIS POZOSTALYCH PARAMETROW REFERENCJI
+        //wczytaj referencje do PLC 
         private void Button_Click_WriteReferenceToPLC(object sender, EventArgs e)
         {
             if (comboBoxListaReferencji.Text != null && comboBoxListaReferencji.Text != "")
@@ -327,11 +327,11 @@ namespace HMIApp
             CzyszczenieStatusówLogowania.Enabled = false;
         }
 
-        // PRZYCISK WYZWALAJACY ZAPIS referencji
-        private void Button_Click_SaveReference(object sender, EventArgs e)
+        // PRZYCISK WYZWALAJACY dodanie i zapis referencji do bazy
+        private void Button_Click_AddAndSaveReference(object sender, EventArgs e)
         {
-            var database = serviceProvider.GetService<iDataBase>();
-            database.InsertToDataBase();
+                var database = serviceProvider.GetService<iDataBase>();
+                database.InsertToDataBase();
 
         }
 
@@ -611,10 +611,17 @@ namespace HMIApp
         //Przycisk exportu danych z archiwizacji do plik ucsv
         private void Btn_ExportToCSVArchiwizacja_Click(object sender, EventArgs e)
         {
-            _Archive.ExportToCSVButtonFromForm1();
-            CzyszczenieStatusowArchiwizacji.Enabled = true;
-            // Wywołanie funkcji do dodawania węzłów do drzewa
-            PopulateTreeView(folderPath, treeView1.Nodes);
+            if (comboBox_StartYear.Text != "" && comboBox_StartMonth.Text != "" && comboBox_StartDay.Text != "" && comboBox_EndYear.Text != "" && comboBox_EndMonth.Text != "" && comboBox_EndDay.Text != "")
+            {
+                _Archive.ExportToCSVButtonFromForm1();
+                CzyszczenieStatusowArchiwizacji.Enabled = true;
+                // Wywołanie funkcji do dodawania węzłów do drzewa
+                PopulateTreeView(folderPath, treeView1.Nodes);
+            }
+            else
+            {
+                System.Windows.MessageBox.Show("Wpisz datę, miesiąc oraz dzień aby wygenerować plik csv");
+            }
         }
         //Czyszczenie info dla uzytkownika - status archiwizacji
         private void CzyszczenieStatusowArchiwizacji_Tick(object sender, EventArgs e)
@@ -671,14 +678,6 @@ namespace HMIApp
         // Funkcja rekurencyjna do dodawania węzłów do drzewa
         private static void PopulateTreeView(string directory, TreeNodeCollection parentNode)
         {
-            // Dodawanie węzłów reprezentujących foldery
-            string[] subDirectories = Directory.GetDirectories(directory);
-            foreach (string subDirectory in subDirectories)
-            {
-                TreeNode node = new TreeNode(Path.GetFileName(subDirectory));
-                parentNode.Add(node);
-                PopulateTreeView(subDirectory, node.Nodes);
-            }
             // Dodawanie węzłów reprezentujących pliki
             string[] files = Directory.GetFiles(directory);
             foreach (string file in files)

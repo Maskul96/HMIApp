@@ -256,8 +256,8 @@ namespace HMIApp
 
 
         //Tworzenie glownego wykresu
-        double[] ActX = new double[2000];
-        double[] ActY = new double[2000];
+        double[] ActX = new double[5000];
+        double[] ActY = new double[5000];
         public void CreatePlot()
         {
             ReadActualValueFromDBChart_Simplified("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\tags_zone_4.csv");
@@ -282,7 +282,7 @@ namespace HMIApp
                 //Ponizszy if i for - generowanie nowego wykresu co iteracje licznika "index10" zeby zasymulowac generowanie wykresu na żywo
                 if (index10 >= 2)
                 { 
-                    for (int i = index10; i < 2000; i++)
+                    for (int i = index10; i < 5000; i++)
                     {
                         ActX[i] = ActX[i - 1];
                         ActY[i] = ActY[i - 1];
@@ -297,8 +297,11 @@ namespace HMIApp
                     Form1._Form1.formsPlot1.Refresh();
                 }
                 if (ActValX >= EndReading )
-                {//dopelnienie tablicy wartoscia ostatniego punktu
-                    for (int i = index10; i < 2000; i++)
+                {
+                    //Wykasowanie Measure - zakonczenie rysowania wykresu
+                    WriteToDB("0", "DB665.Measure", 2);
+                    //dopelnienie tablicy wartoscia ostatniego punktu
+                    for (int i = index10; i < 5000; i++)
                     {
                         ActX[i] = ActX[i - 1];
                         ActY[i] = ActY[i - 1];
@@ -326,8 +329,6 @@ namespace HMIApp
                     Form1._Form1.formsPlot1.Plot.Add.Text($"({EndReading},{ForceMax})", EndReading, ForceMax);
                     Form1._Form1.formsPlot1.Plot.Add.Text($"({StartReading},{ForceMin})", StartReading, ForceMin);
                     Form1._Form1.formsPlot1.Refresh();
-                    //Wykasowanie Measure - zakonczenie rysowania wykresu
-                    WriteToDB("0", "DB665.Measure", 2);
                 }
             }
 
