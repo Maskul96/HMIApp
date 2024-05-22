@@ -46,7 +46,6 @@ namespace HMIApp
         private int DBRead_EndDB;
         private int DBRead_NrOfByteinDB;
         private int DBRead_NrOfBitinByte;
-        private int DBRead_LengthOfDataType;
         private string DBRead_TagName;
         private int DBRead_TagNamePos;
         private int ValueOfColor;
@@ -87,7 +86,6 @@ namespace HMIApp
         private int DBReadIO_NrOfByteinDB;
         private int DBReadIO_NrOfBitinByte;
         private string DBReadIO_TagName;
-        private string DBReadIO_DataTypeofTag;
         #endregion
 
         public App()
@@ -644,7 +642,6 @@ namespace HMIApp
                         DBRead_position1 = dbTag.TagName.IndexOf('.');
                         DBRead_TagName = dbTag.TagName.Remove(DBRead_position1, 1);
                         DBRead_NrOfByteinDB = dbTag.NumberOfByteInDB;
-                        DBRead_LengthOfDataType = dbTag.LengthDataType;
 
                         int SecondByte = DBRead_NrOfByteinDB + 1;
                         int actuallengthofstring = Convert.ToInt16(DB[SecondByte]);
@@ -1406,7 +1403,6 @@ namespace HMIApp
 
                 DBReadIO_NrOfBitinByte = dbTag.NumberOfBitInByte;
                 DBReadIO_NrOfByteinDB = dbTag.NumberOfByteInDB;
-                DBReadIO_DataTypeofTag = dbTag.DataTypeOfTag;
                 bool[] values = new bool[8];
                 //Wyszukanie samej nazwy Taga, która odpowiada 1:1 nazwie TextBoxa
                 DBReadIO_position1 = dbTag.TagName.IndexOf('.');
