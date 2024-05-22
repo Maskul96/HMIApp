@@ -8415,6 +8415,63 @@
   <data name="&gt;&gt;panel5.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
+  <data name="label149.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 11.25pt</value>
+  </data>
+  <data name="label149.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label149.Location" type="System.Drawing.Point, System.Drawing">
+    <value>324, 34</value>
+  </data>
+  <data name="label149.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
+  </data>
+  <data name="label149.Size" type="System.Drawing.Size, System.Drawing">
+    <value>31, 20</value>
+  </data>
+  <data name="label149.TabIndex" type="System.Int32, mscorlib">
+    <value>80</value>
+  </data>
+  <data name="label149.Text" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="&gt;&gt;label149.Name" xml:space="preserve">
+    <value>label149</value>
+  </data>
+  <data name="&gt;&gt;label149.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label149.Parent" xml:space="preserve">
+    <value>panel7</value>
+  </data>
+  <data name="&gt;&gt;label149.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="textBox_IDUzytkownika.Location" type="System.Drawing.Point, System.Drawing">
+    <value>362, 29</value>
+  </data>
+  <data name="textBox_IDUzytkownika.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="textBox_IDUzytkownika.Size" type="System.Drawing.Size, System.Drawing">
+    <value>54, 29</value>
+  </data>
+  <data name="textBox_IDUzytkownika.TabIndex" type="System.Int32, mscorlib">
+    <value>79</value>
+  </data>
+  <data name="&gt;&gt;textBox_IDUzytkownika.Name" xml:space="preserve">
+    <value>textBox_IDUzytkownika</value>
+  </data>
+  <data name="&gt;&gt;textBox_IDUzytkownika.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;textBox_IDUzytkownika.Parent" xml:space="preserve">
+    <value>panel7</value>
+  </data>
+  <data name="&gt;&gt;textBox_IDUzytkownika.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
   <data name="textBox_NumerKarty_Edycja.Location" type="System.Drawing.Point, System.Drawing">
     <value>155, 80</value>
   </data>
@@ -8437,7 +8494,7 @@
     <value>panel7</value>
   </data>
   <data name="&gt;&gt;textBox_NumerKarty_Edycja.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>2</value>
   </data>
   <data name="label_Uprawnienia_Edycja.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -8470,7 +8527,7 @@
     <value>panel7</value>
   </data>
   <data name="&gt;&gt;label_Uprawnienia_Edycja.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>3</value>
   </data>
   <data name="buttonEdytujUzytkownika.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
     <value>GrowAndShrink</value>
@@ -8503,7 +8560,7 @@
     <value>panel7</value>
   </data>
   <data name="&gt;&gt;buttonEdytujUzytkownika.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>4</value>
   </data>
   <data name="label_Imie_Edycja.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -8536,7 +8593,7 @@
     <value>panel7</value>
   </data>
   <data name="&gt;&gt;label_Imie_Edycja.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>5</value>
   </data>
   <data name="label_ObecniUzytkWBazie.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -8569,7 +8626,7 @@
     <value>panel7</value>
   </data>
   <data name="&gt;&gt;label_ObecniUzytkWBazie.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>6</value>
   </data>
   <data name="label_NumerKArty_Edycja.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 11.25pt</value>
@@ -8599,7 +8656,7 @@
     <value>panel7</value>
   </data>
   <data name="&gt;&gt;label_NumerKArty_Edycja.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>7</value>
   </data>
   <data name="comboBox_ListaUprawnien_Edycja.Items" xml:space="preserve">
     <value>Operator</value>
@@ -8632,7 +8689,7 @@
     <value>panel7</value>
   </data>
   <data name="&gt;&gt;comboBox_ListaUprawnien_Edycja.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>8</value>
   </data>
   <data name="label58.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -8662,7 +8719,7 @@
     <value>panel7</value>
   </data>
   <data name="&gt;&gt;label58.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>9</value>
   </data>
   <data name="comboBox_ListaUzytkWBazie.IntegralHeight" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -8692,7 +8749,7 @@
     <value>panel7</value>
   </data>
   <data name="&gt;&gt;comboBox_ListaUzytkWBazie.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>10</value>
   </data>
   <data name="textBox_Imie_Edycja.Location" type="System.Drawing.Point, System.Drawing">
     <value>155, 132</value>
@@ -8716,7 +8773,7 @@
     <value>panel7</value>
   </data>
   <data name="&gt;&gt;textBox_Imie_Edycja.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>11</value>
   </data>
   <data name="textBox_ID_Edycja.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -8743,7 +8800,7 @@
     <value>panel7</value>
   </data>
   <data name="&gt;&gt;textBox_ID_Edycja.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>12</value>
   </data>
   <data name="panel7.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>

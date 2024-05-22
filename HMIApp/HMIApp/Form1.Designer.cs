@@ -311,6 +311,8 @@
             textbox_NumerKarty_DodajUzytk = new System.Windows.Forms.TextBox();
             textBoxImie_DodajUzytk = new System.Windows.Forms.TextBox();
             panel7 = new System.Windows.Forms.Panel();
+            label149 = new System.Windows.Forms.Label();
+            textBox_IDUzytkownika = new System.Windows.Forms.TextBox();
             textBox_NumerKarty_Edycja = new System.Windows.Forms.TextBox();
             label_Uprawnienia_Edycja = new System.Windows.Forms.Label();
             buttonEdytujUzytkownika = new System.Windows.Forms.Button();
@@ -2340,6 +2342,8 @@
             // panel7
             // 
             panel7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            panel7.Controls.Add(label149);
+            panel7.Controls.Add(textBox_IDUzytkownika);
             panel7.Controls.Add(textBox_NumerKarty_Edycja);
             panel7.Controls.Add(label_Uprawnienia_Edycja);
             panel7.Controls.Add(buttonEdytujUzytkownika);
@@ -2353,6 +2357,17 @@
             panel7.Controls.Add(textBox_ID_Edycja);
             resources.ApplyResources(panel7, "panel7");
             panel7.Name = "panel7";
+            // 
+            // label149
+            // 
+            resources.ApplyResources(label149, "label149");
+            label149.Name = "label149";
+            // 
+            // textBox_IDUzytkownika
+            // 
+            resources.ApplyResources(textBox_IDUzytkownika, "textBox_IDUzytkownika");
+            textBox_IDUzytkownika.Name = "textBox_IDUzytkownika";
+            textBox_IDUzytkownika.ReadOnly = true;
             // 
             // textBox_NumerKarty_Edycja
             // 
@@ -4825,6 +4840,8 @@
         public System.Windows.Forms.TreeView treeView1;
         private System.Windows.Forms.Label label140;
         public System.Windows.Forms.Label label_WczytajReferencje;
+        private System.Windows.Forms.Label label149;
+        public System.Windows.Forms.TextBox textBox_IDUzytkownika;
     }
 }
 

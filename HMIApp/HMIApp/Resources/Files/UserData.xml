@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Użytkownicy>
-  <Użytkownik ID="1" Numer_karty="12341" Nazwa_użytkownika="123" Uprawnienia="2" />
-  <Użytkownik ID="2" Numer_karty="12365" Nazwa_użytkownika="9990088990123" Uprawnienia="0" />
+  <Użytkownik ID="1" Numer_karty="12341xxx" Nazwa_użytkownika="123" Uprawnienia="2" />
+  <Użytkownik ID="2" Numer_karty="12365" Nazwa_użytkownika="9990088990123" Uprawnienia="2" />
   <Użytkownik ID="3" Numer_karty="1" Nazwa_użytkownika="1" Uprawnienia="0" />
   <Użytkownik ID="4" Numer_karty="000" Nazwa_użytkownika="00000099" Uprawnienia="0" />
   <Użytkownik ID="5" Numer_karty="696969" Nazwa_użytkownika="696969" Uprawnienia="2" />

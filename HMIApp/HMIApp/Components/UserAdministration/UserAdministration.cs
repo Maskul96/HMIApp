@@ -192,6 +192,7 @@ namespace HMIApp.Components.UserAdministration
             NrofCard = Form1._Form1.textBox_NumerKarty_Edycja.Text;
             Name = Form1._Form1.textBox_Imie_Edycja.Text;
             UserRights = Form1._Form1.comboBox_ListaUprawnien_Edycja.SelectedIndex.ToString();
+            id = Convert.ToInt16(Form1._Form1.textBox_IDUzytkownika.Text);
             if (NrofCard != "" && Name != "" && UserRights != "")
             {
                 try
@@ -199,7 +200,7 @@ namespace HMIApp.Components.UserAdministration
                     //Edytowanie danych użytkownika
                     var names = document.Element("Użytkownicy")?
                         .Elements("Użytkownik")
-                        .Where(x => x.Attribute("Numer_karty")?.Value == NrofCard)
+                        .Where(x => x.Attribute("ID")?.Value == id.ToString())
                         .Single();
                     names.Attribute("Numer_karty").Value = Form1._Form1.textBox_NumerKarty_Edycja.Text;
                     names.Attribute("Nazwa_użytkownika").Value = Form1._Form1.textBox_Imie_Edycja.Text;
@@ -254,7 +255,7 @@ namespace HMIApp.Components.UserAdministration
                 }
             }
             if (Name != "")
-            {
+            {   //NAZWA UZYTKOWNIKA WYCIAGNIETA Z PLIKU
                 var names = document.Element("Użytkownicy")?
                 .Elements("Użytkownik")
                 .Where(x => x.Attribute("Nazwa_użytkownika")?.Value == Name)
@@ -263,7 +264,7 @@ namespace HMIApp.Components.UserAdministration
                 {
                     Form1._Form1.textBox_Imie_Edycja.Text = item;
                 }
-
+                //NUMER KARTY UZYTKOWNIKA WYCIAGNIETY Z PLIKU
                 names = document.Element("Użytkownicy")?
                 .Elements("Użytkownik")
                 .Where(x => x.Attribute("Nazwa_użytkownika")?.Value == Name)
@@ -272,7 +273,7 @@ namespace HMIApp.Components.UserAdministration
                 {
                     Form1._Form1.textBox_NumerKarty_Edycja.Text = item;
                 }
-
+                //UPRAWNIENIA WYCIAGNIETE Z PLIKU
                 names = document.Element("Użytkownicy")?
                 .Elements("Użytkownik")
                 .Where(x => x.Attribute("Nazwa_użytkownika")?.Value == Name)
@@ -281,6 +282,15 @@ namespace HMIApp.Components.UserAdministration
                 {
                     int test = Convert.ToInt16(item);
                     Form1._Form1.comboBox_ListaUprawnien_Edycja.SelectedIndex = test;
+                }
+                //ID WYCIAGNIETE Z PLIKU
+                names = document.Element("Użytkownicy")?
+                .Elements("Użytkownik")
+                .Where(x => x.Attribute("Nazwa_użytkownika")?.Value == Name)
+                .Select(x => x.Attribute("ID")?.Value);
+                foreach (var item in names)
+                {
+                    Form1._Form1.textBox_IDUzytkownika.Text = item;
                 }
             }
         }
