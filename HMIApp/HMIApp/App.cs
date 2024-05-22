@@ -8,6 +8,7 @@ using ScottPlot;
 using ScottPlot.WinForms;
 using System;
 using System.Buffers;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Linq.Expressions;
@@ -187,7 +188,7 @@ namespace HMIApp
             }
         }
 
-        //metoda do odczytywania danych do wykresu uproszczone odczytywanie - Metoda wywołana w Form1 w Timerze co 10ms do odczytu
+        //metoda do odczytywania danych do wykresu uproszczone odczytywanie - Metoda wywołana w Form1 w Timerze co 1ms do odczytu
         public void ReadActualValueFromDBChart_Simplified(string filepath)
         {
             var dbtags = CSVReader.DBStructure(filepath);
@@ -256,9 +257,10 @@ namespace HMIApp
         }
 
 
-        //Tworzenie glownego wykresu
-        double[] ActX = new double[5000];
-        double[] ActY = new double[5000];
+        //Tworzenie glownego wykresu - dynamiczna Lista do przetrzymywania próbek wykresu
+        private List<double> ActX = new List<double>();
+        private List<double> ActY = new List<double>();
+
         public void CreatePlot()
         {
             ReadActualValueFromDBChart_Simplified(Path.Combine(Form1.basePathToFilesFolder, "tags_zone_4.csv"));
@@ -267,28 +269,22 @@ namespace HMIApp
             if (StartChart == 0)
             {
                 Form1._Form1.formsPlot1.Refresh();
-                index10 = 0;
             }
             if (ClearPlot == 1)
             {
                 Form1._Form1.formsPlot1.Plot.Clear();
                 CreateStaticPlot();
+                ActY.Clear();
+                ActX.Clear();
             }
             WriteSpecifiedValueFromReference();
+
             if (StartChart == 1 )
             {
-                ActX[index10] = ActValX;
-                ActY[index10] = ActValY;
-                index10 += 1;
-                //Ponizszy if i for - generowanie nowego wykresu co iteracje licznika "index10" zeby zasymulowac generowanie wykresu na żywo
-                if (index10 >= 2)
-                { 
-                    for (int i = index10; i < 5000; i++)
-                    {
-                        ActX[i] = ActX[i - 1];
-                        ActY[i] = ActY[i - 1];
-                    }
-
+                ActX.Add(ActValX);
+                ActY.Add(ActValY);
+                if (ActValX < EndReading)
+                {
                     var mainplot = Form1._Form1.formsPlot1.Plot.Add.Scatter(ActX, ActY);
                     mainplot.Color = Colors.Red;
                     mainplot.LineStyle.Width = 1;
@@ -302,11 +298,15 @@ namespace HMIApp
                     //Wykasowanie Measure - zakonczenie rysowania wykresu
                     WriteToDB("0", "DB665.Measure", 2);
                     //dopelnienie tablicy wartoscia ostatniego punktu
-                    for (int i = index10; i < 5000; i++)
-                    {
-                        ActX[i] = ActX[i - 1];
-                        ActY[i] = ActY[i - 1];
-                    }
+                    ActX.Add(ActValX);
+                    ActY.Add(ActValY);
+                    //Wyrysowanie ostatniego punktu
+                    var mainplot1 = Form1._Form1.formsPlot1.Plot.Add.Scatter(ActX, ActY);
+                    mainplot1.Color = Colors.Red;
+                    mainplot1.LineStyle.Width = 1;
+                    mainplot1.MarkerStyle.IsVisible = false;
+                    mainplot1.Smooth = true;
+
                     double[] dataXForceMin = { FastMovement, EndReading };
                     int[] dataYForceMin = { ForceMin, ForceMin };
                     double[] dataXForceMax = { StartReading, EndReading };
@@ -321,11 +321,6 @@ namespace HMIApp
                     fmax.Color = Colors.Black;
                     fmax.LineStyle.Pattern = LinePattern.Dashed;
                     fmax.LineStyle.Width = 1;
-                    //Wyrysowanie ostatniego punktu
-                    var mainplot1 = Form1._Form1.formsPlot1.Plot.Add.Scatter(ActX, ActY);
-                    mainplot1.Color = Colors.Red;
-                    mainplot1.LineStyle.Width = 1;
-                    mainplot1.MarkerStyle.IsVisible = false;
                     //Wrzucenie tekstu na wykres z dokladnymi odczytami punktow i siły - ForceMax traktujemy jako max w oknie czytania sily
                     Form1._Form1.formsPlot1.Plot.Add.Text($"({EndReading},{ForceMax})", EndReading, ForceMax);
                     Form1._Form1.formsPlot1.Plot.Add.Text($"({StartReading},{ForceMin})", StartReading, ForceMin);
