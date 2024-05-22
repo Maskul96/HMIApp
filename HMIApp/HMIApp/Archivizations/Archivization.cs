@@ -227,7 +227,7 @@ namespace HMIApp.Archivizations
                 csv.Context.RegisterClassMap<ArchivizationModelFromDataBaseMap>();
                 csv.WriteRecords(_archivizationmodelextendeddatabase);
                 //Info dla uzytkownika
-                Form1._Form1.label_StatusyArchiwizacji.Text = "Wygenerowano plik CSV z bazy danych";
+                if(Form1._Form1.label_StatusyArchiwizacji.Text == "") Form1._Form1.label_StatusyArchiwizacji.Text = "Wygenerowano plik CSV z bazy danych";
                 _logger.LogMessage("Wygenerowano plik CSV z bazy danych");
             }
             else if (!File.Exists($"{LocationOfArchivizationFolder}ArchivizationFromDataBase_DataGeneracjiPliku{DateTime.Now:yyyy-MM-dd HH-mm-ss}.csv"))
@@ -238,7 +238,7 @@ namespace HMIApp.Archivizations
                 csv.Context.RegisterClassMap<ArchivizationModelFromDataBaseMap>();
                 csv.WriteRecords(_archivizationmodelextendeddatabase);
                 //Info dla uzytkownika
-                Form1._Form1.label_StatusyArchiwizacji.Text = "Wygenerowano plik CSV z bazy danych";
+                if (Form1._Form1.label_StatusyArchiwizacji.Text == "") Form1._Form1.label_StatusyArchiwizacji.Text = "Wygenerowano plik CSV z bazy danych";
                 _logger.LogMessage("Wygenerowano plik CSV z bazy danych");
             }
 
