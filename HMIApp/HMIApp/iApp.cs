@@ -5,7 +5,7 @@ namespace HMIApp
     public interface iApp
     {
         bool RunInitPLC();
-        void listBox1_DrawItem(object sender, DrawItemEventArgs e);
+        void listBoxWarningsView_DrawItem(object sender, DrawItemEventArgs e);
         void ClosePLCConnection();
         void ReadActualValueFromDBReferenceOrProcessData(string filepath);
         void ReadAlarmsFromDB(string filepath);
@@ -20,12 +20,7 @@ namespace HMIApp
         bool GetBit(byte b, int bitNumber);
 
         void WriteSpecifiedValueFromReference();
-         int ClearPlot { get; set; } 
-         int ForceMin { get; set; }
-         int ForceMax { get; set; }
-         byte StartChart { get; set; }
-         double ActValX { get; set; }
-         double ActValY { get; set; }
+        //brak metody MakeList - w interfejsie nie implementujemy metod statycznych
 
     }
 }

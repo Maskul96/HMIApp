@@ -61,7 +61,7 @@ namespace HMIApp
 
             OdczytDB.Enabled = true;
 
-            listBoxWarningsView.DrawItem += new DrawItemEventHandler(App.listBox1_DrawItem);
+            listBoxWarningsView.DrawItem += new DrawItemEventHandler(App.listBoxWarningsView_DrawItem);
             label13.Text = "";
             Users.EnabledObjects();
 

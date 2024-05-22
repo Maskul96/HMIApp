@@ -193,9 +193,6 @@
   <data name="DB666NameOfClientPassedValue.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <data name="DB666NameOfClientPassedValue.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
   <data name="DB666NameOfClientPassedValue.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 9pt</value>
   </data>
@@ -225,9 +222,6 @@
   </data>
   <data name="DB666NrReferencePassedValue.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
-  </data>
-  <data name="DB666NrReferencePassedValue.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
   </data>
   <data name="DB666NrReferencePassedValue.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 9pt</value>
@@ -15779,9 +15773,6 @@
   <data name="DB667CzasCyklu.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
   </data>
-  <data name="DB667CzasCyklu.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
   <data name="DB667CzasCyklu.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 8.25pt</value>
   </data>
@@ -15933,7 +15924,7 @@
     <value>189</value>
   </data>
   <data name="Button_ResetSztukOK.Text" xml:space="preserve">
-    <value>Reset OK</value>
+    <value>Reset  OK</value>
   </data>
   <data name="&gt;&gt;Button_ResetSztukOK.Name" xml:space="preserve">
     <value>Button_ResetSztukOK</value>
@@ -18366,7 +18357,7 @@
     <value>True</value>
   </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>77</value>
+    <value>43</value>
   </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>7, 15</value>

@@ -1,18 +1,9 @@
-﻿using HMIApp.Archivizations;
-using HMIApp.Components.CSVReader;
-using HMIApp.Components.CSVReader.Models;
-using HMIApp.Data;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Identity.Client;
+﻿using HMIApp.Components.CSVReader;
 using ScottPlot;
-using ScottPlot.WinForms;
 using System;
-using System.Buffers;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Linq.Expressions;
-using System.Net;
 using System.Text;
 using System.Windows.Forms;
 
@@ -26,22 +17,19 @@ namespace HMIApp
         public Form1 obj;
 
         #region Zmienne do DBka do odczytu wykresu
+        private List<double> ActX = new();
+        private List<double> ActY = new();
         private int DBread_position;
         private string DBread_NumberOfDB;
         private int DBread_StartDB;
         private int DBread_EndDB;
         private int DBread_NrOfByteinDB;
-        public int ClearPlot { get; set; }
-        public int ForceMin { get; set; }
-        public int ForceMax { get; set; }
-        public byte StartChart { get; set; }
-        public double ActValX { get; set; }
-        public double ActValY { get; set; }
-
-        public bool EndOfMeasuring;
-        public int index10;
-        public double offset = 2.0;
-
+        private int ClearPlot;
+        private int ForceMin;
+        private int ForceMax;
+        private byte StartChart;
+        private double ActValX;
+        private double ActValY;
         //Przepisanie wartosci z referencji
         public double StartPoint;
         public double FastMovement;
@@ -112,19 +100,11 @@ namespace HMIApp
             this.obj = obj;
         }
 
-
         //Stworzenie obiektu z konfiguracja sterownika
         SiemensPLC PLC = new("192.168.2.1", 102, 0, 1, 1);
 
-
         //Stworzenie obiektu CSVReader do odczytu z pliku
         CSVReader CSVReader = new();
-
-        //Metoda do tworzenia alarmów z trzema tekstami (data, PLCTag, Nazwa) w listview 
-        private static ListViewItem MakeList(string Alarm, string Alarm1, string Alarm2)
-        {
-            return new ListViewItem(new[] { Alarm, Alarm1, Alarm2 });
-        }
 
         //Metoda uruchamiająca komunikacje z PLC
         public bool RunInitPLC()
@@ -147,6 +127,7 @@ namespace HMIApp
             }
         }
 
+        //Metoda zamykająca połączenie z PLC
         public void ClosePLCConnection()
         {
             PLC.Close();
@@ -188,6 +169,7 @@ namespace HMIApp
             }
         }
 
+        #region OBSŁUGA WYKRESU
         //metoda do odczytywania danych do wykresu uproszczone odczytywanie - Metoda wywołana w Form1 w Timerze co 1ms do odczytu
         public void ReadActualValueFromDBChart_Simplified(string filepath)
         {
@@ -256,11 +238,7 @@ namespace HMIApp
             }
         }
 
-
         //Tworzenie glownego wykresu - dynamiczna Lista do przetrzymywania próbek wykresu
-        private List<double> ActX = new List<double>();
-        private List<double> ActY = new List<double>();
-
         public void CreatePlot()
         {
             ReadActualValueFromDBChart_Simplified(Path.Combine(Form1.basePathToFilesFolder, "tags_zone_4.csv"));
@@ -348,6 +326,7 @@ namespace HMIApp
             Form1._Form1.formsPlot1.Plot.Title("Wykres siły");
             Form1._Form1.formsPlot1.Refresh();
         }
+        #endregion
 
         //Ponizsza metoda do wywolania dopiero jak zaczyta sie jakakolwiek referencja
         public void WriteSpecifiedValueFromReference()
@@ -357,15 +336,12 @@ namespace HMIApp
             StartReading = Convert.ToDouble(Form1._Form1.DB666PoczCzytSily__Przeciskanie.Text);
             EndReading = Convert.ToDouble(Form1._Form1.DB666KoniecCzytSily__Przeciskanie.Text);
             ForceMaxfromRef = Convert.ToInt16(Form1._Form1.DB666SilaMax__Przeciskanie.Text);
-
         }
 
         //Odczyt z pliku CSV i od razu odczyt danych z DBka Referencji 
         public void ReadActualValueFromDBReferenceOrProcessData(string filepath)
         {
-
             var dbtags = CSVReader.DBStructure(filepath);
-
             foreach (var dbTag in dbtags)
             {
                 //Wyciagniecie z nazwy DBka jego numer
@@ -377,18 +353,15 @@ namespace HMIApp
                     DBRead_StartDB = dbTag.NumberOfByteInDB;
                 }
                 if (dbtags.Last() == dbTag)
-                {
-                    //Zabezpieczenie wyjscia poza index tablicy
+                {//Zabezpieczenie wyjscia poza index tablicy
                     DBRead_EndDB = dbTag.NumberOfByteInDB + dbTag.LengthDataType;
                 }
             }
-
             byte[] DB = new byte[DBRead_EndDB];
             //Read DB
             PLC.Read(int.Parse(DBRead_NumberOfDB), DBRead_StartDB, DBRead_EndDB, DB);
 
             //udostepnienie DBka do archiwizacji danych - z DB trzeba wyciagnac na sztywno bezposrednio informacje o stanie Auto/Manual
-
             foreach (var dbTag in dbtags)
             {
                 //sprobowac uproscic tego switcha szczegolnie z wyszukiwaniem kontrolek - zrobic na wzor tego c ozrobilem z zamiana kropki na przecinek
@@ -420,10 +393,9 @@ namespace HMIApp
                                     if (values[0])
                                     {
                                         txt.BackColor = System.Drawing.Color.LimeGreen;
-
                                     }
                                     else
-                                    {
+                                    {// W PRZYPADKU SAFETY I KURTYNY KOLOR JEST POMARANCZOWY - MUSI TO BYC PRZEPISANE NA SZTYWNO
                                         if (DBRead_TagName.Contains("Safety") || DBRead_TagName.Contains("Kurtyna")) txt.BackColor = System.Drawing.Color.OrangeRed;
                                         else txt.BackColor = System.Drawing.Color.White;
                                     }
@@ -443,7 +415,7 @@ namespace HMIApp
                                         txt.BackColor = System.Drawing.Color.LimeGreen;
                                     }
                                     else
-                                    {
+                                    {// W PRZYPADKU SAFETY I KURTYNY KOLOR JEST POMARANCZOWY - MUSI TO BYC PRZEPISANE NA SZTYWNO
                                         if (DBRead_TagName.Contains("Safety") || DBRead_TagName.Contains("Kurtyna")) txt.BackColor = System.Drawing.Color.OrangeRed;
                                         else txt.BackColor = System.Drawing.Color.White;
                                     }
@@ -463,7 +435,7 @@ namespace HMIApp
                                         txt.BackColor = System.Drawing.Color.LimeGreen;
                                     }
                                     else
-                                    {
+                                    {// W PRZYPADKU SAFETY I KURTYNY KOLOR JEST POMARANCZOWY - MUSI TO BYC PRZEPISANE NA SZTYWNO
                                         if (DBRead_TagName.Contains("Safety") || DBRead_TagName.Contains("Kurtyna")) txt.BackColor = System.Drawing.Color.OrangeRed;
                                         else txt.BackColor = System.Drawing.Color.White;
                                     }
@@ -483,7 +455,7 @@ namespace HMIApp
                                         txt.BackColor = System.Drawing.Color.LimeGreen;
                                     }
                                     else
-                                    {
+                                    {// W PRZYPADKU SAFETY I KURTYNY KOLOR JEST POMARANCZOWY - MUSI TO BYC PRZEPISANE NA SZTYWNO
                                         if (DBRead_TagName.Contains("Safety") || DBRead_TagName.Contains("Kurtyna")) txt.BackColor = System.Drawing.Color.OrangeRed;
                                         else txt.BackColor = System.Drawing.Color.White;
                                     }
@@ -503,7 +475,7 @@ namespace HMIApp
                                         txt.BackColor = System.Drawing.Color.LimeGreen;
                                     }
                                     else
-                                    {
+                                    {// W PRZYPADKU SAFETY I KURTYNY KOLOR JEST POMARANCZOWY - MUSI TO BYC PRZEPISANE NA SZTYWNO
                                         if (DBRead_TagName.Contains("Safety") || DBRead_TagName.Contains("Kurtyna")) txt.BackColor = System.Drawing.Color.OrangeRed;
                                         else txt.BackColor = System.Drawing.Color.White;
                                     }
@@ -523,7 +495,7 @@ namespace HMIApp
                                         txt.BackColor = System.Drawing.Color.LimeGreen;
                                     }
                                     else
-                                    {
+                                    {// W PRZYPADKU SAFETY I KURTYNY KOLOR JEST POMARANCZOWY - MUSI TO BYC PRZEPISANE NA SZTYWNO
                                         if (DBRead_TagName.Contains("Safety") || DBRead_TagName.Contains("Kurtyna")) txt.BackColor = System.Drawing.Color.OrangeRed;
                                         else txt.BackColor = System.Drawing.Color.White;
                                     }
@@ -543,7 +515,7 @@ namespace HMIApp
                                         txt.BackColor = System.Drawing.Color.LimeGreen;
                                     }
                                     else
-                                    {
+                                    {// W PRZYPADKU SAFETY I KURTYNY KOLOR JEST POMARANCZOWY - MUSI TO BYC PRZEPISANE NA SZTYWNO
                                         if (DBRead_TagName.Contains("Safety") || DBRead_TagName.Contains("Kurtyna")) txt.BackColor = System.Drawing.Color.OrangeRed;
                                         else txt.BackColor = System.Drawing.Color.White;
                                     }
@@ -563,7 +535,7 @@ namespace HMIApp
                                         txt.BackColor = System.Drawing.Color.LimeGreen;
                                     }
                                     else
-                                    {
+                                    {// W PRZYPADKU SAFETY I KURTYNY KOLOR JEST POMARANCZOWY - MUSI TO BYC PRZEPISANE NA SZTYWNO
                                         if (DBRead_TagName.Contains("Safety") || DBRead_TagName.Contains("Kurtyna")) txt.BackColor = System.Drawing.Color.OrangeRed;
                                         else txt.BackColor = System.Drawing.Color.White;
                                     }
@@ -699,9 +671,7 @@ namespace HMIApp
             }
         }
 
-
-        //Zapis danych do DB i odczyt pliku z zapisywaniem
-        //Index = 0 zapis do DB666, index = 1 zapis do DB667, index = 2 zapis do DB665
+        //Zapis danych do DB i odczyt pliku z zapisywaniem - Index = 0 zapis do DB666, index = 1 zapis do DB667, index = 2 zapis do DB665
         public void WriteToDB(string valuetoWrite, string NameofTaginDB, int filenameIndex = 0)
         {
             string filename = "";
@@ -905,12 +875,10 @@ namespace HMIApp
                     break;
                 default:
                     break;
-
             }
         }
 
-
-        //ALARMY
+        //OBSŁUGA ALARMY I KOMUNIKATY - ZARÓWNO TABPAGE ARCHIWUM ALARMY JAK I GŁOWNY TABPAGE AUTO GDZIE WYSWIETLAJĄ SIĘKOMUNIKATY I ALARMY
         public void ReadAlarmsFromDB(string filepath)
         {
             var dbtags = CSVReader.DBAlarmStructure(filepath);
@@ -943,7 +911,6 @@ namespace HMIApp
             byte[] DB = new byte[DBReadAlarm_EndDB];
             //Read DB
             PLC.Read(int.Parse(DBReadAlarm_NumberOfDB), DBReadAlarm_StartDB, DBReadAlarm_EndDB, DB);
-
             foreach (var dbTag in dbtags)
             {
                 //Read BOOL
@@ -956,7 +923,6 @@ namespace HMIApp
                 switch (DBReadAlarm_DataTypeofTag.ToUpper())
                 {
                     case "BOOL":
-
                         switch (DBReadAlarm_NrOfBitinByte)
                         {
                             case 0:
@@ -1003,8 +969,7 @@ namespace HMIApp
                                             }
                                         }
                                     }
-
-                                    //Kasowanie archiwum alarmów po 100 alarmach
+                                   //Kasowanie archiwum alarmów po 100 alarmach
                                     if (Form1._Form1.listView_AlarmsArchive.FindItemWithText(DBReadAlarm_AlarmName) != null)
                                     {
                                         if (Form1._Form1.listView_AlarmsArchive.Items.Count > 100)
@@ -1406,21 +1371,10 @@ namespace HMIApp
                         }                       
                         break;
                 }
-
             }
         }
 
-
-        //metoda do ustawienia po srodku item w listBox - moduł komunikatów z PLC
-        public void listBox1_DrawItem(object sender, DrawItemEventArgs e)
-        {
-            TextFormatFlags flags = TextFormatFlags.HorizontalCenter | TextFormatFlags.VerticalCenter;
-            var textRect = e.Bounds;
-            var textColor = System.Drawing.Color.Black;
-            string itemText = Form1._Form1.listBoxWarningsView.Items[e.Index].ToString();
-            TextRenderer.DrawText(e.Graphics, itemText, e.Font, textRect, textColor, flags);
-        }
-
+        //Metoda do odczytu sygnałow IO z PLC
         public void ReadIOFromDB(string filepath)
         {
             var dbtags = CSVReader.DBStructure(filepath);
@@ -1590,10 +1544,23 @@ namespace HMIApp
                         }
                         break;
                 }
-
             }
-
         }
 
+        //metoda do ustawienia po srodku item w listBox - moduł komunikatów z PLC
+        public void listBoxWarningsView_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            TextFormatFlags flags = TextFormatFlags.HorizontalCenter | TextFormatFlags.VerticalCenter;
+            var textRect = e.Bounds;
+            var textColor = System.Drawing.Color.Black;
+            string itemText = Form1._Form1.listBoxWarningsView.Items[e.Index].ToString();
+            TextRenderer.DrawText(e.Graphics, itemText, e.Font, textRect, textColor, flags);
+        }
+
+        //Metoda do tworzenia alarmów z trzema tekstami (data, PLCTag, Nazwa) w listview 
+        private static ListViewItem MakeList(string Alarm, string Alarm1, string Alarm2)
+        {
+            return new ListViewItem(new[] { Alarm, Alarm1, Alarm2 });
+        }
     }
 }

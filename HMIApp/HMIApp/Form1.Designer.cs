@@ -637,12 +637,14 @@
             // 
             resources.ApplyResources(DB666NameOfClientPassedValue, "DB666NameOfClientPassedValue");
             DB666NameOfClientPassedValue.Name = "DB666NameOfClientPassedValue";
+            DB666NameOfClientPassedValue.ReadOnly = true;
             DB666NameOfClientPassedValue.Tag = "DB666.NameOfClient";
             // 
             // DB666NrReferencePassedValue
             // 
             resources.ApplyResources(DB666NrReferencePassedValue, "DB666NrReferencePassedValue");
             DB666NrReferencePassedValue.Name = "DB666NrReferencePassedValue";
+            DB666NrReferencePassedValue.ReadOnly = true;
             DB666NrReferencePassedValue.Tag = "DB666.NrReference";
             // 
             // label_NazwaKlienta
@@ -3600,6 +3602,7 @@
             // 
             resources.ApplyResources(DB667CzasCyklu, "DB667CzasCyklu");
             DB667CzasCyklu.Name = "DB667CzasCyklu";
+            DB667CzasCyklu.ReadOnly = true;
             DB667CzasCyklu.Tag = "";
             // 
             // tableLayoutPanel5
