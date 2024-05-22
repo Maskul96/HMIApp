@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HMIApp.Archivizations
 {
-    public interface iArchivization
+    public interface IArchivization
     {
         delegate void ArchiveEvents(object sender, EventArgs args, string message);
 

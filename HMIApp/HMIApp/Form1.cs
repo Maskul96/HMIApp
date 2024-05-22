@@ -51,7 +51,7 @@ namespace HMIApp
             InitializeComponent();
             _Form1 = this;
 
-            services.AddSingleton<iDataBase, DataBase>();
+            services.AddSingleton<IDataBase, DataBase>();
             services.AddDbContext<HMIAppDBContext>();
             serviceProvider = services.BuildServiceProvider();
 
@@ -150,7 +150,7 @@ namespace HMIApp
         //METODA DO ODCZYTU DANYCH Z BAZY przy starcie aplikacji
         public void ReadFromDbWhenAppIsStarting()
         {
-            var database = serviceProvider.GetService<iDataBase>();
+            var database = serviceProvider.GetService<IDataBase>();
             database.SelectFromDbToComboBox();
             //Najpierw odczyt z combobox zeby potem moc odczytac z bazy danych pierwszy element na starcie
             if (comboBoxListaReferencji.Items.Count > 0)
@@ -165,7 +165,7 @@ namespace HMIApp
             if (comboBoxListaReferencji.Text != null && comboBoxListaReferencji.Text != "")
             {
                 //Zapisz referencje do bazy danych
-                var database = serviceProvider.GetService<iDataBase>();
+                var database = serviceProvider.GetService<IDataBase>();
                 database.UpdateDb(comboBoxListaReferencji.SelectedItem.ToString());
                 //Wczytaj parametry referencji do PLC
                 //Nr referencji i klient
@@ -328,21 +328,21 @@ namespace HMIApp
         // PRZYCISK WYZWALAJACY dodanie i zapis referencji do bazy
         private void Button_Click_AddAndSaveReference(object sender, EventArgs e)
         {
-                var database = serviceProvider.GetService<iDataBase>();
+                var database = serviceProvider.GetService<IDataBase>();
                 database.InsertToDataBase();
         }
 
         //Wyrzucenie referencji po rozwinieciu comboboxa
         private void ComboBoxListaReferencji_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var database = serviceProvider.GetService<iDataBase>();
+            var database = serviceProvider.GetService<IDataBase>();
             database.SelectFromDataBase(comboBoxListaReferencji.Text);
         }
 
         //Usuwanie wybranej referencji
         private void Button_Click_DeleteReference(object sender, EventArgs e)
         {
-            var database = serviceProvider.GetService<iDataBase>();
+            var database = serviceProvider.GetService<IDataBase>();
             if (MessageBox.Show("Czy na pewno chcesz usunąć referencję?", "Potwierdź", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 if (comboBoxListaReferencji.Text != null && comboBoxListaReferencji.Text != "")

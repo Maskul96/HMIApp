@@ -10,7 +10,7 @@ using static libnodave;
 namespace HMIApp
 {
     //Klasa do obsługi komunikacji z PLC oraz odczytu/zapisu danych z DB
-    public class SiemensPLC : iSiemensPLC
+    public class SiemensPLC : ISiemensPLC
     {
         //propercje
         public int Rack { get; private set; }

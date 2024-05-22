@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace HMIApp.Data
 {
-    public class DataBase : iDataBase
+    public class DataBase : IDataBase
     {
         public string ConnectionString = "";
         private readonly HMIAppDBContext _hmiAppDbContext;

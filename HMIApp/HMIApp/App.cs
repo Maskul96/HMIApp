@@ -12,7 +12,7 @@ using System.Windows.Forms;
 namespace HMIApp
 {
     //Klasa do obsługi komunikacji z PLC oraz odczytu/zapisu danych z DB i do rysowania wykresu
-    public class App : iApp
+    public class App : IApp
     {
         public Form1 obj;
 

@@ -4,7 +4,7 @@ using Windows.ApplicationModel.VoiceCommands;
 
 namespace HMIApp.Components.RFIDCardReader
 {
-    public interface iSerialPortReader
+    public interface ISerialPortReader
     {
         void Run();
         void Close();

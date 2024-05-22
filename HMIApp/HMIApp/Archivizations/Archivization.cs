@@ -21,7 +21,7 @@ using SkiaSharp;
 namespace HMIApp.Archivizations
 {
 
-    public class Archivization : iArchivization
+    public class Archivization : IArchivization
     {
         public DataBaseArchivization _databaseArchive = new();
         public Form1 obj;
@@ -48,7 +48,7 @@ namespace HMIApp.Archivizations
         public void Run()
         {
             //Services do dependency injection
-            services.AddSingleton<iDataBaseArchivization, DataBaseArchivization>();
+            services.AddSingleton<IDataBaseArchivization, DataBaseArchivization>();
             //ZArejestrowanie DBContextu - Stworzenie połączenia do bazy danych i service providera
             services.AddDbContext<HMIAppDBContextArchivization>();
 
@@ -144,7 +144,7 @@ namespace HMIApp.Archivizations
             #endregion
             //Logowanie do bazy danych
             var NrOfSchift = NumberOfProductionShift();
-            var databaseArchive = serviceProvider.GetService<iDataBaseArchivization>();
+            var databaseArchive = serviceProvider.GetService<IDataBaseArchivization>();
             databaseArchive.InsertToDataBase(message, NrOfSchift);
             //Liczenie rekordów bazy i usuniecie po przekroczeniu 100k wpisów
             databaseArchive.CountRowsAndDeleteAllData();
@@ -174,7 +174,7 @@ namespace HMIApp.Archivizations
 
         public void ExportToCSVButtonFromForm1()
         {
-            var databaseArchive = serviceProvider.GetService<iDataBaseArchivization>();
+            var databaseArchive = serviceProvider.GetService<IDataBaseArchivization>();
             var StartYear = Form1._Form1.comboBox_StartYear.SelectedItem.ToString();
             var StartMonth = Form1._Form1.comboBox_StartMonth.SelectedItem.ToString();
             var StartDay = Form1._Form1.comboBox_StartDay.SelectedItem.ToString();

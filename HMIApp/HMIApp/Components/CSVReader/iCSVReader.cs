@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace HMIApp.Components
 {
-    public interface iCSVReader
+    public interface ICSVReader
     {
 
         List<DBTag> DBStructure(string filePath);

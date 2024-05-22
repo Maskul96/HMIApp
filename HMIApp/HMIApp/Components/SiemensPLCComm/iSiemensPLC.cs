@@ -6,7 +6,7 @@ namespace HMIApp
     //dlatego np. private set co mam na propercjach to go tutaj nie ma
     //czy metod void AddContinuousWritingErrors() itd.
     //Tutaj sa tylko informacje publicznie w jaki sposob mozna korzystac z klasy implementujacej ten interface
-    public interface iSiemensPLC
+    public interface ISiemensPLC
     {
         int Rack { get;}
         int Slot { get; }

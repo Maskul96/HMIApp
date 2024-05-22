@@ -1,11 +1,14 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
+using System.Linq.Expressions;
+using System.Windows;
+using System.Windows.Forms;
 using System.Xml.Linq;
 
 namespace HMIApp.Components.UserAdministration
 {
-    public class UserAdministration : iUserAdministration
+    public class UserAdministration : IUserAdministration
     {
         //konstruktor bezparametrowy
         public UserAdministration()
@@ -17,15 +20,18 @@ namespace HMIApp.Components.UserAdministration
         {
             this.obj = obj;
         }
+        #region zmienne
         //zmienne
         public Form1 obj;
-        public string NrofCard;
-        public string Name;
-        public string UserRights;
-        public int id = 1;
-        // public bool UserIsLoggedIn;
+        public Logger _logger = new();
+        private string NrofCard;
+        private string Name;
+        private string UserRights;
+        private int id = 1;
+        //publiczny interwał do dostępu z innych klas
         public int Interval = 100000 / 1000;
-
+        #endregion
+        //propercja UserIsLoggedIn - do dostępu z iinych klas
         public bool UserIsLoggedIn { get; set; }
 
         public void Run()
@@ -132,33 +138,38 @@ namespace HMIApp.Components.UserAdministration
             if (NrofCard != "" && Name != "" && UserRights != "")
             {
                 //Zabezpieczenie przed dodanie usera o tym samym numerze karty
-
-
-                var names = document.Element("Użytkownicy")?
-                .Elements("Użytkownik")
-                .Where(x => x.Attribute("Numer_karty")?.Value == NrofCard)
-                .SingleOrDefault();
-
-                if (names!= null)
+                try
                 {
-                    if (NrofCard == names.Attribute("Numer_karty").Value)
+                    var names = document.Element("Użytkownicy")?
+                    .Elements("Użytkownik")
+                    .Where(x => x.Attribute("Numer_karty")?.Value == NrofCard)
+                    .SingleOrDefault();
+
+                    if (names != null)
                     {
-                        Form1._Form1.StatusyLogowania.Text = ("Użytkownik już istnieje!");
+                        if (NrofCard == names.Attribute("Numer_karty").Value)
+                        {
+                            Form1._Form1.StatusyLogowania.Text = ("Użytkownik już istnieje!");
+                        }
+                    }
+                    else
+                    {
+                        document.Element("Użytkownicy").Add
+                                 (new XElement("Użytkownik",
+                                        new XAttribute("ID", id),
+                                        new XAttribute("Numer_karty", NrofCard),
+                                        new XAttribute("Nazwa_użytkownika", Name),
+                                        new XAttribute("Uprawnienia", UserRights)));
+                        //Zapis pliku
+                        document.Save(Path.Combine(Form1.basePathToFilesFolder, "UserData.xml"));
+                        //Komunikat dla usera
+                        Form1._Form1.StatusyLogowania.Text = ("Użytkownik dodany");
                     }
                 }
-                else
+                catch(Exception ex)
                 {
-
-                    document.Element("Użytkownicy").Add
-                             (new XElement("Użytkownik",
-                             new XAttribute("ID", id),
-                             new XAttribute("Numer_karty", NrofCard),
-                          new XAttribute("Nazwa_użytkownika", Name),
-                          new XAttribute("Uprawnienia", UserRights)));
-                    //Zapis ppliku
-                    document.Save(Path.Combine(Form1.basePathToFilesFolder, "UserData.xml"));
-                    //Komunikat dla usera
-                    Form1._Form1.StatusyLogowania.Text = ("Użytkownik dodany");
+                    System.Windows.MessageBox.Show($"{ex.ToString()}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    _logger.LogMessage(ex.ToString());
                 }
                 //Wyczyszczenie i nastepnie update listy w combobox
                 ClearListInComboBox();
@@ -169,9 +180,7 @@ namespace HMIApp.Components.UserAdministration
                 //Komunikat dla usera
                 Form1._Form1.StatusyLogowania.Text = ("Niepoprawne dane");
             }
-
             Form1._Form1.CzyszczenieStatusówLogowania.Enabled = true;
-
         }
 
         public void EditXML()
@@ -183,27 +192,34 @@ namespace HMIApp.Components.UserAdministration
             NrofCard = Form1._Form1.textBox_NumerKarty_Edycja.Text;
             Name = Form1._Form1.textBox_Imie_Edycja.Text;
             UserRights = Form1._Form1.comboBox_ListaUprawnien_Edycja.SelectedIndex.ToString();
-            int.TryParse(Form1._Form1.textBox_ID_Edycja.Text, out id);
             if (NrofCard != "" && Name != "" && UserRights != "")
             {
-                //Edytowanie danych użytkownika
-                var names = document.Element("Użytkownicy")?
-                    .Elements("Użytkownik")
-                    .Where(x => x.Attribute("ID")?.Value == id.ToString())
-                    .Single();
-                names.Attribute("Numer_karty").Value = Form1._Form1.textBox_NumerKarty_Edycja.Text;
-                names.Attribute("Nazwa_użytkownika").Value = Form1._Form1.textBox_Imie_Edycja.Text;
-                names.Attribute("Uprawnienia").Value = Form1._Form1.comboBox_ListaUprawnien_Edycja.SelectedIndex.ToString();
+                try
+                {
+                    //Edytowanie danych użytkownika
+                    var names = document.Element("Użytkownicy")?
+                        .Elements("Użytkownik")
+                        .Where(x => x.Attribute("Numer_karty")?.Value == NrofCard)
+                        .Single();
+                    names.Attribute("Numer_karty").Value = Form1._Form1.textBox_NumerKarty_Edycja.Text;
+                    names.Attribute("Nazwa_użytkownika").Value = Form1._Form1.textBox_Imie_Edycja.Text;
+                    names.Attribute("Uprawnienia").Value = Form1._Form1.comboBox_ListaUprawnien_Edycja.SelectedIndex.ToString();
 
-                //Zapis ppliku
-                document.Save(Path.Combine(Form1.basePathToFilesFolder, "UserData.xml"));
+                    //Zapis ppliku
+                    document.Save(Path.Combine(Form1.basePathToFilesFolder, "UserData.xml"));
 
-                //Komunikat dla usera
-                Form1._Form1.StatusyLogowania.Text = ("Użytkownik zedytowany");
+                    //Komunikat dla usera
+                    Form1._Form1.StatusyLogowania.Text = ("Użytkownik zedytowany");
 
-                //Wyczyszczenie i nastepnie update listy w combobox
-                ClearListInComboBox();
-                DisplayValuesFromXML(document);
+                    //Wyczyszczenie i nastepnie update listy w combobox
+                    ClearListInComboBox();
+                    DisplayValuesFromXML(document);
+                }
+                catch (Exception ex)
+                {
+                    System.Windows.MessageBox.Show($"{ex.ToString()}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    _logger.LogMessage($"{ex.ToString()}");
+                }
             }
             else
             {
@@ -211,7 +227,6 @@ namespace HMIApp.Components.UserAdministration
                 Form1._Form1.StatusyLogowania.Text = ("Niepoprawne dane");
             }
             Form1._Form1.CzyszczenieStatusówLogowania.Enabled = true;
-
         }
 
         public XDocument LoadFromXML(string filepath)
@@ -268,21 +283,6 @@ namespace HMIApp.Components.UserAdministration
                     Form1._Form1.comboBox_ListaUprawnien_Edycja.SelectedIndex = test;
                 }
             }
-        }
-
-        public void LoadFromXML()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void UpdateDisplayValuesFromXML()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void ClearListinComboBox()
-        {
-            throw new NotImplementedException();
         }
     }
 }

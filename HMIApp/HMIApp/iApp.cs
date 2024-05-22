@@ -2,7 +2,7 @@
 
 namespace HMIApp
 {
-    public interface iApp
+    public interface IApp
     {
         bool RunInitPLC();
         void listBoxWarningsView_DrawItem(object sender, DrawItemEventArgs e);

@@ -3,7 +3,7 @@ using HMIApp.Components.DataBase;
 
 namespace HMIApp.Data
 {
-    public interface iDataBase
+    public interface IDataBase
     {
         string ReadConfFile(string filepath);
         void Run();

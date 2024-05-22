@@ -6,7 +6,7 @@ using System.Windows.Documents;
 
 namespace HMIApp.Components.RFIDCardReader
 {
-    public class SerialPortReader : iSerialPortReader
+    public class SerialPortReader : ISerialPortReader
     {
         public Form1 obj;
         private SerialPort _serialPort;

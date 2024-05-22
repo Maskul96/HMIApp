@@ -13,7 +13,7 @@ using System.Windows.Forms;
 
 namespace HMIApp.Data
 {
-    public class DataBaseArchivization :iDataBaseArchivization
+    public class DataBaseArchivization :IDataBaseArchivization
     {
         private readonly HMIAppDBContextArchivization _hmiAppDbContextArchivization;
         public string ConnectionString = "";

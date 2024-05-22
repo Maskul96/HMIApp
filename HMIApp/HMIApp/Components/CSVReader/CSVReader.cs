@@ -6,7 +6,7 @@ using HMIApp.Components.CSVReader.Models;
 
 namespace HMIApp.Components.CSVReader
 {
-    public class CSVReader : iCSVReader
+    public class CSVReader : ICSVReader
     {
         public CSVReader()
         {

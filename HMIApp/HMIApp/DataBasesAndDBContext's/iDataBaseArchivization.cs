@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace HMIApp.Data
 {
-    public interface iDataBaseArchivization
+    public interface IDataBaseArchivization
     {
         string ReadConfFile(string filepath);
         void Run();
