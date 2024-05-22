@@ -8415,6 +8415,120 @@
   <data name="&gt;&gt;panel5.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
+  <data name="tableLayoutPanel15.CellBorderStyle" type="System.Windows.Forms.TableLayoutPanelCellBorderStyle, System.Windows.Forms">
+    <value>InsetDouble</value>
+  </data>
+  <data name="tableLayoutPanel15.ColumnCount" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="textBox_MiejsceNaNrKarty_Zaloguj.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="textBox_MiejsceNaNrKarty_Zaloguj.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 6</value>
+  </data>
+  <data name="textBox_MiejsceNaNrKarty_Zaloguj.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="textBox_MiejsceNaNrKarty_Zaloguj.Size" type="System.Drawing.Size, System.Drawing">
+    <value>416, 29</value>
+  </data>
+  <data name="textBox_MiejsceNaNrKarty_Zaloguj.TabIndex" type="System.Int32, mscorlib">
+    <value>81</value>
+  </data>
+  <data name="&gt;&gt;textBox_MiejsceNaNrKarty_Zaloguj.Name" xml:space="preserve">
+    <value>textBox_MiejsceNaNrKarty_Zaloguj</value>
+  </data>
+  <data name="&gt;&gt;textBox_MiejsceNaNrKarty_Zaloguj.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;textBox_MiejsceNaNrKarty_Zaloguj.Parent" xml:space="preserve">
+    <value>tableLayoutPanel15</value>
+  </data>
+  <data name="&gt;&gt;textBox_MiejsceNaNrKarty_Zaloguj.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tableLayoutPanel15.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="tableLayoutPanel15.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="tableLayoutPanel15.RowCount" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="tableLayoutPanel15.Size" type="System.Drawing.Size, System.Drawing">
+    <value>430, 42</value>
+  </data>
+  <data name="tableLayoutPanel15.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel15.Name" xml:space="preserve">
+    <value>tableLayoutPanel15</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel15.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel15.Parent" xml:space="preserve">
+    <value>panel8</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel15.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tableLayoutPanel15.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="textBox_MiejsceNaNrKarty_Zaloguj" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,63,820225" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <data name="panel8.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="panel8.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 6</value>
+  </data>
+  <data name="panel8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>432, 44</value>
+  </data>
+  <data name="panel8.TabIndex" type="System.Int32, mscorlib">
+    <value>182</value>
+  </data>
+  <data name="&gt;&gt;panel8.Name" xml:space="preserve">
+    <value>panel8</value>
+  </data>
+  <data name="&gt;&gt;panel8.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel8.Parent" xml:space="preserve">
+    <value>tableLayoutPanel14</value>
+  </data>
+  <data name="&gt;&gt;panel8.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="StatusyLogowania.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="StatusyLogowania.Location" type="System.Drawing.Point, System.Drawing">
+    <value>447, 6</value>
+  </data>
+  <data name="StatusyLogowania.Size" type="System.Drawing.Size, System.Drawing">
+    <value>432, 29</value>
+  </data>
+  <data name="StatusyLogowania.TabIndex" type="System.Int32, mscorlib">
+    <value>183</value>
+  </data>
+  <data name="StatusyLogowania.Text" xml:space="preserve">
+    <value>Statusy Logowania</value>
+  </data>
+  <data name="&gt;&gt;StatusyLogowania.Name" xml:space="preserve">
+    <value>StatusyLogowania</value>
+  </data>
+  <data name="&gt;&gt;StatusyLogowania.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;StatusyLogowania.Parent" xml:space="preserve">
+    <value>tableLayoutPanel14</value>
+  </data>
+  <data name="&gt;&gt;StatusyLogowania.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
   <data name="label149.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 11.25pt</value>
   </data>
@@ -8691,36 +8805,6 @@
   <data name="&gt;&gt;comboBox_ListaUprawnien_Edycja.ZOrder" xml:space="preserve">
     <value>8</value>
   </data>
-  <data name="label58.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="label58.Location" type="System.Drawing.Point, System.Drawing">
-    <value>541, 15</value>
-  </data>
-  <data name="label58.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
-  </data>
-  <data name="label58.Size" type="System.Drawing.Size, System.Drawing">
-    <value>25, 21</value>
-  </data>
-  <data name="label58.TabIndex" type="System.Int32, mscorlib">
-    <value>77</value>
-  </data>
-  <data name="label58.Text" xml:space="preserve">
-    <value>ID</value>
-  </data>
-  <data name="&gt;&gt;label58.Name" xml:space="preserve">
-    <value>label58</value>
-  </data>
-  <data name="&gt;&gt;label58.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label58.Parent" xml:space="preserve">
-    <value>panel7</value>
-  </data>
-  <data name="&gt;&gt;label58.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
   <data name="comboBox_ListaUzytkWBazie.IntegralHeight" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
@@ -8749,7 +8833,7 @@
     <value>panel7</value>
   </data>
   <data name="&gt;&gt;comboBox_ListaUzytkWBazie.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>9</value>
   </data>
   <data name="textBox_Imie_Edycja.Location" type="System.Drawing.Point, System.Drawing">
     <value>155, 132</value>
@@ -8773,34 +8857,7 @@
     <value>panel7</value>
   </data>
   <data name="&gt;&gt;textBox_Imie_Edycja.ZOrder" xml:space="preserve">
-    <value>11</value>
-  </data>
-  <data name="textBox_ID_Edycja.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="textBox_ID_Edycja.Location" type="System.Drawing.Point, System.Drawing">
-    <value>582, 14</value>
-  </data>
-  <data name="textBox_ID_Edycja.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 3, 4, 3</value>
-  </data>
-  <data name="textBox_ID_Edycja.Size" type="System.Drawing.Size, System.Drawing">
-    <value>64, 29</value>
-  </data>
-  <data name="textBox_ID_Edycja.TabIndex" type="System.Int32, mscorlib">
-    <value>78</value>
-  </data>
-  <data name="&gt;&gt;textBox_ID_Edycja.Name" xml:space="preserve">
-    <value>textBox_ID_Edycja</value>
-  </data>
-  <data name="&gt;&gt;textBox_ID_Edycja.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;textBox_ID_Edycja.Parent" xml:space="preserve">
-    <value>panel7</value>
-  </data>
-  <data name="&gt;&gt;textBox_ID_Edycja.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>10</value>
   </data>
   <data name="panel7.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -8824,120 +8881,6 @@
     <value>tableLayoutPanel14</value>
   </data>
   <data name="&gt;&gt;panel7.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="tableLayoutPanel15.CellBorderStyle" type="System.Windows.Forms.TableLayoutPanelCellBorderStyle, System.Windows.Forms">
-    <value>InsetDouble</value>
-  </data>
-  <data name="tableLayoutPanel15.ColumnCount" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="textBox_MiejsceNaNrKarty_Zaloguj.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="textBox_MiejsceNaNrKarty_Zaloguj.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 6</value>
-  </data>
-  <data name="textBox_MiejsceNaNrKarty_Zaloguj.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 3, 4, 3</value>
-  </data>
-  <data name="textBox_MiejsceNaNrKarty_Zaloguj.Size" type="System.Drawing.Size, System.Drawing">
-    <value>416, 29</value>
-  </data>
-  <data name="textBox_MiejsceNaNrKarty_Zaloguj.TabIndex" type="System.Int32, mscorlib">
-    <value>81</value>
-  </data>
-  <data name="&gt;&gt;textBox_MiejsceNaNrKarty_Zaloguj.Name" xml:space="preserve">
-    <value>textBox_MiejsceNaNrKarty_Zaloguj</value>
-  </data>
-  <data name="&gt;&gt;textBox_MiejsceNaNrKarty_Zaloguj.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;textBox_MiejsceNaNrKarty_Zaloguj.Parent" xml:space="preserve">
-    <value>tableLayoutPanel15</value>
-  </data>
-  <data name="&gt;&gt;textBox_MiejsceNaNrKarty_Zaloguj.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="tableLayoutPanel15.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="tableLayoutPanel15.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="tableLayoutPanel15.RowCount" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="tableLayoutPanel15.Size" type="System.Drawing.Size, System.Drawing">
-    <value>430, 42</value>
-  </data>
-  <data name="tableLayoutPanel15.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;tableLayoutPanel15.Name" xml:space="preserve">
-    <value>tableLayoutPanel15</value>
-  </data>
-  <data name="&gt;&gt;tableLayoutPanel15.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tableLayoutPanel15.Parent" xml:space="preserve">
-    <value>panel8</value>
-  </data>
-  <data name="&gt;&gt;tableLayoutPanel15.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="tableLayoutPanel15.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="textBox_MiejsceNaNrKarty_Zaloguj" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,63,820225" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
-  </data>
-  <data name="panel8.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="panel8.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 6</value>
-  </data>
-  <data name="panel8.Size" type="System.Drawing.Size, System.Drawing">
-    <value>432, 44</value>
-  </data>
-  <data name="panel8.TabIndex" type="System.Int32, mscorlib">
-    <value>182</value>
-  </data>
-  <data name="&gt;&gt;panel8.Name" xml:space="preserve">
-    <value>panel8</value>
-  </data>
-  <data name="&gt;&gt;panel8.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panel8.Parent" xml:space="preserve">
-    <value>tableLayoutPanel14</value>
-  </data>
-  <data name="&gt;&gt;panel8.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="StatusyLogowania.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="StatusyLogowania.Location" type="System.Drawing.Point, System.Drawing">
-    <value>447, 6</value>
-  </data>
-  <data name="StatusyLogowania.Size" type="System.Drawing.Size, System.Drawing">
-    <value>432, 29</value>
-  </data>
-  <data name="StatusyLogowania.TabIndex" type="System.Int32, mscorlib">
-    <value>183</value>
-  </data>
-  <data name="StatusyLogowania.Text" xml:space="preserve">
-    <value>Statusy Logowania</value>
-  </data>
-  <data name="&gt;&gt;StatusyLogowania.Name" xml:space="preserve">
-    <value>StatusyLogowania</value>
-  </data>
-  <data name="&gt;&gt;StatusyLogowania.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;StatusyLogowania.Parent" xml:space="preserve">
-    <value>tableLayoutPanel14</value>
-  </data>
-  <data name="&gt;&gt;StatusyLogowania.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
   <data name="tableLayoutPanel14.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
@@ -8968,7 +8911,7 @@
     <value>0</value>
   </data>
   <data name="tableLayoutPanel14.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="label_EdycjaUzytkownikow" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="label_DodanieUzytkownikow" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="panel5" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="panel7" Row="2" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="panel8" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="StatusyLogowania" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,50,Percent,50" /&gt;&lt;Rows Styles="Percent,10,928796,Percent,5,1407413,Percent,83,930466" /&gt;&lt;/TableLayoutSettings&gt;</value>
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="label_EdycjaUzytkownikow" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="label_DodanieUzytkownikow" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="panel5" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="panel8" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="StatusyLogowania" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="panel7" Row="2" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,50,Percent,50" /&gt;&lt;Rows Styles="Percent,10,928796,Percent,5,1407413,Percent,83,930466" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="label56.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -9049,13 +8992,13 @@
     <value>Segoe UI, 9.75pt</value>
   </data>
   <data name="buttonWczytajRef.Location" type="System.Drawing.Point, System.Drawing">
-    <value>424, 6</value>
+    <value>448, 6</value>
   </data>
   <data name="buttonWczytajRef.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>
   </data>
   <data name="buttonWczytajRef.Size" type="System.Drawing.Size, System.Drawing">
-    <value>147, 32</value>
+    <value>149, 32</value>
   </data>
   <data name="buttonWczytajRef.TabIndex" type="System.Int32, mscorlib">
     <value>159</value>
@@ -9082,13 +9025,13 @@
     <value>Segoe UI, 9.75pt</value>
   </data>
   <data name="buttonUsunRef.Location" type="System.Drawing.Point, System.Drawing">
-    <value>740, 6</value>
+    <value>741, 6</value>
   </data>
   <data name="buttonUsunRef.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>
   </data>
   <data name="buttonUsunRef.Size" type="System.Drawing.Size, System.Drawing">
-    <value>126, 32</value>
+    <value>125, 32</value>
   </data>
   <data name="buttonUsunRef.TabIndex" type="System.Int32, mscorlib">
     <value>156</value>
@@ -9115,13 +9058,13 @@
     <value>Segoe UI, 9.75pt</value>
   </data>
   <data name="buttonDodajNowaRef.Location" type="System.Drawing.Point, System.Drawing">
-    <value>582, 6</value>
+    <value>608, 6</value>
   </data>
   <data name="buttonDodajNowaRef.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>
   </data>
   <data name="buttonDodajNowaRef.Size" type="System.Drawing.Size, System.Drawing">
-    <value>147, 32</value>
+    <value>122, 32</value>
   </data>
   <data name="buttonDodajNowaRef.TabIndex" type="System.Int32, mscorlib">
     <value>155</value>
@@ -9157,7 +9100,7 @@
     <value>4, 8, 4, 3</value>
   </data>
   <data name="comboBoxListaReferencji.Size" type="System.Drawing.Size, System.Drawing">
-    <value>406, 29</value>
+    <value>430, 29</value>
   </data>
   <data name="comboBoxListaReferencji.TabIndex" type="System.Int32, mscorlib">
     <value>131</value>
@@ -9202,7 +9145,7 @@
     <value>0</value>
   </data>
   <data name="tableLayoutPanel12.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="buttonWczytajRef" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="buttonUsunRef" Row="0" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="buttonDodajNowaRef" Row="0" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="comboBoxListaReferencji" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,48,297215,Percent,18,111456,Percent,18,111456,Percent,15,4798765" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="buttonWczytajRef" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="buttonUsunRef" Row="0" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="buttonDodajNowaRef" Row="0" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="comboBoxListaReferencji" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,51,163532,Percent,18,313675,Percent,15,261395,Percent,15,261395" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="tableLayoutPanel13.CellBorderStyle" type="System.Windows.Forms.TableLayoutPanelCellBorderStyle, System.Windows.Forms">
     <value>InsetDouble</value>
@@ -15695,47 +15638,8 @@
   <data name="&gt;&gt;tabPage2.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="checkBox_TestLampek.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left</value>
-  </data>
-  <data name="checkBox_TestLampek.Appearance" type="System.Windows.Forms.Appearance, System.Windows.Forms">
-    <value>Button</value>
-  </data>
-  <data name="checkBox_TestLampek.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="checkBox_TestLampek.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9.75pt</value>
-  </data>
-  <data name="checkBox_TestLampek.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="checkBox_TestLampek.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 350</value>
-  </data>
-  <data name="checkBox_TestLampek.Size" type="System.Drawing.Size, System.Drawing">
-    <value>80, 46</value>
-  </data>
-  <data name="checkBox_TestLampek.TabIndex" type="System.Int32, mscorlib">
-    <value>208</value>
-  </data>
-  <data name="checkBox_TestLampek.Text" xml:space="preserve">
-    <value>Test Lampek</value>
-  </data>
-  <data name="checkBox_TestLampek.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleCenter</value>
-  </data>
-  <data name="&gt;&gt;checkBox_TestLampek.Name" xml:space="preserve">
-    <value>checkBox_TestLampek</value>
-  </data>
-  <data name="&gt;&gt;checkBox_TestLampek.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;checkBox_TestLampek.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;checkBox_TestLampek.ZOrder" xml:space="preserve">
-    <value>18</value>
+  <data name="label_WczytajReferencje.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left, Right</value>
   </data>
   <data name="label_WczytajReferencje.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 14.25pt, style=Bold</value>
@@ -15866,6 +15770,39 @@
   <data name="tableLayoutPanel5.ColumnCount" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
+  <data name="button_TestLampek.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
+  </data>
+  <data name="button_TestLampek.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 11.25pt</value>
+  </data>
+  <data name="button_TestLampek.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="button_TestLampek.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 348</value>
+  </data>
+  <data name="button_TestLampek.Size" type="System.Drawing.Size, System.Drawing">
+    <value>80, 50</value>
+  </data>
+  <data name="button_TestLampek.TabIndex" type="System.Int32, mscorlib">
+    <value>192</value>
+  </data>
+  <data name="button_TestLampek.Text" xml:space="preserve">
+    <value>Test Lampek</value>
+  </data>
+  <data name="&gt;&gt;button_TestLampek.Name" xml:space="preserve">
+    <value>button_TestLampek</value>
+  </data>
+  <data name="&gt;&gt;button_TestLampek.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;button_TestLampek.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;button_TestLampek.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="Button_Rework.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left</value>
   </data>
@@ -15897,7 +15834,7 @@
     <value>panel1</value>
   </data>
   <data name="&gt;&gt;Button_Rework.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="Button_ResetSztukNOK.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left</value>
@@ -15930,7 +15867,7 @@
     <value>panel1</value>
   </data>
   <data name="&gt;&gt;Button_ResetSztukNOK.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="label46.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -15963,7 +15900,7 @@
     <value>panel1</value>
   </data>
   <data name="&gt;&gt;label46.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="Button_ResetSztukOK.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left</value>
@@ -15993,7 +15930,7 @@
     <value>panel1</value>
   </data>
   <data name="&gt;&gt;Button_ResetSztukOK.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="DB667KodEtykiety.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
@@ -16020,7 +15957,7 @@
     <value>panel1</value>
   </data>
   <data name="&gt;&gt;DB667KodEtykiety.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="label44.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -16053,7 +15990,7 @@
     <value>panel1</value>
   </data>
   <data name="&gt;&gt;label44.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="DB667SilaWOknie.Location" type="System.Drawing.Point, System.Drawing">
     <value>186, 268</value>
@@ -16077,7 +16014,7 @@
     <value>panel1</value>
   </data>
   <data name="&gt;&gt;DB667SilaWOknie.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="label43.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -16110,7 +16047,7 @@
     <value>panel1</value>
   </data>
   <data name="&gt;&gt;label43.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>8</value>
   </data>
   <data name="DB667DawkaPrzegub.Location" type="System.Drawing.Point, System.Drawing">
     <value>186, 234</value>
@@ -16134,7 +16071,7 @@
     <value>panel1</value>
   </data>
   <data name="&gt;&gt;DB667DawkaPrzegub.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>9</value>
   </data>
   <data name="label65.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -16167,7 +16104,7 @@
     <value>panel1</value>
   </data>
   <data name="&gt;&gt;label65.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>10</value>
   </data>
   <data name="label42.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -16200,7 +16137,7 @@
     <value>panel1</value>
   </data>
   <data name="&gt;&gt;label42.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>11</value>
   </data>
   <data name="DB667PozycjadyszaPozioma.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 9.75pt</value>
@@ -16227,7 +16164,7 @@
     <value>panel1</value>
   </data>
   <data name="&gt;&gt;DB667PozycjadyszaPozioma.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>12</value>
   </data>
   <data name="label25.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -16260,7 +16197,7 @@
     <value>panel1</value>
   </data>
   <data name="&gt;&gt;label25.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>13</value>
   </data>
   <data name="DB667DawkaTulip.Location" type="System.Drawing.Point, System.Drawing">
     <value>186, 202</value>
@@ -16284,7 +16221,7 @@
     <value>panel1</value>
   </data>
   <data name="&gt;&gt;DB667DawkaTulip.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>14</value>
   </data>
   <data name="DB667PozycjaDyszaPionowa.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 9.75pt</value>
@@ -16311,7 +16248,7 @@
     <value>panel1</value>
   </data>
   <data name="&gt;&gt;DB667PozycjaDyszaPionowa.ZOrder" xml:space="preserve">
-    <value>14</value>
+    <value>15</value>
   </data>
   <data name="label21.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -16344,7 +16281,7 @@
     <value>panel1</value>
   </data>
   <data name="&gt;&gt;label21.ZOrder" xml:space="preserve">
-    <value>15</value>
+    <value>16</value>
   </data>
   <data name="DB667PozycjaGniazdoDolne.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 9.75pt</value>
@@ -16371,7 +16308,7 @@
     <value>panel1</value>
   </data>
   <data name="&gt;&gt;DB667PozycjaGniazdoDolne.ZOrder" xml:space="preserve">
-    <value>16</value>
+    <value>17</value>
   </data>
   <data name="DB667AktSila.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 9.75pt</value>
@@ -16398,7 +16335,7 @@
     <value>panel1</value>
   </data>
   <data name="&gt;&gt;DB667AktSila.ZOrder" xml:space="preserve">
-    <value>17</value>
+    <value>18</value>
   </data>
   <data name="label_SztukiOK.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left</value>
@@ -18414,7 +18351,7 @@
     <value>True</value>
   </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>43</value>
+    <value>25</value>
   </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>7, 15</value>

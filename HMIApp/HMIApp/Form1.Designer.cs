@@ -310,6 +310,10 @@
             comboBox_ListaUprawnien_DodajUzytk = new System.Windows.Forms.ComboBox();
             textbox_NumerKarty_DodajUzytk = new System.Windows.Forms.TextBox();
             textBoxImie_DodajUzytk = new System.Windows.Forms.TextBox();
+            panel8 = new System.Windows.Forms.Panel();
+            tableLayoutPanel15 = new System.Windows.Forms.TableLayoutPanel();
+            textBox_MiejsceNaNrKarty_Zaloguj = new System.Windows.Forms.TextBox();
+            StatusyLogowania = new System.Windows.Forms.TextBox();
             panel7 = new System.Windows.Forms.Panel();
             label149 = new System.Windows.Forms.Label();
             textBox_IDUzytkownika = new System.Windows.Forms.TextBox();
@@ -320,14 +324,8 @@
             label_ObecniUzytkWBazie = new System.Windows.Forms.Label();
             label_NumerKArty_Edycja = new System.Windows.Forms.Label();
             comboBox_ListaUprawnien_Edycja = new System.Windows.Forms.ComboBox();
-            label58 = new System.Windows.Forms.Label();
             comboBox_ListaUzytkWBazie = new System.Windows.Forms.ComboBox();
             textBox_Imie_Edycja = new System.Windows.Forms.TextBox();
-            textBox_ID_Edycja = new System.Windows.Forms.TextBox();
-            panel8 = new System.Windows.Forms.Panel();
-            tableLayoutPanel15 = new System.Windows.Forms.TableLayoutPanel();
-            textBox_MiejsceNaNrKarty_Zaloguj = new System.Windows.Forms.TextBox();
-            StatusyLogowania = new System.Windows.Forms.TextBox();
             label56 = new System.Windows.Forms.Label();
             tabPage4 = new System.Windows.Forms.TabPage();
             tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
@@ -474,7 +472,6 @@
             DB669Input50PassedValue = new System.Windows.Forms.TextBox();
             label53 = new System.Windows.Forms.Label();
             label47 = new System.Windows.Forms.Label();
-            checkBox_TestLampek = new System.Windows.Forms.CheckBox();
             tabPage1 = new System.Windows.Forms.TabPage();
             label_WczytajReferencje = new System.Windows.Forms.Label();
             formsPlot1 = new ScottPlot.WinForms.FormsPlot();
@@ -482,6 +479,7 @@
             DB667CzasCyklu = new System.Windows.Forms.TextBox();
             tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             panel1 = new System.Windows.Forms.Panel();
+            button_TestLampek = new System.Windows.Forms.Button();
             Button_Rework = new System.Windows.Forms.Button();
             Button_ResetSztukNOK = new System.Windows.Forms.Button();
             label46 = new System.Windows.Forms.Label();
@@ -571,9 +569,9 @@
             tabPage5.SuspendLayout();
             tableLayoutPanel14.SuspendLayout();
             panel5.SuspendLayout();
-            panel7.SuspendLayout();
             panel8.SuspendLayout();
             tableLayoutPanel15.SuspendLayout();
+            panel7.SuspendLayout();
             tabPage4.SuspendLayout();
             tableLayoutPanel11.SuspendLayout();
             tableLayoutPanel12.SuspendLayout();
@@ -2264,9 +2262,9 @@
             tableLayoutPanel14.Controls.Add(label_EdycjaUzytkownikow, 1, 1);
             tableLayoutPanel14.Controls.Add(label_DodanieUzytkownikow, 0, 1);
             tableLayoutPanel14.Controls.Add(panel5, 0, 2);
-            tableLayoutPanel14.Controls.Add(panel7, 1, 2);
             tableLayoutPanel14.Controls.Add(panel8, 0, 0);
             tableLayoutPanel14.Controls.Add(StatusyLogowania, 1, 0);
+            tableLayoutPanel14.Controls.Add(panel7, 1, 2);
             tableLayoutPanel14.Name = "tableLayoutPanel14";
             // 
             // label_EdycjaUzytkownikow
@@ -2339,6 +2337,31 @@
             textBoxImie_DodajUzytk.Name = "textBoxImie_DodajUzytk";
             textBoxImie_DodajUzytk.Click += TextBox_Click;
             // 
+            // panel8
+            // 
+            panel8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            panel8.Controls.Add(tableLayoutPanel15);
+            resources.ApplyResources(panel8, "panel8");
+            panel8.Name = "panel8";
+            // 
+            // tableLayoutPanel15
+            // 
+            resources.ApplyResources(tableLayoutPanel15, "tableLayoutPanel15");
+            tableLayoutPanel15.Controls.Add(textBox_MiejsceNaNrKarty_Zaloguj, 0, 0);
+            tableLayoutPanel15.Name = "tableLayoutPanel15";
+            // 
+            // textBox_MiejsceNaNrKarty_Zaloguj
+            // 
+            resources.ApplyResources(textBox_MiejsceNaNrKarty_Zaloguj, "textBox_MiejsceNaNrKarty_Zaloguj");
+            textBox_MiejsceNaNrKarty_Zaloguj.Name = "textBox_MiejsceNaNrKarty_Zaloguj";
+            textBox_MiejsceNaNrKarty_Zaloguj.Click += TextBox_Click;
+            textBox_MiejsceNaNrKarty_Zaloguj.TextChanged += ButtonZalogujUzytk;
+            // 
+            // StatusyLogowania
+            // 
+            resources.ApplyResources(StatusyLogowania, "StatusyLogowania");
+            StatusyLogowania.Name = "StatusyLogowania";
+            // 
             // panel7
             // 
             panel7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -2351,10 +2374,8 @@
             panel7.Controls.Add(label_ObecniUzytkWBazie);
             panel7.Controls.Add(label_NumerKArty_Edycja);
             panel7.Controls.Add(comboBox_ListaUprawnien_Edycja);
-            panel7.Controls.Add(label58);
             panel7.Controls.Add(comboBox_ListaUzytkWBazie);
             panel7.Controls.Add(textBox_Imie_Edycja);
-            panel7.Controls.Add(textBox_ID_Edycja);
             resources.ApplyResources(panel7, "panel7");
             panel7.Name = "panel7";
             // 
@@ -2409,11 +2430,6 @@
             resources.ApplyResources(comboBox_ListaUprawnien_Edycja, "comboBox_ListaUprawnien_Edycja");
             comboBox_ListaUprawnien_Edycja.Name = "comboBox_ListaUprawnien_Edycja";
             // 
-            // label58
-            // 
-            resources.ApplyResources(label58, "label58");
-            label58.Name = "label58";
-            // 
             // comboBox_ListaUzytkWBazie
             // 
             comboBox_ListaUzytkWBazie.DropDownHeight = 200;
@@ -2427,37 +2443,6 @@
             resources.ApplyResources(textBox_Imie_Edycja, "textBox_Imie_Edycja");
             textBox_Imie_Edycja.Name = "textBox_Imie_Edycja";
             textBox_Imie_Edycja.Click += TextBox_Click;
-            // 
-            // textBox_ID_Edycja
-            // 
-            resources.ApplyResources(textBox_ID_Edycja, "textBox_ID_Edycja");
-            textBox_ID_Edycja.Name = "textBox_ID_Edycja";
-            textBox_ID_Edycja.ReadOnly = true;
-            // 
-            // panel8
-            // 
-            panel8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            panel8.Controls.Add(tableLayoutPanel15);
-            resources.ApplyResources(panel8, "panel8");
-            panel8.Name = "panel8";
-            // 
-            // tableLayoutPanel15
-            // 
-            resources.ApplyResources(tableLayoutPanel15, "tableLayoutPanel15");
-            tableLayoutPanel15.Controls.Add(textBox_MiejsceNaNrKarty_Zaloguj, 0, 0);
-            tableLayoutPanel15.Name = "tableLayoutPanel15";
-            // 
-            // textBox_MiejsceNaNrKarty_Zaloguj
-            // 
-            resources.ApplyResources(textBox_MiejsceNaNrKarty_Zaloguj, "textBox_MiejsceNaNrKarty_Zaloguj");
-            textBox_MiejsceNaNrKarty_Zaloguj.Name = "textBox_MiejsceNaNrKarty_Zaloguj";
-            textBox_MiejsceNaNrKarty_Zaloguj.Click += TextBox_Click;
-            textBox_MiejsceNaNrKarty_Zaloguj.TextChanged += ButtonZalogujUzytk;
-            // 
-            // StatusyLogowania
-            // 
-            resources.ApplyResources(StatusyLogowania, "StatusyLogowania");
-            StatusyLogowania.Name = "StatusyLogowania";
             // 
             // label56
             // 
@@ -3569,16 +3554,6 @@
             label47.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             label47.Name = "label47";
             // 
-            // checkBox_TestLampek
-            // 
-            resources.ApplyResources(checkBox_TestLampek, "checkBox_TestLampek");
-            checkBox_TestLampek.BackColor = System.Drawing.Color.Transparent;
-            checkBox_TestLampek.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            checkBox_TestLampek.FlatAppearance.CheckedBackColor = System.Drawing.Color.Lime;
-            checkBox_TestLampek.Name = "checkBox_TestLampek";
-            checkBox_TestLampek.Tag = "DB667.NrOfDeviceToControl";
-            checkBox_TestLampek.UseVisualStyleBackColor = false;
-            // 
             // tabPage1
             // 
             tabPage1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -3590,8 +3565,8 @@
             // 
             // label_WczytajReferencje
             // 
-            label_WczytajReferencje.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             resources.ApplyResources(label_WczytajReferencje, "label_WczytajReferencje");
+            label_WczytajReferencje.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             label_WczytajReferencje.ForeColor = System.Drawing.Color.Red;
             label_WczytajReferencje.Name = "label_WczytajReferencje";
             // 
@@ -3628,6 +3603,7 @@
             // 
             // panel1
             // 
+            panel1.Controls.Add(button_TestLampek);
             panel1.Controls.Add(Button_Rework);
             panel1.Controls.Add(Button_ResetSztukNOK);
             panel1.Controls.Add(label46);
@@ -3646,7 +3622,6 @@
             panel1.Controls.Add(label21);
             panel1.Controls.Add(DB667PozycjaGniazdoDolne);
             panel1.Controls.Add(DB667AktSila);
-            panel1.Controls.Add(checkBox_TestLampek);
             panel1.Controls.Add(label_SztukiOK);
             panel1.Controls.Add(label64);
             panel1.Controls.Add(DB667PozycjaOslonki);
@@ -3658,6 +3633,14 @@
             panel1.Controls.Add(DB667SztukiOK);
             resources.ApplyResources(panel1, "panel1");
             panel1.Name = "panel1";
+            // 
+            // button_TestLampek
+            // 
+            resources.ApplyResources(button_TestLampek, "button_TestLampek");
+            button_TestLampek.Name = "button_TestLampek";
+            button_TestLampek.Tag = "DB667.NrOfDeviceToControl";
+            button_TestLampek.UseVisualStyleBackColor = true;
+            button_TestLampek.Click += button_TestLampek_Click;
             // 
             // Button_Rework
             // 
@@ -4243,11 +4226,11 @@
             tableLayoutPanel14.PerformLayout();
             panel5.ResumeLayout(false);
             panel5.PerformLayout();
-            panel7.ResumeLayout(false);
-            panel7.PerformLayout();
             panel8.ResumeLayout(false);
             tableLayoutPanel15.ResumeLayout(false);
             tableLayoutPanel15.PerformLayout();
+            panel7.ResumeLayout(false);
+            panel7.PerformLayout();
             tabPage4.ResumeLayout(false);
             tableLayoutPanel11.ResumeLayout(false);
             tableLayoutPanel12.ResumeLayout(false);
@@ -4405,7 +4388,6 @@
         public System.Windows.Forms.TextBox textBox_Imie_Edycja;
         public System.Windows.Forms.TextBox textBox_NumerKarty_Edycja;
         public System.Windows.Forms.TextBox textbox_NumerKarty_DodajUzytk;
-        public System.Windows.Forms.TextBox textBox_ID_Edycja;
         public System.Windows.Forms.TextBox textBox_MiejsceNaNrKarty_Zaloguj;
         private System.Windows.Forms.Label label_Imie_Edycja;
         private System.Windows.Forms.Label label_Uprawnienia_DodajUzytk;
@@ -4414,7 +4396,6 @@
         private System.Windows.Forms.Label label_NumerKarty_DodajUzytk;
         public System.Windows.Forms.ComboBox comboBox_ListaUzytkWBazie;
         private System.Windows.Forms.Label label_DodanieUzytkownikow;
-        private System.Windows.Forms.Label label58;
         private System.Windows.Forms.Label label_ObecniUzytkWBazie;
         private System.Windows.Forms.Label label59;
         private System.Windows.Forms.Label label56;
@@ -4591,7 +4572,6 @@
         public System.Windows.Forms.TextBox DB667PozycjaGniazdoDolne;
         public System.Windows.Forms.CheckBox checkBox_DyszaPozioma;
         public System.Windows.Forms.CheckBox checkBox_DyszaPionowa;
-        public System.Windows.Forms.CheckBox checkBox_TestLampek;
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.Label label50;
         private System.Windows.Forms.Panel panel14;
@@ -4842,6 +4822,7 @@
         public System.Windows.Forms.Label label_WczytajReferencje;
         private System.Windows.Forms.Label label149;
         public System.Windows.Forms.TextBox textBox_IDUzytkownika;
+        public System.Windows.Forms.Button button_TestLampek;
     }
 }
 

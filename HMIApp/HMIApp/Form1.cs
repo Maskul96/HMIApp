@@ -30,8 +30,8 @@ namespace HMIApp
         #endregion
         #region Services do dependency injection i EF
         public ServiceCollection services = new();
-                public ServiceProvider serviceProvider;
-                #endregion
+        public ServiceProvider serviceProvider;
+        #endregion
         //Zmienna do Blokady rysowania wykresu dopoki nie zaczytasz referencji
         public bool blockade;
         //statyczna zmienna typu Form1 zeby dostac sie z poziomu innej klasy do obiektow wewnatrz Form1
@@ -39,7 +39,7 @@ namespace HMIApp
         #region Względna ścieżka do folderu ArchivizationsFromDataBase
         // Określenie ścieżki folderu ArchivizationsFromDataBase, który chcemy wyświetlić - Ścieżka względna
         public static string basePathToHMIAppFolder = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", ".."));
-        public static string basePathToFilesFolder = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory,"..","..","..","..", "Resources","Files"));
+        public static string basePathToFilesFolder = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "..", "Resources", "Files"));
         public static string basePathAndArchivizationsFromDataBaseCSV = Path.Combine(basePathToFilesFolder, "ArchivizationsFromDataBaseCSV");
         public static string relativePath = "ArchivizationsFromDataBase";
         public static string absolutePath = Path.Combine(basePathAndArchivizationsFromDataBaseCSV, relativePath);
@@ -73,7 +73,7 @@ namespace HMIApp
             _Archive.ArchiveEventRun();
 
             serialPortReader.InitializeSerialPort();
-            serialPortReader.Run();           
+            serialPortReader.Run();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -114,7 +114,7 @@ namespace HMIApp
         //Jeśli InvokeRequired funkcja zwraca false wartość , ReadSerialPort ustawia TextBox.Text wartość bezpośrednio
         public void ReadSerialPort(string receivedData)
         {
-            if(textBox_MiejsceNaNrKarty_Zaloguj.InvokeRequired)
+            if (textBox_MiejsceNaNrKarty_Zaloguj.InvokeRequired)
             {
                 Action safewrite = delegate { ReadSerialPort(receivedData); };
                 textBox_MiejsceNaNrKarty_Zaloguj.Invoke(safewrite);
@@ -285,7 +285,7 @@ namespace HMIApp
             {
                 _Archive.OnArchiveEventsMethod("Event - Logowanie użytkownika");
                 Users.EnabledObjects();
-            }          
+            }
 
             CzyszczenieStatusówLogowania.Enabled = true;
         }
@@ -328,8 +328,8 @@ namespace HMIApp
         // PRZYCISK WYZWALAJACY dodanie i zapis referencji do bazy
         private void Button_Click_AddAndSaveReference(object sender, EventArgs e)
         {
-                var database = serviceProvider.GetService<IDataBase>();
-                database.InsertToDataBase();
+            var database = serviceProvider.GetService<IDataBase>();
+            database.InsertToDataBase();
         }
 
         //Wyrzucenie referencji po rozwinieciu comboboxa
@@ -515,7 +515,7 @@ namespace HMIApp
                 checkBox_DyszaPionowa.Checked = false;
                 checkBox_DyszaPozioma.Checked = false;
                 pictureBoxMachineImages.Image = new Bitmap(Properties.Resources.ZaciskTulipa);
-            }       
+            }
         }
         private void CheckBox_ZaciskTulipa_Click(object sender, EventArgs e)
         {
@@ -617,6 +617,11 @@ namespace HMIApp
         {
             App.WriteToDB("55", Button_DawkaTestowaTulip.Tag.ToString(), 1);
         }
+
+        private void button_TestLampek_Click(object sender, EventArgs e)
+        {
+            App.WriteToDB("100", button_TestLampek.Tag.ToString(), 1);
+        }
         #endregion
 
         //Przycisk exportu danych z archiwizacji do plik ucsv
@@ -693,6 +698,6 @@ namespace HMIApp
                 parentNode.Add(node);
             }
         }
-#endregion
+        #endregion
     }
 }
