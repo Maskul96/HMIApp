@@ -217,8 +217,7 @@ namespace HMIApp.Archivizations
                 HasHeaderRecord = true,
                 Encoding = Encoding.UTF8
             };
-
-            var LocationOfArchivizationFolder = "D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\Resources\\Files\\ArchivizationsFromDataBaseCSV\\ArchivizationsFromDataBase\\";
+            var LocationOfArchivizationFolder = Path.Combine(Form1.basePathAndArchivizationsFromDataBaseCSV, "ArchivizationsFromDataBase\\");
 
             if (File.Exists($"{LocationOfArchivizationFolder}ArchivizationFromDataBase_DataGeneracjiPliku{DateTime.Now:yyyy-MM-dd HH-mm-ss}.csv"))
             {
@@ -264,8 +263,8 @@ namespace HMIApp.Archivizations
             return NumberOfShift;
         }
 
-        #region Metody używane do wcześniejszych archiwizacji bez użycia bazy danych - Obecnie nieużywane
-        #region Metoda archiwizacji do csv tylko daty, eventu i nr karty - UNUSED
+        #region UNUSED -------------------------- Metody używane do wcześniejszych archiwizacji bez użycia bazy danych 
+        #region  UNUSED  -------------------------- Metoda archiwizacji do csv tylko daty, eventu i nr karty -
         public void ArchivizationCsvFileHandlingForBasicModel()
         {
 
@@ -309,7 +308,7 @@ namespace HMIApp.Archivizations
             ClearListArchivizationModelBasic();
         }
         #endregion
-        #region Metoda archiwizacji do csv daty, eventu, nr karty i parametrów - UNUSED
+        #region UNUSED ------------------------ Metoda archiwizacji do csv daty, eventu, nr karty i parametrów - UNUSED
         public void ArchivizationCsvFileHandlingForExtendedModel()
         {
             var configEventsWhenFileExist = new CsvConfiguration(CultureInfo.InvariantCulture)
@@ -352,13 +351,13 @@ namespace HMIApp.Archivizations
         }
         #endregion
 
-        #region Metoda czyszcząca wszystkie dane z Listy dla Modelu Basic - UNUSED
+        #region UNUSED ------------------------- Metoda czyszcząca wszystkie dane z Listy dla Modelu Basic - UNUSED
         public void ClearListArchivizationModelBasic()
         {
             _archivizationmodelsbasic.Clear();
         }
         #endregion
-        #region Metoda czyszcząca wszystkie dane z Listy dla Modelu Extended - UNUSED
+        #region UNUSED ---------------------- Metoda czyszcząca wszystkie dane z Listy dla Modelu Extended - UNUSED
         public void ClearListArchivizationModelExtended()
         {
             _archivizationmodelextended.Clear();
