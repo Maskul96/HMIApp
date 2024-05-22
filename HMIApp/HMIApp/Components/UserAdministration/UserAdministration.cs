@@ -188,9 +188,9 @@ namespace HMIApp.Components.UserAdministration
             {
                 //Edytowanie danych użytkownika
                 var names = document.Element("Użytkownicy")?
-            .Elements("Użytkownik")
-            .Where(x => x.Attribute("ID")?.Value == id.ToString())
-            .Single();
+                    .Elements("Użytkownik")
+                    .Where(x => x.Attribute("ID")?.Value == id.ToString())
+                    .Single();
                 names.Attribute("Numer_karty").Value = Form1._Form1.textBox_NumerKarty_Edycja.Text;
                 names.Attribute("Nazwa_użytkownika").Value = Form1._Form1.textBox_Imie_Edycja.Text;
                 names.Attribute("Uprawnienia").Value = Form1._Form1.comboBox_ListaUprawnien_Edycja.SelectedIndex.ToString();

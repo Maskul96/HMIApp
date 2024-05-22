@@ -5,11 +5,6 @@ namespace HMIApp.Data
 {
     public class HMIAppDBContext : DbContext
     {
-        //konstruktor dbcontextu
-        //public HMIAppDBContext(DbContextOptions<HMIAppDBContext> options)
-        //    : base(options)
-        //{
-        //}
         DataBase DataBase = new DataBase();
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -19,6 +14,5 @@ namespace HMIApp.Data
         }
 
         public DbSet<Reference> References {get; set;}
-
     }
 }

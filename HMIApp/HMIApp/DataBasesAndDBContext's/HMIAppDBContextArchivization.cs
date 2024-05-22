@@ -5,12 +5,6 @@ namespace HMIApp.Data
 {
     public class HMIAppDBContextArchivization : DbContext
     {
-        //konstruktor dbcontextu
-        //public HMIAppDBContextArchivization(DbContextOptions<HMIAppDBContextArchivization> options)
-        //    : base(options)
-        //{
-        //}
-
         public DataBaseArchivization _databaseArchive = new DataBaseArchivization();
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -20,6 +14,5 @@ namespace HMIApp.Data
         }
 
         public DbSet<ArchivizationModelExtendedDataBase> ArchivizationsForParameters {get; set;}
-
     }
 }

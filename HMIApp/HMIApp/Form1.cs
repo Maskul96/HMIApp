@@ -73,8 +73,7 @@ namespace HMIApp
             _Archive.ArchiveEventRun();
 
             serialPortReader.InitializeSerialPort();
-            serialPortReader.Run();
-            
+            serialPortReader.Run();           
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -89,7 +88,6 @@ namespace HMIApp
 
             //Blokada rysowania wykresu dopoki nie zaczytasz referencji
             blockade = false;
-
             // Wywołanie funkcji do dodawania węzłów do drzewa
             PopulateTreeView(folderPath, treeView1.Nodes);
             label_WczytajReferencje.Visible = true;
@@ -102,7 +100,6 @@ namespace HMIApp
             serialPortReader.Close();
         }
 
-
         //Zamkniecie aplikacji z przycisku
         private void Button_Click_CloseAPP(object sender, EventArgs e)
         {
@@ -110,7 +107,6 @@ namespace HMIApp
             //serialPortReader.Close();
             Close();
         }
-
 
         //Przekazanie receivedData z portu szeregowego z klasy SerialPortReader do textboxów
         //Właściwość ReadSerialPort umożliwia ustawienie TextBox właściwości kontrolki Text na nową wartość.Metoda wykonuje zapytanie InvokeRequired.
@@ -140,7 +136,6 @@ namespace HMIApp
             }
 
         }
-
 
         //Timer do prób uruchomienia komunikacji z PLC
         private void Timer_Tick_TryCommunicateWithPLC(object sender, EventArgs e)
@@ -172,7 +167,6 @@ namespace HMIApp
                 //Zapisz referencje do bazy danych
                 var database = serviceProvider.GetService<iDataBase>();
                 database.UpdateDb(comboBoxListaReferencji.SelectedItem.ToString());
-
                 //Wczytaj parametry referencji do PLC
                 //Nr referencji i klient
                 App.WriteToDB(DB666NrReference.Text, DB666NrReference.Tag.ToString());
@@ -223,7 +217,6 @@ namespace HMIApp
                 App.WriteToDB(DB666TagRFIDPlytaSmar.Text, DB666TagRFIDPlytaSmar.Tag.ToString());
                 App.WriteToDB(DB666TagRFIDSzczekiOslonki.Text, DB666TagRFIDSzczekiOslonki.Tag.ToString());
                 App.WriteToDB(DB666TagRFIDPrzegub.Text, DB666TagRFIDPrzegub.Tag.ToString());
-
                 //przepisywanie numeru referencji i klienta do wyswietlenia dla operatora
                 PassedValueControls.StringOfReference();
                 label_WczytajReferencje.Visible = false;
@@ -249,14 +242,12 @@ namespace HMIApp
             App.ReadAlarmsFromDB(Path.Combine(basePathToFilesFolder, "tags_zone_2.csv"));
             App.ReadIOFromDB(Path.Combine(basePathToFilesFolder, "tags_zone_3.csv"));
             App.ReadActualValueFromDBReferenceOrProcessData(Path.Combine(basePathToFilesFolder, "tags_zone_1.csv"));
-
             if (blockade)
             {
                 App.CreatePlot();
             }
 
             PassedValueControls.Run();
-
             //aktualizacja daty i godziny
             this.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
             label_DataIGodzina.Text = this.Text;
@@ -311,7 +302,6 @@ namespace HMIApp
             textbox_NumerKarty_DodajUzytk.Text = "";
         }
 
-
         //Obsluga odliczania czasu do wylogowania
         private void OdliczaSekunde_Tick(object sender, EventArgs e)
         {
@@ -340,9 +330,7 @@ namespace HMIApp
         {
                 var database = serviceProvider.GetService<iDataBase>();
                 database.InsertToDataBase();
-
         }
-
 
         //Wyrzucenie referencji po rozwinieciu comboboxa
         private void ComboBoxListaReferencji_SelectedIndexChanged(object sender, EventArgs e)
@@ -350,7 +338,6 @@ namespace HMIApp
             var database = serviceProvider.GetService<iDataBase>();
             database.SelectFromDataBase(comboBoxListaReferencji.Text);
         }
-
 
         //Usuwanie wybranej referencji
         private void Button_Click_DeleteReference(object sender, EventArgs e)
@@ -363,9 +350,8 @@ namespace HMIApp
                     database.Delete(comboBoxListaReferencji.Text);
                     App.ClearAllValueInForm1(Path.Combine(basePathToFilesFolder, "tags_zone_0.csv"));
                 }
-            };
+            }
         }
-
         //Event zmiany koloru - wyzwala metode uruchmiajaca Event przejscia w Auto/Man
         public void BackColor_ColorChanged(object sender, EventArgs e)
         {
@@ -381,6 +367,7 @@ namespace HMIApp
 
         //Obsluga ToggleButtonow w zakładce Tryb Reczny
         #region obsluga ToggleButtonow - Tryb Reczny i Przycisków na Ekranie głównym
+        #region SERWO 18U1
         private void CheckBox_Serwo18U1_Checked(object sender, EventArgs e)
         {
             if (checkBox_Serwo18U1.Checked)
@@ -402,6 +389,8 @@ namespace HMIApp
         {
             App.WriteToDB("15", checkBox_Serwo18U1.Tag.ToString(), 1);
         }
+        #endregion
+        #region SERWO 20U1
         private void CheckBox_Serwo20U1_Checked(object sender, EventArgs e)
         {
             if (checkBox_Serwo20U1.Checked)
@@ -417,12 +406,13 @@ namespace HMIApp
                 checkBox_DyszaPozioma.Checked = false;
                 pictureBoxMachineImages.Image = new Bitmap(Properties.Resources.Serwo_20U1);
             }
-
         }
         private void CheckBox_Serwo20U1_Click(object sender, EventArgs e)
         {
             App.WriteToDB("11", checkBox_Serwo20U1.Tag.ToString(), 1);
         }
+        #endregion
+        #region SERWO 16U2
         private void CheckBox_Serwo16U2_Checked(object sender, EventArgs e)
         {
             if (checkBox_Serwo16U2.Checked)
@@ -438,12 +428,13 @@ namespace HMIApp
                 checkBox_DyszaPozioma.Checked = false;
                 pictureBoxMachineImages.Image = new Bitmap(Properties.Resources.Serwo_16U2);
             }
-
         }
         private void CheckBox_Serwo16U2_Click(object sender, EventArgs e)
         {
             App.WriteToDB("12", checkBox_Serwo16U2.Tag.ToString(), 1);
         }
+        #endregion
+        #region UKŁAD PODNOSZENIA
         private void CheckBox_UkladPodnoszenia_Checked(object sender, EventArgs e)
         {
             if (checkBox_UkladPodnoszenia.Checked)
@@ -464,6 +455,8 @@ namespace HMIApp
         {
             App.WriteToDB("13", checkBox_UkladPodnoszenia.Tag.ToString(), 1);
         }
+        #endregion
+        #region CHWYTAK GÓRNY
         private void CheckBox_ChwytakGorny_Checked(object sender, EventArgs e)
         {
             if (checkBox_ChwytakGorny.Checked)
@@ -484,6 +477,8 @@ namespace HMIApp
         {
             App.WriteToDB("14", checkBox_ChwytakGorny.Tag.ToString(), 1);
         }
+        #endregion
+        #region CHWYTAK DOLNY
         private void CheckBox_ChwytakDolny_Checked(object sender, EventArgs e)
         {
             if (checkBox_ChwytakDolny.Checked)
@@ -499,12 +494,13 @@ namespace HMIApp
                 checkBox_DyszaPozioma.Checked = false;
                 pictureBoxMachineImages.Image = new Bitmap(Properties.Resources.ChwytakDolny);
             }
-
         }
         private void CheckBox_ChwytakDolny_Click(object sender, EventArgs e)
         {
             App.WriteToDB("16", checkBox_ChwytakDolny.Tag.ToString(), 1);
         }
+        #endregion
+        #region ZACISK TULIPA
         private void CheckBox_ZaciskTulipa_Checked(object sender, EventArgs e)
         {
             if (checkBox_ZaciskTulipa.Checked)
@@ -519,13 +515,14 @@ namespace HMIApp
                 checkBox_DyszaPionowa.Checked = false;
                 checkBox_DyszaPozioma.Checked = false;
                 pictureBoxMachineImages.Image = new Bitmap(Properties.Resources.ZaciskTulipa);
-            }
-       
+            }       
         }
         private void CheckBox_ZaciskTulipa_Click(object sender, EventArgs e)
         {
             App.WriteToDB("17", checkBox_ZaciskTulipa.Tag.ToString(), 1);
         }
+        #endregion
+        #region SZCZĘKI OSŁONKI
         private void CheckBox_SzczekiOslonki_Checked(object sender, EventArgs e)
         {
             if (checkBox_SzczekiOslonki.Checked)
@@ -541,13 +538,13 @@ namespace HMIApp
                 checkBox_DyszaPozioma.Checked = false;
                 pictureBoxMachineImages.Image = new Bitmap(Properties.Resources.SzczekiOslonki);
             }
-
         }
         private void CheckBox_SzczekiOslonki_Click(object sender, EventArgs e)
         {
             App.WriteToDB("18", checkBox_SzczekiOslonki.Tag.ToString(), 1);
         }
-
+        #endregion
+        #region DYSZA PIONOWA
         private void CheckBox_DyszaPionowa_Checked(object sender, EventArgs e)
         {
             if (checkBox_DyszaPionowa.Checked)
@@ -563,13 +560,13 @@ namespace HMIApp
                 checkBox_SzczekiOslonki.Checked = false;
                 pictureBoxMachineImages.Image = new Bitmap(Properties.Resources.Main);
             }
-
         }
         private void CheckBox_DyszaPionowa_Click(object sender, EventArgs e)
         {
             App.WriteToDB("19", checkBox_DyszaPionowa.Tag.ToString(), 1);
         }
-
+        #endregion
+        #region DYSZA POZIOMA
         private void CheckBox_DyszaPozioma_Checked(object sender, EventArgs e)
         {
             if (checkBox_DyszaPozioma.Checked)
@@ -585,13 +582,12 @@ namespace HMIApp
                 checkBox_SzczekiOslonki.Checked = false;
                 pictureBoxMachineImages.Image = new Bitmap(Properties.Resources.Main);
             }
-
         }
         private void CheckBox_DyszaPozioma_Click(object sender, EventArgs e)
         {
             App.WriteToDB("20", checkBox_DyszaPozioma.Tag.ToString(), 1);
         }
-
+        #endregion
         //Przycisk Rework Event
         private void Button_Rework_Click(object sender, EventArgs e)
         {
@@ -622,7 +618,6 @@ namespace HMIApp
             App.WriteToDB("55", Button_DawkaTestowaTulip.Tag.ToString(), 1);
         }
         #endregion
-
 
         //Przycisk exportu danych z archiwizacji do plik ucsv
         private void Btn_ExportToCSVArchiwizacja_Click(object sender, EventArgs e)
@@ -664,7 +659,6 @@ namespace HMIApp
             }
         }
 
-
         //Obsluga zamiany kropki na przecinek
         private void TextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -677,7 +671,6 @@ namespace HMIApp
             }
         }
 
-
         // Obsluga OnScreenKeyboard po wcisnieciu TextBoxa - OGARNAC ZEBY NIE WYSWIETLALA SIE JAK JUZ JEST NA EKRANIE
         private void TextBox_Click(object sender, EventArgs e)
         {
@@ -689,8 +682,6 @@ namespace HMIApp
             string progFiles = @"C:\Program Files\Common Files\Microsoft Shared\Ink\TabTip.exe";
             Process.Start(progFiles);
         }
-        #endregion
-        #region Obsluga TreeView
         // Funkcja rekurencyjna do dodawania węzłów do drzewa
         private static void PopulateTreeView(string directory, TreeNodeCollection parentNode)
         {
@@ -702,6 +693,6 @@ namespace HMIApp
                 parentNode.Add(node);
             }
         }
-        #endregion
+#endregion
     }
 }

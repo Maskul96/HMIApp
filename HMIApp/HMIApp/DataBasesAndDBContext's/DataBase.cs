@@ -33,7 +33,6 @@ namespace HMIApp.Data
             this.obj = obj;
         }
 
-
         //Odczyt pliku konfiguracyjnego z connection stringiem
         public string ReadConfFile(string filepath)
         {
@@ -52,7 +51,6 @@ namespace HMIApp.Data
         public void Run()
         {
             ReadConfFile(Path.Combine(Form1.basePathToHMIAppFolder, "DataBaseReferenceConfiguration.txt"));
-
         }
 
         #region OBSLUGA BAZY DANYCH DLA REFERENCJI
@@ -352,8 +350,7 @@ namespace HMIApp.Data
         //Usunięcie referencji z bazy danych 
         public void Delete(string referencenumber)
         {
-
-            //    ////usuwanie danych
+            //usuwanie danych
             if (referencenumber != "")
             {
                 var ref2 = ReadFirst(referencenumber);
@@ -364,6 +361,5 @@ namespace HMIApp.Data
             SelectFromDbToComboBox();
         }
         #endregion
-
     }
 }

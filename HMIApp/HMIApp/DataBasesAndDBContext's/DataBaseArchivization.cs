@@ -23,15 +23,12 @@ namespace HMIApp.Data
         {
 
         }
-
         public DataBaseArchivization(HMIAppDBContextArchivization hmiAppDbContextArchivization)
         {
             _hmiAppDbContextArchivization = hmiAppDbContextArchivization;
             //w momencie wywolania konstruktora sprawdzamy czy nasza baza danych jest stworzona - jesli nie jest stworzona to ponizsza metoda ja utworzy
             _hmiAppDbContextArchivization.Database.EnsureCreated();
         }
-
-        //OGARNAC DZIEDZICZENIE TUTAJ z uwagi na powtarzajace sie metody
 
         //Odczyt pliku konfiguracyjnego z connection stringiem
         public string ReadConfFile(string filepath)
@@ -51,7 +48,6 @@ namespace HMIApp.Data
         public void Run()
         {
             ReadConfFile(Path.Combine(Form1.basePathToHMIAppFolder, "DataBaseArchivizationConfiguration.txt"));
-
         }
 
         public void CountRowsAndDeleteAllData()
@@ -64,10 +60,10 @@ namespace HMIApp.Data
             }
         }
 
+        #region OBSŁUGA BAZY DANYCH DLA EVENTÓW ARCHIWIZOWANYCH
         //Metoda inserta do bazy parametrow i eventów - ta metode mozna wywolac w momencie odpalenia eventu
         public void InsertToDataBase(string message="",int nrofshift=0)
         {
-
                 _hmiAppDbContextArchivization?.ArchivizationsForParameters.Add(new ArchivizationModelExtendedDataBase()
                 {
                     DateAndTime = DateTime.Now,
@@ -123,8 +119,7 @@ namespace HMIApp.Data
                     TagRFID_Przegub = int.Parse(Form1._Form1.DB666TagRFIDPrzegub.Text)
                 });
 
-                _hmiAppDbContextArchivization.SaveChanges();
-            
+                _hmiAppDbContextArchivization.SaveChanges();           
         }
         public List<ArchivizationModelExtendedDataBase> SelectFromDataBase(string DateTimeStart,string DateTimeEnd, int HourStart = 0, int HourEnd=0)
         {
@@ -245,6 +240,7 @@ namespace HMIApp.Data
             }
             return _archivizationmodelextendeddatabase;
         }
+        #endregion
 
         //Update danych "?" zezwala na null - operator warunkowego dostepu
         //Metoda do zwrocenia wyszukiwanego przez nas pola w bazie
@@ -257,7 +253,7 @@ namespace HMIApp.Data
 
         public void Delete()
         {
-            ////usuwanie danych 
+            //usuwanie danych 
             _hmiAppDbContextArchivization.Database.ExecuteSqlRaw("TRUNCATE TABLE [ArchivizationsForParameters]");
         }
     }
