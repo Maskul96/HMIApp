@@ -3871,6 +3871,7 @@
             dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
             resources.ApplyResources(dataGridView1, "dataGridView1");
             dataGridView1.Name = "dataGridView1";
+            dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.RowTemplate.Height = 33;
             // 
@@ -3879,6 +3880,7 @@
             Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             resources.ApplyResources(Column2, "Column2");
             Column2.Name = "Column2";
+            Column2.ReadOnly = true;
             // 
             // tabControl1
             // 
