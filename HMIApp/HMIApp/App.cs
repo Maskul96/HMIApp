@@ -30,6 +30,7 @@ namespace HMIApp
         private byte StartChart;
         private double ActValX;
         private double ActValY;
+        public bool BlockadeChart;
         //Przepisanie wartosci z referencji
         public double StartPoint;
         public double FastMovement;
@@ -237,15 +238,13 @@ namespace HMIApp
         }
 
         //Tworzenie glownego wykresu - dynamiczna Lista do przetrzymywania próbek wykresu
+        //To PLC musi zarzadzać tym kiedy startujemy i konczymy rysowanie wykresu !
+        //NALEŻY PAMIĘTAĆ ŻE IM MNIEJ PRÓBEK WYKRESU TYM SZYBCIEJ WYKRES SIE RENDERUJE! - Jeśli nie ma potrzeby wyciagania danych od samego startu a tylko od pewnej pozycji np. od FastMovement to nie warto - wyciaganie próbek od pozycji 0 do 120 a względem pozycji 80 - 120 to prawie 3x szybszy rendering wykresu
         public void CreatePlot()
         {
             ReadActualValueFromDBChart_Simplified(Path.Combine(Form1.basePathToFilesFolder, "tags_zone_4.csv"));
             Form1._Form1.formsPlot1.Plot.Axes.SetLimits(FastMovement, EndReading + 5.0, -1000, ForceMaxfromRef);
 
-            if (StartChart == 0)
-            {
-                Form1._Form1.formsPlot1.Refresh();
-            }
             if (ClearPlot == 1)
             {
                 Form1._Form1.formsPlot1.Plot.Clear();
@@ -255,28 +254,26 @@ namespace HMIApp
             }
             WriteSpecifiedValueFromReference();
 
-            if (StartChart == 1 )
+            if (StartChart == 1)
             {
-                ActX.Add(ActValX);
-                ActY.Add(ActValY);
-                if (ActValX < EndReading)
+                BlockadeChart = false;
+                if (ActValX <= EndReading + 1.0) //1.0 to tolerancja montazu)
                 {
+                    ActX.Add(ActValX);
+                    ActY.Add(ActValY);
                     var mainplot = Form1._Form1.formsPlot1.Plot.Add.Scatter(ActX, ActY);
                     mainplot.Color = Colors.Red;
                     mainplot.LineStyle.Width = 1;
                     mainplot.LinePattern = LinePattern.Solid;
                     mainplot.MarkerStyle.IsVisible = false;
-                    mainplot.Smooth = true;         
+                    mainplot.Smooth = true;
                     Form1._Form1.formsPlot1.Refresh();
                 }
-                if (ActValX >= EndReading )
+            }
+            if (StartChart == 0)
+            {
+                if (BlockadeChart == false)
                 {
-                    //Wykasowanie Measure - zakonczenie rysowania wykresu
-                    WriteToDB("0", "DB665.Measure", 2);
-                    //dopelnienie tablicy wartoscia ostatniego punktu
-                    ActX.Add(ActValX);
-                    ActY.Add(ActValY);
-                    //Wyrysowanie ostatniego punktu
                     var mainplot1 = Form1._Form1.formsPlot1.Plot.Add.Scatter(ActX, ActY);
                     mainplot1.Color = Colors.Red;
                     mainplot1.LineStyle.Width = 1;
@@ -301,9 +298,9 @@ namespace HMIApp
                     Form1._Form1.formsPlot1.Plot.Add.Text($"({EndReading},{ForceMax})", EndReading, ForceMax);
                     Form1._Form1.formsPlot1.Plot.Add.Text($"({StartReading},{ForceMin})", StartReading, ForceMin);
                     Form1._Form1.formsPlot1.Refresh();
+                    BlockadeChart = true;
                 }
             }
-
         }
 
         //Tworzenie prostokata czytania sily
@@ -966,7 +963,7 @@ namespace HMIApp
                                             }
                                         }
                                     }
-                                   //Kasowanie archiwum alarmów po 100 alarmach
+                                    //Kasowanie archiwum alarmów po 100 alarmach
                                     if (Form1._Form1.listView_AlarmsArchive.FindItemWithText(DBReadAlarm_AlarmName) != null)
                                     {
                                         if (Form1._Form1.listView_AlarmsArchive.Items.Count > 1000)
@@ -1362,10 +1359,10 @@ namespace HMIApp
                         NrOfMessage = libnodave.getS16from(DB, DBReadAlarm_NrOfByteinDB);
                         Form1._Form1.listBoxWarningsView.SelectionMode = SelectionMode.MultiSimple;
                         var countlistboxwarnings = Form1._Form1.listBoxWarningsView.Items.Count;
-                        if(NrOfMessage < countlistboxwarnings) 
+                        if (NrOfMessage < countlistboxwarnings)
                         {
                             Form1._Form1.listBoxWarningsView.SetSelected(NrOfMessage, true);
-                        }                       
+                        }
                         break;
                 }
             }
