@@ -8193,23 +8193,98 @@
   <data name="&gt;&gt;label_DodanieUzytkownikow.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <data name="label58.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="label58.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 11.25pt</value>
+  </data>
+  <data name="label58.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label58.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="label58.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
+  </data>
+  <data name="label58.Size" type="System.Drawing.Size, System.Drawing">
+    <value>430, 23</value>
+  </data>
+  <data name="label58.TabIndex" type="System.Int32, mscorlib">
+    <value>178</value>
+  </data>
+  <data name="label58.Text" xml:space="preserve">
+    <value>Kliknij poniższy przycisk w celu dodania użytkownika</value>
+  </data>
+  <data name="label58.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="&gt;&gt;label58.Name" xml:space="preserve">
+    <value>label58</value>
+  </data>
+  <data name="&gt;&gt;label58.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label58.Parent" xml:space="preserve">
+    <value>panel5</value>
+  </data>
+  <data name="&gt;&gt;label58.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="button_RozpocznijDodawanieUzytk.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
+    <value>GrowAndShrink</value>
+  </data>
+  <data name="button_RozpocznijDodawanieUzytk.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="button_RozpocznijDodawanieUzytk.Location" type="System.Drawing.Point, System.Drawing">
+    <value>123, 29</value>
+  </data>
+  <data name="button_RozpocznijDodawanieUzytk.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="button_RozpocznijDodawanieUzytk.Size" type="System.Drawing.Size, System.Drawing">
+    <value>175, 40</value>
+  </data>
+  <data name="button_RozpocznijDodawanieUzytk.TabIndex" type="System.Int32, mscorlib">
+    <value>17</value>
+  </data>
+  <data name="button_RozpocznijDodawanieUzytk.Text" xml:space="preserve">
+    <value>Rozpocznij</value>
+  </data>
+  <data name="&gt;&gt;button_RozpocznijDodawanieUzytk.Name" xml:space="preserve">
+    <value>button_RozpocznijDodawanieUzytk</value>
+  </data>
+  <data name="&gt;&gt;button_RozpocznijDodawanieUzytk.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;button_RozpocznijDodawanieUzytk.Parent" xml:space="preserve">
+    <value>panel5</value>
+  </data>
+  <data name="&gt;&gt;button_RozpocznijDodawanieUzytk.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
   <data name="label_NumerKarty_DodajUzytk.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="label_NumerKarty_DodajUzytk.Location" type="System.Drawing.Point, System.Drawing">
-    <value>11, 16</value>
+    <value>27, 117</value>
   </data>
   <data name="label_NumerKarty_DodajUzytk.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 0, 4, 0</value>
   </data>
   <data name="label_NumerKarty_DodajUzytk.Size" type="System.Drawing.Size, System.Drawing">
-    <value>99, 21</value>
+    <value>363, 21</value>
   </data>
   <data name="label_NumerKarty_DodajUzytk.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
   <data name="label_NumerKarty_DodajUzytk.Text" xml:space="preserve">
-    <value>Numer Karty</value>
+    <value>Przyłóż kartę do czytnika aby odczytać numer karty</value>
+  </data>
+  <data name="label_NumerKarty_DodajUzytk.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="&gt;&gt;label_NumerKarty_DodajUzytk.Name" xml:space="preserve">
     <value>label_NumerKarty_DodajUzytk</value>
@@ -8221,13 +8296,13 @@
     <value>panel5</value>
   </data>
   <data name="&gt;&gt;label_NumerKarty_DodajUzytk.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>2</value>
   </data>
   <data name="buttonDodajUzytkownika.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
     <value>GrowAndShrink</value>
   </data>
   <data name="buttonDodajUzytkownika.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 162</value>
+    <value>123, 321</value>
   </data>
   <data name="buttonDodajUzytkownika.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>
@@ -8241,6 +8316,9 @@
   <data name="buttonDodajUzytkownika.Text" xml:space="preserve">
     <value>Dodaj Użytkownika</value>
   </data>
+  <data name="buttonDodajUzytkownika.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="&gt;&gt;buttonDodajUzytkownika.Name" xml:space="preserve">
     <value>buttonDodajUzytkownika</value>
   </data>
@@ -8251,25 +8329,28 @@
     <value>panel5</value>
   </data>
   <data name="&gt;&gt;buttonDodajUzytkownika.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>3</value>
   </data>
   <data name="label_Imie_DodajUzytk.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="label_Imie_DodajUzytk.Location" type="System.Drawing.Point, System.Drawing">
-    <value>11, 64</value>
+    <value>11, 206</value>
   </data>
   <data name="label_Imie_DodajUzytk.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 0, 4, 0</value>
   </data>
   <data name="label_Imie_DodajUzytk.Size" type="System.Drawing.Size, System.Drawing">
-    <value>40, 21</value>
+    <value>151, 21</value>
   </data>
   <data name="label_Imie_DodajUzytk.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
   <data name="label_Imie_DodajUzytk.Text" xml:space="preserve">
-    <value>Imie</value>
+    <value>Wpisz swoję imie -&gt;</value>
+  </data>
+  <data name="label_Imie_DodajUzytk.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="&gt;&gt;label_Imie_DodajUzytk.Name" xml:space="preserve">
     <value>label_Imie_DodajUzytk</value>
@@ -8281,25 +8362,28 @@
     <value>panel5</value>
   </data>
   <data name="&gt;&gt;label_Imie_DodajUzytk.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>4</value>
   </data>
   <data name="label_Uprawnienia_DodajUzytk.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="label_Uprawnienia_DodajUzytk.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 113</value>
+    <value>12, 263</value>
   </data>
   <data name="label_Uprawnienia_DodajUzytk.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 0, 4, 0</value>
   </data>
   <data name="label_Uprawnienia_DodajUzytk.Size" type="System.Drawing.Size, System.Drawing">
-    <value>98, 21</value>
+    <value>220, 21</value>
   </data>
   <data name="label_Uprawnienia_DodajUzytk.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
   <data name="label_Uprawnienia_DodajUzytk.Text" xml:space="preserve">
-    <value>Uprawnienia</value>
+    <value>Zaznacz swoje uprawnienia -&gt;</value>
+  </data>
+  <data name="label_Uprawnienia_DodajUzytk.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="&gt;&gt;label_Uprawnienia_DodajUzytk.Name" xml:space="preserve">
     <value>label_Uprawnienia_DodajUzytk</value>
@@ -8311,7 +8395,7 @@
     <value>panel5</value>
   </data>
   <data name="&gt;&gt;label_Uprawnienia_DodajUzytk.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>5</value>
   </data>
   <data name="comboBox_ListaUprawnien_DodajUzytk.Items" xml:space="preserve">
     <value>Operator</value>
@@ -8323,16 +8407,19 @@
     <value>Technolog</value>
   </data>
   <data name="comboBox_ListaUprawnien_DodajUzytk.Location" type="System.Drawing.Point, System.Drawing">
-    <value>137, 113</value>
+    <value>238, 260</value>
   </data>
   <data name="comboBox_ListaUprawnien_DodajUzytk.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>
   </data>
   <data name="comboBox_ListaUprawnien_DodajUzytk.Size" type="System.Drawing.Size, System.Drawing">
-    <value>286, 29</value>
+    <value>185, 29</value>
   </data>
   <data name="comboBox_ListaUprawnien_DodajUzytk.TabIndex" type="System.Int32, mscorlib">
     <value>16</value>
+  </data>
+  <data name="comboBox_ListaUprawnien_DodajUzytk.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="&gt;&gt;comboBox_ListaUprawnien_DodajUzytk.Name" xml:space="preserve">
     <value>comboBox_ListaUprawnien_DodajUzytk</value>
@@ -8344,19 +8431,22 @@
     <value>panel5</value>
   </data>
   <data name="&gt;&gt;comboBox_ListaUprawnien_DodajUzytk.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>6</value>
   </data>
   <data name="textbox_NumerKarty_DodajUzytk.Location" type="System.Drawing.Point, System.Drawing">
-    <value>138, 16</value>
+    <value>37, 151</value>
   </data>
   <data name="textbox_NumerKarty_DodajUzytk.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>
   </data>
   <data name="textbox_NumerKarty_DodajUzytk.Size" type="System.Drawing.Size, System.Drawing">
-    <value>285, 29</value>
+    <value>343, 29</value>
   </data>
   <data name="textbox_NumerKarty_DodajUzytk.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
+  </data>
+  <data name="textbox_NumerKarty_DodajUzytk.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="&gt;&gt;textbox_NumerKarty_DodajUzytk.Name" xml:space="preserve">
     <value>textbox_NumerKarty_DodajUzytk</value>
@@ -8368,19 +8458,22 @@
     <value>panel5</value>
   </data>
   <data name="&gt;&gt;textbox_NumerKarty_DodajUzytk.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>7</value>
   </data>
   <data name="textBoxImie_DodajUzytk.Location" type="System.Drawing.Point, System.Drawing">
-    <value>137, 64</value>
+    <value>179, 204</value>
   </data>
   <data name="textBoxImie_DodajUzytk.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>
   </data>
   <data name="textBoxImie_DodajUzytk.Size" type="System.Drawing.Size, System.Drawing">
-    <value>286, 29</value>
+    <value>244, 29</value>
   </data>
   <data name="textBoxImie_DodajUzytk.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
+  </data>
+  <data name="textBoxImie_DodajUzytk.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="&gt;&gt;textBoxImie_DodajUzytk.Name" xml:space="preserve">
     <value>textBoxImie_DodajUzytk</value>
@@ -8392,7 +8485,7 @@
     <value>panel5</value>
   </data>
   <data name="&gt;&gt;textBoxImie_DodajUzytk.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>8</value>
   </data>
   <data name="panel5.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -8914,7 +9007,7 @@
     <value>0</value>
   </data>
   <data name="tableLayoutPanel14.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="label_EdycjaUzytkownikow" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="label_DodanieUzytkownikow" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="panel5" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="panel8" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="StatusyLogowania" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="panel7" Row="2" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,50,Percent,50" /&gt;&lt;Rows Styles="Percent,10,928796,Percent,5,1407413,Percent,83,930466" /&gt;&lt;/TableLayoutSettings&gt;</value>
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="label_EdycjaUzytkownikow" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="label_DodanieUzytkownikow" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="panel5" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="panel8" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="StatusyLogowania" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="panel7" Row="2" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,50,Percent,50" /&gt;&lt;Rows Styles="Percent,10,928796,Percent,5,1407413,Percent,83,930466,Absolute,20" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="label56.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -18350,11 +18443,14 @@
   <metadata name="CzyszczenieStatusowArchiwizacji.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>858, 49</value>
   </metadata>
+  <metadata name="TimerDodaniaUzytkownika.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>1085, 49</value>
+  </metadata>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>25</value>
+    <value>144</value>
   </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>7, 15</value>
@@ -18426,6 +18522,12 @@
     <value>CzyszczenieStatusowArchiwizacji</value>
   </data>
   <data name="&gt;&gt;CzyszczenieStatusowArchiwizacji.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Timer, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TimerDodaniaUzytkownika.Name" xml:space="preserve">
+    <value>TimerDodaniaUzytkownika</value>
+  </data>
+  <data name="&gt;&gt;TimerDodaniaUzytkownika.Type" xml:space="preserve">
     <value>System.Windows.Forms.Timer, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">

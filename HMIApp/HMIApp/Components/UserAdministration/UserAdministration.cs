@@ -47,19 +47,19 @@ namespace HMIApp.Components.UserAdministration
             {
                 Form1._Form1.buttonUsunRef.Enabled = true;
                 Form1._Form1.button_ZamknijApke.Enabled = true;
-                Form1._Form1.buttonDodajUzytkownika.Enabled = true;
                 Form1._Form1.buttonEdytujUzytkownika.Enabled = true;
                 Form1._Form1.buttonDodajNowaRef.Enabled = true;
                 Form1._Form1.buttonWczytajRef.Enabled = true;
+                Form1._Form1.button_RozpocznijDodawanieUzytk.Enabled = true;
             }
             else
             {
                 Form1._Form1.buttonUsunRef.Enabled = false;
                 Form1._Form1.button_ZamknijApke.Enabled = false;
-                Form1._Form1.buttonDodajUzytkownika.Enabled = false;
                 Form1._Form1.buttonEdytujUzytkownika.Enabled = false;
                 Form1._Form1.buttonDodajNowaRef.Enabled = false;
                 Form1._Form1.buttonWczytajRef.Enabled = true;
+                Form1._Form1.button_RozpocznijDodawanieUzytk.Enabled = false;
             }
 
         }

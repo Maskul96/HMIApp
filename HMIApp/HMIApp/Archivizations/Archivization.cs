@@ -161,7 +161,7 @@ namespace HMIApp.Archivizations
                 ArchiveEvent(this, new EventArgs(), message);
             }
         }
-
+        //Dodanie Roku do comboboxa jeśli wskoczy nowy
         public void AddingYearToComboBoxArchivizationToCSVForm1()
         {
             var FindYear = Form1._Form1.comboBox_StartYear.FindString($"{DateTime.Now.Year}");
@@ -171,7 +171,7 @@ namespace HMIApp.Archivizations
                 Form1._Form1.comboBox_EndYear.Items.Add(DateTime.Now.Year);
             }
         }
-
+        //PRzycisk wyeksportowania danych do pliku CSV
         public void ExportToCSVButtonFromForm1()
         {
             var databaseArchive = serviceProvider.GetService<IDataBaseArchivization>();
@@ -202,6 +202,7 @@ namespace HMIApp.Archivizations
             if(_archivizationmodelextendeddatabase.Count != 0) ArchivizationCsvFileHandlingForDataBaseModel();
         }
 
+        //Mapowanie pliku CSV
         public void ArchivizationCsvFileHandlingForDataBaseModel()
         {
             var configEventsWhenFileExist = new CsvConfiguration(CultureInfo.InvariantCulture)
@@ -243,6 +244,8 @@ namespace HMIApp.Archivizations
             }
 
         }
+
+        //Wyliczenie, która jest zmiana produkcyjna
         public int NumberOfProductionShift()
         {
             int NumberOfShift=0;

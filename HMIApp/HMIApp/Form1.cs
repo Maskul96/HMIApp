@@ -114,30 +114,35 @@ namespace HMIApp
         //Jeśli InvokeRequired funkcja zwraca false wartość , ReadSerialPort ustawia TextBox.Text wartość bezpośrednio
         public void ReadSerialPort(string receivedData)
         {
-            if (textBox_MiejsceNaNrKarty_Zaloguj.InvokeRequired)
+            if (buttonDodajUzytkownika.Visible == false)
             {
-                Action safewrite = delegate { ReadSerialPort(receivedData); };
-                textBox_MiejsceNaNrKarty_Zaloguj.Invoke(safewrite);
-                //Action buttonZaloguj = delegate { ButtonZalogujUzytk(null, null); };
-                //ButtonZalogujUzytk(null,null).Invoke(buttonZaloguj);
+                if (textBox_MiejsceNaNrKarty_Zaloguj.InvokeRequired)
+                {
+                    Action safewrite = delegate { ReadSerialPort(receivedData); };
+                    textBox_MiejsceNaNrKarty_Zaloguj.Invoke(safewrite);
+                    //Action buttonZaloguj = delegate { ButtonZalogujUzytk(null, null); };
+                    //ButtonZalogujUzytk(null,null).Invoke(buttonZaloguj);
+                }
+                else
+                {
+                    textBox_MiejsceNaNrKarty_Zaloguj.Text = receivedData;
+                }
             }
             else
             {
-                textBox_MiejsceNaNrKarty_Zaloguj.Text = receivedData;
+                if (textbox_NumerKarty_DodajUzytk.InvokeRequired)
+                {
+                    Action safewrite = delegate { ReadSerialPort(receivedData); };
+                    textbox_NumerKarty_DodajUzytk.Invoke(safewrite);
+                }
+                else
+                {
+                    textbox_NumerKarty_DodajUzytk.Text = receivedData;
+                }
             }
-            if (textbox_NumerKarty_DodajUzytk.InvokeRequired)
-            {
-                Action safewrite = delegate { ReadSerialPort(receivedData); };
-                textbox_NumerKarty_DodajUzytk.Invoke(safewrite);
-            }
-            else
-            {
-                textbox_NumerKarty_DodajUzytk.Text = receivedData;
-            }
-
         }
 
-        //Timer do prób uruchomienia komunikacji z PLC
+        //Timer do prób uruchomienia komunikacji z PLC - zakomentowane bo crashuje apke
         private void Timer_Tick_TryCommunicateWithPLC(object sender, EventArgs e)
         {
             //zakomentuj ponizsze cztery metody do odpalenia apki bez PLC
@@ -253,10 +258,14 @@ namespace HMIApp
             label_DataIGodzina.Text = this.Text;
         }
 
-        //Przycisk wyzwalajacy zapis uzytkownika
+        //Przycisk wyzwalajacy zapis/dodanie uzytkownika
         private void Button_Click_SaveUser(object sender, EventArgs e)
         {
             Users.SaveToXML();
+            UnVisibleSequenceOfAddUser();
+            TimerDodaniaUzytkownika.Enabled = false;
+            textbox_NumerKarty_DodajUzytk.Text = "";
+            textBoxImie_DodajUzytk.Text = "";
         }
 
         //Wyswietlenie uzytkownikow z bazy
@@ -300,6 +309,9 @@ namespace HMIApp
             CzyszczenieStatusówLogowania.Enabled = true;
             textBox_MiejsceNaNrKarty_Zaloguj.Text = "";
             textbox_NumerKarty_DodajUzytk.Text = "";
+            textBoxImie_DodajUzytk.Text = "";
+            UnVisibleSequenceOfAddUser();
+            TimerDodaniaUzytkownika.Enabled = false;
         }
 
         //Obsluga odliczania czasu do wylogowania
@@ -355,13 +367,18 @@ namespace HMIApp
         //Event zmiany koloru - wyzwala metode uruchmiajaca Event przejscia w Auto/Man
         public void BackColor_ColorChanged(object sender, EventArgs e)
         {
-            if (DB667Auto.BackColor.Name == "LimeGreen")
+            if (DB666NrReferencePassedValue.Text != "")
             {
-                _Archive.OnArchiveEventsMethod("Event - Przejście w Auto");
-            }
-            else if (DB667Man.BackColor.Name == "LimeGreen")
-            {
-                _Archive.OnArchiveEventsMethod("Event - Przejście w Man");
+                //PO NAZWIE KOLORU ROZPOZNAJEMY, ŻE ZMIENIŁ SIĘ KOLOR IKONKI TZN, ŻE ZAISTNIAŁO PRZEJŚCIE W AUTO/MANUAL
+                //Lepszy jest taki sposób niż sprawdzanie na sztywno danego adresu z PLC, bo jak ktoś nieumyślnie zmieni coś w DBku i nie zaktualizuje w Apce to nic nie będzie się archiwizować
+                if (DB667Auto.BackColor.Name == "LimeGreen")
+                {
+                    _Archive.OnArchiveEventsMethod("Event - Przejście w Auto");
+                }
+                else if (DB667Man.BackColor.Name == "LimeGreen")
+                {
+                    _Archive.OnArchiveEventsMethod("Event - Przejście w Man");
+                }
             }
         }
 
@@ -699,5 +716,35 @@ namespace HMIApp
             }
         }
         #endregion
+
+        //Uruchomienie opcji dodawania użytkownika po przycisnięiu przycisku Rozpocznij
+        private void button_RozpocznijDodawanieUzytk_Click(object sender, EventArgs e)
+        {
+            label_NumerKarty_DodajUzytk.Visible = true;
+            label_Imie_DodajUzytk.Visible = true;
+            label_Uprawnienia_DodajUzytk.Visible = true;
+            buttonDodajUzytkownika.Visible = true;
+            textbox_NumerKarty_DodajUzytk.Visible = true;
+            textBoxImie_DodajUzytk.Visible = true;
+            comboBox_ListaUprawnien_DodajUzytk.Visible = true;
+            TimerDodaniaUzytkownika.Enabled = true;
+        }
+        //Wyłączenie opcji dodawania użytkownika po braku kontynuowania dodawania użytkownika
+        private void TimerDodaniaUzytkownika_Tick(object sender, EventArgs e)
+        {
+            UnVisibleSequenceOfAddUser();
+            TimerDodaniaUzytkownika.Enabled = false;
+        }
+
+        private void UnVisibleSequenceOfAddUser()
+        {
+            label_NumerKarty_DodajUzytk.Visible = false;
+            label_Imie_DodajUzytk.Visible = false;
+            label_Uprawnienia_DodajUzytk.Visible = false;
+            buttonDodajUzytkownika.Visible = false;
+            textbox_NumerKarty_DodajUzytk.Visible = false;
+            textBoxImie_DodajUzytk.Visible = false;
+            comboBox_ListaUprawnien_DodajUzytk.Visible = false;
+        }
     }
 }

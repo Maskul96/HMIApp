@@ -31,6 +31,8 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             OdczytDB = new System.Windows.Forms.Timer(components);
             label_Uzytkownik = new System.Windows.Forms.Label();
             pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -303,6 +305,8 @@
             label_EdycjaUzytkownikow = new System.Windows.Forms.Label();
             label_DodanieUzytkownikow = new System.Windows.Forms.Label();
             panel5 = new System.Windows.Forms.Panel();
+            label58 = new System.Windows.Forms.Label();
+            button_RozpocznijDodawanieUzytk = new System.Windows.Forms.Button();
             label_NumerKarty_DodajUzytk = new System.Windows.Forms.Label();
             buttonDodajUzytkownika = new System.Windows.Forms.Button();
             label_Imie_DodajUzytk = new System.Windows.Forms.Label();
@@ -549,6 +553,7 @@
             tableLayoutPanel20 = new System.Windows.Forms.TableLayoutPanel();
             PróbyUruchomieniaKomunikacjizPLC = new System.Windows.Forms.Timer(components);
             CzyszczenieStatusowArchiwizacji = new System.Windows.Forms.Timer(components);
+            TimerDodaniaUzytkownika = new System.Windows.Forms.Timer(components);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             tabPage7.SuspendLayout();
             tabPage9.SuspendLayout();
@@ -2286,6 +2291,8 @@
             // panel5
             // 
             panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            panel5.Controls.Add(label58);
+            panel5.Controls.Add(button_RozpocznijDodawanieUzytk);
             panel5.Controls.Add(label_NumerKarty_DodajUzytk);
             panel5.Controls.Add(buttonDodajUzytkownika);
             panel5.Controls.Add(label_Imie_DodajUzytk);
@@ -2295,6 +2302,21 @@
             panel5.Controls.Add(textBoxImie_DodajUzytk);
             resources.ApplyResources(panel5, "panel5");
             panel5.Name = "panel5";
+            // 
+            // label58
+            // 
+            label58.BackColor = System.Drawing.Color.SteelBlue;
+            label58.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            resources.ApplyResources(label58, "label58");
+            label58.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            label58.Name = "label58";
+            // 
+            // button_RozpocznijDodawanieUzytk
+            // 
+            resources.ApplyResources(button_RozpocznijDodawanieUzytk, "button_RozpocznijDodawanieUzytk");
+            button_RozpocznijDodawanieUzytk.Name = "button_RozpocznijDodawanieUzytk";
+            button_RozpocznijDodawanieUzytk.UseVisualStyleBackColor = true;
+            button_RozpocznijDodawanieUzytk.Click += button_RozpocznijDodawanieUzytk_Click;
             // 
             // label_NumerKarty_DodajUzytk
             // 
@@ -3858,20 +3880,36 @@
             // dataGridView1
             // 
             dataGridView1.BackgroundColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.ColumnHeadersVisible = false;
             dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { Column2 });
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 238);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 238);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             resources.ApplyResources(dataGridView1, "dataGridView1");
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.RowTemplate.Height = 33;
             // 
@@ -4182,6 +4220,11 @@
             // 
             CzyszczenieStatusowArchiwizacji.Interval = 5000;
             CzyszczenieStatusowArchiwizacji.Tick += CzyszczenieStatusowArchiwizacji_Tick;
+            // 
+            // TimerDodaniaUzytkownika
+            // 
+            TimerDodaniaUzytkownika.Interval = 10000;
+            TimerDodaniaUzytkownika.Tick += TimerDodaniaUzytkownika_Tick;
             // 
             // Form1
             // 
@@ -4825,6 +4868,9 @@
         private System.Windows.Forms.Label label149;
         public System.Windows.Forms.TextBox textBox_IDUzytkownika;
         public System.Windows.Forms.Button button_TestLampek;
+        public System.Windows.Forms.Button button_RozpocznijDodawanieUzytk;
+        private System.Windows.Forms.Label label58;
+        private System.Windows.Forms.Timer TimerDodaniaUzytkownika;
     }
 }
 
