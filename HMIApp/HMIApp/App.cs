@@ -969,7 +969,7 @@ namespace HMIApp
                                    //Kasowanie archiwum alarmów po 100 alarmach
                                     if (Form1._Form1.listView_AlarmsArchive.FindItemWithText(DBReadAlarm_AlarmName) != null)
                                     {
-                                        if (Form1._Form1.listView_AlarmsArchive.Items.Count > 100)
+                                        if (Form1._Form1.listView_AlarmsArchive.Items.Count > 1000)
                                         {
                                             Form1._Form1.listView_AlarmsArchive.Items.Remove(itemArchive[0]);
                                         }
