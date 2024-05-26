@@ -15,7 +15,6 @@ namespace HMIApp.Archivizations
 
         void ArchivizationCsvFileHandlingForBasicModel();
         void ArchivizationCsvFileHandlingForExtendedModel();
-        int NumberOfProductionShift();
         void ClearListArchivizationModelBasic();
         void ClearListArchivizationModelExtended();
         void OnArchiveEventsMethod(string message);

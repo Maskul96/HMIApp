@@ -29,5 +29,5 @@ DB667.PozycjaDyszaPionowa,Real,56,0,4
 DB667.KolorPozycjaDyszaPionowa,Int,60,0,2
 DB667.PozycjaDyszaPozioma,Real,62,0,4
 DB667.KolorPozycjaDyszaPozioma,Int,66,0,2
-DB667.KodEtykiety,String,68,0,102
-DB667.NrOfDeviceToControl,Int,170,0,2
+DB667.NrOfDeviceToControl,Int,68,0,2
+DB667.KodEtykiety,String,70,0,102

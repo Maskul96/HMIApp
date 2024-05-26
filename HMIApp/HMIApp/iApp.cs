@@ -17,8 +17,6 @@ namespace HMIApp
         void CreatePlot();
         void CreateStaticPlot();
 
-        bool GetBit(byte b, int bitNumber);
-
         void WriteSpecifiedValueFromReference();
         //brak metody MakeList - w interfejsie nie implementujemy metod statycznych
 

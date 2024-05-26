@@ -133,7 +133,7 @@ namespace HMIApp
         }
 
         //Metoda wyciagająca dany bit z całego Byte'a
-        public bool GetBit(byte b, int bitNumber)
+        private bool GetBit(byte b, int bitNumber)
         {
             return (b & (1 << bitNumber)) != 0;
         }

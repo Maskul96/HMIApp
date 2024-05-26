@@ -8,7 +8,6 @@ namespace HMIApp.Components.UserAdministration
         bool UserIsLoggedIn { get; }
         void Run();
         void SaveToXML();
-        XDocument LoadFromXML(string filepath);
         void ClearListInComboBox();
         void DisplayValuesFromXML(XDocument document, string Name = "");
         void EnabledObjects();
