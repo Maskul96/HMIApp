@@ -230,7 +230,7 @@ namespace HMIApp.Components.UserAdministration
             Form1._Form1.CzyszczenieStatusówLogowania.Enabled = true;
         }
 
-        private XDocument LoadFromXML(string filepath)
+        public XDocument LoadFromXML(string filepath)
         {
             return XDocument.Load(filepath);
         }
