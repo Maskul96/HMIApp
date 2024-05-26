@@ -2,6 +2,7 @@
 using HMIApp.Archivizations.Models;
 using HMIApp.Components;
 using HMIApp.Components.DataBase;
+using HMIApp.DataBasesAndDBContext_s;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -13,13 +14,13 @@ using System.Windows.Forms;
 
 namespace HMIApp.Data
 {
-    public class DataBaseArchivization :IDataBaseArchivization
+    public class DataBaseArchivization :BaseClassForDatabase, IDataBaseArchivization
     {
         private readonly HMIAppDBContextArchivization _hmiAppDbContextArchivization;
-        public string ConnectionString = "";
+        //public string ConnectionString = "";
         public Logger _logger = new();
         public List<ArchivizationModelExtendedDataBase> _archivizationmodelextendeddatabase = new();
-        public DataBaseArchivization()
+        public DataBaseArchivization() : base()
         {
 
         }

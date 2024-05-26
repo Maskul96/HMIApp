@@ -1,6 +1,7 @@
 ﻿using HMIApp.Components;
 using HMIApp.Components.DataBase;
 using HMIApp.Data;
+using HMIApp.DataBasesAndDBContext_s;
 using System.Configuration;
 using System.IO;
 using System.Linq;
@@ -9,9 +10,9 @@ using System.Windows.Forms;
 
 namespace HMIApp.Data
 {
-    public class DataBase : IDataBase
+    public class DataBase :BaseClassForDatabase, IDataBase
     {
-        public string ConnectionString = "";
+        //public string ConnectionString = "";
         private readonly HMIAppDBContext _hmiAppDbContext;
         public Form1 obj;
         public Logger _logger = new();
@@ -23,7 +24,7 @@ namespace HMIApp.Data
             _hmiAppDbContext.Database.EnsureCreated();
         }
         //konstruktor bezparametrowy
-        public DataBase()
+        public DataBase() : base()
         {
 
         }
