@@ -246,7 +246,7 @@ namespace HMIApp.Archivizations
         }
 
         //Wyliczenie, która jest zmiana produkcyjna
-        private int NumberOfProductionShift()
+        public int NumberOfProductionShift()
         {
             int NumberOfShift=0;
             int HourOfDay = DateTime.Now.Hour;

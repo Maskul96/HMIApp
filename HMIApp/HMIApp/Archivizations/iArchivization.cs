@@ -22,6 +22,8 @@ namespace HMIApp.Archivizations
         void AddingYearToComboBoxArchivizationToCSVForm1();
         void ExportToCSVButtonFromForm1();
 
+        int NumberOfProductionShift();
+
 
     }
 }
