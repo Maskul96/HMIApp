@@ -12,10 +12,9 @@ namespace HMIApp.Data
 {
     public class DataBase :BaseClassForDatabase, IDataBase
     {
-        //public string ConnectionString = "";
         private readonly HMIAppDBContext _hmiAppDbContext;
         public Form1 obj;
-        public Logger _logger = new();
+
         //konstruktor do wstrzykiwania DBContext
         public DataBase(HMIAppDBContext hmiAppDbContext)
         {
@@ -32,21 +31,6 @@ namespace HMIApp.Data
         public DataBase(Form1 obj)
         {
             this.obj = obj;
-        }
-
-        //Odczyt pliku konfiguracyjnego z connection stringiem
-        public string ReadConfFile(string filepath)
-        {
-            if (System.IO.File.Exists(filepath))
-            {
-                ConnectionString = System.IO.File.ReadAllText(filepath);
-            }
-            else
-            {
-                MessageBox.Show("Nie mozna otworzyć pliku konfiguracyjnego bazy danych");
-                _logger.LogMessage("Nie mozna otworzyc pliku konfiguracyjnego bazy danych");
-            }
-            return ConnectionString;
         }
 
         public void Run()

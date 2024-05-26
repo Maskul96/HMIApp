@@ -17,8 +17,6 @@ namespace HMIApp.Data
     public class DataBaseArchivization :BaseClassForDatabase, IDataBaseArchivization
     {
         private readonly HMIAppDBContextArchivization _hmiAppDbContextArchivization;
-        //public string ConnectionString = "";
-        public Logger _logger = new();
         public List<ArchivizationModelExtendedDataBase> _archivizationmodelextendeddatabase = new();
         public DataBaseArchivization() : base()
         {
@@ -29,21 +27,6 @@ namespace HMIApp.Data
             _hmiAppDbContextArchivization = hmiAppDbContextArchivization;
             //w momencie wywolania konstruktora sprawdzamy czy nasza baza danych jest stworzona - jesli nie jest stworzona to ponizsza metoda ja utworzy
             _hmiAppDbContextArchivization.Database.EnsureCreated();
-        }
-
-        //Odczyt pliku konfiguracyjnego z connection stringiem
-        public string ReadConfFile(string filepath)
-        {
-            if (System.IO.File.Exists(filepath))
-            {
-                ConnectionString = System.IO.File.ReadAllText(filepath);
-            }
-            else
-            {
-                System.Windows.MessageBox.Show("Nie mozna otworzyć pliku konfiguracyjnego bazy danych");
-                _logger.LogMessage("Nie mozna otworzyc pliku konfiguracyjnego bazy danych");
-            }
-            return ConnectionString;
         }
 
         public void Run()
