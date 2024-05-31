@@ -19,11 +19,11 @@ namespace HMIApp
         public int Port { get; private set; }
         public int Timeout_ms { get; private set; }
 
-        public bool connected_ { get; set; }
+        public bool isconnected_ { get; set; }
 
         //zmienne
         private const int kMaxErrorsToReset = 10000;
-        //public bool connected_;
+        //public bool isconnected_;
         private int continuous_reading_errors_;
         private int continuous_writing_errors_;
         private libnodave.daveOSserialType dave_serial_;
@@ -53,7 +53,7 @@ namespace HMIApp
             this.Rack = Rack;
             this.Slot = Slot;
             this.Timeout_ms = Timeout_ms;
-            connected_ = false;
+            isconnected_ = false;
         }
 
         //Inicjalizacja połączenia
@@ -62,7 +62,7 @@ namespace HMIApp
             try
             {
                 cs_ = new object();
-                if (!connected_)
+                if (!isconnected_)
                 {
                     dave_serial_.rfd = libnodave.openSocket(Port, IP);
                     dave_serial_.wfd = dave_serial_.rfd;
@@ -79,7 +79,7 @@ namespace HMIApp
                                 //MessageBox.Show($"CONNECTED,IP: {IP} port: {Port} ");
                                 Form1._Form1.textBox4.Text = $"CONNECTED,IP: {IP} port: {Port} ";
                                 _logger.LogMessage($"CONNECTED,IP: {IP} port: {Port} ");
-                                connected_ = true;
+                                isconnected_ = true;
                                 return true;
                             }
                             Form1._Form1.textBox4.Text = ($"Error connecting to PLC: {libnodave.daveStrerror(num)} ");
@@ -111,13 +111,13 @@ namespace HMIApp
         {
             try
             {
-                if (connected_)
+                if (isconnected_)
                 {
                     if (dave_connection_.disconnectPLC() == 0)
                     {
                         dave_interface_.disconnectAdapter();
                         libnodave.closeSocket(dave_serial_.rfd);
-                        connected_ = false;
+                        isconnected_ = false;
                         return true;
                     }
                     _logger.LogMessage("Error in disconnect with PLC");

@@ -10,10 +10,10 @@ namespace HMIApp.Components.UserAdministration
 {
     public class UserAdministration : IUserAdministration
     {
-        //konstruktor bezparametrowy - ustawienie UserIsLoggedIn na false na starcie przy tworzeniu konstruktora
+        //konstruktor bezparametrowy - ustawienie hasAccess na false na starcie przy tworzeniu konstruktora
         public UserAdministration()
         {
-            this.UserIsLoggedIn = false;
+            this.hasAccess = false;
         }
         //konstruktor z parametrem Form1 obj
         public UserAdministration(Form1 obj)
@@ -31,8 +31,8 @@ namespace HMIApp.Components.UserAdministration
         //publiczny interwał do dostępu z innych klas
         public int Interval = 100000 / 1000;
         #endregion
-        //propercja UserIsLoggedIn - do dostępu z innych klas getem ale nie mozna setowac z innych klas
-        public bool UserIsLoggedIn { get; private set; }
+        //propercja hasAccess - do dostępu z innych klas getem ale nie mozna setowac z innych klas
+        public bool hasAccess { get; private set; }
 
         public void Run()
         {
@@ -43,7 +43,7 @@ namespace HMIApp.Components.UserAdministration
 
         public void EnabledObjects()
         {
-            if (UserIsLoggedIn)
+            if (hasAccess)
             {
                 Form1._Form1.buttonUsunRef.Enabled = true;
                 Form1._Form1.button_ZamknijApke.Enabled = true;
@@ -69,7 +69,7 @@ namespace HMIApp.Components.UserAdministration
             Form1._Form1.label_Imie.Text = "";
             Form1._Form1.label_NrKarty.Text = "";
             Form1._Form1.label_Uprawnienia.Text = "";
-            UserIsLoggedIn = false;
+            hasAccess = false;
         }
 
         public void FindUserinXML()
@@ -89,7 +89,7 @@ namespace HMIApp.Components.UserAdministration
                     .Where(x => x.Attribute("Numer_karty")?.Value == NrofCard)
                     .Single();
 
-                    UserIsLoggedIn = (names != null) ? true : false;
+                    hasAccess = (names != null) ? true : false;
 
                     Form1._Form1.label_Imie.Text = names.Attribute("Numer_karty").Value;
                     Form1._Form1.label_NrKarty.Text = names.Attribute("Nazwa_użytkownika").Value;

@@ -290,7 +290,7 @@ namespace HMIApp
             label13.Text = Users.Interval.ToString();
             Users.FindUserinXML();
             //Po zalogowaniu uruchamiamy metode OnArchiveEventsMethod - jak bedzie subscriber podpiety pod event to odpali ona Event
-            if (Users.UserIsLoggedIn)
+            if (Users.hasAccess)
             {
                 _Archive.OnArchiveEventsMethod("Event - Logowanie użytkownika");
                 Users.EnabledObjects();

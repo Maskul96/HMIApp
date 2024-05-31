@@ -14,7 +14,7 @@ namespace HMIApp
         int Port { get; }
         int Timeout_ms { get; }
 
-        bool connected_ { get; }
+        bool isconnected_ { get; }
         bool Init();
 
         bool Close();

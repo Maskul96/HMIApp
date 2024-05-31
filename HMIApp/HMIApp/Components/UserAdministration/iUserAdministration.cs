@@ -5,7 +5,7 @@ namespace HMIApp.Components.UserAdministration
 {
     public interface IUserAdministration
     {
-        bool UserIsLoggedIn { get; }
+        bool hasAccess { get; }
 
         XDocument LoadFromXML(string filepath);
         void Run();
