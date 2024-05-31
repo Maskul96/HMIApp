@@ -9,7 +9,7 @@ namespace HMIApp.DataBasesAndDBContext_s
         {
 
         }
-        public string ConnectionString { get; set; }
+        public string ConnectionString { get; private set; }
 
         public Logger _logger = new();
 

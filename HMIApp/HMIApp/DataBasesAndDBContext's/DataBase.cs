@@ -22,7 +22,7 @@ namespace HMIApp.Data
             //w momencie wywolania konstruktora sprawdzamy czy nasza baza danych jest stworzona - jesli nie jest stworzona to ponizsza metoda ja utworzy
             _hmiAppDbContext.Database.EnsureCreated();
         }
-        //konstruktor bezparametrowy
+        //konstruktor bezparametrowy z parametrem base 
         public DataBase() : base()
         {
 
