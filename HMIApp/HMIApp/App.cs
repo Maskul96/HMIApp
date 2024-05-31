@@ -359,7 +359,6 @@ namespace HMIApp
             //udostepnienie DBka do archiwizacji danych - z DB trzeba wyciagnac na sztywno bezposrednio informacje o stanie Auto/Manual
             foreach (var dbTag in dbtags)
             {
-                //sprobowac uproscic tego switcha szczegolnie z wyszukiwaniem kontrolek - zrobic na wzor tego c ozrobilem z zamiana kropki na przecinek
                 switch (dbTag.DataTypeOfTag.ToUpper())
                 {
 
