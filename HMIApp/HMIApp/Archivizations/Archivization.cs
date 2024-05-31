@@ -222,6 +222,7 @@ namespace HMIApp.Archivizations
 
             if (File.Exists($"{LocationOfArchivizationFolder}ArchivizationFromDataBase_DataGeneracjiPliku{DateTime.Now:yyyy-MM-dd HH-mm-ss}.csv"))
             {
+                //writer - strumień otwierany tylko w zakresie naszego usinga
                 using var writer = new StreamWriter($"{LocationOfArchivizationFolder}ArchivizationFromDataBase_DataGeneracjiPliku{DateTime.Now:yyyy-MM-dd HH-mm-ss}.csv");
                 using var csv = new CsvWriter(writer, configEventsWhenFileExist);
                 //Uzupelnic mapowanie wszystkich zmiennych

@@ -3,6 +3,7 @@ using HMIApp.Components;
 
 namespace HMIApp.DataBasesAndDBContext_s
 {
+    //Klasa dziedzicząca właściwość ConnectionString, LogMessage i ReadConfFile - elementy wspólne przy obsłudze bazy danych
     public class BaseClassForDatabase
     {
         public BaseClassForDatabase()
