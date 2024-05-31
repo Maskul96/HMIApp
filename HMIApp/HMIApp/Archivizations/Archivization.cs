@@ -40,8 +40,11 @@ namespace HMIApp.Archivizations
 
         }
 
-        //Delegaty  - jest to referencja na metode
+        //Delegaty  - jest to referencja na metode - metoda musi byc przygotowana pod delegat - czyli posiadac takie same parametry wejsciowe i byc tego samego typu
+        //Aby delegat współpracował z eventem musi mieć object sender czyli informacje kto wysłał, EventArgs czyli dodatkowe argumenty ktore beda uzywane w naszym evencie
+        //Delegat yzapewniają bezpieczeństwo typów, ponieważ metoda podpięta pod delegat musi mieć taki sam typ i argumenty
         public delegate void ArchiveEvents(object sender, EventArgs args, string message);
+        //Zdarzenia/Eventy to mechanizmy pozwalające powiadomić inne obiekty o pewnych zdarzeniach. Zdarzeniami obserwujemy co sie dzieje w aplikacji
         public event ArchiveEvents ArchiveEvent;
 
         //Metoda Run do uruchomienia bazy danych do archiwizacji
@@ -59,14 +62,15 @@ namespace HMIApp.Archivizations
 
         public void ArchiveEventRun()
         {
-            //Odpalamy metode _Archive_ArchiveEvent jak event sie zadzieje
+            //Podpinamy się pod event, który ma nam wywołać metodę _Archive_ArchiveEvent
+            //Odskubskrybowanie się/Odpięcie się od eventu realizujemy przez "-="
             ArchiveEvent += _Archive_ArchiveEvent;
         }
 
-        
 
-        //Metoda uruchamiająca się jak odpalimy event
-        public void _Archive_ArchiveEvent(object sender, EventArgs args, string message)
+
+        //Metoda uruchamiająca się jak odpalimy event - metoda przygotowana pod nasz delegat - przyjmuje to samo na wejsciu
+        public void _Archive_ArchiveEvent(object sender, EventArgs args, string message) 
         {
             //statusy archiwizacji do wyswietlenia na HMI 
             Form1._Form1.label_StatusyArchiwizacji.Text = message;
@@ -154,7 +158,7 @@ namespace HMIApp.Archivizations
 
         public void OnArchiveEventsMethod(string message)
         {
-            //Sprawdzamy w ifie czy ktos z zewnatrz (subscriber) podpiął się pod ten event i jak tak to dopiero odpalamy event
+            //Sprawdzamy w ifie czy ktos z zewnatrz (subscriber) podpiął się pod ten event i jak tak to dopiero odpalamy event (Podpięcie pod event jest realizowane metodą ArchiveEventRun
             if (ArchiveEvent != null)
             {
                 //odpalenie eventu

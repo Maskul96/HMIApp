@@ -54,7 +54,7 @@ namespace HMIApp.Components.RFIDCardReader
 
             SerialPort sp = (SerialPort)sender;
             string receivedData = sp.ReadExisting();
-            // Poniżej procedura obsługi zdarzeń tworzy nowy wątek i uruchamia metodę ReadSerialPort - z dokumentacji meotdy Invoke
+            // Poniżej procedura obsługi zdarzeń tworzy nowy wątek i uruchamia metodę ReadSerialPort - z dokumentacji metody Invoke
             var threadParameters = new ThreadStart(delegate { Form1._Form1.ReadSerialPort(receivedData); });
             var thread2 = new Thread(threadParameters);
             thread2.Start();
