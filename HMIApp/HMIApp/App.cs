@@ -75,7 +75,6 @@ namespace HMIApp
         private string DBReadAlarm_TagName;
         private string DBReadAlarm_DataTypeofTag;
         private int NrOfMessage;
-        private int[] index1 = new int[8];
         private bool[] isblockade = new bool[8];
         private ListViewItem[] itemArchive = new ListViewItem[8];
         #endregion
@@ -947,7 +946,6 @@ namespace HMIApp
                                         itemArchive[0] = MakeList(DateTime.Now.ToString(), DBReadAlarm_TagName, DBReadAlarm_AlarmName);
                                         itemArchive[0].BackColor = System.Drawing.Color.Red; itemArchive[0].ForeColor = System.Drawing.Color.Black;
                                         Form1._Form1.listView_AlarmsArchive.Items.Add(itemArchive[0]);
-                                        index1[0] = Form1._Form1.listView_AlarmsArchive.Items.IndexOf(itemArchive[0]);
                                         isblockade[0] = true;
                                     }
                                 }
@@ -1003,7 +1001,6 @@ namespace HMIApp
                                         itemArchive[1] = MakeList(DateTime.Now.ToString(), DBReadAlarm_TagName, DBReadAlarm_AlarmName);
                                         itemArchive[1].BackColor = System.Drawing.Color.Red; itemArchive[1].ForeColor = System.Drawing.Color.Black;
                                         Form1._Form1.listView_AlarmsArchive.Items.Add(itemArchive[1]);
-                                        index1[1] = Form1._Form1.listView_AlarmsArchive.Items.IndexOf(itemArchive[1]);
                                         isblockade[1] = true;
                                     }
                                 }
@@ -1057,7 +1054,6 @@ namespace HMIApp
                                         itemArchive[2] = MakeList(DateTime.Now.ToString(), DBReadAlarm_TagName, DBReadAlarm_AlarmName);
                                         itemArchive[2].BackColor = System.Drawing.Color.Red; itemArchive[2].ForeColor = System.Drawing.Color.Black;
                                         Form1._Form1.listView_AlarmsArchive.Items.Add(itemArchive[2]);
-                                        index1[2] = Form1._Form1.listView_AlarmsArchive.Items.IndexOf(itemArchive[2]);
                                         isblockade[2] = true;
                                     }
                                 }
@@ -1111,7 +1107,6 @@ namespace HMIApp
                                         itemArchive[3] = MakeList(DateTime.Now.ToString(), DBReadAlarm_TagName, DBReadAlarm_AlarmName);
                                         itemArchive[3].BackColor = System.Drawing.Color.Red; itemArchive[3].ForeColor = System.Drawing.Color.Black;
                                         Form1._Form1.listView_AlarmsArchive.Items.Add(itemArchive[3]);
-                                        index1[3] = Form1._Form1.listView_AlarmsArchive.Items.IndexOf(itemArchive[3]);
                                         isblockade[3] = true;
                                     }
                                 }
@@ -1165,7 +1160,6 @@ namespace HMIApp
                                         itemArchive[4] = MakeList(DateTime.Now.ToString(), DBReadAlarm_TagName, DBReadAlarm_AlarmName);
                                         itemArchive[4].BackColor = System.Drawing.Color.Red; itemArchive[4].ForeColor = System.Drawing.Color.Black;
                                         Form1._Form1.listView_AlarmsArchive.Items.Add(itemArchive[4]);
-                                        index1[4] = Form1._Form1.listView_AlarmsArchive.Items.IndexOf(itemArchive[4]);
                                         isblockade[4] = true;
                                     }
                                 }
@@ -1219,7 +1213,6 @@ namespace HMIApp
                                         itemArchive[5] = MakeList(DateTime.Now.ToString(), DBReadAlarm_TagName, DBReadAlarm_AlarmName);
                                         itemArchive[5].BackColor = System.Drawing.Color.Red; itemArchive[5].ForeColor = System.Drawing.Color.Black;
                                         Form1._Form1.listView_AlarmsArchive.Items.Add(itemArchive[5]);
-                                        index1[5] = Form1._Form1.listView_AlarmsArchive.Items.IndexOf(itemArchive[5]);
                                         isblockade[5] = true;
                                     }
                                 }
@@ -1273,7 +1266,6 @@ namespace HMIApp
                                         itemArchive[6] = MakeList(DateTime.Now.ToString(), DBReadAlarm_TagName, DBReadAlarm_AlarmName);
                                         itemArchive[6].BackColor = System.Drawing.Color.Red; itemArchive[6].ForeColor = System.Drawing.Color.Black;
                                         Form1._Form1.listView_AlarmsArchive.Items.Add(itemArchive[6]);
-                                        index1[6] = Form1._Form1.listView_AlarmsArchive.Items.IndexOf(itemArchive[6]);
                                         isblockade[6] = true;
                                     }
                                 }
@@ -1328,7 +1320,6 @@ namespace HMIApp
                                         itemArchive[7] = MakeList(DateTime.Now.ToString(), DBReadAlarm_TagName, DBReadAlarm_AlarmName);
                                         itemArchive[7].BackColor = System.Drawing.Color.Red; itemArchive[7].ForeColor = System.Drawing.Color.Black;
                                         Form1._Form1.listView_AlarmsArchive.Items.Add(itemArchive[7]);
-                                        index1[7] = Form1._Form1.listView_AlarmsArchive.Items.IndexOf(itemArchive[7]);
                                         isblockade[7] = true;
                                     }
                                 }
