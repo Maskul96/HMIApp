@@ -15,7 +15,9 @@ namespace HMIApp
     public class App : IApp
     {
         public Form1 obj;
-
+        private const int StringRemove_CountProperty = 1;
+        private const int StringSubstring_StartIndex = 2;
+        private const int StringAfterFirstTwoBytes = 2;
         #region Zmienne do DBka do odczytu wykresu
         private List<double> ActX = new();
         private List<double> ActY = new();
@@ -340,8 +342,8 @@ namespace HMIApp
             foreach (var dbTag in dbtags)
             {
                 //Wyciagniecie z nazwy DBka jego numer
-                DBRead_position = dbTag.TagName.IndexOf('.') - 2;
-                DBRead_NumberOfDB = dbTag.TagName.Substring(2, DBRead_position);
+                DBRead_position = dbTag.TagName.IndexOf('.') - StringSubstring_StartIndex;
+                DBRead_NumberOfDB = dbTag.TagName.Substring(StringSubstring_StartIndex, DBRead_position);
                 //Wyciagniecie startowej pozycji i końcowej pozycji DBka - ustalamy dlugosc danych + ustalenie dlugosci tablicy
                 if (dbtags.First() == dbTag)
                 {
@@ -369,7 +371,7 @@ namespace HMIApp
                         bool[] values = new bool[8];
                         //Wyszukanie samej nazwy Taga, która odpowiada 1:1 nazwie TextBoxa
                         DBRead_position1 = dbTag.TagName.IndexOf('.');
-                        DBRead_TagName = dbTag.TagName.Remove(DBRead_position1, 1);
+                        DBRead_TagName = dbTag.TagName.Remove(DBRead_position1, StringRemove_CountProperty);
                         TextBox txt;
                         ComboBox cb;
                         switch (DBRead_NrOfBitinByte)
@@ -540,7 +542,7 @@ namespace HMIApp
                     case "BYTE":
                         //Wyszukanie samej nazwy Taga, która odpowiada 1:1 nazwie TextBoxa
                         DBRead_position1 = dbTag.TagName.IndexOf('.');
-                        DBRead_TagName = dbTag.TagName.Remove(DBRead_position1, 1);
+                        DBRead_TagName = dbTag.TagName.Remove(DBRead_position1, StringRemove_CountProperty);
                         DBRead_NrOfByteinDB = dbTag.NumberOfByteInDB;
                         txt = Form1._Form1.Controls.Find($"{DBRead_TagName}", true).FirstOrDefault() as TextBox;
                         if (txt == null)
@@ -556,7 +558,7 @@ namespace HMIApp
                     case "INT":
                         //Wyszukanie samej nazwy Taga, która odpowiada 1:1 nazwie TextBoxa
                         DBRead_position1 = dbTag.TagName.IndexOf('.');
-                        DBRead_TagName = dbTag.TagName.Remove(DBRead_position1, 1);
+                        DBRead_TagName = dbTag.TagName.Remove(DBRead_position1, StringRemove_CountProperty);
                         DBRead_NrOfByteinDB = dbTag.NumberOfByteInDB;
                         cb = Form1._Form1.Controls.Find($"{DBRead_TagName}", true).FirstOrDefault() as ComboBox;
                         txt = Form1._Form1.Controls.Find($"{DBRead_TagName}", true).FirstOrDefault() as TextBox;
@@ -602,7 +604,7 @@ namespace HMIApp
                     case "REAL":
                         //Wyszukanie samej nazwy Taga, która odpowiada 1:1 nazwie TextBoxa
                         DBRead_position1 = dbTag.TagName.IndexOf('.');
-                        DBRead_TagName = dbTag.TagName.Remove(DBRead_position1, 1);
+                        DBRead_TagName = dbTag.TagName.Remove(DBRead_position1, StringRemove_CountProperty);
                         DBRead_NrOfByteinDB = dbTag.NumberOfByteInDB;
 
                         txt = Form1._Form1.Controls.Find($"{DBRead_TagName}", true).FirstOrDefault() as TextBox;
@@ -620,7 +622,7 @@ namespace HMIApp
                     case "DINT":
                         //Wyszukanie samej nazwy Taga, która odpowiada 1:1 nazwie TextBoxa
                         DBRead_position1 = dbTag.TagName.IndexOf('.');
-                        DBRead_TagName = dbTag.TagName.Remove(DBRead_position1, 1);
+                        DBRead_TagName = dbTag.TagName.Remove(DBRead_position1, StringRemove_CountProperty);
                         DBRead_NrOfByteinDB = dbTag.NumberOfByteInDB;
 
                         txt = Form1._Form1.Controls.Find($"{DBRead_TagName}", true).FirstOrDefault() as TextBox;
@@ -636,7 +638,7 @@ namespace HMIApp
                     case "STRING":
                         //Wyszukanie samej nazwy Taga, która odpowiada 1:1 nazwie TextBoxa
                         DBRead_position1 = dbTag.TagName.IndexOf('.');
-                        DBRead_TagName = dbTag.TagName.Remove(DBRead_position1, 1);
+                        DBRead_TagName = dbTag.TagName.Remove(DBRead_position1, StringRemove_CountProperty);
                         DBRead_NrOfByteinDB = dbTag.NumberOfByteInDB;
 
                         int SecondByte = DBRead_NrOfByteinDB + 1;
@@ -686,8 +688,8 @@ namespace HMIApp
             foreach (var dbTag in dbtags)
             {
                 //Wyciagniecie z nazwy DBka jego numer
-                DBWrite_position = dbTag.TagName.IndexOf('.') - 2;
-                DBWrite_NumberOfDB = dbTag.TagName.Substring(2, DBWrite_position);
+                DBWrite_position = dbTag.TagName.IndexOf('.') - StringSubstring_StartIndex;
+                DBWrite_NumberOfDB = dbTag.TagName.Substring(StringSubstring_StartIndex, DBWrite_position);
                 //Przepisanie danych potrzebnych do konfiguracji zapisu odpowiednich danych
                 if (NameofTaginDB == dbTag.TagName)
                 {
@@ -852,15 +854,15 @@ namespace HMIApp
                     if (valuetoWrite != "")
                     {
                         int length = valuetoWrite.Length;
-                        char[] charArray = new char[length + 2];
+                        char[] charArray = new char[length + StringAfterFirstTwoBytes];
                         charArray[0] = (char)DBWrite_LengthofDataType;
                         charArray[1] = (char)length;
                         for (int i = 2; i <= length + 1; i++)
                         {
-                            charArray[i] = Convert.ToChar(valuetoWrite[i - 2]);
+                            charArray[i] = Convert.ToChar(valuetoWrite[i - StringAfterFirstTwoBytes]);
                         }
                         IntBytes = Encoding.ASCII.GetBytes(charArray);
-                        if (length <= DBWrite_LengthofDataType - 2)
+                        if (length <= DBWrite_LengthofDataType - StringAfterFirstTwoBytes)
                         {
                             PLC.Write(int.Parse(DBWrite_NumberOfDB), DBWrite_NrOfByteinDB, DBWrite_LengthofDataType, IntBytes);
                         }
@@ -879,8 +881,8 @@ namespace HMIApp
             foreach (var dbTag in dbtags)
             {
                 //Wyciagniecie z nazwy DBka jego numer
-                DBReadAlarm_position = dbTag.TagName.IndexOf('.') - 2;
-                DBReadAlarm_NumberOfDB = dbTag.TagName.Substring(2, DBReadAlarm_position);
+                DBReadAlarm_position = dbTag.TagName.IndexOf('.') - StringSubstring_StartIndex;
+                DBReadAlarm_NumberOfDB = dbTag.TagName.Substring(StringSubstring_StartIndex, DBReadAlarm_position);
                 //Wyciagniecie startowej pozycji i końcowej pozycji DBka - ustalamy dlugosc danych + ustalenie dlugosci tablicy
                 if (dbtags.First() == dbTag)
                 {
@@ -1375,8 +1377,8 @@ namespace HMIApp
             foreach (var dbTag in dbtags)
             {
                 //Wyciagniecie z nazwy DBka jego numer
-                DBReadIO_position = dbTag.TagName.IndexOf('.') - 2;
-                DBReadIO_NumberOfDB = dbTag.TagName.Substring(2, DBReadIO_position);
+                DBReadIO_position = dbTag.TagName.IndexOf('.') - StringSubstring_StartIndex;
+                DBReadIO_NumberOfDB = dbTag.TagName.Substring(StringSubstring_StartIndex, DBReadIO_position);
                 //Wyciagniecie startowej pozycji i końcowej pozycji DBka - ustalamy dlugosc danych + ustalenie dlugosci tablicy
                 if (dbtags.First() == dbTag)
                 {
@@ -1402,7 +1404,7 @@ namespace HMIApp
                 bool[] values = new bool[8];
                 //Wyszukanie samej nazwy Taga, która odpowiada 1:1 nazwie TextBoxa
                 DBReadIO_position1 = dbTag.TagName.IndexOf('.');
-                DBReadIO_TagName = dbTag.TagName.Remove(DBReadIO_position1, 1);
+                DBReadIO_TagName = dbTag.TagName.Remove(DBReadIO_position1, StringRemove_CountProperty);
                 TextBox txt;
                 switch (DBReadIO_NrOfBitinByte)
                 {
