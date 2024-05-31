@@ -10,10 +10,10 @@ namespace HMIApp.Components.UserAdministration
 {
     public class UserAdministration : IUserAdministration
     {
-        //konstruktor bezparametrowy
+        //konstruktor bezparametrowy - ustawienie UserIsLoggedIn na false na starcie przy tworzeniu konstruktora
         public UserAdministration()
         {
-
+            this.UserIsLoggedIn = false;
         }
         //konstruktor z parametrem Form1 obj
         public UserAdministration(Form1 obj)
@@ -31,8 +31,8 @@ namespace HMIApp.Components.UserAdministration
         //publiczny interwał do dostępu z innych klas
         public int Interval = 100000 / 1000;
         #endregion
-        //propercja UserIsLoggedIn - do dostępu z iinych klas
-        public bool UserIsLoggedIn { get; set; }
+        //propercja UserIsLoggedIn - do dostępu z innych klas getem ale nie mozna setowac z innych klas
+        public bool UserIsLoggedIn { get; private set; }
 
         public void Run()
         {
