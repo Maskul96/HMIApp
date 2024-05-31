@@ -1,6 +1,7 @@
 ﻿namespace HMIApp.Components.DataBase.Entities
 {
-    public class EntityBase
+    //Klasa abstrakcyjna jako baza do dziedziczenia
+    public abstract class EntityBase
     {
         public int Id { get; set; }
     }
