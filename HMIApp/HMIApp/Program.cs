@@ -46,12 +46,12 @@ namespace HMIApp
             string LicenceKey = "";
             string LicenceKey1 = "";
             //Pliki txt z licencjami zahasłować
-            if(File.Exists("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\LicenceKey.txt"))
+            if(File.Exists("D:\\!C#\\HMI Panel WinForms C#\\HMIApp\\HMIApp\\HMIApp\\LicenceKey.txt"))
             {
-                LicenceKey = File.ReadAllText("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\LicenceKey.txt");
-                if(File.Exists("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\LicenceKey1.txt"))
+                LicenceKey = File.ReadAllText("D:\\!C#\\HMI Panel WinForms C#\\HMIApp\\HMIApp\\HMIApp\\LicenceKey.txt");
+                if(File.Exists("D:\\!C#\\HMI Panel WinForms C#\\HMIApp\\HMIApp\\HMIApp\\LicenceKey1.txt"))
                 {
-                    LicenceKey1 = File.ReadAllText("D:\\Projekty C#\\HMIApp\\HMIApp\\HMIApp\\LicenceKey1.txt");
+                    LicenceKey1 = File.ReadAllText("D:\\!C#\\HMI Panel WinForms C#\\HMIApp\\HMIApp\\HMIApp\\LicenceKey1.txt");
                     if(LicenceKey == LicenceKey1)
                     {
                         return true;

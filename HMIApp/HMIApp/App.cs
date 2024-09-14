@@ -1,4 +1,5 @@
-﻿using HMIApp.Components.CSVReader;
+﻿using HMIApp.Components;
+using HMIApp.Components.CSVReader;
 using ScottPlot;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,8 @@ namespace HMIApp
     //Klasa do obsługi komunikacji z PLC oraz odczytu/zapisu danych z DB i do rysowania wykresu
     public class App : IApp
     {
+        Logger _logger = new Logger();
+        private object _cs;
         public Form1 obj;
         private const int StringRemove_CountProperty = 1;
         private const int StringSubstring_StartIndex = 2;
@@ -241,11 +244,12 @@ namespace HMIApp
         //Tworzenie glownego wykresu - dynamiczna Lista do przetrzymywania próbek wykresu
         //To PLC musi zarzadzać tym kiedy startujemy i konczymy rysowanie wykresu !
         //NALEŻY PAMIĘTAĆ ŻE IM MNIEJ PRÓBEK WYKRESU TYM SZYBCIEJ WYKRES SIE RENDERUJE! - Jeśli nie ma potrzeby wyciagania danych od samego startu a tylko od pewnej pozycji np. od FastMovement to nie warto - wyciaganie próbek od pozycji 0 do 120 a względem pozycji 80 - 120 to prawie 3x szybszy rendering wykresu
+       //MOZNA POMYSLEC ZEBY PRZENIESC APLIKACJĘ NA WPF I TAM ZROBIĆ TO NA OSOBNYCH WĄTKACH TEN ODCZYT DANYCH
         public void CreatePlot()
         {
             ReadActualValueFromDBChart_Simplified(Path.Combine(Form1.basePathToFilesFolder, "tags_zone_4.csv"));
-            Form1._Form1.formsPlot1.Plot.Axes.SetLimits(FastMovement, EndReading + 5.0, -1000, ForceMaxfromRef);
-
+            Form1._Form1.formsPlot1.Plot.Axes.SetLimits(FastMovement, EndReading + 5.0, -15000, ForceMaxfromRef);
+            //_cs = new object();
             if (ClearPlot == 1)
             {
                 Form1._Form1.formsPlot1.Plot.Clear();
@@ -254,54 +258,54 @@ namespace HMIApp
                 ActX.Clear();
             }
             WriteSpecifiedValueFromReference();
-
-            if (StartChart == 1)
-            {
-                canBlockadeChart = false;
-                if (ActValX <= EndReading + 1.0) //1.0 to tolerancja montazu)
+                if (StartChart == 1)
                 {
-                    ActX.Add(ActValX);
-                    ActY.Add(ActValY);
-                    var mainplot = Form1._Form1.formsPlot1.Plot.Add.Scatter(ActX, ActY);
-                    mainplot.Color = Colors.Red;
-                    mainplot.LineStyle.Width = 1;
-                    mainplot.LinePattern = LinePattern.Solid;
-                    mainplot.MarkerStyle.IsVisible = false;
-                    mainplot.Smooth = true;
-                    Form1._Form1.formsPlot1.Refresh();
+                    canBlockadeChart = false;
+                    if (ActValX <= EndReading + 1.0) //1.0 to tolerancja montazu)
+                    {
+                        ActX.Add(ActValX);
+                        ActY.Add(ActValY);
+                        var mainplot = Form1._Form1.formsPlot1.Plot.Add.Scatter(ActX, ActY);
+                        mainplot.Color = Colors.Red;
+                        mainplot.LineStyle.Width = 1;
+                        mainplot.LinePattern = LinePattern.Solid;
+                        mainplot.MarkerStyle.IsVisible = false;
+                        mainplot.Smooth = true;
+                        Form1._Form1.formsPlot1.Refresh();
+                    }
                 }
-            }
-            if (StartChart == 0)
-            {
-                if (canBlockadeChart == false)
+                if (StartChart == 0)
                 {
-                    var mainplot1 = Form1._Form1.formsPlot1.Plot.Add.Scatter(ActX, ActY);
-                    mainplot1.Color = Colors.Red;
-                    mainplot1.LineStyle.Width = 1;
-                    mainplot1.MarkerStyle.IsVisible = false;
-                    mainplot1.Smooth = true;
+                    if (canBlockadeChart == false)
+                    {
+                        var mainplot1 = Form1._Form1.formsPlot1.Plot.Add.Scatter(ActX, ActY);
+                        mainplot1.Color = Colors.Red;
+                        mainplot1.LineStyle.Width = 1;
+                        mainplot1.MarkerStyle.IsVisible = false;
+                        mainplot1.Smooth = true;
 
-                    double[] dataXForceMin = { FastMovement, EndReading };
-                    int[] dataYForceMin = { ForceMin, ForceMin };
-                    double[] dataXForceMax = { StartReading, EndReading };
-                    int[] dataYForceMax = { ForceMax, ForceMax };
-                    //Plot sila minimalna
-                    var fmin = Form1._Form1.formsPlot1.Plot.Add.Scatter(dataXForceMin, dataYForceMin);
-                    fmin.Color = Colors.Black;
-                    fmin.LineStyle.Pattern = LinePattern.Dashed;
-                    fmin.LineStyle.Width = 1;
-                    ////Plot sila max
-                    var fmax = Form1._Form1.formsPlot1.Plot.Add.Scatter(dataXForceMax, dataYForceMax);
-                    fmax.Color = Colors.Black;
-                    fmax.LineStyle.Pattern = LinePattern.Dashed;
-                    fmax.LineStyle.Width = 1;
-                    //Wrzucenie tekstu na wykres z dokladnymi odczytami punktow i siły - ForceMax traktujemy jako max w oknie czytania sily
-                    Form1._Form1.formsPlot1.Plot.Add.Text($"({EndReading},{ForceMax})", EndReading, ForceMax);
-                    Form1._Form1.formsPlot1.Plot.Add.Text($"({StartReading},{ForceMin})", StartReading, ForceMin);
-                    Form1._Form1.formsPlot1.Refresh();
-                    canBlockadeChart = true;
+                        double[] dataXForceMin = { FastMovement, EndReading };
+                        int[] dataYForceMin = { ForceMin, ForceMin };
+                        double[] dataXForceMax = { StartReading, EndReading };
+                        int[] dataYForceMax = { ForceMax, ForceMax };
+                        //Plot sila minimalna
+                        var fmin = Form1._Form1.formsPlot1.Plot.Add.Scatter(dataXForceMin, dataYForceMin);
+                        fmin.Color = Colors.Black;
+                        fmin.LineStyle.Pattern = LinePattern.Dashed;
+                        fmin.LineStyle.Width = 1;
+                        ////Plot sila max
+                        var fmax = Form1._Form1.formsPlot1.Plot.Add.Scatter(dataXForceMax, dataYForceMax);
+                        fmax.Color = Colors.Black;
+                        fmax.LineStyle.Pattern = LinePattern.Dashed;
+                        fmax.LineStyle.Width = 1;
+                        //Wrzucenie tekstu na wykres z dokladnymi odczytami punktow i siły - ForceMax traktujemy jako max w oknie czytania sily
+                        Form1._Form1.formsPlot1.Plot.Add.Text($"({EndReading},{ForceMax})", EndReading, ForceMax);
+                        Form1._Form1.formsPlot1.Plot.Add.Text($"({StartReading},{ForceMin})", StartReading, ForceMin);
+                        Form1._Form1.formsPlot1.Refresh();
+                        canBlockadeChart = true;
+                    }
                 }
-            }
+            
         }
 
         //Tworzenie prostokata czytania sily

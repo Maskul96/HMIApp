@@ -13,6 +13,7 @@ using Microsoft.Win32;
 using System.Diagnostics;
 using ScottPlot.Colormaps;
 using System.IO.Ports;
+using System.Threading.Tasks;
 
 
 
@@ -26,7 +27,7 @@ namespace HMIApp
         App App = new();
         UserAdministration Users = new();
         public SerialPortReader serialPortReader = new();
-
+        private object _cs;
         #endregion
         #region Services do dependency injection i EF
         public ServiceCollection services = new();
@@ -76,6 +77,7 @@ namespace HMIApp
             serialPortReader.Run();
         }
 
+
         private void Form1_Load(object sender, EventArgs e)
         {
             //zakomentuj ponizsze cztery metody do odpalenia apki bez PLC
@@ -85,7 +87,7 @@ namespace HMIApp
             App.ReadIOFromDB(Path.Combine(basePathToFilesFolder, "tags_zone_3.csv"));
             App.ReadActualValueFromDBChart_Simplified(Path.Combine(basePathToFilesFolder, "tags_zone_4.csv"));
             App.ReadActualValueFromDBReferenceOrProcessData(Path.Combine(basePathToFilesFolder, "tags_zone_1.csv"));
-
+            _cs = new object();
             //Blokada rysowania wykresu dopoki nie zaczytasz referencji
             blockade = false;
             // Wywołanie funkcji do dodawania węzłów do drzewa
@@ -107,6 +109,8 @@ namespace HMIApp
             //serialPortReader.Close();
             Close();
         }
+
+
 
         //Przekazanie receivedData z portu szeregowego z klasy SerialPortReader do textboxów
         //Właściwość ReadSerialPort umożliwia ustawienie TextBox właściwości kontrolki Text na nową wartość.Metoda wykonuje zapytanie InvokeRequired.
@@ -240,9 +244,13 @@ namespace HMIApp
             formsPlot1.Refresh();
         }
 
+
+
+
         //Timer co 1ms do oczytywania danych 
         private void Timer_Tick_ReadDataFromDB(object sender, EventArgs e)
         {
+
             //zakomentuj ponizsze dwie metody do odpalenia apki bez PLC
             App.ReadAlarmsFromDB(Path.Combine(basePathToFilesFolder, "tags_zone_2.csv"));
             App.ReadIOFromDB(Path.Combine(basePathToFilesFolder, "tags_zone_3.csv"));
