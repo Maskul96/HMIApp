@@ -1,8 +1,10 @@
 ﻿using HMIApp.Components;
 using HMIApp.Components.CSVReader;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using ScottPlot;
 using System;
 using System.Collections.Generic;
+using System.Drawing.Text;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -15,6 +17,7 @@ namespace HMIApp
     //Klasa do obsługi komunikacji z PLC oraz odczytu/zapisu danych z DB i do rysowania wykresu
     public class App : IApp
     {
+
         Logger _logger = new Logger();
         private object _cs;
         public Form1 obj;
@@ -22,8 +25,9 @@ namespace HMIApp
         private const int StringSubstring_StartIndex = 2;
         private const int StringAfterFirstTwoBytes = 2;
         #region Zmienne do DBka do odczytu wykresu
-        private List<double> ActX = new();
-        private List<double> ActY = new();
+        private List<double> ActX1 = new();
+        private List<double> ActY1 = new();
+        int k = 0;
         private int DBread_position;
         private string DBread_NumberOfDB;
         private int DBread_StartDB;
@@ -32,9 +36,9 @@ namespace HMIApp
         private int ClearPlot;
         private int ForceMin;
         private int ForceMax;
+        private int Index;
+        private int Index1 = 0;
         private byte StartChart;
-        private double ActValX;
-        private double ActValY;
         public bool canBlockadeChart;
         //Przepisanie wartosci z referencji
         public double StartPoint;
@@ -222,16 +226,9 @@ namespace HMIApp
                         {
                             ForceMax = libnodave.getS16from(DB, DBread_NrOfByteinDB);
                         }
-                        break;
-                    case "REAL":
-                        DBread_NrOfByteinDB = dbTag.NumberOfByteInDB;
-                        if (dbTag.TagName == "DB665.ActValX")
+                        else if (dbTag.TagName == "DB665.Index")
                         {
-                            ActValX = libnodave.getFloatfrom(DB, DBread_NrOfByteinDB);
-                        }
-                        else if (dbTag.TagName == "DB665.ActValY")
-                        {
-                            ActValY = libnodave.getFloatfrom(DB, DBread_NrOfByteinDB);
+                            Index = libnodave.getS16from(DB, DBread_NrOfByteinDB);
                         }
                         break;
                     default:
@@ -241,71 +238,79 @@ namespace HMIApp
             }
         }
 
-        //Tworzenie glownego wykresu - dynamiczna Lista do przetrzymywania próbek wykresu
+        //Tworzenie glownego wykresu
         //To PLC musi zarzadzać tym kiedy startujemy i konczymy rysowanie wykresu !
-        //NALEŻY PAMIĘTAĆ ŻE IM MNIEJ PRÓBEK WYKRESU TYM SZYBCIEJ WYKRES SIE RENDERUJE! - Jeśli nie ma potrzeby wyciagania danych od samego startu a tylko od pewnej pozycji np. od FastMovement to nie warto - wyciaganie próbek od pozycji 0 do 120 a względem pozycji 80 - 120 to prawie 3x szybszy rendering wykresu
-       //MOZNA POMYSLEC ZEBY PRZENIESC APLIKACJĘ NA WPF I TAM ZROBIĆ TO NA OSOBNYCH WĄTKACH TEN ODCZYT DANYCH
+        //Kasowanie StartChart z PLC musi odbyć się z pewnym opóźnieniem, apka nie zawsze nadąży 1:1 nad indexem z PLC
+        //Drugim rozwiązaniem jest kasowanie StartChart z poziomu aplikacji a setowanie tylko z poziomu PLC
         public void CreatePlot()
         {
             ReadActualValueFromDBChart_Simplified(Path.Combine(Form1.basePathToFilesFolder, "tags_zone_4.csv"));
             Form1._Form1.formsPlot1.Plot.Axes.SetLimits(FastMovement, EndReading + 5.0, -15000, ForceMaxfromRef);
             //_cs = new object();
+
             if (ClearPlot == 1)
             {
                 Form1._Form1.formsPlot1.Plot.Clear();
                 CreateStaticPlot();
-                ActY.Clear();
-                ActX.Clear();
+                ActX1.Clear();
+                ActY1.Clear();
+                Index1 = 0;
             }
             WriteSpecifiedValueFromReference();
-                if (StartChart == 1)
+            if (StartChart == 1)
+            {
+                canBlockadeChart = false;
+                if (k <= 4000 && (Index>Index1 || Index == Index1))
                 {
-                    canBlockadeChart = false;
-                    if (ActValX <= EndReading + 1.0) //1.0 to tolerancja montazu)
-                    {
-                        ActX.Add(ActValX);
-                        ActY.Add(ActValY);
-                        var mainplot = Form1._Form1.formsPlot1.Plot.Add.Scatter(ActX, ActY);
-                        mainplot.Color = Colors.Red;
-                        mainplot.LineStyle.Width = 1;
-                        mainplot.LinePattern = LinePattern.Solid;
-                        mainplot.MarkerStyle.IsVisible = false;
-                        mainplot.Smooth = true;
-                        Form1._Form1.formsPlot1.Refresh();
-                    }
+                    Index1 = Index;
+                    //Odczyt po jednej zmiennej w DBku (zmienna X i Y)
+                    byte[] DB = new byte[8];
+                    PLC.Read(664, k, 8, DB);
+                    ActX1.Add(libnodave.getFloatfrom(DB, 0));
+                    ActY1.Add(libnodave.getFloatfrom(DB, 4));
+                    k += 8;
+                    var mainplot = Form1._Form1.formsPlot1.Plot.Add.Scatter(ActX1, ActY1);
+                    mainplot.Color = Colors.Red;
+                    mainplot.LineStyle.Width = 1;
+                    mainplot.LinePattern = LinePattern.Solid;
+                    mainplot.MarkerStyle.IsVisible = false;
+                    mainplot.Smooth = true;
+                    Form1._Form1.formsPlot1.Refresh();
                 }
-                if (StartChart == 0)
+            }
+            if (StartChart == 0)
+            {
+                if (canBlockadeChart == false)
                 {
-                    if (canBlockadeChart == false)
-                    {
-                        var mainplot1 = Form1._Form1.formsPlot1.Plot.Add.Scatter(ActX, ActY);
-                        mainplot1.Color = Colors.Red;
-                        mainplot1.LineStyle.Width = 1;
-                        mainplot1.MarkerStyle.IsVisible = false;
-                        mainplot1.Smooth = true;
+                    var mainplot1 = Form1._Form1.formsPlot1.Plot.Add.Scatter(ActX1, ActY1);
+                    mainplot1.Color = Colors.Red;
+                    mainplot1.LineStyle.Width = 1;
+                    mainplot1.MarkerStyle.IsVisible = false;
+                    mainplot1.Smooth = true;
 
-                        double[] dataXForceMin = { FastMovement, EndReading };
-                        int[] dataYForceMin = { ForceMin, ForceMin };
-                        double[] dataXForceMax = { StartReading, EndReading };
-                        int[] dataYForceMax = { ForceMax, ForceMax };
-                        //Plot sila minimalna
-                        var fmin = Form1._Form1.formsPlot1.Plot.Add.Scatter(dataXForceMin, dataYForceMin);
-                        fmin.Color = Colors.Black;
-                        fmin.LineStyle.Pattern = LinePattern.Dashed;
-                        fmin.LineStyle.Width = 1;
-                        ////Plot sila max
-                        var fmax = Form1._Form1.formsPlot1.Plot.Add.Scatter(dataXForceMax, dataYForceMax);
-                        fmax.Color = Colors.Black;
-                        fmax.LineStyle.Pattern = LinePattern.Dashed;
-                        fmax.LineStyle.Width = 1;
-                        //Wrzucenie tekstu na wykres z dokladnymi odczytami punktow i siły - ForceMax traktujemy jako max w oknie czytania sily
-                        Form1._Form1.formsPlot1.Plot.Add.Text($"({EndReading},{ForceMax})", EndReading, ForceMax);
-                        Form1._Form1.formsPlot1.Plot.Add.Text($"({StartReading},{ForceMin})", StartReading, ForceMin);
-                        Form1._Form1.formsPlot1.Refresh();
-                        canBlockadeChart = true;
-                    }
+                    double[] dataXForceMin = { FastMovement, EndReading };
+                    int[] dataYForceMin = { ForceMin, ForceMin };
+                    double[] dataXForceMax = { StartReading, EndReading };
+                    int[] dataYForceMax = { ForceMax, ForceMax };
+                    //Plot sila minimalna
+                    var fmin = Form1._Form1.formsPlot1.Plot.Add.Scatter(dataXForceMin, dataYForceMin);
+                    fmin.Color = Colors.Black;
+                    fmin.LineStyle.Pattern = LinePattern.Dashed;
+                    fmin.LineStyle.Width = 1;
+                    ////Plot sila max
+                    var fmax = Form1._Form1.formsPlot1.Plot.Add.Scatter(dataXForceMax, dataYForceMax);
+                    fmax.Color = Colors.Black;
+                    fmax.LineStyle.Pattern = LinePattern.Dashed;
+                    fmax.LineStyle.Width = 1;
+                    //Wrzucenie tekstu na wykres z dokladnymi odczytami punktow i siły - ForceMax traktujemy jako max w oknie czytania sily
+                    Form1._Form1.formsPlot1.Plot.Add.Text($"({EndReading},{ForceMax})", EndReading, ForceMax);
+                    Form1._Form1.formsPlot1.Plot.Add.Text($"({StartReading},{ForceMin})", StartReading, ForceMin);
+                    Form1._Form1.formsPlot1.Refresh();
+                    canBlockadeChart = true;
+                    k = 0;
+                    Index1 = 0;
                 }
-            
+            }
         }
 
         //Tworzenie prostokata czytania sily
@@ -326,6 +331,7 @@ namespace HMIApp
             Form1._Form1.formsPlot1.Plot.Title("Wykres siły");
             Form1._Form1.formsPlot1.Refresh();
         }
+
         #endregion
 
         //Ponizsza metoda do wywolania dopiero jak zaczyta sie jakakolwiek referencja

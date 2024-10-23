@@ -152,6 +152,7 @@ namespace HMIApp
                     }
                     AddContinuousReadingErrors();
                     _logger.LogMessage($"Error reading: DB: {db}, start: {start}, len: {len}, Error: {libnodave.daveStrerror(num)}");
+                    MessageBox.Show($"Error reading: DB: {db}, start: {start}, len: {len}, Error: {libnodave.daveStrerror(num)}");
                     return false;
                 }
             }
@@ -162,7 +163,6 @@ namespace HMIApp
                 return false;
             }
         }
-
 
 
         //Zapis do DB Byte'ow

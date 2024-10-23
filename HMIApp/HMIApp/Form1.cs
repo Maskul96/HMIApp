@@ -23,6 +23,7 @@ namespace HMIApp
     public partial class Form1 : Form
     {
         #region obiekty klas
+        private Timer _backgroundTimer;
         Archivization _Archive = new();
         App App = new();
         UserAdministration Users = new();
@@ -60,7 +61,8 @@ namespace HMIApp
 
             Users.Run();
 
-            OdczytDB.Enabled = true;
+            OdczytDBWykres.Enabled = true;
+            OdczytDBkow.Enabled = true;
 
             listBoxWarningsView.DrawItem += new DrawItemEventHandler(App.listBoxWarningsView_DrawItem);
             label13.Text = "";
@@ -75,6 +77,7 @@ namespace HMIApp
 
             serialPortReader.InitializeSerialPort();
             serialPortReader.Run();
+
         }
 
 
@@ -87,6 +90,7 @@ namespace HMIApp
             App.ReadIOFromDB(Path.Combine(basePathToFilesFolder, "tags_zone_3.csv"));
             App.ReadActualValueFromDBChart_Simplified(Path.Combine(basePathToFilesFolder, "tags_zone_4.csv"));
             App.ReadActualValueFromDBReferenceOrProcessData(Path.Combine(basePathToFilesFolder, "tags_zone_1.csv"));
+
             _cs = new object();
             //Blokada rysowania wykresu dopoki nie zaczytasz referencji
             blockade = false;
@@ -245,20 +249,22 @@ namespace HMIApp
         }
 
 
-
-
-        //Timer co 1ms do oczytywania danych 
+        //Timer co 1ms do oczytywania danych do wykresu
         private void Timer_Tick_ReadDataFromDB(object sender, EventArgs e)
+        {
+            if (blockade)
+            {
+                App.CreatePlot();
+            }
+        }
+        //Timer co 100ms do oczytywania danych 
+        private void OdczytDBkow_Tick(object sender, EventArgs e)
         {
 
             //zakomentuj ponizsze dwie metody do odpalenia apki bez PLC
             App.ReadAlarmsFromDB(Path.Combine(basePathToFilesFolder, "tags_zone_2.csv"));
             App.ReadIOFromDB(Path.Combine(basePathToFilesFolder, "tags_zone_3.csv"));
             App.ReadActualValueFromDBReferenceOrProcessData(Path.Combine(basePathToFilesFolder, "tags_zone_1.csv"));
-            if (blockade)
-            {
-                App.CreatePlot();
-            }
 
             PassedValueControls.Run();
             //aktualizacja daty i godziny
@@ -754,5 +760,7 @@ namespace HMIApp
             textBoxImie_DodajUzytk.Visible = false;
             comboBox_ListaUprawnien_DodajUzytk.Visible = false;
         }
+
+
     }
 }

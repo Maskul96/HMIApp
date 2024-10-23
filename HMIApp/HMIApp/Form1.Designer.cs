@@ -33,7 +33,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            OdczytDB = new System.Windows.Forms.Timer(components);
+            OdczytDBWykres = new System.Windows.Forms.Timer(components);
             label_Uzytkownik = new System.Windows.Forms.Label();
             pictureBox1 = new System.Windows.Forms.PictureBox();
             DB666NameOfClientPassedValue = new System.Windows.Forms.TextBox();
@@ -554,6 +554,7 @@
             PróbyUruchomieniaKomunikacjizPLC = new System.Windows.Forms.Timer(components);
             CzyszczenieStatusowArchiwizacji = new System.Windows.Forms.Timer(components);
             TimerDodaniaUzytkownika = new System.Windows.Forms.Timer(components);
+            OdczytDBkow = new System.Windows.Forms.Timer(components);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             tabPage7.SuspendLayout();
             tabPage9.SuspendLayout();
@@ -619,10 +620,10 @@
             tableLayoutPanel20.SuspendLayout();
             SuspendLayout();
             // 
-            // OdczytDB
+            // OdczytDBWykres
             // 
-            OdczytDB.Interval = 1;
-            OdczytDB.Tick += Timer_Tick_ReadDataFromDB;
+            OdczytDBWykres.Interval = 1;
+            OdczytDBWykres.Tick += Timer_Tick_ReadDataFromDB;
             // 
             // label_Uzytkownik
             // 
@@ -4226,6 +4227,10 @@
             TimerDodaniaUzytkownika.Interval = 10000;
             TimerDodaniaUzytkownika.Tick += TimerDodaniaUzytkownika_Tick;
             // 
+            // OdczytDBkow
+            // 
+            OdczytDBkow.Tick += OdczytDBkow_Tick;
+            // 
             // Form1
             // 
             resources.ApplyResources(this, "$this");
@@ -4339,7 +4344,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.Timer OdczytDB;
+        private System.Windows.Forms.Timer OdczytDBWykres;
         private System.Windows.Forms.Label label_Uzytkownik;
         private System.Windows.Forms.PictureBox pictureBox1;
         public System.Windows.Forms.TextBox DB666NameOfClientPassedValue;
@@ -4871,6 +4876,7 @@
         public System.Windows.Forms.Button button_RozpocznijDodawanieUzytk;
         private System.Windows.Forms.Label label58;
         private System.Windows.Forms.Timer TimerDodaniaUzytkownika;
+        private System.Windows.Forms.Timer OdczytDBkow;
     }
 }
 
